@@ -1,0 +1,89 @@
+body
+{
+	background-color: #D8D8D8;
+	font-family: "Palatino Linotype";
+}
+
+header, nav, section, footer
+{
+	border-style: double;
+    border-color: black;
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+}
+
+header
+{
+	background-color: black;
+	color: white;
+	border-color: white;
+}
+
+nav, footer
+{
+	background-color: #013ADF;
+}
+
+section
+{
+	background-color: white;
+}
+
+h1
+{
+	font-size: 200%;
+	font-family: "Showcard Gothic";
+	margin: 0;
+}
+
+h2, nav>a
+{
+	text-align: center;
+	font-size: 150%;
+}
+
+h3
+{
+	font-size: 125%;
+}
+
+h4, h5, h6, p
+{
+	font-size: 100%;
+}
+
+h5
+{
+	text-decoration: underline;
+}
+
+h6, h2, nav>a
+{
+	font-weight: bold;
+}
+
+#aboutme>ul
+{
+	list-style-position: inside;
+	padding: 0;
+}
+
+a:link, a:visited, body{
+	color: black;
+}
+
+nav>a:hover
+{
+	color: white;
+}
+
+#work{
+	text-align: left;
+}
+
+#active {
+	color: navy;
+	color: #014ADG;
+	color: #001656;
+}

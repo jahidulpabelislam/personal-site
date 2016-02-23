@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "index.css" />
+			<title>E-Games</title>
+			 <script>
+				function validateForm() // this creates a function 
+				{
+				var email=document.forms["Buy"]["Email"].value;
+				var atpos=email.indexOf("@");
+				var dotpos=email.lastIndexOf(".");
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) // this checks if it's a valid email addres 
+					{
+					alert("Not a valid e-mail address"); // this creates a alert if it's not a valid email address
+					return false;
+					}
+				}
+			</script>
+	</head>
+
+	<body>
+		<div id="container">
+
+			<div id = "header">
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "Sign Up.html" title="Link to Home Page">Sign Up</a>
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "loginForm.html" title="Link to Log In Page">Log In</a>
+				<img src = "logo2.png"  alt = "Logo"/>
+				<script>
+					document.write(Date());
+				</script>
+			</div>
+
+			<div id = "menu">
+				<a href = "index.html" title="Link to Home Page">Home</a> <br>
+				<a href = "store.html" title="Link to Store page">Store</a> <br>
+				<a href = "order.html" title="Link to Order page">Order</a> <br>
+				<a href = "help.html" title ="Link to Help page">Help</a> <br>
+			
+			</div>
+
+			<div id = "content">
+				<center>
+				<h1>Customer Details</h1>
+				<hr>
+				<Form name="Buy" action="conformation.html" onsubmit="return validateForm();" method="post">
+				<p>Enter First Name <input type="text" name="Firstname"></p>
+				<p>Enter Second Name <input type="text" name="Secondname"></p>
+				<p>Enter Address <input type="text" name="Address"></p>
+				<p>Enter City <input type="text" name="City"></p>
+				<p>Enter Post Code <input type="text" name="PostCode"></p>
+				<p>Enter Email <input type="text" name="Email"></p>
+				<p>Enter Password <input type="password" name="Password"></p>
+				<p><input type="submit"  value="Submit"></p>.
+				</Form>
+				</center>
+			</div>
+
+			<div id= "footer">
+				Copyright @ E-games
+			</div>
+		</div>
+	</body>
+</html>

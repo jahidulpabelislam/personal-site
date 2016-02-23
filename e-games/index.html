@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "index.css" />
+			<title>E-Games</title>
+		<script>
+			function changeImage() // this creates a function 
+			{
+			element=document.getElementById('fifa14')
+			if (element.src.match("fifa14back")) //this sets a if statement
+				{
+				element.src="fifa14.jpg"; //this is the result if if statement is true
+				}
+			else
+				{
+				element.src="fifa14back.png"; //this is the result if if statement is false
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="container">
+
+			<div id = "header">
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "signup.html" title="Link to Sign Up Page">Sign Up</a>
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "loginForm.html" title="Link to Log In Page">Log In</a>
+				<img src = "logo2.png"  alt = "Logo"/>
+				<script align="right">
+					document.write(Date()); //this displays the date and time
+					
+				</script>
+
+			</div>
+
+			<div id = "menu">
+				<a href = "index.html" title="Link to Home Page">Home</a> <br>
+				<a href = "store.html" title="Link to Store page">Store</a> <br>
+				<a href = "order.html" title="Link to Order page">Order</a> <br>
+				<a href = "help.html" title ="Link to Help page">Help</a> <br>
+			</div>
+
+			<div id = "content">
+				<center>
+				<h1>Home</h1>
+				<hr>
+				<p>
+					Hi, welcome to E-Games.<br>
+					Order your copy now of the newest games out RIGHT NOW!
+				</p>
+				<img src = "codghost.jpg"  alt = "Call Of Duty: Ghost"height="400" width="265"/>
+				<img id= "fifa14" onmouseover="changeImage()" onmouseout="changeImage()"src = "fifa14.jpg" alt = "FIFA 14"height="400" width="265"/>
+				<img src = "gtav.jpg"  alt = "GTA V"height="400" width="262"/>
+				</center>
+			</div>
+
+			<div id= "footer">
+				Copyright @ E-games
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+body
+{
+	text-align:center;
+	background-color: grey;
+}
+
+#container
+{
+	width:1000px;
+	margin:0 auto;
+	text-align:left;
+}
+
+#header
+{
+	background-color: grey;
+	text-align:right;
+}
+
+#menu
+{
+	background-color: grey;
+	height:700px;
+	width:200px;
+	float:left;
+	color: white;
+}
+
+#content
+{
+	background-color: grey;
+	height:700px;
+	width:800px;
+	float:left;
+	color: white;
+}
+
+#footer
+{
+	background-color: grey;
+	clear:both;
+	text-align:center;
+	color: white;
+}
+
+h1
+{
+	margin-bottom:0;
+	text-align:center;
+	font-size: 18pt;
+	font-family:COMIC SANS MS;
+	width:250px;
+	border:5px solid black;
+}
+
+p ,echo
+{
+	font-size: 18pt;
+	font-family:COMIC SANS MS;
+}
+
+tr,td
+{
+	color: white;
+	font-family:COMIC SANS MS;
+}
+
+li
+{
+	font-size: 14pt;
+	font-family:arial;
+}
+
+a
+{
+	font-family:PLAYBILL;
+	font-size: 30pt;
+	color:black;
+}
+
+a:hover
+{
+	font-family:PLAYBILL;
+	font-size: 30pt;
+	color:white;
+}
+
+img.one
+{
+border:5px solid red;
+}
+
+img.two
+{
+border:5px solid yellow;
+}
+
+img.three
+{
+border:5px solid green;
+}

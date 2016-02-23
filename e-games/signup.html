@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "index.css" />
+			<title>E-Games</title>
+	</head>
+
+	<body>
+		<div id="container">
+
+			<div id = "header" align="left">
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "Signup.html" title="Link to Sign Up Page">Sign Up</a>
+			<a style=font-family:BradleyHandITC;font-size:14pt; href = "loginForm.html" title="Link to Log In Page">Log In</a>
+				<img src = "logo2.png"  alt = "Logo"/>
+				<script align="right">
+					document.write(Date()); //this displays the date and time
+				</script>
+			</div>
+
+			<div id = "menu">
+				<a href = "index.html" title="Link to Home Page">Home</a> <br>
+				<a href = "store.html" title="Link to Store page">Store</a> <br>
+				<a href = "order.html" title="Link to Order page">Order</a> <br>
+				<a href = "help.html" title ="Link to Help page">Help</a> <br>
+			</div>
+
+			<div id = "content">
+			<center>
+				<h1>Sign Up</h1>
+				<hr>
+				<p> Please fill out your details below:</p>
+				<form name="frmSignUp" method="post" action="addPassword.php">
+				<p>Enter Username <input type="text" name="txtUsername"></p>
+				<p>Enter Password <input type="password" name="txtPassword"></p>
+				<p><input type="submit" name="Submit" Value="Sign Up"></p>
+				</form>
+				</center>
+			</div>
+
+			<div id= "footer">
+				Copyright @ E-games
+			</div>
+		</div>
+	</body>
+</html>

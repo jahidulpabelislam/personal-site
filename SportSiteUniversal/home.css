@@ -1,0 +1,158 @@
+#title
+{
+position: absolute;
+Top: 20px;
+Left: 20px;
+Height: 180px;
+Width:1200px;
+border: solid 5px black;
+background-color: orange;
+text-align: center;
+}
+
+#links
+{
+position: absolute;
+Top: 210px;
+Left: 20px;
+Height: 90px;
+Width:1200px;
+background-color: white;
+
+}
+
+#content
+{
+position: absolute;
+Top: 300px;
+Left: 20px;
+Height: 650px;
+Width:1200px;
+border: solid 5px orange;
+background-color:white;
+padding: 10px;
+}
+
+a:link 
+{ 
+color: black; 
+font-family: "Algerian";
+font-size: 22pt;
+background-color: white 
+}
+
+a:visited 
+{ 
+color: black; 
+font-family: "Algerian";
+font-size: 22pt;
+background-color: white 
+}
+
+a:hover 
+{
+color: black; 
+background-color: orange;
+border: 2px solid black; 
+}
+
+a:active 	
+{
+color: white;
+}
+
+h1
+{
+font-family: "Algerian";
+font-size: 50pt;
+color: white;
+}
+
+h2
+{
+font-family: "Algerian";
+font-size: 26pt;
+}
+
+h3
+{
+font-family: "Bradley Hand ITC";
+font-size: 22pt;
+font-weight:bold;
+color:black;
+}
+
+p
+{
+font-family: "Bradley Hand ITC";
+font-size: 16pt;
+font-weight:bold;
+color:black;
+}
+
+li
+{
+
+font-family: "Bradley Hand ITC";
+font-size: 16pt;
+font-weight:bold;
+color:black;
+}
+
+caption
+{
+font-family: "Algerian";
+font-size: 18pt;
+}
+
+thead
+{
+font-family: "Bradley Hand ITC";
+font-size: 16pt;
+font-weight:bold;
+color:black;
+}
+
+tbody
+{
+font-family: "Bradley Hand ITC";
+font-size: 16pt;
+font-weight:bold;
+color:black;
+}
+
+th
+{
+background-color:orange;
+color:black;
+}
+
+td
+{
+background-color:#C0C0C0;
+color:black;
+}
+
+#pic
+{
+position: absolute;
+Top: 650px;
+Left: 500px;
+Height: 300px;
+Width:250px;
+background-color:white;
+}
+
+#pic2
+{
+position: absolute;
+Top: 650px;
+Left: 850px;
+Height: 300px;
+Width:250px;
+background-color:white;
+}
+hr
+{
+size="10"
+}
