@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="en-gb">
-	
-	<head>
-		<meta charset="utf-8">
-		<link href="../lib/style.css" rel="stylesheet" title="style" media="all" type="text/css">
-		<link rel="icon" href="../images/favicon.ico">
-		<title>Previous Work - Jahidul Pabel Islam</title>
-	</head>
-	
-	<body>
-		<header>
-			<a href = "../" title="Link to About Page"><img src="../images/logo.svg" width=150 height=150 alt="Logo"></a>
-			<h1>Jahidul Pabel Islam,</h1>
-			<p>I'm a Web Developer</p>
-		</header>
-			
-		<nav>
-			<a href = "../" title="Link to Home Page">Home</a> |
-			<a href = "../about-me/" title="Link to About Me Page">About Me</a> |
-			<a id="active" href = "" title="Link to Previous Work Page">Previous Work</a> |
-			<a href = "../contact/" title="Link to Contact Page">Contact</a>
-		</nav>
-			
-		<section>
-			<h2>Previous Work</h2>
-			<hr>
+<?php
+$title = "Previous Work";
+$description2 = "e-Portfolio for Jahidul Pabel Islam.";
+include '../inc/header.php';
+?>
 				<p>I created two websites for parts of my coursework one is a e-commerce site the other is a informational site. 
 				These are both the one submitted no changes made.</p>
 				<a href = "../e-games/" title="Link to e-Commerce Site"><img src="../images/e-Commercesite.jpg" width=30% height=20% alt="Screenshot of e-Commerce Site"></a>
@@ -39,12 +17,6 @@
 				<a href = "../LitReview.pdf" title="Link to Literature Review">Literature Review</a></p>
 				<p>I made a Text based Java game using DrJava as part of my assessment. This is the one submitted no changes made.
 				<a href = "../JavaGame.zip" title="Link to Java Game">Java Game</a></p>
-		</section>
-		
-		<footer>
-			<p>Validated using <a href="http://validator.w3.org/check?uri=referer">HTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
-			<a href="../images/vcss-blue.gif"> <img src="../images/vcss-blue.gif" width=88 height=31 alt="Valid CSS!"></a>
-			<p>2015 © JahidulPabelIslam</p>
-		</footer>
-	</body>
-</html>
+<?php
+include '../inc/footer.html';
+?>

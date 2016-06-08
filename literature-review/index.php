@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="en-gb">
-	
-	<head>
-		<meta charset="utf-8">
-		<link href="../lib/style.css" rel="stylesheet" title="style" media="all" type="text/css">
-		<link rel="icon" href="../images/favicon.ico">
-		<title>Literature Review</title>
-	</head>
-	
-	<body>
-		<header>
-			<a href = "../" title="Link to About Page"><img src="../images/logo.svg" width=150 height=150 alt="Logo"></a>
-			<h1>Jahidul Pabel Islam,</h1>
-			<p>I'm a Web Developer</p>
-		</header>
-			
-		<nav>
-			<a href = "../" title="Link to Home Page">Home</a> |
-			<a href = "../about-me/" title="Link to About Me Page">About Me</a> |
-			<a href = "../previous-work/" title="Link to Previous Work Page">Previous Work</a> |
-			<a href = "../contact/" title="Link to Contact Page">Contact</a>
-		</nav>
-			
-		<section id="work">
-			<h2>Literature Review</h2>
-			<hr>
+<?php
+$title = "Literature Review";
+$description2 = "e-Portfolio for Jahidul Pabel Islam.";
+include '../inc/header.php';
+?>
 				<h3>Student: 733474</h3>
 				<h3>Subject: Ethics and the World Wide Web</h3>
 					
@@ -54,12 +32,6 @@
 					<p>Wel, L. V., & Royakkers, L. (2004). Ethical issues in web data mining. Ethics and Inf. Technol., 6. </p>
 					<p>Woodbury, M. (1998). Defining web ethics. Science and Engineering Ethics, 4(2), 203-212. doi:10.1007/s11948-998-0050-x</p>
 					<p>Wyatt, J. C. (1997). Commentary: Measuring Quality and Impact of the World Wide Web. British Medical Journal. </p>
-		</section>
-			
-		<footer>				
-			<p>Validated using <a href="http://validator.w3.org/check?uri=referer">HTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
-			<a href="../images/vcss-blue.gif"> <img src="../images/vcss-blue.gif" width=88 height=31 alt="Valid CSS!"></a>
-			<p>2015 © JahidulPabelIslam</p>
-		</footer>
-	</body>
-</html>
+<?php
+include '../inc/footer.html';
+?>

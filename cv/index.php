@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="en-gb">
-	
-	<head>
-		<meta charset="utf-8">
-		<link href="../lib/style.css" rel="stylesheet" title="style" media="all" type="text/css">
-		<link rel="icon" href="../images/favicon.ico">
-		<title>CV - Jahidul Pabel Islam</title>
-	</head>
-	
-	<body>
-		<header>
-			<a href = "../" title="Link to About Page"><img src="../images/logo.svg" width=150 height=150 alt="Logo"></a>
-			<h1>Jahidul Pabel Islam,</h1>
-			<p>I'm a Web Developer</p>
-		</header>
-		
-		<nav>
-			<a href = "../" title="Link to Home Page">Home</a> |
-			<a href = "../about-me/" title="Link to About Me Page">About Me</a> |
-			<a href = "../previous-work/" title="Link to Previous Work Page">Previous Work</a> |
-			<a href = "../contact/" title="Link to Contact Page">Contact</a>
-		</nav>
-			
-		<section id="work">
-			<h2>CV</h2>
-			<hr>
+<?php
+$title = "CV";
+$description2 = "e-Portfolio for Jahidul Pabel Islam.";
+include '../inc/header.php';
+?>
 				<h3>Jahidul Islam</h3>
 					<p>44 Hampshire Avenue</p>
 					<p>Bognor Regis</p>
@@ -135,12 +113,6 @@
 					</ul>
 				<h4>REFERENCES</h4>
 					<p>References are available on request.</p>
-		</section>
-		
-		<footer>
-			<p>Validated using <a href="http://validator.w3.org/check?uri=referer">HTML</a> and <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
-			<a href="../images/vcss-blue.gif"> <img src="../images/vcss-blue.gif" width=88 height=31 alt="Valid CSS!"></a>
-			<p>2015 © JahidulPabelIslam</p>
-		</footer>
-	</body>
-</html>
+<?php
+include 'inc/footer.html';
+?>
