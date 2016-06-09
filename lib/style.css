@@ -1,89 +1,141 @@
-body
-{
-	background-color: #D8D8D8;
-	font-family: "Palatino Linotype";
+/* For all devices */
+body {
+    text-align: center;
 }
 
-header, nav, section, footer
-{
-	border-style: double;
-    border-color: black;
-	padding: 10px;
-	margin: 10px;
-	text-align: center;
+header {
+    margin-top: 70px;
+    padding: 30px 15px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    background: url('/images/work.jpg') no-repeat center fixed;
+    color: white;
 }
 
-header
-{
-	background-color: black;
-	color: white;
-	border-color: white;
+header hr {
+    border-top-color: #d5d5d5;
 }
 
-nav, footer
-{
-	background-color: #013ADF;
+header p {
+    margin-bottom: 15px;
+    font-size: 21px;
 }
 
-section
-{
-	background-color: white;
+section {
+    margin-bottom: 20px;
 }
 
-h1
-{
-	font-size: 200%;
-	font-family: "Showcard Gothic";
-	margin: 0;
+#works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-h2, nav>a
-{
-	text-align: center;
-	font-size: 150%;
+footer {
+    background-color: #eee;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: auto;
 }
 
-h3
-{
-	font-size: 125%;
+h5 {
+    text-decoration: underline;
 }
 
-h4, h5, h6, p
-{
-	font-size: 100%;
+h6 {
+    font-weight: bold;
 }
 
-h5
-{
-	text-decoration: underline;
+ul {
+    list-style-position: inside;
+    padding: 0;
 }
 
-h6, h2, nav>a
-{
-	font-weight: bold;
+#literature-review {
+    text-align: left;
 }
 
-#aboutme>ul
-{
-	list-style-position: inside;
-	padding: 0;
+img {
+    margin-bottom: 5px;
 }
 
-a:link, a:visited, body{
-	color: black;
+a {
+    font-weight: bold;
 }
 
-nav>a:hover
-{
-	color: white;
+.socialmedia {
+    height: 30px;
+    opacity: .7;
 }
 
-#work{
-	text-align: left;
+.socialmedia:hover {
+    opacity: 1;
 }
 
-#active {
-	color: navy;
-	color: #014ADG;
-	color: #001656;
+#imageOfMe {
+    width: 75%;
+    border-radius: 50%;
+    max-width: 165px;
+}
+
+#uop-logo {
+    width: 75%;
+    max-width: 165px;
+}
+
+.aWork {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 2%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.aWork img {
+    max-width: calc(100% - 25px);
+    max-height: 350px;
+    opacity: .7;
+}
+
+.aWork img:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#logo {
+    height: 100%;
+    opacity: 0.7;
+}
+
+#logo:hover {
+    opacity: 1;
+}
+
+#logo-container {
+    padding: 5px 15px;
+}
+
+.skills {
+    margin: auto;
+    max-width: 439px;
+}
+
+.skills p{
+    background-color: #2aa6cd;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    display: inline-block;
+}
+
+/*For desktops*/
+@media only screen and (min-width: 769px) {
+    .aWork {
+        width: calc(50% - 10px);
+        display: inline-block;
+        margin: 5px;
+    }
 }

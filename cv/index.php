@@ -1,6 +1,6 @@
 <?php
 $title = "CV";
-$description2 = "e-Portfolio for Jahidul Pabel Islam.";
+$description2 = "CV";
 include '../inc/header.php';
 ?>
 				<h3>Jahidul Islam</h3>
