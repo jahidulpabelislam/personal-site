@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Link to the stylesheet-->
+<?xml-stylesheet type="text/xsl" href="site-map.xsl"?>
+<!--The set of Pages-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-08-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.9</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/projects/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-09-27</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/projects/muesli/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/projects/literature-review/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/projects/e-games/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/projects/sportsite-universal/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/contact/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-09-27</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>never</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.7</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/about/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-09-27</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.6</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.jahidulpabelislam.net16.net/links/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-09-27</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.6</priority>
+    </url>
+</urlset>

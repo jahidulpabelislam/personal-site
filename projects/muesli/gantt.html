@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="lib/gantt.js" charset="UTF-8"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/stylesheet.css">
+    <title>GANTT Chart</title>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+            <a href="index.html">Charts <span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="gantt.html">GANTT Chart</a></li>
+                    <li><a href="pert.html">PERT Chart</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="index.html">Diagrams<span class="caret"></span></a>
+            <div>
+                <ul>
+                    <li><a href="wbt.html">WBT Diagram </a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <h1 id="heading">GANTT Chart</h1>
+</nav>
+    <form id="">
+        Task Name: <input type="text" id="taskName">
+        Task Duration: <input type="text" id="taskDuration">
+        Task Start: <input type="date" id="taskStart">
+        <input type="submit" value="Submit" onclick="getTask()">
+    </form>
+</body>
+</html>
