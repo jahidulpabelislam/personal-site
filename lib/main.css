@@ -10,7 +10,7 @@ body {
 
 .container {
     max-width: 100%;
-
+    margin: auto;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -48,23 +48,18 @@ section {
 
     /* OLD - iOS 6-, Safari 3.1-6 */
     display: -webkit-box;
-    -webkit-box-align: center;
 
     /* OLD - Firefox 19- (buggy but mostly works) */
     display: -moz-box;
-    -moz-box-align: center;
 
     /* TWEENER - IE 10 */
     display: -ms-flexbox;
-    -ms-flex-align: center;
 
     /* NEW - Chrome */
     display: -webkit-flex;
-    -webkit-align-items: center;
 
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
     display: flex;
-    align-items: center;
 
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -74,24 +69,12 @@ section {
 
 #socialMediaPage {
     margin-bottom: 0;
-    background: #f5f5f5 url('/images/work.jpg') no-repeat center fixed;
-
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
 }
 
 #socialMediaPage > .container > div {
-    border: solid 1px grey;
-    background-color: white;
     margin: 5px;
     padding: 15px;
     display: inline-block;
-
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
 }
 
 #socialMediaPage > .container > #snapchatDiv {
@@ -127,14 +110,6 @@ ul {
     border-radius: 5px;
 }
 
-#literature-review {
-    text-align: left;
-}
-
-h5 {
-    text-decoration: underline;
-}
-
 h6 {
     font-weight: bold;
 }
@@ -157,24 +132,7 @@ a > img {
     transition: all .3s ease-in-out;
 }
 
-a > object {
-    opacity: .8;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
-
 a > img:hover {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
-    opacity: 1;
-}
-
-a > object:hover {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -244,10 +202,10 @@ p {
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
     -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-    -webkit-transition: all ease-in-out .15s;
-    -moz-transition: all ease-in-out .15s;
-    -o-transition: all ease-in-out .15s;
-    transition: all ease-in-out .15s;
+    -webkit-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -o-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
 }
 
 textarea {
@@ -267,19 +225,15 @@ textarea {
 
 .input:focus.invalid {
     border-color: #e52525;
-    -webkit-box-shadow: 0 0 8px rgba(51, 122, 183, 0.6), 0 0 8px rgba(51, 122, 183, 0.6);
-    -moz-box-shadow: 0 0 8px rgba(51, 122, 183, 0.6), 0 0 8px rgba(51, 122, 183, 0.6);
-    -o-box-shadow: 0 0 8px rgba(51, 122, 183, 0.6), 0 0 8px rgba(51, 122, 183, 0.6);
-    box-shadow: 0 0 8px rgba(51, 122, 183, 0.6), 0 0 8px rgba(51, 122, 183, 0.6);
+    -webkit-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
+    -moz-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
+    -o-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
+    box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
 }
 
 .invalid {
     border-color: #e52525;
     outline: 0;
-    -webkit-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
-    -moz-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
-    -o-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
-    box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
 }
 
 label {
@@ -324,12 +278,12 @@ button {
     background-color: #0f7c10;
 }
 
-.facebook {
-    color: #3b5998;
+.socialMedia {
+    color: black;
 }
 
 .facebook:hover {
-    color: #373e79;
+    color: #3b5998;
 }
 
 img.facebook {
@@ -343,12 +297,8 @@ img.facebook:hover {
     background: #3b5998;
 }
 
-.twitter {
+#twitterAt:hover {
     color: #1da1f2;
-}
-
-.twitter:hover {
-    color: #1673b6;
 }
 
 img.twitter {
@@ -364,10 +314,6 @@ img.twitter:hover {
 
 .instagram {
     color: #9a36ba;
-}
-
-.instagram:hover {
-    color: #762e93;
 }
 
 img.instagram {
@@ -391,10 +337,24 @@ img.instagram:hover {
     -webkit-border-radius: 15%;
     -moz-border-radius: 15%;
     border-radius: 15%;
+    opacity: .8;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#snapchat:hover {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    opacity: 1;
 }
 
 #snapchatName {
-    color: #fffc1c;
+    color: white;
     background-color: black;
     padding: 4px;
     -webkit-border-radius: 6px;
@@ -413,16 +373,12 @@ img.instagram:hover {
     border-radius: 50%;
 }
 
-.xbox:hover {
+#xboxImg:hover {
     background-color: #0f7c10;
 }
 
-#gamertag {
-    color: #0f7c10;
-}
-
 #gamertag:hover {
-    color: #0f5f10;
+    color: #0f7c10;
 }
 
 .aInfo img {
@@ -442,13 +398,13 @@ img.instagram:hover {
     border-radius: 40%;
 }
 
-.slideshow {
+.slideShow {
     position: relative;
     padding: 0 35px;
     margin: 0 -10px;
 }
 
-.slideshowViewpointContainer {
+.slideShowViewpointContainer {
     padding: 5px;
     max-height: 350px;
     margin: auto;
@@ -464,7 +420,7 @@ img.instagram:hover {
     transition: all .2s ease-in-out;
 }
 
-.slideshowViewpointContainer:hover {
+.slideShowViewpointContainer:hover {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -473,7 +429,7 @@ img.instagram:hover {
     opacity: 1;
 }
 
-.slideshowViewpoint {
+.slideShowViewpoint {
     overflow: hidden;
 }
 
@@ -634,13 +590,48 @@ img.instagram:hover {
     margin: 2px;
 }
 
-h2 {
-    display: inline;
+.projectHeader {
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -webkit-box;
+    -webkit-box-align: center;
+
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -moz-box;
+    -moz-box-align: center;
+
+    /* TWEENER - IE 10 */
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+
+    /* NEW - Chrome */
+    display: -webkit-flex;
+    -webkit-align-items: center;
+
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    display: flex;
+    align-items: center;
+
+    padding: 20px 0 10px 0;
 }
 
-h3 {
-    margin-bottom: 20px;
+.projectTitle {
+    width: 75%;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
 }
+
+.projectDate {
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+    margin: 0;
+}
+
+.slideContainer {
+    position: relative;
+}
+
 
 /* Only for Mobile */
 
@@ -672,10 +663,12 @@ h3 {
 
         display: -webkit-flex; /* NEW - Chrome */
         -webkit-flex-wrap: wrap;
+        -webkit-justify-content: center;
 
         /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .project {
@@ -699,7 +692,6 @@ h3 {
     }
 
     .project:last-child:nth-child(odd) {
-        width: 100%;
         margin-right: 0;
     }
 
