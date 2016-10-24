@@ -420,6 +420,16 @@ img.instagram:hover {
     transition: all .2s ease-in-out;
 }
 
+#projectPreview .slideShowViewpointContainer {
+    padding: 0;
+    background: none;
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    opacity: 1;
+}
+
 .slideShowViewpointContainer:hover {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -427,6 +437,14 @@ img.instagram:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
     opacity: 1;
+}
+
+#projectPreview .slideShowViewpointContainer:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    cursor: auto;
 }
 
 .slideShowViewpoint {
@@ -628,10 +646,25 @@ img.instagram:hover {
     margin: 0;
 }
 
+#projectPreview {
+    width: 100%;
+}
+
 .slideContainer {
     position: relative;
 }
 
+.projectPreLink {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.projectPreGitHub {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
 /* Only for Mobile */
 
