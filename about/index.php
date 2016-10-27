@@ -53,7 +53,7 @@ include '../inc/header.php';
                         <img src="../images/languages.png" alt="Image of 'hello' in different languages">
                     </div>
                     <div>
-                        <p>I am Bilingual, I can speak English & Bengali.</p>
+                        <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                     </div>
                 </div>
 
@@ -61,7 +61,7 @@ include '../inc/header.php';
                     <div>
                         <h3>Skills</h3>
                     </div>
-                    <div class="skills">
+                    <div id="aboutSkills" class="skills">
                         <p>HTML</p>
                         <p>CSS</p>
                         <p>JavaScript</p>

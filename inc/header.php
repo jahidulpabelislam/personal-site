@@ -34,7 +34,7 @@
                     </button>
                     <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png"
                                                                               alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;'"; ?> ></a>
-                    <a class="navbar-brand" href="/" <?php if ($title == "Home") echo "style='color:white;'"; ?> >Jahidul Pabel
+                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color:white;'"; ?> >Jahidul Pabel
                         Islam</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse ">

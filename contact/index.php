@@ -48,7 +48,7 @@ include '../inc/header.php';
         <p>Use the following email address to drop me a email.</p>
         <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank"><img src="../images/email.svg"
                                                                               alt="Email me"
-                                                                              class="socialMedia email"></a>
+                                                                              class="socialMediaImg email"></a>
         <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank"> jahidul.pabel.islam@hotmail.com</a>
     </div>
 
@@ -57,7 +57,7 @@ include '../inc/header.php';
         <p>View my profile on Linkedin.</p>
         <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank"><img src="../images/linkedin.svg"
                                                                                    alt="Find me on Linkedin /jahidulpabelislam"
-                                                                                   class="socialMedia linkedin"></a>
+                                                                                   class="socialMediaImg linkedin"></a>
         <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank">/jahidulpabelislam</a>
     </div>
 
@@ -66,7 +66,7 @@ include '../inc/header.php';
         <p>Look at all my code for projects i've done and follow future projects.</p>
         <a href="https://github.com/jahidulpabelislam" target="_blank"><img src="../images/github.svg"
                                                                             alt="Find me on GitHub /jahidulpabelislam"
-                                                                            class="socialMedia github"></a>
+                                                                            class="socialMediaImg github"></a>
         <a href="https://github.com/jahidulpabelislam" target="_blank">/jahidulpabelislam</a>
     </div>
 

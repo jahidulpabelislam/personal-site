@@ -25,6 +25,10 @@ body {
     height: 100%;
 }
 
+#name {
+    height: auto;
+}
+
 header {
     padding: 30px 15px;
     margin-top: 70px;
@@ -244,7 +248,7 @@ button {
     margin-top: 7px;
 }
 
-.socialMedia {
+.socialMediaImg {
     height: 30px;
 }
 
@@ -282,18 +286,18 @@ button {
     color: black;
 }
 
-.facebook:hover {
+#facebookAt:hover {
     color: #3b5998;
 }
 
-img.facebook {
+#facebookImg {
     background: black;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
-img.facebook:hover {
+#facebookImg:hover {
     background: #3b5998;
 }
 
@@ -301,28 +305,28 @@ img.facebook:hover {
     color: #1da1f2;
 }
 
-img.twitter {
+#twitterImg {
     background: black;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
 
-img.twitter:hover {
+#twitterImg:hover {
     background: #1da1f2;
 }
 
-.instagram {
+#instagramAt:hover {
     color: #9a36ba;
 }
 
-img.instagram {
+#instagramImg {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
 }
 
-img.instagram:hover {
+#instagramImg:hover {
     background-color: #9e40ba;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9e40ba), color-stop(100%, #fcb24e));
     background: -webkit-linear-gradient(right top, #9e40ba, #fcb24e); /* For Safari 5.1 to 6.0 */
@@ -332,7 +336,7 @@ img.instagram:hover {
     background: linear-gradient(to bottom left, #9e40ba, #fcb24e); /* Standard syntax */
 }
 
-#snapchat {
+#snapcode {
     width: 100%;
     -webkit-border-radius: 15%;
     -moz-border-radius: 15%;
@@ -344,7 +348,7 @@ img.instagram:hover {
     transition: all .3s ease-in-out;
 }
 
-#snapchat:hover {
+#snapcode:hover {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -366,7 +370,7 @@ img.instagram:hover {
     color: #e7e419;
 }
 
-.xbox {
+#xboxImg {
     background-color: #000000;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -402,6 +406,7 @@ img.instagram:hover {
     position: relative;
     padding: 0 35px;
     margin: 0 -10px;
+    display: none;
 }
 
 .slideShowViewpointContainer {
@@ -444,7 +449,6 @@ img.instagram:hover {
     -moz-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
-    cursor: auto;
 }
 
 .slideShowViewpoint {
@@ -587,14 +591,27 @@ img.instagram:hover {
 }
 
 .skills p {
-    background-color: #337ab7;
+    border: 1px solid #337ab7;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 5px;
-    color: white;
+    color: #337ab7;
     display: inline-block;
     margin: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#aboutSkills p {
+    background-color: #337ab7;
+    color: white;
+    cursor: auto;
+}
+
+.skills p:hover {
+    background-color: #337ab7;
+    color: white;
 }
 
 #interests p {
@@ -646,12 +663,21 @@ img.instagram:hover {
     margin: 0;
 }
 
+#mainHello {
+    display: inline;
+}
+
+#afterMainHello {
+    display: inline;
+}
+
 #projectPreview {
     width: 100%;
 }
 
 .slideContainer {
     position: relative;
+    margin: auto;
 }
 
 .projectPreLink {
