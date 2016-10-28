@@ -35,7 +35,7 @@ include 'inc/header.php';
                     <div><a class="btn btn-success" href="/about/">Learn About Me</a></div>
                 </div>
 
-                <script type="text/javascript" src="/lib/slideshow.js"></script>
+                <script type="text/javascript" src="/lib/slideShow.js"></script>
                 <script type="text/javascript" src="/lib/helperFunctions.js"></script>
                 <script type="text/javascript" src="/lib/xhr.js"></script>
                 <script type="text/javascript" src="/lib/projectsPreview.js"></script>

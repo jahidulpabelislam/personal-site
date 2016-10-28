@@ -43,7 +43,7 @@ include '../inc/header.php';
                 <!-- Script to expand page -->
                 <script src="/lib/expandImage.js"></script>
 
-                <script src="/lib/slideshow.js"></script>
+                <script src="/lib/slideShow.js"></script>
 
                 <!-- the script needed for any helper functions -->
                 <script src="/lib/helperFunctions.js"></script>
