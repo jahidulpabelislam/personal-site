@@ -486,12 +486,17 @@ button {
     align-items: center;
 }
 
+.slideContainer {
+    position: relative;
+    margin: auto;
+}
+
 .slide {
     max-width: 100%;
     max-height: 340px;
 }
 
-#expandedImageDiv {
+#expandedImageDivContainer {
     z-index: -100;
     position: fixed;
     top: 50%;
@@ -675,21 +680,28 @@ button {
     width: 100%;
 }
 
-.slideContainer {
-    position: relative;
-    margin: auto;
-}
-
 .projectPreLink {
     position: absolute;
     bottom: 0;
     left: 0;
+    background: white;
+    color : #b92c28;
 }
 
 .projectPreGitHub {
     position: absolute;
     top: 0;
     right: 0;
+    background: white;
+    color : #f0ad4e;
+}
+
+#pagination {
+    display: none;
+}
+
+.pagination > li > a {
+    cursor: pointer;
 }
 
 /* Only for Mobile */
@@ -704,6 +716,14 @@ button {
         max-width: 439px;
     }
 
+    #searchLabel {
+        width: 50%;
+    }
+
+    #search {
+        width: 50%;
+        max-width: 439px;
+    }
 }
 
 /* Only for Desktops */

@@ -6,7 +6,7 @@ $description2 = "Look at My Skills in Action in Previous Work";
 include '../inc/header.php';
 ?>
 
-                <div id="expandedImageDiv">
+                <div id="expandedImageDivContainer">
                     <img class="slideShowNav" src="/images/previous.svg"
                          alt="Click to View Previous Image" id="expandedImagePrevious">
 
@@ -25,8 +25,14 @@ include '../inc/header.php';
                 <p class="article">These are the pieces of work I have completed during my time. All work shown are the one
                     submitted only necessary changes to make the project work such as database connection changes.</p>
 
+                <div class="article">
+                    <label id="searchLabel" for="search">Search for projects.</label>
+                    <input class="input" id="search" placeholder="e.g. Node.js">
+                </div>
+
                 <div id="errors"></div>
                 <div id="projects"></div>
+                <div class="article" id="pagination"></div>
 
                 <div class="article action">
                     <div>

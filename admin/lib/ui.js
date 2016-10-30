@@ -7,7 +7,7 @@ window.portfolio.admin.ui = (function () {
     //set up username & password variable for later use
     var adminUsername = "",
         adminPassword = "",
-        logInButton = document.getElementById("logInButton"),
+        userForm = document.getElementById("userForm"),
         password = document.getElementById("password"),
         username = document.getElementById("username"),
         userFormDiv = document.getElementById("userFormDiv"),
@@ -35,6 +35,8 @@ window.portfolio.admin.ui = (function () {
         download = document.getElementById("download"),
         date = document.getElementById("date"),
         projectForm = document.getElementById("projectForm"),
+        currentPage = document.getElementById("currentPage"),
+        pagination = document.getElementById("pagination"),
 
         //prints out a error message provided
         renderError = function (error) {
@@ -76,11 +78,11 @@ window.portfolio.admin.ui = (function () {
         },
 
         renderProjectImage = function (projectImage) {
-            var li = window.portfolio.helperFunctions.createElement(projectImages, "li", {id: projectImage.File}),
+            var li = window.portfolio.helperFunctions.createElement(projectImages, "li", {id: projectImage.File});
 
-                img = window.portfolio.helperFunctions.createElement(li, "img", {src: projectImage.File}),
+                window.portfolio.helperFunctions.createElement(li, "img", {src: projectImage.File});
 
-                button = window.portfolio.helperFunctions.createElement(li, "button", {className: "btn btn-danger deleteProjectImg", innerHTML: "X"});
+                var button = window.portfolio.helperFunctions.createElement(li, "button", {className: "btn btn-danger deleteProjectImg", innerHTML: "X"});
 
             button.addEventListener("click", function () {
                 deleteProjectImage(projectImage);
@@ -152,7 +154,7 @@ window.portfolio.admin.ui = (function () {
             imageUpload.addEventListener("change", renderProjectImageUploadPreview);
 
             projectButton.innerHTML = "Update Project";
-            window.portfolio.admin.dragNDrop.setup(window);
+            window.portfolio.admin.dragNDrop.setup();
 
             getProjectImages();
 
@@ -225,7 +227,6 @@ window.portfolio.admin.ui = (function () {
 
         addProject = function (e) {
            sendProject(e, "POST", addedProject);
-
         },
 
         setUpAddProject = function () {
@@ -288,8 +289,68 @@ window.portfolio.admin.ui = (function () {
 
         },
 
+
+        addPagination = function (result) {
+            if ((parseInt(result.Count)) > 10) {
+
+                var ul = window.portfolio.helperFunctions.createElement(pagination, "ul", {className: "pagination"}),
+                    page = parseInt(currentPage.value),
+                    pageNum = 1,
+                    i,
+                    attributes = {};
+
+                if (page != 1) {
+                    var previousLi = window.portfolio.helperFunctions.createElement(ul, "li"),
+
+                        previousA = window.portfolio.helperFunctions.createElement(previousLi, "a", {innerHTML: "Previous"});
+
+                    previousA.addEventListener("click", function () {
+                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page - 1}});
+                        currentPage.value = page -1;
+                    });
+                }
+
+                for (i = 0; i < result.Count; i+= 10, pageNum++) {
+                    if (pageNum == page) {
+                        attributes = {className: "active"};
+                    }
+                    else {
+                        attributes = {};
+                    }
+                    var li = window.portfolio.helperFunctions.createElement(ul, "li", attributes),
+
+                    a = window.portfolio.helperFunctions.createElement(li, "a", {innerHTML: pageNum});
+                    a.addEventListener("click", function (e) {
+                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: e.target.innerHTML}});
+                        currentPage.value = e.target.innerHTML;
+                    });
+                }
+
+                if (page < (pageNum - 1)) {
+                    var nextLi = window.portfolio.helperFunctions.createElement(ul, "li"),
+
+                        nextA = window.portfolio.helperFunctions.createElement(nextLi, "a", {innerHTML: "Next"});
+                    nextA.addEventListener("click", function () {
+                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page + 1}});
+                        currentPage.value = page + 1;
+                    });
+                }
+
+                pagination.style.display = "block";
+            }
+            else {
+                pagination.style.display = "none";
+            }
+        },
+
+        getPagination = function (result) {
+            window.portfolio.xhr.loopThroughData(result, addPagination, renderError);
+        },
+
         //
         gotProjects = function (result) {
+            selectProjectForm.innerHTML = "";
+            pagination.innerHTML = "";
             var
                 //send the data, the function to do if data is valid
                 dataExists = window.portfolio.xhr.loopThroughData(result, renderProjectSelection, renderError);
@@ -302,6 +363,7 @@ window.portfolio.admin.ui = (function () {
                 deleteButton.style.display = "none";
 
                 addButton.innerHTML = "Add A Project.";
+
             }
             else {
                 editButton.addEventListener("click", getProject);
@@ -309,6 +371,9 @@ window.portfolio.admin.ui = (function () {
 
                 deleteButton.addEventListener("click", deleteProject);
                 deleteButton.style.display = "inline-block";
+
+                window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/countProjects/", load: getPagination, error: renderError});
+
             }
 
             addButton.addEventListener("click", setUpAddProject);
@@ -317,7 +382,7 @@ window.portfolio.admin.ui = (function () {
         },
 
         getProjectList = function () {
-            window.portfolio.admin.dragNDrop.stop(window);
+            window.portfolio.admin.dragNDrop.stop();
             selectProjectForm.innerHTML = "";
             selectProjectFeedback.innerHTML = "";
             projectFormContainer.style.display = "none";

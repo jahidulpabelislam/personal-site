@@ -28,7 +28,7 @@ class pdodb
             $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
             //$this->db = new PDO("mysql:host=".IP.";dbname=".DATABASENAME, USERNAME, PASSWORD);
         } catch (PDOException $failure) {
-            echo 'Connection failed: ' . $failure->getMessage() . "mysql:host=".IP.";dbname=".DATABASENAME . USERNAME . PASSWORD;
+            echo 'Connection failed: ' . $failure->getMessage();
         }
     }
 

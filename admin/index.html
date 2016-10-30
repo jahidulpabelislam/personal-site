@@ -27,21 +27,23 @@
                 <div id="errors"></div>
 
                 <div id="selectProjectContainer">
+                    <input id="currentPage" type="hidden" name="page" disabled style="display:none" value="1">
                     <div id="selectProjectForm"></div>
                     <p id="selectProjectFeedback"></p>
+
                     <div id="selectProjectButtons">
                         <button id="editButton" type="button" value="Edit" class="btn btn-primary" tabindex="3">Edit</button>
                         <button id="deleteButton" type="button" value="Delete" class="btn btn-danger" tabindex="4">Delete</button>
                         <button id="addButton" type="button" value="Add Another Project" class="btn btn-success" tabindex="5">Add Another Project</button>
                     </div>
-
+                    <div id="pagination"></div>
                 </div>
 
                 <div id="projectFormContainer">
                     <button id="backButton" type="button" value="Log In" class="btn btn-warning" tabindex="6">Back</button>
 
                     <form id="projectForm">
-                        <input type="hidden" name="projectName" id="projectID" placeholder="myproject" disabled style="display:none">
+                        <input type="hidden" name="projectName" id="projectID"  disabled style="display:none">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
                         <label for="skills">Skills <span class="required">*</span></label>

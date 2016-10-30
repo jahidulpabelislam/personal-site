@@ -1,6 +1,6 @@
 <?php
 /*
- * All the functions for API
+ * All the functions for this API
  * @author Jahidul Pabel Islam
 */
 
@@ -10,35 +10,71 @@
 function getProject($projectID)
 {
     $db = new pdodb;
-    $query = "SELECT * FROM Project WHERE ID = :projectID;";
+    $query = "SELECT * FROM PortfolioProject WHERE ID = :projectID;";
     $bindings = array(':projectID' => $projectID);
     $result = $db->query($query, $bindings);
+
+    //check if database provided any meta data if so no problem with executing query but no project found
     if ($result["count"] <= 0 && !isset($result["meta"])) {
-        //check if database provided any meta data if so problem with executing query
         $result["meta"]["ok"] = false;
         $result["meta"]["status"] = 404;
         $result["meta"]["feedback"] = "No project found with ${projectID} as ID.";
         $result["meta"]["message"] = "Not Found";
     }
+
     return $result;
 }
 
-//gets goals , either of a user or filtered by a search or goals of other users user is following plus theirs
+//gets all projects but limited
+function countProjects($data)
+{
+    $filter = "";
+    if (isset($data["search"])) {
+        $filter = "WHERE Name LIKE '%" . $data["search"] . "%' OR Description LIKE '%" . $data["search"] . "%' OR Skills LIKE '%" . $data["search"] . "%'";
+    }
+
+    $db = new pdodb;
+    $query = "SELECT COUNT(*) AS Count FROM PortfolioProject $filter;";
+    $results = $db->query($query);
+
+    //check if database provided any meta data if not all ok
+    if (!isset($results["meta"])) {
+        $results["meta"]["ok"] = true;
+    }
+
+    return $results;
+}
+
+//gets all projects but limited
 function getProjects($data)
 {
-    if (isset($data["projectID"])) {
-        $results = getProject($data["projectID"]);
-    } else {
-        $limit = "";
-        $limit2 = min(abs(intval($data["limit"])), 20);
-        if (isset($limit2) && $limit2 > 0 && is_int($limit2)) {
-            $limit = "LIMIT $limit2";
-        }
-        $db = new pdodb;
-        $query = "SELECT * FROM Project ORDER BY Date DESC $limit;";
-        $results = $db->query($query);
-
+    if (isset($data["limit"])) {
+        $limit = min(abs(intval($data["limit"])), 10);
     }
+    if (!isset($limit) || !is_int($limit) || $limit < 0 ) {
+        $limit = 10;
+    }
+
+    $offset = 0;
+    if (isset($data["offset"])) {
+        $offset = min(abs(intval($data["offset"])), 10);
+    }
+
+    if (isset($data["page"])) {
+        $page = intval($data["page"]);
+        if (is_int($page) && $page > 1) {
+            $offset = $limit * ($data["page"] - 1);
+        }
+    }
+
+    $filter = "";
+    if (isset($data["search"])) {
+        $filter = "WHERE Name LIKE '%" . $data["search"] . "%' OR Description LIKE '%" . $data["search"] . "%' OR Skills LIKE '%" . $data["search"] . "%'";
+    }
+
+    $db = new pdodb;
+    $query = "SELECT * FROM PortfolioProject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
+    $results = $db->query($query);
 
     //check if database provided any meta data if not all ok
     if (!isset($results["meta"])) {
@@ -59,7 +95,7 @@ function addProject($data)
         if ($results["meta"]["ok"] === true) {
 
             $db = new pdodb;
-            $query = "INSERT INTO Project (Name, Skills, Description, Link, GitHub, Download, Date) VALUES (:projectName, :skills, :description, :link, :github, :download, :date);";
+            $query = "INSERT INTO PortfolioProject (Name, Skills, Description, Link, GitHub, Download, Date) VALUES (:projectName, :skills, :description, :link, :github, :download, :date);";
             $bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":description" => $data["description"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
             $results = $db->query($query, $bindings);
 
@@ -108,7 +144,7 @@ function editProject($data)
             if ($project["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "UPDATE Project SET Name = :projectName, Skills = :skills, Description = :description, Link = :link, GitHub = :github, Download = :download, Date = :date WHERE ID = :projectID;";
+                $query = "UPDATE PortfolioProject SET Name = :projectName, Skills = :skills, Description = :description, Link = :link, GitHub = :github, Download = :download, Date = :date WHERE ID = :projectID;";
                 $bindings = array(":projectID" => $data["projectID"], ":projectName" => $data["projectName"], ":skills" => $data["skills"], ":description" => $data["description"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
                 $results = $db->query($query, $bindings);
 
@@ -151,12 +187,12 @@ function deleteProject($data)
 
                 $db = new pdodb;
                 //delete the comments linked to goal
-                $query = "DELETE FROM ProjectImage WHERE ProjectID = :projectID;";
+                $query = "DELETE FROM PortfolioProjectImage WHERE ProjectID = :projectID;";
                 $bindings = array(":projectID" => $data["projectID"]);
                 $db->query($query, $bindings);
 
                 //finally delete the actual goal
-                $query = "DELETE FROM Project WHERE ID = :projectID;";
+                $query = "DELETE FROM PortfolioProject WHERE ID = :projectID;";
                 $results = $db->query($query, $bindings);
 
                 //if deletion was ok
@@ -191,15 +227,15 @@ function getPictures($data)
         $results = getProject($data["projectID"]);
         if ($results["count"] > 0) {
 
-            $limit = "";
-            $bindings = array();
-            $limit2 = min(abs(intval($data["limit"])), 20);
-            if (isset($limit2) && $limit2 > 0 && is_int($limit2)) {
-                $limit = "LIMIT $limit2";
+            if (isset($data["limit"])) {
+                $limit = min(abs(intval($data["limit"])), 15);
+            }
+            if (!isset($limit) || !is_int($limit) || $limit < 0 ) {
+                $limit = 15;
             }
 
             $db = new pdodb;
-            $query = "SELECT * FROM ProjectImage WHERE ProjectID = :projectID $limit;";
+            $query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID LIMIT $limit;";
             $bindings[':projectID'] = $data["projectID"];
             $results = $db->query($query, $bindings);
 
@@ -257,7 +293,7 @@ function addPicture($data)
                         //if update of user was ok
                         if ($results["count"] > 0) {
 
-                            $query = "SELECT * FROM ProjectImage WHERE File = :file AND ProjectID = :projectID;";
+                            $query = "SELECT * FROM PortfolioProjectImage WHERE File = :file AND ProjectID = :projectID;";
                             $results = $db->query($query, $bindings);
 
                             $results["meta"]["ok"] = true;
@@ -313,7 +349,7 @@ function deletePicture($data)
 
                 //update database
                 $db = new pdodb;
-                $query = "DELETE FROM ProjectImage WHERE ProjectID = :projectID AND File = :file;";
+                $query = "DELETE FROM PortfolioProjectImage WHERE ProjectID = :projectID AND File = :file;";
                 $bindings = array(":projectID" => $data["projectID"], ":file" => $data["file"]);
                 $results = $db->query($query, $bindings);
 

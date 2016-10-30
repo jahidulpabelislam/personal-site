@@ -21,33 +21,37 @@ window.portfolio.admin.dragNDrop = (function () {
 
             //sends a object with necessary data to XHR
             window.portfolio.xhr.sendRequests({
-                "method": "POST",
-                "url": "pictures/" + projectID.value,
-                "query": form,
-                "data": "file",
-                "load": window.portfolio.admin.ui.projectImageUploaded
+                method: "POST",
+                url: "pictures/" + projectID.value,
+                query: form,
+                data: "file",
+                load: window.portfolio.admin.ui.projectImageUploaded
             });
         },
 
         //set image as failed upload div to display error
         renderFailedUpload = function (errorMessage) {
-            var div = window.portfolio.helperFunctions.createElement(uploads, "div", {className: "failedUpload"}),
+            var div = window.portfolio.helperFunctions.createElement(uploads, "div", {className: "failedUpload"});
 
-                p = window.portfolio.helperFunctions.createElement(div, "p", {innerHTML: "errorMessage"});
+            window.portfolio.helperFunctions.createElement(div, "p", {innerHTML: "errorMessage"});
 
             window.portfolio.height.delayExpand();
         },
 
         renderUploadPreview = function (file, picture) {
             //creates the element for dropped file
-            var div = window.portfolio.helperFunctions.createElement(uploads, "div", {className: "aUpload"}),
+            var div = window.portfolio.helperFunctions.createElement(uploads, "div", {className: "aUpload"});
 
-                //shows the file name
-                p = window.portfolio.helperFunctions.createElement(div, "p", {innerHTML: file.name}),
+            //shows the file name
+            window.portfolio.helperFunctions.createElement(div, "p", {innerHTML: file.name});
 
-                img = window.portfolio.helperFunctions.createElement(div, "img", {src: picture}),
-                //create button to set up upload
-                button = window.portfolio.helperFunctions.createElement(div, "button", {className: "btn btn-primary", innerHTML: "Upload This Picture"});
+            window.portfolio.helperFunctions.createElement(div, "img", {src: picture});
+
+            //create button to set up upload
+            var button = window.portfolio.helperFunctions.createElement(div, "button", {
+                className: "btn btn-primary",
+                innerHTML: "Upload This Picture"
+            });
 
             //set up listener for when user wants to upload a picture
             button.addEventListener("click", function () {
@@ -72,7 +76,7 @@ window.portfolio.admin.dragNDrop = (function () {
                     renderUploadPreview(file, e.target.result);
                 };
 
-                fileReader.onerror = function (e) {
+                fileReader.onerror = function () {
                     renderFailedUpload("Error getting " + file.name);
                 };
 
@@ -158,19 +162,19 @@ window.portfolio.admin.dragNDrop = (function () {
         },
 
         //stop drag and drop to work
-        stop = function (target) {
-            target.removeEventListener("dragover", dragOver);
-            target.removeEventListener("drop", drop);
+        stop = function () {
+            window.removeEventListener("dragover", dragOver);
+            window.removeEventListener("drop", drop);
         },
 
         //this allows drag and drop to work, sets up all listeners needed
-        setUp = function (target) {
+        setUp = function () {
 
             //sets up listener for when a drag occurs
-            target.addEventListener("dragover", dragOver);
+            window.addEventListener("dragover", dragOver);
 
             //sets up listener for when a drop happens
-            target.addEventListener("drop", drop);
+            window.addEventListener("drop", drop);
 
             //when user leaves the area, make drop zone invisible
             dropZone.addEventListener("dragleave", function (e) {
@@ -179,9 +183,9 @@ window.portfolio.admin.dragNDrop = (function () {
         };
 
     return {
-        "setup": setUp,
-        "stop": stop,
-        "checkFile": checkFile
+        setup: setUp,
+        stop: stop,
+        checkFile: checkFile
     };
 
 }());

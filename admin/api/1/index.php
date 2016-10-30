@@ -21,18 +21,24 @@ switch ($path[0]) {
     case "projects":
         switch ($method) {
             case "GET":
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $results = getProject($path[1]);
+                }
                 $results = getProjects($data);
                 break;
             case "POST":
                 $results = addProject($data);
                 break;
             case "PATCH":
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $data["projectID"] = $path[1];
+                }
                 $results = editProject($data);
                 break;
             case "DELETE":
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $data["projectID"] = $path[1];
+                }
                 $results = deleteProject($data);
                 break;
             default:
@@ -42,16 +48,31 @@ switch ($path[0]) {
     case "pictures":
         switch ($method) {
             case "GET":
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $data["projectID"] = $path[1];
+                }
                 $results = getPictures($data);
                 break;
             case "POST":
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $data["projectID"] = $path[1];
+                }
                 $results = addPicture($data);
                 break;
             case "DELETE";
-                if ($path[1] && trim($path[1]) !== "") $data["projectID"] = $path[1];
+                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $data["projectID"] = $path[1];
+                }
                 $results = deletePicture($data);
+                break;
+            default:
+                $results["meta"] = methodNotAllowed($method, $path);
+        }
+        break;
+    case "countProjects":
+        switch ($method) {
+            case "GET":
+                $results = countProjects($data);
                 break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);
