@@ -46,28 +46,28 @@ include '../inc/header.php';
     <div class="article">
         <h3>Email</h3>
         <p>Use the following email address to drop me a email.</p>
-        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank"><img src="../images/email.svg"
-                                                                              alt="Email me"
-                                                                              class="socialMediaImg email"></a>
-        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank"> jahidul.pabel.islam@hotmail.com</a>
+        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink">
+            <img src="../images/email.svg" alt="Email me" class="socialMediaImg emailImg">
+            <p class="socialMediaText emailAddress"> jahidul.pabel.islam@hotmail.com</p>
+        </a>
     </div>
 
     <div class="article">
         <h3>Linkedin</h3>
         <p>View my profile on Linkedin.</p>
-        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank"><img src="../images/linkedin.svg"
-                                                                                   alt="Find me on Linkedin /jahidulpabelislam"
-                                                                                   class="socialMediaImg linkedin"></a>
-        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank">/jahidulpabelislam</a>
+        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
+            <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg">
+            <p class="socialMediaText" id="linkedinAt"> /jahidulpabelislam</p>
+        </a>
     </div>
 
     <div class="article">
         <h3>GitHub</h3>
         <p>Look at all my code for projects i've done and follow future projects.</p>
-        <a href="https://github.com/jahidulpabelislam" target="_blank"><img src="../images/github.svg"
-                                                                            alt="Find me on GitHub /jahidulpabelislam"
-                                                                            class="socialMediaImg github"></a>
-        <a href="https://github.com/jahidulpabelislam" target="_blank">/jahidulpabelislam</a>
+        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
+            <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg">
+            <p class="socialMediaText" id="githubAt"> /jahidulpabelislam</p>
+        </a>
     </div>
 
     <div class="article action">

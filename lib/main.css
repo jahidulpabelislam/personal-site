@@ -252,42 +252,59 @@ button {
     height: 30px;
 }
 
-.email {
+.socialMediaText {
+    color: black;
+    font-weight: bold;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    display: inline-block;
+}
+
+.emailImg {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
     background-color: black;
 }
 
-.email:hover {
-    background-color: #E52525;
-}
-
-.linkedin {
-    background-color: black;
-}
-
-.linkedin:hover {
-    background-color: #0278b5;
-}
-
-.github {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-color: black;
-}
-
-.github:hover {
+.emailLink:hover .emailImg {
     background-color: #0f7c10;
 }
 
-.socialMedia {
-    color: black;
+.emailLink:hover .emailAddress {
+    color: #0f7c10;
+    text-decoration: underline;
 }
 
-#facebookAt:hover {
-    color: #3b5998;
+.linkedinImg {
+    background-color: black;
+}
+
+.linkedinLink:hover .linkedinImg {
+    background-color: #0278b5;
+}
+
+.linkedinLink:hover #linkedinAt {
+    color: #0278b5;
+    text-decoration: underline;
+}
+
+.githubImg {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.githubLink:hover .githubImg {
+    background-color: #E52525;
+}
+
+.githubLink:hover #githubAt {
+    color: #E52525;
+    text-decoration: underline;
 }
 
 #facebookImg {
@@ -297,12 +314,13 @@ button {
     border-radius: 5px;
 }
 
-#facebookImg:hover {
-    background: #3b5998;
+#facebook:hover #facebookAt{
+    color: #3b5998;
+    text-decoration: underline;
 }
 
-#twitterAt:hover {
-    color: #1da1f2;
+#facebook:hover #facebookImg {
+    background: #3b5998;
 }
 
 #twitterImg {
@@ -312,12 +330,13 @@ button {
     border-radius: 50%;
 }
 
-#twitterImg:hover {
-    background: #1da1f2;
+#twitter:hover #twitterAt {
+    color: #1da1f2;
+    text-decoration: underline;
 }
 
-#instagramAt:hover {
-    color: #9a36ba;
+#twitter:hover #twitterImg {
+    background: #1da1f2;
 }
 
 #instagramImg {
@@ -326,7 +345,12 @@ button {
     border-radius: 8px;
 }
 
-#instagramImg:hover {
+#instagram:hover #instagramAt {
+    color: #9a36ba;
+    text-decoration: underline;
+}
+
+#instagram:hover #instagramImg {
     background-color: #9e40ba;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9e40ba), color-stop(100%, #fcb24e));
     background: -webkit-linear-gradient(right top, #9e40ba, #fcb24e); /* For Safari 5.1 to 6.0 */
@@ -367,7 +391,7 @@ button {
 }
 
 #snapchatName:hover {
-    color: #e7e419;
+    color: #f5f219;
 }
 
 #xboxImg {
@@ -377,12 +401,13 @@ button {
     border-radius: 50%;
 }
 
-#xboxImg:hover {
+#xbox:hover #xboxImg {
     background-color: #0f7c10;
 }
 
-#gamertag:hover {
+#xbox:hover #gamertag{
     color: #0f7c10;
+    text-decoration: underline;
 }
 
 .aInfo img {
@@ -593,6 +618,21 @@ button {
 
 #expandedImageNext {
     right: 7px;
+}
+
+#slideShowNums {
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#slideShowNums p{
+    display: inline;
+    font-weight: bold;
 }
 
 .skills p {
