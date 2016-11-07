@@ -20,11 +20,15 @@ include '../inc/header.php';
 
                     <img class="slideShowNav" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
                     <button id="expandedImageClose" type="button" class="btn btn-danger">X</button>
+
                     <div id="slideShowNums">
                         <p id="slideShowNum"></p>
                         <p>/</p>
                         <p id="slideShowTotal"></p>
                     </div>
+
+                    <div id="slideShowBullets" class="slideShowBullets"></div>
+
                 </div>
 
                 <p class="article">These are the pieces of work I have completed during my time. All work shown are the one

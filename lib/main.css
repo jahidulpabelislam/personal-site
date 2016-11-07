@@ -98,11 +98,6 @@ footer img {
     margin-top: 10px;
 }
 
-ul {
-    list-style-position: inside;
-    padding: 0;
-}
-
 .article {
     background-color: #f5f5f5;
     margin: 10px 0;
@@ -635,6 +630,37 @@ button {
     font-weight: bold;
 }
 
+.bullet {
+    display: inline;
+}
+
+.bullet > label {
+    height: 15px;
+    width: 15px;
+    opacity: .6;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 14px 5px;
+    border: gray 1px solid;
+    cursor: pointer;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all 4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.bullet > label:hover {
+    opacity: .8;
+    background-color: lightgray;
+}
+
+.bullet.active > label {
+    opacity: 1;
+    background-color: white;
+}
+
 .skills p {
     border: 1px solid #337ab7;
     -webkit-border-radius: 5px;
@@ -645,7 +671,10 @@ button {
     display: inline-block;
     margin: 2px;
     cursor: pointer;
-    transition: all 0.4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all 4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 #aboutSkills p {
@@ -671,26 +700,16 @@ button {
 }
 
 .projectHeader {
-    /* OLD - iOS 6-, Safari 3.1-6 */
     display: -webkit-box;
     -webkit-box-align: center;
-
-    /* OLD - Firefox 19- (buggy but mostly works) */
     display: -moz-box;
     -moz-box-align: center;
-
-    /* TWEENER - IE 10 */
     display: -ms-flexbox;
     -ms-flex-align: center;
-
-    /* NEW - Chrome */
     display: -webkit-flex;
     -webkit-align-items: center;
-
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
     display: flex;
     align-items: center;
-
     padding: 20px 0 10px 0;
 }
 
@@ -706,6 +725,10 @@ button {
     display: inline-block;
     text-align: right;
     margin: 0;
+}
+
+.description {
+    text-align: left;
 }
 
 #mainHello {

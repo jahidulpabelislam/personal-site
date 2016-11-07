@@ -18,7 +18,7 @@ I updated and improved the site during Summer 2016 with things I have learnt the
 * Added a Contact Form.
 * Two versions of slide shows with navigation:
     * Automatic Sliding slide show
-        * Drag able to change to next or previous slide (With Both Touch &amp; Mouse).
+        * Drag-able to change to next or previous slide (With Both Touch &amp; Mouse).
     * Slide show which fades into next slide.
 * XML &amp; XSL Site map.
 * Admin Page, where projects can be updated, added &amp; deleted (CMS Style) With a API.

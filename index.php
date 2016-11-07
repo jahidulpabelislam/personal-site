@@ -24,6 +24,7 @@ include 'inc/header.php';
                                 <div class="slidesContainer"></div>
                             </div>
                         </div>
+                        <div class="slideShowBullets"></div>
                         <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
                         <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
                     </div>

@@ -24,7 +24,9 @@ switch ($path[0]) {
                 if (isset($path[1]) && trim($path[1]) !== "") {
                     $results = getProject($path[1]);
                 }
-                $results = getProjects($data);
+                else {
+                    $results = getProjects($data);
+                }
                 break;
             case "POST":
                 $results = addProject($data);

@@ -205,7 +205,7 @@ window.portfolio.admin.ui = (function () {
                 }
                 window.portfolio.xhr.sendRequests({
                     method: method,
-                    url: "/admin/api/1/projects/" +projectID,
+                    url: "/admin/api/1/projects/" + projectID,
                     query: {
                         username: adminUsername,
                         password: adminPassword,
@@ -289,7 +289,6 @@ window.portfolio.admin.ui = (function () {
 
         },
 
-
         addPagination = function (result) {
             if ((parseInt(result.Count)) > 10) {
 
@@ -355,7 +354,7 @@ window.portfolio.admin.ui = (function () {
                 //send the data, the function to do if data is valid
                 dataExists = window.portfolio.xhr.loopThroughData(result, renderProjectSelection, renderError);
 
-            //check if data doesn't exist check theres no feedback
+            //check if data doesn't exist check there's no feedback
             if (dataExists === false && !result.meta.feedback) {
                 //assume there's no error and no projects to show
                 selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Sorry, no Projects to show.</span>";
