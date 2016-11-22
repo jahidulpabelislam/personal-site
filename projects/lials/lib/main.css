@@ -1,0 +1,325 @@
+/* For all devices */
+body {
+    background-color: #E8E8E8;
+    margin: auto;
+    text-align: center;
+}
+
+#userFormDiv {
+    background-color: #43B929;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#userForm {
+    margin: 20px auto auto;
+    padding: 5px;
+}
+
+header {
+     background-color: #43B929;
+}
+
+header div {
+    float: left;
+}
+
+#goalFormDiv {
+    margin: 20px;
+}
+
+#goals {
+    margin: 20px;
+}
+
+.goal, #noGoals {
+    border: solid #43B929;
+    background-color: white;
+    border-radius: 6px;
+    margin: 20px auto auto;
+    padding: 5px;
+}
+
+#goalForm {
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    border: solid #e18b18;
+}
+
+#profile {
+    border-radius: 6px;
+    margin: 20px;
+    padding: 5px;
+    height: 100px;
+    background-color: #f4f4f4;
+    border: solid #FFFC31;
+}
+
+#profilePicture{
+    vertical-align: middle;
+    width: 25%;
+    max-width: 100%;
+    background-color: white;
+}
+
+#profile .username {
+    text-align: center;
+    vertical-align: middle;
+    width: 25%;
+}
+
+#profile .images {
+    vertical-align: middle;
+    width: 13%;
+}
+
+#buttons {
+    display: inline-block;
+    vertical-align: middle;
+    width: 37%;
+}
+
+button {
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+input {
+    width: 98%;
+    margin: 5px auto;
+    padding: 0;
+}
+
+input:hover {
+    background-color: #f0f0f0;
+}
+
+.upload {
+    width: 33%;
+    display: inline-block;
+    text-align: right;
+}
+
+.images {
+    width: 33%;
+    display: inline-block;
+}
+
+.username {
+    width: 33%;
+    display: inline-block;
+    text-align: left;
+    font-weight: bold;
+    color: #42ad29;
+    cursor: pointer;
+}
+
+.comment {
+    border-top: #43B929 solid;
+}
+
+img {
+    height: 100%;
+}
+
+.images img {
+    height: 24px;
+    cursor: pointer;
+}
+
+#dropZone {
+    display: none;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 50px;
+    color: white;
+}
+
+#uploads {
+    margin: 20px;
+}
+
+.aUpload {
+    background-color: white;
+    border-radius: 6px;
+    margin: 20px auto auto;
+    padding: 5px;
+    border: solid #337CA0;
+}
+
+.aUpload * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.aUpload img {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.failedUpload {
+    border: solid #cc151a;
+    background-color: white;
+    border-radius: 6px;
+    margin: 20px auto auto;
+    padding: 5px;
+    color: #cc151a;
+}
+
+#errors {
+    margin: 20px;
+}
+
+.error {
+    border: solid #cc151a;
+    background-color: #cc151a;
+    border-radius: 6px;
+    margin: 20px auto auto;
+    padding: 5px;
+    text-align: left;
+    color: white;
+}
+
+.errorDeleteButton {
+    float: right;
+}
+
+#commentForm{
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    border: solid #9D7E92;
+}
+
+#editCommentForm {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    border: solid #E50144;
+}
+
+#editGoalForm {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    border: solid #48C9AE;
+}
+
+#goalFormFeedback {
+    color: red;
+}
+
+#userFormFeedback {
+    color: red;
+}
+
+#commentFeedback {
+    color: red;
+}
+
+#editCommentFeedback{
+    color: red;
+}
+
+#editGoalFeedback {
+    color: red;
+}
+
+/* make cursor a pointer for to let users know its clickable*/
+header img {
+    cursor: pointer;
+}
+
+/* For mobile phones & some are for tablets */
+header {
+    height: 100px;
+}
+
+header div {
+    height: 70%;
+    width: 50%;
+    float: left;
+}
+
+#searchDiv {
+    width: 100%;
+    height: 30%;
+}
+
+/* the search input box */
+#search {
+    height: 30px;
+    border: none;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+}
+
+#logo {
+    display: none;
+}
+
+/* For tablets and some are for desktops */
+@media only screen and (min-width: 640px) {
+    .goal, #profile, .aUpload, #goalForm, #userForm, #noGoals, .failedUpload, #errors p {
+        max-width: 640px;
+    }
+
+    header {
+        height: 70px;
+    }
+
+    header div {
+        height: 100%;
+        width: 33%;
+    }
+
+    #searchDiv {
+        height: 100%;
+        width: 33%;
+        float: right;
+    }
+
+    #search {
+        height: 100%;
+    }
+
+    #noGoals {
+        margin: auto;
+    }
+    
+    #profile {
+        margin: 20px auto;
+    }
+
+    #goalForm {
+        margin: auto;
+    }
+}
+
+/* For desktops */
+@media only screen and (min-width: 768px) {
+    body {
+        max-width: 1200px;
+    }
+
+    #mobileLogo {
+        display: none;
+    }
+
+    #logo {
+        display: inline;
+    }
+}

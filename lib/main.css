@@ -35,7 +35,6 @@ header {
     margin-bottom: 10px;
     color: white;
     background: #f5f5f5 url('/images/work.jpg') no-repeat center center fixed;
-
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -49,22 +48,11 @@ header p {
 
 section {
     margin-bottom: 10px;
-
-    /* OLD - iOS 6-, Safari 3.1-6 */
     display: -webkit-box;
-
-    /* OLD - Firefox 19- (buggy but mostly works) */
     display: -moz-box;
-
-    /* TWEENER - IE 10 */
     display: -ms-flexbox;
-
-    /* NEW - Chrome */
     display: -webkit-flex;
-
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
     display: flex;
-
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -103,7 +91,6 @@ footer img {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #e1e1e1;
-
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -115,7 +102,6 @@ h6 {
 
 a {
     font-weight: bold;
-
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
@@ -124,7 +110,6 @@ a {
 
 a > img {
     opacity: .9;
-
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
@@ -348,11 +333,11 @@ button {
 #instagram:hover #instagramImg {
     background-color: #9e40ba;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9e40ba), color-stop(100%, #fcb24e));
-    background: -webkit-linear-gradient(right top, #9e40ba, #fcb24e); /* For Safari 5.1 to 6.0 */
-    background: -moz-linear-gradient(bottom left, #9e40ba, #fcb24e); /* For Firefox 3.6 to 15 */
-    background: -o-linear-gradient(bottom left, #9e40ba, #fcb24e); /* For Opera 11.1 to 12.0 */
+    background: -webkit-linear-gradient(right top, #9e40ba, #fcb24e);
+    background: -moz-linear-gradient(bottom left, #9e40ba, #fcb24e);
+    background: -o-linear-gradient(bottom left, #9e40ba, #fcb24e);
     background: -ms-linear-gradient(top, #9e40ba 0%, #fcb24e 100%);
-    background: linear-gradient(to bottom left, #9e40ba, #fcb24e); /* Standard syntax */
+    background: linear-gradient(to bottom left, #9e40ba, #fcb24e);
 }
 
 #snapcode {
@@ -469,6 +454,7 @@ button {
     -moz-box-shadow: none;
     -o-box-shadow: none;
     box-shadow: none;
+    cursor: initial;
 }
 
 .slideShowViewpoint {
@@ -479,29 +465,18 @@ button {
     width: 100%;
     position: relative;
     left: 0;
-
     -webkit-transition: left 2s ease;
     -moz-transition: left 2s ease;
     -o-transition: left 2s ease;
     transition: left 2s ease;
-
-    /* OLD - iOS 6-, Safari 3.1-6 */
     display: -webkit-box;
     -webkit-box-align: center;
-
-    /* OLD - Firefox 19- (buggy but mostly works) */
     display: -moz-box;
     -moz-box-align: center;
-
-    /* TWEENER - IE 10 */
     display: -ms-flexbox;
     -ms-flex-align: center;
-
-    /* NEW - Chrome */
     display: -webkit-flex;
     -webkit-align-items: center;
-
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
     display: flex;
     align-items: center;
 }
@@ -532,16 +507,16 @@ button {
 }
 
 .expandedImageDiv {
-    width: calc(100% - 88px);
-    height: calc(100% - 96px);
+    width: calc(100% - 74px);
+    height: calc(100% - 88px);
     position: absolute;
-    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox; /* TWEENER - IE 10 */
-    display: -webkit-flex; /* NEW - Chrome */
-    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    left: 44px;
-    top: 48px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    left: 37px;
+    top: 44px;
 }
 
 .expandedImage {
@@ -608,11 +583,11 @@ button {
 }
 
 #expandedImagePrevious {
-    left: 7px;
+    left: 4px;
 }
 
 #expandedImageNext {
-    right: 7px;
+    right: 4px;
 }
 
 #slideShowNums {
@@ -643,7 +618,7 @@ button {
     border-radius: 50%;
     background-color: gray;
     margin: 14px 5px;
-    border: gray 1px solid;
+    border: white 1px solid;
     cursor: pointer;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -654,11 +629,13 @@ button {
 .bullet > label:hover {
     opacity: .8;
     background-color: lightgray;
+    border-color: gray;
 }
 
 .bullet.active > label {
     opacity: 1;
     background-color: white;
+    border-color: gray;
 }
 
 .skills p {
@@ -684,6 +661,11 @@ button {
 }
 
 .skills p:hover {
+    background-color: #337ab7;
+    color: white;
+}
+
+.skills p.searched{
     background-color: #337ab7;
     color: white;
 }
@@ -743,28 +725,56 @@ button {
     width: 100%;
 }
 
-.projectPreLink {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: white;
-    color : #b92c28;
-}
-
-.projectPreGitHub {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: white;
-    color : #f0ad4e;
-}
-
 #pagination {
     display: none;
 }
 
 .pagination > li > a {
     cursor: pointer;
+}
+
+.projectDescriptionContainer {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectDescription {
+    background-color: rgba(0,0,0, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    cursor: initial;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 2s, opacity 2s;
+}
+
+.active .projectDescription {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projectLinks a{
+    background: transparent;
+    color: white;
+    border-color: white;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.projectLinks :hover, .projectLinks a:focus, .projectLinks a:active {
+    background: white;
+    color: black;
+    border-color: black;
 }
 
 /* Only for Mobile */
@@ -793,21 +803,12 @@ button {
 @media only screen and (min-width: 992px) {
 
     #projects {
-        /* OLD - iOS 6-, Safari 3.1-6 */
         display: -webkit-box;
-
-        /* OLD - Firefox 19- (buggy but mostly works) */
         display: -moz-box;
-
-        /* TWEENER - IE 10 */
         display: -ms-flexbox;
         -ms-flex-wrap: wrap;
-
-        display: -webkit-flex; /* NEW - Chrome */
         -webkit-flex-wrap: wrap;
         -webkit-justify-content: center;
-
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -838,23 +839,14 @@ button {
     }
 
     .aInfo {
-        /* OLD - iOS 6-, Safari 3.1-6 */
         display: -webkit-box;
         -webkit-box-align: center;
-
-        /* OLD - Firefox 19- (buggy but mostly works) */
         display: -moz-box;
         -moz-box-align: center;
-
-        /* TWEENER - IE 10 */
         display: -ms-flexbox;
         -ms-flex-align: center;
-
-        /* NEW - Chrome */
         display: -webkit-flex;
         -webkit-align-items: center;
-
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: flex;
         align-items: center;
     }
@@ -881,23 +873,14 @@ button {
     }
 
     footer > .container {
-        /* OLD - iOS 6-, Safari 3.1-6 */
         display: -webkit-box;
         -webkit-box-align: center;
-
-        /* OLD - Firefox 19- (buggy but mostly works) */
         display: -moz-box;
         -moz-box-align: center;
-
-        /* TWEENER - IE 10 */
         display: -ms-flexbox;
         -ms-flex-align: center;
-
-        /* NEW - Chrome */
         display: -webkit-flex;
         -webkit-align-items: center;
-
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: flex;
         align-items: center;
     }
@@ -911,47 +894,38 @@ button {
     }
 
     #socialMediaLinks {
-        -webkit-box-ordinal-group: 2; /* OLD - iOS 6-, Safari 3.1-6 */
-        -moz-box-ordinal-group: 2; /* OLD - Firefox 19- */
-        -ms-flex-order: 2; /* TWEENER - IE 10 */
-        -webkit-order: 2; /* NEW - Chrome */
-        order: 2; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        -webkit-box-ordinal-group: 2; 
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
     }
 
     #links {
-        -webkit-box-ordinal-group: 1; /* OLD - iOS 6-, Safari 3.1-6 */
-        -moz-box-ordinal-group: 1; /* OLD - Firefox 19- */
-        -ms-flex-order: 1; /* TWEENER - IE 10 */
-        -webkit-order: 1; /* NEW - Chrome */
-        order: 1; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
     }
 
     #legal {
-        -webkit-box-ordinal-group: 3; /* OLD - iOS 6-, Safari 3.1-6 */
-        -moz-box-ordinal-group: 3; /* OLD - Firefox 19- */
-        -ms-flex-order: 3; /* TWEENER - IE 10 */
-        -webkit-order: 3; /* NEW - Chrome */
-        order: 3; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        -webkit-box-ordinal-group: 3;
+        -moz-box-ordinal-group: 3;
+        -ms-flex-order: 3;
+        -webkit-order: 3;
+        order: 3;
     }
 
     #socialMediaPage > .container {
-        /* OLD - iOS 6-, Safari 3.1-6 */
         display: -webkit-box;
         -webkit-box-align: center;
-
-        /* OLD - Firefox 19- (buggy but mostly works) */
         display: -moz-box;
         -moz-box-align: center;
-
-        /* TWEENER - IE 10 */
         display: -ms-flexbox;
         -ms-flex-align: center;
-
-        /* NEW - Chrome */
         display: -webkit-flex;
         -webkit-align-items: center;
-
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
         display: flex;
         align-items: center;
     }

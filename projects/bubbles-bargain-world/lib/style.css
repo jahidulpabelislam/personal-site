@@ -1,0 +1,325 @@
+/* For all devices */
+body {
+    background-color: #E8E8E8;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+}
+
+header {
+    background-color: white;
+}
+
+#openingHours p {
+    margin: 0;
+}
+
+nav {
+    background-color: #D8D8D8;
+}
+
+section {
+    background-color: white;
+    float: left;
+}
+
+footer {
+    background-color: white;
+    float: left;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    padding: 5px;
+}
+
+#cookieBanner {
+    background-color: #D8D8D8;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#cookieBanner p {
+    margin: 5px;
+}
+
+h1 {
+    color: #ffa9a9;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #555555;
+    padding: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: #555555;
+}
+
+button {
+    background-color: white;
+    color: #555555;
+    border: 2px solid;
+}
+
+button:hover {
+    background-color: #ffa9a9;
+}
+
+label {
+    margin-top: 20px;
+    display: block;
+}
+
+textarea {
+    height: 213px;
+    background-color: #E8E8E8;
+    border: 2px solid;
+    width: 90%;
+    padding: 5px;
+    color: #464646;
+}
+
+input {
+    background-color: #E8E8E8;
+    border: 2px solid;
+    width: 90%;
+    padding: 5px;
+    color: #464646;
+}
+
+.required {
+    color: red;
+}
+
+.error {
+    color: red;
+}
+
+a {
+    font-weight: bold;
+    color: #555555;
+    text-decoration: none;
+}
+
+a:hover p {
+    color: #464646;
+}
+
+table {
+    color: #555555;
+}
+
+p a:hover {
+    color: #464646;
+}
+
+section {
+    width: 100%;
+}
+
+section a {
+    color: #00c2c2;
+}
+
+section a:hover {
+    color: #00afaf;
+}
+
+.slideShow {
+    width: 100%;
+}
+
+iframe {
+    width: 100%;
+}
+
+table {
+    margin: auto;
+}
+
+iframe {
+    border: none;
+}
+
+#slideShow {
+    position: relative;
+}
+
+.slideShowNav {
+    position: absolute;
+    top: 50%;
+    height: 5%;
+    display: none;
+}
+
+#previous {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+#slideShow:hover .slideShowNav {
+    display: inline;
+}
+
+.slideShowNav:hover {
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li a {
+    display: block;
+    background-color: #D8D8D8;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+li a:hover {
+    background-color: #ffa9a9;
+}
+
+#current {
+    background-color: #D0D0D0;
+}
+
+.category {
+    width: 100%;
+}
+
+/*For mobile phones & some are for tablets*/
+#logo {
+    width: 100%;
+}
+
+#menuIcon {
+    padding-top: 4px;
+}
+
+ul {
+    display: none;
+}
+
+nav:hover ul {
+    display: block;
+}
+
+#about {
+    width: 100%;
+}
+
+.categoryArea {
+    width: 100%;
+}
+
+.productArea {
+    width: 100%;
+}
+
+.product {
+    width: 100%;
+}
+
+.socialMedia {
+    padding: 5px;
+    min-height: 16px;
+    max-width: 20px;
+}
+
+/*For tablets & some are for desktops*/
+@media only screen and (min-width: 481px) {
+    #logo {
+        max-height: 122px;
+        width: 64%;
+        vertical-align: middle;
+    }
+
+    #openingHours {
+        width: 34%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .socialMedia {
+        max-width: 30px;
+    }
+
+    .categoryArea {
+        width: 49%;
+        display: inline-block;
+    }
+
+    .productArea {
+        margin-bottom: 16px;
+        display: inline-block;
+    }
+
+    .product {
+        width: 49%;
+        float: left;
+    }
+
+    iframe {
+        min-height: 300px;
+    }
+
+    #about {
+        float: right;
+        width: 25%;
+    }
+
+    form {
+        margin: auto;
+        max-width: 439px;
+    }
+}
+
+/*For desktops*/
+@media only screen and (min-width: 769px) {
+    /* make page narrow and in middle for a big screen */
+    body {
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    /* make menu not display instead normal nav bar */
+    #menuIcon {
+        display: none;
+    }
+
+    /* display normal nav bar */
+    ul {
+        display: block;
+    }
+
+    /* display each nav link */
+    li {
+        display: inline-block;
+        float: left;
+        width: 25%;
+    }
+
+    .categoryArea {
+        width: 24%;
+    }
+
+    .productArea {
+        width: 49%;
+    }
+
+    iframe {
+        min-height: 500px;
+    }
+}

@@ -23,6 +23,6 @@ ErrorDocument 500 /error/500/
 #make rewrite on
 RewriteEngine On
 #what to check
-RewriteCond %{HTTP_HOST} ^jahidulpabelislam.net16.net [nc]
+RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com [nc]
 #whathappens when it happens
-RewriteRule (.*) http://www.jahidulpabelislam.net16.net/$1 [R=301,L]
+RewriteRule (.*) http://www.jahidulpabelislam.comxa.com/$1 [R=301,L]

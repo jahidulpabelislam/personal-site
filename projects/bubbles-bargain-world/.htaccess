@@ -1,0 +1,26 @@
+#block user from viewing list of files in a directory
+IndexIgnore */*
+
+#stop users from viewing this file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+#custom error messages
+#custom error message for a unauthorized page
+ErrorDocument 401 /error/401/
+#custom error message for a forbidden page
+ErrorDocument 403 /error/403/
+#custom error message for a page not found
+ErrorDocument 404 /error/404/
+#custom error message for a internal server issue
+ErrorDocument 500 /error/500/
+
+#rewrite url to add 'www.' when user goes to site without 'www.'
+#make rewrite on
+RewriteEngine On
+#what to check
+RewriteCond %{HTTP_HOST} ^bubblesbargainworld.co.uk [nc]
+#whathappens when it happens
+RewriteRule (.*) http://www.bubblesbargainworld.co.uk/$1 [R=301,L]

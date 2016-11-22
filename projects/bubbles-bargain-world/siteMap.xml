@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Link to the stylesheet-->
+<?xml-stylesheet type="text/xsl" href="siteMap.xsl"?>
+<!--The set of Pages-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-04-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.9</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-04-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/cards/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/character-merchandise/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/party/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/arts-and-craft/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/gifts/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/stationary/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/toys/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/baby/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/plaque-signs/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/sweets/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/products/souvenirs/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/contact/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-04-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>never</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.7</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/about/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-04-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.6</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://www.bubblesbargainworld.co.uk/about/cookie-policy/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-04-19</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>never</changefreq>
+        <!--How important the page is to the site-->
+        <priority>0.1</priority>
+    </url>
+</urlset>

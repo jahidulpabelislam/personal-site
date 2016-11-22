@@ -18,15 +18,17 @@ include 'inc/header.php';
 
                 <div id="projectPreview" class="article">
                     <h3>My Latest Projects</h3>
-                    <div class="slideShow">
-                        <div class="slideShowViewpointContainer">
-                            <div class="slideShowViewpoint">
-                                <div class="slidesContainer"></div>
+                    <div class="slideShowContainer">
+                        <div class="slideShow">
+                            <div class="slideShowViewpointContainer">
+                                <div class="slideShowViewpoint">
+                                    <div class="slidesContainer"></div>
+                                </div>
                             </div>
+                            <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
+                            <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
                         </div>
                         <div class="slideShowBullets"></div>
-                        <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
-                        <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
                     </div>
                     <div id="errors"></div>
                 </div>
