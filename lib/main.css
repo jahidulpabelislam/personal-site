@@ -771,7 +771,7 @@ button {
     transition: all .3s ease-in-out;
 }
 
-.projectLinks :hover, .projectLinks a:focus, .projectLinks a:active {
+.projectLinks :hover, .projectLinks a:focus, .projectLinks a:active, .projectLinks a:active:hover, .projectLinks a:active:focus {
     background: white;
     color: black;
     border-color: black;

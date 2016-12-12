@@ -21,6 +21,9 @@ function getProject($projectID)
         $result["meta"]["feedback"] = "No project found with ${projectID} as ID.";
         $result["meta"]["message"] = "Not Found";
     }
+    else {
+        $result["meta"]["ok"] = true;
+    }
 
     return $result;
 }
@@ -69,7 +72,26 @@ function getProjects($data)
 
     $filter = "";
     if (isset($data["search"])) {
-        $filter = "WHERE Name LIKE '%" . $data["search"] . "%' OR Description LIKE '%" . $data["search"] . "%' OR Skills LIKE '%" . $data["search"] . "%'";
+        //split each word in search
+        $searches = explode(" ", $data["search"]);
+
+        $search = "%";
+
+        //loop through each search word
+        foreach ($searches as $aSearch) {
+            $search .= "${aSearch}%";
+        }
+
+        $searchesReversed = array_reverse($searches);
+
+        $search2 = "%";
+
+        //loop through each search word
+        foreach ($searchesReversed as $aSearch) {
+            $search2 .= "${aSearch}%";
+        }
+
+        $filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR Description LIKE '" . $search . "' OR Description LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
     }
 
     $db = new pdodb;
@@ -80,6 +102,8 @@ function getProjects($data)
     if (!isset($results["meta"])) {
         $results["meta"]["ok"] = true;
     }
+
+    $results["filter"] = $filter;
     return $results;
 }
 
