@@ -28,6 +28,31 @@ function getProject($projectID)
     return $result;
 }
 
+//gets a user, either trying to log in or trying to get information of a user
+function login($data)
+{
+    //checks if data needed are present and not empty
+    $dataNeeded = array("username", "password");
+    if (checkData($data, $dataNeeded)) {
+
+        if ($data["username"] === hidden && $data["password"] === hidden) {
+            $results["meta"]["ok"] = true;
+            $results["rows"]["username"] = $data["username"];
+            $results["rows"]["password"] = $data["password"];
+        } else {
+            $results["meta"]["ok"] = false;
+            $results["meta"]["status"] = 401;
+            $results["meta"]["message"] = "Unauthorized";
+            $results["meta"]["feedback"] = "Wrong Username and Password.";
+        }
+    } //else data was not provided
+    else {
+        $results["meta"] = dataNotProvided($dataNeeded);
+    }
+
+    return $results;
+}
+
 //gets all projects but limited
 function countProjects($data)
 {
