@@ -16,22 +16,22 @@ include '../inc/header.php';
         <!--validate using JavaScript on submit-->
         <form id="contactForm" name="contactForm" method="post" onsubmit="return window.portfolio.form.validateForm()">
 
-            <label for="email">Email Address <span class="required">*</span></label>
+            <label for="emailInput">Your Email Address <span class="required">*</span></label>
             <p id="emailFeedback"></p>
             <!--validate using JavaScript on input-->
-            <input type="email" name="email" placeholder="e.g. joe@example.com" required tabindex="1"
-                   oninput="window.portfolio.form.validateEmail(this.value);" class="input" id="email"
+            <input type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1"
+                   oninput="window.portfolio.form.validateEmail(this.value);" class="input" id="emailInput"
                    title="Email Address">
 
-            <label for="subject">Subject</label>
-            <input type="text" name="subject" placeholder="e.g. Site Feedback" tabindex="2" class="input" id="subject"
+            <label for="subjectInput">The Message Subject</label>
+            <input type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" class="input" id="subjectInput"
                    title="Subject of Message">
 
-            <label for="message">Message <span class="required">*</span></label>
+            <label for="messageInput">Your Message <span class="required">*</span></label>
             <p id="messageFeedback"></p>
             <!--validate using JavaScript on input-->
-            <textarea name="message" placeholder="e.g. Your site could do with more colour." required tabindex="3"
-                      oninput="window.portfolio.form.validateMessage(this.value);" class="input" id="message"
+            <textarea name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3"
+                      oninput="window.portfolio.form.validateMessage(this.value);" class="input" id="messageInput"
                       title="The Message"></textarea>
 
             <p id="formFeedback"></p>
@@ -82,7 +82,7 @@ include '../inc/header.php';
 
     <script src="/lib/helperFunctions.js"></script>
     <script src="/lib/xhr.js"></script>
-    <script src="/lib/formValidator.js"></script>
+    <script src="/lib/form.js"></script>
 
 <?php
 include '../inc/footer.html';

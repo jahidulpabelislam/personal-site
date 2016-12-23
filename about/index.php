@@ -41,7 +41,7 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div>
-                       <img src="../images/beach.jpg" alt="Image of a Beach">
+                        <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
                     </div>
                     <div>
                         <p>Based in Bognor Regis, West Sussex, South East Coast of England.</p>
@@ -61,10 +61,13 @@ include '../inc/header.php';
                     <div>
                         <h3>Skills</h3>
                     </div>
+
                     <div id="aboutSkills" class="skills">
                         <p>HTML</p>
                         <p>CSS</p>
                         <p>JavaScript</p>
+                        <p>Node.js</p>
+                        <p>NoSQL</p>
                         <p>JQuery</p>
                         <p>PHP</p>
                         <p>SQL</p>

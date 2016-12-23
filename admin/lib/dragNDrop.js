@@ -20,7 +20,7 @@ window.portfolio.admin.dragNDrop = (function () {
             form.append("password", window.portfolio.admin.ui.adminPassword);
 
             //sends a object with necessary data to XHR
-            window.portfolio.xhr.sendRequests({
+            window.portfolio.xhr.sendRequest({
                 method: "POST",
                 url: "pictures/" + projectID.value,
                 query: form,
@@ -35,7 +35,7 @@ window.portfolio.admin.dragNDrop = (function () {
 
             window.portfolio.helperFunctions.createElement(div, "p", {innerHTML: "errorMessage"});
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         renderUploadPreview = function (file, picture) {
@@ -58,7 +58,7 @@ window.portfolio.admin.dragNDrop = (function () {
                 sendImage(file);
             });
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         checkFile = function (file) {

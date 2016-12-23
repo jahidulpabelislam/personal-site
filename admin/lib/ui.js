@@ -7,6 +7,8 @@ window.portfolio.admin.ui = (function () {
     //set up username & password variable for later use
     var adminUsername = "",
         adminPassword = "",
+
+        //get elements for later use
         userForm = document.getElementById("userForm"),
         password = document.getElementById("password"),
         username = document.getElementById("username"),
@@ -53,23 +55,25 @@ window.portfolio.admin.ui = (function () {
             });
         },
 
+        //render a project image delete
         deletedProjectImage = function (result) {
-            //check if comment delete has been processed
+            //check if the deletion of project image has been processed
             if (result.rows && result.rows.file) {
 
                 //find and remove the comment
                 document.getElementById(result.rows.file).remove();
             }
-            //else check if there if feedback to print
             else {
+                //else check if there if feedback to print
                 window.portfolio.xhr.checkFeedback(result.meta.feedback, renderError, "Error deleting your Project Image.");
             }
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
+        //send a request to delete a project image
         deleteProjectImage = function (projectImage) {
-            window.portfolio.xhr.sendRequests({
+            window.portfolio.xhr.sendRequest({
                 method: "DELETE",
                 url: "/admin/api/1/pictures/" + projectImage.projectID,
                 query: {username: adminUsername, password: adminPassword, file: projectImage.File},
@@ -77,38 +81,41 @@ window.portfolio.admin.ui = (function () {
             });
         },
 
+        //render a project image
         renderProjectImage = function (projectImage) {
-            var li = window.portfolio.helperFunctions.createElement(projectImages, "li", {id: projectImage.File});
+            var imageContainer = window.portfolio.helperFunctions.createElement(projectImages, "li", {id: projectImage.File}),
 
-                window.portfolio.helperFunctions.createElement(li, "img", {src: projectImage.File});
+                imageDeleteButton = window.portfolio.helperFunctions.createElement(imageContainer, "button", {className: "btn btn-danger deleteProjectImg", innerHTML: "X"});
 
-                var button = window.portfolio.helperFunctions.createElement(li, "button", {className: "btn btn-danger deleteProjectImg", innerHTML: "X"});
+                window.portfolio.helperFunctions.createElement(imageContainer, "img", {src: projectImage.File});
 
-            button.addEventListener("click", function () {
+            imageDeleteButton.addEventListener("click", function () {
                 deleteProjectImage(projectImage);
             });
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
-        //for when user update their profile picture
+        //
         projectImageUploaded = function (result) {
             //send the data, the function to do if data is valid and generic error message
             window.portfolio.xhr.loopThroughData(result, renderProjectImage, renderError, "Error uploading image.");
         },
 
+        //
         gotProjectImages = function (result) {
             //send the data, the function to do if data is valid
             window.portfolio.xhr.loopThroughData(result, renderProjectImage, renderError);
         },
 
+        //send request to get project images
         getProjectImages = function () {
-            window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/pictures/" + projectID.value, load: gotProjectImages});
+            window.portfolio.xhr.sendRequest({method: "GET", url: "/admin/api/1/pictures/" + projectID.value, load: gotProjectImages});
         },
 
+        //send event to render image upload preview
         renderProjectImageUploadPreview = function () {
             for (var i = 0; i < imageUpload.files.length; i++) {
-
                 window.portfolio.admin.dragNDrop.checkFile(imageUpload.files[i]);
             }
         },
@@ -137,7 +144,7 @@ window.portfolio.admin.ui = (function () {
 
             projectImages.innerHTML = "";
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         renderProject = function (project) {
@@ -172,7 +179,7 @@ window.portfolio.admin.ui = (function () {
 
         getProject = function () {
             if (document.querySelector('input[name = "project"]:checked')) {
-                window.portfolio.xhr.sendRequests({
+                window.portfolio.xhr.sendRequest({
                     method: "GET",
                     url: "/admin/api/1/projects/" + document.querySelector('input[name = "project"]:checked').value,
                     load: gotProject
@@ -203,7 +210,7 @@ window.portfolio.admin.ui = (function () {
                 if (!projectID) {
                     projectID = "";
                 }
-                window.portfolio.xhr.sendRequests({
+                window.portfolio.xhr.sendRequest({
                     method: method,
                     url: "/admin/api/1/projects/" + projectID,
                     query: {
@@ -232,14 +239,8 @@ window.portfolio.admin.ui = (function () {
         setUpAddProject = function () {
             setUpProjectForm();
 
-            projectID.value = "";
-            projectName.value = "";
-            skills.value = "";
-            description.value = "";
-            link.value = "";
-            github.value = "";
-            download.value = "";
-            date.value = "";
+            projectID.value = projectName.value = skills.value =  description.value = "";
+            link.value = github.value = download.value = date.value = "";
 
             projectButton.innerHTML = "Add Project";
             projectForm.removeEventListener("submit", sendProjectUpdate);
@@ -253,18 +254,17 @@ window.portfolio.admin.ui = (function () {
                 //find and remove the project
                 document.getElementById(result.rows.projectID).remove();
                 document.querySelector('label[for="' + result.rows.projectID + '"]').remove();
-            }
-            //else check if there if feedback to print
-            else {
+            } else {
+                //else check if there if feedback to print
                 window.portfolio.xhr.checkFeedback(result.meta.feedback, renderError, "Error deleting your project.");
             }
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         deleteProject = function () {
             if (document.querySelector('input[name = "project"]:checked')) {
-                window.portfolio.xhr.sendRequests({
+                window.portfolio.xhr.sendRequest({
                     method: "DELETE",
                     url: "/admin/api/1/projects/" + document.querySelector('input[name = "project"]:checked').value,
                     query: {username: adminUsername, password: adminPassword},
@@ -275,7 +275,7 @@ window.portfolio.admin.ui = (function () {
                 selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Select A Project To Delete.</span>";
             }
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         //render a project selection
@@ -289,8 +289,8 @@ window.portfolio.admin.ui = (function () {
 
         },
 
-        addPagination = function (result) {
-            if ((parseInt(result.Count)) > 10) {
+        addPagination = function (count) {
+            if ((parseInt(count)) > 10) {
 
                 var ul = window.portfolio.helperFunctions.createElement(pagination, "ul", {className: "pagination"}),
                     page = parseInt(currentPage.value),
@@ -304,23 +304,22 @@ window.portfolio.admin.ui = (function () {
                         previousA = window.portfolio.helperFunctions.createElement(previousLi, "a", {innerHTML: "Previous"});
 
                     previousA.addEventListener("click", function () {
-                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page - 1}});
+                        window.portfolio.xhr.sendRequest({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page - 1}});
                         currentPage.value = page -1;
                     });
                 }
 
-                for (i = 0; i < result.Count; i+= 10, pageNum++) {
+                for (i = 0; i < count; i+= 10, pageNum++) {
                     if (pageNum == page) {
                         attributes = {className: "active"};
-                    }
-                    else {
+                    } else {
                         attributes = {};
                     }
                     var li = window.portfolio.helperFunctions.createElement(ul, "li", attributes),
 
                     a = window.portfolio.helperFunctions.createElement(li, "a", {innerHTML: pageNum});
                     a.addEventListener("click", function (e) {
-                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: e.target.innerHTML}});
+                        window.portfolio.xhr.sendRequest({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: e.target.innerHTML}});
                         currentPage.value = e.target.innerHTML;
                     });
                 }
@@ -329,71 +328,62 @@ window.portfolio.admin.ui = (function () {
                     var nextLi = window.portfolio.helperFunctions.createElement(ul, "li"),
 
                         nextA = window.portfolio.helperFunctions.createElement(nextLi, "a", {innerHTML: "Next"});
+
                     nextA.addEventListener("click", function () {
-                        window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page + 1}});
+                        window.portfolio.xhr.sendRequest({method: "GET", url: "/admin/api/1/projects/", load: gotProjects, query: {page: page + 1}});
                         currentPage.value = page + 1;
                     });
                 }
 
                 pagination.style.display = "block";
-            }
-            else {
+            } else {
                 pagination.style.display = "none";
             }
         },
 
-        getPagination = function (result) {
-            window.portfolio.xhr.loopThroughData(result, addPagination, renderError);
-        },
-
         //
         gotProjects = function (result) {
-            selectProjectForm.innerHTML = "";
-            pagination.innerHTML = "";
-            var
-                //send the data, the function to do if data is valid
-                dataExists = window.portfolio.xhr.loopThroughData(result, renderProjectSelection, renderError);
+            selectProjectForm.innerHTML = pagination.innerHTML = "";
+
+            //send the data, the function to do if data is valid
+            var dataExists = window.portfolio.xhr.loopThroughData(result, renderProjectSelection, renderError);
 
             //check if data doesn't exist check there's no feedback
             if (dataExists === false && !result.meta.feedback) {
+
                 //assume there's no error and no projects to show
                 selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Sorry, no Projects to show.</span>";
-                editButton.style.display = "none";
-                deleteButton.style.display = "none";
+
+                editButton.style.display = deleteButton.style.display = "none";
 
                 addButton.innerHTML = "Add A Project.";
 
-            }
-            else {
+            } else {
                 editButton.addEventListener("click", getProject);
-                editButton.style.display = "inline-block";
-
                 deleteButton.addEventListener("click", deleteProject);
-                deleteButton.style.display = "inline-block";
+                editButton.style.display = deleteButton.style.display = "inline-block";
 
-                window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/countProjects/", load: getPagination, error: renderError});
-
+                if (result.count) {
+                    addPagination(result.count);
+                }
             }
 
             addButton.addEventListener("click", setUpAddProject);
 
-            window.portfolio.height.delayExpand();
+            window.portfolio.stickyFooter.delayExpand();
         },
 
         getProjectList = function () {
             window.portfolio.admin.dragNDrop.stop();
-            selectProjectForm.innerHTML = "";
-            selectProjectFeedback.innerHTML = "";
+            selectProjectForm.innerHTML = selectProjectFeedback.innerHTML = "";
             projectFormContainer.style.display = "none";
             selectProjectContainer.style.display = "block";
 
-            imageUpload.value = "";
+            imageUpload.value = projectFormFeedback.innerHTML = uploads.innerHTML = "";
             imageUpload.style.display = "none";
-            uploads.innerHTML = "";
-            projectFormFeedback.innerHTML = "";
 
             //sends a object with necessary data to XHR
-            window.portfolio.xhr.sendRequests({method: "GET", url: "/admin/api/1/projects", load: gotProjects});
+            window.portfolio.xhr.sendRequest({method: "GET", url: "/admin/api/1/projects", load: gotProjects});
         },
 
         //after user has attempted to log in
@@ -445,7 +435,7 @@ window.portfolio.admin.ui = (function () {
             else {
                 userFormFeedback.innerHTML = "";
                 //sends a object with necessary data to XHR
-                window.portfolio.xhr.sendRequests({
+                window.portfolio.xhr.sendRequest({
                     method: "POST",
                     url: "/admin/api/1/login",
                     query: {username: username.value, password: password.value},
