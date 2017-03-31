@@ -36,7 +36,7 @@ include '../inc/header.php';
 
                 <div class="article">
                     <label id="searchLabel" for="search">Search for projects.</label>
-                    <input class="input" id="search" placeholder="e.g. Node.js">
+                    <input class="form-control" id="search" placeholder="e.g. Node.js">
                 </div>
 
                 <div id="errors"></div>
