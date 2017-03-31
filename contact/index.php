@@ -16,29 +16,32 @@ include '../inc/header.php';
         <!--validate using JavaScript on submit-->
         <form id="contactForm" name="contactForm" method="post" onsubmit="return window.portfolio.form.validateForm()">
 
-            <label for="emailInput">Your Email Address <span class="required">*</span></label>
-            <p id="emailFeedback"></p>
-            <!--validate using JavaScript on input-->
-            <input type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1"
-                   oninput="window.portfolio.form.validateEmail(this.value);" class="input" id="emailInput"
-                   title="Email Address">
+            <div class="form-group">
+                <label for="emailInput">Your Email Address <span class="required">*</span></label>
+                <!--validate using JavaScript on input-->
+                <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1"
+                       oninput="window.portfolio.form.validateEmail(this.value);" id="emailInput"
+                       title="Email Address">
+                <p id="emailFeedback" class="feedback error"></p>
+            </div>
 
-            <label for="subjectInput">The Message Subject</label>
-            <input type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" class="input" id="subjectInput"
-                   title="Subject of Message">
+            <div class="form-group">
+                <label for="subjectInput">The Message Subject</label>
+                <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" id="subjectInput"
+                       title="Subject of Message">
+            </div>
 
-            <label for="messageInput">Your Message <span class="required">*</span></label>
-            <p id="messageFeedback"></p>
-            <!--validate using JavaScript on input-->
-            <textarea name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3"
-                      oninput="window.portfolio.form.validateMessage(this.value);" class="input" id="messageInput"
-                      title="The Message"></textarea>
+            <div class="form-group">
+                <label for="messageInput">Your Message <span class="required">*</span></label>
+                <!--validate using JavaScript on input-->
+                <textarea class="form-control" name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3"
+                          oninput="window.portfolio.form.validateMessage(this.value);" id="messageInput"
+                          title="The Message" rows="10"></textarea>
+                <p id="messageFeedback" class="feedback error"></p>
+            </div>
 
-            <p id="formFeedback"></p>
-            <p id="emailFeedback2"></p>
-            <p id="messageFeedback2"></p>
-
-            <button name="submit" type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+            <p id="formFeedback" class="feedback"></p>
+            <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send</button>
 
         </form>
     </div>
@@ -83,6 +86,7 @@ include '../inc/header.php';
     <script src="/lib/helperFunctions.js"></script>
     <script src="/lib/xhr.js"></script>
     <script src="/lib/form.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php
 include '../inc/footer.html';

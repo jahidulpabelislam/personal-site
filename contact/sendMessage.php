@@ -27,8 +27,7 @@ if (trim($message) === "") {
 if (trim($emailAddress) === "") {
     $meta["ok"] = false;
     $meta["emailAddressFeedback"] = "Email Address isn't provided.";
-}
-//checks if email provided is valid using REGEX
+} //checks if email provided is valid using REGEX
 else if (!preg_match("/\b[\w._-]+@[\w-]+.[\w]{2,}\b/im", $emailAddress)) {
     $meta["ok"] = false;
     $meta["emailAddressFeedback"] = "Email Address isn't valid.";
@@ -46,8 +45,7 @@ if ($meta["ok"]) {
     //try to send email
     if (mail($to, $subject, $message, $headers)) {
         $meta["feedback"] = "Your message has been sent.";
-    }
-    //if not sent give message
+    } //if not sent give message
     else {
         $meta["ok"] = false;
         $meta["feedback"] = "Something went wrong, please try again.";
@@ -75,8 +73,7 @@ header("HTTP/1.1 $status $message");
 if ($json) {
     header("Content-Type: application/json");
     echo json_encode($meta);
-}
-//else send by plain text
+} //else send by plain text
 else {
     header("Content-Type: text/plain");
     echo("results: ");
