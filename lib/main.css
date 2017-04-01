@@ -387,7 +387,6 @@ button {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    opacity: .90;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
@@ -410,7 +409,6 @@ button {
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
-    opacity: 1;
 }
 
 #projectPreview .slideShowViewpointContainer:hover {
@@ -453,6 +451,14 @@ button {
 .slide {
     max-width: 100%;
     max-height: 340px;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.slide:hover {
+    transform: scale(1.1);
 }
 
 #expandedImageDivContainer {
@@ -598,8 +604,7 @@ button {
 
 .bullet.active > label {
     opacity: 1;
-    background-color: white;
-    border-color: gray;
+    background-color: #337ab7;
 }
 
 .skills p {
@@ -737,12 +742,12 @@ button {
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+    font-weight: 700;
 }
 
 .projectLinks :hover, .projectLinks a:focus, .projectLinks a:active, .projectLinks a:active:hover, .projectLinks a:active:focus {
     background: white;
     color: black;
-    border-color: black;
 }
 
 /* Only for Mobile */
