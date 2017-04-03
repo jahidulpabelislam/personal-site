@@ -1,6 +1,6 @@
-# e-Portfolio
+# Portfolio
 
-My e-Portfolio I made in 2015 to revise for a test for a unit about HTML and CSS during my Degree.
+My Portfolio I made in 2015 to revise for a test for a unit about HTML and CSS during my Degree.
 * Previous Work
     * 2 Websites
     * Literature Review
