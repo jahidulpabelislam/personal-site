@@ -300,30 +300,34 @@ button {
     background: -ms-linear-gradient(top, #9e40ba 0%, #fcb24e 100%);
     background: linear-gradient(to bottom left, #9e40ba, #fcb24e);
 }
+#snapchat {
+    color: white;
+}
 
 #snapcode {
     width: 100%;
     -webkit-border-radius: 15%;
     -moz-border-radius: 15%;
     border-radius: 15%;
-    opacity: .8;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
-#snapcode:hover {
+#snapchat:hover #snapcode {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
-    opacity: 1;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
 }
 
 #snapchatName {
-    color: white;
     background-color: black;
     padding: 4px;
     -webkit-border-radius: 6px;
@@ -331,7 +335,7 @@ button {
     border-radius: 6px;
 }
 
-#snapchatName:hover {
+#snapchat:hover {
     color: #f5f219;
 }
 
