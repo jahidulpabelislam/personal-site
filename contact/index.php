@@ -14,13 +14,13 @@ include '../inc/header.php';
         <p><span class="required">*</span> indicates a required field</p>
 
         <!--validate using JavaScript on submit-->
-        <form id="contactForm" name="contactForm" method="post" onsubmit="return window.portfolio.form.validateForm()">
+        <form id="contactForm" name="contactForm" method="post" onsubmit="return validateForm()">
 
             <div class="form-group">
                 <label for="emailInput">Your Email Address <span class="required">*</span></label>
                 <!--validate using JavaScript on input-->
                 <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1"
-                       oninput="window.portfolio.form.validateEmail(this.value);" id="emailInput"
+                       oninput="validateEmail(this.value);" id="emailInput"
                        title="Email Address">
                 <p id="emailFeedback" class="feedback error"></p>
             </div>
@@ -35,7 +35,7 @@ include '../inc/header.php';
                 <label for="messageInput">Your Message <span class="required">*</span></label>
                 <!--validate using JavaScript on input-->
                 <textarea class="form-control" name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3"
-                          oninput="window.portfolio.form.validateMessage(this.value);" id="messageInput"
+                          oninput="validateMessage(this.value);" id="messageInput"
                           title="The Message" rows="10"></textarea>
                 <p id="messageFeedback" class="feedback error"></p>
             </div>

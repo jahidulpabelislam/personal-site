@@ -176,7 +176,7 @@ p {
     box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
 }
 
-.invalid {
+.form-control.invalid {
     border-color: #e52525;
     outline: 0;
 }
