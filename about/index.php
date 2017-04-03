@@ -2,7 +2,7 @@
 $title = "About";
 $keywords = "";
 $description = "Some General Information About Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$description2 = "Find Out General Information";
+$description2 = "Find Out General Information About Me.";
 include '../inc/header.php';
 ?>
 
@@ -12,7 +12,7 @@ include '../inc/header.php';
                     </div>
                     <div>
                         <p>My name is Jahidul Pabel Islam.</p>
-                        <p>I'm 20 years old.</p>
+                        <p>I'm 21 years old.</p>
                         <p>A Web and Software Developer.</p>
                     </div>
                 </div>
@@ -24,7 +24,7 @@ include '../inc/header.php';
                             alt="Logo of University of Portsmouth"></a>
                     </div>
                     <div>
-                        <p>I'm currently a student, studying second year of BSc (Hons) Web Technologies at University of Portsmouth.</p>
+                        <p>I'm currently a student, undertaking my third and final year of BSc (Hons) Web Technologies at University of Portsmouth.</p>
                     </div>
                 </div>
 

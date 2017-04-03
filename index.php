@@ -2,13 +2,13 @@
 $title = "Home";
 $keywords = "";
 $description = "e-Portfolio for Jahidul Pabel Islam, a Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-$description2 = "Jahidul Pabel Islam, a Software Developer.";
+$description2 = "Jahidul Pabel Islam, a Web &amp; Software Developer.";
 include 'inc/header.php';
 ?>
                 <div class="article">
                     <h2 id="mainHello">Hello</h2>
                     <p id="afterMainHello">there everyone, welcome to my e-Portfolio. Thanks for clicking on my website.</p>
-                    <p>I'm a Software Developer, Develop from Websites to Programs, learning my trade at University of Portsmouth,
+                    <p>I'm a Developer, I develop from websites to programs, learning my trade at University of Portsmouth,
                         Based in West Sussex down in the South Coast of England.</p>
                     <p>Here you will be able to look at all my <a href="/projects">work</a> I have done over the last couple of
                         years, <a href="/about">learn about me</a> also you will be able to <a href="/contact/">contact</a> me for

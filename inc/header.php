@@ -53,7 +53,7 @@
         </nav>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header>
+        <header class="jumbotron">
             <div class="container">
                 <h1><?php echo $title ?></h1>
                 <hr>
