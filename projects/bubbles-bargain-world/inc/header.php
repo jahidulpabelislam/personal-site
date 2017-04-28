@@ -49,10 +49,10 @@
     <!-- The different links -->
     <ul>
         <!-- Check if page is any of the ones in nav menu -->
-        <li><a <?php if ($title == "Home") echo "id='current'"; ?> href="/">Home</a></li>
-        <li><a <?php if ($title == "Products") echo "id='current'"; ?> href="/products">Products</a></li>
-        <li><a <?php if ($title == "Contact") echo "id='current'"; ?> href="/contact">Contact</a></li>
-        <li><a <?php if ($title == "About") echo "id='current'"; ?> href="/about">About</a></li>
+        <li><a <?php if ($title == "Home") echo "id='current'"; ?> href="/projects/bubbles-bargain-world/">Home</a></li>
+        <li><a <?php if ($title == "Products") echo "id='current'"; ?> href="/projects/bubbles-bargain-world/products">Products</a></li>
+        <li><a <?php if ($title == "Contact") echo "id='current'"; ?> href="/projects/bubbles-bargain-world/contact">Contact</a></li>
+        <li><a <?php if ($title == "About") echo "id='current'"; ?> href="/projects/bubbles-bargain-world/about">About</a></li>
     </ul>
 </nav>
 

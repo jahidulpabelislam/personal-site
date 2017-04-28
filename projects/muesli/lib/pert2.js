@@ -27,7 +27,7 @@ var data = '<svg xmlns="http://www.w3.org/2000/svg">'+
     '</table>'+
     '</body>'+
     '</foreignobject>'+
-    '</svg>'
+    '</svg>';
 
 var DOMURL = window.URL || window.webkitURL || window;
 
