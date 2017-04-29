@@ -29,8 +29,8 @@ body {
 }
 
 .jumbotron {
-    color: white;
-    background: #f5f5f5 url('/images/work.jpg') no-repeat center center fixed;
+    color: #FFFFFF;
+    background: #f5f5f5 url("/images/work.jpg") no-repeat center center fixed;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -89,27 +89,28 @@ footer img {
     border: 1px solid #e1e1e1;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px;
 }
 
 h6 {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 a {
-    font-weight: bold;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    font-weight: 700;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 a > img {
     opacity: .9;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 a > img:hover {
@@ -135,11 +136,6 @@ p {
 
 .required {
     color: #e52525;
-}
-
-.warning {
-    color: #e52525;
-    font-weight: bold;
 }
 
 #emailFeedback {
@@ -196,16 +192,17 @@ button {
 .socialMediaText {
     color: black;
     font-weight: bold;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     display: inline-block;
 }
 
 .emailImg {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
     background-color: black;
 }
@@ -235,6 +232,7 @@ button {
 .githubImg {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
     background-color: black;
 }
@@ -252,6 +250,7 @@ button {
     background: black;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px;
 }
 
@@ -268,6 +267,7 @@ button {
     background: black;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
 }
 
@@ -283,6 +283,7 @@ button {
 #instagramImg {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
     border-radius: 8px;
 }
 
@@ -300,6 +301,7 @@ button {
     background: -ms-linear-gradient(top, #9e40ba 0%, #fcb24e 100%);
     background: linear-gradient(to bottom left, #9e40ba, #fcb24e);
 }
+
 #snapchat {
     color: white;
 }
@@ -308,11 +310,12 @@ button {
     width: 100%;
     -webkit-border-radius: 15%;
     -moz-border-radius: 15%;
+    -ms-border-radius: 15%;
     border-radius: 15%;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
@@ -332,6 +335,7 @@ button {
     padding: 4px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
     border-radius: 6px;
 }
 
@@ -343,6 +347,7 @@ button {
     background-color: #000000;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
 }
 
@@ -363,12 +368,14 @@ button {
 #imageOfMe {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
 }
 
 #cex-logo {
     -webkit-border-radius: 40%;
     -moz-border-radius: 40%;
+    -ms-border-radius: 40%;
     border-radius: 40%;
 }
 
@@ -387,11 +394,12 @@ button {
     border: 1px solid #ddd;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
     border-radius: 4px;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 #projectPreview .slideShowViewpointContainer {
@@ -400,6 +408,7 @@ button {
     border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
+    -ms-border-radius: 0;
     border-radius: 0;
     opacity: 1;
 }
@@ -433,14 +442,14 @@ button {
     -o-transition: left 2s ease;
     transition: left 2s ease;
     display: -webkit-box;
-    -webkit-box-align: center;
     display: -moz-box;
-    -moz-box-align: center;
     display: -ms-flexbox;
-    -ms-flex-align: center;
     display: -webkit-flex;
-    -webkit-align-items: center;
     display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
     align-items: center;
 }
 
@@ -459,6 +468,10 @@ button {
 }
 
 .slide:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -499,6 +512,7 @@ button {
     background-color: white;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
     border-radius: 4px;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -525,12 +539,13 @@ button {
     height: 30px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
     opacity: 0.5;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all 3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: absolute;
     top: calc(50% - 15px);
 }
@@ -573,7 +588,7 @@ button {
 
 #slideShowNums p {
     display: inline;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .bullet {
@@ -586,15 +601,16 @@ button {
     opacity: .6;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
     background-color: gray;
     margin: 14px 5px;
     border: white 1px solid;
     cursor: pointer;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all 4s ease-in-out;
-    transition: all .4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .bullet > label:hover {
@@ -612,26 +628,21 @@ button {
     border: 1px solid #337ab7;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px;
     padding: 5px;
     color: #337ab7;
     display: inline-block;
     margin: 2px;
     cursor: pointer;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all 4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-
-#aboutSkills p {
-    background-color: #337ab7;
-    color: white;
-    cursor: auto;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .skills p:hover {
-    background-color: #337ab7;
+    background-color: #1d4567;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -640,14 +651,21 @@ button {
 }
 
 .skills p.searched {
-    background-color: #31609b;
+    background-color: #2d6da3;
     color: white;
+}
+
+#aboutSkills p {
+    background-color: #337ab7;
+    color: white;
+    cursor: auto;
 }
 
 #interests p {
     background-color: #5cb85c;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px;
     padding: 5px;
     color: white;
@@ -657,14 +675,14 @@ button {
 
 .projectHeader {
     display: -webkit-box;
-    -webkit-box-align: center;
     display: -moz-box;
-    -moz-box-align: center;
     display: -ms-flexbox;
-    -ms-flex-align: center;
     display: -webkit-flex;
-    -webkit-align-items: center;
     display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
     align-items: center;
     padding: 20px 0 10px 0;
 }
@@ -712,8 +730,20 @@ button {
     height: 100%;
     width: 100%;
     position: absolute;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
     justify-content: center;
 }
 
@@ -721,17 +751,29 @@ button {
     background-color: rgba(0, 0, 0, 0.8);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px;
     color: white;
     padding: 10px;
     cursor: initial;
     opacity: 0;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
     transform: translateY(100%);
-    transition: transform 2s, opacity 2s;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .active .projectDescription {
     opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
     transform: translateY(0);
 }
 
@@ -739,10 +781,10 @@ button {
     background: transparent;
     color: white;
     border-color: white;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     font-weight: 700;
 }
 
@@ -751,13 +793,8 @@ button {
     color: black;
 }
 
-/* Only for Mobile */
-
-/* For Mobile & Tablets */
-
 /* For Tablets & Desktops */
 @media only screen and (min-width: 481px) {
-
     form {
         margin: auto;
         max-width: 439px;
@@ -775,17 +812,20 @@ button {
 
 /* Only for Desktops */
 @media only screen and (min-width: 992px) {
-
     #projects {
         display: -webkit-box;
         display: -moz-box;
         display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
         -ms-flex-wrap: wrap;
         -webkit-flex-wrap: wrap;
-        -webkit-justify-content: center;
-        display: flex;
         flex-wrap: wrap;
-        justify-content: center;
     }
 
     .project {
@@ -814,14 +854,14 @@ button {
 
     .aInfo {
         display: -webkit-box;
-        -webkit-box-align: center;
         display: -moz-box;
-        -moz-box-align: center;
         display: -ms-flexbox;
-        -ms-flex-align: center;
         display: -webkit-flex;
-        -webkit-align-items: center;
         display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
         align-items: center;
     }
 
@@ -848,14 +888,14 @@ button {
 
     footer > .container {
         display: -webkit-box;
-        -webkit-box-align: center;
         display: -moz-box;
-        -moz-box-align: center;
         display: -ms-flexbox;
-        -ms-flex-align: center;
         display: -webkit-flex;
-        -webkit-align-items: center;
         display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
         align-items: center;
     }
 
@@ -893,14 +933,14 @@ button {
 
     #socialMediaPage > .container {
         display: -webkit-box;
-        -webkit-box-align: center;
         display: -moz-box;
-        -moz-box-align: center;
         display: -ms-flexbox;
-        -ms-flex-align: center;
         display: -webkit-flex;
-        -webkit-align-items: center;
         display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
         align-items: center;
     }
 
@@ -913,5 +953,6 @@ button {
     #snapchat {
         max-width: 200px;
     }
-
 }
+
+/*# sourceMappingURL=main.css.map */
