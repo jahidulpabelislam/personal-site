@@ -31,12 +31,20 @@ include '../inc/header.php';
 
                 </div>
 
-                <p class="article">These are the pieces of work I have completed during my time. All work shown are the one
-                    submitted only necessary changes to make the project work such as database connection changes.</p>
+                <p class="article">These are some the pieces of work I have completed during my time.</p>
 
                 <div class="article">
-                    <label id="searchLabel" for="search">Search for projects.</label>
-                    <input class="form-control" id="search" placeholder="e.g. Node.js">
+                    <form id="search">
+                        <div class="input-group">
+                            <label id="searchLabel" for="search">Search for projects.</label>
+                            <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div id="errors"></div>

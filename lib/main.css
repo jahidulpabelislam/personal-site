@@ -89,6 +89,10 @@ body {
     background-size: cover;
 }
 
+header.jumbotron {
+    margin-bottom: 0;
+}
+
 header p {
     margin-bottom: 15px;
     font-size: 21px;
@@ -694,7 +698,7 @@ button {
 }
 
 .skills p:hover {
-    background-color: #1d4567;
+    background-color: #285f8f;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -845,15 +849,20 @@ button {
     color: black;
 }
 
+#searchLabel {
+    display: none;
+}
+
+#search * {
+    margin: 0;
+    z-index: 0;
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: 481px) {
     form {
         margin: auto;
         max-width: 439px;
-    }
-
-    #searchLabel {
-        width: 50%;
     }
 
     #search {

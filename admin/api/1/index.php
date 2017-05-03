@@ -23,25 +23,21 @@ switch ($path[0]) {
             case "GET":
                 if (isset($path[1]) && trim($path[1]) !== "") {
                     $results = getProject($path[1]);
-                }
-                else {
+                } else {
                     $results = getProjects($data);
                 }
                 break;
             case "POST":
-                $results = addProject($data);
-                break;
-            case "PATCH":
                 if (isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
+                    if ($data["method"] === "DELETE") {
+                        $results = deleteProject($data);
+                    } else {
+                        $results = editProject($data);
+                    }
+                } else {
+                    $results = addProject($data);
                 }
-                $results = editProject($data);
-                break;
-            case "DELETE":
-                if (isset($path[1]) && trim($path[1]) !== "") {
-                    $data["projectID"] = $path[1];
-                }
-                $results = deleteProject($data);
                 break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);
@@ -56,16 +52,13 @@ switch ($path[0]) {
                 $results = getPictures($data);
                 break;
             case "POST":
-                if (isset($path[1]) && trim($path[1]) !== "") {
+                if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
-                }
-                $results = addPicture($data);
-                break;
-            case "DELETE";
-                if (isset($path[1]) && trim($path[1]) !== "") {
+                    $results = addPicture($data);
+                } else if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
+                    $results = deletePicture($data);
                 }
-                $results = deletePicture($data);
                 break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);

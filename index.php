@@ -12,8 +12,8 @@ include 'inc/header.php';
                         Based in West Sussex down in the South Coast of England.</p>
                     <p>Here you will be able to look at all my <a href="/projects">work</a> I have done over the last couple of
                         years, <a href="/about">learn about me</a> also you will be able to <a href="/contact/">contact</a> me for
-                        any enquires, to provide any feedback and follow my future work.</p>
-                    <p>So have a look around my ever evolving e-Portfolio.</p>
+                        any enquiries, to provide any feedback and follow my future work.</p>
+                    <p>So, have a look around my ever evolving e-Portfolio.</p>
                 </div>
 
                 <div id="projectPreview" class="article">

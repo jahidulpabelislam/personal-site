@@ -42,10 +42,6 @@ section {
     transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
 }
 
-.input, input {
-    margin: 0 0 5px 0;
-}
-
 .input[type=file] {
     background: white;
 }
@@ -100,15 +96,17 @@ section {
     color: #cc151a;
 }
 
+#errors .error {
+    display: block;
+    border-radius: 10px;
+}
+
 .error {
     background-color: #cc151a;
     padding: 5px;
     text-align: left;
     display: inline-block;
-}
-
-#errors .error {
-    display: block;
+    color: white;
 }
 
 .errorDeleteButton {
@@ -176,8 +174,6 @@ section {
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
 }
-
-/* For mobile phones & some are for tablets */
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: 640px) {

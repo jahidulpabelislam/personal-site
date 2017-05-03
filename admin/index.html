@@ -22,8 +22,6 @@
 
         <section>
             <div class="container">
-                <!-- Div containing the information of any errors -->
-                <div id="errors"></div>
 
                 <div id="selectProjectContainer">
                     <input id="currentPage" type="hidden" name="page" disabled style="display:none" value="1">
@@ -44,19 +42,19 @@
                     <form id="projectForm">
                         <input type="hidden" name="projectName" id="projectID"  disabled style="display:none">
                         <label for="projectName">Project Name <span class="required">*</span></label>
-                        <input type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                        <input type="text" name="projectName" id="projectName" class="form-control" placeholder="myproject" tabindex="7" oninput="checkInputField(this);" required>
                         <label for="skills">Skills <span class="required">*</span></label>
-                        <input type="text" name="skills" id="skills" class="input" placeholder="skill1, skill2" tabindex="8" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                        <input type="text" name="skills" id="skills" class="form-control" placeholder="skill1, skill2" tabindex="8" oninput="checkInputField(this);" required>
                         <label for="description">Description <span class="required">*</span></label>
-                        <textarea name="description" id="description" class="input" placeholder="description" tabindex="9" oninput="window.portfolio.helperFunctions.checkInputField(this);" required></textarea>
+                        <textarea name="description" id="description" class="form-control" placeholder="description" tabindex="9" oninput="checkInputField(this);" required></textarea>
                         <label for="link">Link</label>
-                        <input type="text" name="link" id="link" class="input" placeholder="link" tabindex="10">
+                        <input type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10">
                         <label for="github">GitHub <span class="required">*</span></label>
-                        <input type="url" name="github" id="github" class="input" placeholder="github" tabindex="11" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                        <input type="url" name="github" id="github" class="form-control" placeholder="github" tabindex="11" oninput="checkInputField(this);" required>
                         <label for="download">Download</label>
-                        <input type="text" name="download" id="download" class="input" placeholder="download" tabindex="12">
+                        <input type="text" name="download" id="download" class="form-control" placeholder="download" tabindex="12">
                         <label for="date">Date <span class="required">*</span></label>
-                        <input type="date" name="date" id="date" class="input" placeholder="2016-01-30" tabindex="13" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                        <input type="date" name="date" id="date" class="form-control" placeholder="2016-01-30" tabindex="13" oninput="checkInputField(this);" required>
 
                         <p id="projectFormFeedback"></p>
 
@@ -66,23 +64,27 @@
 
                     <ul id="projectImages"></ul>
 
-                    <input type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15" style="display:none">
+                    <input type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*" tabindex="15" style="display:none">
                     <!-- Div containing the uploads from drag and drop -->
                     <div id="uploads"></div>
                 </div>
+
+                <!-- Div containing the information of any errors -->
+                <div id="errors"></div>
+
             </div>
         </section>
 
         <!-- The drag and drop area -->
-        <section id="dropZone"><h1>Drag And Drop Image Here To Upload As Profile Picture</h1></section>
+        <section id="dropZone"><h1>Drag And Drop Image Here To Upload A Slide for Project</h1></section>
 
         <section id="userFormDiv">
             <div class="container">
                 <form id="userForm">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="myusername" autofocus class="input" tabindex="1" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                    <input type="text" name="username" id="username" placeholder="myusername" autofocus class="form-control" tabindex="1" oninput="checkInputField(this);" required>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="window.portfolio.helperFunctions.checkInputField(this);" required>
+                    <input type="password" name="password" id="password" placeholder="mypassword" class="form-control" tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p id="userFormFeedback"></p>
                     <button id="logInButton" type="submit" value="Log In" class="btn btn-primary">Log In</button>

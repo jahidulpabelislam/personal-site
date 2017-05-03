@@ -325,7 +325,7 @@ function addPicture($data)
 
                         //update database with location of new picture
                         $db = new pdodb;
-                        $query = "INSERT INTO ProjectImage (File, ProjectID) VALUES (:file, :projectID);";
+                        $query = "INSERT INTO PortfolioProjectImage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
                         $bindings = array(":file" => $fileLocation, ":projectID" => $data["projectID"]);
                         $results = $db->query($query, $bindings);
 

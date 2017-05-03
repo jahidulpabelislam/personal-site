@@ -88,7 +88,6 @@ body {
   height: auto;
 }
 
-
 .navbar-toggle .icon-bar {
   @include transition(500ms);
   position: relative;
@@ -129,6 +128,10 @@ body {
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
+}
+
+header.jumbotron {
+  margin-bottom: 0
 }
 
 header p {
@@ -611,7 +614,7 @@ button {
 }
 
 .skills p:hover {
-  background-color: darken($primary-color, 20%);
+  background-color: darken($primary-color, 10%);
   @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
   color: white;
 }
@@ -719,16 +722,21 @@ button {
   color: black;
 }
 
+#searchLabel {
+  display: none;
+}
+
+#search * {
+  margin: 0;
+  z-index: 0;
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: 481px) {
 
   form {
     margin: auto;
     max-width: 439px;
-  }
-
-  #searchLabel {
-    width: 50%;
   }
 
   #search {
