@@ -232,7 +232,7 @@ var adminUsername = "",
                     date: date.value
                 },
                 load: load,
-                error: renderError,
+                error: renderError
             });
         } else {
             projectFormFeedback.innerHTML = "<span class='formFeedback error'>Fill in Required Inputs Fields.</span>";
