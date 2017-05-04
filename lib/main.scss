@@ -137,8 +137,6 @@ header.jumbotron h1 {
 }
 
 header.jumbotron p {
-  margin-bottom: 15px;
-  font-size: 21px;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   font-weight: 700;
 }
@@ -146,6 +144,10 @@ header.jumbotron p {
 section {
   @include flexbox();
   @include transition(1s);
+}
+
+#sectionInnerContainer {
+  width: 100%;
 }
 
 #socialMediaPage {
@@ -166,14 +168,12 @@ section {
 }
 
 #socialMediaLinks {
-  margin: 0;
   background: #EEEEEE url('/images/social.jpg') no-repeat center center scroll;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
-  @include border-radius(0);
-  border: none;
+  padding: 10px;
 }
 
 #socialMediaLinks h1 {
@@ -195,10 +195,12 @@ footer {
 
 .article {
   background-color: #f5f5f5;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #E0E0E0;
-  @include border-radius(5px);
+  padding: 40px 0;
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+}
+
+.article:nth-of-type(even) {
+  background-color: white;
 }
 
 h6 {
@@ -227,6 +229,7 @@ a.btn {
   -moz-transition: none;
   -o-transition: none;
   transition: none;
+  font-weight: 700;
 }
 
 p {
@@ -562,7 +565,7 @@ button {
   background-color: white;
   opacity: 1;
   cursor: pointer;
-  @include box-shadow(0 0 20px 0 rgba(0, 0, 0, 0.19));
+  @include box-shadow(0 0 20px 0 rgba(51, 122, 183, 0.58));
 }
 
 .previous {
@@ -752,6 +755,24 @@ button {
   z-index: 0;
 }
 
+.aInfo > * {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.project {
+  background-color: white;
+  padding: 10px;
+  @include box-shadow(0 0 10px 0 rgba(51, 122, 183, 0.2));
+  margin-top: 10px;
+  border: 1px solid #E0E0E0;
+  @include border-radius(5px);
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: 481px) {
 
@@ -767,7 +788,7 @@ button {
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 1200px) {
 
   #projects {
     @include flexbox();
@@ -782,31 +803,23 @@ button {
   }
 
   .project:nth-child(odd) {
-    margin: 0 5px 10px 0;
+    margin-right: 5px;
   }
 
   .project:nth-child(even) {
-    margin: 0 0 10px 5px;
-  }
-
-  .project:last-child {
-    margin-bottom: 0;
-  }
-
-  .project:nth-last-child(2):nth-child(odd) {
-    margin-bottom: 0;
+    margin-left: 5px;
   }
 
   .project:last-child:nth-child(odd) {
     margin-right: 0;
   }
 
-  .aInfo {
+  .aInfo > .container {
     @include flexbox();
     @include flexboxCenterAlign();
   }
 
-  .aInfo:nth-child(even) {
+  .aInfo:nth-child(even) > .container {
     -webkit-box-direction: reverse;
     -moz-box-direction: reverse;
     -ms-flex-direction: row-reverse;
@@ -814,11 +827,15 @@ button {
     flex-direction: row-reverse;
   }
 
-  .aInfo > div {
+  .aInfo > .container > * {
     width: 50%;
   }
 
-  .action > div {
+  .aInfo > .container > h3 {
+    margin: 0;
+  }
+
+  .action > .container > div {
     width: 49%;
     display: inline-block;
   }
