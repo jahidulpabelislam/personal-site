@@ -80,26 +80,29 @@ body {
     transform: rotate(-45deg);
 }
 
-.jumbotron {
+header.jumbotron {
     color: #FFFFFF;
-    background: #f5f5f5 url("/images/work.jpg") no-repeat center center fixed;
+    background: #337ab7 url("/images/work.jpg") no-repeat center center fixed;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-}
-
-header.jumbotron {
     margin-bottom: 0;
 }
 
-header p {
+header.jumbotron h1 {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+}
+
+header.jumbotron p {
     margin-bottom: 15px;
     font-size: 21px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
 }
 
 section {
-    margin-bottom: 10px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -128,21 +131,42 @@ section {
     margin: auto;
 }
 
+#socialMediaLinks {
+    margin: 0;
+    background: #EEEEEE url("/images/social.jpg") no-repeat center center fixed;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    border: none;
+}
+
+#socialMediaLinks h1 {
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+}
+
+#socialMediaLinks img {
+    margin: 25px 5px;
+    height: 60px;
+}
+
 footer {
     background-color: #f5f5f5;
     color: #777;
     border-top: 1px solid #e1e1e1;
 }
 
-footer img {
-    margin-top: 10px;
-}
-
 .article {
     background-color: #f5f5f5;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #E0E0E0;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -961,19 +985,7 @@ button {
     }
 
     footer > .container > div {
-        width: 33.3%;
-    }
-
-    footer img {
-        margin: 0;
-    }
-
-    #socialMediaLinks {
-        -webkit-box-ordinal-group: 2;
-        -moz-box-ordinal-group: 2;
-        -ms-flex-order: 2;
-        -webkit-order: 2;
-        order: 2;
+        width: 50%;
     }
 
     #links {
@@ -982,14 +994,16 @@ button {
         -ms-flex-order: 1;
         -webkit-order: 1;
         order: 1;
+        text-align: left;
     }
 
     #legal {
-        -webkit-box-ordinal-group: 3;
-        -moz-box-ordinal-group: 3;
-        -ms-flex-order: 3;
-        -webkit-order: 3;
-        order: 3;
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2;
+        text-align: right;
     }
 
     #socialMediaPage > .container {

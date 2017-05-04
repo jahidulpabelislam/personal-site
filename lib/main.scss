@@ -121,26 +121,29 @@ body {
   @include transform(rotate(-45deg));
 }
 
-.jumbotron {
+header.jumbotron {
   color: #FFFFFF;
-  background: #f5f5f5 url('/images/work.jpg') no-repeat center center fixed;
+  background: $primary-color url('/images/work.jpg') no-repeat center center fixed;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
-}
-
-header.jumbotron {
   margin-bottom: 0
 }
 
-header p {
+header.jumbotron h1 {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+}
+
+header.jumbotron p {
   margin-bottom: 15px;
   font-size: 21px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
 }
 
 section {
-  margin-bottom: 10px;
   @include flexbox();
   @include transition(1s);
 }
@@ -162,21 +165,39 @@ section {
   margin: auto;
 }
 
+#socialMediaLinks {
+  margin: 0;
+  background: #EEEEEE url('/images/social.jpg') no-repeat center center fixed;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  @include border-radius(0);
+  border: none;
+}
+
+#socialMediaLinks h1 {
+  color: white;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+}
+
+#socialMediaLinks img {
+  margin: 25px 5px;
+  height: 60px;
+}
+
 footer {
   background-color: #f5f5f5;
   color: #777;
   border-top: 1px solid #e1e1e1;
 }
 
-footer img {
-  margin-top: 10px;
-}
-
 .article {
   background-color: #f5f5f5;
   margin: 10px 0;
   padding: 10px;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #E0E0E0;
   @include border-radius(5px);
 }
 
@@ -812,24 +833,17 @@ button {
   }
 
   footer > .container > div {
-    width: 33.3%;
-  }
-
-  footer img {
-    margin: 0;
-  }
-
-  #socialMediaLinks {
-    @include order(2);
-
+    width: 50%;
   }
 
   #links {
     @include order(1);
+    text-align: left;
   }
 
   #legal {
-    @include order(3);
+    @include order(2);
+    text-align: right;
   }
 
   #socialMediaPage > .container {
