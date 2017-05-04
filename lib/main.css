@@ -82,7 +82,7 @@ body {
 
 header.jumbotron {
     color: #FFFFFF;
-    background: #337ab7 url("/images/work.jpg") no-repeat center center fixed;
+    background: #337ab7 url("/images/work.jpg") no-repeat center center scroll;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -133,7 +133,7 @@ section {
 
 #socialMediaLinks {
     margin: 0;
-    background: #EEEEEE url("/images/social.jpg") no-repeat center center fixed;
+    background: #EEEEEE url("/images/social.jpg") no-repeat center center scroll;
     -o-background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -896,7 +896,7 @@ button {
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1100px) {
     #projects {
         display: -webkit-box;
         display: -moz-box;
@@ -1027,6 +1027,14 @@ button {
 
     #snapchat {
         max-width: 200px;
+    }
+
+    header.jumbotron {
+        background-attachment: fixed;
+    }
+
+    #socialMediaLinks {
+        background-attachment: fixed;
     }
 }
 
