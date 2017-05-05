@@ -264,6 +264,13 @@ p {
     width: calc(100% - 5px);
 }
 
+.form-control:focus {
+    -webkit-box-shadow: 0 0 8px #337ab7;
+    -moz-box-shadow: 0 0 8px #337ab7;
+    -o-box-shadow: 0 0 8px #337ab7;
+    box-shadow: 0 0 8px #337ab7;
+}
+
 .form-control:focus.invalid {
     border-color: #e52525;
     -webkit-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
@@ -1118,7 +1125,7 @@ h3 {
     }
 
     #contactForm > .form-group {
-        width: 49%;
+        width: 49.7%;
         display: inline-block;
         vertical-align: top;
     }
