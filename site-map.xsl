@@ -12,28 +12,30 @@
                 <style type="text/css">
 
                     body {
-                        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
                     }
 
                     h1 {
-                        text-align: center;
+                    text-align: center;
                     }
 
                     table {
-                        padding: 0;
-                        margin: auto;
+                    padding: 0;
+                    margin: auto;
                     }
 
                     th {
-                        text-align: left;
+                    text-align: left;
                     }
 
                     a {
-                        color: black;
+                    color: black;
                     }
 
                 </style>
+
+
             </head>
             <body>
                 <!--Heading for page-->

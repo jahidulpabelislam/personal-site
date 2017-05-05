@@ -779,6 +779,16 @@ button {
   display: none;
 }
 
+#searchInput {
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+#searchSubmit {
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
 .aInfo > * {
   font-weight: 700;
 }
