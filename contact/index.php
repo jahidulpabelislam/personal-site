@@ -4,7 +4,7 @@ $keywords = "";
 $description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $description2 = "Send Your Feedback &amp; Enquires My Way.";
 include '../inc/header.php';
-            ?>
+?>
                 <div class="article">
                     <div class="container">
                         <h3>Form</h3>
@@ -17,7 +17,8 @@ include '../inc/header.php';
                             <div class="form-group">
                                 <label for="emailInput">Your Email Address <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
-                                <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1"
+                                <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com"
+                                       required tabindex="1"
                                        oninput="validateEmail(this.value);" id="emailInput"
                                        title="Email Address">
                                 <p id="emailFeedback" class="feedback error"></p>
@@ -25,21 +26,25 @@ include '../inc/header.php';
 
                             <div class="form-group">
                                 <label for="subjectInput">The Message Subject</label>
-                                <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" id="subjectInput"
+                                <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback"
+                                       tabindex="2" id="subjectInput"
                                        title="Subject of Message">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="messageFormGroup">
                                 <label for="messageInput">Your Message <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
-                                <textarea class="form-control" name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3"
+                                <textarea class="form-control" name="messageInput"
+                                          placeholder="e.g. Your site could do with more colour." required tabindex="3"
                                           oninput="validateMessage(this.value);" id="messageInput"
                                           title="The Message" rows="10"></textarea>
                                 <p id="messageFeedback" class="feedback error"></p>
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send</button>
+                            <button id="submit" type="submit" class="btn btn-primary"
+                                    data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send
+                            </button>
 
                         </form>
                     </div>
@@ -66,7 +71,8 @@ include '../inc/header.php';
                         </div>
                         <div>
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
-                                <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg">
+                                <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam"
+                                     class="socialMediaImg linkedinImg">
                                 <p class="socialMediaText" id="linkedinAt"> /jahidulpabelislam</p>
                             </a>
                         </div>
@@ -80,7 +86,8 @@ include '../inc/header.php';
                         </div>
                         <div>
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
-                                <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg">
+                                <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam"
+                                     class="socialMediaImg githubImg">
                                 <p class="socialMediaText" id="githubAt"> /jahidulpabelislam</p>
                             </a>
                         </div>

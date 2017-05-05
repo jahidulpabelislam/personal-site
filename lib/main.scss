@@ -795,14 +795,15 @@ h3 {
 /* For Tablets & Desktops */
 @media only screen and (min-width: 481px) {
 
-  form {
+  #contactForm {
     margin: auto;
     max-width: 439px;
   }
 
   #search {
-    width: 50%;
     max-width: 439px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -929,4 +930,18 @@ h3 {
   .socialMediaImg {
     height: 50px;
   }
+
+  #contactForm {
+    max-width: 800px;
+  }
+
+  #contactForm > .form-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  #contactForm > #messageFormGroup {
+    width: 100%;
+  }
+
 }
