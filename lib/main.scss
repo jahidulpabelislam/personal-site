@@ -295,12 +295,16 @@ button {
   display: inline-block;
 }
 
+#socialMediaPage a:hover, #socialMediaPage a:focus {
+  text-decoration: none;
+}
+
 .emailImg {
   @include border-radius(50%);
   background-color: black;
 }
 
-.emailLink:hover .emailImg {
+.emailLink:hover .emailImg{
   background-color: #0f7c10;
 }
 
@@ -767,7 +771,7 @@ h3 {
 .project {
   background-color: white;
   padding: 10px;
-  @include box-shadow(0 0 10px 0 rgba(51, 122, 183, 0.2));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
   margin-top: 10px;
   border: 1px solid #E0E0E0;
   @include border-radius(5px);
@@ -835,6 +839,27 @@ h3 {
     margin: 0;
   }
 
+  .linkContainer > .container {
+    @include flexbox();
+    @include flexboxCenterAlign();
+  }
+
+  .linkContainer:nth-child(even) > .container {
+    -webkit-box-direction: reverse;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .linkContainer > .container > * {
+    width: 50%;
+  }
+
+  .linkContainer > .container > h3 {
+    margin: 0;
+  }
+
   .action > .container > div {
     width: 49%;
     display: inline-block;
@@ -884,5 +909,9 @@ h3 {
 
   #socialMediaLinks {
     background-attachment: fixed;
+  }
+
+  .socialMediaImg {
+    height: 50px;
   }
 }

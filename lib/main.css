@@ -279,6 +279,10 @@ button {
     display: inline-block;
 }
 
+#socialMediaPage a:hover, #socialMediaPage a:focus {
+    text-decoration: none;
+}
+
 .emailImg {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -894,10 +898,10 @@ h3 {
 .project {
     background-color: white;
     padding: 10px;
-    -webkit-box-shadow: 0 0 10px 0 rgba(51, 122, 183, 0.2);
-    -moz-box-shadow: 0 0 10px 0 rgba(51, 122, 183, 0.2);
-    -o-box-shadow: 0 0 10px 0 rgba(51, 122, 183, 0.2);
-    box-shadow: 0 0 10px 0 rgba(51, 122, 183, 0.2);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     margin-top: 10px;
     border: 1px solid #E0E0E0;
     -webkit-border-radius: 5px;
@@ -982,6 +986,35 @@ h3 {
         margin: 0;
     }
 
+    .linkContainer > .container {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .linkContainer:nth-child(even) > .container {
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .linkContainer > .container > * {
+        width: 50%;
+    }
+
+    .linkContainer > .container > h3 {
+        margin: 0;
+    }
+
     .action > .container > div {
         width: 49%;
         display: inline-block;
@@ -1055,6 +1088,10 @@ h3 {
 
     #socialMediaLinks {
         background-attachment: fixed;
+    }
+
+    .socialMediaImg {
+        height: 50px;
     }
 }
 

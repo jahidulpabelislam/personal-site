@@ -5,9 +5,6 @@ $description = "Look at the Previous Projects of Jahidul Pabel Islam, a Web and 
 $description2 = "Look at My Skills in Action in My Previous Projects.";
 include '../inc/header.php';
 ?>
-
-
-
                 <div class="article">
                     <div class="container">
 
@@ -45,7 +42,6 @@ include '../inc/header.php';
                     </div>
                 </div>
 
-
                 <div id="expandedImageDivContainer">
                     <img class="slideShowNav" src="/images/previous.svg"
                          alt="Click to View Previous Image" id="expandedImagePrevious">
@@ -68,7 +64,6 @@ include '../inc/header.php';
                     </div>
 
                     <div id="slideShowBullets" class="slideShowBullets"></div>
-
                 </div>
 
                 <!-- The Scripts needed for the page -->
