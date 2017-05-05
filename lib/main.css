@@ -5,6 +5,10 @@ body {
 
 #nav {
     z-index: 1;
+    -webkit-box-shadow: 0 0 10px 0 black;
+    -moz-box-shadow: 0 0 10px 0 black;
+    -o-box-shadow: 0 0 10px 0 black;
+    box-shadow: 0 0 10px 0 black;
 }
 
 .container {
@@ -162,10 +166,10 @@ footer {
 .article {
     background-color: #f5f5f5;
     padding: 40px 0;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .article:nth-of-type(even) {
@@ -192,11 +196,11 @@ a > img {
     transition: all 0.3s ease-in-out;
 }
 
-a > img:hover {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+a:hover > img {
+    -webkit-box-shadow: 0 0 10px 0 black;
+    -moz-box-shadow: 0 0 10px 0 black;
+    -o-box-shadow: 0 0 10px 0 black;
+    box-shadow: 0 0 10px 0 black;
     cursor: pointer;
     opacity: 1;
 }
@@ -266,12 +270,14 @@ button {
 }
 
 .socialMediaImg {
-    height: 30px;
+    height: 40px;
+    background-color: black;
+    opacity: 1;
 }
 
 .socialMediaText {
-    color: black;
-    font-weight: bold;
+    color: #333;
+    font-weight: 700;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -288,7 +294,6 @@ button {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    background-color: black;
 }
 
 .emailLink:hover .emailImg {
@@ -298,10 +303,6 @@ button {
 .emailLink:hover .emailAddress {
     color: #0f7c10;
     text-decoration: underline;
-}
-
-.linkedinImg {
-    background-color: black;
 }
 
 .linkedinLink:hover .linkedinImg {
@@ -318,7 +319,6 @@ button {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    background-color: black;
 }
 
 .githubLink:hover .githubImg {
@@ -331,7 +331,6 @@ button {
 }
 
 #facebookImg {
-    background: black;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -348,7 +347,6 @@ button {
 }
 
 #twitterImg {
-    background: black;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -365,6 +363,7 @@ button {
 }
 
 #instagramImg {
+    background: white;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -405,10 +404,10 @@ button {
 }
 
 #snapchat:hover #snapcode {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
@@ -498,10 +497,10 @@ button {
 }
 
 .slideShowViewpointContainer:hover {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
@@ -625,7 +624,7 @@ button {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 0.8;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -635,13 +634,12 @@ button {
 }
 
 .slideShowNav:hover {
-    background-color: white;
     opacity: 1;
     cursor: pointer;
-    -webkit-box-shadow: 0 0 20px 0 rgba(51, 122, 183, 0.58);
-    -moz-box-shadow: 0 0 20px 0 rgba(51, 122, 183, 0.58);
-    -o-box-shadow: 0 0 20px 0 rgba(51, 122, 183, 0.58);
-    box-shadow: 0 0 20px 0 rgba(51, 122, 183, 0.58);
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .previous {
@@ -726,16 +724,16 @@ button {
 }
 
 .skills p:hover {
-    background-color: #285f8f;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    background-color: #2d6da3;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     color: white;
 }
 
 .skills p.searched {
-    background-color: #2d6da3;
+    background-color: #285f8f;
     color: white;
 }
 
@@ -877,13 +875,17 @@ button {
     color: black;
 }
 
-#searchLabel {
-    display: none;
+#search {
+    margin-bottom: 20px;
 }
 
 #search * {
     margin: 0;
     z-index: 0;
+}
+
+#searchLabel {
+    display: none;
 }
 
 .aInfo > * {
@@ -898,10 +900,10 @@ h3 {
 .project {
     background-color: white;
     padding: 10px;
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     margin-top: 10px;
     border: 1px solid #E0E0E0;
     -webkit-border-radius: 5px;

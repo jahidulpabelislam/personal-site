@@ -68,6 +68,7 @@ body {
 
 #nav {
   z-index: 1;
+  @include box-shadow(0 0 10px 0 rgb(0, 0, 0));
 }
 
 .container {
@@ -196,7 +197,7 @@ footer {
 .article {
   background-color: #f5f5f5;
   padding: 40px 0;
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
 }
 
 .article:nth-of-type(even) {
@@ -217,8 +218,8 @@ a > img {
   @include transition(.3s);
 }
 
-a > img:hover {
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+a:hover > img {
+  @include box-shadow(0 0 10px 0 rgb(0, 0, 0));
   cursor: pointer;
   opacity: 1;
 }
@@ -285,12 +286,14 @@ button {
 }
 
 .socialMediaImg {
-  height: 30px;
+  height: 40px;
+  background-color: black;
+  opacity: 1;
 }
 
 .socialMediaText {
-  color: black;
-  font-weight: bold;
+  color: #333;
+  font-weight: 700;
   @include transition(.3s);
   display: inline-block;
 }
@@ -301,20 +304,15 @@ button {
 
 .emailImg {
   @include border-radius(50%);
-  background-color: black;
 }
 
-.emailLink:hover .emailImg{
+.emailLink:hover .emailImg {
   background-color: #0f7c10;
 }
 
 .emailLink:hover .emailAddress {
   color: #0f7c10;
   text-decoration: underline;
-}
-
-.linkedinImg {
-  background-color: black;
 }
 
 .linkedinLink:hover .linkedinImg {
@@ -328,7 +326,6 @@ button {
 
 .githubImg {
   @include border-radius(50%);
-  background-color: black;
 }
 
 .githubLink:hover .githubImg {
@@ -341,7 +338,6 @@ button {
 }
 
 #facebookImg {
-  background: black;
   @include border-radius(5px);
 }
 
@@ -355,7 +351,6 @@ button {
 }
 
 #twitterImg {
-  background: black;
   @include border-radius(50%);
 }
 
@@ -369,6 +364,7 @@ button {
 }
 
 #instagramImg {
+  background: white;
   @include border-radius(8px);
 }
 
@@ -400,7 +396,7 @@ button {
 }
 
 #snapchat:hover #snapcode {
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
   cursor: pointer;
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
@@ -469,7 +465,7 @@ button {
 }
 
 .slideShowViewpointContainer:hover {
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.3));
   cursor: pointer;
 }
 
@@ -559,17 +555,16 @@ button {
   width: 30px;
   height: 30px;
   @include border-radius(50%);
-  opacity: 0.5;
+  opacity: 0.8;
   @include transition(.3s);
   position: absolute;
   top: calc(50% - 15px);
 }
 
 .slideShowNav:hover {
-  background-color: white;
   opacity: 1;
   cursor: pointer;
-  @include box-shadow(0 0 20px 0 rgba(51, 122, 183, 0.58));
+  @include box-shadow(0 0 20px 0 rgba(0, 0, 0, 0.3));
 }
 
 .previous {
@@ -642,13 +637,13 @@ button {
 }
 
 .skills p:hover {
-  background-color: darken($primary-color, 10%);
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+  background-color: darken($primary-color, 5%);
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
   color: white;
 }
 
 .skills p.searched {
-  background-color: darken($primary-color, 5%);
+  background-color: darken($primary-color, 10%);
   color: white;
 }
 
@@ -750,13 +745,17 @@ button {
   color: black;
 }
 
-#searchLabel {
-  display: none;
+#search {
+  margin-bottom: 20px;
 }
 
 #search * {
   margin: 0;
   z-index: 0;
+}
+
+#searchLabel {
+  display: none;
 }
 
 .aInfo > * {
@@ -771,7 +770,7 @@ h3 {
 .project {
   background-color: white;
   padding: 10px;
-  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
   margin-top: 10px;
   border: 1px solid #E0E0E0;
   @include border-radius(5px);
