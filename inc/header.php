@@ -58,7 +58,7 @@
         </nav>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron">
+        <header class="jumbotron" <?php echo "id='". $title ."'" ?>>
             <div class="container">
                 <h1><?php echo $title ?></h1>
                 <hr>
