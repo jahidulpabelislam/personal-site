@@ -242,16 +242,10 @@ p {
     color: #e52525;
 }
 
-#emailFeedback {
-    margin: 0;
-}
-
-#messageFeedback {
-    margin: 0;
-}
-
 .feedback {
     font-weight: 700;
+    margin: 0;
+    display: none;
 }
 
 .error {
