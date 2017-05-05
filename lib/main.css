@@ -333,11 +333,11 @@ button {
 }
 
 .linkedinLink:hover .linkedinImg {
-    background-color: #0278b5;
+    background-color: #007bb5;
 }
 
 .linkedinLink:hover #linkedinAt {
-    color: #0278b5;
+    color: #007bb5;
     text-decoration: underline;
 }
 
@@ -349,11 +349,11 @@ button {
 }
 
 .githubLink:hover .githubImg {
-    background-color: #E52525;
+    background-color: #bd2c00;
 }
 
 .githubLink:hover #githubAt {
-    color: #E52525;
+    color: #bd2c00;
     text-decoration: underline;
 }
 
@@ -381,20 +381,20 @@ button {
 }
 
 #twitter:hover #twitterAt {
-    color: #1da1f2;
+    color: #55acee;
     text-decoration: underline;
 }
 
 #twitter:hover #twitterImg {
-    background: #1da1f2;
+    background: #55acee;
 }
 
 #instagramImg {
     background: white;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    border-radius: 8px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -ms-border-radius: 13px;
+    border-radius: 13px;
 }
 
 #instagram:hover #instagramAt {
@@ -403,13 +403,13 @@ button {
 }
 
 #instagram:hover #instagramImg {
-    background-color: #9e40ba;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9e40ba), color-stop(100%, #fcb24e));
-    background: -webkit-linear-gradient(right top, #9e40ba, #fcb24e);
-    background: -moz-linear-gradient(bottom left, #9e40ba, #fcb24e);
-    background: -o-linear-gradient(bottom left, #9e40ba, #fcb24e);
-    background: -ms-linear-gradient(top, #9e40ba 0%, #fcb24e 100%);
-    background: linear-gradient(to bottom left, #9e40ba, #fcb24e);
+    background-color: #8a3ab9;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a3ab9), color-stop(100%, #fbad50));
+    background: -webkit-linear-gradient(right top, #8a3ab9, #fbad50);
+    background: -moz-linear-gradient(bottom left, #8a3ab9, #fbad50);
+    background: -o-linear-gradient(bottom left, #8a3ab9, #fbad50);
+    background: -ms-linear-gradient(top, #8a3ab9 0%, #fbad50 100%);
+    background: linear-gradient(to bottom left, #8a3ab9, #fbad50);
 }
 
 #snapchat {
@@ -450,7 +450,7 @@ button {
 }
 
 #snapchat:hover {
-    color: #f5f219;
+    color: #fffc00;
 }
 
 #xboxImg {
@@ -462,11 +462,11 @@ button {
 }
 
 #xbox:hover #xboxImg {
-    background-color: #0f7c10;
+    background-color: #107c10;
 }
 
 #xbox:hover #gamertag {
-    color: #0f7c10;
+    color: #107c10;
     text-decoration: underline;
 }
 
