@@ -9,6 +9,7 @@ body {
     -moz-box-shadow: 0 0 10px 0 black;
     -o-box-shadow: 0 0 10px 0 black;
     box-shadow: 0 0 10px 0 black;
+    background-color: white;
 }
 
 .container {
@@ -50,7 +51,7 @@ body {
 }
 
 .navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
-    background-color: #FFFFFF;
+    background-color: #888;
 }
 
 .navbar-toggle.collapsed .icon-bar:nth-of-type(4) {

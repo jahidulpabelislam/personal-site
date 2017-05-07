@@ -69,6 +69,7 @@ body {
 #nav {
   z-index: 1;
   @include box-shadow(0 0 10px 0 rgb(0, 0, 0));
+  background-color: white;
 }
 
 .container {
@@ -100,7 +101,7 @@ body {
 }
 
 .navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
-  background-color: #FFFFFF;
+  background-color: #888;
 }
 
 .navbar-toggle.collapsed .icon-bar:nth-of-type(4) {
