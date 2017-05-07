@@ -800,6 +800,7 @@ h3 {
   margin-top: 10px;
   border: 1px solid #E0E0E0;
   @include border-radius(5px);
+  display: none;
 }
 
 /* For Tablets & Desktops */

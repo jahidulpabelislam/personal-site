@@ -942,6 +942,7 @@ h3 {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px;
+    display: none;
 }
 
 /* For Tablets & Desktops */
