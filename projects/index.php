@@ -10,19 +10,18 @@ include '../inc/header.php';
 
                         <p>These are some of the pieces of work I have completed during my time as a developer.</p>
 
-                        <div>
-                            <form id="search">
-                                <div class="input-group">
-                                    <label id="searchLabel" for="search">Search for projects.</label>
-                                    <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">
-                                            <i class="glyphicon glyphicon-search"></i>
-                                        </button>
-                                    </div>
+                        <form id="search">
+                            <div class="input-group">
+                                <label id="searchLabel" for="search">Search for projects.</label>
+                                <input type="text" class="form-control" placeholder="Search for projects..."
+                                       id="searchInput">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit" id="searchSubmit">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
 
                         <div id="errors"></div>
                         <div id="projects"></div>
