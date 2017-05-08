@@ -89,6 +89,18 @@ body {
     transform: rotate(-45deg);
 }
 
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #337ab7;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #337ab7;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #337ab7;
+}
+
 header.jumbotron {
     color: #FFFFFF;
     background: #337ab7 url("/images/work.jpg") no-repeat center center scroll;

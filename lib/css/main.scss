@@ -124,6 +124,18 @@ body {
   @include transform(rotate(-45deg));
 }
 
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: $primary-color;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: $primary-color;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+  color: $primary-color;
+}
+
 header.jumbotron {
   color: #FFFFFF;
   background: $primary-color url('/images/work.jpg') no-repeat center center scroll;
