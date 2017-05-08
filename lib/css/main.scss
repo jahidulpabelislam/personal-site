@@ -84,6 +84,7 @@ body {
 
 #logo {
   height: 100%;
+  @include border-radius(50%);
 }
 
 #name {

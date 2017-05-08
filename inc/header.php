@@ -12,13 +12,13 @@
         <!-- Bootstrap stylesheet-->
         <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom stylesheet for site -->
-        <link href="/lib/main.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/lib/css/main.css" rel="stylesheet" title="style" media="all" type="text/css">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
-        <link rel="stylesheet" href="/lib/animate.min.css">
+        <link rel="stylesheet" href="/lib/css/animate.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
