@@ -23,7 +23,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/images/logo.png">
+        <link rel="icon" href="/images/favicon.png">
         <title><?php echo $title ?> | Jahidul Pabel Islam</title>
     </head>
 
@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png"
-                                                                             alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;'"; ?> ></a>
+                                                                             alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;' class='current'"; ?> ></a>
                     <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color: #337ab7;'"; ?> >Jahidul
                         Pabel
                         Islam</a>

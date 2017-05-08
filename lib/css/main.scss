@@ -85,6 +85,22 @@ body {
 #logo {
   height: 100%;
   @include border-radius(50%);
+  background: black;
+  border: 1px solid black;
+}
+
+#logoContainer:hover #logo {
+  background: $primary-color;
+  border-color: $primary-color;
+}
+
+#logo.current {
+  background: $primary-color;
+  border-color: $primary-color;
+}
+
+#logoContainer:hover #logo.current {
+  @include box-shadow(none);
 }
 
 #name {
@@ -124,11 +140,11 @@ body {
   @include transform(rotate(-45deg));
 }
 
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
   color: $primary-color;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
   color: $primary-color;
 }
 

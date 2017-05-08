@@ -31,6 +31,25 @@ body {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
+    background: black;
+    border: 1px solid black;
+}
+
+#logoContainer:hover #logo {
+    background: #337ab7;
+    border-color: #337ab7;
+}
+
+#logo.current {
+    background: #337ab7;
+    border-color: #337ab7;
+}
+
+#logoContainer:hover #logo.current {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
 }
 
 #name {
