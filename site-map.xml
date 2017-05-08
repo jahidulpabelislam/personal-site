@@ -28,7 +28,51 @@
     <!--A Page-->
     <url>
         <!--The URL of the page-->
+        <loc>http://jahidulpabelislam.comxa.com/projects/mind-map/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://jahidulpabelislam.comxa.com/projects/bubbles-bargain-world/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://jahidulpabelislam.comxa.com/projects/lials/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
         <loc>http://jahidulpabelislam.comxa.com/projects/muesli/</loc>
+        <!--The last modification date of page-->
+        <lastmod>2016-01-07</lastmod>
+        <!--How often the page is changed-->
+        <changefreq>monthly</changefreq>
+        <!--How important the page is to the site-->
+        <priority>1.0</priority>
+    </url>
+    <!--A Page-->
+    <url>
+        <!--The URL of the page-->
+        <loc>http://jahidulpabelislam.comxa.com/projects/izibalo-android/frame.html</loc>
         <!--The last modification date of page-->
         <lastmod>2016-01-07</lastmod>
         <!--How often the page is changed-->
