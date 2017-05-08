@@ -24,6 +24,8 @@
 
         <!-- the favicon for browsers -->
         <link rel="icon" href="/images/favicon.png">
+
+        <meta name="theme-color" content="#337ab7">
         <title><?php echo $title ?> | Jahidul Pabel Islam</title>
     </head>
 
