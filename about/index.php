@@ -8,10 +8,10 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <img src="../images/JahidulPabelIslam.jpg" id="imageOfMe" alt="Jahidul Pabel Islam">
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>My name is Jahidul Pabel Islam.</p>
                             <p>I'm 21 years old.</p>
                             <p>A Web and Software Developer.</p>
@@ -21,12 +21,12 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img
                                 src="../images/UoP.gif"
                                 alt="Logo of University of Portsmouth"></a>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>I'm currently a student, undertaking my third and final year of BSc (Hons) Web Technologies at University of Portsmouth.</p>
                         </div>
                     </div>
@@ -34,12 +34,12 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <a href="http://www.webuy.com" title="Link to CeX website." target="_blank"><img src="../images/CeX.png"
                                                                                                          id="cex-logo"
                                                                                                          alt="Logo of CeX"></a>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>While working Part Time at CeX as a Sales Assistant.</p>
                         </div>
                     </div>
@@ -47,10 +47,10 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>Based in Bognor Regis, West Sussex, South East Coast of England.</p>
                         </div>
                     </div>
@@ -58,10 +58,10 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <img src="../images/languages.png" alt="Image of 'hello' in different languages">
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                         </div>
                     </div>
@@ -69,9 +69,9 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3>Skills</h3>
+                        <h3 class="wow fadeInLeft" data-wow-delay="0.4s">Skills</h3>
 
-                        <div id="aboutSkills" class="skills">
+                        <div id="aboutSkills" class="skills wow fadeInRight" data-wow-delay="0.4s">
                             <p>HTML</p>
                             <p>CSS</p>
                             <p>JavaScript</p>
@@ -95,8 +95,8 @@ include '../inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3>Interests</h3>
-                        <div id="interests">
+                        <h3 class="wow fadeInLeft" data-wow-delay="0.4s">Interests</h3>
+                        <div id="interests" class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>Sports</p>
                             <p>Gaming</p>
                             <p>Programming</p>
@@ -108,11 +108,11 @@ include '../inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <a class="btn btn-info" href="/projects/">View My Work</a>
                         </div>
 
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a class="btn btn-danger" href="/contact/">Get in Touch</a>
                         </div>
                     </div>

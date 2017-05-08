@@ -5,7 +5,7 @@ $description = "e-Portfolio for Jahidul Pabel Islam, a Software Developer in Bog
 $description2 = "Jahidul Pabel Islam, a Web &amp; Software Developer.";
 include 'inc/header.php';
 ?>
-                <div class="article">
+                <div class="article wow fadeInLeft" data-wow-delay="0.6s">
                     <div class="container">
                         <h2 id="mainHello">Hello</h2>
                         <p id="afterMainHello">there everyone, welcome to my e-Portfolio. Thanks for clicking on my website.</p>
@@ -18,7 +18,7 @@ include 'inc/header.php';
                     </div>
                 </div>
 
-                <div id="projectPreview" class="article">
+                <div id="projectPreview" class="article wow fadeInRight" data-wow-delay="0.8s">
                     <h3>My Latest Projects</h3>
                     <div class="slideShowContainer">
                         <div class="slideShow">
@@ -37,8 +37,8 @@ include 'inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div><a class="btn btn-primary" href="/projects/">View My Work</a></div>
-                        <div><a class="btn btn-success" href="/about/">Learn About Me</a></div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn-primary" href="/projects/">View My Work</a></div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn-success" href="/about/">Learn About Me</a></div>
                     </div>
                 </div>
 

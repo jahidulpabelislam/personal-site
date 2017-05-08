@@ -16,8 +16,11 @@
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+
+        <link rel="stylesheet" href="/lib/animate.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
         <!-- the favicon for browsers -->
         <link rel="icon" href="/images/logo.png">
@@ -37,8 +40,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png"
-                                                                              alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;'"; ?> ></a>
-                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color:white;'"; ?> >Jahidul Pabel
+                                                                             alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;'"; ?> ></a>
+                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color: #5e5e5e;'"; ?> >Jahidul
+                        Pabel
                         Islam</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse ">
@@ -46,7 +50,8 @@
                         <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/"
                                                                                       title="Link to Home Page">Home</a></li>
                         <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/"
-                                                                                               title="Link to Projects Page">Projects</a></li>
+                                                                                          title="Link to Projects Page">Projects</a>
+                        </li>
                         <li <?php if ($title == "Contact") echo "class='active'"; ?> ><a href="/contact/"
                                                                                          title="Link to Contact Page">Contact</a>
                         </li>
@@ -58,15 +63,13 @@
         </nav>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron" <?php echo "id='". $title ."'" ?>>
+        <header class="jumbotron" <?php echo "id='" . $title . "'" ?>>
             <div class="container">
-                <h1><?php echo $title ?></h1>
+                <h1 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $title ?></h1>
                 <hr>
-                <p><?php echo $description2 ?></p>
+                <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $description2 ?></p>
             </div>
         </header>
 
         <section>
             <div id="sectionInnerContainer">
-
-

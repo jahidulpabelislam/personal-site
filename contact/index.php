@@ -14,7 +14,7 @@ include '../inc/header.php';
                         <!--validate using JavaScript on submit-->
                         <form id="contactForm" name="contactForm" method="post" onsubmit="return validateForm()">
 
-                            <div class="form-group">
+                            <div class="form-group wow fadeInLeft" data-wow-delay="0.4s">
                                 <label for="emailInput">Your Email Address <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com"
@@ -24,14 +24,14 @@ include '../inc/header.php';
                                 <p id="emailFeedback" class="feedback error"></p>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group wow fadeInRight" data-wow-delay="0.8s">
                                 <label for="subjectInput">The Message Subject</label>
                                 <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback"
                                        tabindex="2" id="subjectInput"
                                        title="Subject of Message">
                             </div>
 
-                            <div class="form-group" id="messageFormGroup">
+                            <div class="form-group wow fadeInDown" data-wow-delay="1.2s" id="messageFormGroup">
                                 <label for="messageInput">Your Message <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <textarea class="form-control" name="messageInput"
@@ -42,7 +42,7 @@ include '../inc/header.php';
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn-primary"
+                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s"
                                     data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send
                             </button>
 
@@ -52,10 +52,10 @@ include '../inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <h3>Drop me a old fashioned email.</h3>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink">
                                 <img src="../images/email.svg" alt="Email me" class="socialMediaImg emailImg">
                                 <p class="socialMediaText emailAddress"> jahidul.pabel.islam@hotmail.com</p>
@@ -66,10 +66,10 @@ include '../inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <h3>View my Linkedin profile.</h3>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
                                 <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam"
                                      class="socialMediaImg linkedinImg">
@@ -81,10 +81,10 @@ include '../inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <h3>View code for projects and follow future projects.</h3>
                         </div>
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
                                 <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam"
                                      class="socialMediaImg githubImg">
@@ -96,11 +96,11 @@ include '../inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
                             <a class="btn btn-primary" href="/projects/">View My Work</a>
                         </div>
 
-                        <div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a class="btn btn-warning" href="/about/">Learn About Me</a>
                         </div>
                     </div>
