@@ -72,9 +72,12 @@ section {
 
 .aUpload {
     background-color: white;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
     border-radius: 6px;
     padding: 5px;
-    border: solid #337CA0;
+    border: solid #337ab7;
     margin: 10px auto;
 }
 
@@ -89,8 +92,11 @@ section {
 }
 
 .failedUpload {
-    border: solid #e52525;
+    border: solid #d71a1a;
     background-color: white;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
     border-radius: 6px;
     margin: 10px auto;
     padding: 5px;
@@ -99,6 +105,9 @@ section {
 
 #errors .error {
     display: block;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
     border-radius: 10px;
 }
 
@@ -133,7 +142,7 @@ section {
 }
 
 #projectImages {
-    list-style: none;
+    padding: 0;
 }
 
 #projectImages > li {
@@ -142,6 +151,7 @@ section {
     background-color: white;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
     border-radius: 4px;
     margin: 5px 0;
     position: relative;
@@ -171,6 +181,7 @@ section {
     padding: 0;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
     border-radius: 50%;
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
@@ -189,7 +200,6 @@ section {
 
 /* For desktops */
 @media only screen and (min-width: 768px) {
-
     #projectImages > li {
         width: calc(50% - 5px);
         display: inline-block;
@@ -215,3 +225,5 @@ section {
         margin-right: 0;
     }
 }
+
+/*# sourceMappingURL=admin.css.map */

@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="/lib/css/main.css" />
 
         <!-- The stylesheet for the site -->
-        <link rel="stylesheet" type="text/css" href="lib/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="lib/css/admin.css" />
 
         <!-- The favicon for the site -->
         <link rel="icon" href="/images/favicon.png">
@@ -52,7 +52,7 @@
                                tabindex="8" oninput="checkInputField(this);" required>
                         <label for="description">Description <span class="required">*</span></label>
                         <textarea name="description" id="description" class="form-control" placeholder="description"
-                                  tabindex="9" oninput="checkInputField(this);" required></textarea>
+                                  tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
                         <label for="link">Link</label>
                         <input type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10">
                         <label for="github">GitHub <span class="required">*</span></label>
@@ -101,7 +101,7 @@
                            tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p id="userFormFeedback" class="feedback error"></p>
-                    <button id="logInButton" type="submit" value="Log In" class="btn btn-primary">Log In</button>
+                    <button id="logInButton" type="submit" value="Log In" class="btn btn-success">Log In</button>
                 </form>
             </div>
         </section>

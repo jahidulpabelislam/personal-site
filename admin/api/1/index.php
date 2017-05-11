@@ -64,15 +64,6 @@ switch ($path[0]) {
                 $results["meta"] = methodNotAllowed($method, $path);
         }
         break;
-    case "countProjects":
-        switch ($method) {
-            case "GET":
-                $results = countProjects($data);
-                break;
-            default:
-                $results["meta"] = methodNotAllowed($method, $path);
-        }
-        break;
     default:
         $results["meta"]["ok"] = false;
         $results["meta"]["status"] = 404;

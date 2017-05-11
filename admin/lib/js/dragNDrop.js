@@ -1,11 +1,7 @@
 "use strict";
 
 //send a image to API with the username and password of user
-var projectID = document.getElementById("projectID"),
-    uploads = document.getElementById("uploads"),
-    dropZone = document.getElementById("dropZone"),
-
-    sendImage = function(picture) {
+var sendImage = function(picture) {
 
         var form = new FormData();
         //add the picture
@@ -27,7 +23,7 @@ var projectID = document.getElementById("projectID"),
 
     //set image as failed upload div to display error
     renderFailedUpload = function(errorMessage) {
-        var div = createElement(uploads, "div", {className: "failedUpload"});
+        var div = createElement($("#uploads")[0], "div", {className: "failedUpload"});
 
         createElement(div, "p", {innerHTML: errorMessage});
 
@@ -36,7 +32,7 @@ var projectID = document.getElementById("projectID"),
 
     renderUploadPreview = function(file, picture) {
         //creates the element for dropped file
-        var div = createElement(uploads, "div", {className: "aUpload"});
+        var div = createElement($("#uploads")[0], "div", {className: "aUpload"});
 
         //shows the file name
         createElement(div, "p", {innerHTML: file.name});
@@ -123,8 +119,8 @@ var projectID = document.getElementById("projectID"),
         e.stopPropagation();
 
         //make drop zone visible
-        dropZone.style.zIndex = "10";
-        dropZone.style.opacity = "1";
+        $("#dropZone")[0].style.zIndex = "10";
+        $("#dropZone")[0].style.opacity = "1";
 
     },
 
@@ -134,9 +130,9 @@ var projectID = document.getElementById("projectID"),
         e.stopPropagation();
 
         //make drop zone invisible
-        dropZone.style.opacity = "0";
+        $("#dropZone")[0].style.opacity = "0";
         setTimeout(function() {
-            dropZone.style.zIndex = "-10";
+            $("#dropZone")[0].style.zIndex = "-10";
         }, 1000);
     },
 
@@ -173,5 +169,5 @@ var projectID = document.getElementById("projectID"),
         window.addEventListener("drop", drop);
 
         //when user leaves the area, make drop zone invisible
-        dropZone.addEventListener("dragleave", removeDropZone);
+        $("#dropZone")[0].addEventListener("dragleave", removeDropZone);
     };
