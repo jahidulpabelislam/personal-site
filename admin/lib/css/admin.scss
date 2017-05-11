@@ -117,6 +117,8 @@ section {
 #errors .error {
   display: block;
   @include border-radius(10px);
+  background: $error;
+  color: white;
 }
 
 .error {

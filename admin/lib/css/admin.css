@@ -109,6 +109,8 @@ section {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     border-radius: 10px;
+    background: #e52525;
+    color: white;
 }
 
 .error {

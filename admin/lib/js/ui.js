@@ -64,15 +64,15 @@ var adminUsername = "",
         delayExpand();
     },
 
-    //
+    //send the data, the function to do if data is valid and generic error message
     projectImageUploaded = function(result) {
-        //send the data, the function to do if data is valid and generic error message
+
         loopThroughData(result, renderProjectImage, renderError, "Error uploading image.");
     },
 
-    //
+    //send the data, the function to do if data is valid
     gotProjectImages = function(result) {
-        //send the data, the function to do if data is valid
+
         loopThroughData(result, renderProjectImage, renderError);
     },
 
@@ -80,7 +80,7 @@ var adminUsername = "",
     getProjectImages = function() {
         sendRequest({
             method: "GET",
-            url: "api/1/pictures/" + projectID.value,
+            url: "api/1/pictures/" + $("#projectID").val(),
             load: gotProjectImages,
             error: renderError
         });
@@ -93,13 +93,13 @@ var adminUsername = "",
         }
     },
 
+    //send the data, the function to do if data is valid
     gotProjectUpdate = function(result) {
-        //send the data, the function to do if data is valid
         loopThroughData(result, renderProject, renderError, "Error Updating the Project");
     },
 
     sendProjectUpdate = function(e) {
-        sendProject(e, "POST", gotProjectUpdate, projectID.value);
+        sendProject(e, "POST", gotProjectUpdate, $("#projectID").val());
     },
 
     setUpProjectForm = function() {
@@ -173,29 +173,30 @@ var adminUsername = "",
         e.stopPropagation();
 
         var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
-            projectNameValidation = checkInputField(projectName),
-            skillsValidation = checkInputField(skills),
-            descriptionValidation = checkInputField(description),
-            githubValidation = checkInputField(github),
-            dateValidation = checkInputField(date) && validDatePattern.test(date.value);
+            projectNameValidation = checkInputField($("#projectName")[0]),
+            skillsValidation = checkInputField($("#skills")[0]),
+            descriptionValidation = checkInputField($("#description")[0]),
+            githubValidation = checkInputField($("#github")[0]),
+            dateValidation = checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
 
         if (projectNameValidation && skillsValidation && descriptionValidation && githubValidation && dateValidation) {
             if (!projectID) {
                 projectID = "";
             }
+
             sendRequest({
                 method: method,
                 url: "api/1/projects/" + projectID,
                 query: {
                     username: adminUsername,
                     password: adminPassword,
-                    projectName: projectName.value,
-                    skills: skills.value,
-                    description: description.value,
-                    link: link.value,
-                    github: github.value,
-                    download: download.value,
-                    date: date.value
+                    projectName: $("#projectName").val(),
+                    skills: $("#skills").val(),
+                    description: $("#description").val(),
+                    link: $("#link").val(),
+                    github: $("#github").val(),
+                    download: $("#download").val(),
+                    date: $("#date").val()
                 },
                 load: load,
                 error: renderError
@@ -254,27 +255,18 @@ var adminUsername = "",
     //render a project selection
     renderProjectSelection = function(project) {
 
-        var div = createElement(selectProjectForm, "div");
+        var div = createElement($("#selectProjectForm")[0], "div");
 
         createElement(div, "label", {innerHTML: project.Name, htmlFor: project.ID});
 
         createElement(div, "input", {id: project.ID, type: "radio", name: "project", value: project.ID});
     },
 
-    clickedPagination = function() {
-        sendRequest({
-            method: "GET",
-            url: "api/1/projects/",
-            load: gotProjects,
-            query: {page: $("#currentPage").val()}
-        });
-    },
-
     addPagination = function(count) {
         if ((parseInt(count)) > 10) {
 
             var ul = createElement($("#pagination")[0], "ul", {className: "pagination"}),
-                page = parseInt(currentPage.value),
+                page = parseInt($("#currentPage").val()),
                 pageNum = 1,
                 i,
                 attributes = {};
@@ -286,7 +278,7 @@ var adminUsername = "",
 
                 previousA.addEventListener("click", function() {
                     $("#currentPage").val(page - 1);
-                    clickedPagination();
+                    getProjectList();
                 });
             }
 
@@ -302,7 +294,7 @@ var adminUsername = "",
                 a.addEventListener("click", function(e) {
 
                     $("#currentPage").val(e.target.innerHTML);
-                    clickedPagination();
+                    getProjectList();
                 });
             }
 
@@ -313,7 +305,7 @@ var adminUsername = "",
 
                 nextA.addEventListener("click", function() {
                     $("#currentPage").val(page + 1);
-                    clickedPagination();
+                    getProjectList();
                 });
             }
 
@@ -325,7 +317,8 @@ var adminUsername = "",
 
     //
     gotProjects = function(result) {
-        $("#selectProjectForm, #selectProjectFeedback, #pagination").text("");
+        $("#selectProjectForm, #pagination").text("");
+        $("#selectProjectFeedback").hide("fast");
         $("#projectFormContainer").hide();
         $("#selectProjectContainer").show();
         $("#addButton, #editButton, #deleteButton").off();
@@ -362,7 +355,12 @@ var adminUsername = "",
         dragNDropStop();
 
         //sends a object with necessary data to XHR
-        sendRequest({method: "GET", url: "api/1/projects", load: gotProjects});
+        sendRequest({
+            method: "GET",
+            url: "api/1/projects/",
+            load: gotProjects,
+            query: {page: $("#currentPage").val() || 1}
+        });
     },
 
     //after user has attempted to log in
