@@ -4,42 +4,10 @@
 var adminUsername = "",
     adminPassword = "",
 
-    //get elements for later use
-    userForm = document.getElementById("userForm"),
-    password = document.getElementById("password"),
-    username = document.getElementById("username"),
-    userFormDiv = document.getElementById("userFormDiv"),
-    userFormFeedback = document.getElementById("userFormFeedback"),
-    addButton = document.getElementById("addButton"),
-    deleteButton = document.getElementById("deleteButton"),
-    editButton = document.getElementById("editButton"),
-    selectProjectForm = document.getElementById("selectProjectForm"),
-    selectProjectContainer = document.getElementById("selectProjectContainer"),
-    selectProjectFeedback = document.getElementById("selectProjectFeedback"),
-    projectFormFeedback = document.getElementById("projectFormFeedback"),
-    projectButton = document.getElementById("projectButton"),
-    imageUpload = document.getElementById("imageUpload"),
-    projectFormContainer = document.getElementById("projectFormContainer"),
-    backButton = document.getElementById("backButton"),
-    errors = document.getElementById("errors"),
-    uploads = document.getElementById("uploads"),
-    projectImages = document.getElementById("projectImages"),
-    projectID = document.getElementById("projectID"),
-    projectName = document.getElementById("projectName"),
-    skills = document.getElementById("skills"),
-    description = document.getElementById("description"),
-    link = document.getElementById("link"),
-    github = document.getElementById("github"),
-    download = document.getElementById("download"),
-    date = document.getElementById("date"),
-    projectForm = document.getElementById("projectForm"),
-    currentPage = document.getElementById("currentPage"),
-    pagination = document.getElementById("pagination"),
-
     //prints out a error message provided
     renderError = function(error) {
         //create the error message
-        var errorMessage = createElement(errors, "p", {className: "formFeedback error", innerHTML: error}),
+        var errorMessage = createElement($("#errors")[0], "p", {className: "formFeedback error", innerHTML: error}),
 
             //create a button to delete error message
             errorDeleteButton = createElement(errorMessage, "span", {className: "errorDeleteButton", innerHTML: "X"});
@@ -71,7 +39,7 @@ var adminUsername = "",
     deleteProjectImage = function(projectImage) {
         sendRequest({
             method: "POST",
-            url: "pictures/" + projectImage.ProjectID,
+            url: "api/1/pictures/" + projectImage.ProjectID,
             query: {username: adminUsername, password: adminPassword, file: projectImage.File},
             load: deletedProjectImage,
             error: renderError
@@ -80,7 +48,7 @@ var adminUsername = "",
 
     //render a project image
     renderProjectImage = function(projectImage) {
-        var imageContainer = createElement(projectImages, "li", {id: projectImage.File}),
+        var imageContainer = createElement($("#projectImages")[0], "li", {id: projectImage.File}),
 
             imageDeleteButton = createElement(imageContainer, "button", {
                 className: "btn btn-danger deleteProjectImg",
@@ -90,7 +58,6 @@ var adminUsername = "",
         createElement(imageContainer, "img", {src: projectImage.File});
 
         imageDeleteButton.addEventListener("click", function() {
-            console.log(projectImage);
             deleteProjectImage(projectImage);
         });
 
@@ -113,7 +80,7 @@ var adminUsername = "",
     getProjectImages = function() {
         sendRequest({
             method: "GET",
-            url: "pictures/" + projectID.value,
+            url: "api/1/pictures/" + projectID.value,
             load: gotProjectImages,
             error: renderError
         });
@@ -121,8 +88,8 @@ var adminUsername = "",
 
     //send event to render image upload preview
     renderProjectImageUploadPreview = function() {
-        for (var i = 0; i < imageUpload.files.length; i++) {
-            checkFile(imageUpload.files[i]);
+        for (var i = 0; i < $("#imageUpload")[0].files.length; i++) {
+            checkFile($("#imageUpload")[0].files[i]);
         }
     },
 
@@ -136,49 +103,48 @@ var adminUsername = "",
     },
 
     setUpProjectForm = function() {
+        $("#projectFormContainer").show();
+        $("#selectProjectContainer").hide();
 
-        projectFormContainer.style.display = "block";
-        selectProjectContainer.style.display = "none";
+        $("#backButton").off();
+        $("#backButton").click(getProjectList);
 
-        backButton.addEventListener("click", getProjectList);
+        $("#projectName, #skills, #description, #github, #date").removeClass("invalid");
 
-        projectName.classList.remove("invalid");
-        skills.classList.remove("invalid");
-        description.classList.remove("invalid");
-        github.classList.remove("invalid");
-        date.classList.remove("invalid");
-
-        projectImages.innerHTML = "";
+        $("#projectImages").text("");
 
         delayExpand();
     },
 
     renderProject = function(project) {
-        projectID.value = project.ID;
-        projectName.value = project.Name;
-        skills.value = project.Skills;
-        description.value = project.Description;
-        link.value = project.Link;
-        github.value = project.GitHub;
-        download.value = project.Download;
-        date.value = project.Date;
+        $("#projectFormFeedback").hide("fast");
 
-        imageUpload.style.display = "block";
-        imageUpload.addEventListener("change", renderProjectImageUploadPreview);
+        $("#projectID").val(project.ID);
+        $("#projectName").val(project.Name);
+        $("#skills").val(project.Skills);
+        $("#description").val(project.Description);
+        $("#link").val(project.Link);
+        $("#github").val(project.GitHub);
+        $("#download").val(project.Download);
+        $("#date").val(project.Date);
 
-        projectButton.innerHTML = "Update Project";
+        $("#imageUpload").show();
+        $("#imageUpload").off();
+        $("#imageUpload").change(renderProjectImageUploadPreview);
+
+        $("#projectButton").text("Update Project");
         dragNDropSetUp();
 
         getProjectImages();
 
-        projectForm.removeEventListener("submit", addProject);
-        projectForm.addEventListener("submit", sendProjectUpdate);
+        $("#projectForm").off();
+        $("#projectForm").submit(sendProjectUpdate);
 
         setUpProjectForm();
     },
 
     gotProject = function(result) {
-        projectImages.innerHTML = "";
+        $("#projectImages").text("");
         //send the data, the function to do if data is valid
         loopThroughData(result, renderProject, renderError, "Error Getting the Project");
     },
@@ -187,13 +153,13 @@ var adminUsername = "",
         if (document.querySelector('input[name = "project"]:checked')) {
             sendRequest({
                 method: "GET",
-                url: "projects/" + document.querySelector('input[name = "project"]:checked').value,
+                url: "api/1/projects/" + document.querySelector('input[name = "project"]:checked').value,
                 load: gotProject,
                 error: renderError
             });
-            projectFormFeedback.innerHTML = "";
+            $("#selectProjectFeedback").hide("fast");
         } else {
-            selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Select A Project to Edit.</span>";
+            $("#selectProjectFeedback").text("Select A Project to Edit.").show("fast");
         }
     },
 
@@ -219,7 +185,7 @@ var adminUsername = "",
             }
             sendRequest({
                 method: method,
-                url: "projects/" + projectID,
+                url: "api/1/projects/" + projectID,
                 query: {
                     username: adminUsername,
                     password: adminPassword,
@@ -235,7 +201,7 @@ var adminUsername = "",
                 error: renderError
             });
         } else {
-            projectFormFeedback.innerHTML = "<span class='formFeedback error'>Fill in Required Inputs Fields.</span>";
+            $("#projectFormFeedback").text("Fill in Required Inputs Fields.").show("fast");
         }
 
     },
@@ -247,12 +213,11 @@ var adminUsername = "",
     setUpAddProject = function() {
         setUpProjectForm();
 
-        projectID.value = projectName.value = skills.value = description.value = "";
-        link.value = github.value = download.value = date.value = "";
+        $("#projectID, #projectName, #skills, #description, #link, #github, #download, #date").val("");
 
-        projectButton.innerHTML = "Add Project";
-        projectForm.removeEventListener("submit", sendProjectUpdate);
-        projectForm.addEventListener("submit", addProject);
+        $("#projectButton").text("Add Project");
+        $("#projectForm").off();
+        $("#projectForm").submit(addProject);
     },
 
     renderProjectDelete = function(result) {
@@ -274,13 +239,13 @@ var adminUsername = "",
         if (document.querySelector('input[name = "project"]:checked')) {
             sendRequest({
                 method: "POST",
-                url: "projects/" + document.querySelector('input[name = "project"]:checked').value,
+                url: "api/1/projects/" + document.querySelector('input[name = "project"]:checked').value,
                 query: {username: adminUsername, password: adminPassword, method: "DELETE"},
                 load: renderProjectDelete
             });
-            selectProjectFeedback.innerHTML = "";
+            $("#selectProjectFeedback").hide("fast");
         } else {
-            selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Select A Project To Delete.</span>";
+            $("#selectProjectFeedback").text("Select A Project To Delete.").show("fast");
         }
 
         delayExpand();
@@ -296,10 +261,19 @@ var adminUsername = "",
         createElement(div, "input", {id: project.ID, type: "radio", name: "project", value: project.ID});
     },
 
+    clickedPagination = function() {
+        sendRequest({
+            method: "GET",
+            url: "api/1/projects/",
+            load: gotProjects,
+            query: {page: $("#currentPage").val()}
+        });
+    },
+
     addPagination = function(count) {
         if ((parseInt(count)) > 10) {
 
-            var ul = createElement(pagination, "ul", {className: "pagination"}),
+            var ul = createElement($("#pagination")[0], "ul", {className: "pagination"}),
                 page = parseInt(currentPage.value),
                 pageNum = 1,
                 i,
@@ -311,13 +285,8 @@ var adminUsername = "",
                     previousA = createElement(previousLi, "a", {innerHTML: "Previous"});
 
                 previousA.addEventListener("click", function() {
-                    sendRequest({
-                        method: "GET",
-                        url: "projects/",
-                        load: gotProjects,
-                        query: {page: page - 1}
-                    });
-                    currentPage.value = page - 1;
+                    $("#currentPage").val(page - 1);
+                    clickedPagination();
                 });
             }
 
@@ -331,13 +300,9 @@ var adminUsername = "",
 
                     a = createElement(li, "a", {innerHTML: pageNum});
                 a.addEventListener("click", function(e) {
-                    sendRequest({
-                        method: "GET",
-                        url: "projects/",
-                        load: gotProjects,
-                        query: {page: e.target.innerHTML}
-                    });
-                    currentPage.value = e.target.innerHTML;
+
+                    $("#currentPage").val(e.target.innerHTML);
+                    clickedPagination();
                 });
             }
 
@@ -347,25 +312,23 @@ var adminUsername = "",
                     nextA = createElement(nextLi, "a", {innerHTML: "Next"});
 
                 nextA.addEventListener("click", function() {
-                    sendRequest({
-                        method: "GET",
-                        url: "projects/",
-                        load: gotProjects,
-                        query: {page: page + 1}
-                    });
-                    currentPage.value = page + 1;
+                    $("#currentPage").val(page + 1);
+                    clickedPagination();
                 });
             }
 
-            pagination.style.display = "block";
+            $("#pagination").show();
         } else {
-            pagination.style.display = "none";
+            $("#pagination").hide();
         }
     },
 
     //
     gotProjects = function(result) {
-        selectProjectForm.innerHTML = pagination.innerHTML = "";
+        $("#selectProjectForm, #selectProjectFeedback, #pagination").text("");
+        $("#projectFormContainer").hide();
+        $("#selectProjectContainer").show();
+        $("#addButton, #editButton, #deleteButton").off();
 
         //send the data, the function to do if data is valid
         var dataExists = loopThroughData(result, renderProjectSelection, renderError);
@@ -374,38 +337,32 @@ var adminUsername = "",
         if (dataExists === false && !result.meta.feedback) {
 
             //assume there's no error and no projects to show
-            selectProjectFeedback.innerHTML = "<span class='formFeedback error'>Sorry, no Projects to show.</span>";
+            $("#selectProjectFeedback").text("Sorry, no Projects to show.").show("fast");
 
-            editButton.style.display = deleteButton.style.display = "none";
+            $("#editButton, #deleteButton").hide();
 
-            addButton.innerHTML = "Add A Project.";
+            $("#addButton").text("Add A Project.");
 
         } else {
-            editButton.addEventListener("click", getProject);
-            deleteButton.addEventListener("click", deleteProject);
-            editButton.style.display = deleteButton.style.display = "inline-block";
+            $("#editButton").click(getProject);
+            $("#deleteButton").click(deleteProject);
+            $("#editButton, #deleteButton").css("display", "inline-block");
 
             if (result.count) {
                 addPagination(result.count);
             }
         }
 
-        addButton.addEventListener("click", setUpAddProject);
+        $("#addButton").click(setUpAddProject);
 
         delayExpand();
     },
 
     getProjectList = function() {
         dragNDropStop();
-        selectProjectForm.innerHTML = selectProjectFeedback.innerHTML = "";
-        projectFormContainer.style.display = "none";
-        selectProjectContainer.style.display = "block";
-
-        imageUpload.value = projectFormFeedback.innerHTML = uploads.innerHTML = "";
-        imageUpload.style.display = "none";
 
         //sends a object with necessary data to XHR
-        sendRequest({method: "GET", url: "projects", load: gotProjects});
+        sendRequest({method: "GET", url: "api/1/projects", load: gotProjects});
     },
 
     //after user has attempted to log in
@@ -418,57 +375,51 @@ var adminUsername = "",
             adminUsername = result.rows.username;
             adminPassword = result.rows.password;
 
-            userFormFeedback.innerHTML = "";
-
             //make the log in/sign up form not visible
-            userFormDiv.style.display = "none";
+            $("#userFormDiv").hide();
 
             getProjectList();
         }
         //check if feedback was provided
         else if (result.meta.feedback) {
-            userFormFeedback.innerHTML = "<span class='formFeedback error'>" + result.meta.feedback + "</span>";
+            $("#userFormFeedback").text(result.meta.feedback).show("fast");
         }
         //else print generic error message
         else {
-            userFormFeedback.innerHTML = "<span class='formFeedback error'>Error logging you in.</span>";
+            $("#userFormFeedback").text("Error logging you in.").show("fast");
         }
-    },
+    };
 
-    //post a new user or log in user
-    logIn = function(e) {
+//post a new user or log in user
+
+//set up site
+$(window).load(function() {
+    $("#userForm").submit(function(e) {
         e.preventDefault();
         e.stopPropagation();
 
         //checks if inputs both are empty
-        if (!checkInputField(username) && !checkInputField(password)) {
-            userFormFeedback.innerHTML = "<span class='formFeedback error'>Input fields needs to be filled.</span>";
+        if (!checkInputField($("#username")[0]) && !checkInputField($("#password")[0])) {
+            $("#userFormFeedback").text("Input fields needs to be filled.").show("fast");
         }
         //else checks if username input is empty
-        else if (!checkInputField(username)) {
-            userFormFeedback.innerHTML = "<span class='formFeedback error'>Username field needs to be filled.</span>";
+        else if (!checkInputField($("#username")[0])) {
+            $("#userFormFeedback").text("Username field needs to be filled.").show("fast");
         }
         //else checks if password input is empty
-        else if (!checkInputField(password)) {
-            userFormFeedback.innerHTML = "<span class='formFeedback error'>Password field needs to be filled.</span>";
+        else if (!checkInputField($("#password")[0])) {
+            $("#userFormFeedback").text("Password field needs to be filled.").show("fast");
         }
         //else inputs are filled
         else {
-            userFormFeedback.innerHTML = "";
+            $("#userFormFeedback").hide("fast");
             //sends a object with necessary data to XHR
             sendRequest({
                 method: "POST",
-                url: "login",
-                query: {username: username.value, password: password.value},
+                url: "api/1/login",
+                query: {username: $("#username").val(), password: $("#password").val()},
                 load: loggedIn
             });
         }
-
-    },
-
-    //set up site
-    adminUISetup = function() {
-        userForm.addEventListener("submit", logIn);
-    };
-
-window.addEventListener("load", adminUISetup);
+    });
+});

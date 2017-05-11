@@ -18,7 +18,7 @@ var projectID = document.getElementById("projectID"),
         //sends a object with necessary data to XHR
         sendRequest({
             method: "POST",
-            url: "pictures/" + projectID.value,
+            url: "api/1/pictures/" + $("#projectID").val(),
             query: form,
             data: "file",
             load: projectImageUploaded

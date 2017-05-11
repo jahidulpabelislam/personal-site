@@ -4,6 +4,7 @@ body {
     margin: auto;
     text-align: center;
 }
+
 h1 {
     margin: auto;
     color: white;
@@ -60,7 +61,7 @@ section {
     margin-top: 5px;
 }
 
-#selectProjectForm > div > *{
+#selectProjectForm > div > * {
     vertical-align: middle;
     margin: 5px;
 }
@@ -88,12 +89,12 @@ section {
 }
 
 .failedUpload {
-    border: solid #cc151a;
+    border: solid #e52525;
     background-color: white;
     border-radius: 6px;
     margin: 10px auto;
     padding: 5px;
-    color: #cc151a;
+    color: #e52525;
 }
 
 #errors .error {
@@ -102,11 +103,13 @@ section {
 }
 
 .error {
-    background-color: #cc151a;
     padding: 5px;
-    text-align: left;
-    display: inline-block;
-    color: white;
+}
+
+#userFormFeedback {
+    text-align: center;
+    margin: 5px;
+    color: #e52525;
 }
 
 .errorDeleteButton {
@@ -125,7 +128,7 @@ section {
     display: none;
 }
 
-#projectFormContainer  {
+#projectFormContainer {
     display: none;
 }
 
@@ -177,7 +180,7 @@ section {
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: 640px) {
-    #errors, #uploads, #projectFormContainer, #noProjectsDiv {
+    #errors, #uploads, #projectFormContainer {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
