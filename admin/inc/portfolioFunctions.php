@@ -4,29 +4,6 @@
  * @author Jahidul Pabel Islam
 */
 
-//contains the different functions for the API
-
-//get a particular project defined by $projectID
-function getProject($projectID)
-{
-    $db = new pdodb;
-    $query = "SELECT * FROM PortfolioProject WHERE ID = :projectID;";
-    $bindings = array(':projectID' => $projectID);
-    $result = $db->query($query, $bindings);
-
-    //check if database provided any meta data if so no problem with executing query but no project found
-    if ($result["count"] <= 0 && !isset($result["meta"])) {
-        $result["meta"]["ok"] = false;
-        $result["meta"]["status"] = 404;
-        $result["meta"]["feedback"] = "No project found with ${projectID} as ID.";
-        $result["meta"]["message"] = "Not Found";
-    } else {
-        $result["meta"]["ok"] = true;
-    }
-
-    return $result;
-}
-
 //gets a user, either trying to log in or trying to get information of a user
 function login($data)
 {
@@ -52,13 +29,35 @@ function login($data)
     return $results;
 }
 
+//get a particular project defined by $projectID
+function getProject($projectID)
+{
+    $db = new pdodb;
+    $query = "SELECT * FROM PortfolioProject WHERE ID = :projectID;";
+    $bindings = array(':projectID' => $projectID);
+    $result = $db->query($query, $bindings);
+
+    //check if database provided any meta data if so no problem with executing query but no project found
+    if ($result["count"] <= 0 && !isset($result["meta"])) {
+        $result["meta"]["ok"] = false;
+        $result["meta"]["status"] = 404;
+        $result["meta"]["feedback"] = "No project found with ${projectID} as ID.";
+        $result["meta"]["message"] = "Not Found";
+    } else {
+        $result["rows"][0]["pictures"] = getPictures($projectID);
+
+        $result["meta"]["ok"] = true;
+    }
+    return $result;
+}
+
 //gets all projects but limited
 function getProjects($data)
 {
     if (isset($data["limit"])) {
         $limit = min(abs(intval($data["limit"])), 10);
     }
-    if (!isset($limit) || !is_int($limit) || $limit < 1 ) {
+    if (!isset($limit) || !is_int($limit) || $limit < 1) {
         $limit = 10;
     }
 
@@ -109,6 +108,13 @@ function getProjects($data)
         $count = $db->query($query);
         $results["count"] = $count["rows"][0]["Count"];
 
+        //loop through each project and the projects images
+        for ($i = 0; $i < count($results["rows"]); $i++) {
+
+            //run the function provided as data exists and is valid
+            $results["rows"][$i]["pictures"] = getPictures($results["rows"][$i]["ID"]);
+        }
+
         $results["meta"]["ok"] = true;
     }
 
@@ -141,8 +147,7 @@ function addProject($data)
                 $results["meta"]["status"] = 201;
                 $results["meta"]["message"] = "Created";
 
-            }
-            //else error adding goal
+            } //else error adding goal
             else {
 
                 //check if database provided any meta data if so problem with executing query
@@ -153,8 +158,7 @@ function addProject($data)
 
         }
 
-    }
-    //else data was not provided
+    } //else data was not provided
     else {
         $results["meta"] = dataNotProvided($dataNeeded);
     }
@@ -186,8 +190,7 @@ function editProject($data)
                 if ($results["count"] > 0) {
                     $results = getProject($data["projectID"]);
                     $results["meta"]["ok"] = true;
-                }
-                //error updating goal
+                } //error updating goal
                 else {
                     //check if database provided any meta data if so problem with executing query
                     if (!isset($project["meta"])) {
@@ -196,8 +199,7 @@ function editProject($data)
                 }
             }
         }
-    }
-    //else data was not provided
+    } //else data was not provided
     else {
         $results["meta"] = dataNotProvided($dataNeeded);
     }
@@ -236,8 +238,7 @@ function deleteProject($data)
                     $results["meta"]["ok"] = true;
 
                     $results["rows"]["projectID"] = $data["projectID"];
-                }
-                //error deleting goal
+                } //error deleting goal
                 else {
                     //check if database provided any meta data if so problem with executing query
                     if (!isset($results["meta"])) {
@@ -246,8 +247,7 @@ function deleteProject($data)
                 }
             }
         }
-    }
-    //else data was not provided
+    } //else data was not provided
     else {
         $results["meta"] = dataNotProvided($dataNeeded);
     }
@@ -255,40 +255,13 @@ function deleteProject($data)
     return $results;
 }
 
-function getPictures($data)
+function getPictures($projectID)
 {
-    //checks if requests needed are present and not empty
-    $dataNeeded = array("projectID");
-    if (checkData($data, $dataNeeded)) {
-
-        //get goal provided
-        $results = getProject($data["projectID"]);
-        if ($results["count"] > 0) {
-
-            if (isset($data["limit"])) {
-                $limit = min(abs(intval($data["limit"])), 15);
-            }
-            if (!isset($limit) || !is_int($limit) || $limit < 0 ) {
-                $limit = 15;
-            }
-
-            $db = new pdodb;
-            $query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID LIMIT $limit;";
-            $bindings[':projectID'] = $data["projectID"];
-            $results = $db->query($query, $bindings);
-
-            //check if database provided any meta data if not assume query all ok
-            if (!isset($results["meta"])) {
-                $results["meta"]["ok"] = true;
-            }
-        }
-    }
-    //else data was not provided
-    else {
-        $results["meta"] = dataNotProvided($dataNeeded);
-    }
-
-    return $results;
+    $db = new pdodb;
+    $query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID ORDER BY Number;";
+    $bindings[":projectID"] = $projectID;
+    $results = $db->query($query, $bindings);
+    return $results["rows"];
 }
 
 //upload a picture a user has uploaded as their profile picture
@@ -340,21 +313,18 @@ function addPicture($data)
                             $results["meta"]["message"] = "Created";
 
 
-                        }
-                        //else error updating user
+                        } //else error updating user
                         else {
                             //check if database provided any meta data if so problem with executing query
                             if (!isset($picture["meta"])) {
                                 $results["meta"]["ok"] = false;
                             }
                         }
-                    }
-                    //else problem uploading file to server
+                    } //else problem uploading file to server
                     else {
                         $results["meta"]["feedback"] = "Sorry, there was an error uploading your file.";
                     }
-                }
-                //else bad request as file uploaded is not a image
+                } //else bad request as file uploaded is not a image
                 else {
                     $results["meta"]["status"] = 400;
                     $results["meta"]["message"] = "Bad Request";
@@ -362,8 +332,7 @@ function addPicture($data)
                 }
             }
         }
-    }
-    //else data was not provided
+    } //else data was not provided
     else {
         array_push($dataNeeded, "pictureUploaded");
         $results["meta"] = dataNotProvided($dataNeeded);
@@ -407,8 +376,7 @@ function deletePicture($data)
                     $results["meta"]["ok"] = true;
                     $results["rows"]["file"] = $data["file"];
 
-                }
-                //else error updating
+                } //else error updating
                 else {
                     //check if database provided any meta data if so problem with executing query
                     if (!isset($results["meta"])) {
@@ -417,8 +385,7 @@ function deletePicture($data)
                 }
             }
         }
-    }
-    //else data was not provided
+    } //else data was not provided
     else {
         $results["meta"] = dataNotProvided($dataNeeded);
     }

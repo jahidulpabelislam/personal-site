@@ -46,44 +46,10 @@ var adminUsername = "",
         });
     },
 
-    //render a project image
-    renderProjectImage = function(projectImage) {
-        var imageContainer = createElement($("#projectImages")[0], "li", {id: projectImage.File}),
-
-            imageDeleteButton = createElement(imageContainer, "button", {
-                className: "btn btn-danger deleteProjectImg",
-                innerHTML: "X"
-            });
-
-        createElement(imageContainer, "img", {src: projectImage.File});
-
-        imageDeleteButton.addEventListener("click", function() {
-            deleteProjectImage(projectImage);
-        });
-
-        delayExpand();
-    },
-
     //send the data, the function to do if data is valid and generic error message
     projectImageUploaded = function(result) {
 
         loopThroughData(result, renderProjectImage, renderError, "Error uploading image.");
-    },
-
-    //send the data, the function to do if data is valid
-    gotProjectImages = function(result) {
-
-        loopThroughData(result, renderProjectImage, renderError);
-    },
-
-    //send request to get project images
-    getProjectImages = function() {
-        sendRequest({
-            method: "GET",
-            url: "api/1/pictures/" + $("#projectID").val(),
-            load: gotProjectImages,
-            error: renderError
-        });
     },
 
     //send event to render image upload preview
@@ -117,6 +83,8 @@ var adminUsername = "",
     },
 
     renderProject = function(project) {
+        setUpProjectForm();
+
         $("#projectFormFeedback").hide("fast");
 
         $("#projectID").val(project.ID);
@@ -135,12 +103,28 @@ var adminUsername = "",
         $("#projectButton").text("Update Project");
         dragNDropSetUp();
 
-        getProjectImages();
+        //loop through each row of data in rows
+        for (var i = 0; i < project.pictures.length; i++) {
+
+            if (project.pictures.hasOwnProperty(i)) {
+
+                var imageContainer = createElement($("#projectImages")[0], "li", {id: project.pictures[i].File}),
+
+                    imageDeleteButton = createElement(imageContainer, "button", {
+                        className: "btn btn-danger deleteProjectImg",
+                        innerHTML: "X"
+                    });
+
+                createElement(imageContainer, "img", {src: project.pictures[i].File});
+
+                imageDeleteButton.addEventListener("click", function() {
+                    deleteProjectImage(projectPicture);
+                });
+            }
+        }
 
         $("#projectForm").off();
         $("#projectForm").submit(sendProjectUpdate);
-
-        setUpProjectForm();
     },
 
     gotProject = function(result) {
