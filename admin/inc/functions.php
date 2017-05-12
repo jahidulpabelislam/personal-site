@@ -45,7 +45,7 @@ function checkData($data, $dataNeeded)
 /**
  * When the method provided is not allowed
  * @param $method string the method tried
- * @param $path string the path tried
+ * @param $path array the path tried
  * @return array array of meta data
  */
 function methodNotAllowed($method, $path)
@@ -53,7 +53,7 @@ function methodNotAllowed($method, $path)
     $meta["ok"] = false;
     $meta["status"] = 405;
     $meta["message"] = "Method not allowed.";
-    $meta["feedback"] = "${method} Method Not Allowed on ${path}.";
+    $meta["feedback"] = "${method} Method Not Allowed on /api/1/" . implode("/", $path);
     return $meta;
 }
 

@@ -45,12 +45,6 @@ switch ($path[0]) {
         break;
     case "pictures":
         switch ($method) {
-            case "GET":
-                if (isset($path[1]) && trim($path[1]) !== "") {
-                    $data["projectID"] = $path[1];
-                }
-                $results = getPictures($data);
-                break;
             case "POST":
                 if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
