@@ -46,9 +46,26 @@ var adminUsername = "",
         });
     },
 
+    //render a project image
+    renderProjectImage = function(projectImage) {
+        var imageContainer = createElement($("#projectImages")[0], "li", {id: projectImage.File}),
+
+            imageDeleteButton = createElement(imageContainer, "button", {
+                className: "btn btn-danger deleteProjectImg",
+                innerHTML: "X"
+            });
+
+        createElement(imageContainer, "img", {src: projectImage.File});
+
+        imageDeleteButton.addEventListener("click", function() {
+            deleteProjectImage(projectImage);
+        });
+
+        delayExpand();
+    },
+
     //send the data, the function to do if data is valid and generic error message
     projectImageUploaded = function(result) {
-
         loopThroughData(result, renderProjectImage, renderError, "Error uploading image.");
     },
 
@@ -108,18 +125,7 @@ var adminUsername = "",
 
             if (project.pictures.hasOwnProperty(i)) {
 
-                var imageContainer = createElement($("#projectImages")[0], "li", {id: project.pictures[i].File}),
-
-                    imageDeleteButton = createElement(imageContainer, "button", {
-                        className: "btn btn-danger deleteProjectImg",
-                        innerHTML: "X"
-                    });
-
-                createElement(imageContainer, "img", {src: project.pictures[i].File});
-
-                imageDeleteButton.addEventListener("click", function() {
-                    deleteProjectImage(projectPicture);
-                });
+                renderProjectImage(project.pictures[i]);
             }
         }
 
