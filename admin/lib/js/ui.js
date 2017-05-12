@@ -107,7 +107,8 @@ var adminUsername = "",
         $("#projectID").val(project.ID);
         $("#projectName").val(project.Name);
         $("#skills").val(project.Skills);
-        $("#description").val(project.Description);
+        $("#shortDescription").val(project.ShortDescription);
+        $("#longDescription").val(project.LongDescription);
         $("#link").val(project.Link);
         $("#github").val(project.GitHub);
         $("#download").val(project.Download);
@@ -165,11 +166,12 @@ var adminUsername = "",
         var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
             projectNameValidation = checkInputField($("#projectName")[0]),
             skillsValidation = checkInputField($("#skills")[0]),
-            descriptionValidation = checkInputField($("#description")[0]),
+            longDescriptionValidation = checkInputField($("#longDescription")[0]),
+            shortDescriptionValidation = checkInputField($("#shortDescription")[0]),
             githubValidation = checkInputField($("#github")[0]),
             dateValidation = checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
 
-        if (projectNameValidation && skillsValidation && descriptionValidation && githubValidation && dateValidation) {
+        if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
             if (!projectID) {
                 projectID = "";
             }
@@ -182,7 +184,8 @@ var adminUsername = "",
                     password: adminPassword,
                     projectName: $("#projectName").val(),
                     skills: $("#skills").val(),
-                    description: $("#description").val(),
+                    longDescription: $("#longDescription").val(),
+                    shortDescription: $("#shortDescription").val(),
                     link: $("#link").val(),
                     github: $("#github").val(),
                     download: $("#download").val(),
@@ -204,7 +207,7 @@ var adminUsername = "",
     setUpAddProject = function() {
         setUpProjectForm();
 
-        $("#projectID, #projectName, #skills, #description, #link, #github, #download, #date").val("");
+        $("#projectID, #projectName, #skills, #longDescription, #shortDescription, #link, #github, #download, #date").val("");
 
         $("#projectButton").text("Add Project");
         $("#projectForm").off();

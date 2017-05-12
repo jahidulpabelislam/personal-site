@@ -133,8 +133,8 @@ function addProject($data)
         if ($results["meta"]["ok"] === true) {
 
             $db = new pdodb;
-            $query = "INSERT INTO PortfolioProject (Name, Skills, Description, Link, GitHub, Download, Date) VALUES (:projectName, :skills, :description, :link, :github, :download, :date);";
-            $bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":description" => $data["description"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
+            $query = "INSERT INTO PortfolioProject (Name, Skills, LongDescription, ShortDescription, Link, GitHub, Download, Date) VALUES (:projectName, :skills, :longDescription, :shortDescription, :link, :github, :download, :date);";
+            $bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
             $results = $db->query($query, $bindings);
 
             //if add was ok
@@ -182,8 +182,8 @@ function editProject($data)
             if ($project["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "UPDATE PortfolioProject SET Name = :projectName, Skills = :skills, Description = :description, Link = :link, GitHub = :github, Download = :download, Date = :date WHERE ID = :projectID;";
-                $bindings = array(":projectID" => $data["projectID"], ":projectName" => $data["projectName"], ":skills" => $data["skills"], ":description" => $data["description"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
+                $query = "UPDATE PortfolioProject SET Name = :projectName, Skills = :skills, LongDescription = :longDescription, Link = :link, ShortDescription = :shortDescription, GitHub = :github, Download = :download, Date = :date WHERE ID = :projectID;";
+                $bindings = array(":projectID" => $data["projectID"], ":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"]);
                 $results = $db->query($query, $bindings);
 
                 //if update was ok
