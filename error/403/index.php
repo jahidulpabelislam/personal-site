@@ -15,10 +15,13 @@ $keywords = "";
 include '../../inc/header.php';
 
 ?>
-
                 <!-- Start Dynamic content for page -->
-                <p class="article">The access to the requested web page is strictly forbidden. This might happen due to the access to the requested
-                    web page is disabled</p>
+                <div class="article">
+                    <div class="container">
+                        <p>The access to the requested web page is strictly forbidden. This might happen due to the access to the requested
+                            web page is disabled</p>
+                    </div>
+                </div>
                 <!-- End dynamic content -->
 
 <?php

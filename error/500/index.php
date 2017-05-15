@@ -15,9 +15,12 @@ $keywords = "";
 include '../../inc/header.php';
 
 ?>
-
                 <!-- Start Dynamic content for page -->
-                <p class="article">The server couldn't follow your request and cannot be displayed. Either refresh the page or try again later.</p>
+                <div class="article">
+                    <div class="container">
+                        <p>The server couldn't follow your request and cannot be displayed. Either refresh the page or try again later.</p>
+                    </div>
+                </div>
                 <!-- End dynamic content -->
 
 <?php

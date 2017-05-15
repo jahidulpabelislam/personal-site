@@ -17,9 +17,13 @@ include '../../inc/header.php';
 ?>
 
                 <!-- Start Dynamic content for page -->
-                <p class="article">The web page you are trying to view is not found, you either mistyped the web page address, or there might be a
-                    broken link at the web site that you requested. Please consider to go back to the original web site and/or
-                    typing in the correct web address of the requested web page.</p>
+                <div class="article">
+                    <div class="container">
+                        <p>The web page you are trying to view is not found, you either mistyped the web page address, or there might be a
+                            broken link at the web site that you requested. Please consider to go back to the original web site and/or
+                            typing in the correct web address of the requested web page.</p>
+                    </div>
+                </div>
                 <!-- End dynamic content -->
 
 <?php
