@@ -115,6 +115,7 @@ section {
 
 .error {
     padding: 5px;
+    display: block;
 }
 
 #userFormFeedback {
@@ -189,6 +190,10 @@ section {
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+#pagination {
+    display: block;
 }
 
 /* For tablets and some are for desktops */

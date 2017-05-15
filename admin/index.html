@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="projectsAdmin">
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Jahidul Pabel Islam">
@@ -18,14 +18,17 @@
         <link rel="icon" href="/images/favicon.png">
     </head>
 
-    <body>
+    <body ng-controller="projectsAdminController">
 
         <section>
             <div class="container">
 
+
                 <div id="selectProjectContainer">
+
                     <input id="currentPage" type="hidden" name="page" disabled style="display:none" value="1">
                     <div id="selectProjectForm"></div>
+
                     <p id="selectProjectFeedback" class="feedback error"></p>
 
                     <div id="selectProjectButtons">
@@ -96,7 +99,7 @@
 
         <section id="userFormDiv">
             <div class="container">
-                <form id="userForm">
+                <form id="userForm" ng-submit="logIn()">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" placeholder="myusername" autofocus class="form-control"
                            tabindex="1" oninput="checkInputField(this);" required>
@@ -104,7 +107,7 @@
                     <input type="password" name="password" id="password" placeholder="mypassword" class="form-control"
                            tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
-                    <p id="userFormFeedback" class="feedback error"></p>
+                    <p id="userFormFeedback" class="feedback error">{{userFormFeedback}}</p>
                     <button id="logInButton" type="submit" value="Log In" class="btn btn-success">Log In</button>
                 </form>
             </div>
@@ -123,6 +126,8 @@
 
         <!-- the script allowing drag and drop -->
         <script type="text/javascript" src="lib/js/dragNDrop.js"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
         <!-- the script for the page -->
         <script type="text/javascript" src="lib/js/ui.js"></script>
