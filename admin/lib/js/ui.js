@@ -12,6 +12,32 @@ angular.module('projectsAdmin', [])
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = "";
 
+        $scope.setUpProjectForm = function() {
+            $("#projectFormContainer").show();
+            $("#selectProjectContainer").hide();
+
+            $("#projectName, #skills, #description, #github, #date").removeClass("invalid");
+
+            delayExpand();
+        };
+
+        $scope.setUpAddProject = function() {
+            $scope.setUpProjectForm();
+
+            $scope.selectedProject = {
+                ID: undefined,
+                Name: undefined,
+                LongDescription: undefined,
+                Link: undefined,
+                GitHub: undefined,
+                Download: undefined,
+                Skills: undefined,
+                Date: undefined,
+                ShortDescription: undefined,
+                pictures: []
+            };
+        };
+
         var renderProjectDelete = function(result) {
             //check if project delete has been processed
             if (result.data.rows && result.data.rows.projectID) {
@@ -28,7 +54,7 @@ angular.module('projectsAdmin', [])
         $scope.deleteProject = function() {
             if ($scope.selectedProject) {
                 $http({
-                    url: "/admin/api/1/projects/" + $scope.selectedProject,
+                    url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
                     method: "POST",
                     params: {username: adminUsername, password: adminPassword, method: "DELETE"}
                 }).then(renderProjectDelete, function(result) {

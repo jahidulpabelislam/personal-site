@@ -27,15 +27,15 @@
 
                     <div id="selectProjectForm">
                         <div ng-repeat="project in projects">
-                            <label ng-click="selectProject(project.ID)" for="{{project.ID}}">{{project.Name}}</label>
-                            <input ng-click="selectProject(project.ID)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
+                            <label ng-click="selectProject(project)" for="{{project.ID}}">{{project.Name}}</label>
+                            <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
                         </div>
                     </div>
 
                     <p id="selectProjectFeedback" class="feedback error">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-show="projects.length > 0" ng-click="getProject()" id="editButton" type="button" value="Edit"
+                        <button ng-show="projects.length > 0" ng-click="setUpProjectForm()" id="editButton" type="button" value="Edit"
                                 class="btn btn-primary" tabindex="3">Edit
                         </button>
                         <button ng-show="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button"
@@ -56,36 +56,35 @@
                 </div>
 
                 <div id="projectFormContainer">
-                    <button id="backButton" type="button" value="Log In" class="btn btn-warning" tabindex="6">Back</button>
+                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Log In" class="btn btn-warning" tabindex="6">Back</button>
 
-                    <form id="projectForm">
-                        <input type="hidden" name="projectName" id="projectID" disabled style="display:none">
+                    <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input type="text" name="projectName" id="projectName" class="form-control" placeholder="myproject"
-                               tabindex="7" oninput="checkInputField(this);" required>
+                               tabindex="7" oninput="checkInputField(this);" value="{{selectedProject.Name}}" required>
                         <label for="skills">Skills <span class="required">*</span></label>
                         <input type="text" name="skills" id="skills" class="form-control" placeholder="skill1, skill2"
-                               tabindex="8" oninput="checkInputField(this);" required>
+                               tabindex="8" oninput="checkInputField(this);" value="{{selectedProject.Skills}}"  required>
                         <label for="longDescription">Long Description <span class="required">*</span></label>
                         <textarea name="description" id="longDescription" class="form-control" placeholder="description"
-                                  tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                                  tabindex="9" oninput="checkInputField(this);" required rows="10">{{selectedProject.LongDescription}}</textarea>
                         <label for="shortDescription">Short Description <span class="required">*</span></label>
                         <textarea name="description" id="shortDescription" class="form-control" placeholder="description"
-                                  tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                                  tabindex="9" oninput="checkInputField(this);" required rows="10">{{selectedProject.ShortDescription}}</textarea>
 
                         <label for="link">Link</label>
-                        <input type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10">
+                        <input type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10" value="{{selectedProject.Link}}">
                         <label for="github">GitHub <span class="required">*</span></label>
                         <input type="url" name="github" id="github" class="form-control" placeholder="github" tabindex="11"
-                               oninput="checkInputField(this);" required>
+                               oninput="checkInputField(this);" required value="{{selectedProject.GitHub}}">
                         <label for="download">Download</label>
                         <input type="text" name="download" id="download" class="form-control" placeholder="download"
-                               tabindex="12">
+                               tabindex="12" value="{{selectedProject.Download}}">
                         <label for="date">Date <span class="required">*</span></label>
                         <input type="date" name="date" id="date" class="form-control" placeholder="2016-01-30" tabindex="13"
-                               oninput="checkInputField(this);" required>
+                               oninput="checkInputField(this);" required value="{{selectedProject.Date}}">
 
-                        <p id="projectFormFeedback" class="feedback error"></p>
+                        <p id="projectFormFeedback" class="feedback error">{{projectFormFeedback}}</p>
 
                         <button id="projectButton" type="submit" value="Add Project" class="btn btn-success" tabindex="14">Add
                             Project
@@ -93,10 +92,16 @@
 
                     </form>
 
-                    <ul id="projectImages"></ul>
+                    <ul id="projectImages" ng-repeat="picture in selectedProject.pictures">
+                        <li id="{{picture.File}}">
+                            <img src="{{picture.File}}">
+                            <button class="btn btn-danger deleteProjectImg">X</button>
+                        </li>
+                    </ul>
 
                     <input type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*"
                            tabindex="15" style="display:none">
+
                     <!-- Div containing the uploads from drag and drop -->
                     <div id="uploads"></div>
                 </div>
