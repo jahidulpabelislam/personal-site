@@ -125,8 +125,8 @@ function getProjects($data)
 function addProject($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectName", "skills", "description", "github", "date");
-    if (checkData($data, $dataNeeded) && preg_match("/\b[\d]{4}-[\d]{2}-[\d]{2}\b/im", $data["date"])) {
+    $dataNeeded = array("username", "password", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
+    if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
         $results = login($data);
@@ -170,8 +170,8 @@ function addProject($data)
 function editProject($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectID", "projectName", "skills", "description", "github", "date");
-    if (checkData($data, $dataNeeded) && preg_match("/\b[\d]{4}-[\d]{2}-[\d]{2}\b/im", $data["date"])) {
+    $dataNeeded = array("username", "password", "projectID", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
+    if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
         $results = login($data);
