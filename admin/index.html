@@ -28,14 +28,16 @@
                     <div id="selectProjectForm">
                         <div ng-repeat="project in projects">
                             <label ng-click="selectProject(project)" for="{{project.ID}}">{{project.Name}}</label>
-                            <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
+                            <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project"
+                                   value="{{project.ID}}">
                         </div>
                     </div>
 
                     <p id="selectProjectFeedback" class="feedback error">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-show="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button" value="Edit"
+                        <button ng-show="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button"
+                                value="Edit"
                                 class="btn btn-primary" tabindex="3">Edit
                         </button>
                         <button ng-show="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button"
@@ -46,61 +48,73 @@
                             Add A Project
                         </button>
                     </div>
-                    <div id="pagination">
+                    <div id="pagination" ng-show="pages.length > 1">
                         <ul class="pagination">
                             <li ng-show="currentPage !== 1"><a ng-click="getProjectList(currentPage - 1)">Previous</a></li>
-                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}" ><a ng-click="getProjectList(page)">{{page}}</a></li>
-                            <li ng-show="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a></li>
+                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a
+                                    ng-click="getProjectList(page)">{{page}}</a></li>
+                            <li ng-show="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <div id="projectFormContainer">
-                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Log In" class="btn btn-warning" tabindex="6">Back</button>
+                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Log In" class="btn btn-warning"
+                            tabindex="6">Back
+                    </button>
 
                     <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
-                        <input type="text" name="projectName" id="projectName" class="form-control" placeholder="myproject"
-                               tabindex="7" oninput="checkInputField(this);" value="{{selectedProject.Name}}" required>
+                        <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName"
+                               class="form-control" placeholder="myproject"
+                               tabindex="7" oninput="checkInputField(this);" required>
                         <label for="skills">Skills <span class="required">*</span></label>
-                        <input type="text" name="skills" id="skills" class="form-control" placeholder="skill1, skill2"
-                               tabindex="8" oninput="checkInputField(this);" value="{{selectedProject.Skills}}"  required>
+                        <input ng-model="selectedProject.Skills" type="text" name="skills" id="skills" class="form-control"
+                               placeholder="skill1, skill2"
+                               tabindex="8" oninput="checkInputField(this);" required>
                         <label for="longDescription">Long Description <span class="required">*</span></label>
-                        <textarea name="description" id="longDescription" class="form-control" placeholder="description"
-                                  tabindex="9" oninput="checkInputField(this);" required rows="10">{{selectedProject.LongDescription}}</textarea>
+                        <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription"
+                                  class="form-control" placeholder="description"
+                                  tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
                         <label for="shortDescription">Short Description <span class="required">*</span></label>
-                        <textarea name="description" id="shortDescription" class="form-control" placeholder="description"
-                                  tabindex="9" oninput="checkInputField(this);" required rows="10">{{selectedProject.ShortDescription}}</textarea>
+                        <textarea ng-model="selectedProject.ShortDescription" name="description" id="shortDescription"
+                                  class="form-control" placeholder="description"
+                                  tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
 
                         <label for="link">Link</label>
-                        <input type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10" value="{{selectedProject.Link}}">
+                        <input ng-model="selectedProject.Link" type="text" name="link" id="link" class="form-control"
+                               placeholder="link" tabindex="10">
                         <label for="github">GitHub <span class="required">*</span></label>
-                        <input type="url" name="github" id="github" class="form-control" placeholder="github" tabindex="11"
-                               oninput="checkInputField(this);" required value="{{selectedProject.GitHub}}">
+                        <input ng-model="selectedProject.GitHub" type="url" name="github" id="github" class="form-control"
+                               placeholder="github" tabindex="11"
+                               oninput="checkInputField(this);" required>
                         <label for="download">Download</label>
-                        <input type="text" name="download" id="download" class="form-control" placeholder="download"
-                               tabindex="12" value="{{selectedProject.Download}}">
+                        <input ng-model="selectedProject.Download" type="text" name="download" id="download"
+                               class="form-control" placeholder="download"
+                               tabindex="12">
                         <label for="date">Date <span class="required">*</span></label>
-                        <input type="date" name="date" id="date" class="form-control" placeholder="2016-01-30" tabindex="13"
-                               oninput="checkInputField(this);" required value="{{selectedProject.Date}}">
+                        <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="form-control"
+                               placeholder="2016-01-30" tabindex="13"
+                               oninput="checkInputField(this);" required>
 
                         <p id="projectFormFeedback" class="feedback error">{{projectFormFeedback}}</p>
 
-                        <button id="projectButton" type="submit" value="Add Project" class="btn btn-success" tabindex="14">Add
-                            Project
+                        <button id="projectButton" type="submit" value="Add Project" class="btn btn-success" tabindex="14">
+                            {{selectedProject.ID ? 'Update Project' : 'Add Project'}}
                         </button>
 
                     </form>
 
-                    <ul id="projectImages" ng-repeat="picture in selectedProject.pictures">
-                        <li id="{{picture.File}}">
+                    <ul id="projectImages">
+                        <li ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
                             <img src="{{picture.File}}">
                             <button class="btn btn-danger deleteProjectImg">X</button>
                         </li>
                     </ul>
 
                     <input type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*"
-                           tabindex="15" style="display:none">
+                           tabindex="15">
 
                     <!-- Div containing the uploads from drag and drop -->
                     <div id="uploads"></div>
@@ -119,10 +133,12 @@
             <div class="container">
                 <form id="userForm" ng-submit="logIn()">
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" placeholder="myusername" autofocus class="form-control"
+                    <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus
+                           class="form-control"
                            tabindex="1" oninput="checkInputField(this);" required>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="mypassword" class="form-control"
+                    <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword"
+                           class="form-control"
                            tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p id="userFormFeedback" class="feedback error">{{userFormFeedback}}</p>

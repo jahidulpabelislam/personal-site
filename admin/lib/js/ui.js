@@ -1,9 +1,6 @@
 angular.module('projectsAdmin', [])
     .controller('projectsAdminController', function($scope, $http) {
 
-        var adminUsername = "",
-            adminPassword = "";
-
         $scope.projects = [];
         $scope.currentPage = 1;
         $scope.pages = [];
@@ -42,18 +39,19 @@ angular.module('projectsAdmin', [])
                     url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
                     method: "POST",
                     params: {
-                        username: adminUsername,
-                        password: adminPassword,
-                        projectName: $("#projectName").val(),
-                        skills: $("#skills").val(),
-                        longDescription: $("#longDescription").val(),
-                        shortDescription: $("#shortDescription").val(),
-                        link: $("#link").val(),
-                        github: $("#github").val(),
-                        download: $("#download").val(),
-                        date: $("#date").val()
+                        username: $scope.username,
+                        password: $scope.password,
+                        projectName: $scope.selectedProject.Name,
+                        skills: $scope.selectedProject.Skills,
+                        longDescription: $scope.selectedProject.LongDescription,
+                        shortDescription: $scope.selectedProject.ShortDescription,
+                        link: $scope.selectedProject.Link,
+                        github: $scope.selectedProject.GitHub,
+                        download: $scope.selectedProject.Download,
+                        date: $scope.selectedProject.Date
                     }
                 }).then(function(result) {
+                    result.data.rows[0].Date = new Date(result.data.rows[0].Date);
                     $scope.selectedProject = result.data.rows[0];
                 }, function(result) {
                     $scope.projectFormFeedback = result.data.meta.feedback || "Error sending the project.";
@@ -93,6 +91,7 @@ angular.module('projectsAdmin', [])
 
         $scope.setUpEditProject = function() {
             if ($scope.selectedProject.ID) {
+                dragNDropSetUp();
                 $scope.setUpProjectForm();
             } else {
                 $scope.selectProjectFeedback = "Select A Project To Update.";
@@ -118,7 +117,7 @@ angular.module('projectsAdmin', [])
                 $http({
                     url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
                     method: "POST",
-                    params: {username: adminUsername, password: adminPassword, method: "DELETE"}
+                    params: {username: $scope.username, password: $scope.password, method: "DELETE"}
                 }).then(renderProjectDelete, function(result) {
                     $scope.selectProjectFeedback = result.data.meta.feedback || "Error deleting your project.";
                 });
@@ -131,6 +130,7 @@ angular.module('projectsAdmin', [])
 
         $scope.selectProject = function(project) {
             $scope.selectedProject = project;
+            $scope.selectedProject.Date = new Date(project.Date);
         };
 
         var gotProjects = function(result) {
@@ -191,11 +191,6 @@ angular.module('projectsAdmin', [])
 
             //check if data was valid
             if (result.data.rows && result.data.rows.username && result.data.rows.password) {
-                //sets a variable with users username for later use
-
-                adminUsername = result.data.rows.username;
-                adminPassword = result.data.rows.password;
-
                 //make the log in/sign up form not visible
                 $("#userFormDiv").hide();
 
@@ -223,11 +218,10 @@ angular.module('projectsAdmin', [])
             }
             //else inputs are filled
             else {
-
                 $http({
                     url: "/admin/api/1/login",
                     method: "POST",
-                    params: {username: $("#username").val(), password: $("#password").val()}
+                    params: {username: $scope.username, password: $scope.password}
                 }).then(loggedIn, function(result) {
                     $scope.userFormFeedback = result.data.meta.feedback || "Error logging you in."
                 });
