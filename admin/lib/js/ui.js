@@ -92,7 +92,7 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.setUpEditProject = function() {
-            if ($scope.selectedProject) {
+            if ($scope.selectedProject.ID) {
                 $scope.setUpProjectForm();
             } else {
                 $scope.selectProjectFeedback = "Select A Project To Update.";
@@ -114,7 +114,7 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.deleteProject = function() {
-            if ($scope.selectedProject) {
+            if ($scope.selectedProject.ID) {
                 $http({
                     url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
                     method: "POST",
@@ -182,7 +182,7 @@ angular.module('projectsAdmin', [])
                 method: "GET",
                 params: {page: $scope.currentPage}
             }).then(gotProjects, function(result) {
-                $scope.userFormFeedback = result.data.meta.feedback || "Error logging you in."
+                $scope.selectProjectFeedback = result.data.meta.feedback || "Error getting projects."
             });
         };
 
