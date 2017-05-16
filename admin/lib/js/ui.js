@@ -8,11 +8,64 @@ angular.module('projectsAdmin', [])
         $scope.currentPage = 1;
         $scope.pages = [];
 
-        $scope.selectedProject;
+        $scope.selectedProject = {
+            ID: undefined,
+            Name: undefined,
+            LongDescription: undefined,
+            Link: undefined,
+            GitHub: undefined,
+            Download: undefined,
+            Skills: undefined,
+            Date: undefined,
+            ShortDescription: undefined,
+            pictures: []
+        };
 
-        $scope.userFormFeedback = $scope.selectProjectFeedback = "";
+        $scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = "";
+
+        $scope.submitProject = function() {
+
+            var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
+                projectNameValidation = checkInputField($("#projectName")[0]),
+                skillsValidation = checkInputField($("#skills")[0]),
+                longDescriptionValidation = checkInputField($("#longDescription")[0]),
+                shortDescriptionValidation = checkInputField($("#shortDescription")[0]),
+                githubValidation = checkInputField($("#github")[0]),
+                dateValidation = checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
+
+            if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
+                if (!$scope.selectedProject.ID) {
+                    $scope.selectedProject.ID = "";
+                }
+
+                $http({
+                    url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
+                    method: "POST",
+                    params: {
+                        username: adminUsername,
+                        password: adminPassword,
+                        projectName: $("#projectName").val(),
+                        skills: $("#skills").val(),
+                        longDescription: $("#longDescription").val(),
+                        shortDescription: $("#shortDescription").val(),
+                        link: $("#link").val(),
+                        github: $("#github").val(),
+                        download: $("#download").val(),
+                        date: $("#date").val()
+                    }
+                }).then(function(result) {
+                    $scope.selectedProject = result.data.rows[0];
+                }, function(result) {
+                    $scope.projectFormFeedback = result.data.meta.feedback || "Error sending the project.";
+                });
+
+            } else {
+                $scope.projectFormFeedback = "Fill in Required Inputs Fields.";
+            }
+        };
 
         $scope.setUpProjectForm = function() {
+
             $("#projectFormContainer").show();
             $("#selectProjectContainer").hide();
 
@@ -36,6 +89,15 @@ angular.module('projectsAdmin', [])
                 ShortDescription: undefined,
                 pictures: []
             };
+        };
+
+        $scope.setUpEditProject = function() {
+            if ($scope.selectedProject) {
+                $scope.setUpProjectForm();
+            } else {
+                $scope.selectProjectFeedback = "Select A Project To Update.";
+            }
+
         };
 
         var renderProjectDelete = function(result) {
@@ -75,7 +137,18 @@ angular.module('projectsAdmin', [])
             $("#projectFormContainer").hide();
             $("#selectProjectContainer").show();
 
-            $scope.selectedProject = undefined;
+            $scope.selectedProject = {
+                ID: undefined,
+                Name: undefined,
+                LongDescription: undefined,
+                Link: undefined,
+                GitHub: undefined,
+                Download: undefined,
+                Skills: undefined,
+                Date: undefined,
+                ShortDescription: undefined,
+                pictures: []
+            };
 
             //check if data doesn't exist check there's no feedback
             if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
