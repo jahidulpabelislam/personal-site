@@ -2,33 +2,46 @@ angular.module('projectsAdmin', [])
     .controller('projectsAdminController', function($scope, $http) {
 
         $scope.projects = [];
+        $scope.currentPage = 1;
+        $scope.pages = [];
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = "";
 
         var gotProjects = function(result) {
             $("#projectFormContainer").hide();
             $("#selectProjectContainer").show();
-            
+
             //check if data doesn't exist check there's no feedback
             if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
 
                 //assume there's no error and no projects to show
                 $scope.selectProjectFeedback = "Sorry, no Projects to show.";
+                $scope.projects = [];
             } else if (result.data.rows.length > 0) {
                 $scope.projects = result.data.rows;
+                $scope.pages = [];
+
+                var pages = Math.ceil(result.data.count / 10);
+
+                for (var i = 1; i <= pages; i++) {
+                    $scope.pages.push(i);
+                }
             }
 
             delayExpand();
         };
 
-        $scope.getProjectList = function() {
+        $scope.getProjectList = function(page) {
+
+            $scope.currentPage = page;
+
             dragNDropStop();
 
             //Sends a object with necessary data to XHR
             $http({
                 url: "/admin/api/1/projects",
                 method: "GET",
-                params: {page: $("#currentPage").val() || 1}
+                params: {page: $scope.currentPage}
             }).then(gotProjects, function(result) {
                 $scope.userFormFeedback = result.data.meta.feedback || "Error logging you in."
             });
@@ -47,7 +60,7 @@ angular.module('projectsAdmin', [])
                 //make the log in/sign up form not visible
                 $("#userFormDiv").hide();
 
-                $scope.getProjectList();
+                $scope.getProjectList(1);
             }
             //check if feedback was provided or generic error message
             else {

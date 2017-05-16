@@ -23,10 +23,8 @@
         <section>
             <div class="container">
 
-
                 <div id="selectProjectContainer">
 
-                    <input id="currentPage" type="hidden" name="page" disabled style="display:none" value="1">
                     <div id="selectProjectForm">
                         <div ng-repeat="project in projects">
                             <label for="{{project.ID}}">{{project.Name}}</label>
@@ -37,14 +35,24 @@
                     <p id="selectProjectFeedback" class="feedback error">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-show="projects.length > 0" ng-click="getProject()" id="editButton" type="button" value="Edit" class="btn btn-primary" tabindex="3">Edit</button>
-                        <button ng-show="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button" value="Delete" class="btn btn-danger" tabindex="4">Delete
+                        <button ng-show="projects.length > 0" ng-click="getProject()" id="editButton" type="button" value="Edit"
+                                class="btn btn-primary" tabindex="3">Edit
                         </button>
-                        <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project" class="btn btn-success" tabindex="5">
+                        <button ng-show="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button"
+                                value="Delete" class="btn btn-danger" tabindex="4">Delete
+                        </button>
+                        <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project"
+                                class="btn btn-success" tabindex="5">
                             Add A Project
                         </button>
                     </div>
-                    <div id="pagination"></div>
+                    <div id="pagination">
+                        <ul class="pagination">
+                            <li ng-show="currentPage !== 1"><a ng-click="getProjectList(currentPage - 1)">Previous</a></li>
+                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}" ><a ng-click="getProjectList(page)">{{page}}</a></li>
+                            <li ng-show="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a></li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div id="projectFormContainer">
