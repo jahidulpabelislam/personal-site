@@ -27,8 +27,8 @@
 
                     <div id="selectProjectForm">
                         <div ng-repeat="project in projects">
-                            <label for="{{project.ID}}">{{project.Name}}</label>
-                            <input type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
+                            <label ng-click="selectProject(project.ID)" for="{{project.ID}}">{{project.Name}}</label>
+                            <input ng-click="selectProject(project.ID)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
                         </div>
                     </div>
 

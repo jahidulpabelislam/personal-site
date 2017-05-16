@@ -8,6 +8,8 @@ angular.module('projectsAdmin', [])
         $scope.currentPage = 1;
         $scope.pages = [];
 
+        $scope.selectedProject;
+
         $scope.userFormFeedback = $scope.selectProjectFeedback = "";
 
         var renderProjectDelete = function(result) {
@@ -24,9 +26,9 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.deleteProject = function() {
-            if (document.querySelector('input[name = "project"]:checked')) {
+            if ($scope.selectedProject) {
                 $http({
-                    url: "/admin/api/1/projects/" + document.querySelector('input[name = "project"]:checked').value,
+                    url: "/admin/api/1/projects/" + $scope.selectedProject,
                     method: "POST",
                     params: {username: adminUsername, password: adminPassword, method: "DELETE"}
                 }).then(renderProjectDelete, function(result) {
@@ -39,9 +41,15 @@ angular.module('projectsAdmin', [])
             delayExpand();
         };
 
+        $scope.selectProject = function(project) {
+            $scope.selectedProject = project;
+        };
+
         var gotProjects = function(result) {
             $("#projectFormContainer").hide();
             $("#selectProjectContainer").show();
+
+            $scope.selectedProject = undefined;
 
             //check if data doesn't exist check there's no feedback
             if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
