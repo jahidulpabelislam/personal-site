@@ -20,6 +20,48 @@ angular.module('projectsAdmin', [])
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = "";
 
+        //render a project image delete
+        var deletedProjectImage = function(result) {
+            //check if the deletion of project image has been processed
+            if (result.data.rows && result.data.rows.file) {
+
+                var i = 0, found = false;
+                //find and remove the comment
+                for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
+                    if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
+                        delete $scope.selectedProject.pictures[i];
+                        found = true;
+                        return;
+                    }
+                }
+
+                if (found === false) {
+                    $scope.projectFormFeedback = "Error deleting the Project Image.";
+                }
+            }
+            else {
+                //else check if there if feedback to print
+                $scope.projectFormFeedback = result.data.meta.feedback || "Error deleting the Project Image.";
+            }
+
+            delayExpand();
+        };
+
+        //send a request to delete a project image
+        $scope.deleteProjectImage = function(projectImage) {
+            $http({
+                url: "/admin/api/1/pictures/" + projectImage.ProjectID,
+                method: "POST",
+                params: {
+                    username: $scope.username,
+                    password: $scope.password,
+                    file: projectImage.File
+                }
+            }).then(deletedProjectImage, function(result) {
+                $scope.projectFormFeedback = result.data.meta.feedback || "Error deleting the Project Image.";
+            });
+        };
+
         $scope.submitProject = function() {
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,

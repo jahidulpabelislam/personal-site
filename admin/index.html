@@ -109,7 +109,7 @@
                     <ul id="projectImages">
                         <li ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
                             <img src="{{picture.File}}">
-                            <button class="btn btn-danger deleteProjectImg">X</button>
+                            <button ng-click="deleteProjectImage(picture)" class="btn btn-danger deleteProjectImg">X</button>
                         </li>
                     </ul>
 
