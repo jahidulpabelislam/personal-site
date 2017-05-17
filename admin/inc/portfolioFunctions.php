@@ -94,7 +94,7 @@ function getProjects($data)
             $search2 .= "${aSearch}%";
         }
 
-        $filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR Description LIKE '" . $search . "' OR Description LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
+        $filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR LongDescription LIKE '" . $search . "' OR LongDescription LIKE '" . $search2 . "' OR ShortDescription LIKE '" . $search . "' OR ShortDescription LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
     }
 
     $db = new pdodb;

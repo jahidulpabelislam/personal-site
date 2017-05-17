@@ -34,7 +34,7 @@ include 'inc/header.php';
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
-                    <div id="errors"></div>
+                    <p id="errors" class="feedback error wow fadeInUp"  data-wow-delay="0.8s"></p>
                 </div>
 
                 <div class="article action">
