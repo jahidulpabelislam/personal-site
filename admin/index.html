@@ -113,16 +113,11 @@
                         </li>
                     </ul>
 
-                    <input type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*"
-                           tabindex="15">
+                    <input ng-show="selectedProject.ID" type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*" tabindex="15">
 
-                    <!-- Div containing the uploads from drag and drop -->
+                    <!-- Div containing the uploads -->
                     <div id="uploads"></div>
                 </div>
-
-                <!-- Div containing the information of any errors -->
-                <div id="errors"></div>
-
             </div>
         </section>
 
@@ -154,12 +149,6 @@
 
         <!-- the script needed for any helper functions -->
         <script type="text/javascript" src="/lib/js/helperFunctions.js"></script>
-
-        <!-- the script needed for XHR -->
-        <script type="text/javascript" src="/lib/js/xhr.js"></script>
-
-        <!-- the script allowing drag and drop -->
-        <script type="text/javascript" src="lib/js/dragNDrop.js"></script>
 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 

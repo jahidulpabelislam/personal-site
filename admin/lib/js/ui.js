@@ -1,27 +1,16 @@
 angular.module('projectsAdmin', [])
     .controller('projectsAdminController', function($scope, $http) {
 
-        $scope.projects = [];
+        $scope.projects = $scope.pages = [];
         $scope.currentPage = 1;
-        $scope.pages = [];
 
-        $scope.selectedProject = {
-            ID: undefined,
-            Name: undefined,
-            LongDescription: undefined,
-            Link: undefined,
-            GitHub: undefined,
-            Download: undefined,
-            Skills: undefined,
-            Date: undefined,
-            ShortDescription: undefined,
-            pictures: []
-        };
+        $scope.selectedProject = undefined;
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = "";
 
         //render a project image delete
         var deletedProjectImage = function(result) {
+            $scope.projectFormFeedback = "";
             //check if the deletion of project image has been processed
             if (result.data.rows && result.data.rows.file) {
 
@@ -63,6 +52,8 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.submitProject = function() {
+
+            $scope.projectFormFeedback = "";
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
                 projectNameValidation = checkInputField($("#projectName")[0]),
@@ -115,25 +106,17 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.setUpAddProject = function() {
+            $scope.selectProjectFeedback = "";
             $scope.setUpProjectForm();
 
-            $scope.selectedProject = {
-                ID: undefined,
-                Name: undefined,
-                LongDescription: undefined,
-                Link: undefined,
-                GitHub: undefined,
-                Download: undefined,
-                Skills: undefined,
-                Date: undefined,
-                ShortDescription: undefined,
-                pictures: []
-            };
+            $scope.selectedProject = undefined;
         };
 
         $scope.setUpEditProject = function() {
+            $scope.selectProjectFeedback = "";
+
             if ($scope.selectedProject.ID) {
-                dragNDropSetUp();
+                // dragNDropSetUp();
                 $scope.setUpProjectForm();
             } else {
                 $scope.selectProjectFeedback = "Select A Project To Update.";
@@ -142,6 +125,7 @@ angular.module('projectsAdmin', [])
         };
 
         var renderProjectDelete = function(result) {
+            $scope.selectProjectFeedback = "";
             //check if project delete has been processed
             if (result.data.rows && result.data.rows.projectID) {
 
@@ -155,6 +139,7 @@ angular.module('projectsAdmin', [])
         };
 
         $scope.deleteProject = function() {
+            $scope.selectProjectFeedback = "";
             if ($scope.selectedProject.ID) {
                 $http({
                     url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
@@ -179,18 +164,7 @@ angular.module('projectsAdmin', [])
             $("#projectFormContainer").hide();
             $("#selectProjectContainer").show();
 
-            $scope.selectedProject = {
-                ID: undefined,
-                Name: undefined,
-                LongDescription: undefined,
-                Link: undefined,
-                GitHub: undefined,
-                Download: undefined,
-                Skills: undefined,
-                Date: undefined,
-                ShortDescription: undefined,
-                pictures: []
-            };
+            $scope.selectedProject = undefined;
 
             //check if data doesn't exist check there's no feedback
             if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
@@ -214,9 +188,11 @@ angular.module('projectsAdmin', [])
 
         $scope.getProjectList = function(page) {
 
+            $scope.selectProjectFeedback = "";
+
             $scope.currentPage = page;
 
-            dragNDropStop();
+            // dragNDropStop();
 
             //Sends a object with necessary data to XHR
             $http({
