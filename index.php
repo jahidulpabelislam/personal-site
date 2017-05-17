@@ -8,13 +8,15 @@ include 'inc/header.php';
                 <div class="article wow fadeInLeft" data-wow-delay="0.6s">
                     <div class="container">
                         <h2 id="mainHello">Hello</h2>
-                        <p id="afterMainHello">there everyone, welcome to my e-Portfolio. Thanks for clicking on my website.</p>
-                        <p>I'm a Developer, I develop from websites to programs, learning my trade at University of Portsmouth,
-                            Based in West Sussex down in the South Coast of England.</p>
+                        <p id="afterMainHello">there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
+                        <p>I'm a developer, based in West Sussex down in the South Coast of England, learning my trade at  <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University
+                                of Portsmouth</a>,
+                            I develop websites to programs.</p>
                         <p>Here you will be able to look at all my <a href="/projects">work</a> I have done over the last couple of
-                            years, <a href="/about">learn about me</a> also you will be able to <a href="/contact/">contact</a> me for
-                            any enquiries, to provide any feedback and follow my future work.</p>
-                        <p>So, have a look around my ever evolving e-Portfolio.</p>
+                            years, <a href="/about">learn about me</a>, and <a href="/contact/">contact me</a>
+                            for
+                            any enquiries or to provide any feedback.</p>
+                        <p>So, have a look around my ever evolving portfolio.</p>
                     </div>
                 </div>
 
@@ -37,8 +39,10 @@ include 'inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn-primary" href="/projects/">View My Work</a></div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn-success" href="/about/">Learn About Me</a></div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn-primary" href="/projects/">View My
+                                Work</a></div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn-success" href="/about/">Learn About
+                                Me</a></div>
                     </div>
                 </div>
 

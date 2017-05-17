@@ -1,4 +1,5 @@
 $primary-color: #337ab7;
+$error: #e52525;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -285,7 +286,7 @@ p {
 }
 
 .required {
-  color: #e52525;
+  color: $error;
 }
 
 .feedback {
@@ -295,7 +296,7 @@ p {
 }
 
 .error {
-  color: #e52525;
+  color: $error;
 }
 
 .success {
@@ -313,12 +314,12 @@ p {
 }
 
 .form-control:focus.invalid {
-  border-color: #e52525;
-  @include box-shadow(0 0 8px rgba(229, 37, 37, 0.6));
+  border-color: $error;
+  @include box-shadow(0 0 8px transparentize($error, .40%));
 }
 
 .form-control.invalid {
-  border-color: #e52525;
+  border-color: $error;
   outline: 0;
 }
 
@@ -837,6 +838,10 @@ h3 {
   margin-top: 10px;
   border: 1px solid #E0E0E0;
   @include border-radius(5px);
+}
+
+blockquote {
+  font-size: inherit;
 }
 
 /* For Tablets & Desktops */
