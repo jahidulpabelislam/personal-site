@@ -23,7 +23,7 @@ include '../inc/header.php';
                             </div>
                         </form>
 
-                        <p id="errors" class="feedback error wow fadeInUp"  data-wow-delay="0.8s"></p>
+                        <p id="errors" class="feedback error wow fadeInUp" data-wow-delay="0.8s"></p>
                         <div id="projects"></div>
                         <div id="pagination"></div>
                     </div>
