@@ -20,7 +20,7 @@ include 'inc/header.php';
                     </div>
                 </div>
 
-                <div id="projectPreview" class="article wow fadeInRight" data-wow-delay="0.8s">
+                <div id="projectPreview" class="article wow fadeInRight hasSlideShow" data-wow-delay="0.8s">
                     <h3>My Latest Projects</h3>
                     <div class="slideShowContainer">
                         <div class="slideShow">
