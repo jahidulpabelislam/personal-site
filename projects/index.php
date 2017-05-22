@@ -8,7 +8,8 @@ include '../inc/header.php';
                 <div class="article">
                     <div class="container">
 
-                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during my time as a developer.</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during
+                            my time as a developer.</p>
 
                         <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
                             <div class="input-group">
@@ -65,6 +66,37 @@ include '../inc/header.php';
                     <div id="slideShowBullets" class="slideShowBullets"></div>
                 </div>
 
+                <div id="projectsDetail" class="modal project" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button id="modalClose" type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title projectHeader"><h3 class="projectTitle"></h3><h4 class="projectDate"></h4></h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="skills"></div>
+                                <div class="description"></div>
+                                <p class="links"></p>
+                                <div class="slideShowContainer">
+                                    <div class="slideShow">
+                                        <div class="slideShowViewpointContainer">
+                                            <div class="slideShowViewpoint">
+                                                <div class="slidesContainer"></div>
+                                            </div>
+                                        </div>
+                                        <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
+                                        <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
+                                    </div>
+                                    <div class="slideShowBullets"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
                 <!-- The Scripts needed for the page -->
 
                 <!-- Script to expand page -->
@@ -75,7 +107,7 @@ include '../inc/header.php';
                 <!-- the script needed for any helper functions -->
                 <script src="/lib/js/helperFunctions.js"></script>
 
-                 <!-- the script needed for XHR -->
+                <!-- the script needed for XHR -->
                 <script src="/lib/js/xhr.js"></script>
 
                 <!-- the script for the page -->
