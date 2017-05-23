@@ -487,27 +487,12 @@ button {
 
 .slideShow {
   position: relative;
-  padding: 0 35px;
   margin: 0 -10px;
   display: none;
 }
 
 .slideShowViewpointContainer {
-  padding: 5px;
   max-height: 350px;
-  margin: auto;
-  background-color: white;
-  border: 1px solid #ddd;
-  @include border-radius(4px);
-  @include transition(.2s);
-}
-
-#projectPreview .slideShowViewpointContainer {
-  padding: 0;
-  background: none;
-  border: none;
-  @include border-radius(0);
-  opacity: 1;
 }
 
 .slideShowViewpointContainer:hover {
@@ -605,6 +590,7 @@ button {
   @include transition(.3s);
   position: absolute;
   top: calc(50% - 15px);
+  background: white;
 }
 
 .slideShowNav:hover {
