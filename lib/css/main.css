@@ -520,16 +520,23 @@ button {
 }
 
 .slideShow {
-    position: relative;
     margin: 0 -10px;
     display: none;
 }
 
-.slideShowViewpointContainer {
-    max-height: 350px;
+#projectPreview .slideShow {
+    margin: 0;
 }
 
-.slideShowViewpointContainer:hover {
+.slideShowViewpoint {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    position: relative;
+}
+
+.slideShowViewpoint:hover {
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -537,7 +544,7 @@ button {
     cursor: pointer;
 }
 
-#projectPreview .slideShowViewpointContainer:hover {
+#projectPreview .slideShowViewpoint:hover {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
@@ -576,7 +583,7 @@ button {
 
 .slide {
     max-width: 100%;
-    max-height: 340px;
+    max-height: 350px;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
@@ -665,31 +672,35 @@ button {
     position: absolute;
     top: calc(50% - 15px);
     background: white;
-}
-
-.slideShowNav:hover {
-    opacity: 1;
-    cursor: pointer;
     -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     -o-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.previous {
-    left: 2px;
+.slideShowNav:hover {
+    opacity: 1;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 20px 0 #337ab7;
+    -moz-box-shadow: 0 0 20px 0 #337ab7;
+    -o-box-shadow: 0 0 20px 0 #337ab7;
+    box-shadow: 0 0 20px 0 #337ab7;
 }
 
-.next {
-    right: 2px;
+.previous, #expandedImagePrevious {
+    left: 0;
+    -webkit-border-radius: 0 50% 50% 0;
+    -moz-border-radius: 0 50% 50% 0;
+    -ms-border-radius: 0 50% 50% 0;
+    border-radius: 0 50% 50% 0;
 }
 
-#expandedImagePrevious {
-    left: 4px;
-}
-
-#expandedImageNext {
-    right: 4px;
+.next, #expandedImageNext {
+    right: 0;
+    -webkit-border-radius: 50% 0 0 50%;
+    -moz-border-radius: 50% 0 0 50%;
+    -ms-border-radius: 50% 0 0 50%;
+    border-radius: 50% 0 0 50%;
 }
 
 #slideShowNums {

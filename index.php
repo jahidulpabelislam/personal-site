@@ -22,13 +22,9 @@ include 'inc/header.php';
 
                 <div id="projectPreview" class="article wow fadeInRight hasSlideShow" data-wow-delay="0.8s">
                     <h3>My Latest Projects</h3>
-                    <div class="slideShowContainer">
-                        <div class="slideShow">
-                            <div class="slideShowViewpointContainer">
-                                <div class="slideShowViewpoint">
-                                    <div class="slidesContainer"></div>
-                                </div>
-                            </div>
+                    <div class="slideShow">
+                        <div class="slideShowViewpoint">
+                            <div class="slidesContainer"></div>
                             <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
                             <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
                         </div>
