@@ -66,7 +66,7 @@ include '../inc/header.php';
                     <div id="slideShowBullets" class="slideShowBullets"></div>
                 </div>
 
-                <div id="projectsDetail" class="modal hasSlideShow" role="dialog">
+                <div id="projectsDetail" class="modal" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content-->
