@@ -1,12 +1,176 @@
 angular.module('projectsAdmin', [])
+    .directive("fileUpload", function() {
+        return {
+            restrict: 'A',
+            scope: true,
+            link: function($scope, $element, $attr) {
+
+                $element.bind("change", function() {
+                    for (var i = 0; i < $element[0].files.length; i++) {
+                        $scope.checkFile($element[0].files[i]);
+                    }
+                });
+            }
+        };
+    })
     .controller('projectsAdminController', function($scope, $http) {
 
-        $scope.projects = $scope.pages = [];
+        $scope.projects = $scope.pages = $scope.uploads = [];
         $scope.currentPage = 1;
 
         $scope.selectedProject = undefined;
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = "";
+
+        //send a image to API with the username and password of user
+        $scope.sendImage = function(picture) {
+
+            var form = new FormData();
+            //add the picture
+            form.append("picture", picture);
+            //add the username of user
+            form.append("username", $scope.username);
+            //add the password of user
+            form.append("password", $scope.password);
+
+            $http({
+                url: "/admin/api/1/pictures/" + $scope.selectedProject.ID,
+                method: "POST",
+                params: form
+            }).then(function(result) {
+                $scope.selectedProject.pictures.push(result.data.rows[0]);
+            }, function(result) {
+                $scope.projectFormFeedback = result.data.meta.feedback || "Error uploading the Project Image.";
+            });
+        };
+
+        //set image as failed upload div to display error
+        var renderFailedUpload = function(errorMessage) {
+            $scope.uploads.push({ok: false, text: errorMessage});
+            $scope.$apply();
+
+            delayExpand();
+        };
+
+        $scope.checkFile = function(file) {
+
+            var fileReader;
+
+            //checks if file is a image
+            if (file.type.includes("image/")) {
+
+                //gets image
+                fileReader = new FileReader();
+
+                fileReader.onload = function(e) {
+                    $scope.uploads.push({ok: true, text: file.name, image: e.target.result});
+                    $scope.$apply();
+                    delayExpand();
+                };
+
+                fileReader.onerror = function() {
+                    renderFailedUpload("Error getting " + file.name);
+                };
+
+                fileReader.readAsDataURL(file);
+            }
+            //else it isn't a image so show its failed
+            else {
+                renderFailedUpload(file.name + " isn't a image.");
+            }
+        };
+
+        //read item dropped
+        var readItem = function(item) {
+                //creates variable for later
+                var directoryReader, i;
+
+                //checks if item is file
+                if (item.isFile) {
+
+                    //gets file
+                    item.file(function(file) {
+                        $scope.checkFile(file);
+                    });
+                }
+                //checks if its a directory
+                else if (item.isDirectory) {
+
+                    //Get folder content
+                    directoryReader = item.createReader();
+                    directoryReader.readEntries(function(entries) {
+                        //loop through each directory item
+                        for (i = 0; i < entries.length; i++) {
+                            readItem(entries[i]);
+                        }
+                    });
+
+                }
+                //else drop of item has failed therefore show its failed
+                else {
+                    renderFailedUpload("Error processing upload - " + item.name);
+                }
+            },
+
+            //when a drag over starts
+            dragOver = function(e) {
+
+                //stop default events
+                e.preventDefault();
+                e.stopPropagation();
+
+                //make drop zone visible
+                $("#dropZone")[0].style.zIndex = "10";
+                $("#dropZone")[0].style.opacity = "1";
+            },
+
+            removeDropZone = function(e) {
+                //stop default events
+                e.preventDefault();
+                e.stopPropagation();
+
+                //make drop zone invisible
+                $("#dropZone")[0].style.opacity = "0";
+                setTimeout(function() {
+                    $("#dropZone")[0].style.zIndex = "-10";
+                }, 1000);
+            },
+
+            //when drop of item (file/directory) has occurred
+            drop = function(e) {
+
+                var items, i;
+
+                removeDropZone(e);
+
+                //gets the items (files/directories) dropped
+                items = e.dataTransfer.items;
+
+                //loop through each item (file/directory) dropped
+                for (i = 0; i < items.length; i++) {
+                    //send a item (file/directory) to be read
+                    readItem(items[i].webkitGetAsEntry());
+                }
+            },
+
+            //stop drag and drop to work
+            dragNDropStop = function() {
+                window.removeEventListener("dragover", dragOver);
+                window.removeEventListener("drop", drop);
+            },
+
+            //this allows drag and drop to work, sets up all listeners needed
+            dragNDropSetUp = function() {
+
+                //sets up listener for when a drag occurs
+                window.addEventListener("dragover", dragOver);
+
+                //sets up listener for when a drop happens
+                window.addEventListener("drop", drop);
+
+                //when user leaves the area, make drop zone invisible
+                $("#dropZone")[0].addEventListener("dragleave", removeDropZone);
+            };
 
         //render a project image delete
         var deletedProjectImage = function(result) {
@@ -116,7 +280,7 @@ angular.module('projectsAdmin', [])
             $scope.selectProjectFeedback = "";
 
             if ($scope.selectedProject.ID) {
-                // dragNDropSetUp();
+                dragNDropSetUp();
                 $scope.setUpProjectForm();
             } else {
                 $scope.selectProjectFeedback = "Select A Project To Update.";
@@ -192,7 +356,7 @@ angular.module('projectsAdmin', [])
 
             $scope.currentPage = page;
 
-            // dragNDropStop();
+            dragNDropStop();
 
             //Sends a object with necessary data to XHR
             $http({
