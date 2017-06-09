@@ -120,7 +120,7 @@
                         <div ng-repeat="upload in uploads" ng-class="upload.ok == true ? 'aUpload' : 'failedUpload'">
                             <p>{{upload.text}}</p>
                             <img ng-if="upload.ok == true" src="{{upload.image}}">
-                            <button ng-if="upload.ok == true" ng-click="sendImage(upload)" class="btn btn-danger">Upload This Picture</button>
+                            <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn-danger">Upload This Picture</button>
                         </div>
                     </div>
                 </div>

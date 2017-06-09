@@ -33,10 +33,11 @@ angular.module('projectsAdmin', [])
             //add the password of user
             form.append("password", $scope.password);
 
-            $http({
-                url: "/admin/api/1/pictures/" + $scope.selectedProject.ID,
-                method: "POST",
-                params: form
+            $http.post("/admin/api/1/pictures/" + $scope.selectedProject.ID, form, {
+                transformRequest: angular.identity,
+                headers: {
+                    "Content-Type": undefined
+                }
             }).then(function(result) {
                 $scope.selectedProject.pictures.push(result.data.rows[0]);
             }, function(result) {
@@ -48,7 +49,6 @@ angular.module('projectsAdmin', [])
         var renderFailedUpload = function(errorMessage) {
             $scope.uploads.push({ok: false, text: errorMessage});
             $scope.$apply();
-
             delayExpand();
         };
 
@@ -63,7 +63,7 @@ angular.module('projectsAdmin', [])
                 fileReader = new FileReader();
 
                 fileReader.onload = function(e) {
-                    $scope.uploads.push({ok: true, text: file.name, image: e.target.result});
+                    $scope.uploads.push({ok: true, text: file.name, image: e.target.result, file: file});
                     $scope.$apply();
                     delayExpand();
                 };
