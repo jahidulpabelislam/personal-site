@@ -24,7 +24,8 @@ include '../inc/header.php';
                             </div>
                         </form>
 
-                        <p id="errors" class="feedback error wow fadeInUp" data-wow-delay="0.8s"></p>
+                        <p id="errors" class="feedback error"></p>
+                        <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                         <div id="projects"></div>
                         <div id="pagination"></div>
                     </div>
@@ -108,6 +109,8 @@ include '../inc/header.php';
 
                 <!-- the script for the page -->
                 <script src="/lib/js/projects.js"></script>
+
+                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php
 include '../inc/footer.html';
