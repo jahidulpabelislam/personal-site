@@ -22,6 +22,7 @@ include 'inc/header.php';
 
                 <div id="projectPreview" class="article wow fadeInRight hasSlideShow" data-wow-delay="0.8s">
                     <h3>My Latest Projects</h3>
+                    <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                     <div class="slideShow">
                         <div class="slideShowViewpoint">
                             <div class="slidesContainer"></div>
@@ -30,7 +31,7 @@ include 'inc/header.php';
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
-                    <p id="errors" class="feedback error wow fadeInUp"  data-wow-delay="0.8s"></p>
+                    <p id="errors" class="feedback error"></p>
                 </div>
 
                 <div class="article action">
@@ -46,6 +47,7 @@ include 'inc/header.php';
                 <script type="text/javascript" src="/lib/js/helperFunctions.js"></script>
                 <script type="text/javascript" src="/lib/js/xhr.js"></script>
                 <script type="text/javascript" src="/lib/js/projectsPreview.js"></script>
+                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php
 include 'inc/footer.html';
