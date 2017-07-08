@@ -267,7 +267,7 @@ a > img {
 }
 
 a:hover > img {
-  @include box-shadow(0 0 10px 0 rgb(0, 0, 0));
+  @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
   cursor: pointer;
   opacity: 1;
 }

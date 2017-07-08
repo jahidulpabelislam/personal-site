@@ -253,10 +253,10 @@ a > img {
 }
 
 a:hover > img {
-    -webkit-box-shadow: 0 0 10px 0 black;
-    -moz-box-shadow: 0 0 10px 0 black;
-    -o-box-shadow: 0 0 10px 0 black;
-    box-shadow: 0 0 10px 0 black;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
     cursor: pointer;
     opacity: 1;
 }
