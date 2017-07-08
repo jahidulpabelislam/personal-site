@@ -35,12 +35,10 @@ include '../inc/header.php';
                 <div class="article aInfo">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a href="http://www.webuy.com" title="Link to CeX website." target="_blank"><img src="../images/CeX.png"
-                                                                                                         id="cex-logo"
-                                                                                                         alt="Logo of CeX"></a>
+                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <p>While working Part Time at CeX as a Sales Assistant.</p>
+                            <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
                 </div>

@@ -481,10 +481,6 @@ button {
   @include border-radius(50%);
 }
 
-#cex-logo {
-  @include border-radius(40%);
-}
-
 .slideShow {
   margin: 0 -10px;
   display: none;

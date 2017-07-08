@@ -512,13 +512,6 @@ button {
     border-radius: 50%;
 }
 
-#cex-logo {
-    -webkit-border-radius: 40%;
-    -moz-border-radius: 40%;
-    -ms-border-radius: 40%;
-    border-radius: 40%;
-}
-
 .slideShow {
     margin: 0 -10px;
     display: none;
