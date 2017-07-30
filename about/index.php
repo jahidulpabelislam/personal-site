@@ -22,12 +22,10 @@ include '../inc/header.php';
                 <div class="article aInfo">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img
-                                src="../images/UoP.gif"
-                                alt="Logo of University of Portsmouth"></a>
+                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <p>I'm currently a student, undertaking my third and final year of BSc (Hons) Web Technologies at University of Portsmouth.</p>
+                            <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
                 </div>
@@ -35,10 +33,10 @@ include '../inc/header.php';
                 <div class="article aInfo">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
+                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="../images/UoP.gif" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
+                            <p>Graduated from University of Portsmouth with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
                         </div>
                     </div>
                 </div>
