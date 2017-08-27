@@ -106,10 +106,6 @@ include '../inc/header.php';
                     </div>
                 </div>
 
-                <script src="/lib/js/helperFunctions.js"></script>
-                <script src="/lib/js/xhr.js"></script>
-                <script src="/lib/js/form.js"></script>
-
 <?php
 include '../inc/footer.html';
 ?>

@@ -94,22 +94,6 @@ include '../inc/header.php';
                     </div>
                 </div>
 
-                <!-- The Scripts needed for the page -->
-
-                <!-- Script to expand page -->
-                <script src="/lib/js/expandImage.js"></script>
-
-                <script src="/lib/js/slideShow.js"></script>
-
-                <!-- the script needed for any helper functions -->
-                <script src="/lib/js/helperFunctions.js"></script>
-
-                <!-- the script needed for XHR -->
-                <script src="/lib/js/xhr.js"></script>
-
-                <!-- the script for the page -->
-                <script src="/lib/js/projects.js"></script>
-
 <?php
 include '../inc/footer.html';
 ?>

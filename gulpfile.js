@@ -1,8 +1,35 @@
 var gulp = require("gulp");
 
 var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 var minifyCss = require("gulp-minify-css");
 var autoprefixer = require("gulp-autoprefixer");
+
+// Concatenate & Minify JS
+var scripts = {
+    main: [
+        "lib/js/expandImage.js",
+        "lib/js/slideShow.js",
+        "lib/js/helperFunctions.js",
+        "lib/js/xhr.js",
+        "lib/js/projects.js",
+        "lib/js/projectsPreview.js",
+        "lib/js/form.js",
+        "lib/bootstrap/js/bootstrap.min.js",
+        "lib/js/stickyFooter.js",
+        "lib/js/wow.min.js"
+    ]
+};
+var scriptNames = Object.keys(scripts);
+scriptNames.forEach(function(key, i){
+    gulp.task("scripts-"+key, function() {
+        return gulp.src(scripts[key])
+            .pipe(concat(key+".min.js"))
+            .pipe(uglify())
+            .pipe(gulp.dest("lib/js"));
+    });
+});
+gulp.task("scripts", ["scripts-main"]);
 
 // Minify Stylesheets
 var stylesheets = {
@@ -29,4 +56,4 @@ stylesheetNames.forEach(function(key, i){
 });
 gulp.task("styles", ["styles-main"]);
 
-gulp.task("default", ["styles"]);
+gulp.task("default", ["scripts", "styles"]);

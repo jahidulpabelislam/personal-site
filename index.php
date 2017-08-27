@@ -39,11 +39,6 @@ include 'inc/header.php';
                     </div>
                 </div>
 
-                <script type="text/javascript" src="/lib/js/slideShow.js"></script>
-                <script type="text/javascript" src="/lib/js/helperFunctions.js"></script>
-                <script type="text/javascript" src="/lib/js/xhr.js"></script>
-                <script type="text/javascript" src="/lib/js/projectsPreview.js"></script>
-
 <?php
 include 'inc/footer.html';
 ?>
