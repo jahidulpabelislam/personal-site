@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Admin</title>
 
+        <!-- Custom stylesheet for site -->
+        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+
         <link rel="stylesheet" type="text/css" href="/lib/css/main.min.css" />
 
         <!-- The favicon for the site -->
@@ -111,7 +114,7 @@
 
                     <!-- Div containing the uploads -->
                     <div id="uploads">
-                        <div ng-repeat="upload in uploads" ng-class="upload.ok == true ? 'aUpload' : 'failedUpload'">
+                        <div ng-repeat="upload in uploads" ng-class="upload.ok == true ? 'aUpload' : 'failedUpload'" class="ui-state-default">
                             <p>{{upload.text}}</p>
                             <img ng-if="upload.ok == true" src="{{upload.image}}">
                             <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn-danger">Upload This Picture</button>
