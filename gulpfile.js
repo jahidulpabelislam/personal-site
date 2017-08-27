@@ -15,9 +15,9 @@ var scripts = {
         "lib/js/projects.js",
         "lib/js/projectsPreview.js",
         "lib/js/form.js",
-        "lib/bootstrap/js/bootstrap.min.js",
+        "lib/js/third-party/bootstrap.min.js",
         "lib/js/stickyFooter.js",
-        "lib/js/wow.min.js"
+        "lib/js/third-party/wow.min.js"
     ]
 };
 var scriptNames = Object.keys(scripts);
@@ -34,9 +34,10 @@ gulp.task("scripts", ["scripts-main"]);
 // Minify Stylesheets
 var stylesheets = {
     main: [
+        "lib/css/third-party/bootstrap.min.css",
         "lib/css/main.css",
         "lib/css/admin.css",
-        "lib/css/animate.min.css"
+        "lib/css/third-party/animate.min.css"
     ]
 };
 var stylesheetNames = Object.keys(stylesheets);

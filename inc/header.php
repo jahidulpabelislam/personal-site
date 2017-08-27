@@ -11,9 +11,6 @@
         <meta name="keywords" content="<?php echo $keywords ?>">
 
         <!-- Custom stylesheet for site -->
-        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" title="style" media="all" type="text/css">
-
-        <!-- Custom stylesheet for site -->
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
