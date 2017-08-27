@@ -1,15 +1,12 @@
 var gulp = require("gulp");
 
 var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
-var rename = require("gulp-rename");
 var minifyCss = require("gulp-minify-css");
 var autoprefixer = require("gulp-autoprefixer");
 
 // Minify Stylesheets
 var stylesheets = {
     main: [
-        "lib/bootstrap/css/bootstrap.min.css",
         "lib/css/main.css",
         "lib/css/admin.css",
         "lib/css/animate.min.css"

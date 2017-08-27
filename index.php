@@ -43,7 +43,6 @@ include 'inc/header.php';
                 <script type="text/javascript" src="/lib/js/helperFunctions.js"></script>
                 <script type="text/javascript" src="/lib/js/xhr.js"></script>
                 <script type="text/javascript" src="/lib/js/projectsPreview.js"></script>
-                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php
 include 'inc/footer.html';

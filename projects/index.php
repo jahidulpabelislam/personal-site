@@ -110,8 +110,6 @@ include '../inc/header.php';
                 <!-- the script for the page -->
                 <script src="/lib/js/projects.js"></script>
 
-                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
 <?php
 include '../inc/footer.html';
 ?>

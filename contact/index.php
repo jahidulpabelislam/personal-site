@@ -109,7 +109,6 @@ include '../inc/header.php';
                 <script src="/lib/js/helperFunctions.js"></script>
                 <script src="/lib/js/xhr.js"></script>
                 <script src="/lib/js/form.js"></script>
-                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <?php
 include '../inc/footer.html';

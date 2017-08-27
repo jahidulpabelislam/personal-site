@@ -9,8 +9,14 @@
         <meta name="description" content="<?php echo $description ?>">
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="<?php echo $keywords ?>">
+
+        <!-- Custom stylesheet for site -->
+        <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+
         <!-- Custom stylesheet for site -->
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
