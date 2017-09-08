@@ -30,11 +30,11 @@
                     <p id="selectProjectFeedback" class="feedback error">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-show="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button"
+                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button"
                                 value="Edit"
                                 class="btn btn-primary" tabindex="3">Edit
                         </button>
-                        <button ng-show="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button"
+                        <button ng-if="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button"
                                 value="Delete" class="btn btn-danger" tabindex="4">Delete
                         </button>
                         <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project"
@@ -44,10 +44,10 @@
                     </div>
                     <div id="pagination" ng-show="pages.length > 1">
                         <ul class="pagination">
-                            <li ng-show="currentPage !== 1"><a ng-click="getProjectList(currentPage - 1)">Previous</a></li>
+                            <li ng-if="currentPage !== 1"><a ng-click="getProjectList(currentPage - 1)">Previous</a></li>
                             <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a
                                     ng-click="getProjectList(page)">{{page}}</a></li>
-                            <li ng-show="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a>
+                            <li ng-if="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a>
                             </li>
                         </ul>
                     </div>
@@ -100,14 +100,14 @@
 
                     </form>
 
-                    <ul id="projectImages">
+                    <ul id="projectImages" ui-sortable ng-model="selectedProject.pictures">
                         <li ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
                             <img src="{{picture.File}}">
                             <button ng-click="deleteProjectImage(picture)" class="btn btn-danger deleteProjectImg">X</button>
                         </li>
                     </ul>
 
-                    <input ng-show="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*" tabindex="15">
+                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*" tabindex="15">
 
                     <!-- Div containing the uploads -->
                     <div id="uploads">
@@ -151,6 +151,9 @@
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script type="text/javascript" src="/lib/js/main.min.js"></script>
+
+        <!-- The third party script needed for the page for the sorting of pictures -->
+        <script type="text/javascript" src="/lib/js/third-party/sortable.js"></script>
 
         <!-- the script for the page -->
         <script type="text/javascript" src="lib/js/ui.js"></script>

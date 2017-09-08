@@ -1,4 +1,4 @@
-angular.module('projectsAdmin', [])
+angular.module('projectsAdmin', ['ui.sortable'])
     .directive("fileUpload", function() {
         return {
             restrict: 'A',
@@ -18,7 +18,7 @@ angular.module('projectsAdmin', [])
         $scope.projects = $scope.pages = $scope.uploads = [];
         $scope.currentPage = 1;
 
-        $scope.selectedProject = undefined;
+        $scope.selectedProject = null;
 
         $scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = "";
 
@@ -232,6 +232,10 @@ angular.module('projectsAdmin', [])
                     $scope.selectedProject.ID = "";
                 }
 
+                $scope.selectedProject.pictures.forEach(function(picture, i) {
+                    picture.Number = i+1;
+                });
+
                 $http({
                     url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
                     method: "POST",
@@ -245,7 +249,8 @@ angular.module('projectsAdmin', [])
                         link: $scope.selectedProject.Link,
                         github: $scope.selectedProject.GitHub,
                         download: $scope.selectedProject.Download,
-                        date: $scope.selectedProject.Date
+                        date: $scope.selectedProject.Date,
+                        pictures: angular.toJson($scope.selectedProject.pictures)
                     }
                 }).then(function(result) {
                     result.data.rows[0].Date = new Date(result.data.rows[0].Date);
@@ -280,8 +285,10 @@ angular.module('projectsAdmin', [])
             $scope.selectProjectFeedback = "";
 
             if ($scope.selectedProject.ID) {
-                dragNDropSetUp();
+                //dragNDropSetUp();
                 $scope.setUpProjectForm();
+                $("#uploads").sortable();
+                $("#uploads").disableSelection();
             } else {
                 $scope.selectProjectFeedback = "Select A Project To Update.";
             }
@@ -356,7 +363,7 @@ angular.module('projectsAdmin', [])
 
             $scope.currentPage = page;
 
-            dragNDropStop();
+            //dragNDropStop();
 
             //Sends a object with necessary data to XHR
             $http({

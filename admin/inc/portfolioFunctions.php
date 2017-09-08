@@ -188,6 +188,18 @@ function editProject($data)
 
                 //if update was ok
                 if ($results["count"] > 0) {
+                    $pictures = json_decode($data["pictures"]);
+
+                    if (count($pictures) > 0)
+                    {
+                        foreach ($pictures as $picture)
+                        {
+                            $query = "UPDATE PortfolioProjectImage SET Number = :Number WHERE ID = :ID;";
+                            $bindings = array(":ID" => $picture->ID, ":Number" => $picture->Number);
+                            $db->query($query, $bindings);
+                        }
+                    }
+
                     $results = getProject($data["projectID"]);
                     $results["meta"]["ok"] = true;
                 } //error updating goal
