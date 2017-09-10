@@ -17,7 +17,8 @@ var scripts = {
         "lib/js/form.js",
         "lib/js/third-party/bootstrap.min.js",
         "lib/js/stickyFooter.js",
-        "lib/js/third-party/wow.min.js"
+        "lib/js/third-party/wow.min.js",
+        "lib/js/nav.js"
     ]
 };
 var scriptNames = Object.keys(scripts);
