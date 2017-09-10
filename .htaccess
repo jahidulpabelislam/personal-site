@@ -34,3 +34,11 @@ RewriteCond %{HTTP_HOST} ^jahidulpabelislam.000webhostapp.com [NC]
 RewriteCond %{SERVER_PORT} 80
 #whathappens when it happens
 RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
+
+
+#Rewrite rule for backend API
+RewriteEngine On
+RewriteBase /admin/api/1/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
