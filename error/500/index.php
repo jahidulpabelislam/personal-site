@@ -26,6 +26,6 @@ include '../../inc/header.php';
 <?php
 
 //include the footer for page
-include '../../inc/footer.html';
+include '../../inc/footer.php';
 
 ?>
