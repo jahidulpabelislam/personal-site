@@ -44,11 +44,7 @@
                     </div>
                     <div id="pagination" ng-show="pages.length > 1">
                         <ul class="pagination">
-                            <li ng-if="currentPage !== 1"><a ng-click="getProjectList(currentPage - 1)">Previous</a></li>
-                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a
-                                    ng-click="getProjectList(page)">{{page}}</a></li>
-                            <li ng-if="currentPage !== pages.length"><a ng-click="getProjectList(currentPage + 1)">Next</a>
-                            </li>
+                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a ng-click="getProjectList(page)">{{page}}</a></li>
                         </ul>
                     </div>
                 </div>
