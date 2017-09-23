@@ -4,6 +4,7 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var minifyCss = require("gulp-minify-css");
 var autoprefixer = require("gulp-autoprefixer");
+var sass = require('gulp-sass');
 
 // Concatenate & Minify JS
 var scripts = {
@@ -36,8 +37,7 @@ gulp.task("scripts", ["scripts-main"]);
 var stylesheets = {
     main: [
         "lib/css/third-party/bootstrap.min.css",
-        "lib/css/main.css",
-        "lib/css/admin.css",
+        "lib/css/style.css",
         "lib/css/third-party/animate.min.css"
     ]
 };
@@ -57,5 +57,15 @@ stylesheetNames.forEach(function(key, i){
     });
 });
 gulp.task("styles", ["styles-main"]);
+
+gulp.task('sass', function() {
+    return gulp.src('lib/css/style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('lib/css/'));
+});
+// Watch Files For Changes
+gulp.task('watch', function() {
+    gulp.watch('lib/css/**/*.scss', ['sass']);
+});
 
 gulp.task("default", ["scripts", "styles"]);
