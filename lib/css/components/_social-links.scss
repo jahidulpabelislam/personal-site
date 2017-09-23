@@ -1,0 +1,28 @@
+/* For all devices */
+#socialMediaLinks {
+    background: #EEEEEE url('/images/social.jpg') no-repeat center center scroll;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding: 10px;
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+}
+
+#socialMediaLinks h1 {
+    color: white;
+    text-shadow: 2px 2px 3px black;
+    font-weight: 700;
+}
+
+#socialMediaLinks img {
+    margin: 25px 5px;
+    height: 60px;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    #socialMediaLinks {
+        background-attachment: fixed;
+    }
+}

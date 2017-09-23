@@ -1,0 +1,55 @@
+/* For all devices */
+.socialMediaImg {
+    height: 40px;
+    background-color: black;
+    opacity: 1;
+}
+
+.socialMediaText {
+    color: #333;
+    font-weight: 700;
+    @include transition(.3s);
+    display: inline-block;
+}
+
+.emailImg {
+    @include border-radius(50%);
+}
+
+.emailLink:hover .emailImg {
+    background-color: #0f7c10;
+}
+
+.emailLink:hover .emailAddress {
+    color: #0f7c10;
+    text-decoration: underline;
+}
+
+.linkedinLink:hover .linkedinImg {
+    background-color: #007bb5;
+}
+
+.linkedinLink:hover #linkedinAt {
+    color: #007bb5;
+    text-decoration: underline;
+}
+
+.githubImg {
+    @include border-radius(50%);
+}
+
+.githubLink:hover .githubImg {
+    background-color: #E52525;
+}
+
+.githubLink:hover #githubAt {
+    color: #E52525;
+    text-decoration: underline;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    .socialMediaImg {
+        height: 50px;
+    }
+}

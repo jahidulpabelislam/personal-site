@@ -1,0 +1,50 @@
+/* For all devices */
+header.jumbotron#Contact {
+    background-image: url("/images/contact.jpg");
+}
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: 481px) {
+    #contactForm {
+        margin: auto;
+        max-width: 439px;
+    }
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    #contactForm {
+        max-width: 800px;
+    }
+
+    #contactForm > .form-group {
+        width: 49.7%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #contactForm > #messageFormGroup {
+        width: 100%;
+    }
+
+    .linkContainer > .container {
+        @include flexbox();
+        @include flexboxCenterAlign();
+    }
+
+    .linkContainer:nth-child(even) > .container {
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .linkContainer > .container > * {
+        width: 50%;
+    }
+
+    .linkContainer > .container > h3 {
+        margin: 0;
+    }
+}

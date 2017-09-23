@@ -1,0 +1,56 @@
+/* For all devices */
+header.jumbotron#About {
+    background-image: url("/images/marmaris.jpg");
+}
+
+#aboutSkills p {
+    background-color: #337ab7;
+    color: white;
+    cursor: auto;
+}
+
+#interests p {
+    background-color: #5cb85c;
+    @include border-radius(5px);
+    padding: 5px;
+    color: white;
+    display: inline-block;
+    margin: 2px;
+}
+
+.aInfo > * {
+    font-weight: 700;
+}
+
+.aInfo img {
+    width: 75%;
+    max-width: 165px;
+}
+
+#imageOfMe {
+    @include border-radius(50%);
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    .aInfo > .container {
+        @include flexbox();
+        @include flexboxCenterAlign();
+    }
+
+    .aInfo:nth-child(even) > .container {
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .aInfo > .container > * {
+        width: 50%;
+    }
+
+    .aInfo > .container > h3 {
+        margin: 0;
+    }
+}

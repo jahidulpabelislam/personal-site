@@ -1,0 +1,27 @@
+/* For all devices */
+header.jumbotron {
+    color: #FFFFFF;
+    background: $primary-color url('/images/work.jpg') no-repeat center center scroll;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-bottom: 0
+}
+
+header.jumbotron h1 {
+    text-shadow: 2px 2px 3px black;
+    font-weight: bold;
+}
+
+header.jumbotron p {
+    text-shadow: 2px 2px 3px black;
+    font-weight: 700;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    header.jumbotron {
+        background-attachment: fixed;
+    }
+}

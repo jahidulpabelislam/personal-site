@@ -1,0 +1,118 @@
+/*
+  IMPORT ALL NECESSARY CSS FILES
+*/
+@import "tools/variables";
+@import "tools/mixins";
+
+@import "components/footer";
+@import "components/form";
+@import "components/header";
+@import "components/nav";
+@import "components/pagination";
+@import "components/slideshow";
+@import "components/social-links";
+@import "components/social-media-images";
+
+@import "templates/about";
+@import "templates/admin";
+@import "templates/contact";
+@import "templates/home";
+@import "templates/links";
+@import "templates/projects";
+
+/*
+  ANY CSS FOR MANY TEMPLATES AND/OR COMPONENTS.
+  ANY BASE CSS FOR ALL PAGES.
+  ANY CSS FOR COMPONENTS/TEMPLATES THAT WILL ONLY HAVE 1 LINE OF CODE IF SEPARATED
+*/
+
+/* For all devices */
+body {
+    text-align: center;
+}
+
+.container {
+    max-width: 100%;
+    margin: auto;
+    @include transition(1s);
+}
+
+section {
+    @include flexbox();
+    @include transition(1s);
+}
+
+#sectionInnerContainer {
+    width: 100%;
+}
+
+.article {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
+}
+
+.article:nth-of-type(even) {
+    background-color: white;
+}
+
+h6 {
+    font-weight: 700;
+}
+
+a {
+    font-weight: 700;
+    @include transition(.3s);
+}
+
+a > img {
+    opacity: .9;
+    @include transition(.3s);
+}
+
+a:hover > img {
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    cursor: pointer;
+    opacity: 1;
+}
+
+a.btn {
+    margin: 5px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    font-weight: 700;
+}
+
+p {
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 7px;
+}
+
+.skills p {
+    border: 1px solid $primary-color;
+    @include border-radius(5px);
+    padding: 5px;
+    color: $primary-color;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    @include transition(.4s);
+}
+
+h3 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    .action > .container > div {
+        width: 49%;
+        display: inline-block;
+    }
+}

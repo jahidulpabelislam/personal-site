@@ -1,0 +1,112 @@
+/* For all devices */
+header.jumbotron#Projects {
+    background-image: url("/images/projects.jpg");
+}
+
+#search {
+    margin-bottom: 20px;
+}
+
+#search * {
+    margin: 0;
+    z-index: 0;
+}
+
+#searchLabel {
+    display: none;
+}
+
+#searchInput {
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#searchSubmit {
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.project {
+    background-color: white;
+    padding: 10px;
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
+    margin-top: 10px;
+    border: 1px solid #E0E0E0;
+    @include border-radius(5px);
+}
+
+blockquote {
+    font-size: inherit;
+}
+
+.projectHeader {
+    @include flexbox();
+    @include flexboxCenterAlign();
+    padding: 20px 0 10px 0;
+}
+
+.projectTitle {
+    width: 75%;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+
+.projectDate {
+    width: 25%;
+    display: inline-block;
+    text-align: right;
+    margin: 0;
+}
+
+.description {
+    text-align: left;
+}
+
+.skills p:hover {
+    background-color: darken($primary-color, 5%);
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    color: white;
+}
+
+.skills p.searched {
+    background-color: darken($primary-color, 10%);
+    color: white;
+}
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: 481px) {
+    #search {
+        max-width: 439px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+
+    #projects {
+        @include flexbox();
+        @include flexboxJustifyCenter();
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+
+    .project {
+        width: calc(50% - 5px);
+    }
+
+    .project:nth-child(odd) {
+        margin-right: 5px;
+    }
+
+    .project:nth-child(even) {
+        margin-left: 5px;
+    }
+
+    .project:last-child:nth-child(odd) {
+        margin-right: 0;
+    }
+}

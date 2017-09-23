@@ -1,0 +1,127 @@
+#socialMediaPage {
+    margin-bottom: 0;
+}
+
+#socialMediaPage > .container > div {
+    margin: 5px;
+    padding: 15px;
+    display: inline-block;
+}
+
+#socialMediaPage > .container > #snapchatDiv {
+    display: block;
+    width: calc(75% - 10px);
+    max-width: 200px;
+    margin: auto;
+}
+
+#socialMediaPage a:hover, #socialMediaPage a:focus {
+    text-decoration: none;
+}
+
+#facebookImg {
+    @include border-radius(5px);
+}
+
+#facebook:hover #facebookAt {
+    color: #3b5998;
+    text-decoration: underline;
+}
+
+#facebook:hover #facebookImg {
+    background: #3b5998;
+}
+
+#twitterImg {
+    @include border-radius(50%);
+}
+
+#twitter:hover #twitterAt {
+    color: #55acee;
+    text-decoration: underline;
+}
+
+#twitter:hover #twitterImg {
+    background: #55acee;
+}
+
+#instagramImg {
+    background: white;
+    @include border-radius(13px);
+}
+
+#instagram:hover #instagramAt {
+    color: #9a36ba;
+    text-decoration: underline;
+}
+
+#instagram:hover #instagramImg {
+    background-color: #8a3ab9;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a3ab9), color-stop(100%, #fbad50));
+    background: -webkit-linear-gradient(right top, #8a3ab9, #fbad50);
+    background: -moz-linear-gradient(bottom left, #8a3ab9, #fbad50);
+    background: -o-linear-gradient(bottom left, #8a3ab9, #fbad50);
+    background: -ms-linear-gradient(top, #8a3ab9 0%, #fbad50 100%);
+    background: linear-gradient(to bottom left, #8a3ab9, #fbad50);
+}
+
+#snapchat {
+    color: white;
+}
+
+#snapcode {
+    width: 100%;
+    @include border-radius(15%);
+    @include transition(.3s);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+#snapchat:hover #snapcode {
+    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    cursor: pointer;
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+
+#snapchatName {
+    background-color: black;
+    padding: 4px;
+    @include border-radius(6px);
+}
+
+#snapchat:hover {
+    color: #fffc00;
+}
+
+#xboxImg {
+    background-color: #000000;
+    @include border-radius(50%);
+}
+
+#xbox:hover #xboxImg {
+    background-color: #107c10;
+}
+
+#xbox:hover #gamertag {
+    color: #107c10;
+    text-decoration: underline;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+    #socialMediaPage > .container {
+        @include flexbox();
+        @include flexboxCenterAlign();
+    }
+
+    #socialMediaPage > .container > #snapchatDiv {
+        width: calc(33% - 10px);
+        max-width: 200px;
+        margin: 5px;
+    }
+
+    #snapchat {
+        max-width: 200px;
+    }
+}

@@ -1,0 +1,42 @@
+/* For all devices */
+.form-control {
+    margin: 5px auto;
+    -webkit-appearance: none;
+    width: calc(100% - 5px);
+}
+
+.form-control:focus {
+    @include box-shadow(0 0 8px $primary-color);
+}
+
+.form-control:focus.invalid {
+    border-color: $error;
+    @include box-shadow(0 0 8px transparentize($error, .40%));
+}
+
+.form-control.invalid {
+    border-color: $error;
+    outline: 0;
+}
+
+label {
+    margin: 5px 0 0 0;
+}
+
+.required {
+    color: $error;
+}
+
+.feedback {
+    font-weight: 700;
+    margin: 0;
+    display: none;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: $error;
+}
