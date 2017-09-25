@@ -8,14 +8,12 @@ include '../inc/header.php';
                 <div class="article">
                     <div class="container">
 
-                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during
-                            my time as a developer.</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed duringmy time as a developer.</p>
 
                         <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
                             <div class="input-group">
                                 <label id="searchLabel" for="search">Search for projects.</label>
-                                <input type="text" class="form-control" placeholder="Search for projects..."
-                                       id="searchInput">
+                                <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
                                 <div class="input-group-btn">
                                     <button class="btn btn-primary" type="submit" id="searchSubmit">
                                         <i class="glyphicon glyphicon-search"></i>

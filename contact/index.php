@@ -17,33 +17,24 @@ include '../inc/header.php';
                             <div class="form-group wow fadeInLeft" data-wow-delay="0.4s">
                                 <label for="emailInput">Your Email Address <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
-                                <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com"
-                                       required tabindex="1"
-                                       oninput="validateEmail(this.value);" id="emailInput"
-                                       title="Email Address">
+                                <input class="form-control" type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1" oninput="validateEmail(this.value);" id="emailInput" title="Email Address">
                                 <p id="emailFeedback" class="feedback error"></p>
                             </div>
 
                             <div class="form-group wow fadeInRight" data-wow-delay="0.8s">
                                 <label for="subjectInput">The Message Subject</label>
-                                <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback"
-                                       tabindex="2" id="subjectInput"
-                                       title="Subject of Message">
+                                <input class="form-control" type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" id="subjectInput" title="Subject of Message">
                             </div>
 
                             <div class="form-group wow fadeInDown" data-wow-delay="1.2s" id="messageFormGroup">
                                 <label for="messageInput">Your Message <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
-                                <textarea class="form-control" name="messageInput"
-                                          placeholder="e.g. Your site could do with more colour." required tabindex="3"
-                                          oninput="validateMessage(this.value);" id="messageInput"
-                                          title="The Message" rows="10"></textarea>
+                                <textarea class="form-control" name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3" oninput="validateMessage(this.value);" id="messageInput" title="The Message" rows="10"></textarea>
                                 <p id="messageFeedback" class="feedback error"></p>
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s"
-                                    data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send
+                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send
                             </button>
 
                         </form>
@@ -71,8 +62,7 @@ include '../inc/header.php';
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
-                                <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam"
-                                     class="socialMediaImg linkedinImg">
+                                <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg">
                                 <p class="socialMediaText" id="linkedinAt"> /jahidulpabelislam</p>
                             </a>
                         </div>
@@ -86,8 +76,7 @@ include '../inc/header.php';
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
-                                <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam"
-                                     class="socialMediaImg githubImg">
+                                <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg">
                                 <p class="socialMediaText" id="githubAt"> /jahidulpabelislam</p>
                             </a>
                         </div>

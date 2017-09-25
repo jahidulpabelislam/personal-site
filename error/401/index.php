@@ -19,9 +19,7 @@ include '../../inc/header.php';
                 <!-- Start Dynamic content for page -->
                 <div class="article">
                     <div class="container">
-                        <p>The web page you are trying to view needs authorization. You either supplied the wrong credentials or
-                            your
-                            browser doesn't understand how to supply credentials</p>
+                        <p>The web page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials</p>
                     </div>
                 </div>
                 <!-- End dynamic content -->
