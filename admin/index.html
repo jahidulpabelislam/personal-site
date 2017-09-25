@@ -42,7 +42,7 @@
                             Add A Project
                         </button>
                     </div>
-                    <div id="pagination" ng-show="pages.length > 1">
+                    <div class="pagination--admin" ng-show="pages.length > 1">
                         <ul class="pagination">
                             <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a ng-click="getProjectList(page)">{{page}}</a></li>
                         </ul>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div id="projectFormContainer">
-                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Log In" class="btn btn-warning"
+                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Back" class="btn btn-warning"
                             tabindex="6">Back
                     </button>
 
@@ -118,7 +118,7 @@
         </section>
 
         <!-- The drag and drop area -->
-        <section id="dropZone"><h1>Drag And Drop Image Here To Upload A Slide for Project</h1></section>
+        <section id="dropZone"><h1 class="dropZone__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
 
         <section id="userFormDiv">
             <div class="container">
