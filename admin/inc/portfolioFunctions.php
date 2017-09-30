@@ -121,7 +121,7 @@ function getProjects($data)
     return $results;
 }
 
-//add a goal user has attempted to add
+//add a project user has attempted to add
 function addProject($data)
 {
     //checks if requests needed are present and not empty
@@ -147,7 +147,7 @@ function addProject($data)
                 $results["meta"]["status"] = 201;
                 $results["meta"]["message"] = "Created";
 
-            } //else error adding goal
+            } //else error adding project
             else {
 
                 //check if database provided any meta data if so problem with executing query
@@ -166,7 +166,7 @@ function addProject($data)
     return $results;
 }
 
-//edits a goal user has posted before
+//try to edit a project user has posted before
 function editProject($data)
 {
     //checks if requests needed are present and not empty
@@ -177,7 +177,7 @@ function editProject($data)
         $results = login($data);
         if ($results["meta"]["ok"] === true) {
 
-            //get goal provided
+            //Check the project trying to edit actually exists
             $project = getProject($data["projectID"]);
             if ($project["count"] > 0) {
 
@@ -202,7 +202,7 @@ function editProject($data)
 
                     $results = getProject($data["projectID"]);
                     $results["meta"]["ok"] = true;
-                } //error updating goal
+                } //error updating project
                 else {
                     //check if database provided any meta data if so problem with executing query
                     if (!isset($project["meta"])) {
@@ -219,7 +219,7 @@ function editProject($data)
     return $results;
 }
 
-//deletes a goal user has posted before
+//Try's to delete a project user has posted before
 function deleteProject($data)
 {
 
@@ -231,17 +231,17 @@ function deleteProject($data)
         $results = login($data);
         if ($results["meta"]["ok"] === true) {
 
-            //error getting goal
+            //Check the project trying to edit actually exists
             $results = getProject($data["projectID"]);
             if ($results["count"] > 0) {
 
                 $db = new pdodb;
-                //delete the comments linked to goal
+                //Delete the images linked to project
                 $query = "DELETE FROM PortfolioProjectImage WHERE ProjectID = :projectID;";
                 $bindings = array(":projectID" => $data["projectID"]);
                 $db->query($query, $bindings);
 
-                //finally delete the actual goal
+                //finally delete the actual project
                 $query = "DELETE FROM PortfolioProject WHERE ID = :projectID;";
                 $results = $db->query($query, $bindings);
 
@@ -250,7 +250,7 @@ function deleteProject($data)
                     $results["meta"]["ok"] = true;
 
                     $results["rows"]["projectID"] = $data["projectID"];
-                } //error deleting goal
+                } //error deleting project
                 else {
                     //check if database provided any meta data if so problem with executing query
                     if (!isset($results["meta"])) {
@@ -276,10 +276,9 @@ function getPictures($projectID)
     return $results["rows"];
 }
 
-//upload a picture a user has uploaded as their profile picture
+//Tries to upload a picture user has tried to add as a project image
 function addPicture($data)
 {
-
     //checks if requests needed are present and not empty
     $dataNeeded = array("username", "password", "projectID");
     if (checkData($data, $dataNeeded) && isset($_FILES["picture"])) {
@@ -288,7 +287,7 @@ function addPicture($data)
         $results = login($data);
         if ($results["meta"]["ok"] === true) {
 
-            //error getting goal
+            //Check the project trying to edit actually exists
             $project = getProject($data["projectID"]);
             if ($project["count"] > 0) {
 
@@ -355,10 +354,9 @@ function addPicture($data)
     return $results;
 }
 
-//deletes a profile picture user uploaded before
+//Tries to delete a picture linked to a project
 function deletePicture($data)
 {
-
     //checks if requests needed are present and not empty
     $dataNeeded = array("username", "password", "projectID", "file");
     if (checkData($data, $dataNeeded)) {
@@ -367,7 +365,7 @@ function deletePicture($data)
         $results = login($data);
         if ($results["meta"]["ok"] === true) {
 
-            //error getting goal
+            //Check the project trying to edit actually exists
             $results = getProject($data["projectID"]);
             if ($results["count"] > 0) {
 
