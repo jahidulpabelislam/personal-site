@@ -3,7 +3,7 @@ $title = "Home";
 $keywords = "";
 $description = "e-Portfolio for Jahidul Pabel Islam, a Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
 $description2 = "Jahidul Pabel Islam, a Web &amp; Software Developer.";
-include 'inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article wow fadeInLeft" data-wow-delay="0.6s">
                     <div class="container">
@@ -38,5 +38,5 @@ include 'inc/header.php';
                 </div>
 
 <?php
-include 'inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/footer.php';
 ?>

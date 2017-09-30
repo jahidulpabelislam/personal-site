@@ -3,7 +3,7 @@ $title = "Projects";
 $keywords = "";
 $description = "Look at the Previous Projects of Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England has done before.";
 $description2 = "Look at My Skills in Action in My Previous Projects.";
-include '../inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
                     <div class="container">
@@ -93,5 +93,5 @@ include '../inc/header.php';
                 </div>
 
 <?php
-include '../inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/footer.php';
 ?>

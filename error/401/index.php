@@ -12,7 +12,7 @@ $description2 = "";
 $keywords = "";
 
 //include the header for page
-include '../../inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
 ?>
 
@@ -27,6 +27,6 @@ include '../../inc/header.php';
 <?php
 
 //include the footer for page
-include '../../inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'].'/inc/footer.php';
 
 ?>

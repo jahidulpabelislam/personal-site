@@ -5,7 +5,7 @@
 */
 
 //include all files needed
-include '../../inc/all.php';
+include $_SERVER['DOCUMENT_ROOT']. '/admin/inc/all.php';
 
 //do relevant stuff with path[1]
 switch ($path[0]) {
