@@ -55,17 +55,12 @@ class pdodb
             } catch (PDOException $failure) {
                 $results["meta"]["ok"] = false;
                 $results["meta"]["feedback"] = "Problem with Server.";
-                $results["meta"]["exception"] = $failure;
-                $results["meta"]['bindings'] = $bindings;
-                $results["meta"]['query'] = $query;
             }
         }
         else
         {
             $results["meta"]["ok"] = false;
             $results["meta"]["feedback"] = "Problem with Server.";
-            $results["meta"]['bindings'] = $bindings;
-            $results["meta"]['query'] = $query;
         }
         return $results;
     }
