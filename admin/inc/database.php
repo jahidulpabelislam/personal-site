@@ -26,10 +26,7 @@ class pdodb
         $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
         try {
             $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
-            //$this->db = new PDO("mysql:host=".IP.";dbname=".DATABASENAME, USERNAME, PASSWORD);
-        } catch (PDOException $failure) {
-            echo 'Connection failed: ' . $failure->getMessage();
-        }
+        } catch (PDOException $failure) {}
     }
 
     /**
@@ -40,24 +37,33 @@ class pdodb
      */
     public function query($query, $bindings = null)
     {
-        try {
-            //check if any bindings to execute
-            if (isset($bindings)) {
-                $result = $this->db->prepare($query);
-                $result->execute($bindings);
-            } else {
-                $result = $this->db->query($query);
-            }
+        if ($this->db) {
+            try {
+                //check if any bindings to execute
+                if (isset($bindings)) {
+                    $result = $this->db->prepare($query);
+                    $result->execute($bindings);
+                } else {
+                    $result = $this->db->query($query);
+                }
 
-            //if query was a select, return array of data
-            if (strpos($query, "SELECT") !== false) {
-                $results["rows"] = $result->fetchAll(PDO::FETCH_ASSOC);
+                //if query was a select, return array of data
+                if (strpos($query, "SELECT") !== false) {
+                    $results["rows"] = $result->fetchAll(PDO::FETCH_ASSOC);
+                }
+                $results["count"] = $result->rowCount();
+            } catch (PDOException $failure) {
+                $results["meta"]["ok"] = false;
+                $results["meta"]["feedback"] = "Problem with Server.";
+                $results["meta"]["exception"] = $failure;
+                $results["meta"]['bindings'] = $bindings;
+                $results["meta"]['query'] = $query;
             }
-            $results["count"] = $result->rowCount();
-        } catch (PDOException $failure) {
+        }
+        else
+        {
             $results["meta"]["ok"] = false;
             $results["meta"]["feedback"] = "Problem with Server.";
-            $results["meta"]["exception"] = $failure;
             $results["meta"]['bindings'] = $bindings;
             $results["meta"]['query'] = $query;
         }
