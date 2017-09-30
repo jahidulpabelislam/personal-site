@@ -1,5 +1,5 @@
 #block user from viewing list of files in a directory
-IndexIgnore */*
+IndexIgnore *
 
 #stop users from viewing this file
 <Files .htaccess>
@@ -19,26 +19,17 @@ ErrorDocument 404 /error/404/
 #custom error message for a internal server issue
 ErrorDocument 500 /error/500/
 
-#rewrite url to use https' when user goes to site without 'http'
 #make rewrite on
 RewriteEngine On
 
+#rewrite url to use https' when user goes to site without 'http'
 #what to check
-RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com [NC]
+RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com
 RewriteCond %{SERVER_PORT} 80
 #whathappens when it happens
 RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
 
 #what to check
-RewriteCond %{HTTP_HOST} ^jahidulpabelislam.000webhostapp.com [NC]
-RewriteCond %{SERVER_PORT} 80
+RewriteCond %{HTTPS} off
 #whathappens when it happens
-RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
-
-
-#Rewrite rule for backend API
-RewriteEngine On
-RewriteBase /admin/api/1/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
