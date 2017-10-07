@@ -6,3 +6,16 @@ button,
     background-color: transparent;
     cursor: pointer;
 }
+
+button {
+    margin-top: 7px;
+}
+
+a.btn {
+    margin: 5px;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+    font-weight: 700;
+}
