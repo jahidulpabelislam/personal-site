@@ -110,7 +110,7 @@ h3 {
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $desktop) {
     .action > .container > div {
         width: 49%;
         display: inline-block;

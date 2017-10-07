@@ -171,7 +171,7 @@
 }
 
 /* For tablets and some are for desktops */
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: $tablet) {
     #uploads, #projectFormContainer {
         max-width: 640px;
         margin-left: auto;
@@ -180,7 +180,7 @@
 }
 
 /* For desktops */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $desktop) {
     #projectImages > li {
         width: calc(50% - 5px);
         display: inline-block;

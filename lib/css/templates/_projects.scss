@@ -75,7 +75,7 @@ blockquote {
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: $tablet) {
     #search {
         max-width: 439px;
         margin-left: auto;
@@ -84,7 +84,7 @@ blockquote {
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $desktop) {
 
     #projects {
         @include flexbox();

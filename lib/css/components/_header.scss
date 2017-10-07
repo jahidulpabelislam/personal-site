@@ -20,7 +20,7 @@ header.jumbotron p {
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: $desktop) {
     header.jumbotron {
         background-attachment: fixed;
     }
