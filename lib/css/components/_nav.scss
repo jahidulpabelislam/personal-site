@@ -104,7 +104,7 @@
     width: 22px;
     height: 2px;
     background-color: $dark;
-    @include transition(500ms);
+    @include transition(0.7s);
     position: relative;
 }
 
@@ -140,7 +140,7 @@
 .nav__links-container {
     height: 0;
     width: 100%;
-    @include transition(1s);
+    @include transition(0.7s);
 }
 
 .nav__links-container.opening, .nav__links-container.closed{
