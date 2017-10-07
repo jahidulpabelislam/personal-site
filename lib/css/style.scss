@@ -8,6 +8,7 @@
 @import "base/layout";
 
 @import "components/buttons";
+@import "components/inputs";
 @import "components/footer";
 @import "components/form";
 @import "components/header";
@@ -52,9 +53,14 @@ h6 {
     font-weight: 700;
 }
 
-a {
+a, a:visited, a:active {
+    color: $primary-color;
     font-weight: 700;
     @include transition(.3s);
+}
+
+a:hover{
+    color: darken($primary-color, 25%);
 }
 
 a > img {
