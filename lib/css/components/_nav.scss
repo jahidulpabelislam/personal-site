@@ -68,9 +68,11 @@
 
 .nav__brand--text {
     font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
     padding: 15px 0;
     text-decoration: none;
-    font-weight: bold;
+
     color: $dark;
 }
 
