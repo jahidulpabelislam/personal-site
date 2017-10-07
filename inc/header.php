@@ -56,7 +56,7 @@
         </nav>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron" <?php echo "id='" . $title . "'" ?>>
+        <header class="jumbotron jumbotron--<?php echo strtolower($title);?>">
             <div class="container">
                 <h1 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $title ?></h1>
                 <hr>

@@ -1,5 +1,5 @@
 /* For all devices */
-header.jumbotron {
+.jumbotron {
     color: #FFFFFF;
     background: $primary-color url('/images/work.jpg') no-repeat center center scroll;
     -o-background-size: cover;
@@ -9,19 +9,19 @@ header.jumbotron {
     margin-bottom: 0
 }
 
-header.jumbotron h1 {
+.jumbotron h1 {
     text-shadow: 2px 2px 3px black;
     font-weight: bold;
 }
 
-header.jumbotron p {
+.jumbotron p {
     text-shadow: 2px 2px 3px black;
     font-weight: 700;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    header.jumbotron {
+    .jumbotron {
         background-attachment: fixed;
     }
 }
