@@ -1,79 +1,206 @@
-#nav {
+.nav {
     z-index: 1;
-    @include box-shadow(0 0 10px 0 rgb(0, 0, 0));
+    @include box-shadow(0 0 10px 0 $dark);
     background-color: white;
+    margin: 0 -15px;
 }
 
-#logoContainer {
+.nav:before,
+.nav:after {
+    display: table;
+    content: " ";
+}
+
+.nav:after {
+    clear: both;
+}
+
+.nav__mobile-header{
+    border-bottom: $light 1px solid;
+}
+
+.nav__mobile-header:before,
+.nav__mobile-header:after {
+    display: table;
+    content: " ";
+}
+
+.nav__mobile-header:after {
+    clear: both;
+}
+
+.nav__brand {
+    height: 50px;
+    vertical-align: middle;
+    float: left;
+}
+
+.nav__brand--logo-container {
+    display: inline-block;
     padding: 5px 15px;
 }
 
-#logo {
+.nav__brand--logo {
     height: 100%;
     @include border-radius(50%);
-    background: black;
-    border: 1px solid black;
+    background: $dark;
+    border: 1px solid $dark;
 }
 
-#logoContainer:hover #logo {
+.nav__brand--logo-container:hover .nav__brand--logo {
     background: $primary-color;
     border-color: $primary-color;
 }
 
-#logo.current {
+.nav__brand--logo.current {
     background: $primary-color;
     border-color: $primary-color;
+    opacity:1;
 }
 
-#logoContainer:hover #logo.current {
+.nav__brand--logo-container:hover .nav__brand--logo.current {
     @include box-shadow(none);
 }
 
-#name {
-    height: auto;
+.nav__brand--text {
+    font-size: 18px;
+    padding: 15px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: $dark;
 }
 
-.navbar-toggle .icon-bar {
+.nav__brand--text, .nav__brand--text:active, .nav__brand--text:visited {
+    color: $dark;
+}
+
+.nav__brand--text.current, .nav__brand--text:focus, .nav__brand--text:hover {
+    color: $primary-color;
+}
+
+.nav__links__toggle {
+    float: right;
+    position: relative;
+    margin: 10px 15px 10px 0;
+    padding: 8px;
+    @include border-radius(5%);
+}
+
+.nav__links__toggle:hover{
+    background-color: $light;
+}
+
+.nav__links__toggle:hover .menu-bar {
+    background-color: $primary-color;
+}
+
+.menu-bar{
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: $dark;
     @include transition(500ms);
     position: relative;
 }
 
-.navbar-toggle.collapsed .icon-bar:nth-of-type(2) {
+.menu-bar--top {
     top: 0;
     @include transform(rotate(0deg));
 }
 
-.navbar-toggle.collapsed .icon-bar:nth-of-type(3) {
-    background-color: #888;
+.menu-bar--middle {
+    margin-top: 4px;
 }
 
-.navbar-toggle.collapsed .icon-bar:nth-of-type(4) {
+.menu-bar--bottom {
     top: 0;
     @include transform(rotate(0deg));
+    margin-top: 4px;
 }
 
-.navbar-toggle .icon-bar:nth-of-type(2) {
+.opened .menu-bar--top {
     top: 6px;
     @include transform(rotate(45deg));
 }
 
-.navbar-toggle .icon-bar:nth-of-type(3) {
+.opened .menu-bar--middle {
     background-color: transparent;
 }
 
-.navbar-toggle .icon-bar:nth-of-type(4) {
+.opened .menu-bar--bottom {
     top: -6px;
     @include transform(rotate(-45deg));
 }
 
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+.nav__links-container {
+    display: none;
+    width: 100%;
+}
+
+.nav__links-container.opened{
+    display: block;
+}
+
+.nav__links {
+    margin: 10px 0;
+}
+
+.nav__links > li{
+    padding: 17px 15px;
+}
+
+.nav__links > li > a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav__links > li > a, .nav__links > li > a:active, .nav__links > li > a:visited{
+    color: $dark;
+}
+
+.nav__links > li > a:focus, .nav__links > li > a:hover {
     color: $primary-color;
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+.nav__links > li.active{
+    background-color: $light;
+}
+
+.nav__links > li.active > a, .nav__links > li.active > a:focus, .nav__links > li.active > a:hover {
     color: $primary-color;
 }
 
-.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
-    color: $primary-color;
+/* Only for Desktops */
+@media only screen and (min-width: $tablet) {
+    .nav{
+        margin: 0;
+    }
+
+    .nav__mobile-header:before,
+    .nav__mobile-header:after {
+        display: inherit;
+        content: "";
+    }
+
+    .nav__mobile-header:after {
+        clear: none;
+    }
+
+    .nav__links-container {
+        display: block;
+        width: auto;
+        float: right;
+    }
+
+    .nav__links {
+        margin: 0;
+    }
+
+    .nav__links__toggle{
+        display: none;
+    }
+
+    .nav__links > li {
+        display: inline-block;
+    }
 }
