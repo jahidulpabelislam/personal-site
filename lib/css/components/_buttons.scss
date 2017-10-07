@@ -1,0 +1,8 @@
+/* For all devices */
+button,
+[type=button],
+[type=submit] {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
