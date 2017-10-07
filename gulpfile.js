@@ -16,7 +16,6 @@ var scripts = {
         "lib/js/projects.js",
         "lib/js/projectsPreview.js",
         "lib/js/form.js",
-        "lib/js/third-party/bootstrap.min.js",
         "lib/js/stickyFooter.js",
         "lib/js/third-party/wow.min.js",
         "lib/js/nav.js"
@@ -36,7 +35,6 @@ gulp.task("scripts", ["scripts-main"]);
 // Minify Stylesheets
 var stylesheets = {
     main: [
-        "lib/css/third-party/bootstrap.min.css",
         "lib/css/style.css",
         "lib/css/third-party/animate.min.css"
     ]
