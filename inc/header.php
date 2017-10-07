@@ -30,20 +30,20 @@
 
     <body>
 
-        <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <nav class="nav">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                <div class="nav__mobile-header">
+                    <button type="button" class="nav__links__toggle">
+                        <span class="screen-reader-text">Toggle navigation</span>
+                        <span class="menu-bar menu-bar--top"></span>
+                        <span class="menu-bar menu-bar--middle"></span>
+                        <span class="menu-bar menu-bar--bottom"></span>
                     </button>
-                    <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png" alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;' class='current'"; ?> ></a>
-                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color: #337ab7;'"; ?> >JahidulPabel Islam</a>
+                    <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($title == "Home") echo "current";?>" src="/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+                    <a class="nav__brand nav__brand--text <?php if ($title == "Home") echo "current";?>" href="/">Jahidul Pabel Islam</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse ">
-                    <ul class="nav navbar-nav navbar-right">
+                <div class="nav__links-container">
+                    <ul class="nav__links">
                         <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/" title="Link to Home Page">Home</a></li>
                         <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/" title="Link to Projects Page">Projects</a>
                         </li>
