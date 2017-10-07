@@ -41,7 +41,7 @@
 
 .nav__brand--logo-container {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 5px 0 5px 15px;
 }
 
 .nav__brand--logo {
@@ -70,9 +70,8 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 20px;
-    padding: 15px 0;
+    padding: 15px;
     text-decoration: none;
-
     color: $dark;
 }
 
