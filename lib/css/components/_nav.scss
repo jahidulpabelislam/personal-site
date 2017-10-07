@@ -129,7 +129,7 @@
     @include transform(rotate(45deg));
 }
 
-.opened .menu-bar--middle {
+.opened .menu-bar--middle, .opened:hover .menu-bar--middle {
     background-color: transparent;
 }
 
