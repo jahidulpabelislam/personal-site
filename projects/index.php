@@ -8,7 +8,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article">
                     <div class="container">
 
-                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed duringmy time as a developer.</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during my time as a developer.</p>
 
                         <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
                             <div class="input-group">
