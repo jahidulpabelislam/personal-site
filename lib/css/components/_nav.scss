@@ -3,6 +3,9 @@
     @include box-shadow(0 0 10px 0 $dark);
     background-color: white;
     margin: 0 -15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .nav:before,
