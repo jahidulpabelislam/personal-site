@@ -151,13 +151,11 @@
     margin: 10px 0;
 }
 
-.nav__links > li{
-    padding: 17px 15px;
-}
-
 .nav__links > li > a{
     text-decoration: none;
     font-weight: bold;
+    padding: 17px 15px;
+    display: block;
 }
 
 .nav__links > li > a, .nav__links > li > a:active, .nav__links > li > a:visited{
