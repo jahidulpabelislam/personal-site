@@ -37,7 +37,20 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="/lib/js/main.min.js"></script>
+        <?php if (!isset($_GET["debug"])):?>
+            <script src="/lib/js/main.min.js"></script>
+        <?php else: ?>
+            <script src="/lib/js/expandImage.js"></script>
+            <script src="/lib/js/slideShow.js"></script>
+            <script src="/lib/js/helperFunctions.js"></script>
+            <script src="/lib/js/xhr.js"></script>
+            <script src="/lib/js/projects.js"></script>
+            <script src="/lib/js/projectsPreview.js"></script>
+            <script src="/lib/js/form.js"></script>
+            <script src="/lib/js/stickyFooter.js"></script>
+            <script src="/lib/js/third-party/wow.min.js"></script>
+            <script src="/lib/js/nav.js"></script>
+        <?php endif; ?>
 
         <script>
             new WOW().init();
