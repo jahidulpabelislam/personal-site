@@ -1,0 +1,31 @@
+/* For all devices */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: auto;
+    @include transition(1s);
+}
+
+section {
+    @include flexbox();
+    @include transition(1s);
+}
+
+#sectionInnerContainer {
+    width: 100%;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: $desktop) {
+    .container{
+        width: 950px;
+    }
+}

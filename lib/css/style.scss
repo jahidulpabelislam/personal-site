@@ -4,6 +4,10 @@
 @import "tools/variables";
 @import "tools/mixins";
 
+@import "base/reset";
+@import "base/layout";
+
+@import "components/buttons";
 @import "components/footer";
 @import "components/form";
 @import "components/header";
@@ -27,25 +31,6 @@
 */
 
 /* For all devices */
-body {
-    text-align: center;
-}
-
-.container {
-    max-width: 100%;
-    margin: auto;
-    @include transition(1s);
-}
-
-section {
-    @include flexbox();
-    @include transition(1s);
-}
-
-#sectionInnerContainer {
-    width: 100%;
-}
-
 .article {
     background-color: #f5f5f5;
     padding: 40px 0;
