@@ -27,31 +27,23 @@
         <nav class="navbar navbar-default navbar-fixed-top" id="nav">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png"
-                                                                             alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;' class='current'"; ?> ></a>
-                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color: #337ab7;'"; ?> >Jahidul
-                        Pabel
-                        Islam</a>
+                    <a class="navbar-brand" id="logoContainer" href="/"><img id="logo" src="/images/logo.png" alt="Jahidul Pabel Islam Logo" <?php if ($title == "Home") echo "style='opacity:1;' class='current'"; ?> ></a>
+                    <a class="navbar-brand" id="name" href="/" <?php if ($title == "Home") echo "style='color: #337ab7;'"; ?> >JahidulPabel Islam</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse ">
                     <ul class="nav navbar-nav navbar-right">
-                        <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/"
-                                                                                      title="Link to Home Page">Home</a></li>
-                        <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/"
-                                                                                          title="Link to Projects Page">Projects</a>
+                        <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/" title="Link to Home Page">Home</a></li>
+                        <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/" title="Link to Projects Page">Projects</a>
                         </li>
-                        <li <?php if ($title == "Contact") echo "class='active'"; ?> ><a href="/contact/"
-                                                                                         title="Link to Contact Page">Contact</a>
+                        <li <?php if ($title == "Contact") echo "class='active'"; ?> ><a href="/contact/" title="Link to Contact Page">Contact</a>
                         </li>
-                        <li <?php if ($title == "About") echo "class='active'"; ?> ><a href="/about/"
-                                                                                       title="Link to About Page">About</a></li>
+                        <li <?php if ($title == "About") echo "class='active'"; ?> ><a href="/about/" title="Link to About Page">About</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
