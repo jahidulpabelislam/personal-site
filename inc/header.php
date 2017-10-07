@@ -42,7 +42,7 @@
                     <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($title == "Home") echo "current";?>" src="/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
                     <a class="nav__brand nav__brand--text <?php if ($title == "Home") echo "current";?>" href="/">Jahidul Pabel Islam</a>
                 </div>
-                <div class="nav__links-container">
+                <div class="nav__links-container closed">
                     <ul class="nav__links">
                         <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/" title="Link to Home Page">Home</a></li>
                         <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/" title="Link to Projects Page">Projects</a>

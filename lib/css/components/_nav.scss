@@ -138,16 +138,18 @@
 }
 
 .nav__links-container {
-    display: none;
+    height: 0;
     width: 100%;
+    @include transition(1s);
 }
 
-.nav__links-container.opened{
-    display: block;
+.nav__links-container.opening, .nav__links-container.closed{
+    overflow: hidden;
 }
 
 .nav__links {
     margin: 10px 0;
+    overflow: hidden;
 }
 
 .nav__links > li > a{
