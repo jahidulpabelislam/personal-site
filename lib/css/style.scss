@@ -39,7 +39,7 @@ body {
     color: #333;
 }
 
-a, a:visited, a:active {
+a {
     color: $primary-color;
     font-weight: 700;
     @include transition(.3s);
