@@ -83,8 +83,8 @@
 .nav__links__toggle {
     float: right;
     position: relative;
-    margin: 10px 15px 10px 0;
-    padding: 8px;
+    margin: 6px 15px 6px 0;
+    padding: 10px;
     @include border-radius(5%);
 }
 
@@ -98,7 +98,7 @@
 
 .menu-bar{
     display: block;
-    width: 22px;
+    width: 24px;
     height: 2px;
     background-color: $dark;
     @include transition(0.7s);
@@ -107,21 +107,19 @@
 
 .menu-bar--top {
     top: 0;
-    @include transform(rotate(0deg));
 }
 
 .menu-bar--middle {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .menu-bar--bottom {
     top: 0;
-    @include transform(rotate(0deg));
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .opened .menu-bar--top {
-    top: 6px;
+    top: 8px;
     @include transform(rotate(45deg));
 }
 
@@ -130,7 +128,7 @@
 }
 
 .opened .menu-bar--bottom {
-    top: -6px;
+    top: -8px;
     @include transform(rotate(-45deg));
 }
 
