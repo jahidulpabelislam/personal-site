@@ -43,6 +43,7 @@ a, a:visited, a:active {
     color: $primary-color;
     font-weight: 700;
     @include transition(.3s);
+    text-decoration: none;
 }
 
 a:hover{
