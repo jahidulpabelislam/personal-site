@@ -1,14 +1,9 @@
                 <div id="socialMediaLinks">
                     <div class="container">
                         <h1 class="wow fadeInDown" data-wow-delay="0.6s">Ways to Contact Me!</h1>
-                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink "><img
-                                src="/images/email.svg" alt="Email me" class="socialMediaImg emailImg wow fadeInLeft" data-wow-delay="0.8s"></a>
-                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink"><img
-                                src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam"
-                                class="socialMediaImg linkedinImg wow fadeInUp" data-wow-delay="0.8s"></a>
-                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink "><img
-                                src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam"
-                                class="socialMediaImg githubImg wow fadeInRight" data-wow-delay="0.8s"></a>
+                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink "><img src="/images/email.svg" alt="Email me" class="socialMediaImg emailImg wow fadeInLeft" data-wow-delay="0.8s"></a>
+                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink"><img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg wow fadeInUp" data-wow-delay="0.8s"></a>
+                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg wow fadeInRight" data-wow-delay="0.8s"></a>
                     </div>
                 </div>
             </div>
@@ -18,19 +13,19 @@
 
             <div class="container">
 
-                <div id="links">
+                <div class="links">
                     <p>
-                        <a href="/site-map.xml">Site Map</a> | <a href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a> | <a
-                        href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
+                        <a href="/site-map.xml">Site Map</a> |
+                        <a href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a> |
+                        <a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
                     </p>
                 </div>
 
-                <div id="legal">
+                <div class="legal">
                     <p>&copy; Jahidul Pabel Islam <?php echo date("Y"); ?> All Rights Reserved</p>
                 </div>
 
             </div>
-
         </footer>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
