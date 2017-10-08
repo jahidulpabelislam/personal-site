@@ -42,8 +42,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div id="expandedImageDivContainer">
-                    <img class="slideShowNav" src="/images/previous.svg"
-                         alt="Click to View Previous Image" id="expandedImagePrevious">
+                    <img class="slideShowNav" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
 
                     <div class="expandedImageDiv">
                         <img src="/images/blank.svg" id="expandedImage" class="expandedImage">

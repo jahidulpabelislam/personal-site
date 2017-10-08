@@ -34,8 +34,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send
-                            </button>
+                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send</button>
 
                         </form>
                     </div>
