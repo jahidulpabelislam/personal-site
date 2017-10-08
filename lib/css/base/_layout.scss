@@ -37,6 +37,10 @@ p {
     margin: 10px 0;
 }
 
+img {
+    vertical-align: middle;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .container{
