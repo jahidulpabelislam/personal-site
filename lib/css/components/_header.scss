@@ -6,7 +6,6 @@
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    margin-bottom: 0;
     margin-top: 50px;
     height: calc(100vh - 50px);
     display: flex;
@@ -14,12 +13,21 @@
 
 .jumbotron h1 {
     text-shadow: 2px 2px 3px black;
+    font-size: 50px;
     font-weight: bold;
+    line-height: 52px;
+}
+
+.jumbotron hr
+{
+    margin: 30px 0 38px 0;
 }
 
 .jumbotron p {
     text-shadow: 2px 2px 3px black;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 28px;
 }
 
 /* Only for Desktops */
