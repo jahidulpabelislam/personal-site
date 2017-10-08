@@ -211,5 +211,16 @@
 
     .nav__links > li {
         display: inline-block;
+        border-bottom: solid transparent 2px;
+        float: left;
+        @include transition(.3s);
+    }
+
+    .nav__links > li.active, .nav__links > li:hover {
+        border-bottom-color: $primary-color;
+    }
+
+    .nav__links > li > a{
+        padding: 16px 15px;
     }
 }
