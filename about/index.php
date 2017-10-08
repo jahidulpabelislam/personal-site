@@ -65,7 +65,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3 class="wow fadeInLeft" data-wow-delay="0.4s">Skills</h3>
+                        <h3 class="article__header wow fadeInLeft" data-wow-delay="0.4s">Skills</h3>
 
                         <div id="aboutSkills" class="skills wow fadeInRight" data-wow-delay="0.4s">
                             <p>HTML</p>
@@ -91,7 +91,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3 class="wow fadeInLeft" data-wow-delay="0.4s">Interests</h3>
+                        <h3 class="article__header wow fadeInLeft" data-wow-delay="0.4s">Interests</h3>
                         <div id="interests" class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>Sports</p>
                             <p>Gaming</p>

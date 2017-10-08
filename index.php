@@ -17,7 +17,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div id="projectPreview" class="article wow fadeInRight hasSlideShow" data-wow-delay="0.8s">
-                    <h3>My Latest Projects</h3>
+                    <h3 class="article__header">My Latest Projects</h3>
                     <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                     <div class="slideShow">
                         <div class="slideShowViewpoint">

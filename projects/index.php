@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button id="modalClose" type="button" class="close" data-dismiss="modal">&times;</button>
-                                <div class="modal-title projectHeader"><h3 class="projectTitle"></h3><h4 class="projectDate"></h4></div>
+                                <div class="modal-title projectHeader"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
                             </div>
                             <div class="modal-body">
                                 <div class="skills"></div>

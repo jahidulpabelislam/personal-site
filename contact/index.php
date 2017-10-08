@@ -7,7 +7,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
                     <div class="container">
-                        <h3>Form</h3>
+                        <h3 class="article__header">Form</h3>
                         <p>Use this contact form to give me a message quickly.</p>
                         <p><span class="required">*</span> indicates a required field</p>
 
@@ -44,7 +44,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article linkContainer">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <h3>Drop me a old fashioned email.</h3>
+                            <h3 class="article__header">Drop me a old fashioned email.</h3>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink">
@@ -58,7 +58,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article linkContainer">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <h3>View my Linkedin profile.</h3>
+                            <h3 class="article__header">View my Linkedin profile.</h3>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article linkContainer">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <h3>View code for projects and follow future projects.</h3>
+                            <h3 class="article__header">View code for projects and follow future projects.</h3>
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
