@@ -37,15 +37,7 @@
     @include transform(translateY(0));
 }
 
-.projectLinks a {
-    background: transparent;
-    color: white;
-    border-color: white;
+.projectLinks .btn {
     @include transition(.3s);
     font-weight: 700;
-}
-
-.projectLinks :hover, .projectLinks a:focus, .projectLinks a:active, .projectLinks a:active:hover, .projectLinks a:active:focus {
-    background: white;
-    color: black;
 }
