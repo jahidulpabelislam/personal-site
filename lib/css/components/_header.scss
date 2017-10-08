@@ -6,7 +6,10 @@
     -moz-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    margin-bottom: 0
+    margin-bottom: 0;
+    margin-top: 50px;
+    height: calc(100vh - 50px);
+    display: flex;
 }
 
 .jumbotron h1 {
