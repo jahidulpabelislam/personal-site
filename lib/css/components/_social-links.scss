@@ -9,15 +9,21 @@
     @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
 }
 
-#socialMediaLinks h1 {
+#socialMediaLinks h5 {
     color: white;
     text-shadow: 2px 2px 3px black;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 42px;
+    margin: 20px 0 15px 0;
+}
+
+#socialMediaLinks a {
+    margin: 25px 5px;
 }
 
 #socialMediaLinks img {
-    margin: 25px 5px;
-    height: 60px;
+    height: 70px;
 }
 
 /* Only for Desktops */
