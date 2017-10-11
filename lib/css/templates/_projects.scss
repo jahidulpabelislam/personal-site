@@ -7,23 +7,18 @@
     margin-bottom: 20px;
 }
 
-#search * {
+.search-input-group
+{
+    position: relative;
+}
+#searchInput{
+    padding: 8px 16px;
     margin: 0;
-    z-index: 0;
 }
-
-#searchLabel {
-    display: none;
-}
-
-#searchInput {
-    border-bottom-left-radius: 30px;
-    border-top-left-radius: 30px;
-}
-
-#searchSubmit {
-    border-bottom-right-radius: 30px;
-    border-top-right-radius: 30px;
+#searchSubmit{
+    position: absolute;
+    right: 0;
+    margin: 0;
 }
 
 .project {

@@ -5,6 +5,8 @@
     margin: 5px auto;
     -webkit-appearance: none;
     width: calc(100% - 5px);
+    border: solid lighten($dark, 50%) 1px;
+    border-radius: 2px;
 }
 
 .input:focus {
