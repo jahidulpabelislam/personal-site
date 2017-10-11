@@ -1,5 +1,22 @@
 /* For all devices */
-input
+.input
 {
+    padding: 9px 16px;
+    margin: 5px auto;
     -webkit-appearance: none;
+    width: calc(100% - 5px);
+}
+
+.input:focus {
+    @include box-shadow(0 0 8px $primary-color);
+}
+
+.input:focus.invalid {
+    border-color: $error;
+    @include box-shadow(0 0 8px transparentize($error, .40%));
+}
+
+.input.invalid {
+    border-color: $error;
+    outline: 0;
 }

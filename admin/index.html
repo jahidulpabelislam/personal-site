@@ -46,22 +46,22 @@
 
                     <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="form-control" placeholder="myproject" tabindex="7" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="checkInputField(this);" required>
                         <label for="skills">Skills <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Skills" type="text" name="skills" id="skills" class="form-control" placeholder="skill1, skill2" tabindex="8" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.Skills" type="text" name="skills" id="skills" class="input" placeholder="skill1, skill2" tabindex="8" oninput="checkInputField(this);" required>
                         <label for="longDescription">Long Description <span class="required">*</span></label>
-                        <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription" class="form-control" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                        <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription" class="input" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
                         <label for="shortDescription">Short Description <span class="required">*</span></label>
-                        <textarea ng-model="selectedProject.ShortDescription" name="description" id="shortDescription" class="form-control" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                        <textarea ng-model="selectedProject.ShortDescription" name="description" id="shortDescription" class="input" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
 
                         <label for="link">Link</label>
-                        <input ng-model="selectedProject.Link" type="text" name="link" id="link" class="form-control" placeholder="link" tabindex="10">
+                        <input ng-model="selectedProject.Link" type="text" name="link" id="link" class="input" placeholder="link" tabindex="10">
                         <label for="github">GitHub <span class="required">*</span></label>
-                        <input ng-model="selectedProject.GitHub" type="url" name="github" id="github" class="form-control" placeholder="github" tabindex="11" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.GitHub" type="url" name="github" id="github" class="input" placeholder="github" tabindex="11" oninput="checkInputField(this);" required>
                         <label for="download">Download</label>
-                        <input ng-model="selectedProject.Download" type="text" name="download" id="download" class="form-control" placeholder="download" tabindex="12">
+                        <input ng-model="selectedProject.Download" type="text" name="download" id="download" class="input" placeholder="download" tabindex="12">
                         <label for="date">Date <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="form-control" placeholder="2016-01-30" tabindex="13" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="input" placeholder="2016-01-30" tabindex="13" oninput="checkInputField(this);" required>
 
                         <p id="projectFormFeedback" class="feedback error">{{projectFormFeedback}}</p>
 
@@ -75,7 +75,7 @@
                         </li>
                     </ul>
 
-                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="form-control" multiple accept="image/*" tabindex="15">
+                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15">
 
                     <!-- Div containing the uploads -->
                     <div id="uploads">
@@ -96,9 +96,9 @@
             <div class="container">
                 <form id="userForm" ng-submit="logIn()">
                     <label for="username">Username</label>
-                    <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus class="form-control" tabindex="1" oninput="checkInputField(this);" required>
+                    <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus class="input" tabindex="1" oninput="checkInputField(this);" required>
                     <label for="password">Password</label>
-                    <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="form-control" tabindex="2" oninput="checkInputField(this);" required>
+                    <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p id="userFormFeedback" class="feedback error">{{userFormFeedback}}</p>
                     <button id="logInButton" type="submit" value="Log In" class="btn btn--green">Log In</button>

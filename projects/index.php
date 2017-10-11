@@ -11,14 +11,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during my time as a developer.</p>
 
                         <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
-                            <div class="input-group">
+                            <div class="search-input-group">
                                 <label for="search" class="screen-reader-text">Search for projects.</label>
-                                <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
-                                <div class="input-group-btn">
-                                    <button class="btn btn--blue" type="submit" id="searchSubmit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
+                                <input type="text" class="input" placeholder="Search for projects..." id="searchInput">
+                                <button class="btn btn--blue" type="submit" id="searchSubmit">
+                                    <i class="fa fa-search"></i>
+                                </button>
                             </div>
                         </form>
 
