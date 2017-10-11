@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                         <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
                             <div class="input-group">
-                                <label id="searchLabel" for="search">Search for projects.</label>
+                                <label for="search" class="screen-reader-text">Search for projects.</label>
                                 <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
                                 <div class="input-group-btn">
                                     <button class="btn btn--blue" type="submit" id="searchSubmit">
