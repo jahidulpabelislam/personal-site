@@ -16,7 +16,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
                                 <div class="input-group-btn">
                                     <button class="btn btn--blue" type="submit" id="searchSubmit">
-                                        <i class="glyphicon glyphicon-search"></i>
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
