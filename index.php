@@ -32,8 +32,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn-primary" href="/projects/">View My Work</a></div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn-success" href="/about/">Learn About Me</a></div>
+                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn--blue" href="/projects/">View My Work</a></div>
+                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn--green" href="/about/">Learn About Me</a></div>
                     </div>
                 </div>
 

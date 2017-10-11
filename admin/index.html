@@ -29,9 +29,9 @@
                     <p id="selectProjectFeedback" class="feedback error">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button" value="Edit" class="btn btn-primary" tabindex="3">Edit</button>
-                        <button ng-if="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button" value="Delete" class="btn btn-danger" tabindex="4">Delete</button>
-                        <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project" class="btn btn-success" tabindex="5">Add A Project</button>
+                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" id="editButton" type="button" value="Edit" class="btn btn--blue" tabindex="3">Edit</button>
+                        <button ng-if="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button" value="Delete" class="btn btn--red" tabindex="4">Delete</button>
+                        <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project" class="btn btn--green" tabindex="5">Add A Project</button>
                     </div>
                     <div class="pagination--admin" ng-show="pages.length > 1">
                         <ul class="pagination">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div id="projectFormContainer">
-                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Back" class="btn btn-warning" tabindex="6">Back
+                    <button ng-click="getProjectList(1)" id="backButton" type="button" value="Back" class="btn btn--orange" tabindex="6">Back
                     </button>
 
                     <form id="projectForm" ng-submit="submitProject()">
@@ -65,13 +65,13 @@
 
                         <p id="projectFormFeedback" class="feedback error">{{projectFormFeedback}}</p>
 
-                        <button id="projectButton" type="submit" value="Add Project" class="btn btn-success" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
+                        <button id="projectButton" type="submit" value="Add Project" class="btn btn--green" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
                     </form>
 
                     <ul id="projectImages" ui-sortable ng-model="selectedProject.pictures" class="ui-state-default">
                         <li ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
                             <img src="{{picture.File}}">
-                            <button ng-click="deleteProjectImage(picture)" class="btn btn-danger deleteProjectImg">X</button>
+                            <button ng-click="deleteProjectImage(picture)" class="btn btn--red deleteProjectImg">X</button>
                         </li>
                     </ul>
 
@@ -82,7 +82,7 @@
                         <div ng-repeat="upload in uploads" ng-class="upload.ok == true ? 'aUpload' : 'failedUpload'">
                             <p>{{upload.text}}</p>
                             <img ng-if="upload.ok == true" src="{{upload.image}}">
-                            <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn-danger">Upload This Picture</button>
+                            <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn--red">Upload This Picture</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="form-control" tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p id="userFormFeedback" class="feedback error">{{userFormFeedback}}</p>
-                    <button id="logInButton" type="submit" value="Log In" class="btn btn-success">Log In</button>
+                    <button id="logInButton" type="submit" value="Log In" class="btn btn--green">Log In</button>
                 </form>
             </div>
         </section>

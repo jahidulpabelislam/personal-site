@@ -15,7 +15,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <label id="searchLabel" for="search">Search for projects.</label>
                                 <input type="text" class="form-control" placeholder="Search for projects..." id="searchInput">
                                 <div class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit" id="searchSubmit">
+                                    <button class="btn btn--blue" type="submit" id="searchSubmit">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </button>
                                 </div>
@@ -32,11 +32,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article action">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a class="btn btn-info" href="/contact/">Get in Touch</a>
+                            <a class="btn btn--purple" href="/contact/">Get in Touch</a>
                         </div>
 
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <a class="btn btn-success" href="/about/">Learn About Me</a>
+                            <a class="btn btn--green" href="/about/">Learn About Me</a>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
 
                     <img class="slideShowNav" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
-                    <button id="expandedImageClose" type="button" class="btn btn-danger">X</button>
+                    <button id="expandedImageClose" type="button" class="btn btn--red">X</button>
 
                     <div id="slideShowNums">
                         <p id="slideShowNum"></p>

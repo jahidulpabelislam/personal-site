@@ -34,7 +34,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn-primary wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send</button>
+                            <button id="submit" type="submit" class="btn btn--blue wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Sending">Send</button>
 
                         </form>
                     </div>
@@ -85,11 +85,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article action">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a class="btn btn-primary" href="/projects/">View My Work</a>
+                            <a class="btn btn--blue" href="/projects/">View My Work</a>
                         </div>
 
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <a class="btn btn-warning" href="/about/">Learn About Me</a>
+                            <a class="btn btn--orange" href="/about/">Learn About Me</a>
                         </div>
                     </div>
                 </div>

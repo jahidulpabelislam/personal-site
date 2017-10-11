@@ -105,11 +105,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article action">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <a class="btn btn-info" href="/projects/">View My Work</a>
+                            <a class="btn btn--purple" href="/projects/">View My Work</a>
                         </div>
 
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
-                            <a class="btn btn-danger" href="/contact/">Get in Touch</a>
+                            <a class="btn btn--red" href="/contact/">Get in Touch</a>
                         </div>
                     </div>
                 </div>

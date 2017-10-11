@@ -15,6 +15,61 @@ button,
     border: solid 1px;
 }
 
+.btn--red{
+    background-color: $red;
+    color: white;
+    border-color: darken($red, 5%);
+}
+.btn--red:hover, .btn--red:focus, .btn--red:active, .btn--red:active:hover, .btn--red:active:focus {
+    background-color: darken($red, 5%);
+    color: white;
+    border-color: darken($red, 10%);
+}
+
+.btn--blue{
+    background-color: $blue;
+    color: white;
+    border-color: darken($blue, 5%);
+}
+.btn--blue:hover, .btn--blue:focus, .btn--blue:active, .btn--blue:active:hover, .btn--blue:active:focus {
+    background-color: darken($blue, 5%);
+    color: white;
+    border-color: darken($blue, 10%);
+}
+
+.btn--orange{
+    background-color: $orange;
+    color: white;
+    border-color: darken($orange, 5%);
+}
+.btn--orange:hover, .btn--orange:focus, .btn--orange:active, .btn--orange:active:hover, .btn--orange:active:focus {
+    background-color: darken($orange, 5%);
+    color: white;
+    border-color: darken($orange, 10%);
+}
+
+.btn--green{
+    background-color: $green;
+    color: white;
+    border-color: darken($green, 5%);
+}
+.btn--green:hover, .btn--green:focus, .btn--green:active, .btn--green:active:hover, .btn--green:active:focus {
+    background-color: darken($green, 5%);
+    color: white;
+    border-color: darken($green, 10%);
+}
+
+.btn--purple{
+    background-color: $purple;
+    color: white;
+    border-color: darken($purple, 5%);
+}
+.btn--purple:hover, .btn--purple:focus, .btn--purple:active, .btn--purple:active:hover, .btn--purple:active:focus {
+    background-color: darken($purple, 5%);
+    color: white;
+    border-color: darken($purple, 10%);
+}
+
 .btn--clear{
     background-color: transparent;
     color: white;
