@@ -33,18 +33,18 @@
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <?php if (!isset($_GET["debug"])):?>
-            <script src="/lib/js/main.min.js"></script>
+            <script src="/lib/js/main.min.js" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/lib/js/expandImage.js"></script>
-            <script src="/lib/js/slideShow.js"></script>
-            <script src="/lib/js/helperFunctions.js"></script>
-            <script src="/lib/js/xhr.js"></script>
-            <script src="/lib/js/projects.js"></script>
-            <script src="/lib/js/projectsPreview.js"></script>
-            <script src="/lib/js/form.js"></script>
-            <script src="/lib/js/stickyFooter.js"></script>
-            <script src="/lib/js/third-party/wow.min.js"></script>
-            <script src="/lib/js/nav.js"></script>
+            <script src="/lib/js/expandImage.js" type="text/javascript"></script>
+            <script src="/lib/js/slideShow.js" type="text/javascript"></script>
+            <script src="/lib/js/helperFunctions.js" type="text/javascript"></script>
+            <script src="/lib/js/xhr.js" type="text/javascript"></script>
+            <script src="/lib/js/projects.js" type="text/javascript"></script>
+            <script src="/lib/js/projectsPreview.js" type="text/javascript"></script>
+            <script src="/lib/js/form.js" type="text/javascript"></script>
+            <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
+            <script src="/lib/js/third-party/wow.min.js" type="text/javascript"></script>
+            <script src="/lib/js/nav.js" type="text/javascript"></script>
         <?php endif; ?>
 
         <script>
