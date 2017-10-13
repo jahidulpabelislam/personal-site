@@ -3,7 +3,7 @@
  */
 /* For all devices */
 #admin {
-    background-color: #E8E8E8;
+    background-color: $light;
     margin: auto;
     text-align: center;
 }
@@ -30,7 +30,7 @@
     bottom: 0;
     right: 0;
     top: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: transparentize($dark, .4);
     -webkit-transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
     -moz-transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
     -o-transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
@@ -115,7 +115,7 @@
 }
 
 .errorDeleteButton:hover {
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
 #selectProjectContainer {
@@ -163,7 +163,7 @@
     width: 30px;
     padding: 0;
     @include border-radius(50%);
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.19));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
 #imageUpload {
