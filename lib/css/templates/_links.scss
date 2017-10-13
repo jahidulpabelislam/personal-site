@@ -24,12 +24,12 @@
 }
 
 #facebook:hover #facebookAt {
-    color: #3b5998;
+    color: $facebook;
     text-decoration: underline;
 }
 
 #facebook:hover #facebookImg {
-    background: #3b5998;
+    background: $facebook;
 }
 
 #twitterImg {
@@ -37,12 +37,12 @@
 }
 
 #twitter:hover #twitterAt {
-    color: #55acee;
+    color: $twitter;
     text-decoration: underline;
 }
 
 #twitter:hover #twitterImg {
-    background: #55acee;
+    background: $twitter;
 }
 
 #instagramImg {
@@ -51,18 +51,18 @@
 }
 
 #instagram:hover #instagramAt {
-    color: #9a36ba;
+    color: $instagram-purple;
     text-decoration: underline;
 }
 
 #instagram:hover #instagramImg {
-    background-color: #8a3ab9;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a3ab9), color-stop(100%, #fbad50));
-    background: -webkit-linear-gradient(right top, #8a3ab9, #fbad50);
-    background: -moz-linear-gradient(bottom left, #8a3ab9, #fbad50);
-    background: -o-linear-gradient(bottom left, #8a3ab9, #fbad50);
-    background: -ms-linear-gradient(top, #8a3ab9 0%, #fbad50 100%);
-    background: linear-gradient(to bottom left, #8a3ab9, #fbad50);
+    background-color: $instagram-purple;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $instagram-purple), color-stop(100%, $instagram-orange));
+    background: -webkit-linear-gradient(right top, $instagram-purple, $instagram-orange);
+    background: -moz-linear-gradient(bottom left, $instagram-purple, $instagram-orange);
+    background: -o-linear-gradient(bottom left, $instagram-purple, $instagram-orange);
+    background: -ms-linear-gradient(top, $instagram-purple 0%, $instagram-orange 100%);
+    background: linear-gradient(to bottom left, $instagram-purple, $instagram-orange);
 }
 
 #snapchat {
@@ -78,7 +78,7 @@
 }
 
 #snapchat:hover #snapcode {
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
     cursor: pointer;
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
@@ -91,20 +91,20 @@
 }
 
 #snapchat:hover {
-    color: #fffc00;
+    color: $snapchat;
 }
 
 #xboxImg {
-    background-color: #000000;
+    background-color: black;
     @include border-radius(50%);
 }
 
 #xbox:hover #xboxImg {
-    background-color: #107c10;
+    background-color: $xbox;
 }
 
 #xbox:hover #gamertag {
-    color: #107c10;
+    color: $xbox;
     text-decoration: underline;
 }
 

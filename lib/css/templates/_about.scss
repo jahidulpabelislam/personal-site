@@ -4,13 +4,13 @@
 }
 
 #aboutSkills p {
-    background-color: #337ab7;
+    background-color: $blue;
     color: white;
     cursor: auto;
 }
 
 #interests p {
-    background-color: #5cb85c;
+    background-color: $light-green;
     @include border-radius(5px);
     padding: 5px;
     color: white;

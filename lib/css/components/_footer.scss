@@ -1,8 +1,8 @@
 /* For all devices */
 .footer {
-    background-color: #f5f5f5;
-    color: #777;
-    border-top: 1px solid #e1e1e1;
+    background-color: $light;
+    color: $grey;
+    border-top: 1px solid $light-grey;
 }
 
 /* Only for Desktops */

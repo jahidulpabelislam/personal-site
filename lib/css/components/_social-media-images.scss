@@ -6,7 +6,7 @@
 }
 
 .socialMediaText {
-    color: #333;
+    color: $dark;
     font-weight: 700;
     @include transition(.3s);
     display: inline-block;
@@ -17,20 +17,20 @@
 }
 
 .emailLink:hover .emailImg {
-    background-color: #0f7c10;
+    background-color: $email;
 }
 
 .emailLink:hover .emailAddress {
-    color: #0f7c10;
+    color: $email;
     text-decoration: underline;
 }
 
 .linkedinLink:hover .linkedinImg {
-    background-color: #007bb5;
+    background-color: $linkedin;
 }
 
 .linkedinLink:hover #linkedinAt {
-    color: #007bb5;
+    color: $linkedin;
     text-decoration: underline;
 }
 
@@ -39,11 +39,11 @@
 }
 
 .githubLink:hover .githubImg {
-    background-color: #E52525;
+    background-color: $github;
 }
 
 .githubLink:hover #githubAt {
-    color: #E52525;
+    color: $github;
     text-decoration: underline;
 }
 

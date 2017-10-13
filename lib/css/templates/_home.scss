@@ -22,7 +22,7 @@
 }
 
 .projectDescription {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: transparentize($dark, .2);
     @include border-radius(5px);
     color: white;
     padding: 10px;

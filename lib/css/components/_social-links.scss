@@ -6,7 +6,7 @@
     -webkit-background-size: cover;
     background-size: cover;
     padding: 10px;
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
 #socialMediaLinks h5 {

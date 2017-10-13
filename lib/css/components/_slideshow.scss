@@ -17,7 +17,7 @@
 }
 
 .slideShowViewpoint:hover {
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.3));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .7));
     cursor: pointer;
 }
 
@@ -64,7 +64,7 @@
     left: 50%;
     width: 1px;
     height: 1px;
-    background-color: #f5f5f5;
+    background-color: $light;
     opacity: 0;
     @include transition(1s);
 }
@@ -82,7 +82,7 @@
     max-width: 100%;
     max-height: 100%;
     margin: auto;
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.3));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .7));
     @include transition(1s);
     opacity: 1;
 }
@@ -109,7 +109,7 @@
     position: absolute;
     top: calc(50% - 15px);
     background: white;
-    @include box-shadow(0 0 20px 0 rgba(0, 0, 0, 0.3));
+    @include box-shadow(0 0 20px 0 transparentize($dark, .7));
 }
 
 .slideShowNav:hover {
@@ -160,17 +160,17 @@
     width: 15px;
     opacity: .6;
     @include border-radius(50%);
-    background-color: gray;
+    background-color: $grey;
     margin: 14px 5px;
-    border: white 1px solid;
+    border: $light 1px solid;
     cursor: pointer;
     @include transition(.4s);
 }
 
 .bullet > label:hover {
     opacity: .8;
-    background-color: lightgray;
-    border-color: gray;
+    background-color: $light-grey;
+    border-color: $grey;
 }
 
 .bullet.active > label {

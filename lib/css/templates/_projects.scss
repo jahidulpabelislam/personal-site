@@ -6,7 +6,6 @@
 #search {
     margin-bottom: 20px;
 }
-
 .search-input-group
 {
     position: relative;
@@ -23,9 +22,9 @@
 .project {
     background-color: white;
     padding: 10px;
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .8));
     margin-top: 10px;
-    border: 1px solid #E0E0E0;
+    border: 1px solid $light-grey;
     @include border-radius(5px);
 }
 
@@ -59,7 +58,7 @@ blockquote {
 
 .skills p:hover {
     background-color: darken($primary-color, 5%);
-    @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.4));
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
     color: white;
 }
 
