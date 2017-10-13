@@ -48,6 +48,17 @@ button,
     border-color: darken($orange, 10%);
 }
 
+.btn--lime-green{
+    background-color: $lime-green;
+    color: white;
+    border-color: darken($lime-green, 5%);
+}
+.btn--lime-green:hover, .btn--lime-green:focus, .btn--lime-green:active, .btn--lime-green:active:hover, .btn--lime-green:active:focus {
+    background-color: darken($lime-green, 5%);
+    color: white;
+    border-color: darken($lime-green, 10%);
+}
+
 .btn--green{
     background-color: $green;
     color: white;
