@@ -2,9 +2,25 @@
 #pagination {
     display: none;
 }
-
+.pagination > li{
+    display: inline-block;
+    margin: 8px 4px;
+}
 .pagination > li > a {
     cursor: pointer;
+    padding: 8px 12px;
+    background-color: $blue;
+    border: 1px solid darken($primary-color, 5%);
+    color: white;
+}
+.pagination > li > a:hover{
+    background-color: darken($primary-color, 5%);
+    border-color: darken($primary-color, 15%);
+}
+
+.pagination > .active > a, .pagination > .active > a:hover{
+    background-color: $grey;
+    border-color: darken($grey, 10%);
 }
 
 .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
