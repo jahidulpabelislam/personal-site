@@ -49,7 +49,7 @@
                         <li <?php if ($title == "Contact") echo "class='active'"; ?> ><a href="/contact/" title="Link to Contact Page">Contact</a></li>
                         <li <?php if ($title == "About") echo "class='active'"; ?> ><a href="/about/" title="Link to About Page">About</a></li>
                     </ul>
-                </div><!--/.nav-collapse -->
+                </div>
             </div>
         </nav>
 
