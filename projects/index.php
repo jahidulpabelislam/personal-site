@@ -62,30 +62,20 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div id="slideShowBullets" class="slideShowBullets"></div>
                 </div>
 
-                <div id="projectsDetail" class="modal" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button id="modalClose" type="button" class="close" data-dismiss="modal">&times;</button>
-                                <div class="modal-title projectHeader"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
+                <div id="projectsDetail" class="modal">
+                    <div class="modal__content">
+                        <div class="projectHeader"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
+                        <div class="skills"></div>
+                        <div class="description"></div>
+                        <p class="links"></p>
+                        <div class="slideShow">
+                            <div class="slideShowViewpoint">
+                                <div class="slidesContainer"></div>
+                                <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
+                                <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
                             </div>
-                            <div class="modal-body">
-                                <div class="skills"></div>
-                                <div class="description"></div>
-                                <p class="links"></p>
-                                <div class="slideShow">
-                                    <div class="slideShowViewpoint">
-                                        <div class="slidesContainer"></div>
-                                        <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
-                                        <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
-                                    </div>
-                                    <div class="slideShowBullets"></div>
-                                </div>
-                            </div>
+                            <div class="slideShowBullets"></div>
                         </div>
-
                     </div>
                 </div>
 
