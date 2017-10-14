@@ -71,6 +71,15 @@ blockquote {
     margin-top: 20px;
 }
 
+.links .link:after{
+    content: "|";
+    color: #333;
+    margin: 0 4px;
+}
+.links .link:last-child:after{
+    content: "";
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
     .search {
