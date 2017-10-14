@@ -7,6 +7,11 @@
     width: calc(100% - 5px);
     border: solid $grey 1px;
     border-radius: 2px;
+    color: $dark;
+}
+
+.input::placeholder{
+    color: $grey;
 }
 
 .input:focus {

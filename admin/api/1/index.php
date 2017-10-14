@@ -30,7 +30,7 @@ switch ($path[0]) {
             case "POST":
                 if (isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
-                    if ($data["method"] === "DELETE") {
+                    if (isset($data["method"]) && $data["method"] === "DELETE") {
                         $results = deleteProject($data);
                     } else {
                         $results = editProject($data);
