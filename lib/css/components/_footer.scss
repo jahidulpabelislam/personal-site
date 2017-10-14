@@ -5,13 +5,37 @@
     border-top: 1px solid $light-grey;
 }
 
-.footer__links .link:after{
+.footer__link:after{
     content: "|";
     color: $dark;
     margin: 0 4px;
 }
-.footer__links .link:last-child:after{
+.footer__link:last-child:after{
+    content: none;
+}
+.footer__link{
+    position: relative;
+    color: $primary-color;
+}
+.footer__link:before{
     content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - 12px);
+    border-bottom: transparent solid 1px;
+    @include transition(.3s);
+}
+.footer__link:hover{
+    color: darken($primary-color, 15%);
+}
+.footer__link:hover:before {
+
+    border-bottom-color: darken($primary-color, 15%);
+}
+.footer__link:last-child:before{
+    width: 100%;
 }
 
 /* Only for Desktops */

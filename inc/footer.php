@@ -15,9 +15,9 @@
 
                 <div class="footer__links">
                     <p>
-                        <a class="link" href="/site-map.xml">Site Map</a>
-                        <a class="link" href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a>
-                        <a class="link" href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
+                        <a class="footer__link" href="/site-map.xml">Site Map</a>
+                        <a class="footer__link" href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a>
+                        <a class="footer__link" href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
                     </p>
                 </div>
 
