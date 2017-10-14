@@ -10,7 +10,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                         <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during my time as a developer.</p>
 
-                        <form id="search" class="wow fadeInDown" data-wow-delay="0.8s">
+                        <form class="search wow fadeInDown" data-wow-delay="0.8s">
                             <div class="search-input-group">
                                 <label for="search" class="screen-reader-text">Search for projects.</label>
                                 <input type="text" class="input" placeholder="Search for projects..." id="searchInput">
