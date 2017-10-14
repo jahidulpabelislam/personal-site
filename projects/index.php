@@ -23,7 +23,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <p id="errors" class="feedback error"></p>
                         <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                         <div id="projects"></div>
-                        <div id="pagination"></div>
+                        <ul class="pagination"></ul>
                     </div>
                 </div>
 

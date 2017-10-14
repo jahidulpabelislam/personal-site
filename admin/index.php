@@ -37,11 +37,9 @@
                         <button ng-if="projects.length > 0" ng-click="deleteProject()" id="deleteButton" type="button" value="Delete" class="btn btn--red" tabindex="4">Delete</button>
                         <button ng-click="setUpAddProject()" id="addButton" type="button" value="Add Another Project" class="btn btn--green" tabindex="5">Add A Project</button>
                     </div>
-                    <div class="pagination--admin" ng-show="pages.length > 1">
-                        <ul class="pagination">
-                            <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a ng-click="getProjectList(page)">{{page}}</a></li>
-                        </ul>
-                    </div>
+                    <ul class="pagination pagination--admin" ng-show="pages.length > 1">
+                        <li ng-repeat="page in pages" ng-class="{'active': page == currentPage}"><a ng-click="getProjectList(page)">{{page}}</a></li>
+                    </ul>
                 </div>
 
                 <div id="projectFormContainer">

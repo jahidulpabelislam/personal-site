@@ -170,6 +170,10 @@
     background: white;
 }
 
+.pagination--admin{
+    display: block;
+}
+
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
     #uploads, #projectFormContainer {
