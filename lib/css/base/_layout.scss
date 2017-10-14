@@ -25,7 +25,7 @@ section {
 
 .article {
     background-color: #f5f5f5;
-    padding: 40px 0;
+    padding: 20px 0;
     @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
 }
 .article:nth-of-type(even) {
@@ -36,7 +36,7 @@ section {
     line-height: 26px;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 p {
@@ -51,5 +51,13 @@ img {
 @media only screen and (min-width: $desktop) {
     .container{
         width: 950px;
+    }
+
+    .article {
+        padding: 40px 0;
+    }
+
+    .article__header {
+        margin-bottom: 24px;
     }
 }

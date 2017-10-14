@@ -4,7 +4,7 @@
 }
 
 .search {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .search-input-group
 {
@@ -68,7 +68,7 @@ blockquote {
 }
 
 .pagination--projects{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* For Tablets & Desktops */
@@ -105,5 +105,13 @@ blockquote {
 
     .project:last-child:nth-child(odd) {
         margin-right: 0;
+    }
+
+    .search {
+        margin-bottom: 40px;
+    }
+
+    .pagination--projects{
+        margin-top: 40px;
     }
 }

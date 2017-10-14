@@ -12,23 +12,54 @@
 #socialMediaLinks h5 {
     color: white;
     text-shadow: 2px 2px 3px black;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
-    line-height: 42px;
-    margin: 20px 0 15px 0;
+    line-height: 37px;
+    margin: 10px 0 5px 0;
 }
 
 #socialMediaLinks a {
-    margin: 25px 5px;
+    margin: 15px 3px;
 }
 
 #socialMediaLinks img {
-    height: 70px;
+    height: 50px;
 }
+
+
+/* Only for Tablets & Desktops */
+@media only screen and (min-width: $tablet) {
+    #socialMediaLinks h5 {
+        margin: 15px 0 10px 0;
+    }
+
+    #socialMediaLinks a {
+        margin: 20px 3px;
+    }
+
+    #socialMediaLinks img {
+        height: 60px;
+    }
+}
+
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     #socialMediaLinks {
         background-attachment: fixed;
+    }
+
+    #socialMediaLinks h5 {
+        font-size: 40px;
+        line-height: 42px;
+        margin: 20px 0 15px 0;
+    }
+
+    #socialMediaLinks a {
+        margin: 25px 5px;
+    }
+
+    #socialMediaLinks img {
+        height: 70px;
     }
 }
