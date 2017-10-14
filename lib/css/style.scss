@@ -46,10 +46,12 @@ a {
     @include transition(.3s);
     text-decoration: none;
     display: inline-block;
+    border-bottom: transparent solid 1px;
 }
 
 a:hover{
-    color: darken($primary-color, 25%);
+    color: darken($primary-color, 15%);
+    border-bottom-color: darken($primary-color, 15%);
 }
 
 a > img {

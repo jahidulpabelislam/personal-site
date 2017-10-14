@@ -33,6 +33,7 @@
     min-height: 50px;
     vertical-align: middle;
     float: left;
+    border-bottom: none;
 }
 
 .nav__brand--logo-container {
@@ -157,6 +158,7 @@
     font-weight: bold;
     padding: 17px 15px;
     display: block;
+    border-bottom: none;
 }
 
 .nav__links > li > a, .nav__links > li > a:active, .nav__links > li > a:visited{
