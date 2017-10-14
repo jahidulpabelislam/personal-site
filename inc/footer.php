@@ -13,15 +13,15 @@
 
             <div class="container">
 
-                <div class="links">
+                <div class="footer__links">
                     <p>
-                        <a class="link" href="/site-map.xml">Site Map</a> |
-                        <a class="link" href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a> |
+                        <a class="link" href="/site-map.xml">Site Map</a>
+                        <a class="link" href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a>
                         <a class="link" href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
                     </p>
                 </div>
 
-                <div class="legal">
+                <div class="footer__legal">
                     <p>&copy; Jahidul Pabel Islam <?php echo date("Y"); ?> All Rights Reserved</p>
                 </div>
 

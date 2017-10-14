@@ -71,12 +71,12 @@ blockquote {
     margin-top: 20px;
 }
 
-.links .link:after{
+.project__links .link:after{
     content: "|";
-    color: #333;
+    color: $dark;
     margin: 0 4px;
 }
-.links .link:last-child:after{
+.project__links .link:last-child:after{
     content: "";
 }
 

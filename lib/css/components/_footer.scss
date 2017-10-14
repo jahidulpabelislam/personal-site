@@ -5,6 +5,15 @@
     border-top: 1px solid $light-grey;
 }
 
+.footer__links .link:after{
+    content: "|";
+    color: $dark;
+    margin: 0 4px;
+}
+.footer__links .link:last-child:after{
+    content: "";
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .footer {
@@ -20,12 +29,12 @@
         width: 50%;
     }
 
-    .links {
+    .footer__links {
         @include order(1);
         text-align: left;
     }
 
-    .legal {
+    .footer__legal {
         @include order(2);
         text-align: right;
     }
