@@ -71,13 +71,37 @@ blockquote {
     margin-top: 20px;
 }
 
-.project__links .link:after{
+.project__link:after{
     content: "|";
     color: $dark;
     margin: 0 4px;
 }
-.project__links .link:last-child:after{
+.project__link:last-child:after{
+    content: none;
+}
+
+.project__link{
+    position: relative;
+    color: $primary-color;
+}
+.project__link:before{
     content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - 10px);
+    border-bottom: transparent solid 1px;
+    @include transition(.3s);
+}
+.project__link:hover{
+    color: darken($primary-color, 15%);
+}
+.project__link:hover:before {
+    border-bottom-color: darken($primary-color, 15%);
+}
+.project__link:last-child:before{
+    width: 100%;
 }
 
 /* For Tablets & Desktops */
