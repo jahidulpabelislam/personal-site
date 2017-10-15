@@ -31,7 +31,7 @@ button,
     color: white;
     border-color: darken($blue, 10%);
 }
-.btn--blue:hover, .btn--blue:focus, .btn--blue:active, .btn--blue:active:hover, .btn--blue:active:focus {
+.btn--blue:hover, .btn--blue:focus, .btn--blue:active, .btn--blue:active:hover, .btn--blue:active:focus, .btn--blue:disabled {
     background-color: darken($blue, 10%);
     color: white;
     border-color: darken($blue, 15%);
@@ -42,7 +42,7 @@ button,
     color: white;
     border-color: darken($orange, 10%);
 }
-.btn--orange:hover, .btn--orange:focus, .btn--orange:active, .btn--orange:active:hover, .btn--orange:active:focus {
+.btn--orange:hover, .btn--orange:focus, .btn--orange:active, .btn--orange:active:hover, .btn--orange:active:focus, .btn--orange:disabled  {
     background-color: darken($orange, 10%);
     color: white;
     border-color: darken($orange, 15%);
@@ -53,7 +53,7 @@ button,
     color: white;
     border-color: darken($lime-green, 10%);
 }
-.btn--lime-green:hover, .btn--lime-green:focus, .btn--lime-green:active, .btn--lime-green:active:hover, .btn--lime-green:active:focus {
+.btn--lime-green:hover, .btn--lime-green:focus, .btn--lime-green:active, .btn--lime-green:active:hover, .btn--lime-green:active:focus, .btn--lime-green:disabled {
     background-color: darken($lime-green, 10%);
     color: white;
     border-color: darken($lime-green, 15%);
@@ -64,7 +64,7 @@ button,
     color: white;
     border-color: darken($green, 10%);
 }
-.btn--green:hover, .btn--green:focus, .btn--green:active, .btn--green:active:hover, .btn--green:active:focus {
+.btn--green:hover, .btn--green:focus, .btn--green:active, .btn--green:active:hover, .btn--green:active:focus, .btn--green:disabled {
     background-color: darken($green, 10%);
     color: white;
     border-color: darken($green, 15%);
@@ -75,7 +75,7 @@ button,
     color: white;
     border-color: darken($purple, 10%);
 }
-.btn--purple:hover, .btn--purple:focus, .btn--purple:active, .btn--purple:active:hover, .btn--purple:active:focus {
+.btn--purple:hover, .btn--purple:focus, .btn--purple:active, .btn--purple:active:hover, .btn--purple:active:focus, .btn--purple:disabled {
     background-color: darken($purple, 10%);
     color: white;
     border-color: darken($purple, 15%);
