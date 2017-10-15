@@ -15,12 +15,18 @@ button,
     border: solid 1px;
 }
 
+.btn:disabled{
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    opacity: .65;
+}
+
 .btn--red{
     background-color: $red;
     color: white;
     border-color: darken($red, 10%);
 }
-.btn--red:hover, .btn--red:focus, .btn--red:active, .btn--red:active:hover, .btn--red:active:focus {
+.btn--red:hover, .btn--red:focus, .btn--red:active, .btn--red:active:hover, .btn--red:active:focus, .btn--red:disabled {
     background-color: darken($red, 10%);
     color: white;
     border-color: darken($red, 15%);
