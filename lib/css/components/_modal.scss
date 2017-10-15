@@ -18,7 +18,14 @@
     max-width: 75%;
     overflow: hidden;
     margin: 40px auto;
-    padding: 15px;
+    padding: 0 15px;
     border-radius: 5px;
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
+}
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: $tablet) {
+    .modal__content{
+        max-width: 750px;
+    }
 }
