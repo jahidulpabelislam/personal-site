@@ -142,7 +142,7 @@
 
 #projectImages > li > img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 200px;
     height: auto;
 }
 
@@ -164,10 +164,6 @@
     padding: 0;
     @include border-radius(50%);
     @include box-shadow(0 0 10px 0 transparentize($dark, .81));
-}
-
-#imageUpload {
-    background: white;
 }
 
 .pagination--admin{
