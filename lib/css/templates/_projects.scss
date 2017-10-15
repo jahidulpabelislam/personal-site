@@ -21,7 +21,7 @@
 
 .project {
     background-color: white;
-    padding: 15px;
+    padding: 0 15px;
     @include box-shadow(0 0 10px 0 transparentize($dark, .8));
     margin-top: 10px;
     border: 1px solid $light-grey;
