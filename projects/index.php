@@ -67,7 +67,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="projectHeader"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
                         <div class="skills"></div>
                         <div class="description"></div>
-                        <p class="links"></p>
+                        <p class="project__links"></p>
                         <div class="slideShow">
                             <div class="slideShowViewpoint">
                                 <div class="slidesContainer"></div>
