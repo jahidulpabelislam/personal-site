@@ -40,12 +40,12 @@ body {
     color: $dark;
 }
 
-a
-{
+a{
     font-weight: 700;
     @include transition(.3s);
     text-decoration: none;
     display: inline-block;
+    color: inherit;
 }
 
 .link {
