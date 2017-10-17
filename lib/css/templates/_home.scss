@@ -68,7 +68,9 @@
         @include flexboxCenterAlign();
         @include flexboxJustifyCenter();
         background-color: $primary-color;
-        flex-flow: column;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
         @include transition(3s);
     }
 
