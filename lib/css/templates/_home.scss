@@ -39,3 +39,44 @@
     @include transition(.3s);
     font-weight: 700;
 }
+
+/* Only for Desktops */
+@media only screen and (min-width: $desktop) {
+    #projectPreview .slideContainer {
+        display: flex;
+    }
+
+    #projectPreview .slideContainer > div {
+        width: 50%;
+    }
+
+    #projectPreview .slide {
+        max-width: 50%;
+        margin: auto;
+    }
+
+    .projectDescriptionContainer {
+        position: relative;
+    }
+
+    .projectDescription {
+        height: 100%;
+        @include border-radius(0);
+        @include transform(translateY(0));
+        width: 100%;
+        @include flexbox();
+        @include flexboxCenterAlign();
+        @include flexboxJustifyCenter();
+        background-color: $primary-color;
+        flex-flow: column;
+        @include transition(3s);
+    }
+
+    #projectPreview .projectDate, #projectPreview .projectTitle{
+        width: 100%;
+    }
+
+    #projectPreview .projectDate{
+        margin-left: 25px;
+    }
+}
