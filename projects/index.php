@@ -64,7 +64,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div id="projectsDetail" class="modal">
                     <div class="modal__content">
-                        <div class="projectHeader"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
+                        <div class="projectHeader projectHeader--modal"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
                         <div class="skills"></div>
                         <div class="description"></div>
                         <p class="project__links"></p>

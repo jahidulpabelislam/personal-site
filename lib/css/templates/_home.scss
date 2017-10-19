@@ -40,6 +40,22 @@
     font-weight: 700;
 }
 
+.projectHeader {
+    @include flexbox();
+    @include flexboxCenterAlign();
+    padding: 20px 0 10px 0;
+}
+
+.projectHeader .projectTitle {
+    margin: 0;
+    text-align: left;
+}
+.projectHeader .projectDate {
+    margin: 0;
+    margin-left: 24px;
+    text-align: right;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     #projectPreview .slideContainer {

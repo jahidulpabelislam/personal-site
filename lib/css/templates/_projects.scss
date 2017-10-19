@@ -32,24 +32,18 @@ blockquote {
     font-size: inherit;
 }
 
-.projectHeader {
-    @include flexbox();
-    @include flexboxCenterAlign();
-    padding: 20px 0 10px 0;
-}
 
 .projectTitle {
-    width: 75%;
-    display: inline-block;
-    text-align: left;
-    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 4px;
 }
 
 .projectDate {
-    width: 25%;
-    display: inline-block;
-    text-align: right;
-    margin: 0;
+    margin-bottom: 10px;
+}
+
+.projectHeader--modal .projectDate {
+    margin-left: auto;
 }
 
 .description {
