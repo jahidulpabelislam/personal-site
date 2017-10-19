@@ -20,14 +20,10 @@
 }
 
 .nav__brand {
-    min-height: 50px;
-    vertical-align: middle;
     float: left;
-    border-bottom: none;
 }
 
 .nav__brand--logo-container {
-    display: inline-block;
     padding: 5px 0 5px 15px;
     height: 50px;
 }
@@ -56,15 +52,12 @@
 
 .nav__brand--text {
     font-size: 18px;
-    font-weight: bold;
     line-height: 20px;
     padding: 15px;
-    text-decoration: none;
-    color: $dark;
     text-align: left;
 }
 
-.nav__brand--text, .nav__brand--text:active, .nav__brand--text:visited {
+.nav__brand--text {
     color: $dark;
 }
 
@@ -74,7 +67,6 @@
 
 .nav__links__toggle {
     float: right;
-    position: relative;
     margin: 6px 15px 6px 0;
     padding: 10px;
     @include border-radius(5%);
@@ -126,7 +118,6 @@
 
 .nav__links-container {
     height: 0;
-    width: 100%;
     @include transition(0.7s);
 }
 
@@ -134,24 +125,16 @@
     overflow: hidden;
 }
 
-.nav__links {
-    padding: 10px 0 0;
-    overflow: hidden;
-}
-
 .nav__links{
-    border-top: $light 1px solid;
+    border-top: $light-grey 1px solid;
 }
 
 .nav__links > li > a{
-    text-decoration: none;
-    font-weight: bold;
-    padding: 17px 15px;
+    padding: 16px 15px;
     display: block;
-    border-bottom: none;
 }
 
-.nav__links > li > a, .nav__links > li > a:active, .nav__links > li > a:visited{
+.nav__links > li > a{
     color: $dark;
 }
 
@@ -159,12 +142,12 @@
     color: $primary-color;
 }
 
-.nav__links > li.active{
-    background-color: $light;
+.nav__links > li.active a{
+    background-color: $primary-color;
 }
 
-.nav__links > li.active > a, .nav__links > li.active > a:focus, .nav__links > li.active > a:hover {
-    color: $primary-color;
+.nav__links > li.active > a{
+    color: white;
 }
 
 /* Only for Desktops */
@@ -177,43 +160,28 @@
         float: left;
     }
 
-    .nav__mobile-header:before,
-    .nav__mobile-header:after {
-        display: inherit;
-        content: "";
-    }
-
-    .nav__mobile-header:after {
-        clear: none;
-    }
-
-    .nav__links-container {
-        height: auto;
-        width: auto;
-        float: right;
-    }
-
-    .nav__links {
-        padding: 0;
-        border-top: none;
-    }
-
     .nav__links__toggle{
         display: none;
     }
 
-    .nav__links > li {
-        display: inline-block;
-        border-bottom: solid transparent 2px;
-        float: left;
-        @include transition(.3s);
+    .nav__links-container {
+        height: auto;
+        float: right;
     }
 
-    .nav__links > li.active, .nav__links > li:hover {
-        border-bottom-color: $primary-color;
+    .nav__links {
+        border-top: none;
+    }
+
+    .nav__links > li{
+        float: left;
     }
 
     .nav__links > li > a{
-        padding: 16px 15px;
+        border-bottom: solid transparent 2px;
+    }
+
+    .nav__links > li > a:hover {
+        border-bottom-color: $primary-color;
     }
 }
