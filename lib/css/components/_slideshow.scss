@@ -152,10 +152,7 @@
 }
 
 .bullet {
-    display: inline;
-}
-
-.bullet > label {
+    display: inline-block;
     height: 15px;
     width: 15px;
     opacity: .6;
@@ -167,13 +164,13 @@
     @include transition(.4s);
 }
 
-.bullet > label:hover {
+.bullet:hover {
     opacity: .8;
     background-color: $light-grey;
     border-color: $grey;
 }
 
-.bullet.active > label {
+.bullet.active {
     opacity: 1;
     background-color: $primary-color;
 }
