@@ -9,6 +9,16 @@
     line-height: 30px;
 }
 
+#projectPreview {
+    margin: 0;
+    width: 100%;
+}
+
+#projectPreview .slideShowViewpoint:hover {
+    @include box-shadow(none);
+    cursor: initial;
+}
+
 .projectDescriptionContainer {
     top: 0;
     height: 100%;
