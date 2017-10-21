@@ -15,14 +15,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div id="projectPreview" class="article wow fadeInRight hasSlideShow" data-wow-delay="0.8s">
+                <div class="article wow fadeInRight" data-wow-delay="0.8s">
                     <h3 class="article__header">My Latest Projects</h3>
                     <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
-                    <div class="slideShow">
-                        <div class="slideShowViewpoint">
+                    <div class="slideShow" id="projectPreview">
+                        <div class="slideShowViewpoint" data-slide-show-id="projectPreview">
                             <div class="slidesContainer"></div>
                             <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
-                            <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
+                            <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="next">
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>

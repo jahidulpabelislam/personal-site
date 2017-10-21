@@ -68,11 +68,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="skills"></div>
                         <div class="description"></div>
                         <p class="project__links"></p>
-                        <div class="slideShow">
-                            <div class="slideShowViewpoint">
+                        <div class="slideShow" id="projectsDetailSlideShow">
+                            <div class="slideShowViewpoint" data-slide-show-id="projectsDetailSlideShow">
                                 <div class="slidesContainer"></div>
-                                <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetail" data-nav-direction="previous">
-                                <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetail" data-nav-direction="next">
+                                <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="previous">
+                                <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
