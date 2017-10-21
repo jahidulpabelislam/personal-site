@@ -21,8 +21,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="slideShow">
                         <div class="slideShowViewpoint">
                             <div class="slidesContainer"></div>
-                            <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
-                            <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
+                            <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
+                            <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
