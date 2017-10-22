@@ -12,11 +12,16 @@
 }
 #searchInput{
     margin: 0;
+    width: 100%;
 }
+
 #searchSubmit{
     position: absolute;
     right: 0;
     margin: 0;
+    top: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .project {
