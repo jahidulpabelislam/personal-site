@@ -1212,6 +1212,9 @@ label {
   margin-left: 24px;
   text-align: right; }
 
+.projectDescriptionText {
+  display: none; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   #projectPreview .slideContainer {
@@ -1260,7 +1263,9 @@ label {
   #projectPreview .projectDate, #projectPreview .projectTitle {
     width: 100%; }
   #projectPreview .projectDate {
-    margin-left: 25px; } }
+    margin-left: 25px; }
+  .projectDescriptionText {
+    display: block; } }
 
 #socialMediaPage {
   margin-bottom: 0; }

@@ -66,6 +66,10 @@
     text-align: right;
 }
 
+.projectDescriptionText{
+    display: none;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     #projectPreview .slideContainer {
@@ -103,5 +107,9 @@
 
     #projectPreview .projectDate{
         margin-left: 25px;
+    }
+
+    .projectDescriptionText{
+        display: block;
     }
 }
