@@ -1216,13 +1216,12 @@ label {
 @media only screen and (min-width: 1200px) {
   #projectPreview .slideContainer {
     display: flex; }
-  #projectPreview .slideContainer > div {
-    width: 50%; }
   #projectPreview .slide {
     max-width: 50%;
     margin: auto; }
   .projectDescriptionContainer {
-    position: relative; }
+    position: relative;
+    height: auto; }
   .projectDescription {
     height: 100%;
     -webkit-border-radius: 0;

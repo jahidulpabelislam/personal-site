@@ -72,10 +72,6 @@
         display: flex;
     }
 
-    #projectPreview .slideContainer > div {
-        width: 50%;
-    }
-
     #projectPreview .slide {
         max-width: 50%;
         margin: auto;
@@ -83,6 +79,7 @@
 
     .projectDescriptionContainer {
         position: relative;
+        height: auto;
     }
 
     .projectDescription {
