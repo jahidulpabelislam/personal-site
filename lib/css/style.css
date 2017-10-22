@@ -1224,7 +1224,8 @@ label {
     margin: auto; }
   .projectDescriptionContainer {
     position: relative;
-    height: auto; }
+    height: auto;
+    width: 50%; }
   .projectDescription {
     height: 100%;
     -webkit-border-radius: 0;
