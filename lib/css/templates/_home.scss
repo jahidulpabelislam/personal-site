@@ -103,6 +103,7 @@
 
     #projectPreview .projectDate, #projectPreview .projectTitle{
         width: 100%;
+        white-space: nowrap;
     }
 
     #projectPreview .projectDate{

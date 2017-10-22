@@ -1261,7 +1261,8 @@ label {
     -o-transition: all 3s ease-in-out;
     transition: all 3s ease-in-out; }
   #projectPreview .projectDate, #projectPreview .projectTitle {
-    width: 100%; }
+    width: 100%;
+    white-space: nowrap; }
   #projectPreview .projectDate {
     margin-left: 25px; }
   .projectDescriptionText {
