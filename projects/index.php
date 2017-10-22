@@ -40,7 +40,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div id="expandedImageDivContainer">
-                    <img class="slideShowNav" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
+                    <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
 
                     <div class="expandedImageDiv">
                         <img src="/images/blank.svg" id="expandedImage" class="expandedImage">
@@ -50,14 +50,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <img src="/images/blank.svg" id="expandedImage2" class="expandedImage">
                     </div>
 
-                    <img class="slideShowNav" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
+                    <img class="slideShowNav next" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
                     <button id="expandedImageClose" type="button" class="btn btn--red">X</button>
 
-                    <div id="slideShowNums">
-                        <p id="slideShowNum"></p>
-                        <p>/</p>
-                        <p id="slideShowTotal"></p>
-                    </div>
+                    <p id="slideShowNums">
+                        <span id="slideShowNum"></span>
+                        <span>/</span>
+                        <span id="slideShowTotal"></span>
+                    </p>
 
                     <div id="slideShowBullets" class="slideShowBullets"></div>
                 </div>
@@ -68,11 +68,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="skills"></div>
                         <div class="description"></div>
                         <p class="project__links"></p>
-                        <div class="slideShow">
-                            <div class="slideShowViewpoint">
+                        <div class="slideShow" id="projectsDetailSlideShow">
+                            <div class="slideShowViewpoint" data-slide-show-id="projectsDetailSlideShow">
                                 <div class="slidesContainer"></div>
-                                <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image">
-                                <img class="slideShowNav next" src="/images/next.svg" alt="Click to View Next Image">
+                                <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="previous">
+                                <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
