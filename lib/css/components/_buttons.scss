@@ -11,7 +11,7 @@ button,
     margin: 7px;
     width: auto;
     padding: 8px 15px;
-    border-radius: 2px;
+    @include border-radius(2px);
     border: solid 1px;
 }
 
