@@ -217,6 +217,9 @@ a.btn {
   -webkit-appearance: none;
   width: calc(100% - 5px);
   border: solid #E0E0E0 1px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
   border-radius: 2px;
   color: #333; }
 
@@ -1401,12 +1404,16 @@ label {
   position: relative; }
 
 #searchInput {
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 #searchSubmit {
   position: absolute;
   right: 0;
-  margin: 0; }
+  margin: 0;
+  top: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
 
 .project {
   background-color: white;
