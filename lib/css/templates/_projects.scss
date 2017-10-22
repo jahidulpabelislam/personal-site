@@ -142,14 +142,6 @@ blockquote {
     padding: 0;
 }
 
-#expandedImagePrevious {
-    @extend .previous;
-}
-
-#expandedImageNext {
-    @extend .next;
-}
-
 #slideShowNums {
     position: absolute;
     background-color: black;
@@ -160,8 +152,7 @@ blockquote {
     padding-right: 10px;
 }
 
-#slideShowNums p {
-    display: inline;
+#slideShowNums span {
     font-weight: 700;
 }
 

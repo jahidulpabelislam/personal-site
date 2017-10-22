@@ -40,7 +40,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div id="expandedImageDivContainer">
-                    <img class="slideShowNav" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
+                    <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
 
                     <div class="expandedImageDiv">
                         <img src="/images/blank.svg" id="expandedImage" class="expandedImage">
@@ -50,14 +50,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <img src="/images/blank.svg" id="expandedImage2" class="expandedImage">
                     </div>
 
-                    <img class="slideShowNav" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
+                    <img class="slideShowNav next" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
                     <button id="expandedImageClose" type="button" class="btn btn--red">X</button>
 
-                    <div id="slideShowNums">
-                        <p id="slideShowNum"></p>
-                        <p>/</p>
-                        <p id="slideShowTotal"></p>
-                    </div>
+                    <p id="slideShowNums">
+                        <span id="slideShowNum"></span>
+                        <span>/</span>
+                        <span id="slideShowTotal"></span>
+                    </p>
 
                     <div id="slideShowBullets" class="slideShowBullets"></div>
                 </div>
