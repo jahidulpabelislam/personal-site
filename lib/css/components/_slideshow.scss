@@ -76,22 +76,22 @@
     display: inline-block;
     height: 15px;
     width: 15px;
-    opacity: .6;
     @include border-radius(50%);
-    background-color: $grey;
+    background-color: $light;
     margin: 14px 5px;
-    border: $light 1px solid;
+    border: $grey 1px solid;
     cursor: pointer;
     @include transition(.4s);
 }
 
 .bullet:hover {
-    opacity: .8;
-    background-color: $light-grey;
-    border-color: $grey;
+    opacity: 0.4;
+    background-color: $grey;
+    border-color: $dark;
 }
 
 .bullet.active {
     opacity: 1;
     background-color: $primary-color;
+    border-color: darken($primary-color, 10);
 }

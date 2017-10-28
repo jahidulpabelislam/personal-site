@@ -672,14 +672,13 @@ label {
   display: inline-block;
   height: 15px;
   width: 15px;
-  opacity: .6;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  background-color: gray;
+  background-color: #f5f5f5;
   margin: 14px 5px;
-  border: #f5f5f5 1px solid;
+  border: gray 1px solid;
   cursor: pointer;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -687,13 +686,14 @@ label {
   transition: all 0.4s ease-in-out; }
 
 .bullet:hover {
-  opacity: .8;
-  background-color: #eee;
-  border-color: gray; }
+  opacity: 0.4;
+  background-color: gray;
+  border-color: #333; }
 
 .bullet.active {
   opacity: 1;
-  background-color: #0375b4; }
+  background-color: #0375b4;
+  border-color: #025482; }
 
 /* For all devices */
 #socialMediaLinks {
