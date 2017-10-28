@@ -98,6 +98,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </script>
 
+                <script type="text/template" id="tmpl-slide-template">
+                    <div class="slideContainer" id="slide{{ID}}">
+                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slideShow{{ProjectID}}">
+                    </div>
+                </script>
+
+                <script type="text/template" id="tmpl-slide-bullet-template">
+                    <label class="bullet js-slide-show-bullet" data-slide-show-id="slideShow{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
+                </script>
+
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/inc/footer.php';
 ?>
