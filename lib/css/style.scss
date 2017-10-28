@@ -91,6 +91,11 @@ a:hover > img {
     border: 0;
 }
 
+blockquote {
+    padding: 5px 15px;
+    border-left: 5px solid $light-grey;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .action > .container > div {

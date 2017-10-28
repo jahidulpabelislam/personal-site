@@ -97,7 +97,7 @@ section {
   margin-bottom: 12px; }
 
 p {
-  padding: 10px 0; }
+  margin: 10px 0; }
 
 img {
   vertical-align: middle; }
@@ -1684,6 +1684,10 @@ a:hover > img {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
+
+blockquote {
+  padding: 5px 15px;
+  border-left: 5px solid #eee; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
