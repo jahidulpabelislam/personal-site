@@ -55,10 +55,12 @@
 
         <!-- Main for a primary marketing message or call to action -->
         <header class="jumbotron jumbotron--<?php echo strtolower($title);?>">
-            <div class="container">
-                <h1 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $title ?></h1>
-                <hr>
-                <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $description2 ?></p>
+            <div class="transparent-overlay">
+                <div class="container">
+                    <h1 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $title ?></h1>
+                    <hr>
+                    <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $description2 ?></p>
+                </div>
             </div>
         </header>
 
