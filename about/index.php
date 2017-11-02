@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article aInfo">
                     <div class="container">
                         <div class="wow fadeInLeft" data-wow-delay="0.4s">
-                            <img src="../images/JahidulPabelIslam.jpg" id="imageOfMe" alt="Jahidul Pabel Islam">
+                            <img src="/images/JahidulPabelIslamCasual.jpg" id="imageOfMe" alt="Jahidul Pabel Islam">
                         </div>
                         <div class="wow fadeInRight" data-wow-delay="0.4s">
                             <p>My name is Jahidul Pabel Islam.</p>
