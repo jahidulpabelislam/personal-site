@@ -720,20 +720,17 @@ label {
   line-height: 37px;
   margin: 10px 0 5px 0; }
 
-#socialMediaLinks a {
-  margin: 15px 3px; }
-
 #socialMediaLinks img {
-  height: 50px; }
+  height: 50px;
+  margin: 15px 3px; }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   #socialMediaLinks h5 {
     margin: 15px 0 10px 0; }
-  #socialMediaLinks a {
-    margin: 20px 3px; }
   #socialMediaLinks img {
-    height: 60px; } }
+    height: 60px;
+    margin: 20px 3px; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -743,10 +740,9 @@ label {
     font-size: 40px;
     line-height: 42px;
     margin: 20px 0 15px 0; }
-  #socialMediaLinks a {
-    margin: 25px 5px; }
   #socialMediaLinks img {
-    height: 70px; } }
+    height: 70px;
+    margin: 25px 5px; } }
 
 /* For all devices */
 .socialMediaImg {
@@ -1637,7 +1633,6 @@ a {
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
-  display: inline-block;
   color: inherit; }
 
 .link {
