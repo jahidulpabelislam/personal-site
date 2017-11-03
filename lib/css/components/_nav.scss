@@ -1,7 +1,7 @@
 .nav {
     z-index: 1;
     @include box-shadow(0 0 10px 0 $dark);
-    background-color: white;
+    background-color: $primary-color;
     margin: 0 -15px;
     position: fixed;
     left: 0;
@@ -33,17 +33,12 @@
     @include border-radius(50%);
     background: $dark;
     border: 1px solid $dark;
+    opacity: 1;
 }
 
-.nav__brand--logo-container:hover .nav__brand--logo {
-    background: $primary-color;
-    border-color: $primary-color;
-}
-
-.nav__brand--logo.current {
-    background: $primary-color;
-    border-color: $primary-color;
-    opacity:1;
+.nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
+    background: $lime-green;
+    border-color: $lime-green;
 }
 
 .nav__brand--logo-container:hover .nav__brand--logo.current {
@@ -58,11 +53,11 @@
 }
 
 .nav__brand--text {
-    color: $dark;
+    color: white;
 }
 
 .nav__brand--text.current, .nav__brand--text:focus, .nav__brand--text:hover {
-    color: $primary-color;
+    color: $lime-green;
 }
 
 .nav__links__toggle {
@@ -72,19 +67,11 @@
     @include border-radius(5%);
 }
 
-.nav__links__toggle:hover{
-    background-color: $light;
-}
-
-.nav__links__toggle:hover .menu-bar {
-    background-color: $primary-color;
-}
-
 .menu-bar{
     display: block;
     width: 24px;
     height: 2px;
-    background-color: $dark;
+    background-color: white;
     @include transition(0.7s);
     position: relative;
 }
@@ -126,7 +113,7 @@
 }
 
 .nav__links{
-    border-top: $light-grey 1px solid;
+    border-top: $grey 1px solid;
 }
 
 .nav__links > li > a{
@@ -135,19 +122,16 @@
 }
 
 .nav__links > li > a{
-    color: $dark;
+    color: white;
 }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-    color: $primary-color;
-}
-
-.nav__links > li.active a{
-    background-color: $primary-color;
+    color: $lime-green;
 }
 
 .nav__links > li.active > a{
-    color: white;
+    background-color: $lime-green;
+    color: $dark;
 }
 
 /* Only for Desktops */
@@ -182,6 +166,6 @@
     }
 
     .nav__links > li > a:hover {
-        border-bottom-color: $primary-color;
+        border-bottom-color: $lime-green;
     }
 }

@@ -380,7 +380,7 @@ label {
   -moz-box-shadow: 0 0 10px 0 #333;
   -o-box-shadow: 0 0 10px 0 #333;
   box-shadow: 0 0 10px 0 #333;
-  background-color: white;
+  background-color: #0375b4;
   margin: 0 -15px;
   position: fixed;
   left: 0;
@@ -409,16 +409,12 @@ label {
   -ms-border-radius: 50%;
   border-radius: 50%;
   background: #333;
-  border: 1px solid #333; }
-
-.nav__brand--logo-container:hover .nav__brand--logo {
-  background: #0375b4;
-  border-color: #0375b4; }
-
-.nav__brand--logo.current {
-  background: #0375b4;
-  border-color: #0375b4;
+  border: 1px solid #333;
   opacity: 1; }
+
+.nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
+  background: #b5c82f;
+  border-color: #b5c82f; }
 
 .nav__brand--logo-container:hover .nav__brand--logo.current {
   -webkit-box-shadow: none;
@@ -433,10 +429,10 @@ label {
   text-align: left; }
 
 .nav__brand--text {
-  color: #333; }
+  color: white; }
 
 .nav__brand--text.current, .nav__brand--text:focus, .nav__brand--text:hover {
-  color: #0375b4; }
+  color: #b5c82f; }
 
 .nav__links__toggle {
   float: right;
@@ -447,17 +443,11 @@ label {
   -ms-border-radius: 5%;
   border-radius: 5%; }
 
-.nav__links__toggle:hover {
-  background-color: #f5f5f5; }
-
-.nav__links__toggle:hover .menu-bar {
-  background-color: #0375b4; }
-
 .menu-bar {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: #333;
+  background-color: white;
   -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
@@ -504,23 +494,21 @@ label {
   overflow: hidden; }
 
 .nav__links {
-  border-top: #eee 1px solid; }
+  border-top: gray 1px solid; }
 
 .nav__links > li > a {
   padding: 16px 15px;
   display: block; }
 
 .nav__links > li > a {
-  color: #333; }
+  color: white; }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-  color: #0375b4; }
-
-.nav__links > li.active a {
-  background-color: #0375b4; }
+  color: #b5c82f; }
 
 .nav__links > li.active > a {
-  color: white; }
+  background-color: #b5c82f;
+  color: #333; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 768px) {
@@ -540,7 +528,7 @@ label {
   .nav__links > li > a {
     border-bottom: solid transparent 2px; }
   .nav__links > li > a:hover {
-    border-bottom-color: #0375b4; } }
+    border-bottom-color: #b5c82f; } }
 
 /* For all devices */
 .pagination {
