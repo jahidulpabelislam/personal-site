@@ -68,17 +68,6 @@ a:hover > img {
     opacity: 1;
 }
 
-.skills p {
-    border: 1px solid $primary-color;
-    @include border-radius(5px);
-    padding: 5px;
-    color: $primary-color;
-    display: inline-block;
-    margin: 2px;
-    cursor: pointer;
-    @include transition(.4s);
-}
-
 .screen-reader-text{
     position: absolute;
     width: 1px;

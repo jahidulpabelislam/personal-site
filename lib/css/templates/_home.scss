@@ -102,6 +102,13 @@
         @include transition(3s);
     }
 
+    @each $color, $colors in $colors
+    {
+        .projectDescription--#{$color} {
+            background-color: map-get($colors, main);
+        }
+    }
+
     #projectPreview .projectDate, #projectPreview .projectTitle{
         width: 100%;
         white-space: nowrap;

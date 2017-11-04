@@ -37,7 +37,6 @@ blockquote {
     font-size: inherit;
 }
 
-
 .projectTitle {
     margin-top: 20px;
     margin-bottom: 4px;
@@ -55,6 +54,17 @@ blockquote {
     text-align: left;
 }
 
+.skills p {
+    border: 1px solid $primary-color;
+    @include border-radius(5px);
+    padding: 5px;
+    color: $primary-color;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    @include transition(.4s);
+}
+
 .skills p:hover {
     background-color: darken($primary-color, 5%);
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
@@ -64,6 +74,36 @@ blockquote {
 .skills p.searched {
     background-color: darken($primary-color, 10%);
     color: white;
+}
+
+@each $color, $colors in $colors
+{
+    .skills--#{$color} p
+    {
+        border: 1px solid map-get($colors, main);
+        color: map-get($colors, main);
+    }
+
+    .skills--#{$color} p:hover
+    {
+        background-color: map-get($colors, hover);
+    }
+
+    .skills--#{$color} p.searched
+    {
+        background-color: map-get($colors, dark);
+    }
+
+    .project__link--#{$color}{
+        color: map-get($colors, main);
+    }
+
+    .project__link--#{$color}:hover{
+        color: map-get($colors, hover);
+    }
+    .project__link--#{$color}:hover:before {
+        border-bottom-color: map-get($colors, hover);
+    }
 }
 
 .pagination--projects{
