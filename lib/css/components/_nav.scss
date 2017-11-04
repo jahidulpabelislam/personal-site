@@ -96,7 +96,7 @@
 }
 
 .opened .menu-bar{
-    background-color: $red;
+    background-color: colors(red, main);
 }
 
 .menu-bar--top {
@@ -153,11 +153,11 @@
 }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-    color: $orange;
+    color: colors(orange, main);
 }
 
 .nav__links > li.active > a{
-    background-color: $green;
+    background-color: colors(green, main);
     color: white;
 }
 
@@ -193,10 +193,10 @@
     }
 
     .nav__links > li > a:hover {
-        border-bottom-color: $orange;
+        border-bottom-color: colors(orange, main);
     }
 
     .nav__links > li.active > a {
-        border-bottom-color: $green;
+        border-bottom-color: colors(green, main);
     }
 }

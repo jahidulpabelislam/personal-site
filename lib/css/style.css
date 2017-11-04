@@ -127,76 +127,64 @@ button,
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
-  border: solid 1px; }
+  border: solid 1px;
+  color: white; }
 
 .btn:disabled {
   cursor: not-allowed;
   filter: alpha(opacity=65);
   opacity: .65; }
 
-.btn--red {
-  background-color: #e52525;
-  color: white;
-  border-color: #c01717; }
-
-.btn--red:hover, .btn--red:focus, .btn--red:active, .btn--red:active:hover, .btn--red:active:focus, .btn--red:disabled {
-  background-color: #c01717;
-  color: white;
-  border-color: #a91414; }
-
 .btn--blue {
   background-color: #0375b4;
-  color: white;
-  border-color: #025482; }
+  border-color: #03427d; }
 
-.btn--blue:hover, .btn--blue:focus, .btn--blue:active, .btn--blue:active:hover, .btn--blue:active:focus, .btn--blue:disabled {
-  background-color: #025482;
-  color: white;
-  border-color: #024469; }
+.btn--blue:hover,
+.btn--blue:focus {
+  background-color: #035691; }
+
+.btn--red {
+  background-color: #e52525;
+  border-color: #af2323; }
+
+.btn--red:hover,
+.btn--red:focus {
+  background-color: #c32424; }
 
 .btn--orange {
   background-color: #e1a02f;
-  color: white;
-  border-color: #c1851c; }
+  border-color: #c88c2e; }
 
-.btn--orange:hover, .btn--orange:focus, .btn--orange:active, .btn--orange:active:hover, .btn--orange:active:focus, .btn--orange:disabled {
-  background-color: #c1851c;
-  color: white;
-  border-color: #ab7519; }
+.btn--orange:hover,
+.btn--orange:focus {
+  background-color: #d2922e; }
 
 .btn--lime-green {
   background-color: #b5c82f;
-  color: white;
-  border-color: #909f25; }
+  border-color: #91a42f; }
 
-.btn--lime-green:hover, .btn--lime-green:focus, .btn--lime-green:active, .btn--lime-green:active:hover, .btn--lime-green:active:focus, .btn--lime-green:disabled {
-  background-color: #909f25;
-  color: white;
-  border-color: #7d8a20; }
+.btn--lime-green:hover,
+.btn--lime-green:focus {
+  background-color: #a6b930; }
 
 .btn--green {
   background-color: #5cb85c;
-  color: white;
-  border-color: #449d44; }
+  border-color: #4b944b; }
 
-.btn--green:hover, .btn--green:focus, .btn--green:active, .btn--green:active:hover, .btn--green:active:focus, .btn--green:disabled {
-  background-color: #449d44;
-  color: white;
-  border-color: #3d8b3d; }
+.btn--green:hover,
+.btn--green:focus {
+  background-color: #54a754; }
 
 .btn--purple {
   background-color: #80379b;
-  color: white;
-  border-color: #612a75; }
+  border-color: #4e3469; }
 
-.btn--purple:hover, .btn--purple:focus, .btn--purple:active, .btn--purple:active:hover, .btn--purple:active:focus, .btn--purple:disabled {
-  background-color: #612a75;
-  color: white;
-  border-color: #512363; }
+.btn--purple:hover,
+.btn--purple:focus {
+  background-color: #62357d; }
 
 .btn--clear {
   background-color: transparent;
-  color: white;
   border-color: white; }
 
 .btn--clear:hover, .btn--clear:focus, .btn--clear:active, .btn--clear:active:hover, .btn--clear:active:focus {
@@ -326,7 +314,7 @@ label {
   display: inline-block; }
 
 .required {
-  color: #e52525; }
+  color: colors(red, main); }
 
 .feedback {
   font-weight: 700;
@@ -473,7 +461,7 @@ label {
   background-color: #0375b4; }
 
 .opened .menu-bar {
-  background-color: #e52525; }
+  background-color: colors(red, main); }
 
 .menu-bar--top {
   top: 0; }
@@ -529,10 +517,10 @@ label {
   color: #333; }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-  color: #e1a02f; }
+  color: colors(orange, main); }
 
 .nav__links > li.active > a {
-  background-color: #5cb85c;
+  background-color: colors(green, main);
   color: white; }
 
 /* Only for Desktops */
@@ -553,9 +541,9 @@ label {
   .nav__links > li > a {
     border-bottom: solid transparent 2px; }
   .nav__links > li > a:hover {
-    border-bottom-color: #e1a02f; }
+    border-bottom-color: colors(orange, main); }
   .nav__links > li.active > a {
-    border-bottom-color: #5cb85c; } }
+    border-bottom-color: colors(green, main); } }
 
 /* For all devices */
 .pagination {
@@ -848,12 +836,12 @@ label {
   background-image: url("/images/marmaris.jpg"); }
 
 #aboutSkills p {
-  background-color: #0375b4;
+  background-color: colors(blue, main);
   color: white;
   cursor: auto; }
 
 #interests p {
-  background-color: #5cb85c;
+  background-color: colors(green, main);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
