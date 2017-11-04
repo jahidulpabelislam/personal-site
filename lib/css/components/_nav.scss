@@ -1,12 +1,17 @@
 .nav {
     z-index: 1;
-    @include box-shadow(0 0 10px 0 $dark);
-    background-color: white;
+    background-color: transparentize($dark, 0.85);
     margin: 0 -15px;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
+    @include transition(0.7s);
+}
+
+.nav.scrolled, .nav.opened{
+    @include box-shadow(0 0 10px 0 $dark);
+    background-color: white;
 }
 
 .nav__mobile-header:before,
@@ -50,9 +55,10 @@
     line-height: 20px;
     padding: 15px;
     text-align: left;
+    color: white;
 }
 
-.nav__brand--text {
+.scrolled .nav__brand--text, .opened .nav__brand--text {
     color: $dark;
 }
 
@@ -71,9 +77,13 @@
     display: block;
     width: 24px;
     height: 2px;
-    background-color: $dark;
+    background-color: white;
     @include transition(0.7s);
     position: relative;
+}
+
+.scrolled .menu-bar{
+    background-color: $dark;
 }
 
 .nav__links__toggle:hover .menu-bar {
@@ -127,6 +137,10 @@
 .nav__links > li > a{
     padding: 16px 15px;
     display: block;
+    color: white;
+}
+
+.scrolled .nav__links > li > a, .opened .nav__links > li > a{
     color: $dark;
 }
 
