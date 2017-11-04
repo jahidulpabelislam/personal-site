@@ -4,13 +4,13 @@
 }
 
 #aboutSkills p {
-    background-color: colors(blue, main);
+    background-color: colour(blue, main);
     color: white;
     cursor: auto;
 }
 
 #interests p {
-    background-color: colors(green, main);
+    background-color: colour(green, main);
     @include border-radius(5px);
     padding: 5px;
     color: white;

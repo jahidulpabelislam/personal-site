@@ -314,7 +314,7 @@ label {
   display: inline-block; }
 
 .required {
-  color: colors(red, main); }
+  color: #e52525; }
 
 .feedback {
   font-weight: 700;
@@ -461,7 +461,7 @@ label {
   background-color: #0375b4; }
 
 .opened .menu-bar {
-  background-color: colors(red, main); }
+  background-color: #e52525; }
 
 .menu-bar--top {
   top: 0; }
@@ -517,10 +517,10 @@ label {
   color: #333; }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-  color: colors(orange, main); }
+  color: #e1a02f; }
 
 .nav__links > li.active > a {
-  background-color: colors(green, main);
+  background-color: #5cb85c;
   color: white; }
 
 /* Only for Desktops */
@@ -541,9 +541,9 @@ label {
   .nav__links > li > a {
     border-bottom: solid transparent 2px; }
   .nav__links > li > a:hover {
-    border-bottom-color: colors(orange, main); }
+    border-bottom-color: #e1a02f; }
   .nav__links > li.active > a {
-    border-bottom-color: colors(green, main); } }
+    border-bottom-color: #5cb85c; } }
 
 /* For all devices */
 .pagination {
@@ -914,12 +914,12 @@ label {
   background-image: url("/images/marmaris.jpg"); }
 
 #aboutSkills p {
-  background-color: colors(blue, main);
+  background-color: #0375b4;
   color: white;
   cursor: auto; }
 
 #interests p {
-  background-color: colors(green, main);
+  background-color: #5cb85c;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;

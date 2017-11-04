@@ -58,3 +58,7 @@
     -o-transform: $val;
     transform: $val;
 }
+
+@function colour($section, $color-variant) {
+    @return map-get(map-get($colors, $section), $color-variant);
+}
