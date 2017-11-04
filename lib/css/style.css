@@ -224,7 +224,8 @@ a.btn {
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
-  color: #333; }
+  color: #333;
+  outline: none; }
 
 .input::placeholder {
   color: gray; }
@@ -233,7 +234,11 @@ a.btn {
   -webkit-box-shadow: 0 0 8px #0375b4;
   -moz-box-shadow: 0 0 8px #0375b4;
   -o-box-shadow: 0 0 8px #0375b4;
-  box-shadow: 0 0 8px #0375b4; }
+  box-shadow: 0 0 8px #0375b4;
+  border-color: #0375b4; }
+
+.input.invalid {
+  border-color: #e52525; }
 
 .input:focus.invalid {
   border-color: #e52525;
@@ -241,10 +246,6 @@ a.btn {
   -moz-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
   -o-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
   box-shadow: 0 0 8px rgba(229, 37, 37, 0.6); }
-
-.input.invalid {
-  border-color: #e52525;
-  outline: 0; }
 
 /* For all devices */
 .footer {

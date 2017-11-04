@@ -8,6 +8,7 @@
     border: solid #E0E0E0 1px;
     @include border-radius(2px);
     color: $dark;
+    outline: none;
 }
 
 .input::placeholder{
@@ -16,14 +17,14 @@
 
 .input:focus {
     @include box-shadow(0 0 8px $primary-color);
+    border-color: $primary-color;
+}
+
+.input.invalid {
+    border-color: $error;
 }
 
 .input:focus.invalid {
     border-color: $error;
     @include box-shadow(0 0 8px transparentize($error, .4));
-}
-
-.input.invalid {
-    border-color: $error;
-    outline: 0;
 }
