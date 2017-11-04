@@ -1585,15 +1585,6 @@ blockquote {
 .skills--blue p.searched {
   background-color: #03427d; }
 
-.project__link--blue {
-  color: #0375b4; }
-
-.project__link--blue:hover {
-  color: #035691; }
-
-.project__link--blue:hover:before {
-  border-bottom-color: #035691; }
-
 .skills--red p {
   border: 1px solid #e52525;
   color: #e52525; }
@@ -1603,15 +1594,6 @@ blockquote {
 
 .skills--red p.searched {
   background-color: #af2323; }
-
-.project__link--red {
-  color: #e52525; }
-
-.project__link--red:hover {
-  color: #c32424; }
-
-.project__link--red:hover:before {
-  border-bottom-color: #c32424; }
 
 .skills--orange p {
   border: 1px solid #e1a02f;
@@ -1623,15 +1605,6 @@ blockquote {
 .skills--orange p.searched {
   background-color: #c88c2e; }
 
-.project__link--orange {
-  color: #e1a02f; }
-
-.project__link--orange:hover {
-  color: #d2922e; }
-
-.project__link--orange:hover:before {
-  border-bottom-color: #d2922e; }
-
 .skills--lime-green p {
   border: 1px solid #b5c82f;
   color: #b5c82f; }
@@ -1641,15 +1614,6 @@ blockquote {
 
 .skills--lime-green p.searched {
   background-color: #91a42f; }
-
-.project__link--lime-green {
-  color: #b5c82f; }
-
-.project__link--lime-green:hover {
-  color: #a6b930; }
-
-.project__link--lime-green:hover:before {
-  border-bottom-color: #a6b930; }
 
 .skills--green p {
   border: 1px solid #5cb85c;
@@ -1661,15 +1625,6 @@ blockquote {
 .skills--green p.searched {
   background-color: #4b944b; }
 
-.project__link--green {
-  color: #5cb85c; }
-
-.project__link--green:hover {
-  color: #54a754; }
-
-.project__link--green:hover:before {
-  border-bottom-color: #54a754; }
-
 .skills--purple p {
   border: 1px solid #80379b;
   color: #80379b; }
@@ -1679,15 +1634,6 @@ blockquote {
 
 .skills--purple p.searched {
   background-color: #4e3469; }
-
-.project__link--purple {
-  color: #80379b; }
-
-.project__link--purple:hover {
-  color: #62357d; }
-
-.project__link--purple:hover:before {
-  border-bottom-color: #62357d; }
 
 .pagination--projects {
   margin-top: 20px; }
@@ -1725,6 +1671,60 @@ blockquote {
 
 .project__link:last-child:before {
   width: 100%; }
+
+.project__link--blue {
+  color: #0375b4; }
+
+.project__link--blue:hover {
+  color: #035691; }
+
+.project__link--blue:hover:before {
+  border-bottom-color: #035691; }
+
+.project__link--red {
+  color: #e52525; }
+
+.project__link--red:hover {
+  color: #c32424; }
+
+.project__link--red:hover:before {
+  border-bottom-color: #c32424; }
+
+.project__link--orange {
+  color: #e1a02f; }
+
+.project__link--orange:hover {
+  color: #d2922e; }
+
+.project__link--orange:hover:before {
+  border-bottom-color: #d2922e; }
+
+.project__link--lime-green {
+  color: #b5c82f; }
+
+.project__link--lime-green:hover {
+  color: #a6b930; }
+
+.project__link--lime-green:hover:before {
+  border-bottom-color: #a6b930; }
+
+.project__link--green {
+  color: #5cb85c; }
+
+.project__link--green:hover {
+  color: #54a754; }
+
+.project__link--green:hover:before {
+  border-bottom-color: #54a754; }
+
+.project__link--purple {
+  color: #80379b; }
+
+.project__link--purple:hover {
+  color: #62357d; }
+
+.project__link--purple:hover:before {
+  border-bottom-color: #62357d; }
 
 #expandedImageDivContainer {
   z-index: -100;

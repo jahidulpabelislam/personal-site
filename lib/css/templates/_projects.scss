@@ -93,17 +93,6 @@ blockquote {
     {
         background-color: map-get($colors, dark);
     }
-
-    .project__link--#{$color}{
-        color: map-get($colors, main);
-    }
-
-    .project__link--#{$color}:hover{
-        color: map-get($colors, hover);
-    }
-    .project__link--#{$color}:hover:before {
-        border-bottom-color: map-get($colors, hover);
-    }
 }
 
 .pagination--projects{
@@ -143,6 +132,19 @@ blockquote {
     width: 100%;
 }
 
+@each $color, $colors in $colors
+{
+    .project__link--#{$color}{
+        color: map-get($colors, main);
+    }
+
+    .project__link--#{$color}:hover{
+        color: map-get($colors, hover);
+    }
+    .project__link--#{$color}:hover:before {
+        border-bottom-color: map-get($colors, hover);
+    }
+}
 
 #expandedImageDivContainer {
     z-index: -100;
