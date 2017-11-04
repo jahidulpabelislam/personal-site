@@ -1,7 +1,7 @@
 .nav {
     z-index: 1;
     @include box-shadow(0 0 10px 0 $dark);
-    background-color: $primary-color;
+    background-color: white;
     margin: 0 -15px;
     position: fixed;
     left: 0;
@@ -37,8 +37,8 @@
 }
 
 .nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
-    background: $lime-green;
-    border-color: $lime-green;
+    background: $primary-color;
+    border-color: $primary-color;
 }
 
 .nav__brand--logo-container:hover .nav__brand--logo.current {
@@ -53,11 +53,11 @@
 }
 
 .nav__brand--text {
-    color: white;
+    color: $dark;
 }
 
 .nav__brand--text.current, .nav__brand--text:focus, .nav__brand--text:hover {
-    color: $lime-green;
+    color: $primary-color;
 }
 
 .nav__links__toggle {
@@ -71,9 +71,17 @@
     display: block;
     width: 24px;
     height: 2px;
-    background-color: white;
+    background-color: $dark;
     @include transition(0.7s);
     position: relative;
+}
+
+.nav__links__toggle:hover .menu-bar {
+    background-color: $primary-color;
+}
+
+.opened .menu-bar{
+    background-color: $red;
 }
 
 .menu-bar--top {
@@ -113,25 +121,22 @@
 }
 
 .nav__links{
-    border-top: $grey 1px solid;
+    border-top: $light-grey 1px solid;
 }
 
 .nav__links > li > a{
     padding: 16px 15px;
     display: block;
-}
-
-.nav__links > li > a{
-    color: white;
+    color: $dark;
 }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-    color: $lime-green;
+    color: $orange;
 }
 
 .nav__links > li.active > a{
-    background-color: $lime-green;
-    color: $dark;
+    background-color: $green;
+    color: white;
 }
 
 /* Only for Desktops */
@@ -166,6 +171,10 @@
     }
 
     .nav__links > li > a:hover {
-        border-bottom-color: $lime-green;
+        border-bottom-color: $orange;
+    }
+
+    .nav__links > li.active > a {
+        border-bottom-color: $green;
     }
 }
