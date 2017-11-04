@@ -12,8 +12,13 @@ button,
     width: auto;
     padding: 8px 15px;
     @include border-radius(2px);
-    border: solid 1px;
+    border: solid 1px colour(blue, dark);
     color: white;
+    background-color: colour(blue, main);
+}
+.btn:hover, .btn:focus
+{
+    background-color: colour(blue, hover);
 }
 
 .btn:disabled{

@@ -127,8 +127,12 @@ button,
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
-  border: solid 1px;
-  color: white; }
+  border: solid 1px #03427d;
+  color: white;
+  background-color: #0375b4; }
+
+.btn:hover, .btn:focus {
+  background-color: #035691; }
 
 .btn:disabled {
   cursor: not-allowed;
