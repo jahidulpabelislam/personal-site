@@ -479,7 +479,9 @@ label {
   top: 0; }
 
 .menu-bar--middle {
-  margin-top: 6px; }
+  margin-top: 6px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .menu-bar--bottom {
   top: 0;
@@ -494,7 +496,8 @@ label {
   transform: rotate(45deg); }
 
 .opened .menu-bar--middle, .opened:hover .menu-bar--middle {
-  background-color: transparent; }
+  background-color: transparent;
+  width: 0; }
 
 .opened .menu-bar--bottom {
   top: -8px;
