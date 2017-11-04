@@ -415,9 +415,13 @@ label {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  background: #333;
-  border: 1px solid #333;
+  background: transparent;
+  border: 1px solid transparent;
   opacity: 1; }
+
+.scrolled .nav__brand--logo, .opened .nav__brand--logo {
+  background: #333;
+  border-color: #333; }
 
 .nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
   background: #0375b4;

@@ -36,9 +36,14 @@
 .nav__brand--logo {
     height: 100%;
     @include border-radius(50%);
-    background: $dark;
-    border: 1px solid $dark;
+    background: transparent;
+    border: 1px solid transparent;
     opacity: 1;
+}
+
+.scrolled .nav__brand--logo, .opened .nav__brand--logo {
+    background: $dark;
+    border-color: $dark;
 }
 
 .nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
