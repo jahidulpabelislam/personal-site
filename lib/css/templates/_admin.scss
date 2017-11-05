@@ -170,6 +170,53 @@
     display: block;
 }
 
+.skill-input-group
+{
+    position: relative;
+}
+.skill-input{
+    margin: 0;
+    width: 100%;
+}
+
+.skill-add{
+    position: absolute;
+    right: 0;
+    margin: 0;
+    top: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.admin-project-skill{
+    position: relative;
+    border: 1px solid $primary-color;
+    @include border-radius(5px);
+    padding: 5px 20px 5px 5px;
+    display: inline-block;
+    margin: 2px;
+    @include transition(.4s);
+    background-color: colour(blue, main);
+    color: white;
+    cursor: auto;
+}
+
+.delete-skill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px 5px;
+    padding: 0;
+    @include border-radius(50%);
+    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
+    background-color: transparent;
+    border: none;
+}
+
+.delete-skill:hover, .delete-skill:active {
+    background-color: transparent;
+}
+
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
     #uploads, #projectFormContainer {

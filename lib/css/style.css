@@ -1143,6 +1143,59 @@ label {
 .pagination--admin {
   display: block; }
 
+.skill-input-group {
+  position: relative; }
+
+.skill-input {
+  margin: 0;
+  width: 100%; }
+
+.skill-add {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  top: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0; }
+
+.admin-project-skill {
+  position: relative;
+  border: 1px solid #0375b4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px 20px 5px 5px;
+  display: inline-block;
+  margin: 2px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-color: #0375b4;
+  color: white;
+  cursor: auto; }
+
+.delete-skill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px 5px;
+  padding: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
+  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
+  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
+  background-color: transparent;
+  border: none; }
+
+.delete-skill:hover, .delete-skill:active {
+  background-color: transparent; }
+
 /* For tablets and some are for desktops */
 @media only screen and (min-width: 768px) {
   #uploads, #projectFormContainer {

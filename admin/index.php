@@ -53,7 +53,7 @@
                         <label for="skills">Skills <span class="required">*</span></label>
 
                         <div ng-model="selectedProject.Skills" ui-sortable class="ui-state-default">
-                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn btn--red delete-skill" ng-click="deleteSkill(skill)">x</button></p>
+                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn delete-skill" ng-click="deleteSkill(skill)">x</button></p>
                         </div>
 
                         <div class="skill-input-group">
