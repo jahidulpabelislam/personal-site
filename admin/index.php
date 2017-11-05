@@ -65,6 +65,17 @@
                         <label for="date">Date <span class="required">*</span></label>
                         <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="input" placeholder="2016-01-30" tabindex="13" oninput="checkInputField(this);" required>
 
+                        <label for="colour">Colour </label>
+                        <select ng-model="selectedProject.Colour" name="colour" id="colour" class="input" tabindex="14">
+                            <option value="">Default</option>
+                            <option value="blue">Blue</option>
+                            <option value="red">Red</option>
+                            <option value="orange">Orange</option>
+                            <option value="lime-green">Lime green</option>
+                            <option value="green">Green</option>
+                            <option value="purple">Purple</option>
+                        </select>
+
                         <p id="projectFormFeedback" class="feedback error" ng-if="projectFormFeedback">{{projectFormFeedback}}</p>
 
                         <button id="projectButton" type="submit" value="Add Project" class="btn btn--green" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
