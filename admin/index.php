@@ -49,8 +49,19 @@
                     <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="checkInputField(this);" required>
+
                         <label for="skills">Skills <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Skills" type="text" name="skills" id="skills" class="input" placeholder="skill1, skill2" tabindex="8" oninput="checkInputField(this);" required>
+
+                        <div ng-model="selectedProject.Skills" ui-sortable class="ui-state-default">
+                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn btn--red delete-skill" ng-click="deleteSkill(skill)">x</button></p>
+                        </div>
+
+                        <div class="skill-input-group">
+                            <label for="skill-input" class="screen-reader-text">Add skills for project.</label>
+                            <input type="text" class="input skill-input"id="skill-input" placeholder="HTML5" ng-model="skillInput">
+                            <button class="btn btn--green skill-add" type="submit" id="skill-add" ng-click="addSkill()">Add</button>
+                        </div>
+
                         <label for="longDescription">Long Description <span class="required">*</span></label>
                         <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription" class="input" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
                         <label for="shortDescription">Short Description <span class="required">*</span></label>
