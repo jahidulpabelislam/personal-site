@@ -59,7 +59,7 @@
                         <div class="skill-input-group">
                             <label for="skill-input" class="screen-reader-text">Add skills for project.</label>
                             <input type="text" class="input skill-input"id="skill-input" placeholder="HTML5" ng-model="skillInput">
-                            <button class="btn btn--green skill-add" type="submit" id="skill-add" ng-click="addSkill()">Add</button>
+                            <button class="btn btn--green skill-add" type="button" id="skill-add" ng-click="addSkill()">Add</button>
                         </div>
 
                         <label for="longDescription">Long Description <span class="required">*</span></label>
