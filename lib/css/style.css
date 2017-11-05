@@ -1434,7 +1434,8 @@ label {
     -webkit-transition: all 3s ease-in-out;
     -moz-transition: all 3s ease-in-out;
     -o-transition: all 3s ease-in-out;
-    transition: all 3s ease-in-out; }
+    transition: all 3s ease-in-out;
+    padding: 0 40px; }
   .projectDescription--blue {
     background-color: #0375b4; }
   .projectDescription--red {
