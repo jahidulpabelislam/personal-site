@@ -117,7 +117,8 @@ button,
 [type=submit] {
   border: 0;
   background-color: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-appearance: none; }
 
 .btn {
   margin: 7px;
@@ -209,7 +210,6 @@ a.btn {
 .input {
   padding: 8px 16px;
   margin: 5px auto;
-  -webkit-appearance: none;
   width: calc(100% - 5px);
   border: solid #E0E0E0 1px;
   -webkit-border-radius: 2px;
