@@ -85,13 +85,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h4 class="projectDate">{{Date}}</h4>
                         <div class="skills"></div>
                         <div class="description">{{ShortDescription}}</div>
-                        <button class="btn btn--{{colour}} viewMoreButton">Read More »</button>
+                        <button class="btn btn--{{Colour}} viewMoreButton">Read More »</button>
                         <p class="project__links"></p>
                         <div class="slideShow" id="slideShow{{ID}}">
                             <div class="slideShowViewpoint" data-slide-show-id="slideShow{{ID}}">
                                 <div class="slidesContainer"></div>
-                                <img class="slideShowNav slideShowNav--{{colour}} previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="previous">
-                                <img class="slideShowNav slideShowNav--{{colour}} next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="next">
+                                <img class="slideShowNav slideShowNav--{{Colour}} previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="previous">
+                                <img class="slideShowNav slideShowNav--{{Colour}} next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -100,12 +100,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slideContainer" id="slide{{ID}}">
-                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slideShow{{ProjectID}}" data-slide-colour="{{colour}}">
+                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slideShow{{ProjectID}}" data-slide-colour="{{Colour}}">
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="bullet bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="slideShow{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
+                    <label class="bullet bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="slideShow{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
                 </script>
 
 <?php
