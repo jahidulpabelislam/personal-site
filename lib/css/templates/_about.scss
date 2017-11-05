@@ -4,6 +4,12 @@
 }
 
 #aboutSkills p {
+    border: 1px solid $primary-color;
+    @include border-radius(5px);
+    padding: 5px;
+    display: inline-block;
+    margin: 2px;
+    @include transition(.4s);
     background-color: colour(blue, main);
     color: white;
     cursor: auto;

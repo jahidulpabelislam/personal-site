@@ -918,6 +918,18 @@ label {
   background-image: url("/images/marmaris.jpg"); }
 
 #aboutSkills p {
+  border: 1px solid #0375b4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+  margin: 2px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   background-color: #0375b4;
   color: white;
   cursor: auto; }
@@ -1551,7 +1563,7 @@ blockquote {
 .description {
   text-align: left; }
 
-.skills p {
+.skill {
   border: 1px solid #0375b4;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1567,7 +1579,7 @@ blockquote {
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out; }
 
-.skills p:hover {
+.skill:hover {
   background-color: #03659b;
   -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
@@ -1575,68 +1587,68 @@ blockquote {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   color: white; }
 
-.skills p.searched {
+.skill.searched {
   background-color: #025482;
   color: white; }
 
-.skills--blue p {
+.skill--blue {
   border: 1px solid #0375b4;
   color: #0375b4; }
 
-.skills--blue p:hover {
+.skill--blue:hover {
   background-color: #035691; }
 
-.skills--blue p.searched {
+.skill--blue.searched {
   background-color: #03427d; }
 
-.skills--red p {
+.skill--red {
   border: 1px solid #e52525;
   color: #e52525; }
 
-.skills--red p:hover {
+.skill--red:hover {
   background-color: #c32424; }
 
-.skills--red p.searched {
+.skill--red.searched {
   background-color: #af2323; }
 
-.skills--orange p {
+.skill--orange {
   border: 1px solid #e1a02f;
   color: #e1a02f; }
 
-.skills--orange p:hover {
+.skill--orange:hover {
   background-color: #d2922e; }
 
-.skills--orange p.searched {
+.skill--orange.searched {
   background-color: #c88c2e; }
 
-.skills--lime-green p {
+.skill--lime-green {
   border: 1px solid #b5c82f;
   color: #b5c82f; }
 
-.skills--lime-green p:hover {
+.skill--lime-green:hover {
   background-color: #a6b930; }
 
-.skills--lime-green p.searched {
+.skill--lime-green.searched {
   background-color: #91a42f; }
 
-.skills--green p {
+.skill--green {
   border: 1px solid #5cb85c;
   color: #5cb85c; }
 
-.skills--green p:hover {
+.skill--green:hover {
   background-color: #54a754; }
 
-.skills--green p.searched {
+.skill--green.searched {
   background-color: #4b944b; }
 
-.skills--purple p {
+.skill--purple {
   border: 1px solid #80379b;
   color: #80379b; }
 
-.skills--purple p:hover {
+.skill--purple:hover {
   background-color: #62357d; }
 
-.skills--purple p.searched {
+.skill--purple.searched {
   background-color: #4e3469; }
 
 .pagination--projects {
