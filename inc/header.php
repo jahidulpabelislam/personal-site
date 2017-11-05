@@ -60,6 +60,7 @@
                     <h1 class="wow fadeInDown" data-wow-delay="0.2s"><?php echo $title ?></h1>
                     <hr>
                     <p class="wow fadeInUp" data-wow-delay="0.4s"><?php echo $description2 ?></p>
+                    <img src="/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
                 </div>
             </div>
         </header>
