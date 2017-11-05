@@ -1160,7 +1160,7 @@ label {
 
 .admin-project-skill {
   position: relative;
-  border: 1px solid #0375b4;
+  border: 1px solid #035691;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1175,6 +1175,30 @@ label {
   background-color: #0375b4;
   color: white;
   cursor: auto; }
+
+.admin-project-skill--blue {
+  background-color: #0375b4;
+  border-color: #035691; }
+
+.admin-project-skill--red {
+  background-color: #e52525;
+  border-color: #c32424; }
+
+.admin-project-skill--orange {
+  background-color: #e1a02f;
+  border-color: #d2922e; }
+
+.admin-project-skill--lime-green {
+  background-color: #b5c82f;
+  border-color: #a6b930; }
+
+.admin-project-skill--green {
+  background-color: #5cb85c;
+  border-color: #54a754; }
+
+.admin-project-skill--purple {
+  background-color: #80379b;
+  border-color: #62357d; }
 
 .delete-skill {
   position: absolute;

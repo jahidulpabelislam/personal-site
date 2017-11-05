@@ -190,7 +190,7 @@
 
 .admin-project-skill{
     position: relative;
-    border: 1px solid $primary-color;
+    border: 1px solid colour(blue, hover);
     @include border-radius(5px);
     padding: 5px 20px 5px 5px;
     display: inline-block;
@@ -199,6 +199,15 @@
     background-color: colour(blue, main);
     color: white;
     cursor: auto;
+}
+
+@each $color, $colors in $colors
+{
+    .admin-project-skill--#{$color}
+    {
+        background-color: map-get($colors, main);
+        border-color: map-get($colors, hover);
+    }
 }
 
 .delete-skill {
