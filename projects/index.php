@@ -40,7 +40,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div id="expandedImageDivContainer">
-                    <img class="slideShowNav previous" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
+                    <img class="slideShowNav slideShowNav--blue previous" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
 
                     <div class="expandedImageDiv">
                         <img src="/images/blank.svg" id="expandedImage" class="expandedImage">
@@ -50,7 +50,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <img src="/images/blank.svg" id="expandedImage2" class="expandedImage">
                     </div>
 
-                    <img class="slideShowNav next" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
+                    <img class="slideShowNav slideShowNav--blue next" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
                     <button id="expandedImageClose" type="button" class="btn btn--red">X</button>
 
                     <p id="slideShowNums">
@@ -71,8 +71,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="slideShow" id="projectsDetailSlideShow">
                             <div class="slideShowViewpoint" data-slide-show-id="projectsDetailSlideShow">
                                 <div class="slidesContainer"></div>
-                                <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="previous">
-                                <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="next">
+                                <img class="slideShowNav slideShowNav--blue previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="previous">
+                                <img class="slideShowNav slideShowNav--blue next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -85,13 +85,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h4 class="projectDate">{{Date}}</h4>
                         <div class="skills"></div>
                         <div class="description">{{ShortDescription}}</div>
-                        <button class="btn btn--blue viewMoreButton">Read More »</button>
+                        <button class="btn btn--{{colour}} viewMoreButton">Read More »</button>
                         <p class="project__links"></p>
                         <div class="slideShow" id="slideShow{{ID}}">
                             <div class="slideShowViewpoint" data-slide-show-id="slideShow{{ID}}">
                                 <div class="slidesContainer"></div>
-                                <img class="slideShowNav previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="previous">
-                                <img class="slideShowNav next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="next">
+                                <img class="slideShowNav slideShowNav--{{colour}} previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="previous">
+                                <img class="slideShowNav slideShowNav--{{colour}} next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="slideShow{{ID}}" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -100,12 +100,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slideContainer" id="slide{{ID}}">
-                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slideShow{{ProjectID}}">
+                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slideShow{{ProjectID}}" data-slide-colour="{{colour}}">
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="bullet js-slide-show-bullet" data-slide-show-id="slideShow{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
+                    <label class="bullet bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="slideShow{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
                 </script>
 
 <?php
