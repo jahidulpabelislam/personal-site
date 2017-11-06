@@ -39,9 +39,9 @@
     position: absolute;
     bottom: 24px;
     left: 50%;
-    margin-left: -25px;
-    width: 50px;
-    height: 50px;
+    margin-left: -15px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     opacity: 0.8;
 }
@@ -50,9 +50,24 @@
     opacity: 1;
 }
 
+/* Only for Tablets & Desktops */
+@media only screen and (min-width: $desktop) {
+    .scroll-to-content{
+        margin-left: -20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .jumbotron {
         background-attachment: fixed;
+    }
+
+    .scroll-to-content{
+        margin-left: -25px;
+        width: 50px;
+        height: 50px;
     }
 }
