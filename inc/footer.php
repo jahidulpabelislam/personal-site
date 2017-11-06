@@ -44,7 +44,7 @@
             <script src="/lib/js/form.js" type="text/javascript"></script>
             <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
             <script src="/lib/js/third-party/wow.min.js" type="text/javascript"></script>
-            <script src="/lib/js/nav.js" type="text/javascript"></script>
+            <script src="/lib/js/main.js" type="text/javascript"></script>
         <?php endif; ?>
 
         <script>
