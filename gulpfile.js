@@ -17,7 +17,6 @@ var scripts = {
         "lib/js/projectsPreview.js",
         "lib/js/form.js",
         "lib/js/stickyFooter.js",
-        "lib/js/third-party/wow.min.js",
         "lib/js/main.js"
     ]
 };
