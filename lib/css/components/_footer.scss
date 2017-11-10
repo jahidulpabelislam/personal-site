@@ -3,6 +3,16 @@
     background-color: $light;
     color: $grey;
     border-top: 1px solid $light-grey;
+    padding: 10px;
+}
+
+.footer > .container{
+    display: inline-block;
+}
+
+.footer__links, .footer__legal{
+    display: inline-block;
+    width: 100%;
 }
 
 .footer__link:after{
@@ -40,10 +50,6 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    .footer {
-        padding: 10px;
-    }
-
     .footer > .container {
         @include flexbox();
         @include flexboxCenterAlign();

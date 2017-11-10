@@ -243,7 +243,15 @@ a.btn {
 .footer {
   background-color: #f5f5f5;
   color: gray;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #eee;
+  padding: 10px; }
+
+.footer > .container {
+  display: inline-block; }
+
+.footer__links, .footer__legal {
+  display: inline-block;
+  width: 100%; }
 
 .footer__link:after {
   content: "|";
@@ -281,8 +289,6 @@ a.btn {
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
-  .footer {
-    padding: 10px; }
   .footer > .container {
     display: -webkit-box;
     display: -moz-box;
