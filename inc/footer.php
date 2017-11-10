@@ -1,9 +1,9 @@
                 <div id="socialMediaLinks">
                     <div class="container">
-                        <h5 class="wow fadeInDown" data-wow-delay="0.6s">Ways to Contact Me!</h5>
-                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink "><img src="/images/email.svg" alt="Email me" class="socialMediaImg emailImg wow fadeInLeft" data-wow-delay="0.8s"></a>
-                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink"><img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg wow fadeInUp" data-wow-delay="0.8s"></a>
-                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg wow fadeInRight" data-wow-delay="0.8s"></a>
+                        <h5>Ways to Contact Me!</h5>
+                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink "><img src="/images/email.svg" alt="Email me" class="socialMediaImg emailImg"></a>
+                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink"><img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg"></a>
+                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg"></a>
                     </div>
                 </div>
             </div>
@@ -45,9 +45,5 @@
             <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
             <script src="/lib/js/main.js" type="text/javascript"></script>
         <?php endif; ?>
-
-        <script>
-            new WOW().init();
-        </script>
     </body>
 </html>

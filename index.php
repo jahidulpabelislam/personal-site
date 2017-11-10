@@ -5,7 +5,7 @@ $description = "e-Portfolio for Jahidul Pabel Islam, a Software Developer in Bog
 $description2 = "Jahidul Pabel Islam, a Web &amp; Software Developer.";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
-                <div class="article wow fadeInLeft" data-wow-delay="0.6s">
+                <div class="article">
                     <div class="container">
                         <p><span id="mainHello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
                         <p>I'm a developer who develops anything from websites to apps.</p>
@@ -15,7 +15,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article wow fadeInRight" data-wow-delay="0.8s">
+                <div class="article">
                     <h3 class="article__header">My Latest Projects</h3>
                     <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                     <div class="slideShow" id="projectPreview">
@@ -31,8 +31,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s"><a class="btn btn--blue" href="/projects/">View My Work</a></div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s"><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
+                        <div><a class="btn btn--blue" href="/projects/">View My Work</a></div>
+                        <div><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
                     </div>
                 </div>
 
