@@ -8,9 +8,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article">
                     <div class="container">
 
-                        <p class="wow fadeInUp" data-wow-delay="0.6s">These are some of the pieces of work I have completed during my time as a developer.</p>
+                        <p>These are some of the pieces of work I have completed during my time as a developer.</p>
 
-                        <form class="search wow fadeInDown" data-wow-delay="0.8s">
+                        <form class="search">
                             <div class="search-input-group">
                                 <label for="search" class="screen-reader-text">Search for projects.</label>
                                 <input type="text" class="input" placeholder="Search for projects..." id="searchInput">
@@ -29,11 +29,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--purple" href="/contact/">Get in Touch</a>
                         </div>
 
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--green" href="/about/">Learn About Me</a>
                         </div>
                     </div>

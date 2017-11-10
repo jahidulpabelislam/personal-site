@@ -14,19 +14,19 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <!--validate using JavaScript on submit-->
                         <form id="contactForm" name="contactForm" method="post" onsubmit="return validateForm()">
 
-                            <div class="input-group wow fadeInLeft" data-wow-delay="0.4s">
+                            <div class="input-group">
                                 <label for="emailInput">Your Email Address <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <input class="input" type="email" name="emailInput" placeholder="e.g. joe@example.com" required tabindex="1" oninput="validateEmail(this.value);" id="emailInput" title="Email Address">
                                 <p id="emailFeedback" class="feedback error"></p>
                             </div>
 
-                            <div class="input-group wow fadeInRight" data-wow-delay="0.8s">
+                            <div class="input-group">
                                 <label for="subjectInput">The Message Subject</label>
                                 <input class="input" type="text" name="subjectInput" placeholder="e.g. Site Feedback" tabindex="2" id="subjectInput" title="Subject of Message">
                             </div>
 
-                            <div class="input-group wow fadeInDown" data-wow-delay="1.2s" id="messageFormGroup">
+                            <div class="input-group" id="messageFormGroup">
                                 <label for="messageInput">Your Message <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <textarea class="input" name="messageInput" placeholder="e.g. Your site could do with more colour." required tabindex="3" oninput="validateMessage(this.value);" id="messageInput" title="The Message" rows="10"></textarea>
@@ -34,7 +34,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
 
                             <p id="formFeedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn--blue wow fadeInUp" data-wow-delay="1.4s" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
+                            <button id="submit" type="submit" class="btn btn--blue" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
 
                         </form>
                     </div>
@@ -42,10 +42,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <h3 class="article__header">Drop me a old fashioned email.</h3>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="emailLink">
                                 <img src="../images/email.svg" alt="Email me" class="socialMediaImg emailImg">
                                 <p class="socialMediaText emailAddress"> jahidul.pabel.islam@hotmail.com</p>
@@ -56,10 +56,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <h3 class="article__header">View my Linkedin profile.</h3>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
                                 <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg">
                                 <p class="socialMediaText" id="linkedinAt"> /jahidulpabelislam</p>
@@ -70,10 +70,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article linkContainer">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <h3 class="article__header">View code for projects and follow future projects.</h3>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
                                 <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg">
                                 <p class="socialMediaText" id="githubAt"> /jahidulpabelislam</p>
@@ -84,11 +84,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--blue" href="/projects/">View My Work</a>
                         </div>
 
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--orange" href="/about/">Learn About Me</a>
                         </div>
                     </div>

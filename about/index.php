@@ -8,10 +8,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <img src="/images/JahidulPabelIslamCasual.jpg" id="imageOfMe" alt="Jahidul Pabel Islam">
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <p>My name is Jahidul Pabel Islam.</p>
                             <p>I'm 21 years old.</p>
                             <p>A Web and Software Developer.</p>
@@ -21,10 +21,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
@@ -32,10 +32,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="../images/UoP.gif" alt="Logo of University of Portsmouth"></a>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <p>Graduated from University of Portsmouth with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
                         </div>
                     </div>
@@ -43,10 +43,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <p>Based in Bognor Regis, West Sussex, South East Coast of England.</p>
                         </div>
                     </div>
@@ -54,10 +54,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <img src="../images/languages.png" alt="Image of 'hello' in different languages">
                         </div>
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                         </div>
                     </div>
@@ -65,9 +65,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3 class="article__header wow fadeInLeft" data-wow-delay="0.4s">Skills</h3>
+                        <h3 class="article__header">Skills</h3>
 
-                        <div id="aboutSkills" class="skills wow fadeInRight" data-wow-delay="0.4s">
+                        <div id="aboutSkills" class="skills">
                             <p>HTML</p>
                             <p>CSS</p>
                             <p>JavaScript</p>
@@ -91,8 +91,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article aInfo">
                     <div class="container">
-                        <h3 class="article__header wow fadeInLeft" data-wow-delay="0.4s">Interests</h3>
-                        <div id="interests" class="wow fadeInRight" data-wow-delay="0.4s">
+                        <h3 class="article__header">Interests</h3>
+                        <div id="interests">
                             <p>Sports</p>
                             <p>Gaming</p>
                             <p>Programming</p>
@@ -104,11 +104,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article action">
                     <div class="container">
-                        <div class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--purple" href="/projects/">View My Work</a>
                         </div>
 
-                        <div class="wow fadeInRight" data-wow-delay="0.4s">
+                        <div>
                             <a class="btn btn--red" href="/contact/">Get in Touch</a>
                         </div>
                     </div>
