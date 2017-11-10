@@ -77,23 +77,20 @@
     height: 15px;
     width: 15px;
     @include border-radius(50%);
-    background-color: $light;
+    background-color: $grey;
     margin: 14px 5px;
-    border: $grey 1px solid;
     cursor: pointer;
     @include transition(.4s);
+    opacity: 0.3;
 }
 
 .bullet:hover {
-    opacity: 0.4;
-    background-color: $grey;
-    border-color: $dark;
+    opacity: 0.6;
 }
 
 .bullet.active {
     opacity: 1;
     background-color: $primary-color;
-    border-color: darken($primary-color, 10);
 }
 
 @each $color, $colors in $colors
