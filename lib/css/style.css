@@ -210,14 +210,15 @@ a.btn {
 .input {
   padding: 8px 16px;
   margin: 5px auto;
-  width: calc(100% - 5px);
+  width: 100%;
   border: solid #E0E0E0 1px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
   color: #333;
-  outline: none; }
+  outline: none;
+  background: white; }
 
 .input::placeholder {
   color: gray; }
