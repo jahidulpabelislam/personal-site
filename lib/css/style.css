@@ -472,11 +472,7 @@ label {
 .nav__links__toggle {
   float: right;
   margin: 6px 15px 6px 0;
-  padding: 10px;
-  -webkit-border-radius: 5%;
-  -moz-border-radius: 5%;
-  -ms-border-radius: 5%;
-  border-radius: 5%; }
+  padding: 10px; }
 
 .menu-bar {
   display: block;
@@ -1671,10 +1667,10 @@ blockquote {
 
 .skill {
   border: 1px solid #0375b4;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  border-radius: 2px;
   padding: 5px;
   color: #0375b4;
   display: inline-block;
