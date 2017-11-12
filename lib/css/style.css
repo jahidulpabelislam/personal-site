@@ -102,6 +102,11 @@ p {
 img {
   vertical-align: middle; }
 
+.main-content ul {
+  padding-left: 20px;
+  margin: 10px 0;
+  list-style: inside; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .container {
@@ -2013,6 +2018,9 @@ a:hover > img {
 blockquote {
   padding: 5px 15px;
   border-left: 5px solid #eee; }
+
+strong {
+  font-weight: 700; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {

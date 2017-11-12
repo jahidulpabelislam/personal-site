@@ -47,6 +47,12 @@ img {
     vertical-align: middle;
 }
 
+.main-content ul{
+    padding-left: 20px;
+    margin: 10px 0;
+    list-style: inside;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .container{

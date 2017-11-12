@@ -65,5 +65,5 @@
             </div>
         </header>
 
-        <section>
+        <section class="main-content">
             <div id="sectionInnerContainer">
