@@ -70,6 +70,10 @@
     display: none;
 }
 
+.slide:hover {
+    @include transform(scale(1));
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     #projectPreview .slideContainer {

@@ -1416,6 +1416,13 @@ label {
 .projectDescriptionText {
   display: none; }
 
+.slide:hover {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1); }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   #projectPreview .slideContainer {
