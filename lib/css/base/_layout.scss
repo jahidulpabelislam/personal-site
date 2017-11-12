@@ -53,6 +53,10 @@ img {
     list-style: inside;
 }
 
+.main-content li{
+    margin: 5px 0;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .container{
@@ -65,5 +69,9 @@ img {
 
     .article__header {
         margin-bottom: 24px;
+    }
+
+    .main-content li{
+        margin: 10px 0;
     }
 }

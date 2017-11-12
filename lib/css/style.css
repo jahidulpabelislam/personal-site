@@ -107,6 +107,9 @@ img {
   margin: 10px 0;
   list-style: inside; }
 
+.main-content li {
+  margin: 5px 0; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .container {
@@ -114,7 +117,9 @@ img {
   .article {
     padding: 40px 0; }
   .article__header {
-    margin-bottom: 24px; } }
+    margin-bottom: 24px; }
+  .main-content li {
+    margin: 10px 0; } }
 
 /* For all devices */
 button,
