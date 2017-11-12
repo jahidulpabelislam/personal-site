@@ -36,6 +36,27 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
+                <script type="text/template" id="tmpl-slide-template">
+                    <div class="slideContainer" id="slide{{ID}}" data-slide-colour="{{Colour}}">
+                        <div class="projectDescriptionContainer">
+                            <div class="projectDescription projectDescription--{{Colour}}">
+                                <div class="projectHeader">
+                                    <h3 class="article__header projectTitle">{{Name}}</h3>
+                                    <h4 class="projectDate">{{Date}}</h4>
+                                </div>
+                                <div class="projectDescriptionText">{{ShortDescription}}</div>
+                                <div class="projectLinks"></div>
+                            </div>
+                        </div>
+                        <img class="slide" src="{{File}}" alt="Screen shot of Project">
+                    </div>
+                </script>
+
+                <script type="text/template" id="tmpl-slide-bullet-template">
+                    <label class="bullet js-slide-show-bullet bullet--{{Colour}}" data-slide-show-id="projectPreview" data-slide-id="slide{{ID}}"></label>
+                </script>
+
+
 <?php
 include $_SERVER['DOCUMENT_ROOT'].'/inc/footer.php';
 ?>
