@@ -1241,14 +1241,6 @@ label {
   right: 0;
   margin: 5px 5px;
   padding: 0;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
-  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
-  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
-  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19);
   background-color: transparent;
   border: none; }
 

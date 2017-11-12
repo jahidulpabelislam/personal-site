@@ -216,8 +216,6 @@
     right: 0;
     margin: 5px 5px;
     padding: 0;
-    @include border-radius(50%);
-    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
     background-color: transparent;
     border: none;
 }
