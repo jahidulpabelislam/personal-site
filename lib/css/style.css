@@ -639,6 +639,7 @@ label {
 
 .slidesContainer {
   width: 100%;
+  height: 100%;
   position: relative;
   left: 0;
   -webkit-transition: left 2s ease;
@@ -658,7 +659,8 @@ label {
 
 .slideContainer {
   position: relative;
-  margin: auto; }
+  margin: auto;
+  height: 100%; }
 
 .slide {
   max-width: 100%;
