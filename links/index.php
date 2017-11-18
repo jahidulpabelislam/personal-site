@@ -10,7 +10,12 @@
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="">
         <!-- Custom stylesheet for site -->
-        <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <?php if (!isset($_GET["debug"])):?>
+            <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <?php else: ?>
+            <link href="/lib/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/lib/css/third-party/animate.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <?php endif; ?>
         <!-- the favicon for browsers -->
         <link rel="icon" href="/images/favicon.png">
         <title>Social Media Links | Jahidul Pabel Islam</title>
@@ -79,7 +84,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/lib/js/main.min.js"></script>
+    <?php if (!isset($_GET["debug"])):?>
+        <script src="/lib/js/main.min.js" type="text/javascript"></script>
+    <?php else: ?>
+        <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
+    <?php endif; ?>
 
     </body>
 </html>
