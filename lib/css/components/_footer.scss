@@ -55,16 +55,14 @@
         @include flexboxCenterAlign();
     }
 
-    .footer > .container > div {
-        width: 50%;
-    }
-
     .footer__links {
+        width: 50%;
         @include order(1);
         text-align: left;
     }
 
     .footer__legal {
+        width: 50%;
         @include order(2);
         text-align: right;
     }

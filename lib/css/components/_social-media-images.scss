@@ -1,55 +1,55 @@
 /* For all devices */
-.socialMediaImg {
+.social-link__img {
     height: 40px;
     background-color: black;
     opacity: 1;
 }
 
-.socialMediaText {
+.social-link__text {
     color: $dark;
     font-weight: 700;
     @include transition(.3s);
     display: inline-block;
 }
 
-.emailImg {
+.social-link__img--email {
     @include border-radius(50%);
 }
 
-.emailLink:hover .emailImg {
+.social-link:hover .social-link__img--email {
     background-color: $email;
 }
 
-.emailLink:hover .emailAddress {
+.social-link:hover .social-link__text--email {
     color: $email;
     text-decoration: underline;
 }
 
-.linkedinLink:hover .linkedinImg {
+.social-link:hover .social-link__img--linkedin {
     background-color: $linkedin;
 }
 
-.linkedinLink:hover #linkedinAt {
+.social-link:hover .social-link__text--linkedin {
     color: $linkedin;
     text-decoration: underline;
 }
 
-.githubImg {
+.social-link__img--github {
     @include border-radius(50%);
 }
 
-.githubLink:hover .githubImg {
+.social-link:hover .social-link__img--github {
     background-color: $github;
 }
 
-.githubLink:hover #githubAt {
+.social-link:hover .social-link__text--github {
     color: $github;
     text-decoration: underline;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    .socialMediaImg {
+    .social-link__img {
         height: 50px;
     }
 }

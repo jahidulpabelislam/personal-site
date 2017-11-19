@@ -9,25 +9,24 @@
     height: 100vh;
 }
 
-.transparent-overlay{
+.jumbotron__overlay{
     background: transparentize($dark, 0.85);
     display: flex;
     height: 100%;
 }
 
-.jumbotron h1 {
+.jumbotron__title {
     text-shadow: 2px 2px 3px black;
     font-size: 50px;
     font-weight: bold;
     line-height: 52px;
 }
 
-.jumbotron hr
-{
+.jumbotron__line-breaker {
     margin: 30px 0 38px 0;
 }
 
-.jumbotron p {
+.jumbotron__desc {
     text-shadow: 2px 2px 3px black;
     font-size: 26px;
     font-weight: bold;

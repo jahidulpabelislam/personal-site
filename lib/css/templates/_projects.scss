@@ -3,19 +3,19 @@
     background-image: url("/images/projects.jpg");
 }
 
-.search {
+.search-form {
     margin-bottom: 20px;
 }
 .search-input-group
 {
     position: relative;
 }
-#searchInput{
+.search-input{
     margin: 0;
     width: 100%;
 }
 
-#searchSubmit{
+.search-submit{
     position: absolute;
     right: 0;
     margin: 0;
@@ -46,7 +46,7 @@ blockquote {
     margin-bottom: 10px;
 }
 
-.projectHeader--modal .projectDate {
+.project-header--modal .projectDate {
     margin-left: auto;
 }
 
@@ -95,7 +95,7 @@ blockquote {
     }
 }
 
-.pagination--projects{
+ul.pagination--projects{
     margin-top: 20px;
 }
 
@@ -146,7 +146,7 @@ blockquote {
     }
 }
 
-#expandedImageDivContainer {
+.expanded-image-slide-show {
     z-index: -100;
     position: fixed;
     top: 50%;
@@ -158,7 +158,7 @@ blockquote {
     @include transition(1s);
 }
 
-#expandedImageDivContainer.active{
+.expanded-image-slide-show.active{
     top: 0;
     left: 0;
     width: 100%;
@@ -167,11 +167,11 @@ blockquote {
     z-index: 10000;
 }
 
-#expandedImageDivContainer.hiding{
+.expanded-image-slide-show.hiding{
     z-index: 10000;
 }
 
-.expandedImageDiv {
+.expanded-image-container {
     width: calc(100% - 74px);
     height: calc(100% - 88px);
     position: absolute;
@@ -180,20 +180,20 @@ blockquote {
     top: 44px;
 }
 
-.expandedImage {
+.expanded-image {
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     @include box-shadow(0 0 10px 0 transparentize($dark, .7));
     @include transition(1s);
-    opacity: 1;
-}
-
-#expandedImage2 {
     opacity: 0;
 }
 
-#expandedImageClose {
+.expanded-image.current {
+    opacity: 1;
+}
+
+.expanded-image-slide-show__close {
     position: absolute;
     right: 0;
     margin: 7px;
@@ -202,7 +202,7 @@ blockquote {
     padding: 0;
 }
 
-#slideShowNums {
+.expanded-image-slide-show__counter {
     position: absolute;
     background-color: black;
     color: white;
@@ -213,13 +213,13 @@ blockquote {
     margin: 0;
 }
 
-#slideShowNums span {
+.expanded-image-slide-show__counter span {
     font-weight: 700;
 }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    .search {
+    .search-form {
         max-width: 439px;
         margin-left: auto;
         margin-right: auto;
@@ -229,7 +229,7 @@ blockquote {
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
 
-    #projects {
+    .projects {
         @include flexbox();
         @include flexboxJustifyCenter();
         -ms-flex-wrap: wrap;
@@ -253,11 +253,11 @@ blockquote {
         margin-right: 0;
     }
 
-    .search {
+    .search-form {
         margin-bottom: 40px;
     }
 
-    .pagination--projects{
+    ul.pagination--projects{
         margin-top: 40px;
     }
 }

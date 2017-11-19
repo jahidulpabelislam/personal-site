@@ -74,4 +74,25 @@ img {
     .main-content li{
         margin: 10px 0;
     }
+
+    .article--50-50 > .container {
+        @include flexbox();
+        @include flexboxCenterAlign();
+    }
+
+    .article--50-50:nth-child(even) > .container {
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .article--50-50 > .container > div {
+        width: 50%;
+    }
+
+    .article--50-50 .article__header {
+        margin: 0;
+    }
 }

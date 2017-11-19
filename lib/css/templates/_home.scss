@@ -3,7 +3,7 @@
     background-image: url("/images/working.jpg");
 }
 
-#mainHello {
+.main-hello {
     font-size: 28px;
     font-weight: bold;
     line-height: 30px;
@@ -14,12 +14,12 @@
     width: 100%;
 }
 
-#projectPreview .slideShowViewpoint:hover {
+#projectPreview .slide-show__viewpoint:hover {
     @include box-shadow(none);
     cursor: initial;
 }
 
-.projectDescriptionContainer {
+.slide-show__project-description-container {
     top: 0;
     height: 100%;
     width: 100%;
@@ -29,7 +29,7 @@
     @include flexboxJustifyCenter();
 }
 
-.projectDescription {
+.slide-show__project-description {
     background-color: transparentize($dark, .2);
     @include border-radius(5px);
     color: white;
@@ -40,33 +40,33 @@
     @include transition(2s);
 }
 
-.active .projectDescription {
+.active .slide-show__project-description {
     opacity: 1;
     @include transform(translateY(0));
 }
 
-.projectLinks .btn {
+.project-description__links .btn {
     @include transition(.3s);
     font-weight: 700;
 }
 
-.projectHeader {
+.project-header {
     @include flexbox();
     @include flexboxCenterAlign();
     padding: 20px 0 10px 0;
 }
 
-.projectHeader .projectTitle {
+.project-header .projectTitle {
     margin: 0;
     text-align: left;
 }
-.projectHeader .projectDate {
+.project-header .projectDate {
     margin: 0;
     margin-left: 24px;
     text-align: right;
 }
 
-.projectDescriptionText{
+.project-description__text{
     display: none;
 }
 
@@ -76,7 +76,7 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    #projectPreview .slideContainer {
+    #projectPreview .slide-show__slide-container {
         display: flex;
     }
 
@@ -85,13 +85,13 @@
         margin: auto;
     }
 
-    .projectDescriptionContainer {
+    .slide-show__project-description-container {
         position: relative;
         height: auto;
         width: 50%;
     }
 
-    .projectDescription {
+    .slide-show__project-description {
         height: 100%;
         @include border-radius(0);
         @include transform(translateY(0));
@@ -109,7 +109,7 @@
 
     @each $color, $colors in $colors
     {
-        .projectDescription--#{$color} {
+        .slide-show__project-description--#{$color} {
             background-color: map-get($colors, main);
         }
     }
@@ -123,7 +123,7 @@
         margin-left: 25px;
     }
 
-    .projectDescriptionText{
+    .project-description__text{
         display: block;
     }
 }

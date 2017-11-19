@@ -1,23 +1,20 @@
-.slideShow {
+.slide-show {
     margin: 0 -15px;
     display: none;
 }
 
-.slideShowViewpoint {
+.slide-show__viewpoint {
     @include transition(1s);
     position: relative;
+    overflow: hidden;
 }
 
-.slideShowViewpoint:hover {
+.slide-show__viewpoint:hover {
     @include box-shadow(0 0 10px 0 transparentize($dark, .7));
     cursor: pointer;
 }
 
-.slideShowViewpoint {
-    overflow: hidden;
-}
-
-.slidesContainer {
+.slide-show__slides-container {
     width: 100%;
     height: 100%;
     position: relative;
@@ -30,7 +27,7 @@
     @include flexboxCenterAlign();
 }
 
-.slideContainer {
+.slide-show__slide-container {
     position: relative;
     margin: auto;
     height: 100%;
@@ -46,7 +43,7 @@
     @include transform(scale(1.1));
 }
 
-.slideShowNav {
+.slide-show__nav {
     width: 30px;
     height: 30px;
     @include border-radius(50%);
@@ -58,23 +55,23 @@
     @include box-shadow(0 0 20px 0 transparentize($dark, .7));
 }
 
-.slideShowNav:hover {
+.slide-show__nav:hover {
     opacity: 1;
     cursor: pointer;
     @include box-shadow(0 0 20px 0 $primary-color);
 }
 
-.previous {
+.slide-show__nav-previous {
     left: 0;
     @include border-radius(0 50% 50% 0);
 }
 
-.next {
+.slide-show__nav-next {
     right: 0;
     @include border-radius(50% 0 0 50%);
 }
 
-.bullet {
+.slide-show__bullet {
     display: inline-block;
     height: 15px;
     width: 15px;
@@ -86,27 +83,27 @@
     opacity: 0.3;
 }
 
-.bullet:hover {
+.slide-show__bullet:hover {
     opacity: 0.6;
 }
 
-.bullet.active {
+.slide-show__bullet.active {
     opacity: 1;
     background-color: $primary-color;
 }
 
 @each $color, $colors in $colors
 {
-    .bullet--#{$color}.active {
+    .slide-show__bullet--#{$color}.active {
         background-color: map-get($colors, main);
         border-color: map-get($colors, hover);
     }
 
-    .slideShowNav--#{$color}{
+    .slide-show__nav--#{$color}{
         background-color: map-get($colors, main);
     }
 
-    .slideShowNav--#{$color}:hover {
+    .slide-show__nav--#{$color}:hover {
         @include box-shadow(0 0 20px 0 map-get($colors, main));
     }
 }

@@ -23,56 +23,57 @@
 
     <body>
 
-    <section id="socialMediaPage">
+    <section class="social-links-page">
 
         <div class="container">
 
-            <div>
-                <a href="http://facebook.com/jahidulpabelislam/" target="_blank" id="facebook">
-                    <img src="/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="socialMediaImg" id="facebookImg">
-                    <p class="socialMediaText" id="facebookAt"> /jahidulpabelislam</p>
+            <div class="social-link-container">
+                <a href="http://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
+                    <img src="/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
+                    <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                 </a>
             </div>
 
-            <div>
-                <a href="http://twitter.com/itsjahidulislam/" target="_blank" id="twitter">
-                    <img src="/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="socialMediaImg" id="twitterImg">
-                    <p class="socialMediaText" id="twitterAt"> @ItsJahidulIslam</p>
+            <div class="social-link-container">
+                <a href="http://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
+                    <img src="/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+                    <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                 </a>
             </div>
 
-            <div>
-                <a href="http://instagram.com/jahidulpabelislam/" target="_blank" id="instagram">
-                    <img src="/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="socialMediaImg" id="instagramImg">
-                    <p class="socialMediaText" id="instagramAt"> @jahidulpabelislam</p>
+            <div class="social-link-container">
+                <a href="http://instagram.com/jahidulpabelislam/" target="_blank" class="social-link">
+                    <img src="/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="social-link__img social-link__img--instagram">
+                    <p class="social-link__text social-link__text--instagram"> @jahidulpabelislam</p>
                 </a>
             </div>
 
-            <div id="snapchatDiv">
+            <div class="social-link-container social-link-container--snapchat">
                 <!--Snapcode-->
-                <a id="snapchat" href="http://snapchat.com/add/jahidulpislam/" target="_blank"><object data="https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=jahidulpislam&amp;type=PNG" type="image/png" id="snapcode">
-                </object><p id="snapchatName">jahidulpislam</p></a>
-
-            </div>
-
-            <div>
-                <a href="https://account.xbox.com/en-us/profile?gamerTag=xXx%20I%20MADBOMB3R" target="_blank" id="xbox">
-                    <img src="../images/xbox.svg" alt="Add Me xXx I MADBOMB3" class="socialMediaImg" id="xboxImg">
-                    <p class="socialMediaText" id="gamertag"> xXx I MADBOMB3R</p>
+                <a class="social-link" href="http://snapchat.com/add/jahidulpislam/" target="_blank">
+                    <object data="https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=jahidulpislam&amp;type=PNG" type="image/png" class="social-link__img social-link__img--snapchat"></object>
+                    <p class="social-link__text social-link__text--snapchat">jahidulpislam</p>
                 </a>
             </div>
 
-            <div>
-                <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="linkedinLink">
-                    <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="socialMediaImg linkedinImg">
-                    <p class="socialMediaText" id="linkedinAt"> /jahidulpabelislam</p>
+            <div class="social-link-container">
+                <a href="https://account.xbox.com/en-us/profile?gamerTag=xXx%20I%20MADBOMB3R" target="_blank" class="social-link">
+                    <img src="../images/xbox.svg" alt="Add Me xXx I MADBOMB3" class="social-link__img social-link__img--xbox">
+                    <p class="social-link__text social-link__text--xbox"> xXx I MADBOMB3R</p>
                 </a>
             </div>
 
-            <div>
-                <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
-                    <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="socialMediaImg githubImg">
-                    <p class="socialMediaText" id="githubAt"> /jahidulpabelislam</p>
+            <div class="social-link-container">
+                <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
+                    <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                    <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
+                </a>
+            </div>
+
+            <div class="social-link-container">
+                <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
+                    <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                    <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                 </a>
             </div>
 

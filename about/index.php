@@ -6,10 +6,10 @@ $description2 = "Find Out General Information About Me.";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
                         <div>
-                            <img src="/images/JahidulPabelIslamCasual.jpg" id="imageOfMe" alt="Jahidul Pabel Islam">
+                            <img src="/images/JahidulPabelIslamCasual.jpg" class="image-of-me" alt="Jahidul Pabel Islam">
                         </div>
                         <div>
                             <p>My name is Jahidul Pabel Islam.</p>
@@ -19,7 +19,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
                         <div>
                             <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
@@ -30,7 +30,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
                         <div>
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="../images/UoP.gif" alt="Logo of University of Portsmouth"></a>
@@ -41,7 +41,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
                         <div>
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
@@ -52,7 +52,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
                         <div>
                             <img src="../images/languages.png" alt="Image of 'hello' in different languages">
@@ -63,41 +63,49 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
-                        <h3 class="article__header">Skills</h3>
+                        <div>
+                            <h3 class="article__header">Skills</h3>
+                        </div>
 
-                        <div id="aboutSkills" class="skills">
-                            <p>HTML</p>
-                            <p>CSS</p>
-                            <p>JavaScript</p>
-                            <p>Node.js</p>
-                            <p>NoSQL</p>
-                            <p>JQuery</p>
-                            <p>PHP</p>
-                            <p>SQL</p>
-                            <p>PDO</p>
-                            <p>Java</p>
-                            <p>Python</p>
-                            <p>Visual Basic</p>
-                            <p>GitHub</p>
-                            <p>Microsoft Office</p>
-                            <p>Team Player</p>
-                            <p>Communication</p>
-                            <p>Hard Worker</p>
+                        <div>
+                            <ul class="about__skills">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>Node.js</li>
+                                <li>NoSQL</li>
+                                <li>JQuery</li>
+                                <li>PHP</li>
+                                <li>SQL</li>
+                                <li>PDO</li>
+                                <li>Java</li>
+                                <li>Python</li>
+                                <li>Visual Basic</li>
+                                <li>GitHub</li>
+                                <li>Microsoft Office</li>
+                                <li>Team Player</li>
+                                <li>Communication</li>
+                                <li>Hard Worker</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="article aInfo">
+                <div class="article article--50-50 article--about">
                     <div class="container">
-                        <h3 class="article__header">Interests</h3>
-                        <div id="interests">
-                            <p>Sports</p>
-                            <p>Gaming</p>
-                            <p>Programming</p>
-                            <p>Photography</p>
-                            <p>Fashion</p>
+                        <div>
+                            <h3 class="article__header">Interests</h3>
+                        </div>
+                        <div>
+                            <ul class="about__interests">
+                                <li>Sports</li>
+                                <li>Gaming</li>
+                                <li>Programming</li>
+                                <li>Photography</li>
+                                <li>Fashion</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

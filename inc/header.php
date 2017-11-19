@@ -55,11 +55,11 @@
 
         <!-- Main for a primary marketing message or call to action -->
         <header class="jumbotron jumbotron--<?php echo strtolower($title);?>">
-            <div class="transparent-overlay">
+            <div class="jumbotron__overlay">
                 <div class="container">
-                    <h1><?php echo $title ?></h1>
-                    <hr>
-                    <p><?php echo $description2 ?></p>
+                    <h1 class="jumbotron__title"><?php echo $title ?></h1>
+                    <hr class="jumbotron__line-breaker">
+                    <p class="jumbotron__desc"><?php echo $description2 ?></p>
                     <img src="/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
                 </div>
             </div>

@@ -3,7 +3,10 @@
     background-image: url("/images/marmaris.jpg");
 }
 
-#aboutSkills p {
+.about__skills.about__skills, .about__interests.about__interests{
+    padding-left: 0;
+}
+.about__skills li {
     border: 1px solid $primary-color;
     @include border-radius(5px);
     padding: 5px;
@@ -15,7 +18,7 @@
     cursor: auto;
 }
 
-#interests p {
+.about__interests li {
     background-color: colour(green, main);
     @include border-radius(5px);
     padding: 5px;
@@ -24,39 +27,15 @@
     margin: 2px;
 }
 
-.aInfo > * {
+.article--about {
     font-weight: 700;
 }
 
-.aInfo img {
+.article--about img {
     width: 75%;
     max-width: 165px;
 }
 
-#imageOfMe {
+.image-of-me {
     @include border-radius(50%);
-}
-
-/* Only for Desktops */
-@media only screen and (min-width: $desktop) {
-    .aInfo > .container {
-        @include flexbox();
-        @include flexboxCenterAlign();
-    }
-
-    .aInfo:nth-child(even) > .container {
-        -webkit-box-direction: reverse;
-        -moz-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-        -webkit-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-    }
-
-    .aInfo > .container > * {
-        width: 50%;
-    }
-
-    .aInfo .article__header {
-        margin: 0;
-    }
 }

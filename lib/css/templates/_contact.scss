@@ -5,7 +5,7 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    #contactForm {
+    .contact-form {
         margin: auto;
         max-width: 439px;
     }
@@ -13,38 +13,17 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    #contactForm {
+    .contact-form {
         max-width: 800px;
     }
 
-    #contactForm > .input-group {
+    .contact-form > .input-group {
         width: 49.7%;
         display: inline-block;
         vertical-align: top;
     }
 
-    #contactForm > #messageFormGroup {
+    .contact-form > .input-group--message {
         width: 100%;
-    }
-
-    .linkContainer > .container {
-        @include flexbox();
-        @include flexboxCenterAlign();
-    }
-
-    .linkContainer:nth-child(even) > .container {
-        -webkit-box-direction: reverse;
-        -moz-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-        -webkit-flex-direction: row-reverse;
-        flex-direction: row-reverse;
-    }
-
-    .linkContainer > .container > * {
-        width: 50%;
-    }
-
-    .linkContainer .article__header {
-        margin: 0;
     }
 }

@@ -1,61 +1,56 @@
-#socialMediaPage {
+.social-links-page {
     margin-bottom: 0;
 }
 
-#socialMediaPage > .container > div {
+.social-link-container{
     margin: 5px;
     padding: 15px;
     display: inline-block;
 }
 
-#socialMediaPage > .container > #snapchatDiv {
+.social-link-container--snapchat {
     display: block;
-    width: calc(75% - 10px);
     max-width: 200px;
     margin: auto;
 }
 
-#socialMediaPage a:hover, #socialMediaPage a:focus {
-    text-decoration: none;
-}
-
-#facebookImg {
+.social-link__img--facebook {
     @include border-radius(5px);
 }
 
-#facebook:hover #facebookAt {
+.social-link:hover .social-link__text--facebook {
     color: $facebook;
     text-decoration: underline;
 }
 
-#facebook:hover #facebookImg {
+.social-link:hover .social-link__img--facebook {
     background: $facebook;
 }
 
-#twitterImg {
+.social-link__img--twitter {
     @include border-radius(50%);
 }
 
-#twitter:hover #twitterAt {
+.social-link:hover .social-link__text--twitter {
     color: $twitter;
     text-decoration: underline;
 }
 
-#twitter:hover #twitterImg {
+.social-link:hover .social-link__img--twitter {
     background: $twitter;
 }
 
-#instagramImg {
+.social-link__img--instagram {
     background: white;
     @include border-radius(13px);
 }
 
-#instagram:hover #instagramAt {
+.social-link:hover .social-link__text--instagram {
     color: $instagram-purple;
     text-decoration: underline;
 }
 
-#instagram:hover #instagramImg {
+.social-link:hover .social-link__img--instagram {
     background-color: $instagram-purple;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $instagram-purple), color-stop(100%, $instagram-orange));
     background: -webkit-linear-gradient(right top, $instagram-purple, $instagram-orange);
@@ -65,63 +60,61 @@
     background: linear-gradient(to bottom left, $instagram-purple, $instagram-orange);
 }
 
-#snapchat {
-    color: white;
-}
-
-#snapcode {
+.social-link__img--snapchat {
     width: 100%;
+    height: auto;
     @include border-radius(15%);
     @include transition(.3s);
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
 
-#snapchat:hover #snapcode {
+.social-link:hover .social-link__img--snapchat {
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
     cursor: pointer;
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
 }
 
-#snapchatName {
+.social-link__text--snapchat {
+    color: white;
     background-color: black;
     padding: 4px;
     @include border-radius(6px);
 }
 
-#snapchat:hover {
+.social-link:hover .social-link__text--snapchat {
     color: $snapchat;
 }
 
-#xboxImg {
+.social-link__img--xbox {
     background-color: black;
     @include border-radius(50%);
 }
 
-#xbox:hover #xboxImg {
+.social-link:hover .social-link__img--xbox {
     background-color: $xbox;
 }
 
-#xbox:hover #gamertag {
+.social-link:hover .social-link__text--xbox {
     color: $xbox;
     text-decoration: underline;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    #socialMediaPage > .container {
+    .social-links-page > .container {
         @include flexbox();
         @include flexboxCenterAlign();
     }
 
-    #socialMediaPage > .container > #snapchatDiv {
+    .social-link-container--snapchat {
         width: calc(33% - 10px);
         max-width: 200px;
         margin: 5px;
     }
 
-    #snapchat {
+    .social-link__img--snapchat {
         max-width: 200px;
     }
 }

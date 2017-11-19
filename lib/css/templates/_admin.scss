@@ -2,13 +2,13 @@
   ADMIN CSS START
  */
 /* For all devices */
-#admin {
+.admin-page {
     background-color: $light;
     margin: auto;
     text-align: center;
 }
 
-#userFormDiv {
+.login-form-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,13 +16,13 @@
     height: 100%;
 }
 
-#userForm {
+.login-form {
     width: 100%;
     max-width: 330px;
     margin: auto;
 }
 
-#dropZone {
+.drop-zone {
     z-index: -10;
     opacity: 0;
     position: fixed;
@@ -37,100 +37,90 @@
     transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
 }
 
-.dropZone__text {
+.drop-zone__text {
     margin: auto;
     color: white;
 }
 
-#addButton, #projectButton {
+.btn--add-project, .btn--send-project {
     display: block;
     margin: 0 auto 5px auto;
 }
 
-#deleteButton, #editButton
+.btn--delete-project, .btn--edit-project
 {
     margin: 0 auto 5px auto;
 }
 
-#projectButton {
+.btn--send-project {
     margin-right: 0;
 }
 
-#backButton {
+.btn--back {
     display: block;
     margin-left: 0;
     margin-top: 5px;
 }
 
-#selectProjectForm > div > * {
+.select-project-form > div > * {
     vertical-align: middle;
     margin: 5px;
 }
 
-#uploads {
+.project-images-uploads {
     margin: 10px 0;
 }
 
-.aUpload {
-    background-color: white;
-    @include border-radius(6px);
-    padding: 5px;
-    border: solid $primary-color;
+.upload{
     margin: 10px auto;
+    padding: 5px;
+    @include border-radius(6px);
+    background-color: white;
 }
 
-.aUpload * {
+.upload--success {
+    border: solid $primary-color;
+}
+
+.upload--success * {
     display: inline-block;
     vertical-align: middle;
 }
 
-.aUpload img {
+.upload--success img {
     max-width: 100%;
     max-height: 200px;
 }
 
-.failedUpload {
+.upload--failed {
     border: solid darken($error, 5%);
-    background-color: white;
-    @include border-radius(6px);
-    margin: 10px auto;
-    padding: 5px;
     color: $error;
 }
 
-#userFormFeedback, #projectFormFeedback, #selectProjectFeedback {
+.feedback--user-form, .feedback--project-form, .feedback--select-project {
     padding: 5px;
     display: block;
 }
 
-#userFormFeedback {
+.feedback--user-form {
     text-align: center;
     margin: 5px;
     color: $error;
 }
 
-.errorDeleteButton {
-    float: right;
-    cursor: pointer;
-}
-
-.errorDeleteButton:hover {
-    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
-}
-
-#selectProjectContainer {
+.select-project-container {
     display: none;
 }
 
-#projectFormContainer {
+.project-form-container {
     display: none;
 }
 
-#projectImages {
+.project-images {
     padding: 0;
 }
 
-#projectImages > li {
+.project-image {
     width: 100%;
     padding: 5px;
     background-color: white;
@@ -140,21 +130,21 @@
     list-style: none;
 }
 
-#projectImages > li > img {
+.project-image > img {
     max-width: 100%;
     max-height: 200px;
     height: auto;
 }
 
-#editButton {
+.btn--edit-project {
     display: inline-block;
 }
 
-#deleteButton {
+.btn--delete-project {
     display: inline-block;
 }
 
-.deleteProjectImg {
+.btn--delete-project-img {
     position: absolute;
     top: 0;
     right: 0;
@@ -226,7 +216,7 @@
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
-    #uploads, #projectFormContainer {
+    .project-images-uploads, .project-form-container {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
@@ -235,28 +225,28 @@
 
 /* For desktops */
 @media only screen and (min-width: $desktop) {
-    #projectImages > li {
+    .project-image {
         width: calc(50% - 5px);
         display: inline-block;
     }
 
-    #projectImages > li:nth-child(odd) {
+    .project-image:nth-child(odd) {
         margin: 0 5px 10px 0;
     }
 
-    #projectImages > li:nth-child(even) {
+    .project-image:nth-child(even) {
         margin: 0 0 10px 5px;
     }
 
-    #projectImages > li:last-child {
+    .project-image:last-child {
         margin-bottom: 0;
     }
 
-    #projectImages > li:nth-last-child(2):nth-child(odd) {
+    .project-image:nth-last-child(2):nth-child(odd) {
         margin-bottom: 0;
     }
 
-    #projectImages > li:last-child:nth-child(odd) {
+    .project-image:last-child:nth-child(odd) {
         margin-right: 0;
     }
 }

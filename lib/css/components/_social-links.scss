@@ -1,5 +1,5 @@
 /* For all devices */
-#socialMediaLinks {
+.social-links {
     background: #EEEEEE url('/images/social.jpg') no-repeat center center scroll;
     -o-background-size: cover;
     -moz-background-size: cover;
@@ -9,7 +9,7 @@
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
-#socialMediaLinks h5 {
+.social-links__header {
     color: white;
     text-shadow: 2px 2px 3px black;
     font-size: 35px;
@@ -18,7 +18,7 @@
     margin: 10px 0 5px 0;
 }
 
-#socialMediaLinks img {
+.social-links__img.social-links__img {
     height: 50px;
     margin: 15px 3px;
 }
@@ -26,11 +26,11 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    #socialMediaLinks h5 {
+    .social-links__header {
         margin: 15px 0 10px 0;
     }
 
-    #socialMediaLinks img {
+    .social-links__img.social-links__img {
         height: 60px;
         margin: 20px 3px;
     }
@@ -39,17 +39,17 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    #socialMediaLinks {
+    .social-links {
         background-attachment: fixed;
     }
 
-    #socialMediaLinks h5 {
+    .social-links__header {
         font-size: 40px;
         line-height: 42px;
         margin: 20px 0 15px 0;
     }
 
-    #socialMediaLinks img {
+    .social-links__img.social-links__img {
         height: 70px;
         margin: 25px 5px;
     }

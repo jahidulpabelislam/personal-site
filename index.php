@@ -7,7 +7,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
                     <div class="container">
-                        <p><span id="mainHello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
+                        <p><span class="main-hello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
                         <p>I'm a developer who develops anything from websites to apps.</p>
                         <p>Based in West Sussex down in the South Coast of England, currently working as a Junior Web Developer at <a class="link" href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at  <a class="link" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
                         <p>Here you will be able to look at all my <a class="link" href="/projects">work</a> I have done over the last couple of years, <a class="link" href="/about">learn about me</a>, and <a class="link" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
@@ -18,11 +18,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article">
                     <h3 class="article__header">My Latest Projects</h3>
                     <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
-                    <div class="slideShow" id="projectPreview">
-                        <div class="slideShowViewpoint" data-slide-show-id="projectPreview">
-                            <div class="slidesContainer"></div>
-                            <img class="slideShowNav slideShowNav-- previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
-                            <img class="slideShowNav slideShowNav-- next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="next">
+                    <div class="slide-show" id="projectPreview">
+                        <div class="slide-show__viewpoint" data-slide-show-id="projectPreview">
+                            <div class="slide-show__slides-container"></div>
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="next">
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
@@ -37,15 +37,15 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slideContainer" id="slide{{ID}}" data-slide-colour="{{Colour}}">
-                        <div class="projectDescriptionContainer">
-                            <div class="projectDescription projectDescription--{{Colour}}">
-                                <div class="projectHeader">
+                    <div class="slide-show__slide-container" id="slide{{ID}}" data-slide-colour="{{Colour}}">
+                        <div class="slide-show__project-description-container">
+                            <div class="slide-show__project-description slide-show__project-description--{{Colour}}">
+                                <div class="project-header">
                                     <h3 class="article__header projectTitle">{{Name}}</h3>
                                     <h4 class="projectDate">{{Date}}</h4>
                                 </div>
-                                <div class="projectDescriptionText">{{ShortDescription}}</div>
-                                <div class="projectLinks"></div>
+                                <div class="project-description__text">{{ShortDescription}}</div>
+                                <div class="project-description__links"></div>
                             </div>
                         </div>
                         <img class="slide" src="{{File}}" alt="Screen shot of Project">
@@ -53,7 +53,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="bullet js-slide-show-bullet bullet--{{Colour}}" data-slide-show-id="projectPreview" data-slide-id="slide{{ID}}"></label>
+                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="projectPreview" data-slide-id="slide{{ID}}"></label>
                 </script>
 
 
