@@ -41,8 +41,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="slide-show__project-description-container">
                             <div class="slide-show__project-description slide-show__project-description--{{Colour}}">
                                 <div class="project-header">
-                                    <h3 class="article__header projectTitle">{{Name}}</h3>
-                                    <h4 class="projectDate">{{Date}}</h4>
+                                    <h3 class="article__header project-title project-title--inline">{{Name}}</h3>
+                                    <h4 class="project-date project-date--inline">{{Date}}</h4>
                                 </div>
                                 <div class="project-description__text">{{ShortDescription}}</div>
                                 <div class="project-description__links"></div>

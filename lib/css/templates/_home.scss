@@ -50,22 +50,6 @@
     font-weight: 700;
 }
 
-.project-header {
-    @include flexbox();
-    @include flexboxCenterAlign();
-    padding: 20px 0 10px 0;
-}
-
-.project-header .projectTitle {
-    margin: 0;
-    text-align: left;
-}
-.project-header .projectDate {
-    margin: 0;
-    margin-left: 24px;
-    text-align: right;
-}
-
 .project-description__text{
     display: none;
 }
@@ -114,12 +98,12 @@
         }
     }
 
-    #projectPreview .projectDate, #projectPreview .projectTitle{
+    #projectPreview .project-date, #projectPreview .project-title{
         width: 100%;
         white-space: nowrap;
     }
 
-    #projectPreview .projectDate{
+    #projectPreview .project-date{
         margin-left: 25px;
     }
 

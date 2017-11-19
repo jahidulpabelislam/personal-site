@@ -88,6 +88,22 @@ strong{
     font-weight: 700;
 }
 
+.project-header {
+    @include flexbox();
+    @include flexboxCenterAlign();
+    padding: 20px 0 10px 0;
+}
+
+.project-title--inline {
+    margin: 0;
+    text-align: left;
+}
+.project-date--inline {
+    margin: 0;
+    margin-left: 24px;
+    text-align: right;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .action > .container > div {

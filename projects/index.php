@@ -64,7 +64,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div id="projectsDetail" class="modal">
                     <div class="modal__content">
-                        <div class="project-header project-header--modal"><h3 class="article__header projectTitle"></h3><h4 class="projectDate"></h4></div>
+                        <div class="project-header">
+                            <h3 class="article__header project-title project-title--inline"></h3>
+                            <h4 class="project-date project-date--inline project-date--modal"></h4></div>
                         <div class="skills"></div>
                         <div class="description"></div>
                         <p class="project__links"></p>
@@ -81,8 +83,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <script type="text/template" id="tmpl-project-template">
                     <div id="project{{ID}}" class="project">
-                        <h3 class="article__header projectTitle">{{Name}}</h3>
-                        <h4 class="projectDate">{{Date}}</h4>
+                        <h3 class="article__header project-title">{{Name}}</h3>
+                        <h4 class="project-date">{{Date}}</h4>
                         <div class="skills"></div>
                         <div class="description">{{ShortDescription}}</div>
                         <button class="btn btn--{{Colour}} viewMoreButton">Read More »</button>
