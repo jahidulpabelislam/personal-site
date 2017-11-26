@@ -3,7 +3,7 @@
                         <h5 class="social-links__header">Ways to Contact Me!</h5>
                         <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link "><img src="/images/email.svg" alt="Email me" class="social-links__img social-link__img social-link__img--email"></a>
                         <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
-                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
+                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
                     </div>
                 </div>
             </div>

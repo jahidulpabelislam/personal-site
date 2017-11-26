@@ -74,7 +74,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <h3 class="article__header">View code for projects and follow future projects.</h3>
                         </div>
                         <div>
-                            <a href="https://github.com/jahidulpabelislam" target="_blank" class="githubLink">
+                            <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                                 <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                             </a>
