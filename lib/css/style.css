@@ -140,7 +140,93 @@ img {
   .article--50-50 > .container > div {
     width: 50%; }
   .article--50-50 .article__header {
-    margin: 0; } }
+    margin: 0; }
+  .action > .container > div {
+    width: 49%;
+    display: inline-block; } }
+
+/*
+  ANY CSS FOR MANY TEMPLATES AND/OR COMPONENTS.
+  ANY BASE CSS FOR ALL PAGES.
+  ANY CSS FOR COMPONENTS/TEMPLATES THAT WILL ONLY HAVE 1 LINE OF CODE IF SEPARATED
+*/
+/* For all devices */
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #333; }
+
+a {
+  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: inherit; }
+
+.link {
+  color: #0375b4;
+  border-bottom: transparent solid 1px; }
+
+.link:hover {
+  color: #024469;
+  border-bottom-color: #024469; }
+
+a > img {
+  opacity: .9;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+a:hover > img {
+  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  cursor: pointer;
+  opacity: 1; }
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+blockquote {
+  padding: 5px 15px;
+  border-left: 5px solid #eee; }
+
+strong {
+  font-weight: 700; }
+
+.project__header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 20px 0 10px 0; }
+
+.project-title--inline {
+  margin: 0;
+  text-align: left; }
+
+.project-date--inline {
+  margin: 0;
+  margin-left: 24px;
+  text-align: right; }
 
 /* For all devices */
 button,
@@ -1894,92 +1980,3 @@ ul.pagination--projects {
     margin-bottom: 40px; }
   ul.pagination--projects {
     margin-top: 40px; } }
-
-/*
-  ANY CSS FOR MANY TEMPLATES AND/OR COMPONENTS.
-  ANY BASE CSS FOR ALL PAGES.
-  ANY CSS FOR COMPONENTS/TEMPLATES THAT WILL ONLY HAVE 1 LINE OF CODE IF SEPARATED
-*/
-/* For all devices */
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 16px;
-  color: #333; }
-
-a {
-  font-weight: 700;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  color: inherit; }
-
-.link {
-  color: #0375b4;
-  border-bottom: transparent solid 1px; }
-
-.link:hover {
-  color: #024469;
-  border-bottom-color: #024469; }
-
-a > img {
-  opacity: .9;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
-
-a:hover > img {
-  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  cursor: pointer;
-  opacity: 1; }
-
-.screen-reader-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; }
-
-blockquote {
-  padding: 5px 15px;
-  border-left: 5px solid #eee; }
-
-strong {
-  font-weight: 700; }
-
-.project__header {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  padding: 20px 0 10px 0; }
-
-.project-title--inline {
-  margin: 0;
-  text-align: left; }
-
-.project-date--inline {
-  margin: 0;
-  margin-left: 24px;
-  text-align: right; }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .action > .container > div {
-    width: 49%;
-    display: inline-block; } }

@@ -95,4 +95,9 @@ img {
     .article--50-50 .article__header {
         margin: 0;
     }
+
+    .action > .container > div {
+        width: 49%;
+        display: inline-block;
+    }
 }

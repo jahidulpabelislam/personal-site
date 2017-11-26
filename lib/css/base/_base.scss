@@ -1,0 +1,77 @@
+/*
+  ANY CSS FOR MANY TEMPLATES AND/OR COMPONENTS.
+  ANY BASE CSS FOR ALL PAGES.
+  ANY CSS FOR COMPONENTS/TEMPLATES THAT WILL ONLY HAVE 1 LINE OF CODE IF SEPARATED
+*/
+
+/* For all devices */
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: $dark;
+}
+
+a{
+    font-weight: 700;
+    @include transition(.3s);
+    text-decoration: none;
+    color: inherit;
+}
+
+.link {
+    color: $primary-color;
+    border-bottom: transparent solid 1px;
+}
+
+.link:hover{
+    color: darken($primary-color, 15%);
+    border-bottom-color: darken($primary-color, 15%);
+}
+
+a > img {
+    opacity: .9;
+    @include transition(.3s);
+}
+
+a:hover > img {
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
+    cursor: pointer;
+    opacity: 1;
+}
+
+.screen-reader-text{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+blockquote {
+    padding: 5px 15px;
+    border-left: 5px solid $light-grey;
+}
+
+strong{
+    font-weight: 700;
+}
+
+.project__header {
+    @include flexbox();
+    @include flexboxCenterAlign();
+    padding: 20px 0 10px 0;
+}
+
+.project-title--inline {
+    margin: 0;
+    text-align: left;
+}
+.project-date--inline {
+    margin: 0;
+    margin-left: 24px;
+    text-align: right;
+}
