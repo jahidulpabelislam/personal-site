@@ -73,8 +73,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -87,13 +87,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h4 class="project-date">{{Date}}</h4>
                         <div class="project__skills"></div>
                         <div class="description">{{ShortDescription}}</div>
-                        <button class="btn btn--{{Colour}} viewMoreButton">Read More »</button>
+                        <button class="btn btn--{{Colour}} js-open-modal">Read More »</button>
                         <p class="project__links"></p>
                         <div id="slide-show--{{ID}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -101,13 +101,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </script>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide-container" id="slide{{ID}}">
+                    <div class="slide-show__slide-container" id="slide--{{ID}}">
                         <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide{{ID}}"></label>
+                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide--{{ID}}"></label>
                 </script>
 
 <?php

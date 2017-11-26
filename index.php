@@ -21,8 +21,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div id="slide-show--projects-preview" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--projects-preview">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
@@ -37,7 +37,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide-container" id="slide{{ID}}" data-slide-colour="{{Colour}}">
+                    <div class="slide-show__slide-container" id="slide--{{ID}}" data-slide-colour="{{Colour}}">
                         <div class="slide-show__project-description-container">
                             <div class="slide-show__project-description slide-show__project-description--{{Colour}}">
                                 <div class="project__header">
@@ -53,7 +53,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--projects-preview" data-slide-id="slide{{ID}}"></label>
+                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--projects-preview" data-slide-id="slide--{{ID}}"></label>
                 </script>
 
 

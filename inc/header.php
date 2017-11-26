@@ -66,4 +66,4 @@
         </header>
 
         <section class="main-content">
-            <div id="sectionInnerContainer">
+            <div class="section-inner-container">

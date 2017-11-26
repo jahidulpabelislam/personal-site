@@ -75,7 +75,7 @@ section {
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
 
-#sectionInnerContainer {
+.section-inner-container {
   width: 100%; }
 
 .article {
