@@ -17,16 +17,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article">
                     <h3 class="article__header">My Latest Projects</h3>
-                    <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
-                    <div class="slide-show" id="projectPreview">
-                        <div class="slide-show__viewpoint" data-slide-show-id="projectPreview">
+                    <i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i>
+                    <div id="slide-show--projects-preview" class="slide-show">
+                        <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--projects-preview">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectPreview" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectPreview" data-nav-direction="next">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
                         </div>
                         <div class="slideShowBullets"></div>
                     </div>
-                    <p id="errors" class="feedback error"></p>
+                    <p class="feedback error"></p>
                 </div>
 
                 <div class="article action">
@@ -40,7 +40,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="slide-show__slide-container" id="slide{{ID}}" data-slide-colour="{{Colour}}">
                         <div class="slide-show__project-description-container">
                             <div class="slide-show__project-description slide-show__project-description--{{Colour}}">
-                                <div class="project-header">
+                                <div class="project__header">
                                     <h3 class="article__header project-title project-title--inline">{{Name}}</h3>
                                     <h4 class="project-date project-date--inline">{{Date}}</h4>
                                 </div>
@@ -53,7 +53,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="projectPreview" data-slide-id="slide{{ID}}"></label>
+                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--projects-preview" data-slide-id="slide{{ID}}"></label>
                 </script>
 
 

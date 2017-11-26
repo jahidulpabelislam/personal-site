@@ -9,12 +9,12 @@
     line-height: 30px;
 }
 
-#projectPreview {
+#slide-show--projects-preview {
     margin: 0;
     width: 100%;
 }
 
-#projectPreview .slide-show__viewpoint:hover {
+#slide-show--projects-preview .slide-show__viewpoint:hover {
     @include box-shadow(none);
     cursor: initial;
 }
@@ -60,11 +60,11 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    #projectPreview .slide-show__slide-container {
+    #slide-show--projects-preview .slide-show__slide-container {
         display: flex;
     }
 
-    #projectPreview .slide {
+    #slide-show--projects-preview .slide {
         max-width: 50%;
         margin: auto;
     }
@@ -98,12 +98,12 @@
         }
     }
 
-    #projectPreview .project-date, #projectPreview .project-title{
+    #slide-show--projects-preview .project-date, #slide-show--projects-preview .project-title{
         width: 100%;
         white-space: nowrap;
     }
 
-    #projectPreview .project-date{
+    #slide-show--projects-preview .project-date{
         margin-left: 25px;
     }
 

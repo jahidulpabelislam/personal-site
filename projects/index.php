@@ -20,8 +20,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
                         </form>
 
-                        <p id="errors" class="feedback error"></p>
-                        <i id="projectsLoading" class="fa fa-spinner fa-spin fa-3x" style="display:none"></i>
+                        <p class="feedback error"></p>
+                        <i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                         <div class="projects"></div>
                         <ul class="pagination pagination--projects"></ul>
                     </div>
@@ -40,7 +40,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div class="expanded-image-slide-show">
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="/images/previous.svg" alt="Click to View Previous Image" id="expandedImagePrevious">
+                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous expanded-image-slide-show__nav-previous" src="/images/previous.svg" alt="Click to View Previous Image">
 
                     <div class="expanded-image-container">
                         <img src="/images/blank.svg" class="expanded-image current">
@@ -50,31 +50,31 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <img src="/images/blank.svg" class="expanded-image">
                     </div>
 
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" id="expandedImageNext" src="/images/next.svg" alt="Click to View Next Image">
-                    <button id="" type="button" class="btn btn--red expanded-image-slide-show__close">X</button>
+                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next expanded-image-slide-show__nav-next" src="/images/next.svg" alt="Click to View Next Image">
+                    <button type="button" class="btn btn--red expanded-image-slide-show__close">X</button>
 
-                    <p class="slideShowNums">
-                        <span id="slideShowNum"></span>
+                    <p class="expanded-image-slide-show__counter">
+                        <span class="expanded-image-counter__current"></span>
                         <span>/</span>
-                        <span id="slideShowTotal"></span>
+                        <span class="expanded-image-counter__total"></span>
                     </p>
 
-                    <div id="slideShowBullets" class="slideShowBullets"></div>
+                    <div class="expanded-image-slide-show__bullets"></div>
                 </div>
 
-                <div id="projectsDetail" class="modal">
+                <div class="modal modal--detailed-project">
                     <div class="modal__content">
-                        <div class="project-header">
+                        <div class="project__header">
                             <h3 class="article__header project-title project-title--inline"></h3>
                             <h4 class="project-date project-date--inline project-date--modal"></h4></div>
-                        <div class="skills"></div>
+                        <div class="project__skills"></div>
                         <div class="description"></div>
                         <p class="project__links"></p>
-                        <div class="slide-show" id="projectsDetailSlideShow">
-                            <div class="slide-show__viewpoint" data-slide-show-id="projectsDetailSlideShow">
+                        <div id="detailed-project__slide-show" class="slide-show">
+                            <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="projectsDetailSlideShow" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -82,18 +82,18 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <script type="text/template" id="tmpl-project-template">
-                    <div id="project{{ID}}" class="project">
+                    <div id="project--{{ID}}" class="project">
                         <h3 class="article__header project-title">{{Name}}</h3>
                         <h4 class="project-date">{{Date}}</h4>
-                        <div class="skills"></div>
+                        <div class="project__skills"></div>
                         <div class="description">{{ShortDescription}}</div>
                         <button class="btn btn--{{Colour}} viewMoreButton">Read More »</button>
                         <p class="project__links"></p>
-                        <div class="slide-show" id="slide-show{{ID}}">
-                            <div class="slide-show__viewpoint" data-slide-show-id="slide-show{{ID}}">
+                        <div id="slide-show--{{ID}}" class="slide-show">
+                            <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="slide-show{{ID}}" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="slide-show{{ID}}" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous moveSlide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next moveSlide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
                             </div>
                             <div class="slideShowBullets"></div>
                         </div>
@@ -102,12 +102,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide-container" id="slide{{ID}}">
-                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="slide-show{{ProjectID}}" data-slide-colour="{{Colour}}">
+                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="slide-show{{ProjectID}}" data-slide-id="slide{{ID}}"></label>
+                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide{{ID}}"></label>
                 </script>
 
 <?php
