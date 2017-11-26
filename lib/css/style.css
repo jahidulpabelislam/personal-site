@@ -1437,7 +1437,7 @@ li.pagination__item {
 .project-description__text {
   display: none; }
 
-.slide:hover {
+#slide-show--projects-preview .slide:hover {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   -moz-transform: scale(1);

@@ -54,7 +54,7 @@
     display: none;
 }
 
-.slide:hover {
+#slide-show--projects-preview .slide:hover {
     @include transform(scale(1));
 }
 
