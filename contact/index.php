@@ -42,10 +42,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <h3 class="article__header">Drop me a old fashioned email.</h3>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link">
                                 <img src="../images/email.svg" alt="Email me" class="social-link__img social-link__img--email">
                                 <p class="social-link__text social-link__text--email"> jahidul.pabel.islam@hotmail.com</p>
@@ -56,10 +56,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <h3 class="article__header">View my Linkedin profile.</h3>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
@@ -70,10 +70,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <h3 class="article__header">View code for projects and follow future projects.</h3>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                                 <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
@@ -82,13 +82,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article action">
+                <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--blue" href="/projects/">View My Work</a>
                         </div>
 
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--orange" href="/about/">Learn About Me</a>
                         </div>
                     </div>

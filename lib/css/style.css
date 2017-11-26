@@ -137,13 +137,10 @@ img {
     -ms-flex-direction: row-reverse;
     -webkit-flex-direction: row-reverse;
     flex-direction: row-reverse; }
-  .article--50-50 > .container > div {
+  .article-50 {
     width: 50%; }
   .article--50-50 .article__header {
-    margin: 0; }
-  .action > .container > div {
-    width: 49%;
-    display: inline-block; } }
+    margin: 0; } }
 
 /*
   ANY CSS FOR MANY TEMPLATES AND/OR COMPONENTS.

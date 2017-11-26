@@ -29,10 +29,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <p class="feedback error"></p>
                 </div>
 
-                <div class="article action">
+                <div class="article article--50-50">
                     <div class="container">
-                        <div><a class="btn btn--blue" href="/projects/">View My Work</a></div>
-                        <div><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
+                        <div class="article-50"><a class="btn btn--blue" href="/projects/">View My Work</a></div>
+                        <div class="article-50"><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
                     </div>
                 </div>
 

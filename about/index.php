@@ -8,10 +8,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <img src="/images/JahidulPabelIslamCasual.jpg" class="image-of-me" alt="Jahidul Pabel Islam">
                         </div>
-                        <div>
+                        <div class="article-50">
                             <p>My name is Jahidul Pabel Islam.</p>
                             <p>I'm 21 years old.</p>
                             <p>A Web and Software Developer.</p>
@@ -21,10 +21,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
@@ -32,10 +32,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="../images/UoP.gif" alt="Logo of University of Portsmouth"></a>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <p>Graduated from University of Portsmouth with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
                         </div>
                     </div>
@@ -43,10 +43,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <p>Based in Bognor Regis, West Sussex, South East Coast of England.</p>
                         </div>
                     </div>
@@ -54,10 +54,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <img src="../images/languages.png" alt="Image of 'hello' in different languages">
                         </div>
-                        <div>
+                        <div class="article-50">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                         </div>
                     </div>
@@ -65,11 +65,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <h3 class="article__header">Skills</h3>
                         </div>
 
-                        <div>
+                        <div class="article-50">
                             <ul class="about__skills">
                                 <li>HTML</li>
                                 <li>CSS</li>
@@ -95,10 +95,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--50-50 article--about">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <h3 class="article__header">Interests</h3>
                         </div>
-                        <div>
+                        <div class="article-50">
                             <ul class="about__interests">
                                 <li>Sports</li>
                                 <li>Gaming</li>
@@ -110,13 +110,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article action">
+                <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--purple" href="/projects/">View My Work</a>
                         </div>
 
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--red" href="/contact/">Get in Touch</a>
                         </div>
                     </div>

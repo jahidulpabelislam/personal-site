@@ -27,13 +27,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article action">
+                <div class="article article--50-50">
                     <div class="container">
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--purple" href="/contact/">Get in Touch</a>
                         </div>
 
-                        <div>
+                        <div class="article-50">
                             <a class="btn btn--green" href="/about/">Learn About Me</a>
                         </div>
                     </div>
