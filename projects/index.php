@@ -76,7 +76,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
                                 <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                             </div>
-                            <div class="slideShowBullets"></div>
+                            <div class="js-slide-show-bullets"></div>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
                                 <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
                             </div>
-                            <div class="slideShowBullets"></div>
+                            <div class="js-slide-show-bullets"></div>
                         </div>
                     </div>
                 </script>
