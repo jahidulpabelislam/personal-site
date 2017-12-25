@@ -28,9 +28,11 @@ section {
     padding: 20px 0;
     @include box-shadow(0 0 10px 0 transparentize($dark, .8));
 }
+
 .article:nth-of-type(even) {
     background-color: white;
 }
+
 .article__header {
     font-size: 24px;
     line-height: 26px;
@@ -47,19 +49,19 @@ img {
     vertical-align: middle;
 }
 
-.main-content ul{
+.main-content ul {
     padding-left: 20px;
     margin: 10px 0;
     list-style: inside;
 }
 
-.main-content li{
+.main-content li {
     margin: 5px 0;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    .container{
+    .container {
         width: 950px;
     }
 
@@ -71,7 +73,7 @@ img {
         margin-bottom: 24px;
     }
 
-    .main-content li{
+    .main-content li {
         margin: 10px 0;
     }
 

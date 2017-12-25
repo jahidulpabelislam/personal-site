@@ -12,7 +12,7 @@
     overflow-y: auto;
 }
 
-.modal__content{
+.modal__content {
     background-color: white;
     border: $grey solid 1px;
     max-width: 75%;
@@ -25,7 +25,7 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    .modal__content{
+    .modal__content {
         max-width: 750px;
     }
 }

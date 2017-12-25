@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <p class="feedback feedback--select-project error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
+                    <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
                         <button ng-if="projects.length > 0" ng-click="setUpEditProject()" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
@@ -87,7 +87,7 @@
                             <option value="purple">Purple</option>
                         </select>
 
-                        <p class="feedback feedback--project-form error" ng-if="projectFormFeedback">{{projectFormFeedback}}</p>
+                        <p class="feedback feedback--project-form feedback--error" ng-if="projectFormFeedback">{{projectFormFeedback}}</p>
 
                         <button type="submit" value="Add Project" class="btn btn--green btn--send-project" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
                     </form>
@@ -124,7 +124,7 @@
                     <label for="password">Password</label>
                     <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
-                    <p class="feedback feedback--user-form error" ng-if="userFormFeedback">{{userFormFeedback}}</p>
+                    <p class="feedback feedback--user-form feedback--error" ng-if="userFormFeedback">{{userFormFeedback}}</p>
                     <button type="submit" value="Log In" class="btn btn--green">Log In</button>
                 </form>
             </div>

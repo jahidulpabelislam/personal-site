@@ -6,16 +6,17 @@
 .search-form {
     margin-bottom: 20px;
 }
-.search-input-group
-{
+
+.search-input-group {
     position: relative;
 }
-.search-input{
+
+.search-input {
     margin: 0;
     width: 100%;
 }
 
-.search-submit{
+.search-submit {
     position: absolute;
     right: 0;
     margin: 0;
@@ -31,19 +32,6 @@
     margin-top: 10px;
     border: 1px solid $light-grey;
     @include border-radius(5px);
-}
-
-blockquote {
-    font-size: inherit;
-}
-
-.project-title {
-    margin-top: 20px;
-    margin-bottom: 4px;
-}
-
-.project-date {
-    margin-bottom: 10px;
 }
 
 .project-date--modal {
@@ -76,43 +64,41 @@ blockquote {
     color: white;
 }
 
-@each $color, $colors in $colors
-{
-    .skill--#{$color}
-    {
+@each $color, $colors in $colors {
+    .skill--#{$color} {
         border: 1px solid map-get($colors, main);
         color: map-get($colors, main);
     }
 
-    .skill--#{$color}:hover
-    {
+    .skill--#{$color}:hover {
         background-color: map-get($colors, hover);
     }
 
-    .skill--#{$color}.searched
-    {
+    .skill--#{$color}.searched {
         background-color: map-get($colors, dark);
     }
 }
 
-ul.pagination--projects{
+.pagination--projects.pagination--projects {
     margin-top: 20px;
 }
 
-.project__link:after{
+.project__link:after {
     content: "|";
     color: $dark;
     margin: 0 4px;
 }
-.project__link:last-child:after{
+
+.project__link:last-child:after {
     content: none;
 }
 
-.project__link{
+.project__link {
     position: relative;
     color: $primary-color;
 }
-.project__link:before{
+
+.project__link:before {
     content: "";
     position: absolute;
     left: 0;
@@ -122,23 +108,25 @@ ul.pagination--projects{
     border-bottom: transparent solid 1px;
     @include transition(.3s);
 }
-.project__link:hover{
+
+.project__link:hover {
     color: darken($primary-color, 15%);
 }
+
 .project__link:hover:before {
     border-bottom-color: darken($primary-color, 15%);
 }
-.project__link:last-child:before{
+
+.project__link:last-child:before {
     width: 100%;
 }
 
-@each $color, $colors in $colors
-{
-    .project__link--#{$color}{
+@each $color, $colors in $colors {
+    .project__link--#{$color} {
         color: map-get($colors, main);
     }
 
-    .project__link--#{$color}:hover{
+    .project__link--#{$color}:hover {
         color: map-get($colors, hover);
     }
     .project__link--#{$color}:hover:before {
@@ -158,7 +146,7 @@ ul.pagination--projects{
     @include transition(1s);
 }
 
-.expanded-image-slide-show.active{
+.expanded-image-slide-show.active {
     top: 0;
     left: 0;
     width: 100%;
@@ -167,7 +155,7 @@ ul.pagination--projects{
     z-index: 10000;
 }
 
-.expanded-image-slide-show.hiding{
+.expanded-image-slide-show.hiding {
     z-index: 10000;
 }
 
@@ -257,7 +245,7 @@ ul.pagination--projects{
         margin-bottom: 40px;
     }
 
-    ul.pagination--projects{
+    .pagination--projects.pagination--projects {
         margin-top: 40px;
     }
 }

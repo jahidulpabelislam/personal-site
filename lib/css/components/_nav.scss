@@ -9,13 +9,12 @@
     @include transition(0.7s);
 }
 
-.nav.scrolled, .nav.opened{
+.nav.scrolled, .nav.opened {
     @include box-shadow(0 0 10px 0 $dark);
     background-color: white;
 }
 
-.nav__mobile-header:before,
-.nav__mobile-header:after {
+.nav__mobile-header:before, .nav__mobile-header:after {
     display: table;
     content: " ";
 }
@@ -77,7 +76,7 @@
     padding: 10px;
 }
 
-.menu-bar{
+.menu-bar {
     display: block;
     width: 24px;
     height: 2px;
@@ -86,7 +85,7 @@
     position: relative;
 }
 
-.scrolled .menu-bar{
+.scrolled .menu-bar {
     background-color: $dark;
 }
 
@@ -94,7 +93,7 @@
     background-color: $primary-color;
 }
 
-.opened .menu-bar{
+.opened .menu-bar {
     background-color: colour(red, main);
 }
 
@@ -133,21 +132,21 @@
     @include transition(0.7s);
 }
 
-.nav__links-container.opening, .nav__links-container.closed{
+.nav__links-container.opening, .nav__links-container.closed {
     overflow: hidden;
 }
 
-.nav__links{
+.nav__links {
     border-top: $light-grey 1px solid;
 }
 
-.nav__links > li > a{
+.nav__links > li > a {
     padding: 16px 15px;
     display: block;
     color: white;
 }
 
-.scrolled .nav__links > li > a, .opened .nav__links > li > a{
+.scrolled .nav__links > li > a, .opened .nav__links > li > a {
     color: $dark;
 }
 
@@ -155,22 +154,22 @@
     color: colour(orange, main);
 }
 
-.nav__links > li.active > a{
+.nav__links > li.active > a {
     background-color: colour(green, main);
     color: white;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $tablet) {
-    .nav{
+    .nav {
         margin: 0;
     }
 
-    .nav__mobile-header{
+    .nav__mobile-header {
         float: left;
     }
 
-    .nav__links__toggle{
+    .nav__links__toggle {
         display: none;
     }
 
@@ -183,11 +182,11 @@
         border-top: none;
     }
 
-    .nav__links > li{
+    .nav__links > li {
         float: left;
     }
 
-    .nav__links > li > a{
+    .nav__links > li > a {
         border-bottom: solid transparent 2px;
     }
 

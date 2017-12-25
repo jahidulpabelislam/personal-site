@@ -1,9 +1,10 @@
 /* For all devices */
-.pagination {
+.pagination.pagination {
     display: none;
     padding: 0;
 }
-li.pagination__item{
+
+.pagination__item.pagination__item {
     display: inline-block;
     margin: 8px 4px;
     cursor: pointer;
@@ -13,12 +14,12 @@ li.pagination__item{
     color: white;
 }
 
-.pagination__item:hover{
+.pagination__item:hover {
     background-color: darken($primary-color, 5%);
     border-color: darken($primary-color, 15%);
 }
 
-.pagination__item.active, .pagination__item.active:hover{
+.pagination__item.active, .pagination__item.active:hover {
     background-color: $grey;
     border-color: darken($grey, 10%);
 }

@@ -12,7 +12,7 @@ body {
     color: $dark;
 }
 
-a{
+a {
     font-weight: 700;
     @include transition(.3s);
     text-decoration: none;
@@ -24,7 +24,7 @@ a{
     border-bottom: transparent solid 1px;
 }
 
-.link:hover{
+.link:hover {
     color: darken($primary-color, 15%);
     border-bottom-color: darken($primary-color, 15%);
 }
@@ -40,7 +40,7 @@ a:hover > img {
     opacity: 1;
 }
 
-.screen-reader-text{
+.screen-reader-text {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -56,7 +56,7 @@ blockquote {
     border-left: 5px solid $light-grey;
 }
 
-strong{
+strong {
     font-weight: 700;
 }
 
@@ -66,10 +66,20 @@ strong{
     padding: 20px 0 10px 0;
 }
 
+.project-title {
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+
+.project-date {
+    margin-bottom: 10px;
+}
+
 .project-title--inline {
     margin: 0;
     text-align: left;
 }
+
 .project-date--inline {
     margin: 0;
     margin-left: 24px;

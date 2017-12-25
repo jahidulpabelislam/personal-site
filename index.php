@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>
-                    <p class="feedback error"></p>
+                    <p class="feedback feedback--error"></p>
                 </div>
 
                 <div class="article article--50-50">

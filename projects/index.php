@@ -20,7 +20,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
                         </form>
 
-                        <p class="feedback error"></p>
+                        <p class="feedback feedback--error"></p>
                         <i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i>
                         <div class="projects"></div>
                         <ul class="pagination pagination--projects"></ul>

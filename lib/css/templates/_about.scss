@@ -3,9 +3,10 @@
     background-image: url("/images/marmaris.jpg");
 }
 
-.about__skills.about__skills, .about__interests.about__interests{
+.about__skills.about__skills, .about__interests.about__interests {
     padding-left: 0;
 }
+
 .about__skills li {
     border: 1px solid $primary-color;
     @include border-radius(5px);

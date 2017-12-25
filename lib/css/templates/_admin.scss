@@ -47,8 +47,7 @@
     margin: 0 auto 5px auto;
 }
 
-.btn--delete-project, .btn--edit-project
-{
+.btn--delete-project, .btn--edit-project {
     margin: 0 auto 5px auto;
 }
 
@@ -71,7 +70,7 @@
     margin: 10px 0;
 }
 
-.upload{
+.upload {
     margin: 10px auto;
     padding: 5px;
     @include border-radius(6px);
@@ -156,20 +155,19 @@
     @include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
-.pagination--admin{
+.pagination--admin {
     display: block;
 }
 
-.skill-input-group
-{
+.skill-input-group {
     position: relative;
 }
-.skill-input{
+.skill-input {
     margin: 0;
     width: 100%;
 }
 
-.skill-add{
+.skill-add {
     position: absolute;
     right: 0;
     margin: 0;
@@ -178,7 +176,7 @@
     border-top-left-radius: 0;
 }
 
-.admin-project-skill{
+.admin-project-skill {
     position: relative;
     border: 1px solid colour(blue, hover);
     @include border-radius(5px);
@@ -191,10 +189,9 @@
     cursor: auto;
 }
 
-@each $color, $colors in $colors
-{
-    .admin-project-skill--#{$color}
-    {
+@each $color, $colors in $colors {
+
+    .admin-project-skill--#{$color} {
         background-color: map-get($colors, main);
         border-color: map-get($colors, hover);
     }

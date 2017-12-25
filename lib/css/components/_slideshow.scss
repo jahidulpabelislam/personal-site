@@ -96,7 +96,6 @@
 {
     .slide-show__bullet--#{$color}.active {
         background-color: map-get($colors, main);
-        border-color: map-get($colors, hover);
     }
 
     .slide-show__nav--#{$color}{

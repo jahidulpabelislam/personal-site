@@ -91,23 +91,22 @@
         padding: 0 40px;
     }
 
-    @each $color, $colors in $colors
-    {
+    @each $color, $colors in $colors {
         .slide-show__project-description--#{$color} {
             background-color: map-get($colors, main);
         }
     }
 
-    #slide-show--projects-preview .project-date, #slide-show--projects-preview .project-title{
+    #slide-show--projects-preview .project-date, #slide-show--projects-preview .project-title {
         width: 100%;
         white-space: nowrap;
     }
 
-    #slide-show--projects-preview .project-date{
+    #slide-show--projects-preview .project-date {
         margin-left: 25px;
     }
 
-    .project-description__text{
+    .project-description__text {
         display: block;
     }
 }
