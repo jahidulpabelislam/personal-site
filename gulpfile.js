@@ -26,7 +26,7 @@ scriptNames.forEach(function(key, i){
         return gulp.src(scripts[key])
             .pipe(concat(key+".min.js"))
             .pipe(uglify())
-            .pipe(gulp.dest("lib/js"));
+            .pipe(gulp.dest("assets/js"));
     });
 });
 gulp.task("scripts", ["scripts-main"]);
@@ -49,15 +49,15 @@ stylesheetNames.forEach(function(key, i){
             .pipe(minifyCss({
                 compatibility: "ie8"
             }))
-            .pipe(gulp.dest("lib/css"));
+            .pipe(gulp.dest("assets/css"));
     });
 });
 gulp.task("styles", ["styles-main"]);
 
 gulp.task('sass', function() {
-    return gulp.src('lib/css/style.scss')
+    return gulp.src('assets/css/style.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('lib/css/'));
+        .pipe(gulp.dest('assets/css/'));
 });
 // Watch Files For Changes
 gulp.task('watch', function() {

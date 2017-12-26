@@ -1,9 +1,9 @@
                 <div class="social-links">
                     <div class="container">
                         <h5 class="social-links__header">Ways to Contact Me!</h5>
-                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link "><img src="/images/email.svg" alt="Email me" class="social-links__img social-link__img social-link__img--email"></a>
-                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
-                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
+                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link "><img src="/assets/images/email.svg" alt="Email me" class="social-links__img social-link__img social-link__img--email"></a>
+                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
+                        <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
                     </div>
                 </div>
             </div>
@@ -33,17 +33,17 @@
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <?php if (!isset($_GET["debug"])):?>
-            <script src="/lib/js/main.min.js" type="text/javascript"></script>
+            <script src="/assets/js/main.min.js" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/lib/js/expandImage.js" type="text/javascript"></script>
-            <script src="/lib/js/slideShow.js" type="text/javascript"></script>
-            <script src="/lib/js/helperFunctions.js" type="text/javascript"></script>
-            <script src="/lib/js/xhr.js" type="text/javascript"></script>
-            <script src="/lib/js/projects.js" type="text/javascript"></script>
-            <script src="/lib/js/projectsPreview.js" type="text/javascript"></script>
-            <script src="/lib/js/form.js" type="text/javascript"></script>
-            <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
-            <script src="/lib/js/main.js" type="text/javascript"></script>
+            <script src="/assets/js/expandImage.js" type="text/javascript"></script>
+            <script src="/assets/js/slideShow.js" type="text/javascript"></script>
+            <script src="/assets/js/helperFunctions.js" type="text/javascript"></script>
+            <script src="/assets/js/xhr.js" type="text/javascript"></script>
+            <script src="/assets/js/projects.js" type="text/javascript"></script>
+            <script src="/assets/js/projectsPreview.js" type="text/javascript"></script>
+            <script src="/assets/js/form.js" type="text/javascript"></script>
+            <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
+            <script src="/assets/js/main.js" type="text/javascript"></script>
         <?php endif; ?>
     </body>
 </html>

@@ -13,15 +13,15 @@
         <!-- Custom stylesheet for site -->
 
         <?php if (!isset($_GET["debug"])):?>
-        <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-        <link href="/lib/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/images/favicon.png">
+        <link rel="icon" href="/assets/images/favicon.png">
 
         <meta name="theme-color" content="#337ab7">
         <title><?php echo $title ?> | Jahidul Pabel Islam</title>
@@ -38,7 +38,7 @@
                         <span class="menu-bar menu-bar--middle"></span>
                         <span class="menu-bar menu-bar--bottom"></span>
                     </button>
-                    <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($title == "Home") echo "current";?>" src="/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+                    <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
                     <a class="nav__brand nav__brand--text <?php if ($title == "Home") echo "current";?>" href="/">Jahidul Pabel Islam</a>
                 </div>
                 <div class="nav__links-container closed">
@@ -59,7 +59,7 @@
                     <h1 class="jumbotron__title"><?php echo $title ?></h1>
                     <hr class="jumbotron__line-breaker">
                     <p class="jumbotron__desc"><?php echo $description2 ?></p>
-                    <img src="/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
+                    <img src="/assets/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
                 </div>
             </div>
         </header>

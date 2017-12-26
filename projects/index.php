@@ -40,17 +40,17 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div class="expanded-image-slide-show">
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous expanded-image-slide-show__nav-previous" src="/images/previous.svg" alt="Click to View Previous Image">
+                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous expanded-image-slide-show__nav-previous" src="/assets/images/previous.svg" alt="Click to View Previous Image">
 
                     <div class="expanded-image-container">
-                        <img src="/images/blank.svg" class="expanded-image current">
+                        <img src="/assets/images/blank.svg" class="expanded-image current">
                     </div>
 
                     <div class="expanded-image-container">
-                        <img src="/images/blank.svg" class="expanded-image">
+                        <img src="/assets/images/blank.svg" class="expanded-image">
                     </div>
 
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next expanded-image-slide-show__nav-next" src="/images/next.svg" alt="Click to View Next Image">
+                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next expanded-image-slide-show__nav-next" src="/assets/images/next.svg" alt="Click to View Next Image">
                     <button type="button" class="btn btn--red expanded-image-slide-show__close">X</button>
 
                     <p class="expanded-image-slide-show__counter">
@@ -73,8 +73,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/assets/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -92,8 +92,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div id="slide-show--{{ID}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>

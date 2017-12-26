@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <img src="/images/JahidulPabelIslamCasual.jpg" class="image-of-me" alt="Jahidul Pabel Islam">
+                            <img src="/assets/images/JahidulPabelIslamCasual.jpg" class="image-of-me" alt="Jahidul Pabel Islam">
                         </div>
                         <div class="article-50">
                             <p>My name is Jahidul Pabel Islam.</p>
@@ -55,7 +55,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <img src="../images/languages.png" alt="Image of 'hello' in different languages">
+                            <img src="/assets/images/languages.png" alt="Image of 'hello' in different languages">
                         </div>
                         <div class="article-50">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>

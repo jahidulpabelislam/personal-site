@@ -11,12 +11,12 @@
         <meta name="keywords" content="">
         <!-- Custom stylesheet for site -->
         <?php if (!isset($_GET["debug"])):?>
-            <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-            <link href="/lib/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/images/favicon.png">
+        <link rel="icon" href="/assets/images/favicon.png">
         <title>Social Media Links | Jahidul Pabel Islam</title>
     </head>
 
@@ -28,21 +28,21 @@
 
             <div class="social-link-container">
                 <a href="http://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
+                    <img src="/assets/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
                     <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="http://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
-                    <img src="/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+                    <img src="/assets/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
                     <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="http://instagram.com/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="social-link__img social-link__img--instagram">
+                    <img src="/assets/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="social-link__img social-link__img--instagram">
                     <p class="social-link__text social-link__text--instagram"> @jahidulpabelislam</p>
                 </a>
             </div>
@@ -57,21 +57,21 @@
 
             <div class="social-link-container">
                 <a href="https://account.xbox.com/en-us/profile?gamerTag=xXx%20I%20MADBOMB3R" target="_blank" class="social-link">
-                    <img src="../images/xbox.svg" alt="Add Me xXx I MADBOMB3" class="social-link__img social-link__img--xbox">
+                    <img src="/assets/images/xbox.svg" alt="Add Me xXx I MADBOMB3" class="social-link__img social-link__img--xbox">
                     <p class="social-link__text social-link__text--xbox"> xXx I MADBOMB3R</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
-                    <img src="/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                    <img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                     <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
-                    <img src="/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                    <img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                     <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                 </a>
             </div>
@@ -85,9 +85,9 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <?php if (!isset($_GET["debug"])):?>
-        <script src="/lib/js/main.min.js" type="text/javascript"></script>
+        <script src="/assets/js/main.min.js" type="text/javascript"></script>
     <?php else: ?>
-        <script src="/lib/js/stickyFooter.js" type="text/javascript"></script>
+        <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
     <?php endif; ?>
 
     </body>
