@@ -16,7 +16,6 @@
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
         <link href="/lib/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
-        <link href="/lib/css/third-party/animate.min.css" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

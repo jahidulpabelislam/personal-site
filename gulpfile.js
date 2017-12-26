@@ -34,8 +34,7 @@ gulp.task("scripts", ["scripts-main"]);
 // Minify Stylesheets
 var stylesheets = {
     main: [
-        "lib/css/style.css",
-        "lib/css/third-party/animate.min.css"
+        "lib/css/style.css"
     ]
 };
 var stylesheetNames = Object.keys(stylesheets);
