@@ -297,17 +297,19 @@ function addPicture($data)
                 $imageFileType = pathinfo(basename($_FILES["picture"]["name"]), PATHINFO_EXTENSION);
 
                 //the directory to upload file
-                $directory = "../../../images/";
+                $directory = "/assets/images/";
 
                 //the full path for new file
-                $fileLocation = $directory . date('YmdHis', time()) . mt_rand() . "." . $imageFileType;
+                $filename = date('YmdHis', time()) . mt_rand() . "." . $imageFileType;
+                $fileLocation = $directory . $filename;
+                $fullPath = $_SERVER['DOCUMENT_ROOT'] . $directory . $filename;
 
                 //check if file is a actual image
                 $fileType = mime_content_type($_FILES["picture"]["tmp_name"]);
                 if ((strpos($fileType, 'image/') !== false)) {
 
                     //try to upload file
-                    if (move_uploaded_file($_FILES["picture"]["tmp_name"], $fileLocation)) {
+                    if (move_uploaded_file($_FILES["picture"]["tmp_name"], $fullPath)) {
 
                         //update database with location of new picture
                         $db = new pdodb;
