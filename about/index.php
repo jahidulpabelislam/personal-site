@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="../images/BrightMinded.png" alt="Logo of BrightMinded"></a>
+                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article-50">
                             <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>
@@ -33,7 +33,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="../images/UoP.gif" alt="Logo of University of Portsmouth"></a>
+                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.gif" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="article-50">
                             <p>Graduated from University of Portsmouth with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
@@ -44,7 +44,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="../images/beach.jpg" alt="Image of a Beach"></a>
+                            <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
                         <div class="article-50">
                             <p>Based in Bognor Regis, West Sussex, South East Coast of England.</p>

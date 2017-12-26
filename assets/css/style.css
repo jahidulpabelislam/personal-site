@@ -441,7 +441,7 @@ label {
 /* For all devices */
 .jumbotron {
   color: #FFFFFF;
-  background: #0375b4 url("/images/work.jpg") no-repeat center center scroll;
+  background: #0375b4 url("/assets/images/work.jpg") no-repeat center center scroll;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -897,7 +897,7 @@ label {
 
 /* For all devices */
 .social-links {
-  background: #EEEEEE url("/images/social.jpg") no-repeat center center scroll;
+  background: #EEEEEE url("/assets/images/social.jpg") no-repeat center center scroll;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
@@ -1026,7 +1026,7 @@ label {
 
 /* For all devices */
 .jumbotron--about {
-  background-image: url("/images/marmaris.jpg"); }
+  background-image: url("/assets/images/marmaris.jpg"); }
 
 .about__skills.about__skills, .about__interests.about__interests {
   padding-left: 0; }
@@ -1315,7 +1315,7 @@ label {
 */
 /* For all devices */
 .jumbotron--contact {
-  background-image: url("/images/contact.jpg"); }
+  background-image: url("/assets/images/contact.jpg"); }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
@@ -1336,7 +1336,7 @@ label {
 
 /* For all devices */
 .jumbotron--home {
-  background-image: url("/images/working.jpg"); }
+  background-image: url("/assets/images/working.jpg"); }
 
 .main-hello {
   font-size: 28px;
@@ -1617,7 +1617,7 @@ label {
 
 /* For all devices */
 .jumbotron--projects {
-  background-image: url("/images/projects.jpg"); }
+  background-image: url("/assets/images/projects.jpg"); }
 
 .search-form {
   margin-bottom: 20px; }
