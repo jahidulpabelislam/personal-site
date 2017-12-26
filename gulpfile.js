@@ -9,15 +9,15 @@ var sass = require('gulp-sass');
 // Concatenate & Minify JS
 var scripts = {
     main: [
-        "lib/js/expandImage.js",
-        "lib/js/slideShow.js",
-        "lib/js/helperFunctions.js",
-        "lib/js/xhr.js",
-        "lib/js/projects.js",
-        "lib/js/projectsPreview.js",
-        "lib/js/form.js",
-        "lib/js/stickyFooter.js",
-        "lib/js/main.js"
+        "assets/js/expandImage.js",
+        "assets/js/slideShow.js",
+        "assets/js/helperFunctions.js",
+        "assets/js/xhr.js",
+        "assets/js/projects.js",
+        "assets/js/projectsPreview.js",
+        "assets/js/form.js",
+        "assets/js/stickyFooter.js",
+        "assets/js/main.js"
     ]
 };
 var scriptNames = Object.keys(scripts);
@@ -34,7 +34,7 @@ gulp.task("scripts", ["scripts-main"]);
 // Minify Stylesheets
 var stylesheets = {
     main: [
-        "lib/css/style.css"
+        "assets/css/style.css"
     ]
 };
 var stylesheetNames = Object.keys(stylesheets);
