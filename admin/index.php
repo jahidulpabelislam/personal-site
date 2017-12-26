@@ -140,11 +140,11 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <?php if (!isset($_GET["debug"])):?>
         <script src="/assets/js/main.min.js" type="text/javascript"></script>
+        <!-- the script for the page -->
+        <script type="text/javascript" src="/assets/js/admin.min.js"></script>
         <?php else: ?>
         <script src="/assets/js/helperFunctions.js" type="text/javascript"></script>
         <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
-        <?php endif; ?>
-
         <!-- The third party script needed for the page for the sorting of pictures -->
         <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js"></script>
 
@@ -153,6 +153,6 @@
 
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/admin.js"></script>
-
+        <?php endif; ?>
     </body>
 </html>

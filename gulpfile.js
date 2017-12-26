@@ -18,6 +18,11 @@ var scripts = {
         "assets/js/form.js",
         "assets/js/stickyFooter.js",
         "assets/js/main.js"
+    ],
+    admin: [
+        "assets/js/third-party/jquery-ui.min.js",
+        "assets/js/third-party/sortable.js",
+        "assets/js/admin.js"
     ]
 };
 var scriptNames = Object.keys(scripts);
@@ -29,7 +34,7 @@ scriptNames.forEach(function(key, i){
             .pipe(gulp.dest("assets/js"));
     });
 });
-gulp.task("scripts", ["scripts-main"]);
+gulp.task("scripts", ["scripts-main", "scripts-admin"]);
 
 // Minify Stylesheets
 var stylesheets = {
