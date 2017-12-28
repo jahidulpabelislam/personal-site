@@ -477,7 +477,8 @@ label {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  opacity: 0.8; }
+  opacity: 0.8;
+  animation: bounce 1.5s linear infinite; }
 
 .scroll-to-content:hover {
   opacity: 1; }
@@ -497,6 +498,14 @@ label {
     margin-left: -25px;
     width: 50px;
     height: 50px; } }
+
+@keyframes bounce {
+  0% {
+    bottom: 24px; }
+  50% {
+    bottom: 36px; }
+  100% {
+    bottom: 24px; } }
 
 .nav {
   z-index: 1;
