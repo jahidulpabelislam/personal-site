@@ -473,18 +473,19 @@ label {
   position: absolute;
   bottom: 24px;
   left: 50%;
-  margin-left: -15px;
-  width: 30px;
-  height: 30px;
+  margin-left: -18px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   opacity: 0.8;
   animation: bounce 1.5s linear infinite; }
 
 .scroll-to-content:hover {
-  opacity: 1; }
+  opacity: 1;
+  background: rgba(245, 245, 245, 0.1); }
 
 /* Only for Tablets & Desktops */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
   .scroll-to-content {
     margin-left: -20px;
     width: 40px;
