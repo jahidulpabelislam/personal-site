@@ -22,6 +22,7 @@
                 </div>
 
                 <div class="footer__legal">
+                    <?php date_default_timezone_set("Europe/London"); ?>
                     <p>&copy; Jahidul Pabel Islam <?php echo date("Y"); ?> All Rights Reserved</p>
                 </div>
 
