@@ -1591,20 +1591,6 @@ label {
 .social-link:hover .social-link__text--snapchat {
   color: #fffc00; }
 
-.social-link__img--xbox {
-  background-color: black;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  border-radius: 50%; }
-
-.social-link:hover .social-link__img--xbox {
-  background-color: #107c10; }
-
-.social-link:hover .social-link__text--xbox {
-  color: #107c10;
-  text-decoration: underline; }
-
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .social-links-page > .container {

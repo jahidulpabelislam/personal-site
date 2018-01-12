@@ -27,21 +27,21 @@
         <div class="container">
 
             <div class="social-link-container">
-                <a href="http://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
+                <a href="https://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
                     <img src="/assets/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
                     <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
-                <a href="http://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
+                <a href="https://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
                     <img src="/assets/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
                     <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
-                <a href="http://instagram.com/jahidulpabelislam/" target="_blank" class="social-link">
+                <a href="https://instagram.com/jahidulpabelislam/" target="_blank" class="social-link">
                     <img src="/assets/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="social-link__img social-link__img--instagram">
                     <p class="social-link__text social-link__text--instagram"> @jahidulpabelislam</p>
                 </a>
@@ -49,30 +49,30 @@
 
             <div class="social-link-container social-link-container--snapchat">
                 <!--Snapcode-->
-                <a class="social-link" href="http://snapchat.com/add/jahidulpislam/" target="_blank">
+                <a class="social-link" href="https://snapchat.com/add/jahidulpislam/" target="_blank">
                     <object data="https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=jahidulpislam&amp;type=PNG" type="image/png" class="social-link__img social-link__img--snapchat"></object>
                     <p class="social-link__text social-link__text--snapchat">jahidulpislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
-                <a href="https://account.xbox.com/en-us/profile?gamerTag=xXx%20I%20MADBOMB3R" target="_blank" class="social-link">
-                    <img src="/assets/images/xbox.svg" alt="Add Me xXx I MADBOMB3" class="social-link__img social-link__img--xbox">
-                    <p class="social-link__text social-link__text--xbox"> xXx I MADBOMB3R</p>
-                </a>
-            </div>
-
-            <div class="social-link-container">
-                <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
+                <a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
                     <img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                     <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
-                <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
+                <a href="https://github.com/jahidulpabelislam/" target="_blank" class="social-link">
                     <img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                     <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
+                </a>
+            </div>
+
+            <div class="social-link-container">
+                <a href="https://instagram.com/jahidulcodes/" target="_blank" class="social-link">
+                    <img src="/assets/images/instagram-black-white.png" alt="Follow Me @jahidulcodes" class="social-link__img social-link__img--instagram">
+                    <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
                 </a>
             </div>
 

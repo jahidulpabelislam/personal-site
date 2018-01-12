@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <a href="http://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png" alt="Logo of BrightMinded"></a>
+                            <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article-50">
                             <p>Recently joined BrightMinded as a Junior Web Developer in June 2017.</p>

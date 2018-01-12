@@ -1,8 +1,8 @@
                 <div class="social-links">
                     <div class="container">
-                        <h5 class="social-links__header">Ways to Contact Me!</h5>
-                        <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link "><img src="/assets/images/email.svg" alt="Email me" class="social-links__img social-link__img social-link__img--email"></a>
-                        <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
+                        <h5 class="social-links__header">Follow Me Here!</h5>
+                        <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link "><img src="/assets/images/instagram-black-white.png" alt="Email me" class="social-links__img social-link__img social-link__img--instagram"></a>
+                        <a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
                         <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
                     </div>
                 </div>
@@ -16,8 +16,8 @@
                 <div class="footer__links">
                     <p>
                         <a class="footer__link" href="/site-map.xml">Site Map</a>
-                        <a class="footer__link" href="http://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a>
-                        <a class="footer__link" href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
+                        <a class="footer__link" href="https://validator.w3.org/check?uri=referer" target="_blank">Valid HTML</a>
+                        <a class="footer__link" href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Valid CSS</a>
                     </p>
                 </div>
 

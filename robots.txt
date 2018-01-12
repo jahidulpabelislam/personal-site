@@ -1,3 +1,3 @@
 User-agent: *
 Disallow: /admin/
-Sitemap: http://jahidulpabelislam.comxa.com/site-map.xml
+Sitemap: https://jahidulpabelislam.000webhostapp.com/site-map.xml

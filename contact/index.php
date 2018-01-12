@@ -60,7 +60,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <h3 class="article__header">View my Linkedin profile.</h3>
                         </div>
                         <div class="article-50">
-                            <a href="http://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
+                            <a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                             </a>
