@@ -155,7 +155,7 @@
 }
 
 .nav__links > li.active > a {
-    background-color: colour(green, main);
+    background-color: colour(purple, main);
     color: white;
 }
 
@@ -195,6 +195,6 @@
     }
 
     .nav__links > li.active > a {
-        border-bottom-color: colour(green, main);
+        border-bottom-color: colour(purple, main);
     }
 }
