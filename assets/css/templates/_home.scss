@@ -14,6 +14,10 @@
     width: 100%;
 }
 
+#slide-show--projects-preview .slide-show__viewpoint {
+    height: 0;
+}
+
 #slide-show--projects-preview .slide-show__viewpoint:hover {
     @include box-shadow(none);
     cursor: initial;

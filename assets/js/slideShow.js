@@ -21,15 +21,25 @@ var autoSlide = {},
 
         var slidesContainer = $("#" + id + " .slide-show__slides-container");
 
-        widenSlideShow($("#" + id + " .slide-show__viewpoint"));
+        var viewpoint = $("#" + id + " .slide-show__viewpoint");
+
+        var currentSlide = $("#" + id + " .slide-show__slide-container.active");
+
+        widenSlideShow(viewpoint);
 
         slidesContainer.children().css("width", $("#" + id).innerWidth() + "px");
-        var position = $("#" + id + " .slide-show__slide-container.active").position();
+        var position = currentSlide.position();
 
         slidesContainer.css({
             "transitionDuration": "0s",
             "left": "-" + position["left"] + "px"
         });
+
+        if (id == "slide-show--projects-preview"){
+            viewpoint.css("transitionDuration", "0s");
+            viewpoint.height(currentSlide.children().filter(".slide").height());
+            viewpoint.css("transitionDuration", "1s");
+        }
 
         setTimeout(resetTransition, 100, slidesContainer);
     },
@@ -229,22 +239,15 @@ var autoSlide = {},
 
             $(id + " .js-move-slide, " + id + " .js-slide-show-bullets").show();
 
-            autoSlide[id] = setInterval(function() {
-                moveSlide(id, "next");
-            }, 5000);
+            setTimeout(function() {
+                moveToSlide(id, slideContainer.first());
+            }, 100);
 
             slideShowViewpoint[0].addEventListener("mousedown", dragStart);
             slideShowViewpoint[0].addEventListener("touchstart", dragStart);
         }
         else {
             $(id + " .js-move-slide, " + id + " .js-slide-show-bullets").hide();
-        }
-
-        slideContainer.first().addClass("active");
-        $(id + " .slide-show__bullet:first").addClass("active");
-
-        if (id == "#slide-show--projects-preview"){
-            $(id + " .slide-show__viewpoint").height(slideContainer.first().children().filter(".slide").height());
         }
     };
 

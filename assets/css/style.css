@@ -1536,6 +1536,9 @@ label {
   margin: 0;
   width: 100%; }
 
+#slide-show--projects-preview .slide-show__viewpoint {
+  height: 0; }
+
 #slide-show--projects-preview .slide-show__viewpoint:hover {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
