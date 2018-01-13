@@ -40,26 +40,6 @@
     background: $twitter;
 }
 
-.social-link__img--instagram {
-    background: white;
-    @include border-radius(13px);
-}
-
-.social-link:hover .social-link__text--instagram {
-    color: $instagram-purple;
-    text-decoration: underline;
-}
-
-.social-link:hover .social-link__img--instagram {
-    background-color: $instagram-purple;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $instagram-purple), color-stop(100%, $instagram-orange));
-    background: -webkit-linear-gradient(right top, $instagram-purple, $instagram-orange);
-    background: -moz-linear-gradient(bottom left, $instagram-purple, $instagram-orange);
-    background: -o-linear-gradient(bottom left, $instagram-purple, $instagram-orange);
-    background: -ms-linear-gradient(top, $instagram-purple 0%, $instagram-orange 100%);
-    background: linear-gradient(to bottom left, $instagram-purple, $instagram-orange);
-}
-
 .social-link__img--snapchat {
     width: 100%;
     height: auto;
@@ -92,6 +72,7 @@
     .social-links-page > .container {
         @include flexbox();
         @include flexboxCenterAlign();
+        @include flexboxJustifyCenter();
     }
 
     .social-link-container--snapchat {

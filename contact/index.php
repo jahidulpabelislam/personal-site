@@ -85,6 +85,20 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50">
                     <div class="container">
                         <div class="article-50">
+                            <h3 class="article__header">Follow what I get up to.</h3>
+                        </div>
+                        <div class="article-50">
+                            <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
+                                <span class="social-link__img social-link__img--instagram"><i></i></span>
+                                <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article article--50-50">
+                    <div class="container">
+                        <div class="article-50">
                             <a class="btn btn--blue" href="/projects/">View My Work</a>
                         </div>
 

@@ -49,7 +49,11 @@ table {
   border-spacing: 0; }
 
 /* For all devices */
-* {
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
@@ -661,7 +665,7 @@ label {
   color: #e1a02f; }
 
 .nav__links > li.active > a {
-  background-color: #5cb85c;
+  background-color: #80379b;
   color: white; }
 
 /* Only for Desktops */
@@ -684,7 +688,7 @@ label {
   .nav__links > li > a:hover {
     border-bottom-color: #e1a02f; }
   .nav__links > li.active > a {
-    border-bottom-color: #5cb85c; } }
+    border-bottom-color: #80379b; } }
 
 /* For all devices */
 .pagination.pagination {
@@ -930,13 +934,71 @@ label {
   height: 50px;
   margin: 15px 3px; }
 
+.social-links__img.social-link__img--instagram {
+  width: 50px;
+  -webkit-border-radius: 11.11px;
+  -moz-border-radius: 11.11px;
+  border-radius: 11.11px; }
+
+.social-links__img.social-link__img--instagram i {
+  width: 36.81px;
+  height: 36.81px;
+  border: 3.4px solid white;
+  -webkit-border-radius: 10.42px;
+  -moz-border-radius: 10.42px;
+  border-radius: 10.42px; }
+
+.social-links__img.social-link__img--instagram i::before {
+  width: 19.03px;
+  height: 19.03px;
+  border: 3.4px solid white;
+  -webkit-border-radius: 9.51px;
+  -moz-border-radius: 9.51px;
+  border-radius: 9.51px; }
+
+.social-links__img.social-link__img--instagram i::after {
+  top: 2.99px;
+  right: 2.99px;
+  width: 4.44px;
+  height: 4.44px;
+  -webkit-border-radius: 2.22px;
+  -moz-border-radius: 2.22px;
+  border-radius: 2.22px; }
+
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   .social-links__header {
     margin: 15px 0 10px 0; }
   .social-links__img.social-links__img {
     height: 60px;
-    margin: 20px 3px; } }
+    margin: 20px 3px; }
+  .social-links__img.social-link__img--instagram {
+    width: 60px;
+    -webkit-border-radius: 13.33px;
+    -moz-border-radius: 13.33px;
+    border-radius: 13.33px; }
+  .social-links__img.social-link__img--instagram i {
+    width: 44.16px;
+    height: 44.16px;
+    border: 4.08px solid white;
+    -webkit-border-radius: 12.5px;
+    -moz-border-radius: 12.5px;
+    border-radius: 12.5px; }
+  .social-links__img.social-link__img--instagram i::before {
+    width: 22.83px;
+    height: 22.83px;
+    border: 4.08px solid white;
+    -webkit-border-radius: 11.41px;
+    -moz-border-radius: 11.41px;
+    border-radius: 11.41px; }
+  .social-links__img.social-link__img--instagram i::after {
+    top: 3.58px;
+    right: 3.58px;
+    width: 5.33px;
+    height: 5.33px;
+    -webkit-border-radius: 2.66px;
+    -moz-border-radius: 2.66px;
+    border-radius: 2.66px; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -948,7 +1010,34 @@ label {
     margin: 20px 0 15px 0; }
   .social-links__img.social-links__img {
     height: 70px;
-    margin: 25px 5px; } }
+    margin: 25px 5px; }
+  .social-links__img.social-link__img--instagram {
+    width: 70px;
+    -webkit-border-radius: 15.55px;
+    -moz-border-radius: 15.55px;
+    border-radius: 15.55px; }
+  .social-links__img.social-link__img--instagram i {
+    width: 51.52px;
+    height: 51.52px;
+    border: 4.76px solid white;
+    -webkit-border-radius: 14.58px;
+    -moz-border-radius: 14.58px;
+    border-radius: 14.58px; }
+  .social-links__img.social-link__img--instagram i::before {
+    width: 26.63px;
+    height: 26.63px;
+    border: 4.76px solid white;
+    -webkit-border-radius: 13.31px;
+    -moz-border-radius: 13.31px;
+    border-radius: 13.31px; }
+  .social-links__img.social-link__img--instagram i::after {
+    top: 4.18px;
+    right: 4.18px;
+    width: 6.22px;
+    height: 6.22px;
+    -webkit-border-radius: 3.11px;
+    -moz-border-radius: 3.11px;
+    border-radius: 3.11px; } }
 
 /* For all devices */
 .social-link__img {
@@ -998,10 +1087,100 @@ label {
   color: #E52525;
   text-decoration: underline; }
 
+.social-link:hover .social-link__text--instagram {
+  color: #8a3ab9;
+  text-decoration: underline; }
+
+.social-link__img--instagram {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 8.88px;
+  -moz-border-radius: 8.88px;
+  border-radius: 8.88px;
+  background: black;
+  vertical-align: middle; }
+
+.social-link:hover .social-link__img--instagram {
+  background: -webkit-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -webkit-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
+  background: -moz-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -moz-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
+  background: -ms-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -ms-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
+  background: -o-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -o-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
+  background: radial-gradient(circle farthest-corner at 32% 106%, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), linear-gradient(135deg, #234bd7 12%, #c33cbe 58%); }
+
+.social-link__img--instagram i {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 29.44px;
+  height: 29.44px;
+  border: 2.72px solid white;
+  -webkit-border-radius: 8.33px;
+  -moz-border-radius: 8.33px;
+  border-radius: 8.33px; }
+
+.social-link__img--instagram i::before {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  width: 15.22px;
+  height: 15.22px;
+  border: 2.72px solid white;
+  -webkit-border-radius: 7.61px;
+  -moz-border-radius: 7.61px;
+  border-radius: 7.61px; }
+
+.social-link__img--instagram i::after {
+  content: "";
+  top: 2.38px;
+  right: 2.38px;
+  position: absolute;
+  width: 3.55px;
+  height: 3.55px;
+  background: white;
+  -webkit-border-radius: 1.77px;
+  -moz-border-radius: 1.77px;
+  border-radius: 1.77px; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .social-link__img {
-    height: 50px; } }
+    height: 50px; }
+  .social-link__img--instagram {
+    width: 50px;
+    -webkit-border-radius: 11.11px;
+    -moz-border-radius: 11.11px;
+    border-radius: 11.11px; }
+  .social-link__img--instagram i {
+    width: 36.81px;
+    height: 36.81px;
+    border: 3.4px solid white;
+    -webkit-border-radius: 10.42px;
+    -moz-border-radius: 10.42px;
+    border-radius: 10.42px; }
+  .social-link__img--instagram i::before {
+    width: 19.03px;
+    height: 19.03px;
+    border: 3.4px solid white;
+    -webkit-border-radius: 9.51px;
+    -moz-border-radius: 9.51px;
+    border-radius: 9.51px; }
+  .social-link__img--instagram i::after {
+    top: 2.99px;
+    right: 2.99px;
+    width: 4.44px;
+    height: 4.44px;
+    -webkit-border-radius: 2.22px;
+    -moz-border-radius: 2.22px;
+    border-radius: 2.22px; } }
 
 /* For all devices */
 .modal {
@@ -1536,26 +1715,6 @@ label {
 .social-link:hover .social-link__img--twitter {
   background: #55acee; }
 
-.social-link__img--instagram {
-  background: white;
-  -webkit-border-radius: 13px;
-  -moz-border-radius: 13px;
-  -ms-border-radius: 13px;
-  border-radius: 13px; }
-
-.social-link:hover .social-link__text--instagram {
-  color: #8a3ab9;
-  text-decoration: underline; }
-
-.social-link:hover .social-link__img--instagram {
-  background-color: #8a3ab9;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8a3ab9), color-stop(100%, #fbad50));
-  background: -webkit-linear-gradient(right top, #8a3ab9, #fbad50);
-  background: -moz-linear-gradient(bottom left, #8a3ab9, #fbad50);
-  background: -o-linear-gradient(bottom left, #8a3ab9, #fbad50);
-  background: -ms-linear-gradient(top, #8a3ab9 0%, #fbad50 100%);
-  background: linear-gradient(to bottom left, #8a3ab9, #fbad50); }
-
 .social-link__img--snapchat {
   width: 100%;
   height: auto;
@@ -1603,7 +1762,12 @@ label {
     -moz-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
-    align-items: center; }
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
   .social-link-container--snapchat {
     width: calc(33% - 10px);
     max-width: 200px;

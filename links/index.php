@@ -42,7 +42,7 @@
 
             <div class="social-link-container">
                 <a href="https://instagram.com/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/assets/images/instagram-black-white.png" alt="Follow Me @jahidulpabelislam" class="social-link__img social-link__img--instagram">
+                    <span class="social-link__img social-link__img--instagram"><i></i></span>
                     <p class="social-link__text social-link__text--instagram"> @jahidulpabelislam</p>
                 </a>
             </div>
@@ -71,7 +71,7 @@
 
             <div class="social-link-container">
                 <a href="https://instagram.com/jahidulcodes/" target="_blank" class="social-link">
-                    <img src="/assets/images/instagram-black-white.png" alt="Follow Me @jahidulcodes" class="social-link__img social-link__img--instagram">
+                    <span class="social-link__img social-link__img--instagram"><i></i></span>
                     <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
                 </a>
             </div>
