@@ -3,6 +3,11 @@
     background-image: url("/assets/images/working.jpg");
 }
 
+.image-of-me--home {
+    width: 66%;
+    max-width: 150px;
+}
+
 .main-hello {
     font-size: 28px;
     font-weight: bold;
@@ -62,8 +67,21 @@
     @include transform(scale(1));
 }
 
+/* Only for Tablets & Desktops */
+@media only screen and (min-width: $tablet) {
+    .image-of-me--home {
+        width: 50%;
+        max-width: 200px;
+    }
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
+    .image-of-me--home {
+        width: 25%;
+        max-width: 250px;
+    }
+
     #slide-show--projects-preview .slide-show__slide-container {
         display: flex;
     }
