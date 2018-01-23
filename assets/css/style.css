@@ -117,7 +117,7 @@ img {
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .container {
-    width: 950px; }
+    width: 1170px; }
   .article {
     padding: 40px 0; }
   .article__header {
