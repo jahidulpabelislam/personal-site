@@ -15,10 +15,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article">
                     <div class="container">
                         <p>I am a developer that develops in various types of software anything from websites to apps.</p>
-                        <p>I currently working as a Junior Web Developer at <a class="link" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at  <a class="link" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
-                        <p>I am based in West Sussex, down in the South Coast of England.</p>
-                        <p>Here you will be able to look at all my <a class="link" href="/projects">work</a> I have done over the last couple of years, <a class="link" href="/about">learn about me</a>, and <a class="link" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
-                        <p>So, have a look around my ever evolving portfolio.</p>
+                        <p>I currently working as a Junior Web Developer at <a class="link" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at the <a class="link" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
+                        <p>I reside in  <a class="link" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the South Coast of England.</p>
+                        <p>Here you will be able to look at all the <a class="link" href="/projects">work</a> I have done over the last couple of years, <a class="link" href="/about">learn about me</a>, and <a class="link" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
+                        <p>So, have a look at my ever-evolving portfolio.</p>
                     </div>
                 </div>
 
