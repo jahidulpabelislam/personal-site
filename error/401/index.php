@@ -1,12 +1,12 @@
 <?php
 
 //title of page to use
-$title = "Error 401 Unauthorized";
+$title = "401";
 
 //the description to use for page
-$description = "Error 401 Unauthorized message on the e-portfolio for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$description = "Error: 401 - Unauthorized message on the e-portfolio for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$description2 = "";
+$description2 = "Unauthorized";
 
 //the keywords to use for pages
 $keywords = "";
@@ -17,9 +17,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
                 <!-- Start Dynamic content for page -->
-                <div class="article">
+                <div class="article article--50-50 article--error">
                     <div class="container">
-                        <p>The web page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials</p>
+                        <div class="article-50">
+                            <img src="/assets/images/no-entry.png" alt="No entry sign">
+                        </div>
+                        <div class="article--50-50">
+                            <p>The page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials.</p>
+                        </div>
                     </div>
                 </div>
                 <!-- End dynamic content -->

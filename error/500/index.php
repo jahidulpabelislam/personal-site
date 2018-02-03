@@ -1,12 +1,12 @@
 <?php
 
 //title of page to use
-$title = "Error 500 Internal Server Error";
+$title = "500";
 
 //the description to use for page
-$description = "Error 500 Internal Server Error message on the e-portfolio for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$description = "Error: 500 - Internal Server Error message on the e-portfolio for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$description2 = "";
+$description2 = "Internal Server Error";
 
 //the keywords to use for page
 $keywords = "";
@@ -16,9 +16,17 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
 ?>
                 <!-- Start Dynamic content for page -->
-                <div class="article">
+                <div class="article article--50-50 article--error">
                     <div class="container">
-                        <p>The server couldn't follow your request and cannot be displayed. Either refresh the page or try again later.</p>
+                        <div class="article-50">
+                            <img src="/assets/images/oops.png" alt="Road sign with the words oops">
+                        </div>
+
+                        <div class="article-50">
+                            <p>The server couldn't follow your request and cannot be displayed.</p>
+                            <p>Either refresh the page or try again later.</p>
+                            <p>If not it's not you, its me!</p>
+                        </div>
                     </div>
                 </div>
                 <!-- End dynamic content -->
