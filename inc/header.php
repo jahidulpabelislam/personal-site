@@ -24,7 +24,7 @@
         <link rel="icon" href="/assets/images/favicon.png">
 
         <meta name="theme-color" content="#337ab7">
-        <title><?php echo $title ?> | Jahidul Pabel Islam</title>
+        <title><?php echo $page_title ?> | Jahidul Pabel Islam</title>
     </head>
 
     <body>
@@ -38,27 +38,27 @@
                         <span class="menu-bar menu-bar--middle"></span>
                         <span class="menu-bar menu-bar--bottom"></span>
                     </button>
-                    <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
-                    <a class="nav__brand nav__brand--text <?php if ($title == "Home") echo "current";?>" href="/">Jahidul Pabel Islam</a>
+                    <a class="nav__brand nav__brand--logo-container" href="/"><img class="nav__brand--logo <?php if ($page_title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+                    <a class="nav__brand nav__brand--text <?php if ($page_title == "Home") echo "current";?>" href="/">Jahidul Pabel Islam</a>
                 </div>
                 <div class="nav__links-container closed">
                     <ul class="nav__links">
-                        <li <?php if ($title == "Home") echo "class='active'"; ?> ><a href="/" title="Link to Home Page">Home</a></li>
-                        <li <?php if ($title == "Projects") echo "class='active'"; ?> ><a href="/projects/" title="Link to Projects Page">Projects</a></li>
-                        <li <?php if ($title == "Contact") echo "class='active'"; ?> ><a href="/contact/" title="Link to Contact Page">Contact</a></li>
-                        <li <?php if ($title == "About") echo "class='active'"; ?> ><a href="/about/" title="Link to About Page">About</a></li>
+                        <li <?php if ($page_title == "Home") echo "class='active'"; ?> ><a href="/" title="Link to Home Page">Home</a></li>
+                        <li <?php if ($page_title == "Projects") echo "class='active'"; ?> ><a href="/projects/" title="Link to Projects Page">Projects</a></li>
+                        <li <?php if ($page_title == "Contact") echo "class='active'"; ?> ><a href="/contact/" title="Link to Contact Page">Contact</a></li>
+                        <li <?php if ($page_title == "About") echo "class='active'"; ?> ><a href="/about/" title="Link to About Page">About</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron jumbotron--<?php echo strtolower($title);?>">
+        <header class="jumbotron jumbotron--<?php echo strtolower($page_title);?>">
             <div class="jumbotron__overlay">
                 <div class="container">
-                    <h1 class="jumbotron__title"><?php echo $title ?></h1>
+                    <h1 class="jumbotron__title"><?php echo $header_title ?></h1>
                     <hr class="jumbotron__line-breaker">
-                    <p class="jumbotron__desc"><?php echo $description2 ?></p>
+                    <p class="jumbotron__desc"><?php echo $header_description ?></p>
                     <img src="/assets/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
                 </div>
             </div>

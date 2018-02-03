@@ -1,8 +1,9 @@
 <?php
-$title = "About";
+$page_title = "About";
+$header_title = "About Me";
 $keywords = "";
-$description = "Some General Information About Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$description2 = "Find Out General Information About Me.";
+$description = "Some Information About Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$header_description = "Find Out About Me";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
