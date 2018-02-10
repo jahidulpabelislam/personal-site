@@ -33,7 +33,7 @@ var renderProjectsPreviewError = function(error) {
         if (project.Link) {
             createElement(projectLinks, "a", {
                 href: project.Link,
-                innerHTML: "View",
+                innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                 class: "btn btn--clear",
                 target: "_blank"
             });
@@ -41,7 +41,7 @@ var renderProjectsPreviewError = function(error) {
 
         createElement(projectLinks, "a", {
             href: project.GitHub,
-            innerHTML: "GitHub",
+            innerHTML: "<i class='fa fa-github fa-2x'></i>",
             class: "btn btn--clear",
             target: "_blank"
         });

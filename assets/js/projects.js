@@ -37,7 +37,7 @@ var url = new URL(window.location),
                 href: project.Link,
                 title: "Link to " + project.Name + " Site",
                 target: "_blank",
-                innerHTML: "View",
+                innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                 class: "project__link project__link--" + project.Colour
             });
         }
@@ -47,7 +47,7 @@ var url = new URL(window.location),
                 href: project.Download,
                 title: "Link to Download " + project.Name,
                 target: "_blank",
-                innerHTML: "Download",
+                innerHTML: "<i class='fa fa-download fa-2x'></i>",
                 class: "project__link project__link--" + project.Colour
             });
         }
@@ -56,7 +56,7 @@ var url = new URL(window.location),
             href: project.GitHub,
             title: "Link to " + project.Name + "  Code On GitHub",
             target: "_blank",
-            innerHTML: "GitHub",
+            innerHTML: "<i class='fa fa-github fa-2x'></i>",
             class: "project__link project__link--" + project.Colour
         });
     },

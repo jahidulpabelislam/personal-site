@@ -39,11 +39,11 @@ button, [type=button], [type=submit] {
 
 .btn--clear {
     background-color: transparent;
-    border-color: white;
+    border-color: transparent;
 }
 
 .btn--clear:hover, .btn--clear:focus, .btn--clear:active, .btn--clear:active:hover, .btn--clear:active:focus {
-    background-color: white;
+    background-color: transparent;
     color: $dark;
 }
 

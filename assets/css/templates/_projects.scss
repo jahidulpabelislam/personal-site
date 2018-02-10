@@ -83,42 +83,33 @@
     margin-top: 20px;
 }
 
+.project__link {
+    position: relative;
+    color: $primary-color;
+    display: inline-block;
+    margin-right: 10px;
+}
+
 .project__link:after {
-    content: "|";
-    color: $dark;
+    content: "";
     margin: 0 4px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $grey;
+}
+
+.project__link:last-child {
+    margin-right: 0;
 }
 
 .project__link:last-child:after {
     content: none;
 }
 
-.project__link {
-    position: relative;
-    color: $primary-color;
-}
-
-.project__link:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    width: calc(100% - 10px);
-    border-bottom: transparent solid 1px;
-    @include transition(.3s);
-}
-
 .project__link:hover {
     color: darken($primary-color, 15%);
-}
-
-.project__link:hover:before {
-    border-bottom-color: darken($primary-color, 15%);
-}
-
-.project__link:last-child:before {
-    width: 100%;
 }
 
 @each $color, $colors in $colors {
@@ -128,9 +119,6 @@
 
     .project__link--#{$color}:hover {
         color: map-get($colors, hover);
-    }
-    .project__link--#{$color}:hover:before {
-        border-bottom-color: map-get($colors, hover);
     }
 }
 
@@ -203,6 +191,16 @@
 
 .expanded-image-slide-show__counter span {
     font-weight: 700;
+}
+
+.project__read-more {
+    padding: 5px;
+    border-radius: 30px;
+    margin-top: 0;
+}
+
+.read-more__icon {
+    margin-left: 4px;
 }
 
 /* For Tablets & Desktops */
