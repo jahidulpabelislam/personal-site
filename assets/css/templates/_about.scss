@@ -40,3 +40,181 @@
 .image-of-me {
     @include border-radius(50%);
 }
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: $light-grey;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    margin-left: -3px;
+    border-radius: 50%;
+}
+
+.timeline__item {
+    position: relative;
+    padding: 10px 30px;
+    padding-left: 60px;
+    padding-right: 25px;
+    text-align: left;
+}
+
+.timeline-item__content {
+    padding: 5px;
+    background-color: $light;
+    position: relative;
+    @include box-shadow(0 0 10px 0 transparentize($grey, .8));
+    border: 1px solid $light;
+    @include border-radius(5px);
+    text-align: left;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.timeline-item__content::before {
+    content: " ";
+    position: absolute;
+    width: 0;
+    left: -10px;
+    border: medium solid $light;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent $light transparent transparent;
+    top: 50%;
+    margin-top: -10px;
+    z-index: 1;
+}
+
+.timeline-item__content::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: 4px solid $grey;
+    top: 50%;
+    margin-top: -10px;
+    border-radius: 50%;
+    z-index: 1;
+    left: -42px;
+    font-family: FontAwesome;
+    font-size: 14px;
+    line-height: 22px;
+    color: $grey;
+    text-align: center;
+}
+
+.timeline-item__content--school::after {
+    content: "\f19d";
+}
+
+.timeline-item__content--coding::after {
+    content: "\f121";
+}
+
+.timeline-item__content--baby::after {
+    content: "\f1a1";
+}
+
+.timeline-item__content--work::after {
+    content: "\f108";
+}
+
+.timeline-item__content--football::after {
+    content: "\f1e3";
+}
+
+.timelime-item__content--childhood::after {
+    content: "\f1b3";
+}
+
+.timeline-item__content--food::after {
+    content: "\f0f5";
+}
+
+.timeline-item__content--film::after {
+    content: "\f008";
+}
+
+.timeline__item--active .timeline-item__content::after {
+    color: colour(orange, main);
+    border-color: colour(orange, main);
+    @include box-shadow(0 0 10px 0 colour(orange, main));
+}
+
+.timeline-item__content p {
+    margin: 0;
+}
+
+.timeline__date {
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: $tablet) {
+    .timeline::after {
+        left: 50%;
+    }
+
+    .timeline__item {
+        padding: 10px 40px;
+        width: 50%;
+    }
+
+    .timeline__item:nth-child(even) {
+        text-align: right;
+    }
+
+    .timeline__item:nth-child(odd) {
+        margin-left: 50%;
+    }
+
+    .timeline-item__content::after {
+        width: 34px;
+        height: 34px;
+        border-bottom-width: 4px;
+        left: 17px;
+        line-height: 28px;
+        font-size: 18px;
+    }
+
+    .timeline__item:nth-child(even) .timeline-item__content::before {
+        right: -12px;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent $light;
+        left: auto;
+    }
+
+    .timeline__item:nth-child(odd) .timeline-item__content::before {
+        left: -12px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent $light transparent transparent;
+    }
+
+    .timeline__item:nth-child(even) .timeline-item__content::after {
+        right: -58px;
+        left: auto;
+        margin-top: -17px;
+    }
+
+    .timeline__item:nth-child(odd) .timeline-item__content::after {
+        left: -58px;
+        margin-top: -17px;
+    }
+
+    .timeline-item__content {
+        max-width: 75%;
+    }
+
+    .timeline__item:nth-child(even) .timeline-item__content {
+        text-align: right;
+    }
+}
