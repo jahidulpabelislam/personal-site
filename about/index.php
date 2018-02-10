@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article-50">
-                            <p>Recently joined  <a class="link" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
+                            <p>Recently joined <a class="link--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.gif" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="article-50">
-                            <p>Graduated from <a class="link" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
+                            <p>Graduated from <a class="link--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
                         </div>
                     </div>
                 </div>

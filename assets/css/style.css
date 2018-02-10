@@ -175,6 +175,54 @@ a {
   color: #024469;
   border-bottom-color: #024469; }
 
+.link--blue {
+  color: #0375b4;
+  border-bottom: transparent solid 1px; }
+
+.link--blue:hover {
+  color: #035691;
+  border-bottom-color: #035691; }
+
+.link--red {
+  color: #e52525;
+  border-bottom: transparent solid 1px; }
+
+.link--red:hover {
+  color: #c32424;
+  border-bottom-color: #c32424; }
+
+.link--orange {
+  color: #e1a02f;
+  border-bottom: transparent solid 1px; }
+
+.link--orange:hover {
+  color: #d2922e;
+  border-bottom-color: #d2922e; }
+
+.link--lime-green {
+  color: #b5c82f;
+  border-bottom: transparent solid 1px; }
+
+.link--lime-green:hover {
+  color: #a6b930;
+  border-bottom-color: #a6b930; }
+
+.link--green {
+  color: #5cb85c;
+  border-bottom: transparent solid 1px; }
+
+.link--green:hover {
+  color: #54a754;
+  border-bottom-color: #54a754; }
+
+.link--purple {
+  color: #80379b;
+  border-bottom: transparent solid 1px; }
+
+.link--purple:hover {
+  color: #62357d;
+  border-bottom-color: #62357d; }
+
 a > img {
   opacity: .9;
   -webkit-transition: all 0.3s ease-in-out;

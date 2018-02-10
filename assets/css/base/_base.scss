@@ -29,6 +29,19 @@ a {
     border-bottom-color: darken($primary-color, 15%);
 }
 
+@each $color, $colors in $colors {
+    .link--#{$color} {
+        color: map-get($colors, main);
+        border-bottom: transparent solid 1px;
+    }
+
+    .link--#{$color}:hover {
+        color: map-get($colors, hover);
+        border-bottom-color: map-get($colors, hover);
+    }
+}
+
+
 a > img {
     opacity: .9;
     @include transition(.3s);
