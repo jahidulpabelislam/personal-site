@@ -3,7 +3,7 @@ $page_title = "Contact";
 $header_title = "Contact Me";
 $keywords = "";
 $description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$header_description = "Send Your Feedback &amp; Enquires My Way.";
+$header_description = "Send Your Feedback &amp; Enquires My Way";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">

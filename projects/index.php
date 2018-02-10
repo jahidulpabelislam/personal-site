@@ -3,7 +3,7 @@ $page_title = "Projects";
 $header_title = "My Projects";
 $keywords = "";
 $description = "Look at the Previous Projects of Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England has done before.";
-$header_description = "See My Skills in Action in My Previous Projects.";
+$header_description = "See My Skills in Action in My Previous Projects";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
