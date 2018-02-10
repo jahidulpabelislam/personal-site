@@ -1332,6 +1332,9 @@ label {
   padding-right: 25px;
   text-align: left; }
 
+.timeline__item:last-child {
+  padding-bottom: 0; }
+
 .timeline-item__content {
   padding: 8px;
   background-color: #eee;
