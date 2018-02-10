@@ -48,7 +48,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
                         <div class="article-50">
-                            <p>Based in <a class="link" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
+                            <p>Based in <a class="link--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link--orange" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
                         </div>
                     </div>
                 </div>
@@ -64,50 +64,43 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--about">
                     <div class="container">
-                        <div class="article-50">
-                            <h3 class="article__header">Skills</h3>
-                        </div>
+                        <h3 class="article__header">Skills</h3>
 
-                        <div class="article-50">
-                            <ul class="about__skills">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
-                                <li>Node.js</li>
-                                <li>NoSQL</li>
-                                <li>JQuery</li>
-                                <li>PHP</li>
-                                <li>SQL</li>
-                                <li>PDO</li>
-                                <li>Java</li>
-                                <li>Python</li>
-                                <li>Visual Basic</li>
-                                <li>GitHub</li>
-                                <li>Microsoft Office</li>
-                                <li>Team Player</li>
-                                <li>Communication</li>
-                                <li>Hard Worker</li>
-                            </ul>
-                        </div>
+                        <ul class="about__skills">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Node.js</li>
+                            <li>NoSQL</li>
+                            <li>JQuery</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                            <li>PDO</li>
+                            <li>Java</li>
+                            <li>Python</li>
+                            <li>Visual Basic</li>
+                            <li>GitHub</li>
+                            <li>Microsoft Office</li>
+                            <li>Team Player</li>
+                            <li>Communication</li>
+                            <li>Hard Worker</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--about">
                     <div class="container">
-                        <div class="article-50">
-                            <h3 class="article__header">Interests</h3>
-                        </div>
-                        <div class="article-50">
-                            <ul class="about__interests">
-                                <li>Sports</li>
-                                <li>Gaming</li>
-                                <li>Programming</li>
-                                <li>Photography</li>
-                                <li>Fashion</li>
-                            </ul>
-                        </div>
+                        <h3 class="article__header">Interests</h3>
+
+                        <ul class="about__interests">
+                            <li>Sports</li>
+                            <li>Gaming</li>
+                            <li>Programming</li>
+                            <li>Photography</li>
+                            <li>Fashion</li>
+                        </ul>
                     </div>
                 </div>
 
