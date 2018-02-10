@@ -51,7 +51,7 @@
     content: '';
     position: absolute;
     width: 6px;
-    background-color: $light-grey;
+    background-color: colour(orange, main);
     top: 0;
     bottom: 0;
     left: 30px;
@@ -68,11 +68,11 @@
 }
 
 .timeline-item__content {
-    padding: 5px;
-    background-color: $light;
+    padding: 8px;
+    background-color: $light-grey;
     position: relative;
-    @include box-shadow(0 0 10px 0 transparentize($grey, .8));
-    border: 1px solid $light;
+    @include box-shadow(0 0 10px 0 transparentize($grey, .9));
+    border: 1px solid $light-grey;
     @include border-radius(5px);
     text-align: left;
     display: inline-block;
@@ -84,9 +84,9 @@
     position: absolute;
     width: 0;
     left: -10px;
-    border: medium solid $light;
+    border: medium solid $light-grey;
     border-width: 10px 10px 10px 0;
-    border-color: transparent $light transparent transparent;
+    border-color: transparent $light-grey transparent transparent;
     top: 50%;
     margin-top: -10px;
     z-index: 1;
@@ -103,7 +103,7 @@
     margin-top: -10px;
     border-radius: 50%;
     z-index: 1;
-    left: -42px;
+    left: -45px;
     font-family: FontAwesome;
     font-size: 14px;
     line-height: 22px;
