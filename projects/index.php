@@ -89,7 +89,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="project__skills"></div>
                         <div class="description">{{ShortDescription}}</div>
                         <p class="project__links"></p>
-                        <button class="btn btn--{{Colour}} js-open-modal project__read-more">Read More <i class='fa fa-arrow-circle-right read-more__icon'></i></button>
+                        <button class="btn btn--{{Colour}} js-open-modal project__read-more project__read-more--{{Colour}}">Read More</button>
                         <div id="slide-show--{{ID}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
                                 <div class="slide-show__slides-container"></div>
