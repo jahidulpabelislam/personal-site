@@ -53,6 +53,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
+                <div class="article article--map">
+                    <div class="map" id="map"></div>
+                </div>
+
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
@@ -177,6 +181,44 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                     </div>
                 </div>
+
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg"></script>
+
+            <script>
+                var style = <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/assets/map-styling.json'); ?>;
+
+                var initMap = function () {
+                    var lat = 50.7801247;
+                    var lng = -0.6598572;
+
+                    var bognorRegis = new google.maps.LatLng(lat, lng);
+                    var zoom = 12;
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: bognorRegis,
+                        zoom: zoom,
+                        zoomControl: true,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        streetViewControl: false,
+                        rotateControl: false,
+                        fullscreenControl: false,
+                        styles: style
+                    });
+
+                    var bognorRegisMarker = new google.maps.Marker({
+                        position: bognorRegis,
+                        map: map
+                    });
+                    
+                    google.maps.event.addDomListener(window, 'resize', function() {
+                        map.setCenter(bognorRegis);
+                    });
+                };
+
+                google.maps.event.addDomListener(window, 'load', initMap);
+            </script>
 
 
 <?php

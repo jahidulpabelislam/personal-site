@@ -1309,6 +1309,13 @@ label {
   -ms-border-radius: 50%;
   border-radius: 50%; }
 
+.article--map {
+  padding: 0; }
+
+.map {
+  height: 200px;
+  width: 100%; }
+
 .timeline {
   position: relative;
   max-width: 1200px;
@@ -1423,6 +1430,8 @@ label {
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
+  .map {
+    height: 250px; }
   .timeline::after {
     left: 50%; }
   .timeline__item {

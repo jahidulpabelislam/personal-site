@@ -41,6 +41,15 @@
     @include border-radius(50%);
 }
 
+.article--map {
+    padding: 0;
+}
+
+.map {
+    height: 200px;
+    width: 100%;
+}
+
 .timeline {
     position: relative;
     max-width: 1200px;
@@ -164,6 +173,11 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
+    .map {
+        height: 250px;
+    }
+
+
     .timeline::after {
         left: 50%;
     }
