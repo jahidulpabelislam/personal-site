@@ -7,8 +7,8 @@
     padding-left: 0;
 }
 
-.about__skills li {
-    border: 1px solid $primary-color;
+.label {
+    border: 1px solid colour(blue, hover);
     @include border-radius(5px);
     padding: 5px;
     display: inline-block;
@@ -19,13 +19,11 @@
     cursor: auto;
 }
 
-.about__interests li {
-    background-color: colour(green, main);
-    @include border-radius(5px);
-    padding: 5px;
-    color: white;
-    display: inline-block;
-    margin: 2px;
+@each $color, $colors in $colors {
+    .label--#{$color} {
+        background-color: map-get($colors, main);
+        border: 1px solid map-get($colors, hover);
+    }
 }
 
 .article--about {

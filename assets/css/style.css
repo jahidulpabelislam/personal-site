@@ -1268,8 +1268,8 @@ label {
 .about__skills.about__skills, .about__interests.about__interests {
   padding-left: 0; }
 
-.about__skills li {
-  border: 1px solid #0375b4;
+.label {
+  border: 1px solid #035691;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1285,16 +1285,29 @@ label {
   color: white;
   cursor: auto; }
 
-.about__interests li {
+.label--blue {
+  background-color: #0375b4;
+  border: 1px solid #035691; }
+
+.label--red {
+  background-color: #e52525;
+  border: 1px solid #c32424; }
+
+.label--orange {
+  background-color: #e1a02f;
+  border: 1px solid #d2922e; }
+
+.label--lime-green {
+  background-color: #b5c82f;
+  border: 1px solid #a6b930; }
+
+.label--green {
   background-color: #5cb85c;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  padding: 5px;
-  color: white;
-  display: inline-block;
-  margin: 2px; }
+  border: 1px solid #54a754; }
+
+.label--purple {
+  background-color: #80379b;
+  border: 1px solid #62357d; }
 
 .article--about {
   font-weight: 700; }

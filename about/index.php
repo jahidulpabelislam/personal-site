@@ -70,26 +70,35 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article article--about">
                     <div class="container">
-                        <h3 class="article__header">Skills</h3>
+                        <h3 class="article__header">Technical Skills</h3>
 
                         <ul class="about__skills">
-                            <li>HTML</li>
-                            <li>CSS</li>
-                            <li>JavaScript</li>
-                            <li>Node.js</li>
-                            <li>NoSQL</li>
-                            <li>JQuery</li>
-                            <li>PHP</li>
-                            <li>SQL</li>
-                            <li>PDO</li>
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>Visual Basic</li>
-                            <li>GitHub</li>
-                            <li>Microsoft Office</li>
-                            <li>Team Player</li>
-                            <li>Communication</li>
-                            <li>Hard Worker</li>
+                            <li class="label label--blue">HTML</li>
+                            <li class="label label--blue">CSS</li>
+                            <li class="label label--blue">JavaScript</li>
+                            <li class="label label--blue">Node.js</li>
+                            <li class="label label--blue">NoSQL</li>
+                            <li class="label label--blue">JQuery</li>
+                            <li class="label label--blue">PHP</li>
+                            <li class="label label--blue">SQL</li>
+                            <li class="label label--blue">PDO</li>
+                            <li class="label label--blue">Java</li>
+                            <li class="label label--blue">Python</li>
+                            <li class="label label--blue">Visual Basic</li>
+                            <li class="label label--blue">GitHub</li>
+                            <li class="label label--blue">Microsoft Office</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="article article--about">
+                    <div class="container">
+                        <h3 class="article__header">Other Skills</h3>
+
+                        <ul class="about__skills">
+                            <li class="label label--purple">Team Player</li>
+                            <li class="label label--purple">Communication</li>
+                            <li class="label label--purple">Hard Worker</li>
                         </ul>
                     </div>
                 </div>
@@ -99,11 +108,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h3 class="article__header">Interests</h3>
 
                         <ul class="about__interests">
-                            <li>Sports</li>
-                            <li>Gaming</li>
-                            <li>Programming</li>
-                            <li>Photography</li>
-                            <li>Fashion</li>
+                            <li class="label label--green">Sports</li>
+                            <li class="label label--green">Gaming</li>
+                            <li class="label label--green">Programming</li>
+                            <li class="label label--green">Photography</li>
+                            <li class="label label--green">Fashion</li>
                         </ul>
                     </div>
                 </div>
