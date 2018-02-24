@@ -151,7 +151,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <div class="timeline__item">
                                 <h2 class="timeline__date">2005 - 2009</h2>
                                 <div class="timeline-item__content timeline-item__content--football">
-                                    <p>Playing for a Competitive Football Team</p>
+                                    <p>Playing for a Competitive Football Team @ <a class="link--orange" href="http://www.felphamcolts.com/" title="Link to Felpham Colts website." target="_blank">Felpham Colts</a> </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
@@ -211,7 +211,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         position: bognorRegis,
                         map: map
                     });
-                    
+
                     google.maps.event.addDomListener(window, 'resize', function() {
                         map.setCenter(bognorRegis);
                     });
