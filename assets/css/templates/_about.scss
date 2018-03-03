@@ -19,6 +19,10 @@
     cursor: auto;
 }
 
+.label.label {
+    margin: 2px;
+}
+
 @each $color, $colors in $colors {
     .label--#{$color} {
         background-color: map-get($colors, main);

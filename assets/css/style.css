@@ -1283,6 +1283,9 @@ label {
   color: white;
   cursor: auto; }
 
+.label.label {
+  margin: 2px; }
+
 .label--blue {
   background-color: #0375b4;
   border: 1px solid #035691; }
