@@ -6,31 +6,31 @@ $description = "Some Information About Jahidul Pabel Islam, a Web and Software D
 $header_description = "Find Out About Me";
 
 $tech_skills = array(
-   "HTML",
-   "CSS",
-   "JavaScript",
-   "PHP",
-   "SQL",
-   "NoSQL",
-   "Java",
-   "Python",
-   "Visual Basic",
-   "DVCS",
-   "Microsoft Office"
+    array("text" => "HTML", "desc" => "HTML5 & HTML4"),
+    array("text" => "CSS", "desc" => "CSS3, SCSS"),
+    array("text" => "JavaScript", "desc" => "Node.js, JQuery"),
+    array("text" => "PHP", "desc" => "PDO"),
+    array("text" => "SQL", "desc" => "MySQL"),
+    array("text" => "NoSQL", "desc" => "Amazon DynamoDB"),
+    array("text" => "Java"),
+    array("text" => "Python"),
+    array("text" => "Visual Basic"),
+    array("text" => "DVCS", "desc" => "Used Git (GitHub) for managing uni and personal projects & Mercurial (Bitbucket) for projects within work"),
+    array("text" => "Microsoft Office", "desc" => "I have used Excel to create and use College/Uni grading systems and financial record system, Word, Powerpoint (Also recently move some work to Google Sheets, Docs & Slides)")
 );
 
 $other_skills = array(
-   "Team Player",
-   "Communication",
-   "Hard Worker"
+    array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
+    array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good communicational skills both written and spoken"),
+    array("text" => "Hard Worker")
 );
 
 $interests = array(
-   "Sports",
-   "Gaming",
-   "Programming",
-   "Photography",
-   "Fashion"
+    array("text" => "Sports"),
+    array("text" => "Gaming"),
+    array("text" => "Programming"),
+    array("text" => "Photography"),
+    array("text" => "Fashion")
 );
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
@@ -105,7 +105,15 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <?php
                             foreach ($tech_skills as $skill)
                             {
-                                echo '<li class="label label--blue">' . $skill . '</li>';
+                                $skill_text = $skill["text"];
+                                $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
+
+                                echo '<li class="label label--blue">';
+                                echo $skill_text;
+
+                                if ($skill_desc)
+                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                echo '</li>';
                             }
                             ?>
                         </ul>
@@ -120,7 +128,15 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <?php
                             foreach ($other_skills as $skill)
                             {
-                                echo '<li class="label label--purple">' . $skill . '</li>';
+                                $skill_text = $skill["text"];
+                                $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
+
+                                echo '<li class="label label--purple">';
+                                echo $skill_text;
+
+                                if ($skill_desc)
+                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                echo '</li>';
                             }
                             ?>
                         </ul>
@@ -136,7 +152,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <?php
                             foreach ($interests as $interest)
                             {
-                                echo '<li class="label label--green">' . $interest . '</li>';
+                                $interest_text = $interest["text"];
+                                $interest_desc = (isset($interest["desc"])) ? $interest["desc"] : false;
+
+                                echo '<li class="label label--green">';
+                                echo $interest_text;
+
+                                if ($interest_desc)
+                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $interest_desc . '</div>';
+
+                                echo '</li>';
                             }
                             ?>
 

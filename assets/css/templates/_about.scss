@@ -30,6 +30,15 @@
     }
 }
 
+.label__expand-icon {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.label__more_content {
+    display: none;
+}
+
 .article--about {
     font-weight: 700;
 }

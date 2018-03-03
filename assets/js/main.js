@@ -53,4 +53,17 @@ $(document).on("ready", function() {
             scrollTop: jQuery("section").offset().top - jQuery(".nav").height()
         }, 1000);
     });
+
+    $(".js-expand-label").on("click", function() {
+        var selected = $(this).siblings(".label__more_content"); // Get the new label that was clicked
+
+        // Reset all other label to closed
+        $(".label__more_content").not(selected).slideUp();
+        $(".js-expand-label").not($(this)).addClass("fa-plus").removeClass("fa-minus");
+
+        //Toggle the clicked label
+        $(this).toggleClass("fa-plus");
+        $(this).toggleClass("fa-minus");
+        selected.slideToggle();
+    });
 });
