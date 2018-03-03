@@ -4,6 +4,35 @@ $header_title = "About Me";
 $keywords = "";
 $description = "Some Information About Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $header_description = "Find Out About Me";
+
+$tech_skills = array(
+   "HTML",
+   "CSS",
+   "JavaScript",
+   "PHP",
+   "SQL",
+   "NoSQL",
+   "Java",
+   "Python",
+   "Visual Basic",
+   "DVCS",
+   "Microsoft Office"
+);
+
+$other_skills = array(
+   "Team Player",
+   "Communication",
+   "Hard Worker"
+);
+
+$interests = array(
+   "Sports",
+   "Gaming",
+   "Programming",
+   "Photography",
+   "Fashion"
+);
+
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
@@ -73,20 +102,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h3 class="article__header">Technical Skills</h3>
 
                         <ul class="about__skills">
-                            <li class="label label--blue">HTML</li>
-                            <li class="label label--blue">CSS</li>
-                            <li class="label label--blue">JavaScript</li>
-                            <li class="label label--blue">Node.js</li>
-                            <li class="label label--blue">NoSQL</li>
-                            <li class="label label--blue">JQuery</li>
-                            <li class="label label--blue">PHP</li>
-                            <li class="label label--blue">SQL</li>
-                            <li class="label label--blue">PDO</li>
-                            <li class="label label--blue">Java</li>
-                            <li class="label label--blue">Python</li>
-                            <li class="label label--blue">Visual Basic</li>
-                            <li class="label label--blue">GitHub</li>
-                            <li class="label label--blue">Microsoft Office</li>
+                            <?php
+                            foreach ($tech_skills as $skill)
+                            {
+                                echo '<li class="label label--blue">' . $skill . '</li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -96,9 +117,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h3 class="article__header">Other Skills</h3>
 
                         <ul class="about__skills">
-                            <li class="label label--purple">Team Player</li>
-                            <li class="label label--purple">Communication</li>
-                            <li class="label label--purple">Hard Worker</li>
+                            <?php
+                            foreach ($other_skills as $skill)
+                            {
+                                echo '<li class="label label--purple">' . $skill . '</li>';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -108,11 +132,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h3 class="article__header">Interests</h3>
 
                         <ul class="about__interests">
-                            <li class="label label--green">Sports</li>
-                            <li class="label label--green">Gaming</li>
-                            <li class="label label--green">Programming</li>
-                            <li class="label label--green">Photography</li>
-                            <li class="label label--green">Fashion</li>
+
+                            <?php
+                            foreach ($interests as $interest)
+                            {
+                                echo '<li class="label label--green">' . $interest . '</li>';
+                            }
+                            ?>
+
                         </ul>
                     </div>
                 </div>
