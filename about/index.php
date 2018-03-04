@@ -108,11 +108,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 $skill_text = $skill["text"];
                                 $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                echo '<li class="label label--blue">';
+                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+
+                                echo '<li class="label label--blue ' . $expand_class .'">';
                                 echo $skill_text;
 
                                 if ($skill_desc)
-                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
                                 echo '</li>';
                             }
                             ?>
@@ -131,11 +133,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 $skill_text = $skill["text"];
                                 $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                echo '<li class="label label--purple">';
+                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+
+                                echo '<li class="label label--purple ' . $expand_class .'">';
                                 echo $skill_text;
 
                                 if ($skill_desc)
-                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
                                 echo '</li>';
                             }
                             ?>
@@ -155,11 +159,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 $interest_text = $interest["text"];
                                 $interest_desc = (isset($interest["desc"])) ? $interest["desc"] : false;
 
-                                echo '<li class="label label--green">';
+                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+
+                                echo '<li class="label label--green ' . $expand_class .'">';
                                 echo $interest_text;
 
                                 if ($interest_desc)
-                                    echo ' <span class="fa fa-plus js-expand-label label__expand-icon"></span><div class="label__more_content">' . $interest_desc . '</div>';
+                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $interest_desc . '</div>';
 
                                 echo '</li>';
                             }

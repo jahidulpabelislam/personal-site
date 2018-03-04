@@ -1310,9 +1310,11 @@ label {
   background-color: #80379b;
   border: 1px solid #62357d; }
 
-.label__expand-icon {
-  vertical-align: middle;
+.js-expand-label {
   cursor: pointer; }
+
+.label__expand-icon {
+  vertical-align: middle; }
 
 .label__more_content {
   display: none; }

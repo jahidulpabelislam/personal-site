@@ -55,15 +55,16 @@ $(document).on("ready", function() {
     });
 
     $(".js-expand-label").on("click", function() {
-        var selected = $(this).siblings(".label__more_content"); // Get the new label that was clicked
+        var selected = $(this).children(".label__more_content"); // Get the new label that was clicked
+        var selected_icon = $(this).children(".label__expand-icon");
 
         // Reset all other label to closed
         $(".label__more_content").not(selected).slideUp();
-        $(".js-expand-label").not($(this)).addClass("fa-plus").removeClass("fa-minus");
+        $(".label__expand-icon").not(selected_icon).addClass("fa-plus").removeClass("fa-minus");
 
         //Toggle the clicked label
-        $(this).toggleClass("fa-plus");
-        $(this).toggleClass("fa-minus");
+        selected_icon.toggleClass("fa-plus");
+        selected_icon.toggleClass("fa-minus");
         selected.slideToggle();
     });
 });
