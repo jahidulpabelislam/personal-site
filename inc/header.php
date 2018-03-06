@@ -23,7 +23,7 @@
         <!-- the favicon for browsers -->
         <link rel="icon" href="/assets/images/favicon.png">
 
-        <meta name="theme-color" content="#337ab7">
+        <meta name="theme-color" content="#0375b4">
         <title><?php echo $page_title ?> | Jahidul Pabel Islam</title>
     </head>
 
