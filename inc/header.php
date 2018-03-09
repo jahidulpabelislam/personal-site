@@ -29,7 +29,7 @@
 
     <body>
 
-        <nav class="nav">
+        <nav class="nav nav--<?php echo $nav_tint; ?>">
             <div class="container">
                 <div class="nav__mobile-header">
                     <button type="button" class="nav__links__toggle">

@@ -5,6 +5,8 @@ $keywords = "";
 $description = "Some Information About Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $header_description = "Find Out About Me";
 
+$nav_tint = "light";
+
 $tech_skills = array(
     array("text" => "HTML", "desc" => "HTML5 & HTML4"),
     array("text" => "CSS", "desc" => "CSS3, SCSS"),
