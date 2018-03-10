@@ -562,7 +562,6 @@ label {
 
 .nav {
   z-index: 2;
-  background-color: rgba(51, 51, 51, 0.15);
   margin: 0 -15px;
   position: fixed;
   left: 0;
@@ -572,6 +571,12 @@ label {
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out; }
+
+.nav--light {
+  background-color: rgba(255, 255, 255, 0.08); }
+
+.nav--dark {
+  background-color: rgba(51, 51, 51, 0.2); }
 
 .nav.scrolled, .nav.opened {
   -webkit-box-shadow: 0 0 10px 0 #333;
@@ -1317,7 +1322,8 @@ label {
   vertical-align: middle; }
 
 .label__more_content {
-  display: none; }
+  display: none;
+  font-weight: 400; }
 
 .article--about {
   font-weight: 700; }
@@ -1778,54 +1784,47 @@ label {
   box-shadow: none;
   cursor: initial; }
 
-.slide-show__project-description-container {
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center; }
-
-.slide-show__project-description {
-  background-color: rgba(51, 51, 51, 0.8);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  color: white;
-  padding: 10px;
-  cursor: initial;
+#slide-show--projects-preview .slide {
   opacity: 0;
-  -webkit-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
   -o-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out; }
 
+#slide-show--projects-preview .active .slide {
+  opacity: 1; }
+
+.slide-show__project-description {
+  background-color: #0375b4;
+  color: white;
+  padding: 10px;
+  cursor: initial;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  opacity: 0; }
+
+.slide-show__project-description--blue {
+  background-color: #0375b4; }
+
+.slide-show__project-description--red {
+  background-color: #e52525; }
+
+.slide-show__project-description--orange {
+  background-color: #e1a02f; }
+
+.slide-show__project-description--lime-green {
+  background-color: #b5c82f; }
+
+.slide-show__project-description--green {
+  background-color: #5cb85c; }
+
+.slide-show__project-description--purple {
+  background-color: #80379b; }
+
 .active .slide-show__project-description {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0); }
+  opacity: 1; }
 
 .project-description__links .btn {
   -webkit-transition: all 0.3s ease-in-out;
@@ -1834,9 +1833,6 @@ label {
   transition: all 0.3s ease-in-out;
   font-weight: 700; }
 
-.project-description__text {
-  display: none; }
-
 #slide-show--projects-preview .slide:hover {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -1844,11 +1840,54 @@ label {
   -o-transform: scale(1);
   transform: scale(1); }
 
+#slide-show--projects-preview .project-date, #slide-show--projects-preview .project-title {
+  width: 100%;
+  white-space: nowrap; }
+
 /* Only for Tablets & Desktops */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
   .image-of-me--home {
     width: 50%;
-    max-width: 200px; } }
+    max-width: 200px; }
+  .slide-show__project-description-container {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center; }
+  .slide-show__project-description {
+    background-color: rgba(51, 51, 51, 0.8);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%); }
+  .active .slide-show__project-description {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  .project-description__text {
+    display: none; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -1866,15 +1905,6 @@ label {
     width: 50%; }
   .slide-show__project-description {
     height: 100%;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    border-radius: 0;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -o-transform: translateY(0);
-    transform: translateY(0);
     width: 100%;
     display: -webkit-box;
     display: -moz-box;
@@ -1891,7 +1921,6 @@ label {
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
-    background-color: #0375b4;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -1900,21 +1929,6 @@ label {
     -o-transition: all 3s ease-in-out;
     transition: all 3s ease-in-out;
     padding: 0 40px; }
-  .slide-show__project-description--blue {
-    background-color: #0375b4; }
-  .slide-show__project-description--red {
-    background-color: #e52525; }
-  .slide-show__project-description--orange {
-    background-color: #e1a02f; }
-  .slide-show__project-description--lime-green {
-    background-color: #b5c82f; }
-  .slide-show__project-description--green {
-    background-color: #5cb85c; }
-  .slide-show__project-description--purple {
-    background-color: #80379b; }
-  #slide-show--projects-preview .project-date, #slide-show--projects-preview .project-title {
-    width: 100%;
-    white-space: nowrap; }
   #slide-show--projects-preview .project-date {
     margin-left: 25px; }
   .project-description__text {
