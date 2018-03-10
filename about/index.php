@@ -65,7 +65,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.gif" alt="Logo of University of Portsmouth"></a>
+                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.png" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="article-50">
                             <p>Graduated from <a class="link--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
