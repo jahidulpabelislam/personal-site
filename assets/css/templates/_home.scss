@@ -6,6 +6,7 @@
 .image-of-me--home {
     width: 66%;
     max-width: 150px;
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
 .main-hello {

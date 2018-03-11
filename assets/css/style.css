@@ -1790,7 +1790,11 @@ label {
 
 .image-of-me--home {
   width: 66%;
-  max-width: 150px; }
+  max-width: 150px;
+  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .main-hello {
   font-size: 28px;
