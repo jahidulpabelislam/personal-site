@@ -37,6 +37,13 @@ section {
     background-color: white;
 }
 
+@each $color, $colors in $colors {
+    .article--#{$color}.article--#{$color} {
+        background-color: map-get($colors, main);
+        color: white;
+    }
+}
+
 .article__header {
     font-size: 24px;
     line-height: 26px;
