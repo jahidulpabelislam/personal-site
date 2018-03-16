@@ -1314,6 +1314,56 @@ label {
   .modal__content {
     max-width: 750px; } }
 
+.workflow__item {
+  width: 100%;
+  margin-bottom: 10px; }
+
+.workflow-item__header {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  margin-bottom: 8px; }
+
+.workflow-item__image {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  background: white;
+  -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
+
+.workflow-item__description {
+  margin-top: 10px; }
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: 768px) {
+  .workflow {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .workflow__item {
+    display: inline-block;
+    width: calc(50% - 20px);
+    margin: 0 10px 10px 10px; } }
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .workflow__item {
+    width: calc(33% - 20px); } }
+
 /* For all devices */
 .jumbotron--about {
   background-image: url("/assets/images/marmaris.jpg"); }
