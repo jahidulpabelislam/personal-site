@@ -541,7 +541,8 @@ label {
   display: inline-block; }
 
 .required {
-  color: #e52525; }
+  color: #e52525;
+  font-weight: 700; }
 
 .feedback {
   font-weight: 700;
