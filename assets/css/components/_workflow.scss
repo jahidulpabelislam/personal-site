@@ -5,14 +5,14 @@
 
 .workflow-item__image {
     width: 100%;
-    max-width: 120px;
+    max-width: 100px;
     height: auto;
     border-radius: 50%;
     background: white;
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
-.workflow-item__description{
+.workflow-item__description {
     margin-top: 10px;
 }
 
@@ -29,11 +29,11 @@
     .workflow__item {
         display: inline-block;
         width: calc(50% - 20px);
-       margin:  0 10px 10px 10px;
+        margin: 0 10px 10px 10px;
     }
 
     .workflow-item__image {
-        max-width: 130px;
+        max-width: 120px;
     }
 }
 

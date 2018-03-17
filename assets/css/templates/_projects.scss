@@ -23,6 +23,7 @@
     top: 0;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+    padding: 7px 12px;
 }
 
 .project {
@@ -276,6 +277,10 @@
 
     .search-form {
         margin-bottom: 40px;
+    }
+
+    .search-submit {
+        padding: 10px 12px;
     }
 
     .pagination--projects.pagination--projects {

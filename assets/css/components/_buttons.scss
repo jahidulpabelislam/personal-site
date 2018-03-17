@@ -7,11 +7,10 @@ button, [type=button], [type=submit] {
 }
 
 .btn {
-    margin: 7px;
+    margin: 5px;
     width: auto;
-    padding: 8px 15px;
+    padding: 6px 12px;
     @include border-radius(2px);
-    border: solid 1px colour(blue, dark);
     color: white;
     background-color: colour(blue, main);
 }
@@ -29,7 +28,6 @@ button, [type=button], [type=submit] {
 @each $color, $colors in $colors {
     .btn--#{$color} {
         background-color: map-get($colors, main);
-        border-color: map-get($colors, dark);
     }
 
     .btn--#{$color}:hover, .btn--#{$color}:focus {
@@ -56,4 +54,12 @@ a.btn {
     font-weight: 700;
     text-decoration: none;
     display: inline-block;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: $desktop) {
+    .btn {
+        margin: 7px;
+        padding: 9px 14px;
+    }
 }

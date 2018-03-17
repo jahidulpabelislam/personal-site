@@ -35,8 +35,8 @@
 }
 
 .nav__brand--logo-container {
-    padding: 5px 0 5px 15px;
-    height: 50px;
+    padding: 4px 0 4px 10px;
+    height: 44px;
 }
 
 .nav__brand--logo {
@@ -64,7 +64,7 @@
 .nav__brand--text {
     font-size: 18px;
     line-height: 20px;
-    padding: 15px;
+    padding: 12px;
     text-align: left;
     color: white;
 }
@@ -79,13 +79,13 @@
 
 .nav__links__toggle {
     float: right;
-    margin: 6px 15px 6px 0;
-    padding: 10px;
+    margin: 5px 10px 5px 0;
+    padding: 8px;
 }
 
 .menu-bar {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background-color: white;
     @include transition(0.7s);
@@ -148,7 +148,7 @@
 }
 
 .nav__links > li > a {
-    padding: 16px 15px;
+    padding: 12px 12px;
     display: block;
     color: white;
 }

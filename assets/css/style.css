@@ -118,8 +118,8 @@ section {
   color: white; }
 
 .article__header {
-  font-size: 24px;
-  line-height: 26px;
+  font-size: 22px;
+  line-height: 24px;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 12px;
@@ -146,7 +146,9 @@ img {
   .article {
     padding: 40px 0; }
   .article__header {
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    font-size: 26px;
+    line-height: 30px; }
   .main-content li {
     margin: 10px 0; }
   .article--50-50 > .container {
@@ -179,8 +181,8 @@ img {
 /* For all devices */
 body {
   font-family: 'Cabin', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 18px;
   color: #333; }
 
 a {
@@ -309,6 +311,12 @@ strong {
   margin-left: 24px;
   text-align: right; }
 
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size: 16px;
+    line-height: 20px; } }
+
 /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -343,14 +351,13 @@ button, [type=button], [type=submit] {
   -webkit-appearance: none; }
 
 .btn {
-  margin: 7px;
+  margin: 5px;
   width: auto;
-  padding: 8px 15px;
+  padding: 6px 12px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
-  border: solid 1px #03427d;
   color: white;
   background-color: #0375b4; }
 
@@ -363,43 +370,37 @@ button, [type=button], [type=submit] {
   opacity: .65; }
 
 .btn--blue {
-  background-color: #0375b4;
-  border-color: #03427d; }
+  background-color: #0375b4; }
 
 .btn--blue:hover, .btn--blue:focus {
   background-color: #035691; }
 
 .btn--red {
-  background-color: #e52525;
-  border-color: #af2323; }
+  background-color: #e52525; }
 
 .btn--red:hover, .btn--red:focus {
   background-color: #c32424; }
 
 .btn--orange {
-  background-color: #e1a02f;
-  border-color: #c88c2e; }
+  background-color: #e1a02f; }
 
 .btn--orange:hover, .btn--orange:focus {
   background-color: #d2922e; }
 
 .btn--lime-green {
-  background-color: #b5c82f;
-  border-color: #91a42f; }
+  background-color: #b5c82f; }
 
 .btn--lime-green:hover, .btn--lime-green:focus {
   background-color: #a6b930; }
 
 .btn--green {
-  background-color: #5cb85c;
-  border-color: #4b944b; }
+  background-color: #5cb85c; }
 
 .btn--green:hover, .btn--green:focus {
   background-color: #54a754; }
 
 .btn--purple {
-  background-color: #80379b;
-  border-color: #4e3469; }
+  background-color: #80379b; }
 
 .btn--purple:hover, .btn--purple:focus {
   background-color: #62357d; }
@@ -422,9 +423,15 @@ a.btn {
   text-decoration: none;
   display: inline-block; }
 
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .btn {
+    margin: 7px;
+    padding: 9px 14px; } }
+
 /* For all devices */
 .input {
-  padding: 8px 16px;
+  padding: 6px 12px;
   margin: 5px auto;
   width: 100%;
   border: solid #E0E0E0 1px;
@@ -455,6 +462,12 @@ a.btn {
   -moz-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
   -o-box-shadow: 0 0 8px rgba(229, 37, 37, 0.6);
   box-shadow: 0 0 8px rgba(229, 37, 37, 0.6); }
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .input {
+    margin: 7px;
+    padding: 9px 14px; } }
 
 /* For all devices */
 .footer {
@@ -647,8 +660,8 @@ label {
   float: left; }
 
 .nav__brand--logo-container {
-  padding: 5px 0 5px 15px;
-  height: 50px; }
+  padding: 4px 0 4px 10px;
+  height: 44px; }
 
 .nav__brand--logo {
   height: 100%;
@@ -677,7 +690,7 @@ label {
 .nav__brand--text {
   font-size: 18px;
   line-height: 20px;
-  padding: 15px;
+  padding: 12px;
   text-align: left;
   color: white; }
 
@@ -689,12 +702,12 @@ label {
 
 .nav__links__toggle {
   float: right;
-  margin: 6px 15px 6px 0;
-  padding: 10px; }
+  margin: 5px 10px 5px 0;
+  padding: 8px; }
 
 .menu-bar {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
   background-color: white;
   -webkit-transition: all 0.7s ease-in-out;
@@ -758,7 +771,7 @@ label {
   border-top: #eee 1px solid; }
 
 .nav__links > li > a {
-  padding: 16px 15px;
+  padding: 12px 12px;
   display: block;
   color: white; }
 
@@ -1321,7 +1334,7 @@ label {
 
 .workflow-item__image {
   width: 100%;
-  max-width: 120px;
+  max-width: 100px;
   height: auto;
   border-radius: 50%;
   background: white;
@@ -1354,7 +1367,7 @@ label {
     width: calc(50% - 20px);
     margin: 0 10px 10px 10px; }
   .workflow-item__image {
-    max-width: 130px; } }
+    max-width: 120px; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -2156,7 +2169,8 @@ label {
   margin: 0;
   top: 0;
   border-bottom-left-radius: 0;
-  border-top-left-radius: 0; }
+  border-top-left-radius: 0;
+  padding: 7px 12px; }
 
 .project {
   background-color: white;
@@ -2501,6 +2515,8 @@ label {
     margin-right: 0; }
   .search-form {
     margin-bottom: 40px; }
+  .search-submit {
+    padding: 10px 12px; }
   .pagination--projects.pagination--projects {
     margin-top: 40px; } }
 
