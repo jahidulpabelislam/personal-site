@@ -20,6 +20,8 @@
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
+
         <!-- the favicon for browsers -->
         <link rel="icon" href="/assets/images/favicon.png">
 
