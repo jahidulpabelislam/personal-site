@@ -29,7 +29,7 @@ section {
 
 .article {
     background-color: $light;
-    padding: 20px 0;
+    padding: 15px 0;
     @include box-shadow(0 0 10px 0 transparentize($dark, .8));
 }
 
@@ -78,7 +78,7 @@ img {
     }
 
     .article {
-        padding: 40px 0;
+        padding: 30px 0;
     }
 
     .article__header {

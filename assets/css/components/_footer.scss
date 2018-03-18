@@ -3,7 +3,7 @@
     background-color: $light;
     color: $grey;
     border-top: 1px solid $light-grey;
-    padding: 10px;
+    padding: 6px;
 }
 
 .footer__links, .footer__legal {
@@ -13,7 +13,7 @@
 
 .footer__link:after {
     content: "|";
-    color: $dark;
+    color: $grey;
     margin: 0 4px;
 }
 
@@ -49,8 +49,16 @@
     width: 100%;
 }
 
+.footer p {
+    margin: 5px auto;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
+    .footer {
+        padding: 10px;
+    }
+
     .footer > .container {
         @include flexbox();
         @include flexboxCenterAlign();
@@ -64,5 +72,9 @@
     .footer__legal {
         width: 50%;
         text-align: right;
+    }
+
+    .footer p {
+        margin: 10px 0;
     }
 }

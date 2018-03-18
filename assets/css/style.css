@@ -84,7 +84,7 @@ section {
 
 .article {
   background-color: #f5f5f5;
-  padding: 20px 0;
+  padding: 15px 0;
   -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2);
   -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2);
   -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2);
@@ -144,7 +144,7 @@ img {
   .container {
     width: 1170px; }
   .article {
-    padding: 40px 0; }
+    padding: 30px 0; }
   .article__header {
     margin-bottom: 24px;
     font-size: 26px;
@@ -474,7 +474,7 @@ a.btn {
   background-color: #f5f5f5;
   color: gray;
   border-top: 1px solid #eee;
-  padding: 10px; }
+  padding: 6px; }
 
 .footer__links, .footer__legal {
   display: inline-block;
@@ -482,7 +482,7 @@ a.btn {
 
 .footer__link:after {
   content: "|";
-  color: #333;
+  color: gray;
   margin: 0 4px; }
 
 .footer__link:last-child:after {
@@ -514,8 +514,13 @@ a.btn {
 .footer__link:last-child:before {
   width: 100%; }
 
+.footer p {
+  margin: 5px auto; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
+  .footer {
+    padding: 10px; }
   .footer > .container {
     display: -webkit-box;
     display: -moz-box;
@@ -532,7 +537,9 @@ a.btn {
     text-align: left; }
   .footer__legal {
     width: 50%;
-    text-align: right; } }
+    text-align: right; }
+  .footer p {
+    margin: 10px 0; } }
 
 /* For all devices */
 label {
@@ -1123,10 +1130,10 @@ label {
   .social-links__header {
     font-size: 40px;
     line-height: 42px;
-    margin: 20px 0 15px 0; }
+    margin: 20px 0 25px 0; }
   .social-links__img.social-links__img {
     height: 70px;
-    margin: 25px 5px; }
+    margin: 0 20px 25px 20px; }
   .social-links__img.social-link__img--instagram {
     width: 70px;
     -webkit-border-radius: 15.55px;
