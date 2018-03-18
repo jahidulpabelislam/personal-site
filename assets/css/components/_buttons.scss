@@ -12,11 +12,11 @@ button, [type=button], [type=submit] {
     padding: 6px 12px;
     @include border-radius(2px);
     color: white;
-    background-color: colour(blue, main);
+    background-color: $dark;
 }
 
 .btn:hover, .btn:focus {
-    background-color: colour(blue, hover);
+    background-color: darken($dark, 5%);
 }
 
 .btn:disabled {

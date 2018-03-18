@@ -49,14 +49,14 @@
     @include transition(.3s);
     position: absolute;
     top: calc(50% - 15px);
-    background: $primary-color;
+    background: $dark;
     @include box-shadow(0 0 20px 0 transparentize($dark, .7));
 }
 
 .slide-show__nav:hover {
     opacity: 1;
     cursor: pointer;
-    @include box-shadow(0 0 20px 0 $primary-color);
+    @include box-shadow(0 0 20px 0 $dark);
 }
 
 .slide-show__nav-previous {
@@ -87,7 +87,7 @@
 
 .slide-show__bullet.active {
     opacity: 1;
-    background-color: $primary-color;
+    background-color: $dark;
 }
 
 @each $color, $colors in $colors

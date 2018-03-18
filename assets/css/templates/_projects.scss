@@ -44,10 +44,10 @@
 }
 
 .skill {
-    border: 1px solid $primary-color;
+    border: 1px solid $dark;
     @include border-radius(2px);
     padding: 5px;
-    color: $primary-color;
+    color: $dark;
     display: inline-block;
     margin: 2px;
     cursor: pointer;
@@ -55,13 +55,13 @@
 }
 
 .skill:hover {
-    background-color: darken($primary-color, 5%);
+    background-color: $dark;
     @include box-shadow(0 0 10px 0 transparentize($dark, .6));
     color: white;
 }
 
 .skill.searched {
-    background-color: darken($primary-color, 10%);
+    background-color: darken($dark, 2%);
     color: white;
 }
 
@@ -86,7 +86,7 @@
 
 .project__link {
     position: relative;
-    color: $primary-color;
+    color: $dark;
     display: inline-block;
     margin-right: 10px;
 }
@@ -110,7 +110,7 @@
 }
 
 .project__link:hover {
-    color: darken($primary-color, 15%);
+    color: black;
 }
 
 @each $color, $colors in $colors {
@@ -213,13 +213,13 @@
     color: white;
     text-align: center;
     content: '\f0a9';
-    background: #0375b4;
+    background: $dark;
     left: 100%;
     border-radius: 0 30px 30px 0;
 }
 
 .project__read-more:hover::after {
-    background: colour(blue, hover);
+    background: darken($dark, 5%);
 }
 
 @each $color, $colors in $colors {

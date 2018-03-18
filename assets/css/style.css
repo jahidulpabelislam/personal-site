@@ -195,12 +195,12 @@ a {
   color: inherit; }
 
 .link {
-  color: #0375b4;
+  color: #333;
   border-bottom: transparent solid 1px; }
 
 .link:hover {
-  color: #024469;
-  border-bottom-color: #024469; }
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a; }
 
 .link--blue {
   color: #0375b4;
@@ -359,10 +359,10 @@ button, [type=button], [type=submit] {
   -ms-border-radius: 2px;
   border-radius: 2px;
   color: white;
-  background-color: #0375b4; }
+  background-color: #333; }
 
 .btn:hover, .btn:focus {
-  background-color: #035691; }
+  background-color: #262626; }
 
 .btn:disabled {
   cursor: not-allowed;
@@ -490,7 +490,7 @@ a.btn {
 
 .footer__link {
   position: relative;
-  color: #0375b4; }
+  color: #333; }
 
 .footer__link:before {
   content: "";
@@ -506,10 +506,10 @@ a.btn {
   transition: all 0.3s ease-in-out; }
 
 .footer__link:hover {
-  color: #024469; }
+  color: #1a1a1a; }
 
 .footer__link:hover:before {
-  border-bottom-color: #024469; }
+  border-bottom-color: #1a1a1a; }
 
 .footer__link:last-child:before {
   width: 100%; }
@@ -901,7 +901,7 @@ label {
   transition: all 0.3s ease-in-out;
   position: absolute;
   top: calc(50% - 15px);
-  background: #0375b4;
+  background: #333;
   -webkit-box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.3);
   -moz-box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.3);
   -o-box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.3);
@@ -910,10 +910,10 @@ label {
 .slide-show__nav:hover {
   opacity: 1;
   cursor: pointer;
-  -webkit-box-shadow: 0 0 20px 0 #0375b4;
-  -moz-box-shadow: 0 0 20px 0 #0375b4;
-  -o-box-shadow: 0 0 20px 0 #0375b4;
-  box-shadow: 0 0 20px 0 #0375b4; }
+  -webkit-box-shadow: 0 0 20px 0 #333;
+  -moz-box-shadow: 0 0 20px 0 #333;
+  -o-box-shadow: 0 0 20px 0 #333;
+  box-shadow: 0 0 20px 0 #333; }
 
 .slide-show__nav-previous {
   left: 0;
@@ -951,7 +951,7 @@ label {
 
 .slide-show__bullet.active {
   opacity: 1;
-  background-color: #0375b4; }
+  background-color: #333; }
 
 .slide-show__bullet--blue.active {
   background-color: #0375b4; }
@@ -1385,7 +1385,7 @@ label {
   padding-left: 0; }
 
 .label {
-  border: 1px solid #035691;
+  border: 1px solid #0d0d0d;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1397,7 +1397,7 @@ label {
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-color: #0375b4;
+  background-color: #333;
   color: white;
   cursor: auto; }
 
@@ -1912,7 +1912,7 @@ label {
   opacity: 1; }
 
 .slide-show__project-description {
-  background-color: #0375b4;
+  background-color: #333;
   color: white;
   padding: 10px;
   cursor: initial;
@@ -2194,13 +2194,13 @@ label {
   text-align: left; }
 
 .skill {
-  border: 1px solid #0375b4;
+  border: 1px solid #333;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
   padding: 5px;
-  color: #0375b4;
+  color: #333;
   display: inline-block;
   margin: 2px;
   cursor: pointer;
@@ -2210,7 +2210,7 @@ label {
   transition: all 0.4s ease-in-out; }
 
 .skill:hover {
-  background-color: #03659b;
+  background-color: #333;
   -webkit-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   -moz-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   -o-box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
@@ -2218,7 +2218,7 @@ label {
   color: white; }
 
 .skill.searched {
-  background-color: #025482;
+  background-color: #2e2e2e;
   color: white; }
 
 .skill--blue {
@@ -2286,7 +2286,7 @@ label {
 
 .project__link {
   position: relative;
-  color: #0375b4;
+  color: #333;
   display: inline-block;
   margin-right: 10px; }
 
@@ -2306,7 +2306,7 @@ label {
   content: none; }
 
 .project__link:hover {
-  color: #024469; }
+  color: black; }
 
 .project__link--blue {
   color: #0375b4; }
@@ -2437,12 +2437,12 @@ label {
   color: white;
   text-align: center;
   content: '\f0a9';
-  background: #0375b4;
+  background: #333;
   left: 100%;
   border-radius: 0 30px 30px 0; }
 
 .project__read-more:hover::after {
-  background: #035691; }
+  background: #262626; }
 
 .project__read-more--blue::after {
   background: #0375b4; }

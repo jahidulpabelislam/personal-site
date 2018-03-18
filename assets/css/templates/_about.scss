@@ -8,13 +8,13 @@
 }
 
 .label {
-    border: 1px solid colour(blue, hover);
+    border: 1px solid darken($dark, 15%);;
     @include border-radius(5px);
     padding: 5px;
     display: inline-block;
     margin: 2px;
     @include transition(.4s);
-    background-color: colour(blue, main);
+    background-color: $dark;
     color: white;
     cursor: auto;
 }

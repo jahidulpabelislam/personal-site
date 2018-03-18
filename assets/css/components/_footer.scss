@@ -23,7 +23,7 @@
 
 .footer__link {
     position: relative;
-    color: $primary-color;
+    color: $dark;
 }
 
 .footer__link:before {
@@ -38,11 +38,11 @@
 }
 
 .footer__link:hover {
-    color: darken($primary-color, 15%);
+    color: darken($dark, 10%);
 }
 
 .footer__link:hover:before {
-    border-bottom-color: darken($primary-color, 15%);
+    border-bottom-color: darken($dark, 10%);
 }
 
 .footer__link:last-child:before {
