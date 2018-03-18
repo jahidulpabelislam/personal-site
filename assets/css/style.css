@@ -1921,7 +1921,7 @@ label {
 .slide-show__project-description {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 10px 35px;
   cursor: initial;
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
@@ -2003,7 +2003,8 @@ label {
     -ms-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -o-transform: translateY(100%);
-    transform: translateY(100%); }
+    transform: translateY(100%);
+    padding: 10px; }
   .active .slide-show__project-description {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
