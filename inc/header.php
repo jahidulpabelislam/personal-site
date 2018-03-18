@@ -54,8 +54,13 @@
             </div>
         </nav>
 
+        <?php
+        $css_page_title = strtolower($page_title);
+        $css_page_title = str_replace(" ", "-", $css_page_title);
+        ?>
+
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron jumbotron--<?php echo strtolower($page_title);?>">
+        <header class="jumbotron jumbotron--<?php echo $css_page_title; ?>">
             <div class="jumbotron__overlay">
                 <div class="container">
                     <h1 class="jumbotron__title"><?php echo $header_title ?></h1>
