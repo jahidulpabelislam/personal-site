@@ -314,7 +314,7 @@ strong {
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   body {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 20px; } }
 
 /**
