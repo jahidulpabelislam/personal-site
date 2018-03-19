@@ -6,9 +6,9 @@
 
 .pagination__item.pagination__item {
     display: inline-block;
-    margin: 8px 4px;
+    margin: 6px 4px;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 6px 12px;
     background-color: $primary-color;
     border: 1px solid darken($primary-color, 5%);
     color: white;
@@ -20,6 +20,6 @@
 }
 
 .pagination__item.active, .pagination__item.active:hover {
-    background-color: $grey;
-    border-color: darken($grey, 10%);
+    background-color: $dark;
+    border-color: darken($dark, 2%);
 }

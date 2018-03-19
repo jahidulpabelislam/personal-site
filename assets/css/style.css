@@ -822,9 +822,9 @@ label {
 
 .pagination__item.pagination__item {
   display: inline-block;
-  margin: 8px 4px;
+  margin: 6px 4px;
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 6px 12px;
   background-color: #0375b4;
   border: 1px solid #03659b;
   color: white; }
@@ -834,8 +834,8 @@ label {
   border-color: #024469; }
 
 .pagination__item.active, .pagination__item.active:hover {
-  background-color: gray;
-  border-color: #676767; }
+  background-color: #333;
+  border-color: #2e2e2e; }
 
 .slide-show {
   margin: 0 -15px;
