@@ -56,7 +56,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article">
                     <h3 class="article__header">My Latest Projects</h3>
-                    <i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i>
+
+                    <div><i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i></div>
+
                     <div id="slide-show--projects-preview" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--projects-preview">
                             <div class="slide-show__slides-container"></div>
