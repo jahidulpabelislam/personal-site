@@ -174,23 +174,23 @@
     top: 0;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+    padding: 7px 12px;
 }
 
 .admin-project-skill {
     position: relative;
-    border: 1px solid colour(blue, hover);
+    border: 1px solid darken($dark, 5%);
     @include border-radius(5px);
-    padding: 5px 20px 5px 5px;
+    padding: 2px 4px;
     display: inline-block;
     margin: 2px;
     @include transition(.4s);
-    background-color: colour(blue, main);
+    background-color: $dark;
     color: white;
     cursor: auto;
 }
 
 @each $color, $colors in $colors {
-
     .admin-project-skill--#{$color} {
         background-color: map-get($colors, main);
         border-color: map-get($colors, hover);
@@ -198,10 +198,7 @@
 }
 
 .delete-skill {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 5px 5px;
+    margin: 2px;
     padding: 0;
     background-color: transparent;
     border: none;
@@ -245,6 +242,10 @@
 
     .project-image:last-child:nth-child(odd) {
         margin-right: 0;
+    }
+
+    .skill-add {
+        padding: 10px 12px;
     }
 }
 

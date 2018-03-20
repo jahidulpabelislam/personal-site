@@ -466,7 +466,6 @@ a.btn {
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .input {
-    margin: 7px;
     padding: 9px 14px; } }
 
 /* For all devices */
@@ -1818,23 +1817,24 @@ label {
   margin: 0;
   top: 0;
   border-bottom-left-radius: 0;
-  border-top-left-radius: 0; }
+  border-top-left-radius: 0;
+  padding: 7px 12px; }
 
 .admin-project-skill {
   position: relative;
-  border: 1px solid #035691;
+  border: 1px solid #262626;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
-  padding: 5px 20px 5px 5px;
+  padding: 2px 4px;
   display: inline-block;
   margin: 2px;
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-color: #0375b4;
+  background-color: #333;
   color: white;
   cursor: auto; }
 
@@ -1863,10 +1863,7 @@ label {
   border-color: #62357d; }
 
 .delete-skill {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 5px 5px;
+  margin: 2px;
   padding: 0;
   background-color: transparent;
   border: none; }
@@ -1895,7 +1892,9 @@ label {
   .project-image:nth-last-child(2):nth-child(odd) {
     margin-bottom: 0; }
   .project-image:last-child:nth-child(odd) {
-    margin-right: 0; } }
+    margin-right: 0; }
+  .skill-add {
+    padding: 10px 12px; } }
 
 /*
     ADMIN CSS END
