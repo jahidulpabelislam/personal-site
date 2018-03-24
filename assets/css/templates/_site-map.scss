@@ -1,0 +1,21 @@
+.site-map-list {
+    text-align: left;
+    width: 100%;
+    color: $dark;
+}
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: $tablet) {
+    .site-map-list.site-map-list {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: $desktop) {
+    .site-map-list.site-map-list {
+        width: 25%;
+    }
+}
