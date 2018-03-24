@@ -79,7 +79,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg" alt="Image of a Beach"></a>
                         </div>
                         <div class="article-50">
-                            <p>Based in <a class="link--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link--orange" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
+                            <p>Based in <a class="link--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
                         </div>
                     </div>
                 </div>
