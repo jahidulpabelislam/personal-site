@@ -158,11 +158,11 @@
 }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-    color: colour(orange, main);
+    color: colour(blue, main);
 }
 
-.nav__links > li.active > a {
-    background-color: colour(purple, main);
+.nav__links.nav__links > li.active > a {
+    background-color: colour(blue, main);
     color: white;
 }
 
@@ -198,10 +198,10 @@
     }
 
     .nav__links > li > a:hover {
-        border-bottom-color: colour(orange, main);
+        border-bottom-color: colour(blue, main);
     }
 
     .nav__links > li.active > a {
-        border-bottom-color: colour(purple, main);
+        border-bottom-color: colour(blue, main);
     }
 }

@@ -786,10 +786,10 @@ label {
   color: #333; }
 
 .nav__links > li > a:focus, .nav__links > li > a:hover {
-  color: #e1a02f; }
+  color: #0375b4; }
 
-.nav__links > li.active > a {
-  background-color: #80379b;
+.nav__links.nav__links > li.active > a {
+  background-color: #0375b4;
   color: white; }
 
 /* For Tablets & Desktops */
@@ -810,9 +810,9 @@ label {
   .nav__links > li > a {
     border-bottom: solid transparent 2px; }
   .nav__links > li > a:hover {
-    border-bottom-color: #e1a02f; }
+    border-bottom-color: #0375b4; }
   .nav__links > li.active > a {
-    border-bottom-color: #80379b; } }
+    border-bottom-color: #0375b4; } }
 
 /* For all devices */
 .pagination.pagination {
