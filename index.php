@@ -95,11 +95,11 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article">
+                <?php /*<div class="article">
                     <div class="container">
                         <h3 class="article__header">Instagram</h3>
                     </div>
-                </div>
+                </div> */ ?>
 
                 <div class="article article--50-50">
                     <div class="container">
