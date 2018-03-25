@@ -38,17 +38,25 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <div class="workflow__item ">
                                 <h3 class="article__header">Design > Code</h3>
                                 <img src="/assets/images/design-icon.png" class="workflow-item__image">
-                                <div class="workflow-item__description">Description...</div>
+                                <div class="workflow-item__description">
+                                    <p>My work starts after receiving finished designs on PSD's or Flat Image Files.</p>
+                                    <p>At this stage I begin turning designs into pixel perfect sites/apps.</p>
+                                </div>
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Code</h3>
                                 <img src="/assets/images/code-icon.png" class="workflow-item__image">
-                                <div class="workflow-item__description">Description...</div>
+                                <div class="workflow-item__description">
+                                    <p>Depending on the requirements, I will either build the system fully bespoke or if necessary will use various frameworks and libraries to fulfill the required system.</p>
+                                </div>
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Responsive Design</h3>
                                 <img src="/assets/images/responsive-icon.png"  class="workflow-item__image">
-                                <div class="workflow-item__description">Description...</div>
+                                <div class="workflow-item__description">
+                                    <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
+                                    <p>I tend to approach development in a mobile first approach.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -76,15 +84,15 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">0</h3>
-                                <p class="stats__stat ">Projects (+ <span class="counter" data-to="32" data-speed="2000">0</span> work projects)</p>
+                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="1500">0</h3>
+                                <p class="stats__stat">Projects (+ <span class="counter" data-to="32" data-speed="2000">0</span> work projects)</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="505" data-speed="2000">0</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="505" data-speed="2500">0</h3>
                                 <p class="stats__stat">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">0</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="1000">0</h3>
                                 <p class="stats__stat">Years experience</p>
                             </div>
                             <div class="stats__item">

@@ -9,30 +9,32 @@ $nav_tint = "light";
 
 $tech_skills = array(
     array("text" => "HTML", "desc" => "HTML5 & HTML4"),
-    array("text" => "CSS", "desc" => "CSS3, SCSS"),
-    array("text" => "JavaScript", "desc" => "Node.js, JQuery"),
-    array("text" => "PHP", "desc" => "PDO"),
+    array("text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4"),
+    array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery, AngularJS"),
+    array("text" => "PHP", "desc" => "Wordpress, Laravel, PDO"),
     array("text" => "SQL", "desc" => "MySQL"),
     array("text" => "NoSQL", "desc" => "Amazon DynamoDB"),
-    array("text" => "Java"),
-    array("text" => "Python"),
+    array("text" => "Java", "desc" => "Java EE, 7JSF 2, AWT, Swing"),
+    array("text" => "Python", "desc" => "graphics.py"),
     array("text" => "Visual Basic"),
-    array("text" => "DVCS", "desc" => "Used Git (GitHub) for managing uni and personal projects & Mercurial (Bitbucket) for projects within work"),
+    array("text" => "DVCS", "desc" => "Git (GitHub) for personal projects & Mercurial (Bitbucket) for projects within work"),
     array("text" => "Microsoft Office", "desc" => "I have used Excel to create and use College/Uni grading systems and financial record system, Word, Powerpoint (Also recently move some work to Google Sheets, Docs & Slides)")
 );
 
 $other_skills = array(
     array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
-    array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good communicational skills both written and spoken"),
+    array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good communication skills both written and spoken"),
     array("text" => "Hard Worker")
 );
 
 $interests = array(
     array("text" => "Sports"),
-    array("text" => "Gaming"),
-    array("text" => "Programming"),
+    array("text" => "Music"),
     array("text" => "Photography"),
-    array("text" => "Fashion")
+    array("text" => "Fashion"),
+    array("text" => "Programming"),
+    array("text" => "Gaming"),
+    array("text" => "Trading")
 );
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
