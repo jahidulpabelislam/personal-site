@@ -44,6 +44,8 @@
             <script src="/assets/js/projectsPreview.js" type="text/javascript"></script>
             <script src="/assets/js/form.js" type="text/javascript"></script>
             <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
+            <script src="/assets/js/third-party/waypoint.min.js" type="text/javascript"></script>
+            <script src="/assets/js/third-party/jquery.countTo.js" type="text/javascript"></script>
             <script src="/assets/js/main.js" type="text/javascript"></script>
         <?php endif; ?>
     </body>

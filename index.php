@@ -76,19 +76,19 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats">22</h3>
-                                <p class="stats__stat">Projects</p>
+                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">0</h3>
+                                <p class="stats__stat ">Projects (+ <span class="counter" data-to="32" data-speed="2000">0</span> work projects)</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats">505</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="505" data-speed="2000">0</h3>
                                 <p class="stats__stat">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats">6</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">0</h3>
                                 <p class="stats__stat">Years experience</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats">2</h3>
+                                <h3 class="article__header article__header--stats js-seconds-on-site">0</h3>
                                 <p class="stats__stat">Seconds on here</p>
                             </div>
                         </div>

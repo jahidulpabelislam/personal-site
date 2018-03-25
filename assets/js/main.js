@@ -67,4 +67,26 @@ $(document).on("ready", function() {
         selected_icon.toggleClass("fa-minus");
         selected.slideToggle();
     });
+
+    var count = function (options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+    };
+
+    $('.counter').waypoint(function(){
+        $('.counter').each(count);
+    },{offset:'100%'});
+
+    var secsElem = $(".js-seconds-on-site");
+    if (secsElem.length > 0)
+    {
+        setTimeout(function() {
+            setInterval(function() {
+                var lastSec = secsElem.text();
+                lastSec = parseInt(lastSec);
+                secsElem.text(lastSec+1);
+            }, 1000);
+        }, 1000);
+    }
 });

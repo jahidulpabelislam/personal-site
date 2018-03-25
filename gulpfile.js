@@ -17,6 +17,8 @@ var scripts = {
         "assets/js/projectsPreview.js",
         "assets/js/form.js",
         "assets/js/stickyFooter.js",
+        "assets/js/third-party/waypoint.min.js",
+        "assets/js/third-party/jquery.countTo.js",
         "assets/js/main.js"
     ],
     admin: [
