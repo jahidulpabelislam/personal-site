@@ -1,7 +1,8 @@
-#block user from viewing list of files in a directory
+#Block user from viewing list of files in a directory
+Options -Indexes
 IndexIgnore *
 
-#stop users from viewing this file
+#Stop users from viewing this file
 <Files .htaccess>
 order allow,deny
 deny from all
@@ -9,27 +10,28 @@ deny from all
 
 DirectoryIndex index.php index.html
 
-#custom error messages
-#custom error message for a unauthorized page
+#Custom error messages
+#Custom error message for a unauthorized page
 ErrorDocument 401 /error/401/
-#custom error message for a forbidden page
+#Custom error message for a forbidden page
 ErrorDocument 403 /error/403/
-#custom error message for a page not found
+#Custom error message for a page not found
 ErrorDocument 404 /error/404/
-#custom error message for a internal server issue
+#Custom error message for a internal server issue
 ErrorDocument 500 /error/500/
 
-#make rewrite on
+#Make rewrite on
 RewriteEngine On
 
-#rewrite url to use https' when user goes to site without 'http'
-#what to check
+#Rewrite old url to new one plus use https
+#What to check
 RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com
 RewriteCond %{SERVER_PORT} 80
-#whathappens when it happens
+#Whathappens when it happens
 RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
 
-#what to check
+#Rewrite url to use https' when user goes to site without 'http'
+#What to check
 RewriteCond %{HTTPS} off
-#whathappens when it happens
+#Whathappens when it happens
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
