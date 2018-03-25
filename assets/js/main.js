@@ -66,6 +66,9 @@ $(document).on("ready", function() {
         selected_icon.toggleClass("fa-plus");
         selected_icon.toggleClass("fa-minus");
         selected.slideToggle();
+
+        $(this).attr("style", "display: block;");
+        $('.js-expand-label').attr("style", "");
     });
 
     var count = function (options) {
