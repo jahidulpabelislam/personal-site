@@ -546,7 +546,7 @@ label {
   font-weight: 700;
   display: inline-block; }
 
-.required {
+.required, .notice {
   color: #e52525;
   font-weight: 700; }
 
