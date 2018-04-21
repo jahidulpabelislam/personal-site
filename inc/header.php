@@ -19,8 +19,16 @@
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
 
+        <?php
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+        $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
+        if ($title !== "Home")
+        {
+            $url .= strtolower($title);
+        }
+        ?>
         <meta property=”og:title” content=”<?php echo $head_title; ?>”/>
-        <meta property=”og:url” content=””/>
+        <meta property=”og:url” content=”<?php echo $url; ?>”/>
         <meta property=”og:description” content=”<?php echo $description; ?>”/>
         <meta property=”og:image” content=””/>
 
