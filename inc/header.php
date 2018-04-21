@@ -2,7 +2,14 @@
 <html lang="en-gb">
 
     <head>
-        <title><?php echo $title ?> | Jahidul Pabel Islam</title>
+        <?php
+        $head_title = $title . " | Jahidul Pabel Islam - Full Stack Developer";
+        if ($title === "Home")
+        {
+            $head_title = "Full Stack Developer, Jahidul Pabel Islam's Portfolio";
+        }
+        ?>
+        <title><?php echo $head_title; ?></title>
 
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -12,7 +19,7 @@
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="<?php echo $keywords ?>"/>
 
-        <meta property=”og:title” content=”<?php echo $title ?> | Jahidul Pabel Islam”/>
+        <meta property=”og:title” content=”<?php echo $head_title; ?>”/>
         <meta property=”og:url” content=””/>
         <meta property=”og:description” content=”<?php echo $description ?>”/>
         <meta property=”og:image” content=””/>
