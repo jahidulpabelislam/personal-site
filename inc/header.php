@@ -2,13 +2,24 @@
 <html lang="en-gb">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Jahidul Pabel Islam">
+        <title><?php echo $title ?> | Jahidul Pabel Islam</title>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="author" content="Jahidul Pabel Islam"/>
         <!-- Dynamically insert the description for a page -->
-        <meta name="description" content="<?php echo $description ?>">
+        <meta name="description" content="<?php echo $description ?>"/>
         <!-- Dynamically insert the keywords for a page -->
-        <meta name="keywords" content="<?php echo $keywords ?>">
+        <meta name="keywords" content="<?php echo $keywords ?>"/>
+
+        <meta property=”og:title” content=”<?php echo $title ?> | Jahidul Pabel Islam”/>
+        <meta property=”og:url” content=””/>
+        <meta property=”og:description” content=”<?php echo $description ?>”/>
+        <meta property=”og:image” content=””/>
+
+        <meta name=”twitter:card” content=”summary_large_image” />
+
+        <meta name="theme-color" content="#337ab7">
 
         <!-- Custom stylesheet for site -->
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
@@ -17,9 +28,6 @@
 
         <!-- the favicon for browsers -->
         <link rel="icon" href="/images/favicon.png">
-
-        <meta name="theme-color" content="#337ab7">
-        <title><?php echo $title ?> | Jahidul Pabel Islam</title>
     </head>
 
     <body>
