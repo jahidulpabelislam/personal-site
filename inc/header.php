@@ -27,12 +27,12 @@
             $url .= strtolower($title);
         }
         ?>
-        <meta property=”og:title” content=”<?php echo $head_title; ?>”/>
-        <meta property=”og:url” content=”<?php echo $url; ?>”/>
-        <meta property=”og:description” content=”<?php echo $description; ?>”/>
-        <meta property=”og:image” content=””/>
+        <meta property="og:title" content="<?php echo $head_title; ?>"/>
+        <meta property="og:url" content="<?php echo $url; ?>"/>
+        <meta property="og:description" content="<?php echo $description; ?>"/>
+        <meta property="og:image" content=""/>
 
-        <meta name=”twitter:card” content=”summary_large_image”/>
+        <meta name="twitter:card" content="summary_large_image"/>
 
         <meta name="theme-color" content="#337ab7"/>
 
