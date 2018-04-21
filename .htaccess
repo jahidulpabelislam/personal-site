@@ -32,6 +32,6 @@ RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
 
 #Rewrite url to use https' when user goes to site without 'http'
 #What to check
-#RewriteCond %{HTTPS} off
+RewriteCond %{HTTPS} off
 #Whathappens when it happens
-#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
