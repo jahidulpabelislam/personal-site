@@ -22,15 +22,20 @@
         <?php
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
         $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
+        $page_url = $url;
         if ($title !== "Home")
         {
-            $url .= strtolower($title);
+            $page_url .= strtolower($title);
         }
         ?>
         <meta property="og:title" content="<?php echo $head_title; ?>"/>
-        <meta property="og:url" content="<?php echo $url; ?>"/>
+        <meta property="og:url" content="<?php echo $page_url; ?>"/>
         <meta property="og:description" content="<?php echo $description; ?>"/>
-        <meta property="og:image" content=""/>
+
+        <?php
+        $image_url = $url . "images/portfolio-". strtolower($title) . "-preview.png";
+        ?>
+        <meta property="og:image" content="<?php echo $image_url; ?>"/>
 
         <meta name="twitter:card" content="summary_large_image"/>
 
