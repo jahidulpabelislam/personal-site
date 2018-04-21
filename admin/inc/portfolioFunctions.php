@@ -4,6 +4,8 @@
  * @author Jahidul Pabel Islam
 */
 
+date_default_timezone_set("Europe/London");
+
 //gets a user, either trying to log in or trying to get information of a user
 function login($data)
 {
