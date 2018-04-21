@@ -15,26 +15,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="author" content="Jahidul Pabel Islam"/>
         <!-- Dynamically insert the description for a page -->
-        <meta name="description" content="<?php echo $description ?>"/>
+        <meta name="description" content="<?php echo $description; ?>"/>
         <!-- Dynamically insert the keywords for a page -->
-        <meta name="keywords" content="<?php echo $keywords ?>"/>
+        <meta name="keywords" content="<?php echo $keywords; ?>"/>
 
         <meta property=”og:title” content=”<?php echo $head_title; ?>”/>
         <meta property=”og:url” content=””/>
-        <meta property=”og:description” content=”<?php echo $description ?>”/>
+        <meta property=”og:description” content=”<?php echo $description; ?>”/>
         <meta property=”og:image” content=””/>
 
-        <meta name=”twitter:card” content=”summary_large_image” />
+        <meta name=”twitter:card” content=”summary_large_image”/>
 
-        <meta name="theme-color" content="#337ab7">
+        <meta name="theme-color" content="#337ab7"/>
 
         <!-- Custom stylesheet for site -->
-        <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css"/>
 
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/images/favicon.png">
+        <link rel="icon" href="/images/favicon.png"/>
     </head>
 
     <body>
