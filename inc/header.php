@@ -39,8 +39,6 @@
 
         <meta name="twitter:card" content="summary_large_image"/>
 
-        <meta name="theme-color" content="#337ab7"/>
-
         <!-- Custom stylesheet for site -->
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css"/>
 
@@ -64,7 +62,7 @@
         <meta name="msapplication-TileColor" content="#f5f5f5">
         <meta name="msapplication-TileImage" content="/images/mstile-144x144.png?v=1">
         <meta name="msapplication-config" content="/images/browserconfig.xml?v=1">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="#337ab7">
     </head>
 
     <body>
