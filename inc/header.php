@@ -3,10 +3,10 @@
 
     <head>
         <?php
-        $head_title = $title . " | Jahidul Pabel Islam - Full Stack Developer";
+        $head_title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
         if ($title === "Home")
         {
-            $head_title = "Full Stack Developer, Jahidul Pabel Islam's Portfolio";
+            $head_title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
         }
         ?>
         <title><?php echo $head_title; ?></title>
