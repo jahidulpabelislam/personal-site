@@ -2,6 +2,8 @@
 <html lang="en-gb">
 
     <head>
+        <title>Social Media Links | Jahidul Pabel Islam - Full Stack Developer</title>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Jahidul Pabel Islam">
@@ -9,6 +11,23 @@
         <meta name="description" content="Social Media Links for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.">
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="">
+
+        <?php
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+        $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
+        $page_url = $url . "links/";
+        ?>
+        <meta property="og:title" content="Social Media Links | Jahidul Pabel Islam - Full Stack Developer"/>
+        <meta property="og:url" content="<?php echo $page_url; ?>"/>
+        <meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
+
+        <?php
+        $image_url = $url . "images/portfolio-links-preview.png";
+        ?>
+        <meta property="og:image" content="<?php echo $image_url; ?>"/>
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
         <!-- Custom stylesheet for site -->
         <link href="/lib/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 
@@ -31,8 +50,6 @@
         <meta name="msapplication-TileImage" content="/images/mstile-144x144.png?v=1">
         <meta name="msapplication-config" content="/images/browserconfig.xml?v=1">
         <meta name="theme-color" content="#337ab7">
-
-        <title>Social Media Links | Jahidul Pabel Islam</title>
     </head>
 
     <body>
