@@ -2,13 +2,13 @@
 <html lang="en-gb">
 
     <head>
-        <title>Social Media Links | Jahidul Pabel Islam - Full Stack Developer</title>
+        <title>Social Media Links | Jahidul Pabel Islam - Full Stack Web & Software Developer</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Jahidul Pabel Islam">
         <!-- Dynamically insert the description for a page -->
-        <meta name="description" content="Social Media Links for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.">
+        <meta name="description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.">
         <!-- Dynamically insert the keywords for a page -->
         <meta name="keywords" content="">
 
@@ -19,7 +19,7 @@
         ?>
         <meta property="og:title" content="Social Media Links | Jahidul Pabel Islam - Full Stack Developer"/>
         <meta property="og:url" content="<?php echo $page_url; ?>"/>
-        <meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
+        <meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
 
         <?php
         $image_url = $url . "images/portfolio-links-preview.png";

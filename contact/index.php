@@ -1,7 +1,7 @@
 <?php
 $title = "Contact";
 $keywords = "";
-$description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $description2 = "Send Your Feedback &amp; Enquires My Way.";
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>

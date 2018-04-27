@@ -4,7 +4,7 @@
 $title = "Error 404 Web Page Not Found";
 
 //the description to use for page
-$description = "Error 404 Web Page Not Found message on the e-portfolio for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$description = "Error 404 Web Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $description2 = "";
 
