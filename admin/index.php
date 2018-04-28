@@ -141,7 +141,6 @@
         <?php if (!isset($_GET["debug"])):?>
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/admin.min.js?v=1"></script>
-        <script type="text/javascript" src="/assets/js/admin.js?v=1"></script>
         <?php else: ?>
         <script src="/assets/js/helperFunctions.js?v=1" type="text/javascript"></script>
         <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
@@ -150,9 +149,9 @@
 
         <!-- The third party script needed for the page for the sorting of pictures -->
         <script type="text/javascript" src="/assets/js/third-party/sortable.js?v=1"></script>
+        <?php endif; ?>
 
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/admin.js?v=1"></script>
-        <?php endif; ?>
     </body>
 </html>

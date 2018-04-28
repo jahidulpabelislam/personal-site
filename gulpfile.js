@@ -25,7 +25,7 @@ var scripts = {
         "assets/js/helperFunctions.js",
         "assets/js/stickyFooter.js",
         "assets/js/third-party/jquery-ui.min.js",
-        "assets/js/third-party/sortable.js",
+        "assets/js/third-party/sortable.js"
     ]
 };
 var scriptNames = Object.keys(scripts);
