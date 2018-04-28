@@ -2,7 +2,7 @@
 $page_title = "Contact";
 $header_title = "Contact Me";
 $keywords = "";
-$description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $header_description = "Send Your Feedback &amp; Enquires My Way";
 
 $nav_tint = "light";

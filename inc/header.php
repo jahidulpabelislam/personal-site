@@ -2,13 +2,22 @@
 <html lang="en-gb">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Jahidul Pabel Islam">
+        <?php
+        $head_title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+        if ($title === "Home")
+        {
+            $head_title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
+        }
+        ?>
+        <title><?php echo $head_title; ?></title>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="author" content="Jahidul Pabel Islam"/>
         <!-- Dynamically insert the description for a page -->
-        <meta name="description" content="<?php echo $description ?>">
+        <meta name="description" content="<?php echo $description; ?>"/>
         <!-- Dynamically insert the keywords for a page -->
-        <meta name="keywords" content="<?php echo $keywords ?>">
+        <meta name="keywords" content="<?php echo $keywords; ?>"/>
 
         <!-- Custom stylesheet for site -->
 
@@ -18,15 +27,51 @@
         <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <?php
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+        $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
+        $page_url = $url;
+        if ($title !== "Home")
+        {
+            $page_url .= strtolower($title);
+        }
+        ?>
+        <meta property="og:title" content="<?php echo $head_title; ?>"/>
+        <meta property="og:url" content="<?php echo $page_url; ?>"/>
+        <meta property="og:description" content="<?php echo $description; ?>"/>
+
+        <?php
+        $image_url = $url . "images/portfolio-". strtolower($title) . "-preview.png";
+        ?>
+        <meta property="og:image" content="<?php echo $image_url; ?>"/>
+
+        <meta name="twitter:card" content="summary_large_image"/>
 
         <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
-        <!-- the favicon for browsers -->
-        <link rel="icon" href="/assets/images/favicon.png?v=1">
-
         <meta name="theme-color" content="#0375b4">
         <title><?php echo $page_title ?> | Jahidul Pabel Islam</title>
+
+        <!-- Favicons/Icons for devices -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png?v=1"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png?v=1"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v=1"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png?v=1"/>
+        <link rel="manifest" href="/assets/favicons/site.webmanifest?v=1"/>
+        <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg?v=1" color="#0375b4"/>
+        <link rel="shortcut icon" href="/assets/favicons/favicon.ico?v=1"/>
+        <meta name="msapplication-TileColor" content="#f5f5f5"/>
+        <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png?v=1"/>
+        <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml?v=1"/>
+        <meta name="theme-color" content="#337ab7"/>
+
     </head>
 
     <body>

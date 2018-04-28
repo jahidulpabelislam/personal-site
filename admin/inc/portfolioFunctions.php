@@ -299,7 +299,7 @@ function addPicture($data)
                 $imageFileType = pathinfo(basename($_FILES["picture"]["name"]), PATHINFO_EXTENSION);
 
                 //the directory to upload file
-                $directory = "/assets/images/";
+                $directory = "/assets/images/projects/";
 
                 //the full path for new file
                 $filename = date('YmdHis', time()) . mt_rand() . "." . $imageFileType;

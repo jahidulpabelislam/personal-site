@@ -2,7 +2,7 @@
 $page_title = "Home";
 $header_title = "Jahidul Pabel Islam";
 $keywords = "";
-$description = "Portfolio for Jahidul Pabel Islam, a Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
+$description = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
 $header_description = "Full Stack Web &amp; Software Developer";
 
 $nav_tint = "dark";
