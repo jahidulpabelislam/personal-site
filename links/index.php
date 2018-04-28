@@ -11,12 +11,12 @@
         <meta name="keywords" content="">
         <!-- Custom stylesheet for site -->
         <?php if (!isset($_GET["debug"])):?>
-            <link href="/assets/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-            <link href="/assets/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="icon" href="/assets/images/favicon.png?v=1">
         <title>Social Media Links | Jahidul Pabel Islam</title>
     </head>
 
@@ -28,14 +28,14 @@
 
             <div class="social-link-container">
                 <a href="https://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/assets/images/facebook.svg" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
+                    <img src="/assets/images/facebook.svg?v=1" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
                     <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="https://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
-                    <img src="/assets/images/twitter.png" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+                    <img src="/assets/images/twitter.png?v=1" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
                     <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                 </a>
             </div>
@@ -57,14 +57,14 @@
 
             <div class="social-link-container">
                 <a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                    <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                     <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                 </a>
             </div>
 
             <div class="social-link-container">
                 <a href="https://github.com/jahidulpabelislam/" target="_blank" class="social-link">
-                    <img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                    <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                     <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                 </a>
             </div>
@@ -85,9 +85,9 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <?php if (!isset($_GET["debug"])):?>
-        <script src="/assets/js/main.min.js" type="text/javascript"></script>
+        <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
     <?php else: ?>
-        <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
+        <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
     <?php endif; ?>
 
     </body>

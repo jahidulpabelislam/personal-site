@@ -7,13 +7,13 @@
         <title>Admin</title>
 
         <?php if (!isset($_GET["debug"])):?>
-        <link href="/assets/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-        <link href="/assets/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
         <!-- The favicon for the site -->
-        <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="icon" href="/assets/images/favicon.png?v=1">
     </head>
 
     <body ng-controller="projectsAdminController" class="admin-page">
@@ -140,19 +140,19 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <?php if (!isset($_GET["debug"])):?>
         <!-- the script for the page -->
-        <script type="text/javascript" src="/assets/js/admin.min.js"></script>
-        <script type="text/javascript" src="/assets/js/admin.js"></script>
+        <script type="text/javascript" src="/assets/js/admin.min.js?v=1"></script>
+        <script type="text/javascript" src="/assets/js/admin.js?v=1"></script>
         <?php else: ?>
-        <script src="/assets/js/helperFunctions.js" type="text/javascript"></script>
-        <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
+        <script src="/assets/js/helperFunctions.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
         <!-- The third party script needed for the page for the sorting of pictures -->
-        <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js?v=1"></script>
 
         <!-- The third party script needed for the page for the sorting of pictures -->
-        <script type="text/javascript" src="/assets/js/third-party/sortable.js"></script>
+        <script type="text/javascript" src="/assets/js/third-party/sortable.js?v=1"></script>
 
         <!-- the script for the page -->
-        <script type="text/javascript" src="/assets/js/admin.js"></script>
+        <script type="text/javascript" src="/assets/js/admin.js?v=1"></script>
         <?php endif; ?>
     </body>
 </html>

@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
                     <div class="container">
-                        <img src="/assets/images/JahidulPabelIslamSmart.jpg" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
+                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
                         <p><span class="main-hello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="workflow">
                             <div class="workflow__item ">
                                 <h3 class="article__header">Design > Code</h3>
-                                <img src="/assets/images/design-icon.png" class="workflow-item__image">
+                                <img src="/assets/images/design-icon.png?v=1" class="workflow-item__image">
                                 <div class="workflow-item__description">
                                     <p>My work starts after receiving finished designs on PSD's or Flat Image Files.</p>
                                     <p>At this stage I begin turning designs into pixel perfect sites/apps.</p>
@@ -45,14 +45,14 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Code</h3>
-                                <img src="/assets/images/code-icon.png" class="workflow-item__image">
+                                <img src="/assets/images/code-icon.png?v=1" class="workflow-item__image">
                                 <div class="workflow-item__description">
                                     <p>Depending on the requirements, I will either build the system fully bespoke or if necessary will use various frameworks and libraries to fulfill the required system.</p>
                                 </div>
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Responsive Design</h3>
-                                <img src="/assets/images/responsive-icon.png"  class="workflow-item__image">
+                                <img src="/assets/images/responsive-icon.png?v=1"  class="workflow-item__image">
                                 <div class="workflow-item__description">
                                     <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
                                     <p>I tend to approach development in a mobile first approach.</p>
@@ -70,8 +70,8 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div id="slide-show--projects-preview" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--projects-preview">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>

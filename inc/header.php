@@ -13,9 +13,9 @@
         <!-- Custom stylesheet for site -->
 
         <?php if (!isset($_GET["debug"])):?>
-        <link href="/assets/css/main.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-        <link href="/assets/css/style.css" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
         <!-- the favicon for browsers -->
-        <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="icon" href="/assets/images/favicon.png?v=1">
 
         <meta name="theme-color" content="#0375b4">
         <title><?php echo $page_title ?> | Jahidul Pabel Islam</title>

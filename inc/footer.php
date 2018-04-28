@@ -34,19 +34,19 @@
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <?php if (!isset($_GET["debug"])):?>
-            <script src="/assets/js/main.min.js" type="text/javascript"></script>
+            <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/assets/js/expandImage.js" type="text/javascript"></script>
-            <script src="/assets/js/slideShow.js" type="text/javascript"></script>
-            <script src="/assets/js/helperFunctions.js" type="text/javascript"></script>
-            <script src="/assets/js/xhr.js" type="text/javascript"></script>
-            <script src="/assets/js/projects.js" type="text/javascript"></script>
-            <script src="/assets/js/projectsPreview.js" type="text/javascript"></script>
-            <script src="/assets/js/form.js" type="text/javascript"></script>
-            <script src="/assets/js/stickyFooter.js" type="text/javascript"></script>
-            <script src="/assets/js/third-party/waypoint.min.js" type="text/javascript"></script>
-            <script src="/assets/js/third-party/jquery.countTo.js" type="text/javascript"></script>
-            <script src="/assets/js/main.js" type="text/javascript"></script>
+            <script src="/assets/js/expandImage.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/slideShow.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/helperFunctions.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/xhr.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/projects.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/projectsPreview.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/form.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/main.js?v=1" type="text/javascript"></script>
         <?php endif; ?>
     </body>
 </html>

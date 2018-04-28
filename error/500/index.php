@@ -19,7 +19,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--error">
                     <div class="container">
                         <div class="article-50">
-                            <img src="/assets/images/oops.png" alt="Road sign with the words oops">
+                            <img src="/assets/images/oops.png?v=1" alt="Road sign with the words oops">
                         </div>
 
                         <div class="article-50">
