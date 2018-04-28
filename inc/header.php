@@ -3,8 +3,8 @@
 
     <head>
         <?php
-        $head_title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
-        if ($title === "Home")
+        $head_title = $page_title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+        if ($page_title === "Home")
         {
             $head_title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
         }
@@ -31,9 +31,9 @@
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
         $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
         $page_url = $url;
-        if ($title !== "Home")
+        if ($page_title !== "Home")
         {
-            $page_url .= strtolower($title);
+            $page_url .= strtolower($page_title);
         }
         ?>
         <meta property="og:title" content="<?php echo $head_title; ?>"/>
@@ -41,16 +41,13 @@
         <meta property="og:description" content="<?php echo $description; ?>"/>
 
         <?php
-        $image_url = $url . "images/portfolio-". strtolower($title) . "-preview.png";
+        $image_url = $url . "images/portfolio-". strtolower($page_title) . "-preview.png";
         ?>
         <meta property="og:image" content="<?php echo $image_url; ?>"/>
 
         <meta name="twitter:card" content="summary_large_image"/>
 
         <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
-
-        <meta name="theme-color" content="#0375b4">
-        <title><?php echo $page_title ?> | Jahidul Pabel Islam</title>
 
         <!-- Favicons/Icons for devices -->
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png?v=1"/>
@@ -71,7 +68,6 @@
         <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png?v=1"/>
         <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml?v=1"/>
         <meta name="theme-color" content="#337ab7"/>
-
     </head>
 
     <body>

@@ -1,12 +1,14 @@
 <?php
 
 //title of page to use
-$title = "401";
+$page_title = "401";
+
+$header_title = "401";
 
 //the description to use for page
 $description = "Error: 401 - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$description2 = "Unauthorized";
+$header_description = "Unauthorized";
 
 //the keywords to use for pages
 $keywords = "";
