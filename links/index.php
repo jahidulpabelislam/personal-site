@@ -82,13 +82,6 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <?php if (!isset($_GET["debug"])):?>
-        <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
-    <?php else: ?>
-        <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
-    <?php endif; ?>
-
+    <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
     </body>
 </html>
