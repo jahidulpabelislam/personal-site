@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
                 <div class="article">
                     <div class="container">
-                        <img src="/assets/images/JahidulPabelIslam.jpg" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
+                        <img src="/assets/images/JahidulPabelIslamSmart.jpg" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
                         <p><span class="main-hello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
                     </div>
                 </div>
