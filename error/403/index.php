@@ -18,12 +18,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
 ?>
                 <!-- Start Dynamic content for page -->
-                <div class="article article--error">
+                <div class="article article--50-50 article--error">
                     <div class="container">
                         <div class="article-50">
                             <img src="/assets/images/no-entry.png?v=1" alt="No entry sign">
                         </div>
-                        <div class="article--50-50">
+                        <div class="article-50">
                             <p>The access to the requested page is strictly forbidden.</p>
                         </div>
                     </div>
