@@ -8,6 +8,12 @@ order allow,deny
 deny from all
 </Files>
 
+#Stop users from viewing this folder/files
+<Files /error/>
+order allow,deny
+deny from all
+</Files>
+
 DirectoryIndex index.php index.html
 
 #Custom error messages
