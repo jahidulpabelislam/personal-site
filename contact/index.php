@@ -38,7 +38,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             </div>
 
                             <p id="form-feedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn--blue" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
+                            <button id="submit" type="submit" class="btn btn--green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
 
                         </form>
                     </div>
