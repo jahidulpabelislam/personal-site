@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /error/
 Sitemap: https://jahidulpabelislam.000webhostapp.com/site-map.xml
