@@ -38,17 +38,17 @@ session_start();
 
 					//echo "You typed " . $username . " " . $password;//shows what user typed in for confirmation
 
-					$con = mysql_connect (IP, USERNAME, PASSWORD);//gets login details for mysql
+					$con = mysqli_connect (IP, USERNAME, PASSWORD);//gets login details for mysql
 
 					if (!$con)
 					die('Could not connect: ' . mysql_error());
 
-					mysql_select_db(DATABASENAME, $con);//gets database from mysql
+					mysqli_select_db($con, DATABASENAME);//gets database from mysql
 
 					//searches the table for record that has the same username as the one that has been typed
-					$result = mysql_query("SELECT * FROM EGamesUser WHERE Username = '" . $username . "'");
+					$result = mysqli_query($con,"SELECT * FROM EGamesUser WHERE Username = '" . $username . "'");
 
-					$row = mysql_fetch_array($result);//extracts the result and puts it in the variable $row
+					$row = mysqli_fetch_array($result);//extracts the result and puts it in the variable $row
 
 					if ($row)
 						{
@@ -66,7 +66,7 @@ session_start();
 							echo " Invalid username";
 							}
 
-					mysql_close($con);
+					mysqli_close($con);
 				?>
 			</div>
 

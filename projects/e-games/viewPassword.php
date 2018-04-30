@@ -1,17 +1,17 @@
 <?php
 
-$con = mysql_connect(IP, USERNAME, PASSWORD);
+$con = mysqli_connect(IP, USERNAME, PASSWORD);
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
 
-mysql_select_db(DATABASENAME, $con);
+mysqli_select_db($con, DATABASENAME);
 
 /*This selects the database (Login) on the mySQL server. Note use the name of your database.*/
 
-$result = mysql_query("SELECT * FROM Password");
+$result = mysqli_query($con, "SELECT * FROM Password");
 
 /*This uses the SQL language to extract data from the table called Password. All the results are placed in the variable $result*/
 
@@ -23,7 +23,7 @@ echo "<table border='1'>
 <th>Password</th>
 </tr>";
 
-while($row = mysql_fetch_array($result))
+while($row = mysqli_fetch_array($result))
   {
   echo "<tr>";
   echo "<td>" . $row['Username'] . "</td>";
@@ -33,6 +33,6 @@ while($row = mysql_fetch_array($result))
 
 echo "</table>";
 
-mysql_close($con);
+mysqli_close($con);
 
 ?>

@@ -30,23 +30,23 @@
 				<?php
                     include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
 
-					$con = mysql_connect(IP, USERNAME, PASSWORD);
+					$con = mysqli_connect(IP, USERNAME, PASSWORD);
 					//gets login details for mysql
 					if(!$con)
 					{
 					die('Could not connect: ' . mysql_error());
 					}
-					mysql_select_db(DATABASENAME, $con);
+					mysqli_select_db($con, DATABASENAME);
 					//gets database from mysql
 
 					$username = $_POST['txtUsername'];
 					$password = $_POST['txtPassword'];
 					//gets sign up details from text boxes on the form
 
-					mysql_query("INSERT INTO EGamesUser (Username, Password) VALUES ('$username', '$password')" , $con);
+					mysqli_query($con, "INSERT INTO EGamesUser (Username, Password) VALUES ('$username', '$password')" , $con);
 					//inputs data into database.
 
-					mysql_close($con);
+					mysqli_close($con);
 
 					echo "Your details have been added! <br/>";
 					//displays this text
