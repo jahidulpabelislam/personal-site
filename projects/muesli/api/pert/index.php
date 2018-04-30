@@ -17,9 +17,9 @@ $PERTHeight = $_POST['PERTHeight'];
 
 if (isset($_POST['PreseedingID'])) {
     $PreseedingID = $_POST['PreseedingID'];
-    $query = "UPDATE Task SET Text = '${Text}', PreseedingID = ${PreseedingID}, PlanStartTime = ${PlanStartTime}, PlanDuration = ${PlanDuration}, PlanEndTime = ${PlanEndTime}, SlackStartTime = ${SlackStartTime}, SlackDuration = ${SlackDuration}, SlackEndTime = ${SlackEndTime} PERTX = ${PERTX}, PERTY = ${PERTY}, PERTWidth = ${PERTWidth}, PERTHeight = ${PERTHeight} WHERE ID = ${ID};";
+    $query = "UPDATE MuesliTask SET Text = '${Text}', PreseedingID = ${PreseedingID}, PlanStartTime = ${PlanStartTime}, PlanDuration = ${PlanDuration}, PlanEndTime = ${PlanEndTime}, SlackStartTime = ${SlackStartTime}, SlackDuration = ${SlackDuration}, SlackEndTime = ${SlackEndTime} PERTX = ${PERTX}, PERTY = ${PERTY}, PERTWidth = ${PERTWidth}, PERTHeight = ${PERTHeight} WHERE ID = ${ID};";
 } else {
-    $query = "UPDATE Task SET Text = '${Text}', PlanStartTime = ${PlanStartTime}, PlanDuration = ${PlanDuration}, PlanEndTime = ${PlanEndTime}, PERTX = ${PERTX}, PERTY = ${PERTY}, PERTWidth = ${PERTWidth}, PERTHeight = ${PERTHeight} WHERE ID = ${ID};";
+    $query = "UPDATE MuesliTask SET Text = '${Text}', PlanStartTime = ${PlanStartTime}, PlanDuration = ${PlanDuration}, PlanEndTime = ${PlanEndTime}, PERTX = ${PERTX}, PERTY = ${PERTY}, PERTWidth = ${PERTWidth}, PERTHeight = ${PERTHeight} WHERE ID = ${ID};";
 }
 $db->query($query);
 ?>
