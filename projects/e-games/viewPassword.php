@@ -1,13 +1,13 @@
 <?php
 
-$con = mysql_connect("localhost","Jahidul1","Islam");
+$con = mysql_connect(IP, USERNAME, PASSWORD);
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());
   }
 
 
-mysql_select_db("login2", $con);
+mysql_select_db(DATABASENAME, $con);
 
 /*This selects the database (Login) on the mySQL server. Note use the name of your database.*/
 

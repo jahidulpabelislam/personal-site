@@ -31,20 +31,22 @@ session_start();
 				<h1>Login Confirmation</h1>
 				<hr>
 				<?php
+                    include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
+
 					$username=$_POST['username'];
 					$password=$_POST['password'];
 
 					//echo "You typed " . $username . " " . $password;//shows what user typed in for confirmation
 
-					$con = mysql_connect ("hidden","hidden","hidden");//gets login details for mysql
+					$con = mysql_connect (IP, USERNAME, PASSWORD);//gets login details for mysql
 
 					if (!$con)
 					die('Could not connect: ' . mysql_error());
 
-					mysql_select_db("hidden", $con);//gets database from mysql
+					mysql_select_db(DATABASENAME, $con);//gets database from mysql
 
 					//searches the table for record that has the same username as the one that has been typed
-					$result = mysql_query("SELECT * FROM User WHERE Username = '" . $username . "'");
+					$result = mysql_query("SELECT * FROM EGamesUser WHERE Username = '" . $username . "'");
 
 					$row = mysql_fetch_array($result);//extracts the result and puts it in the variable $row
 

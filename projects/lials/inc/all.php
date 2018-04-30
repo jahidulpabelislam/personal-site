@@ -5,6 +5,6 @@
 */
 
 //using include to include all php files needed
-include 'connection.php';
+include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
 include 'database.php';
 include 'functions.php';

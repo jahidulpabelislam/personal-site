@@ -13,7 +13,7 @@ function login($data)
     $dataNeeded = array("username", "password");
     if (checkData($data, $dataNeeded)) {
 
-        if ($data["username"] === hidden && $data["password"] === hidden) {
+        if ($data["username"] === PORTFOLIOUSERNAME && $data["password"] === PORTFOLIOPASSWORD) {
             $results["meta"]["ok"] = true;
             $results["rows"]["username"] = $data["username"];
             $results["rows"]["password"] = $data["password"];

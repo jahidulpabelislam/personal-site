@@ -28,21 +28,22 @@
 				<h1>User Details</h1>
 				<hr>
 				<?php
+                    include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
 
-					$con = mysql_connect("hidden", "hidden", "hidden");
+					$con = mysql_connect(IP, USERNAME, PASSWORD);
 					//gets login details for mysql
 					if(!$con)
 					{
 					die('Could not connect: ' . mysql_error());
 					}
-					mysql_select_db("hidden", $con);
+					mysql_select_db(DATABASENAME, $con);
 					//gets database from mysql
 
 					$username = $_POST['txtUsername'];
 					$password = $_POST['txtPassword'];
 					//gets sign up details from text boxes on the form
 
-					mysql_query("INSERT INTO User (Username, Password) VALUES ('$username', '$password')" , $con);
+					mysql_query("INSERT INTO EGamesUser (Username, Password) VALUES ('$username', '$password')" , $con);
 					//inputs data into database.
 
 					mysql_close($con);

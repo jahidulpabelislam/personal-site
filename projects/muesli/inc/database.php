@@ -1,17 +1,19 @@
 <?php
 $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+
+$dsn = "mysql:host=" . IP . ";charset-UTF-8";
 try {
-    $db = new PDO($dsn, $username, $password, $option);
+    $db = new PDO($dsn, USERNAME, PASSWORD, $option);
 } catch (PDOException $failure) {
     echo 'Connection failed: ' . $failure->getMessage();
 }
 try {
-    $showquery = "SHOW DATABASES LIKE '${dbase}'";
+    $showquery = "SHOW DATABASES LIKE '" . DATABASENAME . "'";
     $showresult = $db->query($showquery);
     if (!$showresult->fetch()) {
-        $db->query("CREATE DATABASE ${dbase}");
+        $db->query("CREATE DATABASE " . DATABASENAME);
     }
-    $db->exec("USE ${dbase}");
+    $db->exec("USE " . DATABASENAME);
     $db->exec($createquery);
 } catch (PDOException $failure) {
     echo 'Server failed: ' . $failure->getMessage();
