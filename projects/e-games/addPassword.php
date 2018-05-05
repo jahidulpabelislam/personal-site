@@ -43,7 +43,7 @@
 					$password = $_POST['txtPassword'];
 					//gets sign up details from text boxes on the form
 
-					mysqli_query($con, "INSERT INTO EGamesUser (Username, Password) VALUES ('$username', '$password')" , $con);
+					mysqli_query($con, "INSERT INTO EGamesUser (Username, Password) VALUES ('$username', '$password')");
 					//inputs data into database.
 
 					mysqli_close($con);
