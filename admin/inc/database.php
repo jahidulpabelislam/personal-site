@@ -10,7 +10,6 @@
 class pdodb
 {
     private $db;
-    private $debug = true;
 
     /**
      * Connects to a MySQL engine
@@ -28,8 +27,9 @@ class pdodb
         try {
             $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
         } catch (PDOException $failure) {
-            if ($this->debug)
+            if (defined("DEBUG") && DEBUG) {
                 echo $failure;
+            }
         }
     }
 
@@ -57,8 +57,9 @@ class pdodb
                 }
                 $results["count"] = $result->rowCount();
             } catch (PDOException $failure) {
-                if ($this->debug)
+                if (defined("DEBUG") && DEBUG) {
                     $results["meta"]["error"] = $failure;
+                }
 
                 $results["meta"]["ok"] = false;
                 $results["meta"]["feedback"] = "Problem with Server.";

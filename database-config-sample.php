@@ -4,6 +4,8 @@
  * @author Jahidul Pabel Islam
 */
 
+define('DEBUG', false);
+
 // IP of database server
 define('IP', 'localhost');
 // Database name to use in server
