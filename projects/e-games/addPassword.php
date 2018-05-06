@@ -34,7 +34,10 @@
 					//gets login details for mysql
 					if(!$con)
 					{
-					die('Could not connect: ' . mysqli_connect_error());
+                        if (defined("DEBUG") && DEBUG) {
+                            echo mysqli_connect_error();
+                        }
+					    die('Could not connect.');
 					}
 					mysqli_select_db($con, DATABASENAME);
 					//gets database from mysql

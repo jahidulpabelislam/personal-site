@@ -5,7 +5,9 @@ $dsn = "mysql:host=" . IP . ";charset-UTF-8";
 try {
     $db = new PDO($dsn, USERNAME, PASSWORD, $option);
 } catch (PDOException $failure) {
-    echo 'Connection failed: ' . $failure->getMessage();
+    if (defined("DEBUG") && DEBUG) {
+        echo 'Connection failed: ' . $failure->getMessage();
+    }
 }
 try {
     $showquery = "SHOW DATABASES LIKE '" . DATABASENAME . "';";
@@ -16,6 +18,8 @@ try {
     $db->exec("USE " . DATABASENAME . ";");
     $db->exec($createquery);
 } catch (PDOException $failure) {
-    echo 'Server failed: ' . $failure->getMessage();
+    if (defined("DEBUG") && DEBUG) {
+        echo 'Server failed: ' . $failure->getMessage();
+    }
 }
 ?>

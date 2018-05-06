@@ -27,7 +27,9 @@ class pdodb
         try {
             $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
         } catch (PDOException $failure) {
-            echo 'Connection failed: ' . $failure->getMessage();
+            if (defined("DEBUG") && DEBUG) {
+                echo 'Connection failed: ' . $failure->getMessage();
+            }
         }
     }
 
