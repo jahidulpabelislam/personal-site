@@ -1,15 +1,16 @@
 <?php
 include '../../inc/all.php';
 
-$ID = $_POST['ID'];
-$Text = $_POST['Text'];
+$bindings = array(":Text" => $_POST['Text']);
 
 if (isset($_POST['PrecedingID'])) {
-    $PrecedingID = $_POST['PrecedingID'];
-    $query = "INSERT INTO MuesliTask (Text, PrecedingID) VALUES ('${Text}', ${PrecedingID});";
+    $query = "INSERT INTO MuesliTask (Text, PrecedingID) VALUES (:Text, :PrecedingID);";
+    $bindings[":PrecedingID"] = $_POST['PrecedingID'];
 } else {
-    $query = "INSERT INTO MuesliTask (ID, Text) VALUES (${ID}, '${Text}');";
+    $query = "INSERT INTO MuesliTask (ID, Text) VALUES (:ID, :Text);";
+    $bindings[":ID"] = $_POST['ID'];
 }
 
-$db->query($query);
+$result = $db->prepare($query);
+$result->execute($bindings);
 ?>

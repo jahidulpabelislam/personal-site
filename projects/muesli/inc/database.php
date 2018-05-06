@@ -8,12 +8,12 @@ try {
     echo 'Connection failed: ' . $failure->getMessage();
 }
 try {
-    $showquery = "SHOW DATABASES LIKE '" . DATABASENAME . "'";
+    $showquery = "SHOW DATABASES LIKE '" . DATABASENAME . "';";
     $showresult = $db->query($showquery);
     if (!$showresult->fetch()) {
         $db->query("CREATE DATABASE " . DATABASENAME);
     }
-    $db->exec("USE " . DATABASENAME);
+    $db->exec("USE " . DATABASENAME . ";");
     $db->exec($createquery);
 } catch (PDOException $failure) {
     echo 'Server failed: ' . $failure->getMessage();

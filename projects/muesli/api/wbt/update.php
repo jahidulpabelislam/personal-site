@@ -4,12 +4,15 @@ include '../../inc/all.php';
 $ID = $_POST['ID'];
 $Text = $_POST['Text'];
 
+$bindings = array(":ID" => $ID, ":Text" => $Text);
+
 if (isset($_POST['PrecedingID'])) {
-    $PrecedingID = $_POST['PrecedingID'];
-    $query = "UPDATE MuesliTask SET Text = '${Text}', PrecedingID = ${PrecedingID} WHERE ID = ${ID};";
+    $query = "UPDATE MuesliTask SET Text = :Text, PrecedingID = :PrecedingID WHERE ID = :ID;";
+    $bindings[":PrecedingID"] = $_POST['PrecedingID'];
 } else {
-    $query = "UPDATE MuesliTask SET Text = '${Text}' WHERE ID = ${ID};";
+    $query = "UPDATE MuesliTask SET Text = :Text WHERE ID = :ID;";
 }
 
-$db->query($query);
+$result = $db->prepare($query);
+$result->execute($bindings);
 ?>
