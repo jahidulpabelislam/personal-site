@@ -1,17 +1,20 @@
 <?php
-
+include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
 $con = mysqli_connect(IP, USERNAME, PASSWORD);
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
+if(!$con)
+{
+    if (defined("DEBUG") && DEBUG) {
+        echo mysqli_connect_error();
+    }
+    die('Could not connect.');
+}
 
 
 mysqli_select_db($con, DATABASENAME);
 
 /*This selects the database (Login) on the mySQL server. Note use the name of your database.*/
 
-$result = mysqli_query($con, "SELECT * FROM Password");
+$result = mysqli_query($con, "SELECT * FROM Password;");
 
 /*This uses the SQL language to extract data from the table called Password. All the results are placed in the variable $result*/
 
