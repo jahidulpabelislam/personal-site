@@ -198,7 +198,7 @@ function editProject($data)
                     {
                         foreach ($pictures as $picture)
                         {
-                            $query = "UPDATE PortfolioProjectImage SET Number = :Number WHERE ID = :ID;";
+                            $query = "UPDATE portfolioprojectimage SET Number = :Number WHERE ID = :ID;";
                             $bindings = array(":ID" => $picture->ID, ":Number" => $picture->Number);
                             $db->query($query, $bindings);
                         }
@@ -241,7 +241,7 @@ function deleteProject($data)
 
                 $db = new pdodb;
                 //Delete the images linked to project
-                $query = "DELETE FROM PortfolioProjectImage WHERE ProjectID = :projectID;";
+                $query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID;";
                 $bindings = array(":projectID" => $data["projectID"]);
                 $db->query($query, $bindings);
 
@@ -274,7 +274,7 @@ function deleteProject($data)
 function getPictures($projectID)
 {
     $db = new pdodb;
-    $query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID ORDER BY Number;";
+    $query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
     $bindings[":projectID"] = $projectID;
     $results = $db->query($query, $bindings);
     return $results["rows"];
@@ -315,14 +315,14 @@ function addPicture($data)
 
                         //update database with location of new picture
                         $db = new pdodb;
-                        $query = "INSERT INTO PortfolioProjectImage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
+                        $query = "INSERT INTO portfolioprojectimage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
                         $bindings = array(":file" => $fileLocation, ":projectID" => $data["projectID"]);
                         $results = $db->query($query, $bindings);
 
                         //if update of user was ok
                         if ($results["count"] > 0) {
 
-                            $query = "SELECT * FROM PortfolioProjectImage WHERE File = :file AND ProjectID = :projectID;";
+                            $query = "SELECT * FROM portfolioprojectimage WHERE File = :file AND ProjectID = :projectID;";
                             $results = $db->query($query, $bindings);
 
                             $results["meta"]["ok"] = true;
@@ -377,7 +377,7 @@ function deletePicture($data)
 
                 //update database
                 $db = new pdodb;
-                $query = "DELETE FROM PortfolioProjectImage WHERE ProjectID = :projectID AND File = :file;";
+                $query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID AND File = :file;";
                 $bindings = array(":projectID" => $data["projectID"], ":file" => $data["file"]);
                 $results = $db->query($query, $bindings);
 
