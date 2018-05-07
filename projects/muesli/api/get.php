@@ -1,7 +1,7 @@
 <?php
 include '../inc/all.php';
 
-$query = "SELECT * from MuesliTask;";
+$query = "SELECT * from mueslitask;";
 $rows = $db->query($query);
 $rows = $rows->fetchAll(PDO::FETCH_ASSOC);
 

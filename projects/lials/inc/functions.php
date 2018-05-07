@@ -65,7 +65,7 @@ function dataNotProvided($dataNeeded)
 function getAUser($username)
 {
     $db = new pdodb;
-    $query = "SELECT * FROM LialsUser WHERE Username = :username;";
+    $query = "SELECT * FROM lialsuser WHERE Username = :username;";
     $bindings = array(':username' => $username);
     return $db->query($query, $bindings);
 }
@@ -84,7 +84,7 @@ function noUserFound($username)
 function getGoal($goalID)
 {
     $db = new pdodb;
-    $query = "SELECT * FROM LialsGoal WHERE ID = :goalID;";
+    $query = "SELECT * FROM lialsgoal WHERE ID = :goalID;";
     $bindings = array(':goalID' => $goalID);
     return $db->query($query, $bindings);
 }
@@ -103,7 +103,7 @@ function noGoalFound($goalID)
 function getComment($commentID)
 {
     $db = new pdodb;
-    $query = "SELECT * FROM LialsComment WHERE ID = :commentID;";
+    $query = "SELECT * FROM lialscomment WHERE ID = :commentID;";
     $bindings = array('commentID' => $commentID);
     return $db->query($query, $bindings);
 }
@@ -136,7 +136,7 @@ function getUser($data)
             if (isset($data["password"])) {
 
                 //get the user with username and password provided
-                $query = "SELECT Username FROM LialsUser WHERE Username = :username AND Password = :password;";
+                $query = "SELECT Username FROM lialsuser WHERE Username = :username AND Password = :password;";
                 $bindings = array(":username" => $data["username"], ":password" => $data["password"]);
                 $user = $db->query($query, $bindings);
 
@@ -171,7 +171,7 @@ function getUser($data)
                 if ($user["count"] > 0) {
 
                     //gets the users info
-                    $query = "SELECT Username, Picture, Private, Following FROM LialsUser LEFT JOIN (SELECT Following FROM LialsFollow WHERE Username1 = :me) AS u ON Username = Following WHERE Username = :username;";
+                    $query = "SELECT Username, Picture, Private, Following FROM lialsuser LEFT JOIN (SELECT Following FROM lialsfollow WHERE Username1 = :me) AS u ON Username = Following WHERE Username = :username;";
                     $bindings = array(":me" => $data["me"], ":username" => $data["username"]);
                     $results = $db->query($query, $bindings);
 
@@ -230,7 +230,7 @@ function addUser($data)
         if ($user["count"] == 0) {
 
             $db = new pdodb;
-            $query = "INSERT INTO LialsUser (Username, Password) VALUES (:username,:password);";
+            $query = "INSERT INTO lialsuser (Username, Password) VALUES (:username,:password);";
             $bindings = array(":username" => $data["username"], ":password" => $data["password"]);
             $user = $db->query($query, $bindings);
 
@@ -286,7 +286,7 @@ function editUser($data)
         if ($user["count"] > 0) {
 
             $db = new pdodb;
-            $query = "UPDATE LialsUser SET Private = NOT Private WHERE Username = :username;";
+            $query = "UPDATE lialsuser SET Private = NOT Private WHERE Username = :username;";
             $bindings = array(":username" => $data["username"]);
             $user = $db->query($query, $bindings);
 
@@ -354,7 +354,7 @@ function getGoals($data)
                 //checks if user provided exists
                 $user = getAUser($data["user"]);
                 if ($user["count"] > 0) {
-                    $where = "LialsGoal.Username = :user";
+                    $where = "lialsgoal.Username = :user";
                     $bindings[":user"] = $data["user"];
                 }
                 //else error getting user
@@ -454,14 +454,14 @@ function getGoals($data)
             }
             //if not search or username provided assumes goals of users they are following
             else {
-                $following = "LEFT JOIN (SELECT * FROM LialsFollow WHERE Username1 = :me) AS Follow ON Username = Following";
-                $where = "Username1 IS NOT NULL OR LialsGoal.Username = :me";
+                $following = "LEFT JOIN (SELECT * FROM lialsfollow WHERE Username1 = :me) AS Follow ON Username = Following";
+                $where = "Username1 IS NOT NULL OR lialsgoal.Username = :me";
             }
 
             if (isset($where)) {
 
                 $db = new pdodb;
-                $query = "SELECT * FROM LialsGoal ${following} LEFT JOIN (SELECT GoalID, Liked FROM LialsLikes WHERE Username = :me) AS GoalLike ON ID = GoalID WHERE ${where} ORDER BY Upload, ID;";
+                $query = "SELECT * FROM lialsgoal ${following} LEFT JOIN (SELECT GoalID, Liked FROM lialslikes WHERE Username = :me) AS GoalLike ON ID = GoalID WHERE ${where} ORDER BY Upload, ID;";
                 $bindings[":me"] = $data["me"];
                 $goals = $db->query($query, $bindings);
 
@@ -517,7 +517,7 @@ function addGoal($data)
             if (preg_match("/\b[\d]{4}-[\d]{2}-[\d]{2}\b/im", $data["due"])) {
 
                 $db = new pdodb;
-                $query = "INSERT INTO LialsGoal (Goal, Due, Upload, Username) VALUES (:goal, :due, :upload, :me);";
+                $query = "INSERT INTO lialsgoal (Goal, Due, Upload, Username) VALUES (:goal, :due, :upload, :me);";
                 $bindings = array(":goal" => $data["goal"],":due" => $data["due"], ":upload" => date("y/m/d"),":me" => $data["me"]);
                 $goal = $db->query($query, $bindings);
 
@@ -591,12 +591,12 @@ function editGoal($data)
 
             //check if changing completion of goal
             if (isset($data["completion"])) {
-                $query = "UPDATE LialsGoal SET Completion = NOT Completion WHERE ID = :goalID;";
+                $query = "UPDATE lialsgoal SET Completion = NOT Completion WHERE ID = :goalID;";
                 $bindings = array(":goalID" => $data["goalID"]);
             }
             //else check if changing goal of a goal
             else if (isset($data["goal"]) && trim($data["goal"]) != "") {
-                $query = "UPDATE LialsGoal SET Goal = :goal WHERE ID = :goalID;";
+                $query = "UPDATE lialsgoal SET Goal = :goal WHERE ID = :goalID;";
                 $bindings = array(":goal" => $data["goal"], ":goalID" => $data["goalID"]);
             }
 
@@ -662,7 +662,7 @@ function deleteGoal($data)
 
             $db = new pdodb;
             //delete the comments linked to goal
-            $query = "DELETE FROM LialsComment WHERE GoalID = :goalID;";
+            $query = "DELETE FROM lialscomment WHERE GoalID = :goalID;";
             $bindings = array(":goalID" => $data["goalID"]);
             $db->query($query, $bindings);
 
@@ -671,7 +671,7 @@ function deleteGoal($data)
             $db->query($query, $bindings);
 
             //finally delete the actual goal
-            $query = "DELETE FROM LialsGoal WHERE ID = :goalID;";
+            $query = "DELETE FROM lialsgoal WHERE ID = :goalID;";
             $goal = $db->query($query, $bindings);
 
             //if deletion was ok
@@ -730,7 +730,7 @@ function getComments($data)
         if ($goal["count"] > 0) {
 
             $db = new pdodb;
-            $query = "SELECT * FROM LialsComment WHERE GoalID = :goalID ORDER BY Upload, ID;";
+            $query = "SELECT * FROM lialscomment WHERE GoalID = :goalID ORDER BY Upload, ID;";
             $bindings = array(":goalID" => $data["goalID"]);
             $comments = $db->query($query, $bindings);
 
@@ -784,7 +784,7 @@ function addComment($data)
             if ($user["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "INSERT INTO LialsComment (Comment, GoalID, Username, Upload) VALUES (:comment, :goalID, :me, :upload);";
+                $query = "INSERT INTO lialscomment (Comment, GoalID, Username, Upload) VALUES (:comment, :goalID, :me, :upload);";
                 $bindings = array(":comment" => $data["comment"], ":goalID" => $data["goalID"], ":me" => $data["me"], ":upload" => date("y/m/d"));
                 $comment = $db->query($query, $bindings);
 
@@ -861,7 +861,7 @@ function editComment($data)
         if ($comment["count"] > 0) {
 
             $db = new pdodb;
-            $query = "UPDATE LialsComment SET Comment = :comment WHERE ID = :commentID;";
+            $query = "UPDATE lialscomment SET Comment = :comment WHERE ID = :commentID;";
             $bindings = array(":comment" => $data["comment"], "commentID" => $data["commentID"]);
             $comment = $db->query($query, $bindings);
 
@@ -920,7 +920,7 @@ function deleteComment($data)
         if ($comment["count"] > 0) {
 
             $db = new pdodb;
-            $query = "DELETE FROM LialsComment WHERE ID = :commentID;";
+            $query = "DELETE FROM lialscomment WHERE ID = :commentID;";
             $bindings = array(":commentID" => $data["commentID"]);
             $row = $db->query($query, $bindings);
 
@@ -984,14 +984,14 @@ function addFriend($data)
             if ($userToFollow["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "INSERT INTO LialsFollow (Username1, Following) VALUES (:username, :userToFollow);";
+                $query = "INSERT INTO lialsfollow (Username1, Following) VALUES (:username, :userToFollow);";
                 $bindings = array(":username" => $data["username"], ":userToFollow" => $data["userToFollow"]);
                 $follow = $db->query($query, $bindings);
 
                 //if add was ok
                 if ($follow["count"] > 0) {
 
-                    $query = "SELECT * FROM LialsFollow WHERE Username1 = :username AND Following = :userToFollow;";
+                    $query = "SELECT * FROM lialsfollow WHERE Username1 = :username AND Following = :userToFollow;";
                     $follow = $db->query($query, $bindings);
 
                     $results = $follow;
@@ -1070,7 +1070,7 @@ function deleteFriend($data)
             if ($userFollowing["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "DELETE FROM LialsFollow WHERE Username1 = :username AND Following = :userFollowing;";
+                $query = "DELETE FROM lialsfollow WHERE Username1 = :username AND Following = :userFollowing;";
                 $bindings = array(":username" => $data["username"], ":userFollowing" => $data["userFollowing"]);
                 $unfollow = $db->query($query, $bindings);
 
@@ -1150,7 +1150,7 @@ function addLike($data)
             if ($goal["count"] > 0) {
 
                 $db = new pdodb;
-                $query = "INSERT INTO LialsLikes (Username, goalID) VALUES (:username, :goalID);";
+                $query = "INSERT INTO lialslikes (Username, goalID) VALUES (:username, :goalID);";
                 $bindings = array(":username" => $data["username"], ":goalID" => $data["goalID"]);
                 $like = $db->query($query, $bindings);
 
@@ -1235,7 +1235,7 @@ function deleteLike($data)
 
                 //delete from database
                 $db = new pdodb;
-                $query = "DELETE FROM LialsLikes WHERE Username = :username AND GoalID = :goalID;";
+                $query = "DELETE FROM lialslikes WHERE Username = :username AND GoalID = :goalID;";
                 $bindings = array(":username" => $data["username"], ":goalID" =>$data["goalID"]);
                 $unlike = $db->query($query, $bindings);
 
@@ -1333,7 +1333,7 @@ function addPicture($data)
 
                     //update database with location of new picture
                     $db = new pdodb;
-                    $query = "UPDATE LialsUser SET Picture = :file WHERE Username = :username;";
+                    $query = "UPDATE lialsuser SET Picture = :file WHERE Username = :username;";
                     $bindings = array(":file" => $fileLocation, ":username" => $username);
                     $picture = $db->query($query, $bindings);
 
@@ -1414,7 +1414,7 @@ function deletePicture($data)
 
             //update database
             $db = new pdodb;
-            $query = "UPDATE LialsUser SET Picture = null WHERE Username = :username;";
+            $query = "UPDATE lialsuser SET Picture = null WHERE Username = :username;";
             $bindings = array(":username" => $data["username"]);
             $picture = $db->query($query, $bindings);
 
