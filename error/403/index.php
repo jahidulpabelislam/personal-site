@@ -13,6 +13,8 @@ $header_description = "Forbidden Page";
 //the keywords to use for pages
 $keywords = "";
 
+$nav_tint = "dark";
+
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 

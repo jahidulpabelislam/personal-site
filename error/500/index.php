@@ -13,6 +13,8 @@ $header_description = "Internal Server Error";
 //the keywords to use for page
 $keywords = "";
 
+$nav_tint = "light";
+
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
