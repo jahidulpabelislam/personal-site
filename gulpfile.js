@@ -9,21 +9,21 @@ var sass = require('gulp-sass');
 // Concatenate & Minify JS
 var scripts = {
     main: [
-        "assets/js/expandImage.js",
-        "assets/js/slideShow.js",
-        "assets/js/helperFunctions.js",
-        "assets/js/xhr.js",
-        "assets/js/projects.js",
-        "assets/js/projectsPreview.js",
-        "assets/js/form.js",
-        "assets/js/stickyFooter.js",
+        "assets/js/jpi/expandImage.js",
+        "assets/js/jpi/slideShow.js",
+        "assets/js/jpi/helperFunctions.js",
+        "assets/js/jpi/xhr.js",
+        "assets/js/jpi/projects.js",
+        "assets/js/jpi/projectsPreview.js",
+        "assets/js/jpi/form.js",
+        "assets/js/jpi/stickyFooter.js",
         "assets/js/third-party/waypoint.min.js",
         "assets/js/third-party/jquery.countTo.js",
-        "assets/js/main.js"
+        "assets/js/jpi/main.js"
     ],
     admin: [
-        "assets/js/helperFunctions.js",
-        "assets/js/stickyFooter.js",
+        "assets/js/jpi/helperFunctions.js",
+        "assets/js/jpi/stickyFooter.js",
         "assets/js/third-party/jquery-ui.min.js",
         "assets/js/third-party/sortable.js"
     ]

@@ -36,17 +36,17 @@
         <?php if (!isset($_GET["debug"])):?>
             <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/assets/js/expandImage.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/slideShow.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/helperFunctions.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/xhr.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/projects.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/projectsPreview.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/form.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/expandImage.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/helperFunctions.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/xhr.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/projectsPreview.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/main.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
         <?php endif; ?>
     </body>
 </html>

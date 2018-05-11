@@ -109,6 +109,6 @@
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="/assets/js/stickyFooter.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
     </body>
 </html>
