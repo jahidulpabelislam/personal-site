@@ -70,6 +70,7 @@ gulp.task('sass', function() {
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('assets/css/**/*.scss', ['sass', 'styles']);
+    gulp.watch('assets/js/**/*.js', ['scripts']);
 });
 
 gulp.task("default", ["scripts", "styles"]);
