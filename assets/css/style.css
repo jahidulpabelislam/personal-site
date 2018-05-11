@@ -2061,7 +2061,7 @@ label {
 @media only screen and (min-width: 1200px) {
   .image-of-me--home {
     width: 25%;
-    max-width: 250px; }
+    max-width: 220px; }
   #slide-show--projects-preview .slide-show__slide-container {
     display: flex; }
   #slide-show--projects-preview .slide {
