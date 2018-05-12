@@ -73,6 +73,7 @@ window.jpi.form = (function () {
         //validate the email address
         validateEmail = function(email, isForm) {
             formFeedback.hide("fast");
+            emailInput.removeClass("valid");
 
             var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
                 result = validEmailPattern.test(email);
@@ -80,13 +81,11 @@ window.jpi.form = (function () {
             //checks if email is empty
             if (email.trim() === "" && isForm) {
                 emailInput.addClass("invalid");
-                emailInput.removeClass("valid");
                 emailFeedback.show("fast").text("Email Address must be provided and valid.");
             }
             //checks if email is valid, then give user message
             else if (!result && isForm) {
                 emailInput.addClass("invalid");
-                emailInput.removeClass("valid");
                 emailFeedback.show("fast").text("Email Address must be valid.");
             }
             //else remove feedback message
@@ -103,12 +102,12 @@ window.jpi.form = (function () {
         //validate the message input
         validateMessage = function(message, isForm) {
             formFeedback.hide("fast");
+            messageInput.removeClass("valid");
 
             //checks is message is empty
             if (message.trim() === "" && isForm) {
                 //give user message
                 messageInput.addClass("invalid");
-                messageInput.removeClass("valid");
                 messageFeedback.show("fast").text("Message must be filled out.");
                 return false;
             }
