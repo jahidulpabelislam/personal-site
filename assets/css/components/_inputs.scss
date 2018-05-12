@@ -28,6 +28,16 @@
     @include box-shadow(0 0 8px transparentize($error, .4));
 }
 
+.input.valid {
+    border-color: $success;
+}
+
+.input:focus.valid {
+    border-color: $success;
+    @include box-shadow(0 0 8px transparentize($success, .4));
+}
+
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     .input {

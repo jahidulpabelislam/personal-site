@@ -12,9 +12,11 @@ window.jpi.helpers = (function (jQuery) {
     var checkInputField = function(input) {
             if (input.value.trim() === "") {
                 input.classList.add("invalid");
+                input.classList.remove("valid");
                 return false;
             } else {
                 input.classList.remove("invalid");
+                input.classList.add("valid");
                 return true;
             }
         },

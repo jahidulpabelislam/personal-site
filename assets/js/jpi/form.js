@@ -80,16 +80,19 @@ window.jpi.form = (function () {
             //checks if email is empty
             if (email.trim() === "" && isForm) {
                 emailInput.addClass("invalid");
+                emailInput.removeClass("valid");
                 emailFeedback.show("fast").text("Email Address must be provided and valid.");
             }
             //checks if email is valid, then give user message
             else if (!result && isForm) {
                 emailInput.addClass("invalid");
+                emailInput.removeClass("valid");
                 emailFeedback.show("fast").text("Email Address must be valid.");
             }
             //else remove feedback message
             else if (email.trim() !== "" && result) {
                 emailInput.removeClass("invalid");
+                emailInput.addClass("valid");
                 emailFeedback.hide("fast");
                 return true;
             }
@@ -105,12 +108,14 @@ window.jpi.form = (function () {
             if (message.trim() === "" && isForm) {
                 //give user message
                 messageInput.addClass("invalid");
+                messageInput.removeClass("valid");
                 messageFeedback.show("fast").text("Message must be filled out.");
                 return false;
             }
             //else remove feedback messages
             else if (message.trim() !== "") {
                 messageInput.removeClass("invalid");
+                messageInput.addClass("valid");
                 messageFeedback.hide("fast");
                 return true;
             }
