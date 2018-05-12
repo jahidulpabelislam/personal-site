@@ -101,6 +101,50 @@ window.jpi.projects = (function () {
             }
         },
 
+        openProjectsExpandModal = function () {
+            var project = $(this).data("projectData");
+
+            $(".modal--detailed-project").addClass("open").show();
+            document.body.style.overflow = "hidden";
+
+            //stops all the slide shows
+            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+
+            $(".modal--detailed-project .project__links, .modal--detailed-project .project__skills, .modal--detailed-project .slide-show__slides-container, .modal--detailed-project .js-slide-show-bullets").text("");
+
+            $(".modal--detailed-project .project-title").text(project.Name);
+            $(".modal--detailed-project .project-date").text(project.Date);
+
+            addSkills(project, ".modal--detailed-project");
+
+            $(".modal--detailed-project .description").html(project.LongDescription);
+
+            addLinks(project, ".modal--detailed-project");
+
+            addProjectPictures(project, "#detailed-project__slide-show");
+
+            var regx = new RegExp("slide-show__nav--\\w*", 'g');
+
+            $(".modal--detailed-project .slide-show__nav").each(function() {
+                var classList = $(this).attr("class");
+                classList =  classList.replace(regx, 'slide-show__nav--'+project.Colour);
+                $(this).attr("class", classList);
+            });
+        },
+
+        closeProjectsExpandModal = function(event) {
+            if(!$(event.target).closest('.modal__content').length && $(".modal--detailed-project").hasClass("open")) {
+                $(".modal--detailed-project").removeClass("open").hide();
+                document.body.style.overflow = "auto";
+                $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
+                $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
+                $("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
+                clearInterval(autoSlide["#detailed-project__slide-show"]);
+                $("#detailed-project__slide-show").removeClass("hasSlideShow");
+                jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
+            }
+        },
+
         //renders a project
         renderProject = function(project) {
 
@@ -266,36 +310,7 @@ window.jpi.projects = (function () {
                 load();
             });
 
-            $(".projects").on("click", ".js-open-modal", function() {
-                var project = $(this).data("projectData");
-
-                $(".modal--detailed-project").addClass("open").show();
-                document.body.style.overflow = "hidden";
-
-                //stops all the slide shows
-                jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
-
-                $(".modal--detailed-project .project__links, .modal--detailed-project .project__skills, .modal--detailed-project .slide-show__slides-container, .modal--detailed-project .js-slide-show-bullets").text("");
-
-                $(".modal--detailed-project .project-title").text(project.Name);
-                $(".modal--detailed-project .project-date").text(project.Date);
-
-                addSkills(project, ".modal--detailed-project");
-
-                $(".modal--detailed-project .description").html(project.LongDescription);
-
-                addLinks(project, ".modal--detailed-project");
-
-                addProjectPictures(project, "#detailed-project__slide-show");
-
-                var regx = new RegExp("slide-show__nav--\\w*", 'g');
-
-                $(".modal--detailed-project .slide-show__nav").each(function() {
-                    var classList = $(this).attr("class");
-                    classList =  classList.replace(regx, 'slide-show__nav--'+project.Colour);
-                    $(this).attr("class", classList);
-                });
-            });
+            $(".projects").on("click", ".js-open-modal", openProjectsExpandModal);
 
             window.addEventListener('popstate', function() {
                 url = new URL(window.location);
@@ -304,18 +319,7 @@ window.jpi.projects = (function () {
             });
 
             //Close the modal
-            $(".modal--detailed-project").click(function(event) {
-                if(!$(event.target).closest('.modal__content').length && $(".modal--detailed-project").hasClass("open")) {
-                    $(".modal--detailed-project").removeClass("open").hide();
-                    document.body.style.overflow = "auto";
-                    $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
-                    $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
-                    $("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
-                    clearInterval(autoSlide["#detailed-project__slide-show"]);
-                    $("#detailed-project__slide-show").removeClass("hasSlideShow");
-                    jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
-                }
-            });
+            $(".modal--detailed-project").on("click", closeProjectsExpandModal);
         },
 
         init = function () {
