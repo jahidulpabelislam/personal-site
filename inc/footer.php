@@ -39,7 +39,7 @@
             <script src="/assets/js/jpi/expandImage.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/helperFunctions.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/xhr.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/projectsPreview.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>

@@ -56,7 +56,7 @@ window.jpi.form = (function () {
 
             //if form is valid send a request with necessary data to XHR
             if (emailValidation && messageValidation) {
-                jpi.xhr.sendRequest({
+                jpi.ajax.sendRequest({
                     "method": "POST",
                     "url": "sendMessage.php",
                     "query": {emailAddress: emailInput.val(), message: messageInput.val(), subject: subjectInput.val()},

@@ -12,7 +12,7 @@ var scripts = {
         "assets/js/jpi/expandImage.js",
         "assets/js/jpi/slideShow.js",
         "assets/js/jpi/helperFunctions.js",
-        "assets/js/jpi/xhr.js",
+        "assets/js/jpi/ajax.js",
         "assets/js/jpi/projects.js",
         "assets/js/jpi/projectsPreview.js",
         "assets/js/jpi/form.js",

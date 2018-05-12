@@ -1,5 +1,5 @@
 window.jpi = window.jpi || {};
-window.jpi.xhr = (function () {
+window.jpi.ajax = (function () {
 
     "use strict";
 
