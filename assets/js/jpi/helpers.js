@@ -1,6 +1,6 @@
 //Holds any helpers functions for whole project
 window.jpi = window.jpi || {};
-window.jpi.helpers = (function () {
+window.jpi.helpers = (function (jQuery) {
 
     "use strict";
 
@@ -24,10 +24,11 @@ window.jpi.helpers = (function () {
             var elem = document.createElement(element);
             for (var attribute in attributes) {
                 if (attributes.hasOwnProperty(attribute)) {
-                    if (attribute === "innerHTML")
+                    if (attribute === "innerHTML") {
                         elem[attribute] = attributes[attribute];
-                    else
+                    } else {
                         elem.setAttribute(attribute, attributes[attribute]);
+                    }
                 }
             }
             parent.appendChild(elem);
@@ -39,4 +40,4 @@ window.jpi.helpers = (function () {
         "createElement": createElement
     };
 
-}());
+}(jQuery));

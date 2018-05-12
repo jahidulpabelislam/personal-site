@@ -11,7 +11,7 @@ var scripts = {
     main: [
         "assets/js/jpi/expandImage.js",
         "assets/js/jpi/slideShow.js",
-        "assets/js/jpi/helperFunctions.js",
+        "assets/js/jpi/helpers.js",
         "assets/js/jpi/ajax.js",
         "assets/js/jpi/projects.js",
         "assets/js/jpi/projectsPreview.js",
@@ -22,7 +22,7 @@ var scripts = {
         "assets/js/jpi/main.js"
     ],
     admin: [
-        "assets/js/jpi/helperFunctions.js",
+        "assets/js/jpi/helpers.js",
         "assets/js/jpi/stickyFooter.js",
         "assets/js/third-party/jquery-ui.min.js",
         "assets/js/third-party/sortable.js"
