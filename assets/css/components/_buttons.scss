@@ -38,11 +38,12 @@ button, [type=button], [type=submit] {
 .btn--clear {
     background-color: transparent;
     border-color: transparent;
+    color: white;
 }
 
 .btn--clear:hover, .btn--clear:focus, .btn--clear:active, .btn--clear:active:hover, .btn--clear:active:focus {
     background-color: transparent;
-    color: $dark;
+    color: darken(white, 20%);
 }
 
 a.btn {
