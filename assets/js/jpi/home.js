@@ -1,20 +1,20 @@
 //holds all functions needed to display latest 3 project on the home page
 window.jpi = window.jpi || {};
-window.jpi.projectsPreview = (function () {
+window.jpi.home = (function () {
 
     "use strict";
 
     //prints out a error message provided
-    var renderProjectsPreviewError = function(error) {
+    var renderError = function(error) {
             $(".feedback--error").text(error).show("fast");
             $(".projects-loading-img").hide("fast");
             jpi.footer.delayExpand();
         },
 
         //renders a project
-        renderProjectPreview = function(project) {
-            var slide_template = jQuery('#tmpl-slide-template').text();
-            var bullet_template = jQuery('#tmpl-slide-bullet-template').text();
+        renderProject = function(project) {
+            var slide_template = $('#tmpl-slide-template').text();
+            var bullet_template = $('#tmpl-slide-bullet-template').text();
 
             for (var data in project) {
                 if (project.hasOwnProperty(data)) {
@@ -51,11 +51,11 @@ window.jpi.projectsPreview = (function () {
         },
 
         //sets up events when projects is received
-        gotProjectsPreview = function(result) {
+        gotProjects = function(result) {
             $(".feedback--error, .projects-loading-img").text("").hide("fast");
 
             //send the data, the function to do if data is valid
-            var dataValid = jpi.xhr.loopThroughData(result, renderProjectPreview, renderProjectsPreviewError, "Error Getting the Projects.");
+            var dataValid = jpi.ajax.loopThroughData(result, renderProject, renderError, "Error Getting the Projects.");
 
             if (dataValid)
                 jpi.slideShow.setUp("#slide-show--projects-preview");
@@ -66,12 +66,12 @@ window.jpi.projectsPreview = (function () {
         init = function () {
             if ($("#slide-show--projects-preview").length > 0) {
                 $(".projects-loading-img").show("fast");
-                jpi.xhr.sendRequest({
+                jpi.ajax.sendRequest({
                     method: "GET",
                     url: "/admin/api/1/projects/",
                     query: {limit: 3},
-                    load: gotProjectsPreview,
-                    error: renderProjectsPreviewError
+                    load: gotProjects,
+                    error: renderError
                 });
             }
         };

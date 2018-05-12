@@ -14,7 +14,7 @@ var scripts = {
         "assets/js/jpi/helpers.js",
         "assets/js/jpi/ajax.js",
         "assets/js/jpi/projects.js",
-        "assets/js/jpi/projectsPreview.js",
+        "assets/js/jpi/home.js",
         "assets/js/jpi/form.js",
         "assets/js/jpi/stickyFooter.js",
         "assets/js/third-party/waypoint.min.js",
