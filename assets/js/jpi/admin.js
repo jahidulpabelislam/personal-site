@@ -65,7 +65,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
         var renderFailedUpload = function(errorMessage) {
             $scope.uploads.push({ok: false, text: errorMessage});
             $scope.$apply();
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         $scope.checkFile = function(file) {
@@ -81,7 +81,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 fileReader.onload = function(e) {
                     $scope.uploads.push({ok: true, text: file.name, image: e.target.result, file: file});
                     $scope.$apply();
-                    delayExpand();
+                    jpi.footer.delayExpand();
                 };
 
                 fileReader.onerror = function() {
@@ -213,7 +213,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 $scope.projectFormFeedback = addFeedback(result, "Error deleting the Project Image.");
             }
 
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         //send a request to delete a project image
@@ -245,11 +245,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
             $scope.projectFormFeedback = "";
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
-                projectNameValidation = checkInputField($("#projectName")[0]),
-                longDescriptionValidation = checkInputField($("#longDescription")[0]),
-                shortDescriptionValidation = checkInputField($("#shortDescription")[0]),
-                githubValidation = checkInputField($("#github")[0]),
-                dateValidation = checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
+                projectNameValidation = jpi.helpers.checkInputField($("#projectName")[0]),
+                longDescriptionValidation = jpi.helpers.checkInputField($("#longDescription")[0]),
+                shortDescriptionValidation = jpi.helpers.checkInputField($("#shortDescription")[0]),
+                githubValidation = jpi.helpers.checkInputField($("#github")[0]),
+                dateValidation = jpi.helpers.checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
 
             if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
                 if (!$scope.selectedProject.ID) {
@@ -299,7 +299,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
             $("#projectName, #skills, #description, #github, #date").removeClass("invalid");
 
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         $scope.setUpAddProject = function() {
@@ -345,7 +345,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 $scope.selectProjectFeedback = addFeedback(result, "Error deleting your project.");
             }
 
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         $scope.deleteProject = function() {
@@ -362,7 +362,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 $scope.selectProjectFeedback = "Select A Project To Delete.";
             }
 
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         $scope.selectProject = function(project) {
@@ -397,7 +397,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 }
             }
 
-            delayExpand();
+            jpi.footer.delayExpand();
         };
 
         $scope.getProjectList = function(page) {
@@ -437,15 +437,15 @@ angular.module('projectsAdmin', ['ui.sortable'])
         $scope.logIn = function() {
 
             //checks if inputs both are empty
-            if (!checkInputField($("#username")[0]) && !checkInputField($("#password")[0])) {
+            if (!jpi.helpers.checkInputField($("#username")[0]) && !jpi.helpers.checkInputField($("#password")[0])) {
                 $scope.userFormFeedback = "Input fields needs to be filled.";
             }
             //else checks if username input is empty
-            else if (!checkInputField($("#username")[0])) {
+            else if (!jpi.helpers.checkInputField($("#username")[0])) {
                 $scope.userFormFeedback = "Username field needs to be filled.";
             }
             //else checks if password input is empty
-            else if (!checkInputField($("#password")[0])) {
+            else if (!jpi.helpers.checkInputField($("#password")[0])) {
                 $scope.userFormFeedback = "Password field needs to be filled.";
             }
             //else inputs are filled

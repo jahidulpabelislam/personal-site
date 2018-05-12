@@ -65,7 +65,7 @@
 
                     <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 
                         <label for="skills">Skills <span class="required">*</span></label>
 
@@ -80,18 +80,18 @@
                         </div>
 
                         <label for="longDescription">Long Description <span class="required">*</span></label>
-                        <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription" class="input" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                        <textarea ng-model="selectedProject.LongDescription" name="description" id="longDescription" class="input" placeholder="description" tabindex="9" oninput="jpi.helpers.checkInputField(this);" required rows="10"></textarea>
                         <label for="shortDescription">Short Description <span class="required">*</span></label>
-                        <textarea ng-model="selectedProject.ShortDescription" name="description" id="shortDescription" class="input" placeholder="description" tabindex="9" oninput="checkInputField(this);" required rows="10"></textarea>
+                        <textarea ng-model="selectedProject.ShortDescription" name="description" id="shortDescription" class="input" placeholder="description" tabindex="9" oninput="jpi.helpers.checkInputField(this);" required rows="10"></textarea>
 
                         <label for="link">Link</label>
                         <input ng-model="selectedProject.Link" type="text" name="link" id="link" class="input" placeholder="link" tabindex="10">
                         <label for="github">GitHub <span class="required">*</span></label>
-                        <input ng-model="selectedProject.GitHub" type="url" name="github" id="github" class="input" placeholder="github" tabindex="11" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.GitHub" type="url" name="github" id="github" class="input" placeholder="github" tabindex="11" oninput="jpi.helpers.checkInputField(this);" required>
                         <label for="download">Download</label>
                         <input ng-model="selectedProject.Download" type="text" name="download" id="download" class="input" placeholder="download" tabindex="12">
                         <label for="date">Date <span class="required">*</span></label>
-                        <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="input" placeholder="2016-01-30" tabindex="13" oninput="checkInputField(this);" required>
+                        <input ng-model="selectedProject.Date" type="date" name="date" id="date" class="input" placeholder="2016-01-30" tabindex="13" oninput="jpi.helpers.checkInputField(this);" required>
 
                         <label for="colour">Colour </label>
                         <select ng-model="selectedProject.Colour" name="colour" id="colour" class="input" tabindex="14">
@@ -137,9 +137,9 @@
             <div class="container">
                 <form class="login-form" ng-submit="logIn()">
                     <label for="username">Username</label>
-                    <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus class="input" tabindex="1" oninput="checkInputField(this);" required>
+                    <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus class="input" tabindex="1" oninput="jpi.helpers.checkInputField(this);" required>
                     <label for="password">Password</label>
-                    <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="checkInputField(this);" required>
+                    <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="jpi.helpers.checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
                     <p class="feedback feedback--user-form feedback--error" ng-if="userFormFeedback">{{userFormFeedback}}</p>
                     <button type="submit" value="Log In" class="btn btn--green">Log In</button>

@@ -1,32 +1,42 @@
 //Holds any helpers functions for whole project
-"use strict";
+window.jpi = window.jpi || {};
+window.jpi.helpers = (function () {
 
-/*
- * used to check if input field is empty
- * add invalid class if empty and return false
- * or remove invalid class if  not empty and return true
- */
-var checkInputField = function(input) {
-        if (input.value.trim() === "") {
-            input.classList.add("invalid");
-            return false;
-        } else {
-            input.classList.remove("invalid");
-            return true;
-        }
-    },
+    "use strict";
 
-    //creates a element with attributes appended to parent
-    createElement = function(parent, element, attributes) {
-        var elem = document.createElement(element);
-        for (var attribute in attributes) {
-            if (attributes.hasOwnProperty(attribute)) {
-                if (attribute === "innerHTML")
-                    elem[attribute] = attributes[attribute];
-                else
-                    elem.setAttribute(attribute, attributes[attribute]);
+    /*
+     * used to check if input field is empty
+     * add invalid class if empty and return false
+     * or remove invalid class if  not empty and return true
+     */
+    var checkInputField = function(input) {
+            if (input.value.trim() === "") {
+                input.classList.add("invalid");
+                return false;
+            } else {
+                input.classList.remove("invalid");
+                return true;
             }
-        }
-        parent.appendChild(elem);
-        return elem;
+        },
+
+        //creates a element with attributes appended to parent
+        createElement = function(parent, element, attributes) {
+            var elem = document.createElement(element);
+            for (var attribute in attributes) {
+                if (attributes.hasOwnProperty(attribute)) {
+                    if (attribute === "innerHTML")
+                        elem[attribute] = attributes[attribute];
+                    else
+                        elem.setAttribute(attribute, attributes[attribute]);
+                }
+            }
+            parent.appendChild(elem);
+            return elem;
+        };
+
+    return {
+        "checkInputField": checkInputField,
+        "createElement": createElement
     };
+
+}());
