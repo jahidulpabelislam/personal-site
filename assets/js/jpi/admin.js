@@ -435,17 +435,19 @@ angular.module('projectsAdmin', ['ui.sortable'])
         };
 
         $scope.logIn = function() {
+            var usernameValid = jpi.helpers.checkInputField($("#username")[0]),
+                passwordValid = jpi.helpers.checkInputField($("#password")[0]);
 
             //checks if inputs both are empty
-            if (!jpi.helpers.checkInputField($("#username")[0]) && !jpi.helpers.checkInputField($("#password")[0])) {
+            if (!usernameValid && !passwordValid) {
                 $scope.userFormFeedback = "Input fields needs to be filled.";
             }
             //else checks if username input is empty
-            else if (!jpi.helpers.checkInputField($("#username")[0])) {
+            else if (!usernameValid) {
                 $scope.userFormFeedback = "Username field needs to be filled.";
             }
             //else checks if password input is empty
-            else if (!jpi.helpers.checkInputField($("#password")[0])) {
+            else if (!passwordValid) {
                 $scope.userFormFeedback = "Password field needs to be filled.";
             }
             //else inputs are filled
