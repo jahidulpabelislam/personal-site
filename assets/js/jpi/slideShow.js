@@ -1,6 +1,6 @@
 //Holds all functions needed for a projects slide show
 window.jpi = window.jpi || {};
-window.jpi.slideShow = (function () {
+window.jpi.slideShow = (function (jQuery) {
 
     "use strict";
 
@@ -22,15 +22,15 @@ window.jpi.slideShow = (function () {
         //adjusts all slides in slide show to fit
         repositionSlides = function(id) {
 
-            var slidesContainer = $("#" + id + " .slide-show__slides-container");
+            var slidesContainer = jQuery("#" + id + " .slide-show__slides-container");
 
-            var viewpoint = $("#" + id + " .slide-show__viewpoint");
+            var viewpoint = jQuery("#" + id + " .slide-show__viewpoint");
 
-            var currentSlide = $("#" + id + " .slide-show__slide-container.active");
+            var currentSlide = jQuery("#" + id + " .slide-show__slide-container.active");
 
             widenSlideShow(viewpoint);
 
-            slidesContainer.children().css("width", $("#" + id).innerWidth() + "px");
+            slidesContainer.children().css("width", jQuery("#" + id).innerWidth() + "px");
             var position = currentSlide.position();
 
             slidesContainer.css({
@@ -43,7 +43,7 @@ window.jpi.slideShow = (function () {
 
         //starts a slide show
         startSlideShow = function(id) {
-            if ($("#" + id + " .slide-show__slides-container").children().length > 1) {
+            if (jQuery("#" + id + " .slide-show__slides-container").children().length > 1) {
                 autoSlide["#"+id] = setInterval(function() {
                     moveSlide("#"+id, "next");
                 }, 5000);
@@ -57,7 +57,7 @@ window.jpi.slideShow = (function () {
 
         //loops through all slide shows
         loopThroughSlideShows = function(afterLooped) {
-            var i, slideShows = $(".hasSlideShow");
+            var i, slideShows = jQuery(".hasSlideShow");
 
             for (i = 0; i < slideShows.length; i++) {
                 afterLooped(slideShows[i].id);
@@ -73,7 +73,7 @@ window.jpi.slideShow = (function () {
         },
 
         moveToSlide = function(id, nextSlide) {
-            var slidesContainer = $(id + " .slide-show__slides-container");
+            var slidesContainer = jQuery(id + " .slide-show__slides-container");
 
             clearInterval(autoSlide[id]);
 
@@ -83,14 +83,14 @@ window.jpi.slideShow = (function () {
                 var colour = nextSlide.filter(".slide-show__slide-container").attr("data-slide-colour");
                 var regx = new RegExp("slide-show__nav--\\w*", 'g');
 
-                $(id + " .slide-show__nav").each(function() {
-                    var classList = $(this).attr("class");
+                jQuery(id + " .slide-show__nav").each(function() {
+                    var classList = jQuery(this).attr("class");
                     classList =  classList.replace(regx, 'slide-show__nav--'+colour);
-                    $(this).attr("class", classList);
+                    jQuery(this).attr("class", classList);
                 });
             }
 
-            $(id + " .active").removeClass("active");
+            jQuery(id + " .active").removeClass("active");
 
             var position = nextSlide.position();
             nextSlide.addClass("active");
@@ -98,7 +98,7 @@ window.jpi.slideShow = (function () {
 
             slidesContainer.css("left", "-" + position["left"] + "px");
 
-            $(id + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
+            jQuery(id + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
 
             autoSlide[id] = setInterval(function() {
                 moveSlide(id, "next");
@@ -108,7 +108,7 @@ window.jpi.slideShow = (function () {
         //moves to next or previous slide
         moveSlide = function(id, direction) {
 
-            var oldSlide = $(id + " .active"),
+            var oldSlide = jQuery(id + " .active"),
                 nextSlide;
 
             if (direction === "next") {
@@ -134,10 +134,10 @@ window.jpi.slideShow = (function () {
         //Function when bullet was clicked to change slide show to a particular slide
         changeToSlide = function() {
 
-            var id = $(this).data("slideShowId"),
-                clickedSlide = $(this).data("slideId");
+            var id = jQuery(this).data("slideShowId"),
+                clickedSlide = jQuery(this).data("slideId");
 
-            var nextSlide = $(id + " #" + clickedSlide);
+            var nextSlide = jQuery(id + " #" + clickedSlide);
 
             moveToSlide(id, nextSlide);
         },
@@ -145,8 +145,8 @@ window.jpi.slideShow = (function () {
         //moves current slide to correct position
         resetToCurrentSlide = function(id) {
 
-            var position = $(id + " .slide-show__slide-container.active").position(),
-                slidesContainer = $(id + " .slide-show__slides-container");
+            var position = jQuery(id + " .slide-show__slide-container.active").position(),
+                slidesContainer = jQuery(id + " .slide-show__slides-container");
 
             slidesContainer.css({"transitionDuration": "0s", "left": "-" + position["left"] + "px"});
 
@@ -160,11 +160,11 @@ window.jpi.slideShow = (function () {
         //sets up events when the user wants to change slides with drag control
         dragStart = function(e) {
 
-            var id = $(this).data("slideShowId"),
+            var id = jQuery(this).data("slideShowId"),
                 start = e.changedTouches ? e.changedTouches[0].clientX : e.clientX,
-                slidesContainer = $(id + " .slide-show__slides-container"),
+                slidesContainer = jQuery(id + " .slide-show__slides-container"),
                 slidesContainerLeft = slidesContainer.css("left"),
-                slideShowViewpoint = $(id + " .slide-show__viewpoint"),
+                slideShowViewpoint = jQuery(id + " .slide-show__viewpoint"),
 
                 dragMove = function(e) {
 
@@ -221,10 +221,10 @@ window.jpi.slideShow = (function () {
         //sets up a slide show
         setUp = function(id) {
 
-            var slideShowViewpoint = $(id + " .slide-show__viewpoint"),
-                slideContainer = $(id + " .slide-show__slide-container");
+            var slideShowViewpoint = jQuery(id + " .slide-show__viewpoint"),
+                slideContainer = jQuery(id + " .slide-show__slide-container");
 
-            $(id).addClass("hasSlideShow").show();
+            jQuery(id).addClass("hasSlideShow").show();
 
             widenSlideShow(slideShowViewpoint);
 
@@ -232,7 +232,7 @@ window.jpi.slideShow = (function () {
 
                 slideContainer.css("width", slideShowViewpoint.innerWidth() + "px");
 
-                $(id + " .js-move-slide, " + id + " .js-slide-show-bullets").show();
+                jQuery(id + " .js-move-slide, " + id + " .js-slide-show-bullets").show();
 
                 setTimeout(function() {
                     moveToSlide(id, slideContainer.first());
@@ -242,23 +242,23 @@ window.jpi.slideShow = (function () {
                 slideShowViewpoint[0].addEventListener("touchstart", dragStart);
             }
             else {
-                $(id + " .js-move-slide, " + id + " .js-slide-show-bullets").hide();
+                jQuery(id + " .js-move-slide, " + id + " .js-slide-show-bullets").hide();
             }
         },
 
         initListeners = function () {
-            $(window).on("orientationchange resize", fixSlides);
+            jQuery(window).on("orientationchange resize", fixSlides);
 
-            $("body").on("click", ".js-slide-show-bullet", changeToSlide);
+            jQuery("body").on("click", ".js-slide-show-bullet", changeToSlide);
 
-            $("body").on("click", ".js-move-slide", function() {
-                moveSlide($(this).data("slideShowId"), $(this).data("navDirection"));
+            jQuery("body").on("click", ".js-move-slide", function() {
+                moveSlide(jQuery(this).data("slideShowId"), jQuery(this).data("navDirection"));
             });
 
-            $("body").on("dragstart", ".slide", false);
+            jQuery("body").on("dragstart", ".slide", false);
         };
 
-    $(document).on("ready", initListeners);
+    jQuery(document).on("ready", initListeners);
 
     return {
         "setUp": setUp,
@@ -268,4 +268,4 @@ window.jpi.slideShow = (function () {
         "startSlideShow": startSlideShow
     }
 
-}());
+}(jQuery));

@@ -136,8 +136,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 e.stopPropagation();
 
                 //make drop zone visible
-                $(".drop-zone")[0].style.zIndex = "10";
-                $(".drop-zone")[0].style.opacity = "1";
+                jQuery(".drop-zone")[0].style.zIndex = "10";
+                jQuery(".drop-zone")[0].style.opacity = "1";
             },
 
             removeDropZone = function(e) {
@@ -146,9 +146,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 e.stopPropagation();
 
                 //make drop zone invisible
-                $(".drop-zone")[0].style.opacity = "0";
+                jQuery(".drop-zone")[0].style.opacity = "0";
                 setTimeout(function() {
-                    $(".drop-zone")[0].style.zIndex = "-10";
+                    jQuery(".drop-zone")[0].style.zIndex = "-10";
                 }, 1000);
             },
 
@@ -185,7 +185,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 window.addEventListener("drop", drop);
 
                 //when user leaves the area, make drop zone invisible
-                $(".drop-zone")[0].addEventListener("dragleave", removeDropZone);
+                jQuery(".drop-zone")[0].addEventListener("dragleave", removeDropZone);
             };
 
         //render a project image delete
@@ -245,11 +245,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
             $scope.projectFormFeedback = "";
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
-                projectNameValidation = jpi.helpers.checkInputField($("#projectName")[0]),
-                longDescriptionValidation = jpi.helpers.checkInputField($("#longDescription")[0]),
-                shortDescriptionValidation = jpi.helpers.checkInputField($("#shortDescription")[0]),
-                githubValidation = jpi.helpers.checkInputField($("#github")[0]),
-                dateValidation = jpi.helpers.checkInputField($("#date")[0]) && validDatePattern.test($("#date").val());
+                projectNameValidation = jpi.helpers.checkInputField(jQuery("#projectName")[0]),
+                longDescriptionValidation = jpi.helpers.checkInputField(jQuery("#longDescription")[0]),
+                shortDescriptionValidation = jpi.helpers.checkInputField(jQuery("#shortDescription")[0]),
+                githubValidation = jpi.helpers.checkInputField(jQuery("#github")[0]),
+                dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val());
 
             if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
                 if (!$scope.selectedProject.ID) {
@@ -294,10 +294,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
         $scope.setUpProjectForm = function() {
             $scope.skillInput = "";
 
-            $(".project-form-container").show();
-            $(".select-project-container").hide();
+            jQuery(".project-form-container").show();
+            jQuery(".select-project-container").hide();
 
-            $("#projectName, #skills, #description, #github, #date").removeClass("invalid");
+            jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
 
             jpi.footer.delayExpand();
         };
@@ -375,8 +375,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
         };
 
         var gotProjects = function(result) {
-            $(".project-form-container").hide();
-            $(".select-project-container").show();
+            jQuery(".project-form-container").hide();
+            jQuery(".select-project-container").show();
 
             $scope.selectedProject = undefined;
 
@@ -424,7 +424,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
             //check if data was valid
             if (result.data.rows && result.data.rows.username && result.data.rows.password) {
                 //make the log in/sign up form not visible
-                $(".login-form-container").hide();
+                jQuery(".login-form-container").hide();
 
                 $scope.getProjectList(1);
             }
@@ -435,8 +435,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
         };
 
         $scope.logIn = function() {
-            var usernameValid = jpi.helpers.checkInputField($("#username")[0]),
-                passwordValid = jpi.helpers.checkInputField($("#password")[0]);
+            var usernameValid = jpi.helpers.checkInputField(jQuery("#username")[0]),
+                passwordValid = jpi.helpers.checkInputField(jQuery("#password")[0]);
 
             //checks if inputs both are empty
             if (!usernameValid && !passwordValid) {

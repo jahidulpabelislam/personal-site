@@ -1,20 +1,20 @@
 //holds all functions needed to display latest 3 project on the home page
 window.jpi = window.jpi || {};
-window.jpi.home = (function () {
+window.jpi.home = (function (jQuery) {
 
     "use strict";
 
     //prints out a error message provided
     var renderError = function(error) {
-            $(".feedback--error").text(error).show("fast");
-            $(".projects-loading-img").hide("fast");
+            jQuery(".feedback--error").text(error).show("fast");
+            jQuery(".projects-loading-img").hide("fast");
             jpi.footer.delayExpand();
         },
 
         //renders a project
         renderProject = function(project) {
-            var slide_template = $('#tmpl-slide-template').text();
-            var bullet_template = $('#tmpl-slide-bullet-template').text();
+            var slide_template = jQuery('#tmpl-slide-template').text();
+            var bullet_template = jQuery('#tmpl-slide-bullet-template').text();
 
             for (var data in project) {
                 if (project.hasOwnProperty(data)) {
@@ -28,10 +28,10 @@ window.jpi.home = (function () {
             var image_reg = new RegExp("{{File}}", "g");
             slide_template = slide_template.replace(image_reg, project.pictures[0].File);
 
-            $(".slide-show__slides-container").append(slide_template);
-            $(".js-slide-show-bullets").append(bullet_template);
+            jQuery(".slide-show__slides-container").append(slide_template);
+            jQuery(".js-slide-show-bullets").append(bullet_template);
 
-            var projectLinks = $("#slide--" + project.ID + " .project-description__links")[0];
+            var projectLinks = jQuery("#slide--" + project.ID + " .project-description__links")[0];
 
             if (project.Link) {
                 jpi.helpers.createElement(projectLinks, "a", {
@@ -52,7 +52,7 @@ window.jpi.home = (function () {
 
         //sets up events when projects is received
         gotProjects = function(result) {
-            $(".feedback--error, .projects-loading-img").text("").hide("fast");
+            jQuery(".feedback--error, .projects-loading-img").text("").hide("fast");
 
             //send the data, the function to do if data is valid
             var dataValid = jpi.ajax.loopThroughData(result, renderProject, renderError, "Error Getting the Projects.");
@@ -64,8 +64,8 @@ window.jpi.home = (function () {
         },
 
         init = function () {
-            if ($("#slide-show--projects-preview").length > 0) {
-                $(".projects-loading-img").show("fast");
+            if (jQuery("#slide-show--projects-preview").length > 0) {
+                jQuery(".projects-loading-img").show("fast");
                 jpi.ajax.sendRequest({
                     method: "GET",
                     url: "/admin/api/1/projects/",
@@ -76,5 +76,5 @@ window.jpi.home = (function () {
             }
         };
 
-    $(document).on("ready", init);
-}());
+    jQuery(document).on("ready", init);
+}(jQuery));

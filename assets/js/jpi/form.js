@@ -1,17 +1,17 @@
 window.jpi = window.jpi || {};
-window.jpi.form = (function () {
+window.jpi.form = (function (jQuery) {
 
     "use strict";
 
-    var submitButton = $("#submit"),
+    var submitButton = jQuery("#submit"),
 
-        emailInput = $("#email-input"),
-        messageInput = $("#message-input"),
-        subjectInput = $("#subject-input"),
+        emailInput = jQuery("#email-input"),
+        messageInput = jQuery("#message-input"),
+        subjectInput = jQuery("#subject-input"),
 
-        emailFeedback = $("#email-feedback"),
-        messageFeedback = $("#message-feedback"),
-        formFeedback = $("#form-feedback"),
+        emailFeedback = jQuery("#email-feedback"),
+        messageFeedback = jQuery("#message-feedback"),
+        formFeedback = jQuery("#form-feedback"),
 
         //respond to the user with relevant feedback after attempt of sending a message
         renderFeedback = function(result) {
@@ -21,7 +21,7 @@ window.jpi.form = (function () {
             //if message was sent
             if (result.ok) {
                 formFeedback.addClass("feedback--success");
-                $("#email-input, #message-input, #subject-input").val("");
+                jQuery("#email-input, #message-input, #subject-input").val("");
             } else {
                 if (result.feedback) {
                     formFeedback.addClass("feedback--error");
@@ -131,8 +131,8 @@ window.jpi.form = (function () {
                 validateMessage(this.value);
             });
 
-            $(".contact-form").on("submit", validateForm);
+            jQuery(".contact-form").on("submit", validateForm);
         };
 
-    $(document).on("ready", initListeners);
-}());
+    jQuery(document).on("ready", initListeners);
+}(jQuery));

@@ -1,6 +1,6 @@
 //holds all the functions needed to display project in the projects page
 window.jpi = window.jpi || {};
-window.jpi.projects = (function () {
+window.jpi.projects = (function (jQuery) {
 
     "use strict";
 
@@ -9,20 +9,20 @@ window.jpi.projects = (function () {
 
         //prints out a error message provided
         renderError = function(error) {
-            $(".feedback--error").text(error).show("fast");
-            $(".projects-loading-img, .pagination").text("").hide("fast");
+            jQuery(".feedback--error").text(error).show("fast");
+            jQuery(".projects-loading-img, .pagination").text("").hide("fast");
             jpi.footer.delayExpand();
         },
 
         addSkills = function(project, divID) {
             var skills = project.Skills.split(","),
-                skillsContainer = $(divID + " .project__skills")[0];
+                skillsContainer = jQuery(divID + " .project__skills")[0];
 
             for (var i = 0; i < skills.length; i++) {
                 if (skills[i].trim() !== "") {
 
                     var skill = jpi.helpers.createElement(skillsContainer, "p", {innerHTML: skills[i], class: "js-searchable-skill skill skill--"+project.Colour}),
-                        searches = $(".search-input")[0].value.split(" ");
+                        searches = jQuery(".search-input")[0].value.split(" ");
 
                     for (var j = 0; j < searches.length; j++) {
                         if (searches[j].trim() !== "" && skills[i].toLowerCase().includes(searches[j].toLowerCase())) skill.className += " searched";
@@ -32,7 +32,7 @@ window.jpi.projects = (function () {
         },
 
         addLinks = function(project, divID) {
-            var linksp = $(divID + " .project__links")[0];
+            var linksp = jQuery(divID + " .project__links")[0];
 
             if (project.Link) {
                 jpi.helpers.createElement(linksp, "a", {
@@ -64,8 +64,8 @@ window.jpi.projects = (function () {
         },
 
         addProjectPictures = function(project, slideShowId) {
-            var slidesContainer = $(slideShowId + " .slide-show__slides-container"),
-                slideShowBullets = $(slideShowId + " .js-slide-show-bullets");
+            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
+                slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
             //loop through each row of data in rows
             for (var i = 0; i < project.pictures.length; i++) {
@@ -102,22 +102,22 @@ window.jpi.projects = (function () {
         },
 
         openProjectsExpandModal = function () {
-            var project = $(this).data("projectData");
+            var project = jQuery(this).data("projectData");
 
-            $(".modal--detailed-project").addClass("open").show();
+            jQuery(".modal--detailed-project").addClass("open").show();
             document.body.style.overflow = "hidden";
 
             //stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-            $(".modal--detailed-project .project__links, .modal--detailed-project .project__skills, .modal--detailed-project .slide-show__slides-container, .modal--detailed-project .js-slide-show-bullets").text("");
+            jQuery(".modal--detailed-project .project__links, .modal--detailed-project .project__skills, .modal--detailed-project .slide-show__slides-container, .modal--detailed-project .js-slide-show-bullets").text("");
 
-            $(".modal--detailed-project .project-title").text(project.Name);
-            $(".modal--detailed-project .project-date").text(project.Date);
+            jQuery(".modal--detailed-project .project-title").text(project.Name);
+            jQuery(".modal--detailed-project .project-date").text(project.Date);
 
             addSkills(project, ".modal--detailed-project");
 
-            $(".modal--detailed-project .description").html(project.LongDescription);
+            jQuery(".modal--detailed-project .description").html(project.LongDescription);
 
             addLinks(project, ".modal--detailed-project");
 
@@ -125,22 +125,22 @@ window.jpi.projects = (function () {
 
             var regx = new RegExp("slide-show__nav--\\w*", 'g');
 
-            $(".modal--detailed-project .slide-show__nav").each(function() {
-                var classList = $(this).attr("class");
+            jQuery(".modal--detailed-project .slide-show__nav").each(function() {
+                var classList = jQuery(this).attr("class");
                 classList =  classList.replace(regx, 'slide-show__nav--'+project.Colour);
-                $(this).attr("class", classList);
+                jQuery(this).attr("class", classList);
             });
         },
 
         closeProjectsExpandModal = function(event) {
-            if(!$(event.target).closest('.modal__content').length && $(".modal--detailed-project").hasClass("open")) {
-                $(".modal--detailed-project").removeClass("open").hide();
+            if(!jQuery(event.target).closest('.modal__content').length && jQuery(".modal--detailed-project").hasClass("open")) {
+                jQuery(".modal--detailed-project").removeClass("open").hide();
                 document.body.style.overflow = "auto";
-                $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
-                $("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
-                $("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
+                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
+                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
+                jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
                 clearInterval(autoSlide["#detailed-project__slide-show"]);
-                $("#detailed-project__slide-show").removeClass("hasSlideShow");
+                jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
         },
@@ -160,20 +160,20 @@ window.jpi.projects = (function () {
                         }
                     }
                 }
-                $(".projects").append(template);
+                jQuery(".projects").append(template);
 
                 addSkills(project, "#project--" + project.ID);
                 addLinks(project, "#project--" + project.ID);
                 addProjectPictures(project, "#slide-show--" + project.ID);
 
-                $("#project--" + project.ID + " .js-open-modal").data("projectData", project);
+                jQuery("#project--" + project.ID + " .js-open-modal").data("projectData", project);
             }
 
             jpi.footer.delayExpand();
         },
 
         scrollToProjects = function() {
-            $('html, body').animate({
+            jQuery('html, body').animate({
                 scrollTop: jQuery(".projects").offset().top - jQuery(".nav").height()
             }, 2000);
         },
@@ -183,7 +183,7 @@ window.jpi.projects = (function () {
             if ((parseInt(count)) > 10) {
 
                 var page = 1,
-                    ul = $(".pagination")[0],
+                    ul = jQuery(".pagination")[0],
                     path = url.pathname.substring(1).split('/');
 
                 if (Number.isInteger(parseInt(path[1]))) {
@@ -200,16 +200,16 @@ window.jpi.projects = (function () {
                     jpi.helpers.createElement(ul, "li", attributes);
                 }
 
-                $(".pagination").show();
+                jQuery(".pagination").show();
             } else {
-                $(".pagination").hide();
+                jQuery(".pagination").hide();
             }
         },
 
         //set up events when projects were received
         gotProjects = function(result) {
-            $(".feedback--error, .projects-loading-img").text("").hide("fast");
-            $(".projects, .pagination").text("");
+            jQuery(".feedback--error, .projects-loading-img").text("").hide("fast");
+            jQuery(".projects, .pagination").text("");
 
             //send the data, the function to do if data is valid
             jpi.ajax.loopThroughData(result, renderProject, renderError, "No Projects Found.");
@@ -225,7 +225,7 @@ window.jpi.projects = (function () {
             //stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-            $(".projects-loading-img").show("fast");
+            jQuery(".projects-loading-img").show("fast");
 
             //send request to get projects
             jpi.ajax.sendRequest({
@@ -242,11 +242,11 @@ window.jpi.projects = (function () {
             var query = {};
 
             url.pathname = "/projects/";
-            if ($(".search-input")[0].value.trim() !== "") {
-                url.search = "?search=" + $(".search-input")[0].value;
-                query.search = $(".search-input")[0].value;
+            if (jQuery(".search-input")[0].value.trim() !== "") {
+                url.search = "?search=" + jQuery(".search-input")[0].value;
+                query.search = jQuery(".search-input")[0].value;
             } else {
-                $(".search-input")[0].value = url.search = "";
+                jQuery(".search-input")[0].value = url.search = "";
             }
 
             history.pushState(null, null, url.toString());
@@ -285,9 +285,9 @@ window.jpi.projects = (function () {
             //check if search in involved
             var search = getSearch();
             if (search) {
-                query.search = $(".search-input")[0].value = search;
+                query.search = jQuery(".search-input")[0].value = search;
             } else {
-                $(".search-input").val("");
+                jQuery(".search-input").val("");
             }
 
             getProjects(query);
@@ -295,14 +295,14 @@ window.jpi.projects = (function () {
 
         //set up page
         initListeners = function () {
-            $(".search-form").on("submit", doSearch);
+            jQuery(".search-form").on("submit", doSearch);
 
-            $("body").on("click", ".js-searchable-skill", function(e) {
-                $(".search-input")[0].value = e.target.innerHTML;
+            jQuery("body").on("click", ".js-searchable-skill", function(e) {
+                jQuery(".search-input")[0].value = e.target.innerHTML;
                 doSearch();
             });
 
-            $(".pagination--projects").on("click", ".pagination__item", function(e) {
+            jQuery(".pagination--projects").on("click", ".pagination__item", function(e) {
                 scrollToProjects();
 
                 url.pathname = "/projects/" + e.target.innerHTML + "/";
@@ -310,7 +310,7 @@ window.jpi.projects = (function () {
                 load();
             });
 
-            $(".projects").on("click", ".js-open-modal", openProjectsExpandModal);
+            jQuery(".projects").on("click", ".js-open-modal", openProjectsExpandModal);
 
             window.addEventListener('popstate', function() {
                 url = new URL(window.location);
@@ -319,15 +319,15 @@ window.jpi.projects = (function () {
             });
 
             //Close the modal
-            $(".modal--detailed-project").on("click", closeProjectsExpandModal);
+            jQuery(".modal--detailed-project").on("click", closeProjectsExpandModal);
         },
 
         init = function () {
-            if ($(".projects").length > 0) {
+            if (jQuery(".projects").length > 0) {
                 initListeners();
                 load();
             }
         };
 
-    $(document).on("ready", init);
-}());
+    jQuery(document).on("ready", init);
+}(jQuery));
