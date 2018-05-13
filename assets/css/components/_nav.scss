@@ -69,6 +69,10 @@
     color: white;
 }
 
+.opened .nav__brand--text, .opened .nav__brand--logo  {
+    display: none;
+}
+
 .scrolled .nav__brand--text, .opened .nav__brand--text {
     color: $dark;
 }
@@ -79,13 +83,16 @@
 
 .nav__links__toggle {
     float: right;
-    margin: 5px 10px 5px 0;
-    padding: 8px;
+    margin: 6px 10px 6px 0;
+    padding: 7px;
+    border: solid transparent 2px;
+    @include border-radius(50%);
+    @include transition(0.7s);
 }
 
 .menu-bar {
     display: block;
-    width: 22px;
+    width: 18px;
     height: 2px;
     background-color: white;
     @include transition(0.7s);
@@ -96,12 +103,12 @@
     background-color: $dark;
 }
 
-.nav__links__toggle:hover .menu-bar {
-    background-color: $primary-color;
+.opened .nav__links__toggle {
+    border-color: colour(red, main);
 }
 
 .opened .menu-bar {
-    background-color: colour(red, main);
+    background-color: colour(red, main)
 }
 
 .menu-bar--top {
@@ -109,18 +116,18 @@
 }
 
 .menu-bar--middle {
-    margin-top: 6px;
+    margin-top: 4px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .menu-bar--bottom {
     top: 0;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .opened .menu-bar--top {
-    top: 8px;
+    top: 6px;
     @include transform(rotate(45deg));
 }
 
@@ -130,7 +137,7 @@
 }
 
 .opened .menu-bar--bottom {
-    top: -8px;
+    top: -6px;
     @include transform(rotate(-45deg));
 }
 
