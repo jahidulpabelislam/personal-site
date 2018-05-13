@@ -19,6 +19,7 @@ var scripts = {
         "assets/js/jpi/stickyFooter.js",
         "assets/js/third-party/waypoint.min.js",
         "assets/js/third-party/jquery.countTo.js",
+        "assets/js/jpi/nav.js",
         "assets/js/jpi/main.js"
     ],
     admin: [
