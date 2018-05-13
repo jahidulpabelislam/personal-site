@@ -4,8 +4,21 @@ window.jpi.home = (function (jQuery) {
 
     "use strict";
 
-    //prints out a error message provided
-    var renderError = function(error) {
+    var initSecondsCounter = function () {
+            var secsElem = jQuery(".js-seconds-on-site");
+            if (secsElem.length > 0) {
+                setTimeout(function() {
+                    setInterval(function() {
+                        var lastSec = secsElem.text();
+                        lastSec = parseInt(lastSec);
+                        secsElem.text(lastSec+1);
+                    }, 1000);
+                }, 1000);
+            }
+        },
+
+        //prints out a error message provided
+        renderError = function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects-loading-img").hide("fast");
             jpi.footer.delayExpand();
@@ -65,6 +78,9 @@ window.jpi.home = (function (jQuery) {
 
         init = function () {
             if (jQuery("#slide-show--projects-preview").length > 0) {
+
+                initSecondsCounter();
+
                 jQuery(".projects-loading-img").show("fast");
                 jpi.ajax.sendRequest({
                     method: "GET",

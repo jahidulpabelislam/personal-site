@@ -90,19 +90,6 @@ window.jpi.main = (function (jQuery) {
             jQuery('.js-expand-label').not(this).removeClass("expanded-label");
         },
 
-        initSecondsCounter = function () {
-            var secsElem = jQuery(".js-seconds-on-site");
-            if (secsElem.length > 0) {
-                setTimeout(function() {
-                    setInterval(function() {
-                        var lastSec = secsElem.text();
-                        lastSec = parseInt(lastSec);
-                        secsElem.text(lastSec+1);
-                    }, 1000);
-                }, 1000);
-            }
-        },
-
         initListeners = function () {
             jQuery(document).on("click", closeMobileNav);
 
@@ -120,7 +107,6 @@ window.jpi.main = (function (jQuery) {
         init = function () {
             initListeners();
             initCounters();
-            initSecondsCounter();
         };
 
     jQuery(document).on("ready", init);
