@@ -16,7 +16,7 @@ $tech_skills = array(
     array("text" => "PHP", "desc" => "Wordpress, Laravel, PDO"),
     array("text" => "SQL", "desc" => "MySQL"),
     array("text" => "NoSQL", "desc" => "Amazon DynamoDB"),
-    array("text" => "Java", "desc" => "Java EE, 7JSF 2, AWT, Swing"),
+    array("text" => "Java", "desc" => "Java EE 7, JSF 2, AWT, Swing"),
     array("text" => "Python", "desc" => "graphics.py"),
     array("text" => "Visual Basic"),
     array("text" => "DVCS", "desc" => "Git (GitHub) for personal projects & Mercurial (Bitbucket) for projects within work"),
