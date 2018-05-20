@@ -164,7 +164,7 @@ window.jpi.slideShow = (function (jQuery) {
                 start = e.changedTouches ? e.changedTouches[0].clientX : e.clientX,
                 slidesContainer = jQuery(id + " .slide-show__slides-container"),
                 slidesContainerLeft = slidesContainer.css("left"),
-                slideShowViewpoint = jQuery(id + " .slide-show__viewpoint"),
+                slideShowViewpoint = jQuery(id + " .slide-show__viewpoint")[0],
 
                 dragMove = function(e) {
 
@@ -191,31 +191,31 @@ window.jpi.slideShow = (function (jQuery) {
                         resetToCurrentSlide(id);
                     }
 
-                    slideShowViewpoint[0].removeEventListener("touchmove", dragMove);
-                    slideShowViewpoint[0].removeEventListener("touchend", dragEnd);
-                    slideShowViewpoint[0].removeEventListener("mousemove", dragMove);
-                    slideShowViewpoint[0].removeEventListener("mouseup", dragEnd);
-                    slideShowViewpoint[0].removeEventListener("mouseleave", dragCancel);
+                    slideShowViewpoint.removeEventListener("touchmove", dragMove);
+                    slideShowViewpoint.removeEventListener("touchend", dragEnd);
+                    slideShowViewpoint.removeEventListener("mousemove", dragMove);
+                    slideShowViewpoint.removeEventListener("mouseup", dragEnd);
+                    slideShowViewpoint.removeEventListener("mouseleave", dragCancel);
                 },
 
                 dragCancel = function() {
 
                     resetToCurrentSlide(id);
 
-                    slideShowViewpoint[0].removeEventListener("touchmove", dragMove);
-                    slideShowViewpoint[0].removeEventListener("touchend", dragEnd);
-                    slideShowViewpoint[0].removeEventListener("mousemove", dragMove);
-                    slideShowViewpoint[0].removeEventListener("mouseup", dragEnd);
-                    slideShowViewpoint[0].removeEventListener("mouseleave", dragCancel);
+                    slideShowViewpoint.removeEventListener("touchmove", dragMove);
+                    slideShowViewpoint.removeEventListener("touchend", dragEnd);
+                    slideShowViewpoint.removeEventListener("mousemove", dragMove);
+                    slideShowViewpoint.removeEventListener("mouseup", dragEnd);
+                    slideShowViewpoint.removeEventListener("mouseleave", dragCancel);
                 };
 
             clearInterval(autoSlide[id]);
 
-            slideShowViewpoint[0].addEventListener("touchmove", dragMove);
-            slideShowViewpoint[0].addEventListener("touchend", dragEnd);
-            slideShowViewpoint[0].addEventListener("mousemove", dragMove);
-            slideShowViewpoint[0].addEventListener("mouseup", dragEnd);
-            slideShowViewpoint[0].addEventListener("mouseleave", dragCancel);
+            slideShowViewpoint.addEventListener("touchmove", dragMove);
+            slideShowViewpoint.addEventListener("touchend", dragEnd);
+            slideShowViewpoint.addEventListener("mousemove", dragMove);
+            slideShowViewpoint.addEventListener("mouseup", dragEnd);
+            slideShowViewpoint.addEventListener("mouseleave", dragCancel);
         },
 
         //sets up a slide show
