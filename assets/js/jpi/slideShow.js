@@ -28,6 +28,11 @@ window.jpi.slideShow = (function (jQuery) {
 
             var currentSlide = jQuery("#" + id + " .slide-show__slide-container.active");
 
+            if (!currentSlide.length)
+            {
+                currentSlide = jQuery("#" + id + " .slide-show__slide-container").first();
+            }
+
             widenSlideShow(viewpoint);
 
             slidesContainer.children().css("width", jQuery("#" + id).innerWidth() + "px");
