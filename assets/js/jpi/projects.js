@@ -193,9 +193,9 @@ window.jpi.projects = (function (jQuery) {
                 if (!currentPage) currentPage = 1;
 
                 for (var i = 0; i < count; i += 10, page++) {
-                    var attributes = {innerHTML: page, "class" : "pagination__item"};
+                    var attributes = {innerHTML: page, "class" : "pagination__item js-pagination-item"};
                     if (page === currentPage) {
-                        attributes.class += " active";
+                        attributes.class = "pagination__item active";
                     }
                     jpi.helpers.createElement(ul, "li", attributes);
                 }
@@ -302,7 +302,7 @@ window.jpi.projects = (function (jQuery) {
                 doSearch();
             });
 
-            jQuery(".pagination--projects").on("click", ".pagination__item", function(e) {
+            jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
                 scrollToProjects();
 
                 url.pathname = "/projects/" + e.target.innerHTML + "/";
