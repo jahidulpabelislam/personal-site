@@ -44,7 +44,6 @@
 .slide-show__nav {
     width: 30px;
     height: 30px;
-    @include border-radius(50%);
     opacity: 0.8;
     @include transition(.3s);
     position: absolute;
