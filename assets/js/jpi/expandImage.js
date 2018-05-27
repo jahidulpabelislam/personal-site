@@ -92,11 +92,11 @@ window.jpi.expandImage = (function (jQuery) {
             //check there are more than one slide show image to slide through
             if (slides.length > 1) {
                 //set up next and previous buttons
-                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-previous, .expanded-image-slide-show__bullets").show();
+                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-next, .expanded-image-slide-show__bullets").show();
             }
             //only one slide show image so stop next and previous buttons
             else {
-                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-previous, .expanded-image-slide-show__bullets").hide();
+                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-next, .expanded-image-slide-show__bullets").hide();
             }
 
             var regx = new RegExp("slide-show__nav--\\w*", 'g');
