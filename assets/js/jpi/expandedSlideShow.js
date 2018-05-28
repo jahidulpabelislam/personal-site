@@ -11,11 +11,15 @@ window.jpi.expandedSlideShow = (function (jQuery) {
 
         //changes current slide to new slide
         changeElement = function(nextSlideId) {
-            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").removeClass("active");
+            jQuery(".expanded-image-slide-show__bullet").removeClass("active");
             currentSlide = nextSlideId;
 
-            if (currentSlide >= slides.length) currentSlide = 0;
-            else  if (currentSlide < 0) currentSlide = slides.length - 1;
+            if (currentSlide >= slides.length){
+                currentSlide = 0;
+            }
+            else  if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
 
             var expandedImage = jQuery(".expanded-image.current"),
                 expandedImage2 = jQuery(".expanded-image:not(.current)");
@@ -25,7 +29,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
             expandedImage2.addClass("current");
             jQuery(".js-expanded-slide-show-current-count").text((currentSlide + 1).toString());
 
-            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
+            jQuery(".expanded-image-slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
         },
 
         //sends event to change to next slide
@@ -98,7 +102,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
             }
 
             //makes current slides bullet navigation display as active
-            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
+            jQuery(".expanded-image-slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
 
             jQuery(".modal--detailed-project").removeClass("open").hide();
 
