@@ -7,11 +7,11 @@ window.jpi.expandImage = (function (jQuery) {
     //initiates variables
     var currentSlide = 0,
         slides = {},
-        expandedImageDivContainer = jQuery(".expanded-image-slide-show"),
+        expandedImageDivContainer = jQuery(".expanded-slide-show"),
 
         //changes current slide to new slide
         changeElement = function(nextSlideId) {
-            jQuery(".expanded-image-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").removeClass("active");
+            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").removeClass("active");
             currentSlide = nextSlideId;
 
             if (currentSlide >= slides.length) currentSlide = 0;
@@ -23,9 +23,9 @@ window.jpi.expandImage = (function (jQuery) {
             expandedImage2.attr("src", slides[currentSlide].src);
             expandedImage.removeClass("current");
             expandedImage2.addClass("current");
-            jQuery(".expanded-image-counter__current").text((currentSlide + 1).toString());
+            jQuery(".js-expanded-slide-show-current-count").text((currentSlide + 1).toString());
 
-            jQuery(".expanded-image-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
+            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
         },
 
         //sends event to change to next slide
@@ -50,7 +50,7 @@ window.jpi.expandImage = (function (jQuery) {
 
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
 
-            jQuery(".expanded-image-slide-show__bullets").text("");
+            jQuery(".expanded-slide-show__bullets").text("");
         },
 
         //sets up slide show when image is clicked on
@@ -80,25 +80,25 @@ window.jpi.expandImage = (function (jQuery) {
                 }
 
                 //set up bullet navigation for slide
-                jpi.helpers.createElement(jQuery(".expanded-image-slide-show__bullets")[0], "label", {class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet", "data-slide-id": i});
+                jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet", "data-slide-id": i});
             }
 
             //display the current slide number and slide show length
-            jQuery(".expanded-image-counter__current").text((currentSlide + 1).toString());
-            jQuery(".expanded-image-counter__total").text(slides.length);
+            jQuery(".js-expanded-slide-show-current-count").text((currentSlide + 1).toString());
+            jQuery(".js-expanded-slide-show-total-count").text(slides.length);
 
             //check there are more than one slide show image to slide through
             if (slides.length > 1) {
                 //set up next and previous buttons
-                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-next, .expanded-image-slide-show__bullets").show();
+                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-slide-show__bullets").show();
             }
             //only one slide show image so stop next and previous buttons
             else {
-                jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-next, .expanded-image-slide-show__bullets").hide();
+                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-slide-show__bullets").hide();
             }
 
             //makes current slides bullet navigation display as active
-            jQuery(".expanded-image-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
+            jQuery(".expanded-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
 
             jQuery(".modal--detailed-project").removeClass("open").hide();
 
@@ -117,10 +117,10 @@ window.jpi.expandImage = (function (jQuery) {
             });
 
             //add listener for when the user wants to close expanded image
-            jQuery(".expanded-image-slide-show__close").click(close);
+            jQuery(".expanded-slide-show__close").click(close);
 
-            jQuery(".expanded-image-slide-show__nav-next").click(next);
-            jQuery(".expanded-image-slide-show__nav-previous").click(previous);
+            jQuery(".js-expanded-slide-show-next").click(next);
+            jQuery(".js-expanded-slide-show-previous").click(previous);
         };
 
     jQuery(document).on("ready", initListeners);
