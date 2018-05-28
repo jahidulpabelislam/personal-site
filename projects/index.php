@@ -44,8 +44,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </div>
 
                 <div class="expanded-image-slide-show">
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous expanded-image-slide-show__nav-previous" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image">
-
                     <div class="expanded-image-container">
                         <img src="/assets/images/blank.svg?v=1" class="expanded-image current">
                     </div>
@@ -54,16 +52,22 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <img src="/assets/images/blank.svg?v=1" class="expanded-image">
                     </div>
 
-                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next expanded-image-slide-show__nav-next" src="/assets/images/next.svg?v=1" alt="Click to View Next Image">
-                    <button type="button" class="btn btn--red expanded-image-slide-show__close">X</button>
+                    <div class="expanded-image-slide-show__controls">
+                        <div class="expanded-image-slide-show__navs">
+                            <img class="expanded-image-slide-show__nav expanded-image-slide-show__nav-previous" src="/assets/images/previous-white.svg?v=1" alt="Click to View Previous Image">
+                            <img class="expanded-image-slide-show__nav expanded-image-slide-show__nav-next" src="/assets/images/next-white.svg?v=1" alt="Click to View Next Image">
+                        </div>
 
-                    <p class="expanded-image-slide-show__counter">
-                        <span class="expanded-image-counter__current"></span>
-                        <span>/</span>
-                        <span class="expanded-image-counter__total"></span>
-                    </p>
+                        <div class="expanded-image-slide-show__bullets"></div>
 
-                    <div class="expanded-image-slide-show__bullets"></div>
+                        <p class="expanded-image-slide-show__counter">
+                            <span class="expanded-image-counter__current"></span>
+                            <span>/</span>
+                            <span class="expanded-image-counter__total"></span>
+                        </p>
+                    </div>
+
+                   <button type="button" class="btn btn--red expanded-image-slide-show__close">X</button>
                 </div>
 
                 <div class="modal modal--detailed-project">

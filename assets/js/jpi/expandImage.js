@@ -67,8 +67,6 @@ window.jpi.expandImage = (function (jQuery) {
 
             document.body.style.overflow = "hidden";
 
-            var colour = jQuery(e.target).attr("data-slide-colour");
-
             //get all slides in slide show
             var slideShowId = jQuery(e.target).data("slideShowId");
             slides = jQuery(slideShowId+" .slide");
@@ -82,7 +80,7 @@ window.jpi.expandImage = (function (jQuery) {
                 }
 
                 //set up bullet navigation for slide
-                jpi.helpers.createElement(jQuery(".expanded-image-slide-show__bullets")[0], "label", {class: "slide-show__bullet js-expanded-image-bullet slide-show__bullet--"+colour, "data-slide-id": i});
+                jpi.helpers.createElement(jQuery(".expanded-image-slide-show__bullets")[0], "label", {class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet", "data-slide-id": i});
             }
 
             //display the current slide number and slide show length
@@ -98,14 +96,6 @@ window.jpi.expandImage = (function (jQuery) {
             else {
                 jQuery(".expanded-image-slide-show__nav-previous, .expanded-image-slide-show__nav-next, .expanded-image-slide-show__bullets").hide();
             }
-
-            var regx = new RegExp("slide-show__nav--\\w*", 'g');
-
-            jQuery(".expanded-image-slide-show .slide-show__nav").each(function() {
-                var classList = jQuery(this).attr("class");
-                classList =  classList.replace(regx, 'slide-show__nav--'+colour);
-                jQuery(this).attr("class", classList);
-            });
 
             //makes current slides bullet navigation display as active
             jQuery(".expanded-image-slide-show__bullets .slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
