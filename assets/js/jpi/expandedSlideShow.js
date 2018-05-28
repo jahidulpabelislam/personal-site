@@ -58,7 +58,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
         },
 
         //sets up slide show when image is clicked on
-        expandImageSetUp = function(e) {
+        setUp = function(e) {
             var expandedImage = jQuery(".expanded-image.current");
 
             //stops all the slide shows
@@ -114,7 +114,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
         },
 
         initListeners = function () {
-            jQuery("body").on("click", ".js-expandable-image", expandImageSetUp);
+            jQuery("body").on("click", ".js-expandable-image", setUp);
 
             jQuery("body").on("click", ".js-expanded-image-bullet", function(e) {
                 changeElement(parseInt(jQuery(e.target).data("slideId")));
