@@ -36,7 +36,7 @@
         <?php if (!isset($_GET["debug"])):?>
             <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/assets/js/jpi/expandImage.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>

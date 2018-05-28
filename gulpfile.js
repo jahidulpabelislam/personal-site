@@ -9,7 +9,7 @@ var sass = require('gulp-sass');
 // Concatenate & Minify JS
 var scripts = {
     main: [
-        "assets/js/jpi/expandImage.js",
+        "assets/js/jpi/expandedSlideShow.js",
         "assets/js/jpi/slideShow.js",
         "assets/js/jpi/helpers.js",
         "assets/js/jpi/ajax.js",

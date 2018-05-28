@@ -1,6 +1,6 @@
 //Used to expand a projects slide show
 window.jpi = window.jpi || {};
-window.jpi.expandImage = (function (jQuery) {
+window.jpi.expandedSlideShow = (function (jQuery) {
 
     "use strict";
 
