@@ -94,11 +94,11 @@ window.jpi.expandedSlideShow = (function (jQuery) {
             //check there are more than one slide show image to slide through
             if (slides.length > 1) {
                 //set up next and previous buttons
-                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-slide-show__bullets").show();
+                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").show();
             }
             //only one slide show image so stop next and previous buttons
             else {
-                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-slide-show__bullets").hide();
+                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").hide();
             }
 
             //makes current slides bullet navigation display as active
