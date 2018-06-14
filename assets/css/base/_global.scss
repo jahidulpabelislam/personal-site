@@ -1,0 +1,55 @@
+/*
+  Any css for many templates and/or components.
+*/
+
+.link {
+  color: $dark;
+  border-bottom: transparent solid 1px;
+}
+
+.link:hover {
+  color: darken($dark, 10%);
+  border-bottom-color: darken($dark, 10%);
+}
+
+@each $color, $colors in $colors {
+  .link--#{$color} {
+    color: map-get($colors, main);
+    border-bottom: transparent solid 1px;
+  }
+
+  .link--#{$color}:hover {
+    color: map-get($colors, hover);
+    border-bottom-color: map-get($colors, hover);
+  }
+}
+
+.project__header {
+  @include flexbox();
+  @include flexboxCenterAlign();
+  padding: 20px 0 10px 0;
+}
+
+.project-title {
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+
+.project-date {
+  margin-bottom: 10px;
+}
+
+.project-title--inline {
+  margin: 0;
+  text-align: left;
+}
+
+.project-date--inline {
+  margin: 0;
+  margin-left: 24px;
+  text-align: right;
+}
+
+.image-of-me {
+  @include border-radius(50%);
+}
