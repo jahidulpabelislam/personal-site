@@ -84,6 +84,10 @@
     white-space: nowrap;
 }
 
+.counter {
+    font-weight: 700;
+}
+
 /* Only for Tablets */
 @media only screen and (min-width: $tablet) and (max-width: $desktop) {
     .article--home-hello, .article--home-intro {
