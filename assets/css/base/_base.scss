@@ -99,6 +99,10 @@ strong {
     text-align: right;
 }
 
+.image-of-me {
+    @include border-radius(50%);
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
     body {
