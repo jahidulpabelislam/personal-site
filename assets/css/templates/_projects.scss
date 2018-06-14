@@ -280,10 +280,6 @@
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-/* Only for Desktops */
-@media only screen and (min-width: $desktop) {
 
     .projects {
         @include flexbox();
@@ -308,6 +304,12 @@
     .project:last-child:nth-child(odd) {
         margin-right: 0;
     }
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: $desktop) {
+
+
 
     .search-form {
         margin-bottom: 40px;
