@@ -9,10 +9,16 @@ $nav_tint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
-                <div class="article">
+                <div class="article article--home-hello">
                     <div class="container">
+                        <p><span class="main-hello">Hello</span> there everyone!</p>
                         <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
-                        <p><span class="main-hello">Hello</span> there everyone, welcome to my portfolio, thanks for clicking on my website.</p>
+                     </div>
+                </div>
+
+                <div class="article article--home-intro">
+                    <div class="container">
+                        <p>Welcome to my portfolio, thanks for clicking on my website!</p>
                     </div>
                 </div>
 

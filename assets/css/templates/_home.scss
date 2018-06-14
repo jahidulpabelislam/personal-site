@@ -3,15 +3,32 @@
     background-image: url("/assets/images/working.jpg");
 }
 
+.article--home-hello, .article--home-intro {
+    font-weight: 700;
+    text-shadow: 1px 1px 2px transparentize($grey, 0.4);
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.article--home-hello {
+    position: relative;
+    padding-bottom: 75px;
+}
+
+.article--home-intro {
+    padding-top: 75px;
+}
+
 .image-of-me--home {
     width: 66%;
     max-width: 150px;
-    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
+    @include box-shadow(0 0 10px 0 $dark);
+    position: absolute;
+    transform: translateX(-50%);
 }
 
 .main-hello {
     font-size: 28px;
-    font-weight: bold;
     line-height: 30px;
 }
 
@@ -69,6 +86,24 @@
 
 /* Only for Tablets */
 @media only screen and (min-width: $tablet) and (max-width: $desktop) {
+    .article--home-hello, .article--home-intro {
+        font-size: 22px;
+        line-height: 24px;
+    }
+
+    .article--home-hello {
+        padding-bottom: 100px;
+    }
+
+    .article--home-intro {
+        padding-top: 100px;
+    }
+
+    .main-hello {
+        font-size: 34px;
+        line-height: 36px;
+    }
+
     .image-of-me--home {
         width: 50%;
         max-width: 200px;
@@ -102,6 +137,24 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
+    .article--home-hello, .article--home-intro {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .article--home-hello {
+        padding-bottom: 110px;
+    }
+
+    .article--home-intro {
+        padding-top: 110px;
+    }
+
+    .main-hello {
+        font-size: 38px;
+        line-height: 40px;
+    }
+
     .image-of-me--home {
         width: 25%;
         max-width: 220px
