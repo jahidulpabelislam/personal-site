@@ -21,6 +21,10 @@
     background-color: white;
 }
 
+.nav__mobile-header {
+    height: 44px;
+}
+
 .nav__mobile-header:before, .nav__mobile-header:after {
     display: table;
     content: " ";
@@ -31,12 +35,12 @@
 }
 
 .nav__brand {
-    float: left;
+    display: inline-block;
 }
 
 .nav__brand--logo-container {
-    padding: 4px 0 4px 10px;
-    height: 44px;
+    padding: 4px 0;
+    height: 46px;
 }
 
 .nav__brand--logo {
@@ -61,28 +65,14 @@
     @include box-shadow(none);
 }
 
-.nav__brand--text {
-    font-size: 18px;
-    line-height: 20px;
-    padding: 12px;
-    text-align: left;
-    color: white;
-}
-
-.opened .nav__brand--text, .opened .nav__brand--logo  {
+.opened .nav__brand--logo  {
     display: none;
 }
 
-.scrolled .nav__brand--text, .opened .nav__brand--text {
-    color: $dark;
-}
-
-.nav__brand--text.current, .nav__brand--text:focus, .nav__brand--text:hover {
-    color: $primary-color;
-}
-
 .nav__links__toggle {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 16px;
     margin: 6px 10px 6px 0;
     padding: 7px;
     border: solid transparent 2px;
@@ -141,11 +131,14 @@
     @include transform(rotate(-45deg));
 }
 
-.nav__links-container {
+.nav__links-container,
+.nav__social-links-wrapper {
     display: none;
 }
 
-.nav__links {
+.nav__links,
+.nav__social-links
+{
     border-top: $light-grey 1px solid;
 }
 
@@ -168,14 +161,37 @@
     color: white;
 }
 
+.nav__social-links li {
+    display: inline-block;
+}
+
+.nav__social-links .social-link__img.social-link__img {
+    height: 36px;
+    width: 36px;
+    margin: 10px 4px;
+}
+
+.nav__social-links .social-link:hover .social-link__img {
+    background: colour(blue, main);;
+}
+
+.nav__social-links .social-link__img--instagram {
+    transition: all 0.3s ease-in-out;
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
     .nav {
         margin: 0;
     }
 
+    .nav__wrapper {
+        display: flex;
+    }
+
     .nav__mobile-header {
-        float: left;
+        width: 33%;
+        order: 2;
     }
 
     .nav__links__toggle {
@@ -183,12 +199,25 @@
     }
 
     .nav__links-container {
-        float: right;
         display: block;
+        width: 33%;
+        order: 3;
+    }
+
+    .nav__social-links-wrapper {
+        display: block;
+        width: 33%;
+        order: 1;
+    }
+
+    .nav__social-links {
+        border-top: none;
+        text-align: left;
     }
 
     .nav__links {
         border-top: none;
+        float: right;
     }
 
     .nav__links > li {
@@ -205,5 +234,9 @@
 
     .nav__links > li.active > a {
         border-bottom-color: colour(blue, main);
+    }
+
+    .nav__social-links .social-link__img.social-link__img {
+        margin: 6px 2px;
     }
 }
