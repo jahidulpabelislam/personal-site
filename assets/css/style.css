@@ -710,11 +710,7 @@ label {
   transform: rotate(-45deg); }
 
 .nav__links-container {
-  height: 0;
-  transition: all 0.7s ease-in-out; }
-
-.nav__links-container.opening, .nav__links-container.closed {
-  overflow: hidden; }
+  display: none; }
 
 .nav__links {
   border-top: #eee 1px solid; }

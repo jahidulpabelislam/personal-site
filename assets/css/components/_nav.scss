@@ -142,12 +142,7 @@
 }
 
 .nav__links-container {
-    height: 0;
-    @include transition(0.7s);
-}
-
-.nav__links-container.opening, .nav__links-container.closed {
-    overflow: hidden;
+    display: none;
 }
 
 .nav__links {

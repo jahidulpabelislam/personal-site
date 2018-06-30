@@ -5,21 +5,8 @@ window.jpi.nav = (function (jQuery) {
 
     var toggleMobileMenu = function() {
             var container = jQuery(".nav__links-container");
-            container.toggleClass("closed");
-            container.toggleClass("opening");
-
-            if (container[0].clientHeight) {
-                container[0].style.height = 0;
-            } else {
-                var wrapper = jQuery(".nav__links")[0];
-                container[0].style.height = wrapper.clientHeight + "px";
-            }
-
-            setTimeout(function() {
-                container.toggleClass("opening");
-            }, 670);
-
             jQuery(".nav").toggleClass("opened");
+            container.slideToggle();
         },
 
         initDesktopNav = function () {
