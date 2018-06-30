@@ -10,7 +10,8 @@ label {
     display: inline-block;
 }
 
-.required, .notice {
+.required,
+.notice {
     color: colour(red, main);
     font-weight: 700;
 }

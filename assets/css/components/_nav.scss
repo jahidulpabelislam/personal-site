@@ -16,7 +16,8 @@
     background-color: transparentize($dark, 0.80);
 }
 
-.nav.scrolled, .nav.opened {
+.nav.scrolled,
+.nav.opened {
     @include box-shadow(0 0 10px 0 $dark);
     background-color: white;
 }
@@ -25,7 +26,8 @@
     height: 46px;
 }
 
-.nav__mobile-header:before, .nav__mobile-header:after {
+.nav__mobile-header:before,
+.nav__mobile-header:after {
     display: table;
     content: " ";
 }
@@ -51,12 +53,14 @@
     opacity: 1;
 }
 
-.scrolled .nav__brand--logo, .opened .nav__brand--logo {
+.scrolled .nav__brand--logo,
+.opened .nav__brand--logo {
     background: $dark;
     border-color: $dark;
 }
 
-.nav__brand--logo.current, .nav__brand--logo-container:hover .nav__brand--logo {
+.nav__brand--logo.current,
+.nav__brand--logo-container:hover .nav__brand--logo {
     background: $primary-color;
     border-color: $primary-color;
 }
@@ -121,7 +125,8 @@
     @include transform(rotate(45deg));
 }
 
-.opened .menu-bar--middle, .opened:hover .menu-bar--middle {
+.opened .menu-bar--middle,
+.opened:hover .menu-bar--middle {
     background-color: transparent;
     width: 0;
 }
@@ -148,11 +153,13 @@
     color: white;
 }
 
-.scrolled .nav__links > li > a, .opened .nav__links > li > a {
+.scrolled .nav__links > li > a,
+.opened .nav__links > li > a {
     color: $dark;
 }
 
-.nav__links > li > a:focus, .nav__links > li > a:hover {
+.nav__links > li > a:focus,
+.nav__links > li > a:hover {
     color: colour(blue, main);
 }
 

@@ -1,5 +1,7 @@
 /* For all devices */
-button, [type=button], [type=submit] {
+button,
+[type=button],
+[type=submit] {
     border: 0;
     background-color: transparent;
     cursor: pointer;
@@ -15,7 +17,8 @@ button, [type=button], [type=submit] {
     background-color: $dark;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
     background-color: darken($dark, 5%);
 }
 
@@ -30,7 +33,8 @@ button, [type=button], [type=submit] {
         background-color: map-get($colors, main);
     }
 
-    .btn--#{$color}:hover, .btn--#{$color}:focus {
+    .btn--#{$color}:hover,
+    .btn--#{$color}:focus {
         background-color: map-get($colors, hover);
     }
 }
@@ -41,7 +45,11 @@ button, [type=button], [type=submit] {
     color: white;
 }
 
-.btn--clear:hover, .btn--clear:focus, .btn--clear:active, .btn--clear:active:hover, .btn--clear:active:focus {
+.btn--clear:hover,
+.btn--clear:focus,
+.btn--clear:active,
+.btn--clear:active:hover,
+.btn--clear:active:focus {
     background-color: transparent;
     color: darken(white, 20%);
 }

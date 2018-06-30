@@ -42,12 +42,14 @@
     color: white;
 }
 
-.btn--add-project, .btn--send-project {
+.btn--add-project,
+.btn--send-project {
     display: block;
     margin: 0 auto 5px auto;
 }
 
-.btn--delete-project, .btn--edit-project {
+.btn--delete-project,
+.btn--edit-project {
     margin: 0 auto 5px auto;
 }
 
@@ -96,7 +98,9 @@
     color: $error;
 }
 
-.feedback--user-form, .feedback--project-form, .feedback--select-project {
+.feedback--user-form,
+.feedback--project-form,
+.feedback--select-project {
     padding: 5px;
     display: block;
 }
@@ -204,13 +208,15 @@
     border: none;
 }
 
-.delete-skill:hover, .delete-skill:active {
+.delete-skill:hover,
+.delete-skill:active {
     background-color: transparent;
 }
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
-    .project-images-uploads, .project-form-container {
+    .project-images-uploads,
+    .project-form-container {
         max-width: 640px;
         margin-left: auto;
         margin-right: auto;
