@@ -4,18 +4,15 @@ window.jpi.nav = (function (jQuery) {
     "use strict";
 
     var toggleMobileMenu = function() {
-            var container = jQuery(".nav__links-container");
+            var container = jQuery(".nav__links-container, .nav__social-links-wrapper");
             jQuery(".nav").toggleClass("opened");
             container.slideToggle();
         },
 
         initDesktopNav = function () {
             if (jQuery(window).width() > 768) {
-                var container = jQuery(".nav__links-container");
-                container[0].style.height = "";
-                container.addClass("closed");
-                jQuery(".nav").removeClass("opened");
-                container.removeClass("opening");
+                var container = jQuery(".nav__links-container, .nav__social-links-wrapper");
+                container.show();
             }
         },
 
