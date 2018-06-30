@@ -33,6 +33,20 @@
     line-height: 30px;
 }
 
+.home__hello-logo {
+  width: 66%;
+  max-width: 150px;
+  position: absolute;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 1s opacity ease;
+  @include border-radius(50%);
+    box-shadow: none;
+}
+.home__hello-logo:hover {
+  opacity: 1;
+}
+
 #slide-show--projects-preview {
     margin: 0;
     width: 100%;
