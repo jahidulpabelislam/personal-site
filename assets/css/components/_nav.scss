@@ -156,7 +156,7 @@
     color: colour(blue, main);
 }
 
-.nav__links.nav__links > li.active > a {
+.nav__links > li.active > a {
     background-color: colour(blue, main);
     color: white;
 }
@@ -165,14 +165,20 @@
     display: inline-block;
 }
 
-.nav__social-links .social-link__img.social-link__img {
+.nav__social-links .social-link__img {
     height: 36px;
     width: 36px;
     margin: 10px 4px;
+    background: transparent;
+}
+
+.nav.scrolled .nav__social-links .social-link__img,
+.nav.opened .nav__social-links .social-link__img {
+    background: $dark;
 }
 
 .nav__social-links .social-link:hover .social-link__img {
-    background: colour(blue, main);;
+    background: colour(blue, main);
 }
 
 .nav__social-links .social-link__img--instagram {
@@ -237,6 +243,6 @@
     }
 
     .nav__social-links .social-link__img.social-link__img {
-        margin: 6px 2px;
+        margin: 4px 2px;
     }
 }
