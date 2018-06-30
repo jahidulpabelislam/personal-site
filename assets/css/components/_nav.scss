@@ -243,6 +243,28 @@
     }
 
     .nav__social-links .social-link__img.social-link__img {
-        margin: 4px 2px;
+        margin: 5px 2px;
+    }
+
+    .nav__social-links .social-link__img--instagram  i {
+        width: 29.44px;
+        height: 29.44px;
+        border: 2.72px solid white;
+        border-radius: 8.33px;
+    }
+
+    .nav__social-links .social-link__img--instagram  i::before {
+        width: 15.22px;
+        height: 15.22px;
+        border: 2.72px solid white;
+        border-radius: 7.61px;
+    }
+
+    .nav__social-links .social-link__img--instagram i::after {
+        top: 2.38px;
+        right: 2.38px;
+        width: 3.55px;
+        height: 3.55px;
+        border-radius: 1.77px;
     }
 }
