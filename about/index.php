@@ -45,7 +45,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--50-50 article--about">
                     <div class="container">
                         <div class="article-50">
-                            <img src="/assets/images/JahidulPabelIslamCasual.jpg?v=1" class="image-of-me" alt="Jahidul Pabel Islam">
+                            <div class="about__images-of-me">
+                                <img src="/assets/images/jahidul-pabel-islam-young.png?v=1" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
+                                <img src="/assets/images/JahidulPabelIslamCasual.jpg?v=1" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
+                            </div>
                         </div>
                         <div class="article-50">
                             <p>My name is Jahidul Pabel Islam.</p>
