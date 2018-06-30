@@ -739,8 +739,8 @@ label {
   .nav__links__toggle {
     display: none; }
   .nav__links-container {
-    height: auto;
-    float: right; }
+    float: right;
+    display: block; }
   .nav__links {
     border-top: none; }
   .nav__links > li {
