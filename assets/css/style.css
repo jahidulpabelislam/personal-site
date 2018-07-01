@@ -772,18 +772,18 @@ label {
   .nav__wrapper {
     display: flex; }
   .nav__mobile-header {
-    width: 33%;
+    flex: 1;
     order: 2; }
   .nav__links__toggle {
     display: none; }
   .nav__links-container {
     display: block;
-    width: 33%;
+    flex: 1;
     order: 3; }
   .nav__social-links-wrapper {
     display: block;
-    width: 33%;
-    order: 1; }
+    order: 1;
+    flex: 1; }
   .nav__social-links {
     border-top: none;
     text-align: left; }
