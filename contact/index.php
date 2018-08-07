@@ -50,9 +50,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <h3 class="article__header">Drop me a old fashioned email.</h3>
                         </div>
                         <div class="article-50">
-                            <a href="mailto:jahidul.pabel.islam@hotmail.com" target="_blank" class="social-link">
+                            <a href="mailto:me@jahidulpabelislam.com" target="_blank" class="social-link">
                                 <img src="/assets/images/email.svg?v=1" alt="Email me" class="social-link__img social-link__img--email">
-                                <p class="social-link__text social-link__text--email"> jahidul.pabel.islam@hotmail.com</p>
+                                <p class="social-link__text social-link__text--email"> me@jahidulpabelislam.com</p>
                             </a>
                         </div>
                     </div>
