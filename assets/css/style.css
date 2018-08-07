@@ -1515,7 +1515,8 @@ label {
 
 .about__images-of-me .image-of-me {
   width: 100%;
-  transition: all 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .image-of-me--grown {
   opacity: 0;

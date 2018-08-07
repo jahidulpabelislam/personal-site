@@ -197,6 +197,7 @@
 .about__images-of-me .image-of-me {
     width: 100%;
     @include transition(0.4s);
+    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
 .image-of-me--grown {
