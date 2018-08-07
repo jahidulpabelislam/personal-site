@@ -134,6 +134,8 @@ function addProject($data)
         $results = login($data);
         if ($results["meta"]["ok"] === true) {
 
+	        $data["date"] = date("Y-m-d", strtotime($data["date"]));
+
             $db = new pdodb;
             $query = "INSERT INTO portfolioproject (Name, Skills, LongDescription, ShortDescription, Link, GitHub, Download, Date, Colour) VALUES (:projectName, :skills, :longDescription, :shortDescription, :link, :github, :download, :date, :colour);";
             $bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"], ":colour" => $data["colour"]);
