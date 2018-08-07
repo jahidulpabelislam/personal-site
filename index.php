@@ -54,7 +54,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <h3 class="article__header">Code</h3>
                                 <img src="/assets/images/code-icon.png?v=1" class="workflow-item__image">
                                 <div class="workflow-item__description">
-                                    <p>Depending on the requirements, I will either build the system fully bespoke or if necessary will use various frameworks and libraries to fulfill the required system.</p>
+                                    <p>I tend to build systems fully bespoke, but if the requirements require I will use various frameworks and libraries to fulfill the required system (But try to keep that to a minimum).</p>
                                 </div>
                             </div>
                             <div class="workflow__item">
@@ -62,7 +62,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <img src="/assets/images/responsive-icon.png?v=1"  class="workflow-item__image">
                                 <div class="workflow-item__description">
                                     <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
-                                    <p>I tend to approach development in a mobile first approach.</p>
+                                    <p>I always approach styling in a mobile first approach.</p>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <?php /*<div class="article">
+				<?php /*<div class="article">
                     <div class="container">
                         <h3 class="article__header">Instagram</h3>
                     </div>
