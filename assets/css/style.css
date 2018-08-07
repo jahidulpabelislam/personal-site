@@ -1708,7 +1708,7 @@ label {
   border-radius: 50%;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19); }
 
-.pagination--admin {
+.pagination--admin.pagination--admin {
   display: block; }
 
 .skill-input-group {

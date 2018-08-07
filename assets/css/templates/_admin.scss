@@ -159,7 +159,7 @@
     @include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
-.pagination--admin {
+.pagination--admin.pagination--admin {
     display: block;
 }
 
