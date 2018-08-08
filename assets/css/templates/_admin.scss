@@ -68,6 +68,11 @@
     margin: 5px;
 }
 
+.selectproject__option label,
+.selectproject__option input {
+	cursor: pointer;
+}
+
 .project-images-uploads {
     margin: 10px 0;
 }
