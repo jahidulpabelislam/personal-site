@@ -50,8 +50,8 @@
                     <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
-                        <button ng-if="projects.length > 0" ng-click="deleteProject()" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
+                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
+                        <button ng-if="projects.length > 0" ng-click="deleteProject()" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
                         <button ng-click="setUpAddProject()" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
