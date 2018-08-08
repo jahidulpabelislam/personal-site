@@ -1615,11 +1615,11 @@ label {
 .btn--add-project,
 .btn--send-project {
   display: block;
-  margin: 0 auto 5px auto; }
+  margin: 5px auto; }
 
 .btn--delete-project,
 .btn--edit-project {
-  margin: 0 auto 5px auto; }
+  margin: 5px auto; }
 
 .btn--send-project {
   margin-right: 0; }
@@ -1632,6 +1632,10 @@ label {
 .select-project-form > div > * {
   vertical-align: middle;
   margin: 5px; }
+
+.selectproject__option label,
+.selectproject__option input {
+  cursor: pointer; }
 
 .project-images-uploads {
   margin: 10px 0; }
@@ -1663,6 +1667,41 @@ label {
   padding: 5px;
   display: block; }
 
+.feedback--project-form {
+  position: fixed;
+  color: white;
+  background: white;
+  border: 1px solid white;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 15px;
+  padding: 10px;
+  z-index: 10;
+  opacity: 1;
+  max-height: 50px;
+  transition: opacity 0.5s ease-in-out, padding 0.5s ease-in-out 0.5s, max-height 0.5s ease-in-out 0.5s; }
+
+.feedback--project-form.hide {
+  opacity: 0;
+  padding: 0;
+  max-height: 0; }
+
+.feedback--project-form.feedback--error {
+  border-color: #e52525;
+  background: #e52525; }
+
+.feedback--project-form.feedback--success {
+  border-color: green;
+  background: green; }
+
+.projectform__hide-error {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  color: white;
+  font-weight: 700; }
+
 .feedback--user-form {
   text-align: center;
   margin: 5px;
@@ -1684,7 +1723,9 @@ label {
   border-radius: 4px;
   margin: 5px 0;
   position: relative;
-  list-style: none; }
+  list-style: none;
+  border: 1px solid #E0E0E0;
+  cursor: pointer; }
 
 .project-image > img {
   max-width: 100%;
@@ -1737,7 +1778,7 @@ label {
   transition: all 0.4s ease-in-out;
   background-color: #333;
   color: white;
-  cursor: auto; }
+  cursor: pointer; }
 
 .admin-project-skill--blue {
   background-color: #0375b4;
