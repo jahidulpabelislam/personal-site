@@ -93,8 +93,8 @@ window.jpi.ajax = (function (jQuery) {
 				xhr.addEventListener("load", function () {
 					if ((this && this.responseText !== "")) {
 						try {
-							var json_data = JSON.parse(this.responseText);
-							request.load(json_data);
+							var jsonData = JSON.parse(this.responseText);
+							request.load(jsonData);
 						}
 						catch (e) {
 							request.error("Error Loading Content.");

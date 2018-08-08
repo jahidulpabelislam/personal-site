@@ -26,25 +26,25 @@ window.jpi.home = (function (jQuery) {
 
 			//renders a project
 			renderProject = function (project) {
-				var slide_template = jQuery('#tmpl-slide-template').text();
-				var bullet_template = jQuery('#tmpl-slide-bullet-template').text();
+				var slideTemplate = jQuery('#tmpl-slide-template').text();
+				var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
 				for (var data in project) {
 					if (project.hasOwnProperty(data)) {
 						if (typeof data === "string") {
 							var reg = new RegExp("{{" + data + "}}", "g");
-							slide_template = slide_template.replace(reg, project[data]);
-							bullet_template = bullet_template.replace(reg, project[data]);
+							slideTemplate = slideTemplate.replace(reg, project[data]);
+							bulletTemplate = bullet_template.replace(reg, project[data]);
 						}
 					}
 				}
 				if (project.pictures[0]) {
-					var image_reg = new RegExp("{{File}}", "g");
-					slide_template = slide_template.replace(image_reg, project.pictures[0].File);
+					var imageReg = new RegExp("{{File}}", "g");
+					slideTemplate = slideTemplate.replace(imageReg, project.pictures[0].File);
 				}
 
-				jQuery(".slide-show__slides-container").append(slide_template);
-				jQuery(".js-slide-show-bullets").append(bullet_template);
+				jQuery(".slide-show__slides-container").append(slideTemplate);
+				jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
 				if (!project.pictures[0]) {
 					jQuery("#slide--" + project.ID + " .slide").remove();

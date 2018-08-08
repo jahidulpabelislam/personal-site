@@ -27,15 +27,15 @@ window.jpi.main = (function (jQuery) {
 
 			toggleLabelContent = function () {
 				var selected = jQuery(this).children(".label__more_content"); // Get the new label that was clicked
-				var selected_icon = jQuery(this).children(".label__expand-icon");
+				var selectedIcon = jQuery(this).children(".label__expand-icon");
 
 				// Reset all other label to closed
 				jQuery(".label__more_content").not(selected).slideUp();
-				jQuery(".label__expand-icon").not(selected_icon).addClass("fa-plus").removeClass("fa-minus");
+				jQuery(".label__expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
 				//Toggle the clicked label
-				selected_icon.toggleClass("fa-plus");
-				selected_icon.toggleClass("fa-minus");
+				selectedIcon.toggleClass("fa-plus");
+				selectedIcon.toggleClass("fa-minus");
 				selected.slideToggle();
 
 				jQuery(this).toggleClass("expanded-label");

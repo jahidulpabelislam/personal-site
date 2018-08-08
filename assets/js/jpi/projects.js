@@ -75,27 +75,27 @@ window.jpi.projects = (function (jQuery) {
 
 					if (project.pictures.hasOwnProperty(i)) {
 
-						var slide_template = jQuery('#tmpl-slide-template').text();
-						var bullet_template = jQuery('#tmpl-slide-bullet-template').text();
+						var slideTemplate = jQuery('#tmpl-slide-template').text();
+						var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
 						for (var data in project.pictures[i]) {
 							if (project.pictures[i].hasOwnProperty(data)) {
 								if (typeof data === "string") {
 									var reg = new RegExp("{{" + data + "}}", "g");
-									slide_template = slide_template.replace(reg, project.pictures[i][data]);
-									bullet_template = bullet_template.replace(reg, project.pictures[i][data]);
+									slideTemplate = slideTemplate.replace(reg, project.pictures[i][data]);
+									bulletTemplate = bulletTemplate.replace(reg, project.pictures[i][data]);
 								}
 							}
 						}
-						var colour_reg = new RegExp("{{Colour}}", "g");
-						slide_template = slide_template.replace(colour_reg, project.Colour);
-						bullet_template = bullet_template.replace(colour_reg, project.Colour);
+						var colourReg = new RegExp("{{Colour}}", "g");
+						slideTemplate = slideTemplate.replace(colourReg, project.Colour);
+						bulletTemplate = bulletTemplate.replace(colourReg, project.Colour);
 
-						var id_reg = new RegExp("{{Slide-Show-ID}}", "g");
-						bullet_template = bullet_template.replace(id_reg, slideShowId);
+						var idReg = new RegExp("{{Slide-Show-ID}}", "g");
+						bulletTemplate = bulletTemplate.replace(idReg =, slideShowId);
 
-						slidesContainer.append(slide_template);
-						slideShowBullets.append(bullet_template);
+						slidesContainer.append(slideTemplate);
+						slideShowBullets.append(bulletTemplate);
 					}
 				}
 
