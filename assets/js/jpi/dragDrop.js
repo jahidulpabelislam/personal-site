@@ -3,6 +3,10 @@ window.jpi.dnd = (function (jQuery) {
 
 	"use strict";
 
+	var global = {
+		dropZone: jQuery(".drop-zone")[0]
+	};
+
 	//read item dropped
 	var readItem = function (item) {
 				//creates variable for later
@@ -43,8 +47,8 @@ window.jpi.dnd = (function (jQuery) {
 				e.stopPropagation();
 
 				//make drop zone visible
-				jQuery(".drop-zone")[0].style.zIndex = "10";
-				jQuery(".drop-zone")[0].style.opacity = "1";
+				global.dropZone.style.zIndex = "10";
+				global.dropZone.style.opacity = "1";
 			},
 
 			removeDropZone = function (e) {
@@ -53,9 +57,9 @@ window.jpi.dnd = (function (jQuery) {
 				e.stopPropagation();
 
 				//make drop zone invisible
-				jQuery(".drop-zone")[0].style.opacity = "0";
+				global.dropZone.style.opacity = "0";
 				setTimeout(function () {
-					jQuery(".drop-zone")[0].style.zIndex = "-10";
+					global.dropZone.style.zIndex = "-10";
 				}, 1000);
 			},
 
@@ -92,7 +96,7 @@ window.jpi.dnd = (function (jQuery) {
 				window.addEventListener("drop", drop);
 
 				//when user leaves the area, make drop zone invisible
-				jQuery(".drop-zone")[0].addEventListener("dragleave", removeDropZone);
+				global.dropZone.addEventListener("dragleave", removeDropZone);
 			};
 
 	return {
