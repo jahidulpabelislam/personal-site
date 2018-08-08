@@ -45,12 +45,12 @@
 .btn--add-project,
 .btn--send-project {
     display: block;
-    margin: 0 auto 5px auto;
+    margin: 5px auto;
 }
 
 .btn--delete-project,
 .btn--edit-project {
-    margin: 0 auto 5px auto;
+    margin: 5px auto;
 }
 
 .btn--send-project {
@@ -178,6 +178,7 @@
     margin: 5px 0;
     position: relative;
     list-style: none;
+	border: 1px solid #E0E0E0;
 }
 
 .project-image > img {
