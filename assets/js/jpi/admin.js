@@ -406,7 +406,25 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
-			jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+			var init = function () {
+				jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
+
+				jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+
+				var url = new URL(window.location);
+				var path = url.pathname.substring(1).split('/');
+
+				//check what page should be shown
+				if (path[1] && path[1] === "projects") {
+					var pageNum = 1;
+					if (path[2] && Number.isInteger(parseInt(path[2]))) {
+						pageNum = path[2];
+					}
+					$scope.getProjectList(pageNum);
+				}
+			};
+
+			jQuery(document).on("ready", init);
 
 			window.jpi = window.jpi || {};
 			window.jpi.admin = window.jpi.admin || {};
