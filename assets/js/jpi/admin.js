@@ -206,7 +206,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
             };
 
         //render a project image delete
-        var deletedProjectImage = function(result) {
+        $scope.deletedProjectImage = function(result) {
 	        $scope.projectFormFeedback = '';
 
 	        var message = "Error deleting the Project Image.";
@@ -219,9 +219,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 //find and remove the image
                 for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
                     if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
-                        delete $scope.selectedProject.pictures[i];
+                        var pictureToDelete = $scope.selectedProject.pictures[i];
+	                    var index = $scope.selectedProject.pictures.indexOf(pictureToDelete);
+	                    if (index > -1) {
+		                    $scope.selectedProject.pictures.splice(index, 1);
+	                    }
                         found = true;
-                        return;
+                        break;
                     }
                 }
 
@@ -246,7 +250,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                     password: $scope.password,
                     file: projectImage.File
                 }
-            }).then(deletedProjectImage, function(result) {
+            }).then($scope.deletedProjectImage, function(result) {
 	            var message = addFeedback(result, "Error deleting the Project Image.");
 	            $scope.showErrorMessage(message, "feedback--error");
             });
