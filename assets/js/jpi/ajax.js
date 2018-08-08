@@ -100,8 +100,9 @@ window.jpi.ajax = (function (jQuery) {
                         request.error("Error Loading Content.");
                     }
                 }
-                else
-                    request.error("Error Loading Content.");
+                else {
+	                request.error("Error Loading Content.");
+                }
             });
 
             //add listener for when XHR has a error
