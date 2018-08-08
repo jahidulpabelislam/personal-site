@@ -71,13 +71,13 @@
                         <label for="skills">Skills <span class="required">*</span></label>
 
                         <div ng-model="selectedProject.Skills" ui-sortable class="ui-state-default">
-                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn delete-skill" ng-click="deleteSkill(skill)">x</button></p>
+                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn delete-skill" ng-click="deleteSkill(skill)" type="button">x</button></p>
                         </div>
 
                         <div class="skill-input-group">
                             <label for="skill-input" class="screen-reader-text">Add skills for project.</label>
                             <input type="text" class="input skill-input"id="skill-input" placeholder="HTML5" ng-model="skillInput">
-                            <button class="btn btn--green skill-add" type="button" id="skill-add" ng-click="addSkill()">Add</button>
+                            <button class="btn btn--green skill-add" type="button" id="skill-add" ng-click="addSkill()" type="button">Add</button>
                         </div>
 
                         <label for="longDescription">Long Description <span class="required">*</span></label>
@@ -105,26 +105,26 @@
                             <option value="purple">Purple</option>
                         </select>
 
-                        <button type="submit" value="Add Project" class="btn btn--green btn--send-project" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
+	                    <ul ui-sortable ng-model="selectedProject.pictures" class="project-images ui-state-default">
+		                    <li class="project-image" ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
+			                    <img src="{{picture.File}}">
+			                    <button ng-click="deleteProjectImage(picture)" class="btn btn--red btn--delete-project-img" type="button">X</button>
+		                    </li>
+	                    </ul>
+
+	                    <button type="submit" value="Add Project" class="btn btn--green btn--send-project" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
+
+	                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15">
+
+	                    <!-- Div containing the uploads -->
+	                    <div class="project-images-uploads">
+		                    <div ng-repeat="upload in uploads" class="upload" ng-class="upload.ok == true ? 'upload--success' : 'upload--failed'">
+			                    <p>{{upload.text}}</p>
+			                    <img ng-if="upload.ok == true" src="{{upload.image}}">
+			                    <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn--red" type="button">Upload This Picture</button>
+		                    </div>
+	                    </div>
                     </form>
-
-                    <ul ui-sortable ng-model="selectedProject.pictures" class="project-images ui-state-default">
-                        <li class="project-image" ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
-                            <img src="{{picture.File}}">
-                            <button ng-click="deleteProjectImage(picture)" class="btn btn--red btn--delete-project-img">X</button>
-                        </li>
-                    </ul>
-
-                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15">
-
-                    <!-- Div containing the uploads -->
-                    <div class="project-images-uploads">
-                        <div ng-repeat="upload in uploads" class="upload" ng-class="upload.ok == true ? 'upload--success' : 'upload--failed'">
-                            <p>{{upload.text}}</p>
-                            <img ng-if="upload.ok == true" src="{{upload.image}}">
-                            <button ng-if="upload.ok == true" ng-click="sendImage(upload.file)" class="btn btn--red">Upload This Picture</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
