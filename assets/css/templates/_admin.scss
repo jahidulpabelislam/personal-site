@@ -108,22 +108,43 @@
 .feedback--project-form {
     position: fixed;
     color: white;
+	background: white;
+	border: 1px solid white;
     top: 0;
     left: 0;
     right: 0;
     margin: 15px;
     padding: 10px;
     z-index: 10;
+	opacity: 1;
+	max-height: 50px;
+	transition: opacity 0.5s ease-in-out,
+		padding 0.5s ease-in-out 0.5s,
+		max-height 0.5s ease-in-out 0.5s;
+}
+
+.feedback--project-form.hide {
+	opacity: 0;
+	padding: 0;
+	max-height: 0;
 }
 
 .feedback--project-form.feedback--error {
-    border: 1px solid $error;
+    border-color: $error;
     background: $error;
 }
 
 .feedback--project-form.feedback--success {
-    border: 1px solid $success;
+	border-color: $success;
     background: $success;
+}
+
+.projectform__hide-error {
+	position: absolute;
+	right: 0;
+	margin-right: 10px;
+	color: white;
+	font-weight: 700;
 }
 
 .feedback--user-form {

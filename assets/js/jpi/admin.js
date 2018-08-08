@@ -25,9 +25,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
         };
 
         $scope.hideErrorMessage = function () {
-	        jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
-	        $scope.projectFormFeedback = '';
+	        jQuery(".feedback--project-form").addClass("hide");
+
+	        window.setTimeout(function () {
+		        jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
+		        $scope.projectFormFeedback = '';
+	        }, 500);
         };
+
+	    $scope.showErrorMessage = function (message, classToAdd) {
+		    jQuery(".feedback--project-form").removeClass("feedback--error feedback--success hide").addClass(classToAdd);
+		    $scope.projectFormFeedback = message;
+	    };
 
         $scope.projects = $scope.pages = $scope.uploads = [];
         $scope.currentPage = 1;
@@ -64,7 +73,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
             }).then(function(result) {
                 $scope.selectedProject.pictures.push(result.data.rows[0]);
             }, function(result) {
-                $scope.projectFormFeedback = addFeedback(result, "Error uploading the Project Image.");
+                var message = addFeedback(result, "Error uploading the Project Image.");
+	            $scope.showErrorMessage(message, "feedback--error");
             });
         };
 
@@ -197,12 +207,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
         //render a project image delete
         var deletedProjectImage = function(result) {
-            $scope.projectFormFeedback = "";
+	        $scope.projectFormFeedback = '';
+
+	        var message = "Error deleting the Project Image.";
+	        var feedbackClass = "feedback--error";
+
             //check if the deletion of project image has been processed
             if (result.data.rows && result.data.rows.file) {
 
                 var i = 0, found = false;
-                //find and remove the comment
+                //find and remove the image
                 for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
                     if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
                         delete $scope.selectedProject.pictures[i];
@@ -211,14 +225,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
                     }
                 }
 
-                if (found === false) {
-                    $scope.projectFormFeedback = "Error deleting the Project Image.";
+                if (found){
+	                message = "Successfully deleted the Project Image.";
+	                feedbackClass = "feedback--success"
                 }
             }
-            else {
-                //else check if there if feedback to print
-                $scope.projectFormFeedback = addFeedback(result, "Error deleting the Project Image.");
-            }
+
+	        $scope.showErrorMessage(message, feedbackClass);
 
             jpi.footer.delayExpand();
         };
@@ -234,7 +247,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
                     file: projectImage.File
                 }
             }).then(deletedProjectImage, function(result) {
-                $scope.projectFormFeedback = addFeedback(result, "Error deleting the Project Image.");
+	            var message = addFeedback(result, "Error deleting the Project Image.");
+	            $scope.showErrorMessage(message, "feedback--error");
             });
         };
 
@@ -249,8 +263,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
         };
 
         $scope.submitProject = function() {
-
-	        $scope.hideErrorMessage();
+	        $scope.projectFormFeedback = '';
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
                 projectNameValidation = jpi.helpers.checkInputField(jQuery("#projectName")[0]),
@@ -291,16 +304,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
                         result.data.rows[0].Skills =  result.data.rows[0].Skills.split(",");
                     $scope.selectedProject = result.data.rows[0];
 
-	                $scope.projectFormFeedback = addFeedback(result, "Successfully saved project.");
-	                jQuery(".feedback--project-form").addClass("feedback--success");
+	                var message = addFeedback(result, "Successfully saved project.");
+	                $scope.showErrorMessage(message, "feedback--success");
                 }, function(result) {
-                    $scope.projectFormFeedback = addFeedback(result, "Error sending the project.");
-	                jQuery(".feedback--project-form").addClass("feedback--error");
+	                var message = addFeedback(result, "Error sending the project.");
+	                $scope.showErrorMessage(message, "feedback--error");
                 });
 
             } else {
-                $scope.projectFormFeedback = "Fill in Required Inputs Fields.";
-	            jQuery(".feedback--project-form").addClass("feedback--error");
+	            var message = "Fill in Required Inputs Fields.";
+	            $scope.showErrorMessage(message, "feedback--error");
             }
         };
 

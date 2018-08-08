@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="project-form-container">
-	                <p class="feedback feedback--project-form" ng-show="projectFormFeedback"><span>{{projectFormFeedback}}</span><button class="" ng-click="hideErrorMessage()">x</button></p>
+	                <p class="feedback feedback--project-form hide"><span>{{projectFormFeedback}}</span><button class="projectform__hide-error" ng-click="hideErrorMessage()">X</button></p>
 
                     <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back</button>
 
