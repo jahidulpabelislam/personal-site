@@ -169,5 +169,8 @@
 
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/jpi/admin.js?v=1"></script>
+
+
+        <script type="text/javascript" src="/assets/js/jpi/dragDrop.js"></script>
     </body>
 </html>
