@@ -16,10 +16,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
     .controller('projectsAdminController', function($scope, $http) {
 
         var addFeedback = function(result, genericFeedback) {
-            if (result && result.data && result.data.meta && result.data.meta.feedback)
-                return result.data.meta.feedback;
-            else
-                return genericFeedback;
+            if (result && result.data && result.data.meta && result.data.meta.feedback) {
+	            return result.data.meta.feedback;
+            }
+            else {
+	            return genericFeedback;
+            }
         };
 
         $scope.projects = $scope.pages = $scope.uploads = [];
@@ -243,6 +245,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
         $scope.submitProject = function() {
 
+	        jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
+
             $scope.projectFormFeedback = "";
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
@@ -283,12 +287,17 @@ angular.module('projectsAdmin', ['ui.sortable'])
                     if (typeof  result.data.rows[0].Skills == "string")
                         result.data.rows[0].Skills =  result.data.rows[0].Skills.split(",");
                     $scope.selectedProject = result.data.rows[0];
+
+	                $scope.projectFormFeedback = addFeedback(result, "Successfully saved project.");
+	                jQuery(".feedback--project-form").addClass("feedback--success");
                 }, function(result) {
                     $scope.projectFormFeedback = addFeedback(result, "Error sending the project.");
+	                jQuery(".feedback--project-form").addClass("feedback--error");
                 });
 
             } else {
                 $scope.projectFormFeedback = "Fill in Required Inputs Fields.";
+	            jQuery(".feedback--project-form").addClass("feedback--error");
             }
         };
 

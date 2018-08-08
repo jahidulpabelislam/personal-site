@@ -60,8 +60,9 @@
                 </div>
 
                 <div class="project-form-container">
-                    <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back
-                    </button>
+	                <p class="feedback feedback--project-form" ng-show="projectFormFeedback">{{projectFormFeedback}}</p>
+
+                    <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back</button>
 
                     <form id="projectForm" ng-submit="submitProject()">
                         <label for="projectName">Project Name <span class="required">*</span></label>
@@ -103,8 +104,6 @@
                             <option value="green">Green</option>
                             <option value="purple">Purple</option>
                         </select>
-
-                        <p class="feedback feedback--project-form feedback--error" ng-if="projectFormFeedback">{{projectFormFeedback}}</p>
 
                         <button type="submit" value="Add Project" class="btn btn--green btn--send-project" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
                     </form>

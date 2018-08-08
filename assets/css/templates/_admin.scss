@@ -105,6 +105,27 @@
     display: block;
 }
 
+.feedback--project-form {
+    position: fixed;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 15px;
+    padding: 10px;
+    z-index: 10;
+}
+
+.feedback--project-form.feedback--error {
+    border: 1px solid $error;
+    background: $error;
+}
+
+.feedback--project-form.feedback--success {
+    border: 1px solid $success;
+    background: $success;
+}
+
 .feedback--user-form {
     text-align: center;
     margin: 5px;
