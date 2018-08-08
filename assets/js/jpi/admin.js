@@ -233,6 +233,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
         $scope.addSkill = function() {
             $scope.selectedProject.Skills.push($scope.skillInput);
+	        $scope.skillInput = "";
         };
 
         $scope.deleteSkill = function(skill) {
