@@ -429,8 +429,21 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 					$scope.getProjectList(pageNum);
 				}
-				else if (path[1] && path[1] === "project" && path[2] && path[2] === "add") {
-					$scope.setUpAddProject();
+				else if (path[1] && path[1] === "project") {
+					if (path[2] && path[2] === "add") {
+						$scope.setUpAddProject();
+					}
+					else if (path[2] && Number.isInteger(parseInt(path[2]))){
+						$http({
+							url: "/admin/api/1/projects/"+path[2],
+							method: "GET"
+						}).then(function (result){
+							if (result.data.meta.ok && result.data.rows.length > 0) {
+								$scope.selectProject(result.data.rows[0]);
+								$scope.setUpEditProject();
+							}
+						});
+					}
 				}
 				else if (path[1] && path[1] === "login") {
 					showLoginScreen(function(){});
