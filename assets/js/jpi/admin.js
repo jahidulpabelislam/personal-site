@@ -429,6 +429,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 					$scope.getProjectList(pageNum);
 				}
+				else if (path[1] && path[1] === "project" && path[2] && path[2] === "add") {
+					$scope.setUpAddProject();
+				}
 				else if (path[1] && path[1] === "login") {
 					showLoginScreen(function(){});
 				}
