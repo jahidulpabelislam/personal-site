@@ -92,7 +92,7 @@ window.jpi.projects = (function (jQuery) {
 						bulletTemplate = bulletTemplate.replace(colourReg, project.Colour);
 
 						var idReg = new RegExp("{{Slide-Show-ID}}", "g");
-						bulletTemplate = bulletTemplate.replace(idReg =, slideShowId);
+						bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
 
 						slidesContainer.append(slideTemplate);
 						slideShowBullets.append(bulletTemplate);
@@ -139,9 +139,8 @@ window.jpi.projects = (function (jQuery) {
 				if (!jQuery(event.target).closest('.modal__content').length && jQuery(".modal--detailed-project").hasClass("open")) {
 					jQuery(".modal--detailed-project").removeClass("open").hide();
 					document.body.style.overflow = "auto";
-					var viewpoint = jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0];
-					viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
-					viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
+					jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
+					jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
 					jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
 					clearInterval(autoSlide["#detailed-project__slide-show"]);
 					jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
