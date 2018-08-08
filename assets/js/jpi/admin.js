@@ -406,6 +406,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
+			var showLoginScreen = function (funcOnComplete)
+			{
+				jQuery(".login-form-container").show();
+				jQuery(".project-form-container, .select-project-container").hide();
+				funcOnComplete();
+			};
+
 			var init = function () {
 				jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
 
@@ -421,6 +428,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						pageNum = path[2];
 					}
 					$scope.getProjectList(pageNum);
+				}
+				else if (path[1] && path[1] === "login") {
+					showLoginScreen(function(){});
 				}
 			};
 
