@@ -349,7 +349,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
         $scope.setUpEditProject = function() {
             $scope.selectProjectFeedback = "";
 
-            if ($scope.selectedProject.ID) {
+            if ($scope.selectedProject && $scope.selectedProject.ID) {
                 dragNDropSetUp();
                 $scope.setUpProjectForm();
                 $(".project-images-uploads").sortable();
