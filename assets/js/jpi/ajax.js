@@ -98,6 +98,7 @@ window.jpi.ajax = (function (jQuery) {
 						}
 						catch (e) {
 							request.error("Error Loading Content.");
+							console.log(e);
 						}
 					}
 					else {
