@@ -24,6 +24,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
             }
         };
 
+        $scope.hideErrorMessage = function () {
+	        jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
+	        $scope.projectFormFeedback = '';
+        };
+
         $scope.projects = $scope.pages = $scope.uploads = [];
         $scope.currentPage = 1;
 
@@ -245,9 +250,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
         $scope.submitProject = function() {
 
-	        jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
-
-            $scope.projectFormFeedback = "";
+	        $scope.hideErrorMessage();
 
             var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
                 projectNameValidation = jpi.helpers.checkInputField(jQuery("#projectName")[0]),
@@ -471,5 +474,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
                 });
             }
         };
+
+        jQuery(".js-hide-error").on("click",  $scope.hideErrorMessage);
     });
 
