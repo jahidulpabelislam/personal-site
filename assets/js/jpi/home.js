@@ -38,11 +38,17 @@ window.jpi.home = (function (jQuery) {
                     }
                 }
             }
-            var image_reg = new RegExp("{{File}}", "g");
-            slide_template = slide_template.replace(image_reg, project.pictures[0].File);
+            if (project.pictures[0]) {
+	            var image_reg = new RegExp("{{File}}", "g");
+	            slide_template = slide_template.replace(image_reg, project.pictures[0].File);
+            }
 
             jQuery(".slide-show__slides-container").append(slide_template);
             jQuery(".js-slide-show-bullets").append(bullet_template);
+
+	        if (!project.pictures[0]) {
+		        jQuery("#slide--" + project.ID + " .slide").remove();
+	        }
 
             var projectLinks = jQuery("#slide--" + project.ID + " .project-description__links")[0];
 
@@ -70,8 +76,9 @@ window.jpi.home = (function (jQuery) {
             //send the data, the function to do if data is valid
             var dataValid = jpi.ajax.loopThroughData(result, renderProject, renderError, "Error Getting the Projects.");
 
-            if (dataValid)
-                jpi.slideShow.setUp("#slide-show--projects-preview");
+            if (dataValid) {
+	            jpi.slideShow.setUp("#slide-show--projects-preview");
+            }
 
             jpi.footer.delayExpand();
         },
