@@ -166,11 +166,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			//send a image to API with the username and password of user
-			$scope.sendImage = function (picture) {
+			$scope.sendImage = function (upload) {
 
 				var form = new FormData();
 				//add the picture
-				form.append("picture", picture);
+				form.append("picture", upload.file);
 				//add the username of user
 				form.append("username", $scope.username);
 				//add the password of user
@@ -181,6 +181,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					headers: {'Content-Type': undefined, 'Process-Data': false}
 				}).then(function (result) {
 					$scope.selectedProject.pictures.push(result.data.rows[0]);
+					var index = $scope.uploads.indexOf(upload);
+					if (index > -1) {
+						$scope.uploads.splice(index, 1);
+					}
+
 					var message = "Successfully added a new project image";
 					showErrorMessage(message, "feedback--success");
 				}, function (result) {
