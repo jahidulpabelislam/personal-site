@@ -34,7 +34,7 @@ window.jpi.home = (function (jQuery) {
 						if (typeof data === "string") {
 							var reg = new RegExp("{{" + data + "}}", "g");
 							slideTemplate = slideTemplate.replace(reg, project[data]);
-							bulletTemplate = bullet_template.replace(reg, project[data]);
+							bulletTemplate = bulletTemplate.replace(reg, project[data]);
 						}
 					}
 				}

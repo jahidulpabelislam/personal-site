@@ -2023,7 +2023,8 @@ label {
   .slide-show__project-description-container {
     position: relative;
     height: auto;
-    width: 50%; }
+    width: 50%;
+    margin: 0 auto; }
   .slide-show__project-description {
     height: 100%;
     width: 100%;
