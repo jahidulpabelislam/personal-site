@@ -181,6 +181,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					headers: {'Content-Type': undefined, 'Process-Data': false}
 				}).then(function (result) {
 					$scope.selectedProject.pictures.push(result.data.rows[0]);
+					var message = "Successfully added a new project image";
+					showErrorMessage(message, "feedback--success");
 				}, function (result) {
 					var message = addFeedback(result, "Error uploading the Project Image.");
 					showErrorMessage(message, "feedback--error");
