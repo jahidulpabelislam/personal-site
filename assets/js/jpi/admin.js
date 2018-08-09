@@ -70,7 +70,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 					}
 
-					showErrorMessage(message, feedbackClass);
+					fn.showErrorMessage(message, feedbackClass);
 
 					jpi.footer.delayExpand();
 				},
@@ -83,7 +83,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						$scope.getProjectList(1);
 					} else {
 						//else check if there if feedback to print
-						$scope.selectProjectFeedback = addFeedback(result, "Error deleting your project.");
+						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
 					}
 
 					jpi.footer.delayExpand();
@@ -138,7 +138,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 					//check if feedback was provided or generic error message
 					else {
-						$scope.userFormFeedback = addFeedback(result, "Error logging you in.");
+						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
 					}
 				}
 			};
