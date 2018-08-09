@@ -152,6 +152,21 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".select-project-container, .project-form-container").hide();
 					jQuery(".login-form-container").show();
 					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!");
+
+					var success = false;
+
+					if (result && result.data && result.data.meta && result.data.meta.status) {
+						success = result.data.meta.status == 200 || result.data.meta.status == 201;
+					}
+
+					if (success) {
+						jQuery(".feedback--user-form").removeClass("feedback--error").addClass("feedback--success");
+					}
+					else {
+						jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
+					}
+
+					jpi.footer.delayExpand();
 				},
 
 				logout: function (e) {
