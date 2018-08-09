@@ -7,101 +7,104 @@ window.jpi.dnd = (function (jQuery) {
 		dropZone: jQuery(".drop-zone")[0]
 	};
 
-	//read item dropped
-	var readItem = function (item) {
-				//creates variable for later
-				var directoryReader, i;
+	var fn = {
 
-				//checks if item is file
-				if (item.isFile) {
+		//read item dropped
+		readItem: function (item) {
+			//creates variable for later
+			var directoryReader, i;
 
-					//gets file
-					item.file(function (file) {
-						window.jpi.admin.checkFile(file);
-					});
-				}
-				//checks if its a directory
-				else if (item.isDirectory) {
+			//checks if item is file
+			if (item.isFile) {
 
-					//Get folder content
-					directoryReader = item.createReader();
-					directoryReader.readEntries(function (entries) {
-						//loop through each directory item
-						for (i = 0; i < entries.length; i++) {
-							readItem(entries[i]);
-						}
-					});
+				//gets file
+				item.file(function (file) {
+					window.jpi.admin.checkFile(file);
+				});
+			}
+			//checks if its a directory
+			else if (item.isDirectory) {
 
-				}
-				//else drop of item has failed therefore show its failed
-				else {
-					renderFailedUpload("Error processing upload - " + item.name);
-				}
-			},
+				//Get folder content
+				directoryReader = item.createReader();
+				directoryReader.readEntries(function (entries) {
+					//loop through each directory item
+					for (i = 0; i < entries.length; i++) {
+						fn.readItem(entries[i]);
+					}
+				});
 
-			//when a drag over starts
-			dragOver = function (e) {
+			}
+			//else drop of item has failed therefore show its failed
+			else {
+				fn.renderFailedUpload("Error processing upload - " + item.name);
+			}
+		},
 
-				//stop default events
-				e.preventDefault();
-				e.stopPropagation();
+		//when a drag over starts
+		dragOver: function (e) {
 
-				//make drop zone visible
-				global.dropZone.style.zIndex = "10";
-				global.dropZone.style.opacity = "1";
-			},
+			//stop default events
+			e.preventDefault();
+			e.stopPropagation();
 
-			removeDropZone = function (e) {
-				//stop default events
-				e.preventDefault();
-				e.stopPropagation();
+			//make drop zone visible
+			global.dropZone.style.zIndex = "10";
+			global.dropZone.style.opacity = "1";
+		},
 
-				//make drop zone invisible
-				global.dropZone.style.opacity = "0";
-				setTimeout(function () {
-					global.dropZone.style.zIndex = "-10";
-				}, 1000);
-			},
+		removeDropZone: function (e) {
+			//stop default events
+			e.preventDefault();
+			e.stopPropagation();
 
-			//when drop of item (file/directory) has occurred
-			drop = function (e) {
+			//make drop zone invisible
+			global.dropZone.style.opacity = "0";
+			setTimeout(function () {
+				global.dropZone.style.zIndex = "-10";
+			}, 1000);
+		},
 
-				var items, i;
+		//when drop of item (file/directory) has occurred
+		drop: function (e) {
 
-				removeDropZone(e);
+			var items, i;
 
-				//gets the items (files/directories) dropped
-				items = e.dataTransfer.items;
+			fn.removeDropZone(e);
 
-				//loop through each item (file/directory) dropped
-				for (i = 0; i < items.length; i++) {
-					//send a item (file/directory) to be read
-					readItem(items[i].webkitGetAsEntry());
-				}
-			},
+			//gets the items (files/directories) dropped
+			items = e.dataTransfer.items;
 
-			//stop drag and drop to work
-			stop = function () {
-				window.removeEventListener("dragover", dragOver);
-				window.removeEventListener("drop", drop);
-			},
+			//loop through each item (file/directory) dropped
+			for (i = 0; i < items.length; i++) {
+				//send a item (file/directory) to be read
+				fn.readItem(items[i].webkitGetAsEntry());
+			}
+		},
 
-			//this allows drag and drop to work, sets up all listeners needed
-			setUp = function () {
+		//stop drag and drop to work
+		stop: function () {
+			window.removeEventListener("dragover", fn.dragOver);
+			window.removeEventListener("drop", fn.drop);
+		},
 
-				//sets up listener for when a drag occurs
-				window.addEventListener("dragover", dragOver);
+		//this allows drag and drop to work, sets up all listeners needed
+		setUp: function () {
 
-				//sets up listener for when a drop happens
-				window.addEventListener("drop", drop);
+			//sets up listener for when a drag occurs
+			window.addEventListener("dragover", fn.dragOver);
 
-				//when user leaves the area, make drop zone invisible
-				global.dropZone.addEventListener("dragleave", removeDropZone);
-			};
+			//sets up listener for when a drop happens
+			window.addEventListener("drop", fn.drop);
+
+			//when user leaves the area, make drop zone invisible
+			global.dropZone.addEventListener("dragleave", fn.removeDropZone);
+		}
+	};
 
 	return {
-		"setUp": setUp,
-		"stop": stop
+		"setUp": fn.setUp,
+		"stop": fn.stop
 	};
 
 }(jQuery));
