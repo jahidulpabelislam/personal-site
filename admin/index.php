@@ -35,6 +35,24 @@
 
     <body ng-controller="projectsAdminController" class="admin-page">
 
+	    <nav class="nav nav--dark">
+		    <div class="container nav__wrapper">
+			    <div class="nav__mobile-header">
+				    <button type="button" class="nav__links__toggle">
+					    <span class="screen-reader-text">Toggle navigation</span>
+					    <span class="menu-bar menu-bar--top"></span>
+					    <span class="menu-bar menu-bar--middle"></span>
+					    <span class="menu-bar menu-bar--bottom"></span>
+				    </button>
+			    </div>
+			    <div class="nav__links-container">
+				    <ul class="nav__links clearfix">
+					    <li ng-show="loggedIn"><a href="/admin/" title="Link to Logout Page" class="js-admin-logout">Logout</a></li>
+				    </ul>
+			    </div>
+		    </div>
+	    </nav>
+
         <section>
             <div class="container">
 
@@ -161,6 +179,7 @@
         <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
         <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
         <script src="/assets/js/jpi/dragNDrop.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
         <!-- The third party script needed for the page for the sorting of pictures -->
         <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js?v=1"></script>
 

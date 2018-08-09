@@ -139,6 +139,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					//check if data was valid
 					if (result.data.meta.status && result.data.meta.status == 200) {
+						$scope.loggedIn = true;
 						fn.showProjects();
 					}
 					//check if feedback was provided or generic error message
@@ -153,8 +154,26 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!") ;
 				},
 
+				logout: function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+
+					$http({
+						url: global.apiBase + "logout",
+						method: "GET"
+					}).then(function (result) {
+						if (result.data.meta.status && result.data.meta.status == 200) {
+							fn.showLoginForm(result);
+						}
+					});
+
+					return false;
+				},
+
 				init: function() {
 					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+
+					jQuery(".js-admin-logout").on("click", fn.logout);
 
 					$scope.checkAuthStatus(fn.showProjects);
 				}
@@ -185,6 +204,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					method: "GET"
 				}).then(function (result) {
 					if (result.data.meta.status && result.data.meta.status == 200) {
+						$scope.loggedIn = true;
 						successFunc();
 					}
 					else {
@@ -363,7 +383,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				$scope.selectProjectFeedback = "";
 
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
-					window.jpi.dnd.setUp();
+					jpi.dnd.setUp();
 					fn.setUpProjectForm();
 					$(".project-images-uploads").sortable();
 					$(".project-images-uploads").disableSelection();
@@ -405,7 +425,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				$scope.currentPage = page;
 
-				window.jpi.dnd.stop();
+				jpi.dnd.stop();
 
 				//Sends a object with necessary data to XHR
 				$http({
