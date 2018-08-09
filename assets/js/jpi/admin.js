@@ -16,129 +16,129 @@ angular.module('projectsAdmin', ['ui.sortable'])
 		.controller('projectsAdminController', function ($scope, $http) {
 
 			var fn = {
-					addFeedback: function (result, genericFeedback) {
-							if (result && result.data && result.data.meta && result.data.meta.feedback) {
-								return result.data.meta.feedback;
-							}
-							else {
-								return genericFeedback;
-							}
-						},
+				addFeedback: function (result, genericFeedback) {
+					if (result && result.data && result.data.meta && result.data.meta.feedback) {
+						return result.data.meta.feedback;
+					}
+					else {
+						return genericFeedback;
+					}
+				},
 
-					showErrorMessage: function (message, classToAdd) {
-						jQuery(".feedback--project-form").removeClass("feedback--error feedback--success hide").addClass(classToAdd);
-						$scope.projectFormFeedback = message;
-					},
+				showErrorMessage: function (message, classToAdd) {
+					jQuery(".feedback--project-form").removeClass("feedback--error feedback--success hide").addClass(classToAdd);
+					$scope.projectFormFeedback = message;
+				},
 
-					//set image as failed upload div to display error
-					renderFailedUpload: function (errorMessage) {
-						$scope.uploads.push({ok: false, text: errorMessage});
-						$scope.$apply();
-						jpi.footer.delayExpand();
-					},
+				//set image as failed upload div to display error
+				renderFailedUpload: function (errorMessage) {
+					$scope.uploads.push({ok: false, text: errorMessage});
+					$scope.$apply();
+					jpi.footer.delayExpand();
+				},
 
-					//render a project image delete
-					deletedProjectImage: function (result) {
-						$scope.projectFormFeedback = '';
+				//render a project image delete
+				deletedProjectImage: function (result) {
+					$scope.projectFormFeedback = '';
 
-						var message = "Error deleting the Project Image.";
-						var feedbackClass = "feedback--error";
+					var message = "Error deleting the Project Image.";
+					var feedbackClass = "feedback--error";
 
-						//check if the deletion of project image has been processed
-						if (result.data.rows && result.data.rows.file) {
+					//check if the deletion of project image has been processed
+					if (result.data.rows && result.data.rows.file) {
 
-							var i = 0, found = false;
-							//find and remove the image
-							for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
-								if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
-									var pictureToDelete = $scope.selectedProject.pictures[i];
-									var index = $scope.selectedProject.pictures.indexOf(pictureToDelete);
-									if (index > -1) {
-										$scope.selectedProject.pictures.splice(index, 1);
-									}
-									found = true;
-									break;
+						var i = 0, found = false;
+						//find and remove the image
+						for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
+							if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
+								var pictureToDelete = $scope.selectedProject.pictures[i];
+								var index = $scope.selectedProject.pictures.indexOf(pictureToDelete);
+								if (index > -1) {
+									$scope.selectedProject.pictures.splice(index, 1);
 								}
-							}
-
-							if (found) {
-								message = "Successfully deleted the Project Image.";
-								feedbackClass = "feedback--success"
+								found = true;
+								break;
 							}
 						}
 
-						showErrorMessage(message, feedbackClass);
-
-						jpi.footer.delayExpand();
-					},
-
-					renderProjectDelete: function (result) {
-						$scope.selectProjectFeedback = "";
-						//check if project delete has been processed
-						if (result.data.rows && result.data.rows.projectID) {
-
-							$scope.getProjectList(1);
-						} else {
-							//else check if there if feedback to print
-							$scope.selectProjectFeedback = addFeedback(result, "Error deleting your project.");
-						}
-
-						jpi.footer.delayExpand();
-					},
-
-					setUpProjectForm: function () {
-						$scope.skillInput = "";
-
-						jQuery(".project-form-container").show();
-						jQuery(".select-project-container").hide();
-
-						jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
-
-						jpi.footer.delayExpand();
-					},
-
-					gotProjects: function (result) {
-						jQuery(".project-form-container").hide();
-						jQuery(".select-project-container").show();
-
-						$scope.selectedProject = undefined;
-
-						//check if data doesn't exist check there's no feedback
-						if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
-
-							//assume there's no error and no projects to show
-							$scope.selectProjectFeedback = "Sorry, no Projects to show.";
-							$scope.projects = [];
-						} else if (result.data.rows.length > 0) {
-							$scope.projects = result.data.rows;
-							$scope.pages = [];
-
-							var pages = Math.ceil(result.data.count / 10);
-
-							for (var i = 1; i <= pages; i++) {
-								$scope.pages.push(i);
-							}
-						}
-
-						jpi.footer.delayExpand();
-					},
-
-					//after user has attempted to log in
-					loggedIn: function (result) {
-
-						//check if data was valid
-						if (result.data.rows && result.data.rows.username && result.data.rows.password) {
-							//make the log in/sign up form not visible
-							jQuery(".login-form-container").hide();
-
-							$scope.getProjectList(1);
-						}
-						//check if feedback was provided or generic error message
-						else {
-							$scope.userFormFeedback = addFeedback(result, "Error logging you in.");
+						if (found) {
+							message = "Successfully deleted the Project Image.";
+							feedbackClass = "feedback--success"
 						}
 					}
-					};
+
+					showErrorMessage(message, feedbackClass);
+
+					jpi.footer.delayExpand();
+				},
+
+				renderProjectDelete: function (result) {
+					$scope.selectProjectFeedback = "";
+					//check if project delete has been processed
+					if (result.data.rows && result.data.rows.projectID) {
+
+						$scope.getProjectList(1);
+					} else {
+						//else check if there if feedback to print
+						$scope.selectProjectFeedback = addFeedback(result, "Error deleting your project.");
+					}
+
+					jpi.footer.delayExpand();
+				},
+
+				setUpProjectForm: function () {
+					$scope.skillInput = "";
+
+					jQuery(".project-form-container").show();
+					jQuery(".select-project-container").hide();
+
+					jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
+
+					jpi.footer.delayExpand();
+				},
+
+				gotProjects: function (result) {
+					jQuery(".project-form-container").hide();
+					jQuery(".select-project-container").show();
+
+					$scope.selectedProject = undefined;
+
+					//check if data doesn't exist check there's no feedback
+					if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
+
+						//assume there's no error and no projects to show
+						$scope.selectProjectFeedback = "Sorry, no Projects to show.";
+						$scope.projects = [];
+					} else if (result.data.rows.length > 0) {
+						$scope.projects = result.data.rows;
+						$scope.pages = [];
+
+						var pages = Math.ceil(result.data.count / 10);
+
+						for (var i = 1; i <= pages; i++) {
+							$scope.pages.push(i);
+						}
+					}
+
+					jpi.footer.delayExpand();
+				},
+
+				//after user has attempted to log in
+				loggedIn: function (result) {
+
+					//check if data was valid
+					if (result.data.rows && result.data.rows.username && result.data.rows.password) {
+						//make the log in/sign up form not visible
+						jQuery(".login-form-container").hide();
+
+						$scope.getProjectList(1);
+					}
+					//check if feedback was provided or generic error message
+					else {
+						$scope.userFormFeedback = addFeedback(result, "Error logging you in.");
+					}
+				}
+			};
 
 			$scope.projects = $scope.pages = $scope.uploads = [];
 			$scope.currentPage = 1;
