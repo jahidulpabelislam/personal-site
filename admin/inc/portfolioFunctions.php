@@ -19,6 +19,19 @@ function isLoggedIn() {
 	return false;
 }
 
+function getLogInStatus() {
+	if (isLoggedIn()) {
+		$results["meta"]["ok"] = true;
+		$results["meta"]["status"] = 200;
+		$results["meta"]["message"] = "OK";
+	}
+	else {
+		$results = notAuthorised();
+	}
+
+	return $results;
+}
+
 //gets a user, either trying to log in or trying to get information of a user
 function login($data)
 {
@@ -57,6 +70,19 @@ function login($data)
     }
 
     return $results;
+}
+
+function logout(){
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+
+	session_unset();
+	session_destroy();
+
+	$results["meta"]["ok"] = true;
+
+	return $results;
 }
 
 //get a particular project defined by $projectID

@@ -18,6 +18,24 @@ switch ($path[0]) {
                 $results["meta"] = methodNotAllowed($method, $path);
         }
         break;
+	case "logout":
+		switch ($method) {
+			case "POST":
+				$results = logout();
+				break;
+			default:
+				$results["meta"] = methodNotAllowed($method, $path);
+		}
+		break;
+	case "session":
+		switch ($method) {
+			case "GET":
+				$results = getLogInStatus();
+				break;
+			default:
+				$results["meta"] = methodNotAllowed($method, $path);
+		}
+		break;
     case "projects":
         switch ($method) {
             case "GET":
