@@ -421,32 +421,37 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				var url = new URL(window.location);
 				var path = url.pathname.substring(1).split('/');
 
-				//check what page should be shown
-				if (path[1] && path[1] === "projects") {
-					var pageNum = 1;
-					if (path[2] && Number.isInteger(parseInt(path[2]))) {
-						pageNum = path[2];
+				if (path[1])
+				{
+					var root = path[1];
+
+					//check what page should be shown
+					if (root === "projects") {
+						var pageNum = 1;
+						if (path[2] && Number.isInteger(parseInt(path[2]))) {
+							pageNum = path[2];
+						}
+						$scope.getProjectList(pageNum);
 					}
-					$scope.getProjectList(pageNum);
-				}
-				else if (path[1] && path[1] === "project") {
-					if (path[2] && path[2] === "add") {
-						$scope.setUpAddProject();
+					else if (root === "project") {
+						if (path[2] && path[2] === "add") {
+							$scope.setUpAddProject();
+						}
+						else if (path[2] && Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
+							$http({
+								url: "/admin/api/1/projects/"+path[2],
+								method: "GET"
+							}).then(function (result){
+								if (result.data.meta.ok && result.data.rows.length > 0) {
+									$scope.selectProject(result.data.rows[0]);
+									$scope.setUpEditProject();
+								}
+							});
+						}
 					}
-					else if (path[2] && Number.isInteger(parseInt(path[2]))){
-						$http({
-							url: "/admin/api/1/projects/"+path[2],
-							method: "GET"
-						}).then(function (result){
-							if (result.data.meta.ok && result.data.rows.length > 0) {
-								$scope.selectProject(result.data.rows[0]);
-								$scope.setUpEditProject();
-							}
-						});
+					else if (root === "login") {
+						showLoginScreen(function(){});
 					}
-				}
-				else if (path[1] && path[1] === "login") {
-					showLoginScreen(function(){});
 				}
 			};
 
