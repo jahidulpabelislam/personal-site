@@ -171,6 +171,6 @@
         <script type="text/javascript" src="/assets/js/jpi/admin.js?v=1"></script>
 
 
-        <script type="text/javascript" src="/assets/js/jpi/dragDrop.js"></script>
+        <script type="text/javascript" src="/assets/js/jpi/dragNDrop.js"></script>
     </body>
 </html>
