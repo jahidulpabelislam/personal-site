@@ -151,7 +151,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				showLoginForm: function (result) {
 					jQuery(".select-project-container, .project-form-container").hide();
 					jQuery(".login-form-container").show();
-					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!") ;
+					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!");
 				},
 
 				logout: function (e) {
@@ -174,6 +174,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
 
 					jQuery(".js-admin-logout").on("click", fn.logout);
+
+					jQuery('section').css("padding-top", jQuery('nav').height());
 
 					$scope.checkAuthStatus(fn.showProjects);
 				}
