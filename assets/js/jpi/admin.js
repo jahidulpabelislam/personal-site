@@ -15,6 +15,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 		})
 		.controller('projectsAdminController', function ($scope, $http) {
 
+			var global = {
+				apiBase: "/admin/api/1/"
+			};
 			var fn = {
 				addFeedback: function (result, genericFeedback) {
 					if (result && result.data && result.data.meta && result.data.meta.feedback) {
@@ -178,7 +181,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				//add the password of user
 				form.append("password", $scope.password);
 
-				$http.post("/admin/api/1/pictures/" + $scope.selectedProject.ID, form, {
+				$http.post(global.apiBase + "pictures/" + $scope.selectedProject.ID, form, {
 					transformRequest: angular.identity,
 					headers: {'Content-Type': undefined, 'Process-Data': false}
 				}).then(function (result) {
@@ -227,7 +230,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a request to delete a project image
 			$scope.deleteProjectImage = function (projectImage) {
 				$http({
-					url: "/admin/api/1/pictures/" + projectImage.ProjectID,
+					url: global.apiBase + "pictures/" + projectImage.ProjectID,
 					method: "POST",
 					params: {
 						username: $scope.username,
@@ -340,7 +343,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				$scope.selectProjectFeedback = "";
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
 					$http({
-						url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
+						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: "POST",
 						params: {username: $scope.username, password: $scope.password, method: "DELETE"}
 					}).then(fn.renderProjectDelete, function (result) {
@@ -372,7 +375,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				//Sends a object with necessary data to XHR
 				$http({
-					url: "/admin/api/1/projects",
+					url: global.apiBase + "projects",
 					method: "GET",
 					params: {page: $scope.currentPage}
 				}).then(fn.gotProjects, function (result) {
@@ -399,7 +402,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				//else inputs are filled
 				else {
 					$http({
-						url: "/admin/api/1/login",
+						url: global.apiBase + "login",
 						method: "POST",
 						params: {username: $scope.username, password: $scope.password}
 					}).then(fn.loggedIn, function (result) {
