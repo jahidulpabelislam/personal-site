@@ -412,6 +412,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			window.jpi = window.jpi || {};
 			window.jpi.admin = {
-				checkFile: $scope.checkFile
+				checkFile: $scope.checkFile,
+				renderFailedUpload: fn.renderFailedUpload
 			};
 		});

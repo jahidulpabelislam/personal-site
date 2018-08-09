@@ -37,7 +37,7 @@ window.jpi.dnd = (function (jQuery) {
 			}
 			//else drop of item has failed therefore show its failed
 			else {
-				fn.renderFailedUpload("Error processing upload - " + item.name);
+				window.jpi.admin.renderFailedUpload("Error processing upload - " + item.name);
 			}
 		},
 
