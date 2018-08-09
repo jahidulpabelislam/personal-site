@@ -25,6 +25,7 @@ var scripts = {
 	admin: [
 		"assets/js/jpi/helpers.js",
 		"assets/js/jpi/stickyFooter.js",
+		"assets/js/jpi/dragNDrop.js",
 		"assets/js/third-party/jquery-ui.min.js",
 		"assets/js/third-party/sortable.js"
 	]
