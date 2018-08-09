@@ -20,7 +20,7 @@ switch ($path[0]) {
         break;
 	case "logout":
 		switch ($method) {
-			case "POST":
+			case "GET":
 				$results = logout();
 				break;
 			default:
