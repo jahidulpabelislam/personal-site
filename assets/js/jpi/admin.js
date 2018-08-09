@@ -130,7 +130,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				loggedIn: function (result) {
 
 					//check if data was valid
-					if (result.data.rows && result.data.rows.username && result.data.rows.password) {
+					if (result.data.meta.status && result.data.meta.status == 200) {
 						//make the log in/sign up form not visible
 						jQuery(".login-form-container").hide();
 
@@ -170,16 +170,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}, 500);
 			};
 
-			//send a image to API with the username and password of user
+			//send a image to API
 			$scope.sendImage = function (upload) {
 
 				var form = new FormData();
 				//add the picture
 				form.append("picture", upload.file);
-				//add the username of user
-				form.append("username", $scope.username);
-				//add the password of user
-				form.append("password", $scope.password);
 
 				$http.post(global.apiBase + "pictures/" + $scope.selectedProject.ID, form, {
 					transformRequest: angular.identity,
@@ -233,8 +229,6 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					url: global.apiBase + "pictures/" + projectImage.ProjectID,
 					method: "POST",
 					params: {
-						username: $scope.username,
-						password: $scope.password,
 						file: projectImage.File
 					}
 				}).then(fn.deletedProjectImage, function (result) {
@@ -276,8 +270,6 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
 						method: "POST",
 						params: {
-							username: $scope.username,
-							password: $scope.password,
 							projectName: $scope.selectedProject.Name,
 							skills: $scope.selectedProject.Skills.join(","),
 							longDescription: $scope.selectedProject.LongDescription,
@@ -345,7 +337,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					$http({
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: "POST",
-						params: {username: $scope.username, password: $scope.password, method: "DELETE"}
+						params: {method: "DELETE"}
 					}).then(fn.renderProjectDelete, function (result) {
 						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
 					});
