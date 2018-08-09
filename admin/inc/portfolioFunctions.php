@@ -24,6 +24,12 @@ function login($data)
 		        $results["meta"]["ok"] = true;
 		        $results["meta"]["status"] = 200;
 		        $results["meta"]["message"] = "OK";
+
+		        if (!isset($_SESSION)) {
+			        session_start();
+		        }
+		        $_SESSION['username'] = $data["username"];
+		        $_SESSION['password'] = $data["password"];
 	        }
 	        else {
 		        $results["meta"]["feedback"] = "Wrong Password.";
