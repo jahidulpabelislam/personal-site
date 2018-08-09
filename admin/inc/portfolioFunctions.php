@@ -13,13 +13,24 @@ function login($data)
     $dataNeeded = array("username", "password");
     if (checkData($data, $dataNeeded)) {
 
-        if ($data["username"] === PORTFOLIOUSERNAME && $data["password"] === PORTFOLIOPASSWORD) {
-            $results["meta"]["ok"] = true;
-        } else {
-            $results["meta"]["ok"] = false;
-            $results["meta"]["status"] = 401;
-            $results["meta"]["message"] = "Unauthorized";
-            $results["meta"]["feedback"] = "Wrong Username and Password.";
+	    $results["meta"]["ok"] = false;
+	    $results["meta"]["status"] = 401;
+	    $results["meta"]["message"] = "Unauthorized";
+
+        if ($data["username"] === PORTFOLIOUSERNAME) {
+
+        	if ($data["password"] === PORTFOLIOPASSWORD) {
+
+		        $results["meta"]["ok"] = true;
+		        $results["meta"]["status"] = 200;
+		        $results["meta"]["message"] = "OK";
+	        }
+	        else {
+		        $results["meta"]["feedback"] = "Wrong Password.";
+	        }
+        }
+        else {
+            $results["meta"]["feedback"] = "Wrong Username and/or Password.";
         }
 
     } else {
