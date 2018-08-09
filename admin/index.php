@@ -50,9 +50,9 @@
                     <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
-                        <button ng-if="projects.length > 0" ng-click="deleteProject()" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
-                        <button ng-click="setUpAddProject()" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
+                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(setUpEditProject)" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
+                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
+                        <button ng-click="checkAuthStatus(setUpAddProject)" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
                         <li ng-repeat="page in pages" ng-click="getProjectList(page)" class="pagination__item" ng-class="{'active': page == currentPage}">{{page}}</li>
@@ -64,7 +64,7 @@
 
                     <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back</button>
 
-                    <form id="projectForm" ng-submit="submitProject()">
+                    <form id="projectForm" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 
