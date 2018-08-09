@@ -72,6 +72,20 @@ function dataNotProvided($dataNeeded)
     return $meta;
 }
 
+/**
+ * Send necessary meta data back when user isn't logged in correctly
+ * @return array array of meta data
+ */
+function notAuthorised()
+{
+	$results = [];
+	$results["meta"]["ok"] = false;
+	$results["meta"]["status"] = 401;
+	$results["meta"]["message"] = "Unauthorized";
+	$results["meta"]["feedback"] = "You need to be logged in!";
+	return $results;
+}
+
 function sendData($results, $data, $method, $path)
 {
 
