@@ -18,6 +18,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			var global = {
 				apiBase: "/admin/api/1/"
 			};
+
 			var fn = {
 				addFeedback: function (result, genericFeedback) {
 					if (result && result.data && result.data.meta && result.data.meta.feedback) {
@@ -126,23 +127,40 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jpi.footer.delayExpand();
 				},
 
+				showProjects: function () {
+					//make the log in/sign up form not visible
+					jQuery(".login-form-container").hide();
+
+					$scope.getProjectList(1);
+				},
+
 				//after user has attempted to log in
 				loggedIn: function (result) {
 
 					//check if data was valid
 					if (result.data.meta.status && result.data.meta.status == 200) {
-						//make the log in/sign up form not visible
-						jQuery(".login-form-container").hide();
-
-						$scope.getProjectList(1);
+						fn.showProjects();
 					}
 					//check if feedback was provided or generic error message
 					else {
 						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
 					}
+				},
+
+				showLoginForm: function (result) {
+					jQuery(".select-project-container, .project-form-container").hide();
+					jQuery(".login-form-container").show();
+					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!") ;
+				},
+
+				init: function() {
+					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+
+					$scope.getLoginStatus(fn.showProjects);
 				}
 			};
 
+			$scope.loggedIn = false;
 			$scope.projects = $scope.pages = $scope.uploads = [];
 			$scope.currentPage = 1;
 
@@ -161,6 +179,20 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
 
+			$scope.getLoginStatus = function(successFunc) {
+				$http({
+					url: global.apiBase + "session",
+					method: "GET"
+				}).then(function (result) {
+					if (result.data.meta.status && result.data.meta.status == 200) {
+						successFunc();
+					}
+					else {
+						fn.showLoginForm(result);
+					}
+				}, fn.showLoginForm);
+			};
+
 			$scope.hideErrorMessage = function () {
 				jQuery(".feedback--project-form").addClass("hide");
 
@@ -173,25 +205,27 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a image to API
 			$scope.sendImage = function (upload) {
 
-				var form = new FormData();
-				//add the picture
-				form.append("picture", upload.file);
+				$scope.getLoginStatus(function () {
+					var form = new FormData();
+					//add the picture
+					form.append("picture", upload.file);
 
-				$http.post(global.apiBase + "pictures/" + $scope.selectedProject.ID, form, {
-					transformRequest: angular.identity,
-					headers: {'Content-Type': undefined, 'Process-Data': false}
-				}).then(function (result) {
-					$scope.selectedProject.pictures.push(result.data.rows[0]);
-					var index = $scope.uploads.indexOf(upload);
-					if (index > -1) {
-						$scope.uploads.splice(index, 1);
-					}
+					$http.post(global.apiBase + "pictures/" + $scope.selectedProject.ID, form, {
+						transformRequest: angular.identity,
+						headers: {'Content-Type': undefined, 'Process-Data': false}
+					}).then(function (result) {
+						$scope.selectedProject.pictures.push(result.data.rows[0]);
+						var index = $scope.uploads.indexOf(upload);
+						if (index > -1) {
+							$scope.uploads.splice(index, 1);
+						}
 
-					var message = "Successfully added a new project image";
-					fn.showErrorMessage(message, "feedback--success");
-				}, function (result) {
-					var message = fn.addFeedback(result, "Error uploading the Project Image.");
-					fn.showErrorMessage(message, "feedback--error");
+						var message = "Successfully added a new project image";
+						fn.showErrorMessage(message, "feedback--success");
+					}, function (result) {
+						var message = fn.addFeedback(result, "Error uploading the Project Image.");
+						fn.showErrorMessage(message, "feedback--error");
+					});
 				});
 			};
 
@@ -225,16 +259,20 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			//send a request to delete a project image
 			$scope.deleteProjectImage = function (projectImage) {
-				$http({
-					url: global.apiBase + "pictures/" + projectImage.ProjectID,
-					method: "POST",
-					params: {
-						file: projectImage.File
-					}
-				}).then(fn.deletedProjectImage, function (result) {
-					var message = fn.addFeedback(result, "Error deleting the Project Image.");
-					fn.showErrorMessage(message, "feedback--error");
+
+				$scope.getLoginStatus(function () {
+					$http({
+						url: global.apiBase + "pictures/" + projectImage.ProjectID,
+						method: "POST",
+						params: {
+							file: projectImage.File
+						}
+					}).then(fn.deletedProjectImage, function (result) {
+						var message = fn.addFeedback(result, "Error deleting the Project Image.");
+						fn.showErrorMessage(message, "feedback--error");
+					});
 				});
+
 			};
 
 			$scope.addSkill = function () {
@@ -248,6 +286,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			$scope.submitProject = function () {
+
 				$scope.projectFormFeedback = '';
 
 				var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
@@ -301,6 +340,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			$scope.setUpAddProject = function () {
+
 				$scope.selectProjectFeedback = "";
 				fn.setUpProjectForm();
 
@@ -319,6 +359,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			$scope.setUpEditProject = function () {
+
 				$scope.selectProjectFeedback = "";
 
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
@@ -332,6 +373,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			$scope.deleteProject = function () {
+
 				$scope.selectProjectFeedback = "";
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
 					$http({
@@ -403,11 +445,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
-			jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
-
 			window.jpi = window.jpi || {};
 			window.jpi.admin = {
 				checkFile: $scope.checkFile,
 				renderFailedUpload: fn.renderFailedUpload
 			};
+
+			jQuery(document).on("ready", fn.init);
 		});
