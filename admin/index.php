@@ -158,7 +158,7 @@
                     <label for="password">Password</label>
                     <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="jpi.helpers.checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
-                    <p class="feedback feedback--user-form feedback--error" ng-if="userFormFeedback">{{userFormFeedback}}</p>
+                    <p class="feedback feedback--user-form feedback--error" ng-show="userFormFeedback">{{userFormFeedback}}</p>
                     <button type="submit" value="Log In" class="btn btn--green">Log In</button>
                 </form>
             </div>
