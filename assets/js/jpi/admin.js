@@ -156,7 +156,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				init: function() {
 					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
 
-					$scope.getLoginStatus(fn.showProjects);
+					$scope.checkAuthStatus(fn.showProjects);
 				}
 			};
 
@@ -179,7 +179,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
 
-			$scope.getLoginStatus = function(successFunc) {
+			$scope.checkAuthStatus = function(successFunc) {
 				$http({
 					url: global.apiBase + "session",
 					method: "GET"
@@ -205,7 +205,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a image to API
 			$scope.sendImage = function (upload) {
 
-				$scope.getLoginStatus(function () {
+				$scope.checkAuthStatus(function () {
 					var form = new FormData();
 					//add the picture
 					form.append("picture", upload.file);
@@ -260,7 +260,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a request to delete a project image
 			$scope.deleteProjectImage = function (projectImage) {
 
-				$scope.getLoginStatus(function () {
+				$scope.checkAuthStatus(function () {
 					$http({
 						url: global.apiBase + "pictures/" + projectImage.ProjectID,
 						method: "POST",
