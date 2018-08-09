@@ -13,6 +13,7 @@ function isLoggedIn() {
 
 	if (!empty($_SESSION["username"]) && $_SESSION["username"] === PORTFOLIOUSERNAME
 			&& !empty($_SESSION["password"]) && $_SESSION["password"] === PORTFOLIOPASSWORD) {
+
 		return true;
 	}
 
@@ -81,6 +82,7 @@ function logout(){
 	session_destroy();
 
 	$results["meta"]["ok"] = true;
+	$results["meta"]["feedback"] = "Successfully Logged Out.";
 
 	return $results;
 }
