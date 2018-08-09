@@ -15,8 +15,6 @@ function login($data)
 
         if ($data["username"] === PORTFOLIOUSERNAME && $data["password"] === PORTFOLIOPASSWORD) {
             $results["meta"]["ok"] = true;
-            $results["rows"]["username"] = $data["username"];
-            $results["rows"]["password"] = $data["password"];
         } else {
             $results["meta"]["ok"] = false;
             $results["meta"]["status"] = 401;
@@ -127,7 +125,7 @@ function getProjects($data)
 function addProject($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
+    $dataNeeded = array("projectName", "skills", "longDescription", "shortDescription", "github", "date");
     if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
@@ -174,7 +172,7 @@ function addProject($data)
 function editProject($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectID", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
+    $dataNeeded = array("projectID", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
     if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
@@ -230,7 +228,7 @@ function deleteProject($data)
 {
 
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectID");
+    $dataNeeded = array("projectID");
     if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
@@ -286,7 +284,7 @@ function getPictures($projectID)
 function addPicture($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectID");
+    $dataNeeded = array("projectID");
     if (checkData($data, $dataNeeded) && isset($_FILES["picture"])) {
 
         //checks if user provided exists
@@ -366,7 +364,7 @@ function addPicture($data)
 function deletePicture($data)
 {
     //checks if requests needed are present and not empty
-    $dataNeeded = array("username", "password", "projectID", "file");
+    $dataNeeded = array("projectID", "file");
     if (checkData($data, $dataNeeded)) {
 
         //checks if user provided exists
