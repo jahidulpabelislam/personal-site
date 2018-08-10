@@ -55,7 +55,7 @@
 		    </div>
 	    </nav>
 
-        <section>
+        <section class="main-content">
             <div class="container">
 
                 <div class="select-project-container">

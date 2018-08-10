@@ -51,7 +51,7 @@
     </head>
 
     <body>
-        <section class="social-links-page">
+        <section class="main-content social-links-page">
             <div class="container">
 
                 <div class="social-link-container">

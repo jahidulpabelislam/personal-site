@@ -4,7 +4,7 @@ window.jpi.footer = (function (jQuery) {
 	"use strict";
 
 	var global = {
-		section: jQuery('section')
+		section: jQuery('.main-content')
 	};
 
 	var fn = {
