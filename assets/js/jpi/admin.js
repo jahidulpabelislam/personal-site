@@ -196,7 +196,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jQuery(".js-admin-logout").on("click", fn.logout);
 
-					jQuery('section').css("padding-top", jQuery('nav').height());
+					jQuery('section:not(.login-form-container)').css("padding-top", jQuery('nav').height());
 
 					$scope.checkAuthStatus(fn.showProjects, '');
 				}
