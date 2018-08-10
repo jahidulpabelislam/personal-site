@@ -74,6 +74,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					fn.showErrorMessage(message, feedbackClass);
 
 					jpi.footer.delayExpand();
+
+					fn.hideLoading();
 				},
 
 				renderProjectDelete: function (result) {
@@ -88,6 +90,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 
 					jpi.footer.delayExpand();
+					fn.hideLoading();
 				},
 
 				setUpProjectForm: function () {
@@ -103,7 +106,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				gotProjects: function (result) {
 					jQuery(".project-form-container").hide();
-					fn.hideLoading();
+
 					jQuery(".select-project-container").show();
 
 					$scope.selectedProject = undefined;
@@ -126,13 +129,14 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 
 					jpi.footer.delayExpand();
+
+					fn.hideLoading();
 				},
 
 				showProjects: function () {
 					//make the log in/sign up form not visible
 					jQuery(".login-form-container").hide();
 					jQuery(".nav").show();
-					fn.showLoading();
 					$scope.getProjectList(1);
 				},
 
@@ -148,6 +152,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					else {
 						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
 					}
+
+					fn.hideLoading();
 				},
 
 				showLoginForm: function (result, messageOverride) {
@@ -274,6 +280,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a image to API
 			$scope.sendImage = function (upload) {
 
+				fn.showLoading();
+
 				$scope.checkAuthStatus(function () {
 					var form = new FormData();
 					//add the picture
@@ -291,9 +299,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						var message = "Successfully added a new project image";
 						fn.showErrorMessage(message, "feedback--success");
+						fn.hideLoading();
+
 					}, function (result) {
 						var message = fn.addFeedback(result, "Error uploading the Project Image.");
 						fn.showErrorMessage(message, "feedback--error");
+						fn.hideLoading();
 					});
 				});
 			};
@@ -329,6 +340,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			//send a request to delete a project image
 			$scope.deleteProjectImage = function (projectImage) {
 
+				fn.showLoading();
+
 				$scope.checkAuthStatus(function () {
 					$http({
 						url: global.apiBase + "pictures/" + projectImage.ProjectID,
@@ -339,9 +352,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}).then(fn.deletedProjectImage, function (result) {
 						var message = fn.addFeedback(result, "Error deleting the Project Image.");
 						fn.showErrorMessage(message, "feedback--error");
+						fn.hideLoading();
 					});
 				});
-
 			};
 
 			$scope.addSkill = function () {
@@ -356,6 +369,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.submitProject = function () {
 
+				fn.showLoading();
 				$scope.projectFormFeedback = '';
 
 				var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
@@ -397,14 +411,17 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						var message = fn.addFeedback(result, "Successfully saved project.");
 						fn.showErrorMessage(message, "feedback--success");
+						fn.hideLoading();
 					}, function (result) {
 						var message = fn.addFeedback(result, "Error sending the project.");
 						fn.showErrorMessage(message, "feedback--error");
+						fn.hideLoading();
 					});
 
 				} else {
 					var message = "Fill in Required Inputs Fields.";
 					fn.showErrorMessage(message, "feedback--error");
+					fn.hideLoading();
 				}
 			};
 
@@ -443,6 +460,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.deleteProject = function () {
 
+				fn.showLoading();
+
 				$scope.selectProjectFeedback = "";
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
 					$http({
@@ -451,9 +470,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						params: {method: "DELETE"}
 					}).then(fn.renderProjectDelete, function (result) {
 						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
+						fn.hideLoading();
 					});
 				} else {
 					$scope.selectProjectFeedback = "Select A Project To Delete.";
+					fn.hideLoading();
 				}
 
 				jpi.footer.delayExpand();
@@ -469,6 +490,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			};
 
 			$scope.getProjectList = function (page) {
+				fn.showLoading();
 
 				$scope.selectProjectFeedback = "";
 
@@ -483,10 +505,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					params: {page: $scope.currentPage}
 				}).then(fn.gotProjects, function (result) {
 					$scope.selectProjectFeedback = fn.addFeedback(result, "Error getting projects.");
+					fn.hideLoading();
 				});
 			};
 
 			$scope.logIn = function () {
+				fn.showLoading();
+
 				var usernameValid = jpi.helpers.checkInputField(jQuery("#username")[0]),
 						passwordValid = jpi.helpers.checkInputField(jQuery("#password")[0]);
 
@@ -510,11 +535,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						params: {username: $scope.username, password: $scope.password}
 					}).then(fn.loggedIn, function (result) {
 						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
-					});
-				}
 
-				if ($scope.userFormFeedback !== "") {
-					jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
+						if ($scope.userFormFeedback !== "") {
+							jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
+						}
+
+						fn.hideLoading();
+					});
 				}
 			};
 
