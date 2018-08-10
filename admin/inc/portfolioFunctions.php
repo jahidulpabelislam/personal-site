@@ -11,8 +11,8 @@ function isLoggedIn() {
 		session_start();
 	}
 
-	if (!empty($_SESSION["username"]) && $_SESSION["username"] === PORTFOLIOUSERNAME
-			&& !empty($_SESSION["password"]) && $_SESSION["password"] === PORTFOLIOPASSWORD) {
+	if (!empty($_SESSION["username"]) && $_SESSION["username"] === PORTFOLIO_ADMIN_USERNAME
+			&& !empty($_SESSION["password"]) && $_SESSION["password"] === PORTFOLIO_ADMIN_PASSWORD) {
 
 		return true;
 	}
@@ -44,9 +44,9 @@ function login($data)
 	    $results["meta"]["status"] = 401;
 	    $results["meta"]["message"] = "Unauthorized";
 
-        if ($data["username"] === PORTFOLIOUSERNAME) {
+        if ($data["username"] === PORTFOLIO_ADMIN_USERNAME) {
 
-        	if (Hasher::checkPassword(PORTFOLIOPASSWORD, $data["password"])) {
+        	if (Hasher::checkPassword(PORTFOLIO_ADMIN_PASSWORD, $data["password"])) {
 
 		        $results["meta"]["ok"] = true;
 		        $results["meta"]["status"] = 200;
@@ -56,7 +56,7 @@ function login($data)
 			        session_start();
 		        }
 		        $_SESSION['username'] = $data["username"];
-		        $_SESSION['password'] = PORTFOLIOPASSWORD;
+		        $_SESSION['password'] = PORTFOLIO_ADMIN_PASSWORD;
 	        }
 	        else {
 		        $results["meta"]["feedback"] = "Wrong Password.";

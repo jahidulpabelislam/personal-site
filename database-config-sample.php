@@ -7,17 +7,17 @@
 define('DEBUG', false);
 
 // IP of database server
-define('IP', 'localhost');
+define('DB_IP', 'localhost');
 // Database name to use in server
-define('DATABASENAME', 'jpi');
+define('DB_NAME', 'jpi');
 // Username to database
-define('USERNAME', 'root');
+define('DB_USERNAME', 'root');
 // Password for the user above
-define('PASSWORD', '');
+define('DB_PASSWORD', '');
 
 define('SALT_LENGTH', 1);
 
 // Username for portfolio admin
-define('PORTFOLIOUSERNAME', 'root');
+define('PORTFOLIO_ADMIN_USERNAME', 'root');
 // Password for portfolio admin
-define('PORTFOLIOPASSWORD', 'root');
+define('PORTFOLIO_ADMIN_PASSWORD', 'root');

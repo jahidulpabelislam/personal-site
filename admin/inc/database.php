@@ -13,19 +13,19 @@ class pdodb
 
     /**
      * Connects to a MySQL engine
-     * using application constants IP, USERNAME, and PASSWORD
+     * using application constants DB_IP, DB_USERNAME, and DB_PASSWORD
      * defined in database-config.php.
      *
-     * If the database with name of constant DATABASENAME doesn't exist,
-     * it is created using using the constant DATABASENAME and table/s are created using
+     * If the database with name of constant DB_NAME doesn't exist,
+     * it is created using using the constant DB_NAME and table/s are created using
      * constant CREATEQUERY
      */
     public function __construct()
     {
-        $dsn = "mysql:host=" . IP . ";dbname=" . DATABASENAME . ";charset-UTF-8";
+        $dsn = "mysql:host=" . DB_IP . ";dbname=" . DB_NAME . ";charset-UTF-8";
         $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
         try {
-            $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
+            $this->db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
         } catch (PDOException $failure) {
             if (defined("DEBUG") && DEBUG) {
                 echo $failure;
