@@ -46,7 +46,7 @@ function login($data)
 
         if ($data["username"] === PORTFOLIO_ADMIN_USERNAME) {
 
-        	if (Hasher::checkPassword(PORTFOLIO_ADMIN_PASSWORD, $data["password"])) {
+        	if (Hasher::checkPassword($data["password"], PORTFOLIO_ADMIN_PASSWORD)) {
 
 		        $results["meta"]["ok"] = true;
 		        $results["meta"]["status"] = 200;

@@ -3,10 +3,10 @@
 class Hasher {
 
 	// this will be used to compare a password against a hash
-	public static function checkPassword($hash, $password)
-	{
-		$salt = substr($hash, 0, SALT_LENGTH);
-		$newHash = crypt($password, $salt);
+	public static function checkPassword($password, $hash) {
+
+		$newHash = password_verify($password, $hash);
 		return $hash == $newHash;
+
 	}
 }
