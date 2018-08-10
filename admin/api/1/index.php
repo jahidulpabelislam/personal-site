@@ -30,7 +30,7 @@ switch ($path[0]) {
 	case "session":
 		switch ($method) {
 			case "GET":
-				$results = getLogInStatus();
+				$results = getAuthStatus();
 				break;
 			default:
 				$results["meta"] = methodNotAllowed($method, $path);

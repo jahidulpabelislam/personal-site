@@ -20,7 +20,7 @@ function isLoggedIn() {
 	return false;
 }
 
-function getLogInStatus() {
+function getAuthStatus() {
 	if (isLoggedIn()) {
 		$results["meta"]["ok"] = true;
 		$results["meta"]["status"] = 200;
