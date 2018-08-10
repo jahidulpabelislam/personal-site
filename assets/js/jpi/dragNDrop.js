@@ -4,7 +4,7 @@ window.jpi.dnd = (function (jQuery) {
 	"use strict";
 
 	var global = {
-		dropZone: jQuery(".drop-zone")[0]
+		dropZone: jQuery(".js-drop-zone")[0]
 	};
 
 	var fn = {
@@ -49,8 +49,8 @@ window.jpi.dnd = (function (jQuery) {
 			e.stopPropagation();
 
 			//make drop zone visible
-			global.dropZone.style.zIndex = "10";
-			global.dropZone.style.opacity = "1";
+			global.dropZone.style.zIndex = 10;
+			global.dropZone.style.opacity = 1;
 		},
 
 		removeDropZone: function (e) {
@@ -59,9 +59,9 @@ window.jpi.dnd = (function (jQuery) {
 			e.stopPropagation();
 
 			//make drop zone invisible
-			global.dropZone.style.opacity = "0";
+			global.dropZone.style.opacity = 0;
 			setTimeout(function () {
-				global.dropZone.style.zIndex = "-10";
+				global.dropZone.style.zIndex = -10;
 			}, 1000);
 		},
 
