@@ -130,7 +130,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				showProjects: function () {
 					//make the log in/sign up form not visible
 					jQuery(".login-form-container").hide();
-
+					jQuery(".nav").show();
 					$scope.getProjectList(1);
 				},
 
@@ -149,7 +149,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				showLoginForm: function (result, messageOverride) {
-					jQuery(".select-project-container, .project-form-container").hide();
+					jQuery(".select-project-container, .project-form-container, .nav").hide();
 					jQuery(".login-form-container").show();
 
 					if (typeof messageOverride != "undefined") {
