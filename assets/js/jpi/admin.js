@@ -148,10 +148,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 				},
 
-				showLoginForm: function (result) {
+				showLoginForm: function (result, messageOverride) {
 					jQuery(".select-project-container, .project-form-container").hide();
 					jQuery(".login-form-container").show();
-					$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!");
+
+					if (typeof messageOverride != "undefined") {
+						$scope.userFormFeedback = messageOverride;
+					}
+					else {
+						$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!");
+					}
 
 					var success = false;
 
@@ -192,7 +198,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jQuery('section').css("padding-top", jQuery('nav').height());
 
-					$scope.checkAuthStatus(fn.showProjects);
+					$scope.checkAuthStatus(fn.showProjects, '');
 				}
 			};
 
@@ -215,7 +221,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
 
-			$scope.checkAuthStatus = function(successFunc) {
+			$scope.checkAuthStatus = function(successFunc, messageOverride) {
 				$http({
 					url: global.apiBase + "session",
 					method: "GET"
@@ -225,9 +231,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						successFunc();
 					}
 					else {
-						fn.showLoginForm(result);
+						fn.showLoginForm(result, messageOverride);
 					}
-				}, fn.showLoginForm);
+				},  function(result) {
+					fn.showLoginForm(result, messageOverride);
+				});
 			};
 
 			$scope.hideErrorMessage = function () {
@@ -479,6 +487,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}).then(fn.loggedIn, function (result) {
 						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
 					});
+				}
+
+				if ($scope.userFormFeedback !== "") {
+					jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
 				}
 			};
 
