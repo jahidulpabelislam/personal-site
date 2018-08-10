@@ -12,6 +12,7 @@
         <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
+	    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
         <!-- Favicons/Icons for devices -->
@@ -150,7 +151,7 @@
         </section>
 
         <!-- The drag and drop area -->
-        <section class="drop-zone"><h1 class="drop-zone__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
+        <section class="js-drop-zone fixed-overlay"><h1 class="fixed-overlay__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
 
         <section class="login-form-container">
             <div class="container">
@@ -166,7 +167,10 @@
             </div>
         </section>
 
-        <!-- The Scripts -->
+	    <!-- The loading area -->
+	    <section class="js-loading fixed-overlay fixed-overlay--loading"><h1 class="fixed-overlay__text"><i class='fa fa-spinner fa-spin'></i></h1></section>
+
+	    <!-- The Scripts -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -103,6 +103,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				gotProjects: function (result) {
 					jQuery(".project-form-container").hide();
+					fn.hideLoading();
 					jQuery(".select-project-container").show();
 
 					$scope.selectedProject = undefined;
@@ -131,6 +132,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					//make the log in/sign up form not visible
 					jQuery(".login-form-container").hide();
 					jQuery(".nav").show();
+					fn.showLoading();
 					$scope.getProjectList(1);
 				},
 
@@ -171,6 +173,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					else {
 						jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
 					}
+					fn.hideLoading();
 
 					jpi.footer.delayExpand();
 				},
@@ -191,12 +194,33 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					return false;
 				},
 
+				hideLoading: function () {
+					jQuery(".js-loading").css({
+						opacity: "0"
+					});
+
+					setTimeout(function () {
+						jQuery(".js-loading").css({
+							zIndex: "-10"
+						});
+					}, 1000);
+				},
+
+				showLoading: function () {
+					jQuery(".js-loading").css({
+						opacity: "1",
+						zIndex: "10"
+					});
+				},
+
 				init: function() {
+					fn.showLoading();
+
 					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
 
 					jQuery(".js-admin-logout").on("click", fn.logout);
 
-					jQuery('section:not(.login-form-container)').css("padding-top", jQuery('nav').height());
+					jQuery('.main-content').css("padding-top", jQuery('nav').height());
 
 					$scope.checkAuthStatus(fn.showProjects, '');
 				}
