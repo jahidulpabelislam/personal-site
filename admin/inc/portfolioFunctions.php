@@ -46,7 +46,7 @@ function login($data)
 
         if ($data["username"] === PORTFOLIOUSERNAME) {
 
-        	if ($data["password"] === PORTFOLIOPASSWORD) {
+        	if (Hasher::checkPassword(PORTFOLIOPASSWORD, $data["password"])) {
 
 		        $results["meta"]["ok"] = true;
 		        $results["meta"]["status"] = 200;
@@ -56,7 +56,7 @@ function login($data)
 			        session_start();
 		        }
 		        $_SESSION['username'] = $data["username"];
-		        $_SESSION['password'] = $data["password"];
+		        $_SESSION['password'] = PORTFOLIOPASSWORD;
 	        }
 	        else {
 		        $results["meta"]["feedback"] = "Wrong Password.";
