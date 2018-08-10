@@ -12,6 +12,8 @@
         <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
+	    <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
+
         <!-- Favicons/Icons for devices -->
         <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png?v=1"/>
         <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png?v=1"/>
