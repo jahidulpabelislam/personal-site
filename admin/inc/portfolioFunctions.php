@@ -4,8 +4,6 @@
  * @author Jahidul Pabel Islam
 */
 
-date_default_timezone_set("Europe/London");
-
 function getAuthStatus() {
 	if (Auth::isLoggedIn()) {
 		$results["meta"]["ok"] = true;
