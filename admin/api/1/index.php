@@ -12,7 +12,7 @@ switch ($path[0]) {
     case "login":
         switch ($method) {
             case "POST":
-                $results = login($data);
+                $results = Auth::login($data);
                 break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);
@@ -21,7 +21,7 @@ switch ($path[0]) {
 	case "logout":
 		switch ($method) {
 			case "GET":
-				$results = logout();
+				$results = Auth::logout();
 				break;
 			default:
 				$results["meta"] = methodNotAllowed($method, $path);

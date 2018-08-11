@@ -53,5 +53,6 @@ projects/*.zip
 node_modules/*
 database-config.php
 admin/inc/Hasher.php
+admin/inc/Auth.php
 
 logs/*

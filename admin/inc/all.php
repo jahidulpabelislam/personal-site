@@ -8,5 +8,6 @@
 include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
 include 'database.php';
 include 'Hasher.php';
+include 'Auth.php';
 include 'functions.php';
 include 'portfolioFunctions.php';
