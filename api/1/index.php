@@ -7,6 +7,8 @@
 //include all files needed
 include $_SERVER['DOCUMENT_ROOT'] . '/api/inc/app.php';
 
+$api = new API();
+
 //do relevant stuff with path[1]
 switch ($path[0]) {
     case "login":
@@ -30,7 +32,7 @@ switch ($path[0]) {
 	case "session":
 		switch ($method) {
 			case "GET":
-				$results = API::getAuthStatus();
+				$results = $api->getAuthStatus();
 				break;
 			default:
 				$results["meta"] = methodNotAllowed($method, $path);
@@ -40,24 +42,24 @@ switch ($path[0]) {
         switch ($method) {
             case "GET":
                 if (isset($path[1]) && trim($path[1]) !== "") {
-                    $results = API::getProject($path[1]);
+                    $results = $api->getProject($path[1]);
                 } else {
-                    $results = API::getProjects($data);
+                    $results = $api->getProjects($data);
                 }
                 break;
             case "POST":
-                $results = API::addProject($data);
+                $results = $api->addProject($data);
                 break;
 	        case "PUT":
 		        if (isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = API::editProject($data);
+			        $results = $api->editProject($data);
 		        }
 		        break;
 	        case "DELETE":
 		        if (isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = API::deleteProject($data);
+			        $results = $api->deleteProject($data);
 		        }
 		        break;
             default:
@@ -69,13 +71,13 @@ switch ($path[0]) {
             case "POST":
                 if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
-                    $results = API::addPicture($data);
+                    $results = $api->addPicture($data);
                 }
                 break;
 	        case "DELETE":
 		        if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = API::deletePicture($data);
+			        $results = $api->deletePicture($data);
 		        }
 		        break;
             default:

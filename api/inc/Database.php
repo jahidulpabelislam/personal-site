@@ -7,11 +7,12 @@
  * @author Jahidul Pabel Islam
  */
 
-class pdodb
+class Database
 {
-    private $db;
+    private $db = null;
+    private static $instance = null;
 
-    /**
+	/**
      * Connects to a MySQL engine
      * using application constants DB_IP, DB_USERNAME, and DB_PASSWORD
      * defined in config.php
@@ -32,6 +33,20 @@ class pdodb
             }
         }
     }
+
+	/**
+	 * Singleton getter
+	 *
+	 * @return Database
+	 */
+	public static function get() {
+		
+		if (self::$instance === null) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
 
     /**
      * Executes a sql query
@@ -81,3 +96,5 @@ class pdodb
         return $this->db->lastInsertId();
     }
 }
+
+Database::get();

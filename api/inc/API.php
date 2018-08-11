@@ -6,7 +6,13 @@
 
 class API {
 
-	public static function getAuthStatus() {
+	private $db = null;
+
+	public function __construct(){
+		$this->db = Database::get();
+	}
+
+	public function getAuthStatus() {
 		if (Auth::isLoggedIn()) {
 			$results["meta"]["ok"] = true;
 			$results["meta"]["status"] = 200;
@@ -20,12 +26,11 @@ class API {
 	}
 
 	//get a particular project defined by $projectID
-	public static function getProject($projectID)
+	public function getProject($projectID)
 	{
-		$db = new pdodb;
 		$query = "SELECT * FROM portfolioproject WHERE ID = :projectID;";
 		$bindings = array(':projectID' => $projectID);
-		$result = $db->query($query, $bindings);
+		$result = $this->db->query($query, $bindings);
 
 		//check if database provided any meta data if so no problem with executing query but no project found
 		if ($result["count"] <= 0 && !isset($result["meta"])) {
@@ -42,7 +47,7 @@ class API {
 	}
 
 	//gets all projects but limited
-	public static function getProjects($data)
+	public function getProjects($data)
 	{
 		if (isset($data["limit"])) {
 			$limit = min(abs(intval($data["limit"])), 10);
@@ -87,15 +92,14 @@ class API {
 			$filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR LongDescription LIKE '" . $search . "' OR LongDescription LIKE '" . $search2 . "' OR ShortDescription LIKE '" . $search . "' OR ShortDescription LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
 		}
 
-		$db = new pdodb;
 		$query = "SELECT * FROM portfolioproject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
-		$results = $db->query($query);
+		$results = $this->db->query($query);
 
 		//check if database provided any meta data if not all ok
 		if (!isset($results["meta"])) {
 
 			$query = "SELECT COUNT(*) AS Count FROM portfolioproject $filter;";
-			$count = $db->query($query);
+			$count = $this->db->query($query);
 			$results["count"] = $count["rows"][0]["Count"];
 
 			//loop through each project and the projects images
@@ -112,7 +116,7 @@ class API {
 	}
 
 	//add a project user has attempted to add
-	public static function addProject($data)
+	public function addProject($data)
 	{
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
@@ -123,15 +127,14 @@ class API {
 
 				$data["date"] = date("Y-m-d", strtotime($data["date"]));
 
-				$db = new pdodb;
 				$query = "INSERT INTO portfolioproject (Name, Skills, LongDescription, ShortDescription, Link, GitHub, Download, Date, Colour) VALUES (:projectName, :skills, :longDescription, :shortDescription, :link, :github, :download, :date, :colour);";
 				$bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"], ":colour" => $data["colour"]);
-				$results = $db->query($query, $bindings);
+				$results = $this->db->query($query, $bindings);
 
 				//if add was ok
 				if ($results["count"] > 0) {
 
-					$projectID = $db->lastInsertId();
+					$projectID = $this->db->lastInsertId();
 					$results = self::getProject($projectID);
 
 					$results["meta"]["ok"] = true;
@@ -161,7 +164,7 @@ class API {
 	}
 
 	//try to edit a project user has posted before
-	public static function editProject($data)
+	public function editProject($data)
 	{
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
@@ -176,10 +179,9 @@ class API {
 
 					$data["date"] = date("Y-m-d", strtotime($data["date"]));
 
-					$db = new pdodb;
 					$query = "UPDATE portfolioproject SET Name = :projectName, Skills = :skills, LongDescription = :longDescription, Link = :link, ShortDescription = :shortDescription, GitHub = :github, Download = :download, Date = :date, Colour = :colour WHERE ID = :projectID;";
 					$bindings = array(":projectID" => $data["projectID"], ":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"], ":colour" => $data["colour"]);
-					$results = $db->query($query, $bindings);
+					$results = $this->db->query($query, $bindings);
 
 					//if update was ok
 					if ($results["count"] > 0) {
@@ -216,7 +218,7 @@ class API {
 	}
 
 	//Try's to delete a project user has posted before
-	public static function deleteProject($data)
+	public function deleteProject($data)
 	{
 
 		//checks if user is authored
@@ -230,15 +232,14 @@ class API {
 				$results = self::getProject($data["projectID"]);
 				if ($results["count"] > 0) {
 
-					$db = new pdodb;
 					//Delete the images linked to project
 					$query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID;";
 					$bindings = array(":projectID" => $data["projectID"]);
-					$db->query($query, $bindings);
+					$this->db->query($query, $bindings);
 
 					//finally delete the actual project
 					$query = "DELETE FROM portfolioproject WHERE ID = :projectID;";
-					$results = $db->query($query, $bindings);
+					$results = $this->db->query($query, $bindings);
 
 					//if deletion was ok
 					if ($results["count"] > 0) {
@@ -265,17 +266,16 @@ class API {
 		return $results;
 	}
 
-	public static function getPictures($projectID)
+	public function getPictures($projectID)
 	{
-		$db = new pdodb;
 		$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
 		$bindings[":projectID"] = $projectID;
-		$results = $db->query($query, $bindings);
+		$results = $this->db->query($query, $bindings);
 		return $results["rows"];
 	}
 
 	//Tries to upload a picture user has tried to add as a project image
-	public static function addPicture($data)
+	public function addPicture($data)
 	{
 
 		//checks if user is authored
@@ -308,16 +308,15 @@ class API {
 						if (move_uploaded_file($_FILES["picture"]["tmp_name"], $fullPath)) {
 
 							//update database with location of new picture
-							$db = new pdodb;
 							$query = "INSERT INTO portfolioprojectimage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
 							$bindings = array(":file" => $fileLocation, ":projectID" => $data["projectID"]);
-							$results = $db->query($query, $bindings);
+							$results = $this->db->query($query, $bindings);
 
 							//if update of user was ok
 							if ($results["count"] > 0) {
 
 								$query = "SELECT * FROM portfolioprojectimage WHERE File = :file AND ProjectID = :projectID;";
-								$results = $db->query($query, $bindings);
+								$results = $this->db->query($query, $bindings);
 
 								$results["meta"]["ok"] = true;
 								$results["meta"]["status"] = 201;
@@ -358,7 +357,7 @@ class API {
 	}
 
 	//Tries to delete a picture linked to a project
-	public static function deletePicture($data)
+	public function deletePicture($data)
 	{
 
 		//checks if user is authored
@@ -373,10 +372,9 @@ class API {
 				if ($results["count"] > 0) {
 
 					//update database
-					$db = new pdodb;
 					$query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID AND File = :file;";
 					$bindings = array(":projectID" => $data["projectID"], ":file" => $data["file"]);
-					$results = $db->query($query, $bindings);
+					$results = $this->db->query($query, $bindings);
 
 					//if update was ok
 					if ($results["count"] > 0) {
