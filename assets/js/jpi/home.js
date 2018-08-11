@@ -96,7 +96,7 @@ window.jpi.home = (function (jQuery) {
 					url: "/admin/api/1/projects/",
 					query: {limit: 3},
 					load: fn.gotProjects,
-					error: fnrenderError
+					error: fn.renderError
 				});
 			}
 		}
