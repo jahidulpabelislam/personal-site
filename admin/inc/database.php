@@ -1,7 +1,7 @@
 <?php
 /**
  * Connects to a database and set up to send and receive data
- * using application constants defined in database-config.php. file
+ * using application constants defined in config.php. file
  * a reusable file for other projects
  * MySQL specific
  * @author Jahidul Pabel Islam
@@ -14,7 +14,7 @@ class pdodb
     /**
      * Connects to a MySQL engine
      * using application constants DB_IP, DB_USERNAME, and DB_PASSWORD
-     * defined in database-config.php.
+     * defined in config.php
      *
      * If the database with name of constant DB_NAME doesn't exist,
      * it is created using using the constant DB_NAME and table/s are created using

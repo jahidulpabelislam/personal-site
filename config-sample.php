@@ -15,8 +15,6 @@ define('DB_USERNAME', 'root');
 // Password for the user above
 define('DB_PASSWORD', '');
 
-define('SALT_LENGTH', 1);
-
 // Username for portfolio admin
 define('PORTFOLIO_ADMIN_USERNAME', 'root');
 // Password for portfolio admin

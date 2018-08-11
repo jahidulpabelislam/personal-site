@@ -51,7 +51,7 @@ Temporary Items
 projects/*.zip
 
 node_modules/*
-database-config.php
+config.php
 admin/inc/Hasher.php
 admin/inc/Auth.php
 
