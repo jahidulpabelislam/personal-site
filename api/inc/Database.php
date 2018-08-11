@@ -16,10 +16,6 @@ class Database
      * Connects to a MySQL engine
      * using application constants DB_IP, DB_USERNAME, and DB_PASSWORD
      * defined in config.php
-     *
-     * If the database with name of constant DB_NAME doesn't exist,
-     * it is created using using the constant DB_NAME and table/s are created using
-     * constant CREATEQUERY
      */
     public function __construct()
     {
@@ -40,7 +36,7 @@ class Database
 	 * @return Database
 	 */
 	public static function get() {
-		
+
 		if (self::$instance === null) {
 			self::$instance = new self();
 		}
