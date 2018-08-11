@@ -50,7 +50,15 @@ switch ($path[0]) {
 				}
 				break;
 			case "POST":
-				$results = $api->addProject($data);
+				if (isset($path[1]) && trim($path[1]) !== "" && isset($path[2]) && $path[2] === "pictures") {
+					if (isset($_FILES["picture"])) {
+						$data["projectID"] = $path[1];
+						$results = $api->addPicture($data);
+					}
+				}
+				else {
+					$results = $api->addProject($data);
+				}
 				break;
 			case "PUT":
 				if (isset($path[1]) && trim($path[1]) !== "") {
@@ -61,25 +69,14 @@ switch ($path[0]) {
 			case "DELETE":
 				if (isset($path[1]) && trim($path[1]) !== "") {
 					$data["projectID"] = $path[1];
-					$results = $api->deleteProject($data);
-				}
-				break;
-			default:
-				$results["meta"] = Helper::methodNotAllowed($method, $path);
-		}
-		break;
-	case "pictures":
-		switch ($method) {
-			case "POST":
-				if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
-					$data["projectID"] = $path[1];
-					$results = $api->addPicture($data);
-				}
-				break;
-			case "DELETE":
-				if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
-					$data["projectID"] = $path[1];
-					$results = $api->deletePicture($data);
+
+					if (isset($path[2]) && $path[2] === "pictures" && isset($path[3]) && $path[3] !== "") {
+						$data["id"] = $path[3];
+						$results = $api->deletePicture($data);
+					}
+					else {
+						$results = $api->deleteProject($data);
+					}
 				}
 				break;
 			default:

@@ -365,37 +365,46 @@ class API {
 		if (Auth::isLoggedIn()) {
 
 			//checks if requests needed are present and not empty
-			$dataNeeded = array("projectID", "file");
+			$dataNeeded = array("projectID", "id");
 			if (Helper::checkData($data, $dataNeeded)) {
 
 				//Check the project trying to edit actually exists
 				$results = self::getProject($data["projectID"]);
 				if ($results["count"] > 0) {
 
-					//update database to delete row
-					$query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID AND File = :file;";
-					$bindings = array(":projectID" => $data["projectID"], ":file" => $data["file"]);
+					$query = "SELECT File FROM portfolioprojectimage WHERE ID = :id;";
+					$bindings = array(":id" => $data["id"]);
 					$results = $this->db->query($query, $bindings);
 
-					//if deletion was ok
 					if ($results["count"] > 0) {
 
-						//checks if file exists to delete the picture
-						if (file_exists($_SERVER['DOCUMENT_ROOT'] . $data["file"])) {
-							unlink($_SERVER['DOCUMENT_ROOT'] . $data["file"]);
+						$fileName = $results["rows"][0]["File"];
+
+						//update database to delete row
+						$query = "DELETE FROM portfolioprojectimage WHERE ID = :id;";
+						$bindings = array(":id" => $data["id"]);
+						$results = $this->db->query($query, $bindings);
+
+						//if deletion was ok
+						if ($results["count"] > 0) {
+
+							//checks if file exists to delete the picture
+							if (file_exists($_SERVER['DOCUMENT_ROOT'] . $fileName)) {
+								unlink($_SERVER['DOCUMENT_ROOT'] . $fileName);
+							}
+
+							$results["meta"]["ok"] = true;
+							$results["rows"]["id"] = $data["id"];
+
+						} //else error updating
+						else {
+							//check if database provided any meta data if so problem with executing query
+							if (!isset($results["meta"])) {
+								$results["meta"]["ok"] = false;
+							}
 						}
 
-						$results["meta"]["ok"] = true;
-						$results["rows"]["file"] = $data["file"];
-
-					} //else error updating
-					else {
-						//check if database provided any meta data if so problem with executing query
-						if (!isset($results["meta"])) {
-							$results["meta"]["ok"] = false;
-						}
 					}
-
 				}
 			} //else data was not provided
 			else {
