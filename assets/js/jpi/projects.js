@@ -74,19 +74,19 @@ window.jpi.projects = (function (jQuery) {
 					slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
 			//loop through each row of data in rows
-			for (var i = 0; i < project.pictures.length; i++) {
+			for (var i = 0; i < project.Pictures.length; i++) {
 
-				if (project.pictures.hasOwnProperty(i)) {
+				if (project.Pictures.hasOwnProperty(i)) {
 
 					var slideTemplate = jQuery('#tmpl-slide-template').text();
 					var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
-					for (var data in project.pictures[i]) {
-						if (project.pictures[i].hasOwnProperty(data)) {
+					for (var data in project.Pictures[i]) {
+						if (project.Pictures[i].hasOwnProperty(data)) {
 							if (typeof data === "string") {
 								var reg = new RegExp("{{" + data + "}}", "g");
-								slideTemplate = slideTemplate.replace(reg, project.pictures[i][data]);
-								bulletTemplate = bulletTemplate.replace(reg, project.pictures[i][data]);
+								slideTemplate = slideTemplate.replace(reg, project.Pictures[i][data]);
+								bulletTemplate = bulletTemplate.replace(reg, project.Pictures[i][data]);
 							}
 						}
 					}
@@ -102,7 +102,7 @@ window.jpi.projects = (function (jQuery) {
 				}
 			}
 
-			if (project.pictures.length > 0) {
+			if (project.Pictures.length > 0) {
 				jpi.slideShow.setUp(slideShowId);
 			}
 		},

@@ -41,7 +41,7 @@ class API {
 			$result["meta"]["message"] = "Not Found";
 		}
 		else {
-			$result["rows"][0]["pictures"] = self::getPictures($projectID);
+			$result["rows"][0]["Pictures"] = self::getPictures($projectID);
 
 			$result["meta"]["ok"] = true;
 		}
@@ -110,7 +110,7 @@ class API {
 			for ($i = 0; $i < count($results["rows"]); $i++) {
 
 				//run the function provided as data exists and is valid
-				$results["rows"][$i]["pictures"] = self::getPictures($results["rows"][$i]["ID"]);
+				$results["rows"][$i]["Pictures"] = self::getPictures($results["rows"][$i]["ID"]);
 			}
 
 			$results["meta"]["ok"] = true;

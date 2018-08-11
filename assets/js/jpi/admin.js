@@ -53,12 +53,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						var i = 0, found = false;
 						//find and remove the image
-						for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
-							if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
-								var pictureToDelete = $scope.selectedProject.pictures[i];
-								var index = $scope.selectedProject.pictures.indexOf(pictureToDelete);
+						for (i = 0; i < $scope.selectedProject.Pictures.length; i++) {
+							if ($scope.selectedProject.Pictures[i]["File"] === result.data.rows.file) {
+								var pictureToDelete = $scope.selectedProject.Pictures[i];
+								var index = $scope.selectedProject.Pictures.indexOf(pictureToDelete);
 								if (index > -1) {
-									$scope.selectedProject.pictures.splice(index, 1);
+									$scope.selectedProject.Pictures.splice(index, 1);
 								}
 								found = true;
 								break;
@@ -246,7 +246,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				Download: "",
 				Date: "",
 				Colour: "",
-				pictures: []
+				Pictures: []
 			};
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
@@ -291,7 +291,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						transformRequest: angular.identity,
 						headers: {'Content-Type': undefined, 'Process-Data': false}
 					}).then(function (result) {
-						$scope.selectedProject.pictures.push(result.data.rows[0]);
+						$scope.selectedProject.Pictures.push(result.data.rows[0]);
 						var index = $scope.uploads.indexOf(upload);
 						if (index > -1) {
 							$scope.uploads.splice(index, 1);
@@ -386,7 +386,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						method = "POST";
 					}
 
-					$scope.selectedProject.pictures.forEach(function (picture, i) {
+					$scope.selectedProject.Pictures.forEach(function (picture, i) {
 						picture.Number = i + 1;
 					});
 
@@ -403,7 +403,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							download: $scope.selectedProject.Download,
 							date: $scope.selectedProject.Date,
 							colour: $scope.selectedProject.Colour,
-							pictures: angular.toJson($scope.selectedProject.pictures)
+							pictures: angular.toJson($scope.selectedProject.Pictures)
 						}
 					}).then(function (result) {
 						result.data.rows[0].Date = new Date(result.data.rows[0].Date);
@@ -442,7 +442,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					Download: "",
 					Date: "",
 					Colour: "",
-					pictures: []
+					Pictures: []
 				};
 			};
 
