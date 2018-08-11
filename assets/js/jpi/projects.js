@@ -236,7 +236,7 @@ window.jpi.projects = (function (jQuery) {
 			//send request to get projects
 			jpi.ajax.sendRequest({
 				method: "GET",
-				url: "/admin/api/1/projects/",
+				url: "/api/1/projects/",
 				query: query,
 				load: fn.gotProjects,
 				error: fn.renderError

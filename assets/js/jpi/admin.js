@@ -16,7 +16,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 		.controller('projectsAdminController', function ($scope, $http) {
 
 			var global = {
-				apiBase: "/admin/api/1/"
+				apiBase: "/api/1/"
 			};
 
 			var fn = {
