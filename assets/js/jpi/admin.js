@@ -389,7 +389,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					});
 
 					$http({
-						url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
+						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: "POST",
 						params: {
 							projectName: $scope.selectedProject.Name,
