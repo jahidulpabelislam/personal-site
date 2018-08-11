@@ -30,7 +30,7 @@ switch ($path[0]) {
 	case "session":
 		switch ($method) {
 			case "GET":
-				$results = getAuthStatus();
+				$results = API::getAuthStatus();
 				break;
 			default:
 				$results["meta"] = methodNotAllowed($method, $path);
@@ -40,24 +40,24 @@ switch ($path[0]) {
         switch ($method) {
             case "GET":
                 if (isset($path[1]) && trim($path[1]) !== "") {
-                    $results = getProject($path[1]);
+                    $results = API::getProject($path[1]);
                 } else {
-                    $results = getProjects($data);
+                    $results = API::getProjects($data);
                 }
                 break;
             case "POST":
-                $results = addProject($data);
+                $results = API::addProject($data);
                 break;
 	        case "PUT":
 		        if (isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = editProject($data);
+			        $results = API::editProject($data);
 		        }
 		        break;
 	        case "DELETE":
 		        if (isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = deleteProject($data);
+			        $results = API::deleteProject($data);
 		        }
 		        break;
             default:
@@ -69,13 +69,13 @@ switch ($path[0]) {
             case "POST":
                 if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
-                    $results = addPicture($data);
+                    $results = API::addPicture($data);
                 }
                 break;
 	        case "DELETE":
 		        if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
 			        $data["projectID"] = $path[1];
-			        $results = deletePicture($data);
+			        $results = API::deletePicture($data);
 		        }
 		        break;
             default:
