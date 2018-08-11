@@ -20,7 +20,7 @@ class API {
 			$results["meta"]["message"] = "OK";
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		return $results;
@@ -127,7 +127,7 @@ class API {
 
 			//checks if requests needed are present and not empty
 			$dataNeeded = array("projectName", "skills", "longDescription", "shortDescription", "github", "date");
-			if (checkData($data, $dataNeeded)) {
+			if (Helper::checkData($data, $dataNeeded)) {
 
 				$data["date"] = date("Y-m-d", strtotime($data["date"]));
 
@@ -156,11 +156,11 @@ class API {
 
 			} //else data was not provided
 			else {
-				$results["meta"] = dataNotProvided($dataNeeded);
+				$results["meta"] = Helper::dataNotProvided($dataNeeded);
 			}
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		return $results;
@@ -174,7 +174,7 @@ class API {
 
 			//checks if requests needed are present and not empty
 			$dataNeeded = array("projectID", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
-			if (checkData($data, $dataNeeded)) {
+			if (Helper::checkData($data, $dataNeeded)) {
 
 				//Check the project trying to edit actually exists
 				$project = self::getProject($data["projectID"]);
@@ -210,11 +210,11 @@ class API {
 				}
 			} //else data was not provided
 			else {
-				$results["meta"] = dataNotProvided($dataNeeded);
+				$results["meta"] = Helper::dataNotProvided($dataNeeded);
 			}
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		return $results;
@@ -228,7 +228,7 @@ class API {
 
 			//checks if requests needed are present and not empty
 			$dataNeeded = array("projectID");
-			if (checkData($data, $dataNeeded)) {
+			if (Helper::checkData($data, $dataNeeded)) {
 
 				//Check the project trying to edit actually exists
 				$results = self::getProject($data["projectID"]);
@@ -258,11 +258,11 @@ class API {
 				}
 			} //else data was not provided
 			else {
-				$results["meta"] = dataNotProvided($dataNeeded);
+				$results["meta"] = Helper::dataNotProvided($dataNeeded);
 			}
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		return $results;
@@ -285,7 +285,7 @@ class API {
 
 			//checks if requests needed are present and not empty
 			$dataNeeded = array("projectID");
-			if (checkData($data, $dataNeeded) && isset($_FILES["picture"])) {
+			if (Helper::checkData($data, $dataNeeded) && isset($_FILES["picture"])) {
 
 				//Check the project trying to edit actually exists
 				$project = self::getProject($data["projectID"]);
@@ -346,11 +346,11 @@ class API {
 			} //else data was not provided
 			else {
 				array_push($dataNeeded, "pictureUploaded");
-				$results["meta"] = dataNotProvided($dataNeeded);
+				$results["meta"] = Helper::dataNotProvided($dataNeeded);
 			}
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		$results["meta"]["files"] = $_FILES;
@@ -366,18 +366,18 @@ class API {
 
 			//checks if requests needed are present and not empty
 			$dataNeeded = array("projectID", "file");
-			if (checkData($data, $dataNeeded)) {
+			if (Helper::checkData($data, $dataNeeded)) {
 
 				//Check the project trying to edit actually exists
 				$results = self::getProject($data["projectID"]);
 				if ($results["count"] > 0) {
 
-					//update database
+					//update database to delete row
 					$query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID AND File = :file;";
 					$bindings = array(":projectID" => $data["projectID"], ":file" => $data["file"]);
 					$results = $this->db->query($query, $bindings);
 
-					//if update was ok
+					//if deletion was ok
 					if ($results["count"] > 0) {
 
 						//checks if file exists to delete the picture
@@ -395,14 +395,15 @@ class API {
 							$results["meta"]["ok"] = false;
 						}
 					}
+
 				}
 			} //else data was not provided
 			else {
-				$results["meta"] = dataNotProvided($dataNeeded);
+				$results["meta"] = Helper::dataNotProvided($dataNeeded);
 			}
 		}
 		else {
-			$results = notAuthorised();
+			$results = Helper::notAuthorised();
 		}
 
 		return $results;

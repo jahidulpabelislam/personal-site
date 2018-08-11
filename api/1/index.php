@@ -7,6 +7,8 @@
 //include all files needed
 include $_SERVER['DOCUMENT_ROOT'] . '/api/inc/app.php';
 
+list($method, $path, $data) = Helper::extractFromRequest();
+
 $api = new API();
 
 //do relevant stuff with path[1]
@@ -17,7 +19,7 @@ switch ($path[0]) {
 				$results = Auth::login($data);
 				break;
 			default:
-				$results["meta"] = methodNotAllowed($method, $path);
+				$results["meta"] = Helper::methodNotAllowed($method, $path);
 		}
 		break;
 	case "logout":
@@ -26,7 +28,7 @@ switch ($path[0]) {
 				$results = Auth::logout();
 				break;
 			default:
-				$results["meta"] = methodNotAllowed($method, $path);
+				$results["meta"] = Helper::methodNotAllowed($method, $path);
 		}
 		break;
 	case "session":
@@ -35,7 +37,7 @@ switch ($path[0]) {
 				$results = $api->getAuthStatus();
 				break;
 			default:
-				$results["meta"] = methodNotAllowed($method, $path);
+				$results["meta"] = Helper::methodNotAllowed($method, $path);
 		}
 		break;
 	case "projects":
@@ -63,7 +65,7 @@ switch ($path[0]) {
 				}
 				break;
 			default:
-				$results["meta"] = methodNotAllowed($method, $path);
+				$results["meta"] = Helper::methodNotAllowed($method, $path);
 		}
 		break;
 	case "pictures":
@@ -81,7 +83,7 @@ switch ($path[0]) {
 				}
 				break;
 			default:
-				$results["meta"] = methodNotAllowed($method, $path);
+				$results["meta"] = Helper::methodNotAllowed($method, $path);
 		}
 		break;
 	default:
@@ -91,4 +93,4 @@ switch ($path[0]) {
 		$results["meta"]["message"] = "Not Found";
 }
 
-sendData($results, $data, $method, $path);
+Helper::sendData($results, $data, $method, $path);
