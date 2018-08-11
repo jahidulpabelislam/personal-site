@@ -345,7 +345,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				$scope.checkAuthStatus(function () {
 					$http({
 						url: global.apiBase + "pictures/" + projectImage.ProjectID,
-						method: "POST",
+						method: "DELETE",
 						params: {
 							file: projectImage.File
 						}
@@ -380,8 +380,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val());
 
 				if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
+					var method = "PUT";
 					if (!$scope.selectedProject.ID) {
 						$scope.selectedProject.ID = "";
+						method = "POST";
 					}
 
 					$scope.selectedProject.pictures.forEach(function (picture, i) {
@@ -390,7 +392,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					$http({
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
-						method: "POST",
+						method: method,
 						params: {
 							projectName: $scope.selectedProject.Name,
 							skills: $scope.selectedProject.Skills.join(","),
@@ -466,8 +468,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
 					$http({
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
-						method: "POST",
-						params: {method: "DELETE"}
+						method: "DELETE"
 					}).then(fn.renderProjectDelete, function (result) {
 						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
 						fn.hideLoading();

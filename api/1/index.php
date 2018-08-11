@@ -46,17 +46,20 @@ switch ($path[0]) {
                 }
                 break;
             case "POST":
-                if (isset($path[1]) && trim($path[1]) !== "") {
-                    $data["projectID"] = $path[1];
-                    if (isset($data["method"]) && $data["method"] === "DELETE") {
-                        $results = deleteProject($data);
-                    } else {
-                        $results = editProject($data);
-                    }
-                } else {
-                    $results = addProject($data);
-                }
+                $results = addProject($data);
                 break;
+	        case "PUT":
+		        if (isset($path[1]) && trim($path[1]) !== "") {
+			        $data["projectID"] = $path[1];
+			        $results = editProject($data);
+		        }
+		        break;
+	        case "DELETE":
+		        if (isset($path[1]) && trim($path[1]) !== "") {
+			        $data["projectID"] = $path[1];
+			        $results = deleteProject($data);
+		        }
+		        break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);
         }
@@ -67,11 +70,14 @@ switch ($path[0]) {
                 if (isset($_FILES["picture"]) && isset($path[1]) && trim($path[1]) !== "") {
                     $data["projectID"] = $path[1];
                     $results = addPicture($data);
-                } else if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
-                    $data["projectID"] = $path[1];
-                    $results = deletePicture($data);
                 }
                 break;
+	        case "DELETE":
+		        if (isset($data["file"]) && isset($path[1]) && trim($path[1]) !== "") {
+			        $data["projectID"] = $path[1];
+			        $results = deletePicture($data);
+		        }
+		        break;
             default:
                 $results["meta"] = methodNotAllowed($method, $path);
         }
