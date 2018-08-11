@@ -6,9 +6,9 @@ window.jpi.main = (function (jQuery) {
 	var fn = {
 
 		count: function (options) {
-			var $this = jQuery(this);
-			options = jQuery.extend({}, options || {}, $this.data('countToOptions') || {});
-			$this.countTo(options);
+			var counter = jQuery(this);
+			options = jQuery.extend({}, options || {}, counter.data('countToOptions') || {});
+			counter.countTo(options);
 		},
 
 		initCounters: function () {
@@ -16,7 +16,7 @@ window.jpi.main = (function (jQuery) {
 
 			if (counters.length > 0) {
 				jQuery('.counter').waypoint(function () {
-					jQuery('.counter').each(count);
+					jQuery('.counter').each(fn.count);
 				}, {offset: '100%'});
 			}
 		},
