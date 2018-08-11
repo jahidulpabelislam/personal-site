@@ -5,7 +5,7 @@
 */
 
 //include all files needed
-include $_SERVER['DOCUMENT_ROOT'] . '/api/inc/all.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/api/inc/init.php';
 
 //do relevant stuff with path[1]
 switch ($path[0]) {
