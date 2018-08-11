@@ -14,7 +14,7 @@ $path = explode('/', ltrim($_SERVER['PATH_INFO'], "/"));
 
 $data = array();
 foreach ($_REQUEST as $key => $value) {
-    $data[$key] = stripslashes(urldecode($_REQUEST[$key]));
+	$data[$key] = stripslashes(urldecode($_REQUEST[$key]));
 }
 
 /**
@@ -24,22 +24,21 @@ foreach ($_REQUEST as $key => $value) {
  * @param $dataNeeded array array of data needed
  * @return bool whether data provided is valid and data needed is provided
  */
-function checkData($data, $dataNeeded)
-{
+function checkData($data, $dataNeeded) {
 
-    //loops through each request needed
-    foreach ($dataNeeded as $aData) {
+	//loops through each request needed
+	foreach ($dataNeeded as $aData) {
 
-        //checks if data needed is provided and is not empty
-        if (!isset($data[$aData]) || trim($data[$aData]) === "") {
-            //return false as data needed is not provided or empty
-            return false;
-        }
+		//checks if data needed is provided and is not empty
+		if (!isset($data[$aData]) || trim($data[$aData]) === "") {
+			//return false as data needed is not provided or empty
+			return false;
+		}
 
-    }
+	}
 
-    //otherwise data provided are ok and data needed are provided
-    return true;
+	//otherwise data provided are ok and data needed are provided
+	return true;
 }
 
 /**
@@ -48,13 +47,14 @@ function checkData($data, $dataNeeded)
  * @param $path array the path tried
  * @return array array of meta data
  */
-function methodNotAllowed($method, $path)
-{
-    $meta["ok"] = false;
-    $meta["status"] = 405;
-    $meta["message"] = "Method not allowed.";
-    $meta["feedback"] = "${method} Method Not Allowed on /api/1/" . implode("/", $path);
-    return $meta;
+function methodNotAllowed($method, $path) {
+
+	$meta["ok"] = false;
+	$meta["status"] = 405;
+	$meta["message"] = "Method not allowed.";
+	$meta["feedback"] = "${method} Method Not Allowed on /api/1/" . implode("/", $path);
+
+	return $meta;
 }
 
 /**
@@ -62,65 +62,67 @@ function methodNotAllowed($method, $path)
  * @param $dataNeeded array array of data needed
  * @return array array of meta data
  */
-function dataNotProvided($dataNeeded)
-{
-    $meta["ok"] = false;
-    $meta["status"] = 400;
-    $meta["message"] = "Bad Request";
-    $meta["requestsNeeded"] = $dataNeeded;
-    $meta["feedback"] = "The necessary data was not provided.";
-    return $meta;
+function dataNotProvided($dataNeeded) {
+
+	$meta["ok"] = false;
+	$meta["status"] = 400;
+	$meta["message"] = "Bad Request";
+	$meta["requestsNeeded"] = $dataNeeded;
+	$meta["feedback"] = "The necessary data was not provided.";
+
+	return $meta;
 }
 
 /**
  * Send necessary meta data back when user isn't logged in correctly
  * @return array array of meta data
  */
-function notAuthorised()
-{
+function notAuthorised() {
+
 	$results = [];
 	$results["meta"]["ok"] = false;
 	$results["meta"]["status"] = 401;
 	$results["meta"]["message"] = "Unauthorized";
 	$results["meta"]["feedback"] = "You need to be logged in!";
+
 	return $results;
 }
 
-function sendData($results, $data, $method, $path)
-{
+function sendData($results, $data, $method, $path) {
 
-    //send back the data provided
-    $results['meta']["data"] = $data;
-    //send back the method requested
-    $results['meta']["method"] = $method;
-    //send back the path they requested
-    $results['meta']["path"] = $path;
+	//send back the data provided
+	$results['meta']["data"] = $data;
+	//send back the method requested
+	$results['meta']["method"] = $method;
+	//send back the path they requested
+	$results['meta']["path"] = $path;
 
-    //check if requested to send json
-    $json = (stripos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
+	//check if requested to send json
+	$json = (stripos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
-    //check is everything was ok
-    if (isset($results["meta"]["ok"]) && $results["meta"]["ok"] !== false) {
-        $status = isset($results["meta"]["status"]) ? $results["meta"]["status"] : 200;
-        $message = isset($results["meta"]["message"]) ? $results["meta"]["message"] : "OK";
-    } else {
-        $status = isset($results["meta"]["status"]) ? $results["meta"]["status"] : 500;
-        $message = isset($results["meta"]["message"]) ? $results["meta"]["message"] : "Internal Server Error";
-    }
+	//check is everything was ok
+	if (isset($results["meta"]["ok"]) && $results["meta"]["ok"] !== false) {
+		$status = isset($results["meta"]["status"]) ? $results["meta"]["status"] : 200;
+		$message = isset($results["meta"]["message"]) ? $results["meta"]["message"] : "OK";
+	}
+	else {
+		$status = isset($results["meta"]["status"]) ? $results["meta"]["status"] : 500;
+		$message = isset($results["meta"]["message"]) ? $results["meta"]["message"] : "Internal Server Error";
+	}
 
-    $results["meta"]["status"] = $status;
-    $results["meta"]["message"] = $message;
+	$results["meta"]["status"] = $status;
+	$results["meta"]["message"] = $message;
 
-    header("HTTP/1.1 $status $message");
+	header("HTTP/1.1 $status $message");
 
-    //send the results, send by json if json was requested
-    if ($json) {
-        header("Content-Type: application/json");
-        echo json_encode($results);
-    } //else send by plain text
-    else {
-        header("Content-Type: text/plain");
-        echo("results: ");
-        var_dump($results);
-    }
+	//send the results, send by json if json was requested
+	if ($json) {
+		header("Content-Type: application/json");
+		echo json_encode($results);
+	} //else send by plain text
+	else {
+		header("Content-Type: text/plain");
+		echo("results: ");
+		var_dump($results);
+	}
 }

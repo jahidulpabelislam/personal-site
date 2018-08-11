@@ -8,11 +8,12 @@ class API {
 
 	private $db = null;
 
-	public function __construct(){
+	public function __construct() {
 		$this->db = Database::get();
 	}
 
 	public function getAuthStatus() {
+
 		if (Auth::isLoggedIn()) {
 			$results["meta"]["ok"] = true;
 			$results["meta"]["status"] = 200;
@@ -26,8 +27,8 @@ class API {
 	}
 
 	//get a particular project defined by $projectID
-	public function getProject($projectID)
-	{
+	public function getProject($projectID) {
+
 		$query = "SELECT * FROM portfolioproject WHERE ID = :projectID;";
 		$bindings = array(':projectID' => $projectID);
 		$result = $this->db->query($query, $bindings);
@@ -38,20 +39,23 @@ class API {
 			$result["meta"]["status"] = 404;
 			$result["meta"]["feedback"] = "No project found with ${projectID} as ID.";
 			$result["meta"]["message"] = "Not Found";
-		} else {
+		}
+		else {
 			$result["rows"][0]["pictures"] = self::getPictures($projectID);
 
 			$result["meta"]["ok"] = true;
 		}
+
 		return $result;
 	}
 
 	//gets all projects but limited
-	public function getProjects($data)
-	{
+	public function getProjects($data) {
+
 		if (isset($data["limit"])) {
 			$limit = min(abs(intval($data["limit"])), 10);
 		}
+
 		if (!isset($limit) || !is_int($limit) || $limit < 1) {
 			$limit = 10;
 		}
@@ -116,8 +120,8 @@ class API {
 	}
 
 	//add a project user has attempted to add
-	public function addProject($data)
-	{
+	public function addProject($data) {
+
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
 
@@ -155,8 +159,7 @@ class API {
 				$results["meta"] = dataNotProvided($dataNeeded);
 			}
 		}
-		else
-		{
+		else {
 			$results = notAuthorised();
 		}
 
@@ -164,8 +167,8 @@ class API {
 	}
 
 	//try to edit a project user has posted before
-	public function editProject($data)
-	{
+	public function editProject($data) {
+
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
 
@@ -191,7 +194,7 @@ class API {
 							foreach ($pictures as $picture) {
 								$query = "UPDATE portfolioprojectimage SET Number = :Number WHERE ID = :ID;";
 								$bindings = array(":ID" => $picture->ID, ":Number" => $picture->Number);
-								$db->query($query, $bindings);
+								$this->db->query($query, $bindings);
 							}
 						}
 
@@ -218,8 +221,7 @@ class API {
 	}
 
 	//Try's to delete a project user has posted before
-	public function deleteProject($data)
-	{
+	public function deleteProject($data) {
 
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
@@ -266,17 +268,17 @@ class API {
 		return $results;
 	}
 
-	public function getPictures($projectID)
-	{
+	public function getPictures($projectID) {
+
 		$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
 		$bindings[":projectID"] = $projectID;
 		$results = $this->db->query($query, $bindings);
 		return $results["rows"];
+
 	}
 
 	//Tries to upload a picture user has tried to add as a project image
-	public function addPicture($data)
-	{
+	public function addPicture($data) {
 
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
@@ -357,8 +359,7 @@ class API {
 	}
 
 	//Tries to delete a picture linked to a project
-	public function deletePicture($data)
-	{
+	public function deletePicture($data) {
 
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {

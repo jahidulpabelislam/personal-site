@@ -5,8 +5,7 @@
  * @author Jahidul Pabel Islam
 */
 
-class Auth
-{
+class Auth {
 
 	/**
 	 * Authenticate a user trying to login
@@ -17,6 +16,7 @@ class Auth
 	 * @return array Response with meta data given to ajax call after trying to login
 	 */
 	public static function login($data) {
+
 		//checks if data needed are present and not empty
 		$dataNeeded = array("username", "password");
 		if (checkData($data, $dataNeeded)) {
@@ -46,7 +46,8 @@ class Auth
 				$results["meta"]["feedback"] = "Wrong Username and/or Password.";
 			}
 
-		} else {
+		}
+		else {
 			$results["meta"] = dataNotProvided($dataNeeded);
 		}
 
@@ -60,6 +61,7 @@ class Auth
 	 * @return mixed
 	 */
 	public static function logout() {
+
 		/*
 		 * Actually do the log out here (e.g removing cookie, session or database etc.)
 		 */
