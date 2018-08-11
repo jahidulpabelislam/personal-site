@@ -6,22 +6,8 @@
 
 date_default_timezone_set("Europe/London");
 
-function isLoggedIn() {
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-
-	if (!empty($_SESSION["username"]) && $_SESSION["username"] === PORTFOLIO_ADMIN_USERNAME
-			&& !empty($_SESSION["password"]) && $_SESSION["password"] === PORTFOLIO_ADMIN_PASSWORD) {
-
-		return true;
-	}
-
-	return false;
-}
-
 function getAuthStatus() {
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 		$results["meta"]["ok"] = true;
 		$results["meta"]["status"] = 200;
 		$results["meta"]["message"] = "OK";
@@ -29,60 +15,6 @@ function getAuthStatus() {
 	else {
 		$results = notAuthorised();
 	}
-
-	return $results;
-}
-
-//gets a user, either trying to log in or trying to get information of a user
-function login($data)
-{
-    //checks if data needed are present and not empty
-    $dataNeeded = array("username", "password");
-    if (checkData($data, $dataNeeded)) {
-
-	    $results["meta"]["ok"] = false;
-	    $results["meta"]["status"] = 401;
-	    $results["meta"]["message"] = "Unauthorized";
-
-        if ($data["username"] === PORTFOLIO_ADMIN_USERNAME) {
-
-        	if (Hasher::checkPassword($data["password"], PORTFOLIO_ADMIN_PASSWORD)) {
-
-		        $results["meta"]["ok"] = true;
-		        $results["meta"]["status"] = 200;
-		        $results["meta"]["message"] = "OK";
-
-		        if (!isset($_SESSION)) {
-			        session_start();
-		        }
-		        $_SESSION['username'] = $data["username"];
-		        $_SESSION['password'] = PORTFOLIO_ADMIN_PASSWORD;
-	        }
-	        else {
-		        $results["meta"]["feedback"] = "Wrong Password.";
-	        }
-        }
-        else {
-            $results["meta"]["feedback"] = "Wrong Username and/or Password.";
-        }
-
-    } else {
-        $results["meta"] = dataNotProvided($dataNeeded);
-    }
-
-    return $results;
-}
-
-function logout(){
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-
-	session_unset();
-	session_destroy();
-
-	$results["meta"]["ok"] = true;
-	$results["meta"]["feedback"] = "Successfully Logged Out.";
 
 	return $results;
 }
@@ -183,7 +115,7 @@ function getProjects($data)
 function addProject($data)
 {
 	//checks if user is authored
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 
 		//checks if requests needed are present and not empty
 		$dataNeeded = array("projectName", "skills", "longDescription", "shortDescription", "github", "date");
@@ -232,7 +164,7 @@ function addProject($data)
 function editProject($data)
 {
 	//checks if user is authored
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 
 		//checks if requests needed are present and not empty
 		$dataNeeded = array("projectID", "projectName", "skills", "longDescription", "shortDescription", "github", "date");
@@ -288,7 +220,7 @@ function deleteProject($data)
 {
 
 	//checks if user is authored
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 
 		//checks if requests needed are present and not empty
 		$dataNeeded = array("projectID");
@@ -347,7 +279,7 @@ function addPicture($data)
 {
 
 	//checks if user is authored
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 
 		//checks if requests needed are present and not empty
 		$dataNeeded = array("projectID");
@@ -430,7 +362,7 @@ function deletePicture($data)
 {
 
 	//checks if user is authored
-	if (isLoggedIn()) {
+	if (Auth::isLoggedIn()) {
 
 		//checks if requests needed are present and not empty
 		$dataNeeded = array("projectID", "file");
