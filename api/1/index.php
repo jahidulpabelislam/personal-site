@@ -90,4 +90,8 @@ switch ($path[0]) {
 		$results["meta"]["message"] = "Not Found";
 }
 
+if (empty($results)) {
+	$results["meta"] = Helper::methodNotAllowed($method, $path);
+}
+
 Helper::sendData($results, $data, $method, $path);
