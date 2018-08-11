@@ -381,8 +381,8 @@ class API {
 					if ($results["count"] > 0) {
 
 						//checks if file exists to delete the picture
-						if (file_exists($data["file"])) {
-							unlink($data["file"]);
+						if (file_exists($_SERVER['DOCUMENT_ROOT'] . $data["file"])) {
+							unlink($_SERVER['DOCUMENT_ROOT'] . $data["file"]);
 						}
 
 						$results["meta"]["ok"] = true;
