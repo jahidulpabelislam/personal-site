@@ -19,7 +19,7 @@ window.jpi.dnd = (function (jQuery) {
 
 				//gets file
 				item.file(function (file) {
-					window.jpi.admin.checkFile(file);
+					jpi.admin.checkFile(file);
 				});
 			}
 			//checks if its a directory
@@ -37,7 +37,7 @@ window.jpi.dnd = (function (jQuery) {
 			}
 			//else drop of item has failed therefore show its failed
 			else {
-				window.jpi.admin.renderFailedUpload("Error processing upload - " + item.name);
+				jpi.admin.renderFailedUpload("Error processing upload - " + item.name);
 			}
 		},
 
