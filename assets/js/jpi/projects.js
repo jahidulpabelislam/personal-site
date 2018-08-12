@@ -190,7 +190,7 @@ window.jpi.projects = (function (jQuery) {
 
 				var page = 1,
 						ul = jQuery(".pagination")[0],
-						path = url.pathname.substring(1).split('/');
+						path = global.url.pathname.substring(1).split('/');
 
 				if (Number.isInteger(parseInt(path[1]))) {
 					var currentPage = parseInt(path[1]);
