@@ -231,8 +231,6 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				loadApp: function () {
 					var path = global.url.pathname.substring(1).split('/');
 
-					console.log(path);
-
 					if (path[1])
 					{
 						var root = path[1];
