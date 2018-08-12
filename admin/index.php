@@ -34,7 +34,13 @@
 			    </div>
 			    <div class="nav__links-container">
 				    <ul class="nav__links clearfix">
-					    <li ng-show="loggedIn"><a href="/admin/" title="Link to Logout Page" class="js-admin-logout">Logout</a></li>
+					    <li><a href="/admin/projects" title="Link to Projects Page" class="js-admin-projects">Projects</a></li>
+					    <li><a href="/admin/project/new" title="Link to New Project Form Page" class="js-admin-new-project">Add Project</a></li>
+				    </ul>
+			    </div>
+			    <div class="nav__links-container nav__links-container--left">
+				    <ul class="nav__links clearfix">
+					    <li><a href="/admin/logout" title="Link to Logout Page" class="js-admin-logout">Logout</a></li>
 				    </ul>
 			    </div>
 		    </div>

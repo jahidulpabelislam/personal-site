@@ -226,6 +226,22 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jQuery(".js-admin-logout").on("click", fn.logout);
 
+					jQuery(".js-admin-projects").on("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						$scope.checkAuthStatus(function () {
+							$scope.getProjectList(1);
+						});
+					});
+
+					jQuery(".js-admin-new-project").on("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						$scope.checkAuthStatus($scope.setUpAddProject);
+					});
+
 					jQuery('.main-content').css("padding-top", jQuery('nav').height());
 
 					jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
