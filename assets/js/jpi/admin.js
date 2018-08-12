@@ -268,6 +268,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							fn.showLoginForm([], '');
 						}
 					}
+					else {
+						$scope.checkAuthStatus(fn.showProjects, '');
+					}
 				},
 
 				initListeners: function() {
