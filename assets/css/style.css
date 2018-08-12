@@ -725,6 +725,9 @@ label {
 .nav__social-links-wrapper {
   display: none; }
 
+.nav__links-container--left .nav__links {
+  border-top: none; }
+
 .nav__links,
 .nav__social-links {
   border-top: #eee 1px solid; }
@@ -784,6 +787,12 @@ label {
     display: block;
     order: 1;
     flex: 1; }
+  .nav__links-container--left {
+    display: block;
+    order: 1;
+    flex: 1; }
+  .nav__links-container--left .nav__links {
+    float: none; }
   .nav__social-links {
     border-top: none;
     text-align: left; }
