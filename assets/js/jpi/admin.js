@@ -16,7 +16,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 		.controller('projectsAdminController', function ($scope, $http) {
 
 			var global = {
-				apiBase: "/api/1/"
+				apiBase: "/api/1/",
+				url: new URL(window.location),
+				baseURL: "admin/"
 			};
 
 			var fn = {
@@ -105,6 +107,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				gotProjects: function (result) {
+					document.title = "Projects (" + $scope.currentPage + ") - JPI Admin";
 					jQuery(".project-form-container").hide();
 
 					jQuery(".select-project-container, .nav").show();
@@ -157,6 +160,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				showLoginForm: function (result, messageOverride) {
+
+					document.title = "Login - JPI Admin";
+
 					jQuery(".select-project-container, .project-form-container, .nav").hide();
 					jQuery(".login-form-container").show();
 
@@ -182,6 +188,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					fn.hideLoading();
 
 					jpi.footer.delayExpand();
+
+					global.url.pathname = global.baseURL + "login/";
+					history.pushState(null, null, global.url.toString());
 				},
 
 				logout: function (e) {
@@ -219,35 +228,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					});
 				},
 
-				init: function() {
-					fn.showLoading();
+				loadApp: function () {
+					var path = global.url.pathname.substring(1).split('/');
 
-					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
-
-					jQuery(".js-admin-logout").on("click", fn.logout);
-
-					jQuery(".js-admin-projects").on("click", function (e) {
-						e.preventDefault();
-						e.stopPropagation();
-
-						$scope.checkAuthStatus(function () {
-							$scope.getProjectList(1);
-						});
-					});
-
-					jQuery(".js-admin-new-project").on("click", function (e) {
-						e.preventDefault();
-						e.stopPropagation();
-
-						$scope.checkAuthStatus($scope.setUpAddProject);
-					});
-
-					jQuery('.main-content').css("padding-top", jQuery('nav').height());
-
-					jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
-
-					var url = new URL(window.location);
-					var path = url.pathname.substring(1).split('/');
+					console.log(path);
 
 					if (path[1])
 					{
@@ -286,6 +270,64 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							fn.showLoginForm();
 						}
 					}
+				},
+
+				initListeners: function() {
+					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+
+					jQuery(".js-admin-logout").on("click", fn.logout);
+
+					jQuery(".js-admin-projects").on("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						$scope.checkAuthStatus(function () {
+							global.url.pathname = global.baseURL + "projects/" + $scope.currentPage + "/";
+							history.pushState(null, null, global.url.toString());
+							$scope.getProjectList(1);
+						});
+					});
+
+					jQuery(".js-admin-new-project").on("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						$scope.checkAuthStatus(function(){
+							global.url.pathname = global.baseURL + "project/add/";
+							history.pushState(null, null, global.url.toString());
+							$scope.setUpAddProject();
+						});
+					});
+
+					jQuery(".js-admin-edit-project").on("click", function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						$scope.checkAuthStatus(function() {
+							global.url.pathname = global.baseURL + "project/" + $scope.selectedProject.ID + "/edit";
+							history.pushState(null, null, global.url.toString());
+
+							$scope.setUpEditProject();
+						});
+					});
+
+					window.addEventListener('popstate', function () {
+						fn.showLoading();
+						global.url = new URL(window.location);
+						fn.loadApp();
+					});
+				},
+
+				init: function() {
+					fn.showLoading();
+
+					fn.initListeners();
+
+					jQuery('.main-content').css("padding-top", jQuery('nav').height());
+
+					jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
+
+					fn.loadApp();
 				}
 			};
 
@@ -483,6 +525,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.setUpAddProject = function () {
 
+				document.title = "Add New Project - JPI Admin";
+
 				$scope.selectProjectFeedback = "";
 				fn.setUpProjectForm();
 
@@ -507,6 +551,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				$scope.selectProjectFeedback = "";
 
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
+					document.title = "Edit Project (" + $scope.selectedProject.ID + ") - JPI Admin";
+
 					jpi.dnd.setUp();
 					fn.setUpProjectForm();
 					$(".project-images-uploads").sortable();

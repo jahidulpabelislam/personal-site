@@ -61,9 +61,9 @@
                     <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(setUpEditProject)" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
-                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
-                        <button ng-click="checkAuthStatus(setUpAddProject)" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
+                        <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue btn--edit-project js-admin-edit-project" tabindex="3">Edit</a>
+                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
+                        <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green btn--add-project js-admin-new-project" tabindex="5">Add A Project</a>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
                         <li ng-repeat="page in pages" ng-click="getProjectList(page)" class="pagination__item" ng-class="{'active': page == currentPage}">{{page}}</li>
@@ -73,7 +73,7 @@
                 <div class="project-form-container">
 	                <p class="feedback feedback--project-form hide"><span>{{projectFormFeedback}}</span><button class="projectform__hide-error" ng-click="hideErrorMessage()">X</button></p>
 
-                    <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back</button>
+                    <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange btn--back js-admin-projects" tabindex="6">Back</a>
 
                     <form id="projectForm" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
