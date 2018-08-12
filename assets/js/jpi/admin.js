@@ -245,11 +245,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 								$scope.getProjectList(pageNum);
 							});
 						}
-						else if (root === "project") {
-							if (path[2] && path[2] === "add") {
+						else if (root === "project" && path[2]) {
+							if (path[2] === "add") {
 								$scope.checkAuthStatus($scope.setUpAddProject);
 							}
-							else if (path[2] && Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
+							else if (Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
 								$scope.checkAuthStatus(function () {
 									$http({
 										url: global.apiBase + "projects/" + path[2],
@@ -266,6 +266,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 						else if (root === "login") {
 							fn.showLoginForm([], '');
+						}
+						else {
+							$scope.checkAuthStatus(fn.showProjects, '');
 						}
 					}
 					else {
