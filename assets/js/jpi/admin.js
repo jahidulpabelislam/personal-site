@@ -18,7 +18,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			var global = {
 				apiBase: "/api/1/",
 				url: new URL(window.location),
-				baseURL: "admin/"
+				baseURL: "admin/",
+				redirectTo: null
 			};
 
 			var fn = {
@@ -149,7 +150,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					//check if data was valid
 					if (result.data.meta.status && result.data.meta.status == 200) {
 						$scope.loggedIn = true;
-						fn.showProjects();
+
+						if (global.redirectTo) {
+							global.url.pathname = global.baseURL + global.redirectTo;
+							history.pushState(null, null, global.url.toString());
+							fn.loadApp();
+							global.redirectTo = null;
+						}
+						else {
+							fn.showProjects();
+						}
 					}
 					//check if feedback was provided or generic error message
 					else {
@@ -159,7 +169,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					fn.hideLoading();
 				},
 
-				showLoginForm: function (result, messageOverride) {
+				showLoginForm: function (result, redirectTo, messageOverride) {
 
 					document.title = "Login - JPI Admin";
 
@@ -189,6 +199,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jpi.footer.delayExpand();
 
+					global.redirectTo = redirectTo;
 					global.url.pathname = global.baseURL + "login/";
 					history.pushState(null, null, global.url.toString());
 				},
@@ -243,11 +254,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							}
 							$scope.checkAuthStatus(function () {
 								$scope.getProjectList(pageNum);
-							});
+							}, "projects/" + pageNum + "/");
 						}
 						else if (root === "project" && path[2]) {
 							if (path[2] === "add") {
-								$scope.checkAuthStatus($scope.setUpAddProject);
+								$scope.checkAuthStatus($scope.setUpAddProject, "project/add/");
 							}
 							else if (Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
 								$scope.checkAuthStatus(function () {
@@ -261,18 +272,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
 											fn.hideLoading();
 										}
 									});
-								});
+								}, "project/" + path[2] + "/edit");
 							}
 						}
 						else if (root === "login") {
-							fn.showLoginForm([], '');
+							fn.showLoginForm([], null, '');
 						}
 						else {
-							$scope.checkAuthStatus(fn.showProjects, '');
+							$scope.checkAuthStatus(fn.showProjects, null, '');
 						}
 					}
 					else {
-						$scope.checkAuthStatus(fn.showProjects, '');
+						$scope.checkAuthStatus(fn.showProjects, null, '');
 					}
 				},
 
@@ -294,7 +305,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							global.url.pathname = global.baseURL + "projects/" + page + "/";
 							history.pushState(null, null, global.url.toString());
 							$scope.getProjectList(page);
-						});
+						}, "projects/" + page + "/");
 					});
 
 					jQuery(".admin-page").on("click", ".js-admin-new-project",function (e) {
@@ -305,7 +316,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							global.url.pathname = global.baseURL + "project/add/";
 							history.pushState(null, null, global.url.toString());
 							$scope.setUpAddProject();
-						});
+						}, "project/add/");
 					});
 
 					jQuery(".admin-page").on("click", ".js-admin-edit-project", function (e) {
@@ -317,7 +328,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							history.pushState(null, null, global.url.toString());
 
 							$scope.setUpEditProject();
-						});
+						}, "project/" + $scope.selectedProject.ID + "/edit");
 					});
 
 					window.addEventListener('popstate', function () {
@@ -359,7 +370,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
 
-			$scope.checkAuthStatus = function(successFunc, messageOverride) {
+			$scope.checkAuthStatus = function(successFunc, redirectTo, messageOverride) {
 				$http({
 					url: global.apiBase + "session",
 					method: "GET"
@@ -369,10 +380,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						successFunc();
 					}
 					else {
-						fn.showLoginForm(result, messageOverride);
+						fn.showLoginForm(result, redirectTo, messageOverride);
 					}
 				},  function(result) {
-					fn.showLoginForm(result, messageOverride);
+					fn.showLoginForm(result, redirectTo, messageOverride);
 				});
 			};
 
