@@ -41,7 +41,8 @@ class API {
 			$result["meta"]["message"] = "Not Found";
 		}
 		else {
-			$result["rows"][0]["Pictures"] = self::getPictures($projectID);
+			$picturesArray = self::getPictures($projectID);
+			$result["rows"][0]["Pictures"] = $picturesArray["rows"];
 
 			$result["meta"]["ok"] = true;
 		}
@@ -110,7 +111,8 @@ class API {
 			for ($i = 0; $i < count($results["rows"]); $i++) {
 
 				//run the function provided as data exists and is valid
-				$results["rows"][$i]["Pictures"] = self::getPictures($results["rows"][$i]["ID"]);
+				$picturesArray = self::getPictures($results["rows"][$i]["ID"]);
+				$results["rows"][$i]["Pictures"] = $picturesArray["rows"];
 			}
 
 			$results["meta"]["ok"] = true;
@@ -273,8 +275,19 @@ class API {
 		$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
 		$bindings[":projectID"] = $projectID;
 		$results = $this->db->query($query, $bindings);
-		return $results["rows"];
 
+		//check if database provided any meta data if so no problem with executing query but no project pictures found
+		if ($results["count"] <= 0 && !isset($result["meta"])) {
+			$results["meta"]["ok"] = false;
+			$results["meta"]["status"] = 404;
+			$results["meta"]["feedback"] = "No project found with ${projectID} as ID.";
+			$results["meta"]["message"] = "Not Found";
+		}
+		else {
+			$results["meta"]["ok"] = true;
+		}
+
+		return $results;
 	}
 
 	//Tries to upload a picture user has tried to add as a project image

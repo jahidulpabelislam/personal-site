@@ -43,9 +43,17 @@ switch ($path[0]) {
 	case "projects":
 		switch ($method) {
 			case "GET":
-				if (isset($path[1]) && trim($path[1]) !== "") {
-					$results = $api->getProject($path[1]);
-				} else {
+				if (isset($path[1]) && trim($path[1]) !== "")
+				{
+					$projectID = $path[1];
+					if (isset($path[2]) && $path[2] === "pictures") {
+						$results = $api->getPictures($projectID);
+					}
+					else {
+						$results = $api->getProject($projectID);
+					}
+				}
+				else {
 					$results = $api->getProjects($data);
 				}
 				break;
