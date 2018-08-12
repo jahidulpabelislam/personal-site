@@ -274,22 +274,27 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				initListeners: function() {
-					jQuery(".js-hide-error").on("click", $scope.hideErrorMessage);
+					jQuery(".admin-page").on("click", ".js-hide-error", $scope.hideErrorMessage);
 
-					jQuery(".js-admin-logout").on("click", fn.logout);
+					jQuery(".admin-page").on("click", ".js-admin-logout", fn.logout);
 
-					jQuery(".js-admin-projects").on("click", function (e) {
+					jQuery(".admin-page").on("click", ".js-admin-projects",function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 
+						var page = jQuery(this).attr("data-page");
+						if (!page) {
+							page = 1;
+						}
+
 						$scope.checkAuthStatus(function () {
-							global.url.pathname = global.baseURL + "projects/" + $scope.currentPage + "/";
+							global.url.pathname = global.baseURL + "projects/" + page + "/";
 							history.pushState(null, null, global.url.toString());
-							$scope.getProjectList(1);
+							$scope.getProjectList(page);
 						});
 					});
 
-					jQuery(".js-admin-new-project").on("click", function (e) {
+					jQuery(".admin-page").on("click", ".js-admin-new-project",function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 
@@ -300,7 +305,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						});
 					});
 
-					jQuery(".js-admin-edit-project").on("click", function (e) {
+					jQuery(".admin-page").on("click", ".js-admin-edit-project", function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 

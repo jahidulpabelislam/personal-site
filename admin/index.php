@@ -34,7 +34,7 @@
 			    </div>
 			    <div class="nav__links-container">
 				    <ul class="nav__links clearfix">
-					    <li><a href="/admin/projects" title="Link to Projects Page" class="js-admin-projects">Projects</a></li>
+					    <li><a href="/admin/projects/1" title="Link to Projects Page" class="js-admin-projects">Projects</a></li>
 					    <li><a href="/admin/project/new" title="Link to New Project Form Page" class="js-admin-new-project">Add Project</a></li>
 				    </ul>
 			    </div>
@@ -66,7 +66,7 @@
                         <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green btn--add-project js-admin-new-project" tabindex="5">Add A Project</a>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
-                        <li ng-repeat="page in pages" ng-click="getProjectList(page)" class="pagination__item" ng-class="{'active': page == currentPage}">{{page}}</li>
+	                    <li ng-repeat="page in pages"><a href="/admin/projects/{{ page }}" title="Link to Projects Page" class="pagination__item js-admin-projects" ng-class="{'active': page == currentPage}" data-page="{{ page }}">{{ page }}</a></li>
                     </ul>
                 </div>
 
