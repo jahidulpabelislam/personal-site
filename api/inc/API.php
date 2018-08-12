@@ -42,7 +42,7 @@ class API {
 		}
 		else {
 			if (!$projectOnly) {
-				$picturesArray = self::getPictures($projectID);
+				$picturesArray = self::getProjectPictures($projectID);
 				$result["rows"][0]["Pictures"] = $picturesArray["rows"];
 			}
 
@@ -113,7 +113,7 @@ class API {
 			for ($i = 0; $i < count($results["rows"]); $i++) {
 
 				//run the function provided as data exists and is valid
-				$picturesArray = self::getPictures($results["rows"][$i]["ID"]);
+				$picturesArray = self::getProjectPictures($results["rows"][$i]["ID"]);
 				$results["rows"][$i]["Pictures"] = $picturesArray["rows"];
 			}
 
@@ -272,7 +272,7 @@ class API {
 		return $results;
 	}
 
-	public function getPictures($projectID) {
+	public function getProjectPictures($projectID) {
 
 		//Check the project trying to get pictures
 		$results = self::getProject($projectID, true);
@@ -299,7 +299,7 @@ class API {
 	}
 
 	//Tries to upload a picture user has tried to add as a project image
-	public function addPicture($data) {
+	public function addProjectPicture($data) {
 
 		//checks if user is authored
 		if (Auth::isLoggedIn()) {
