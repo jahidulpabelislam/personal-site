@@ -96,7 +96,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				setUpProjectForm: function () {
 					$scope.skillInput = "";
 
-					jQuery(".project-form-container").show();
+					jQuery(".project-form-container, .nav").show();
 					jQuery(".select-project-container").hide();
 
 					jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
@@ -107,7 +107,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				gotProjects: function (result) {
 					jQuery(".project-form-container").hide();
 
-					jQuery(".select-project-container").show();
+					jQuery(".select-project-container, .nav").show();
 
 					$scope.selectedProject = undefined;
 
@@ -227,7 +227,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".js-admin-logout").on("click", fn.logout);
 
 					jQuery('.main-content').css("padding-top", jQuery('nav').height());
-					
+
 					jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
 
 					var url = new URL(window.location);
@@ -254,12 +254,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							else if (path[2] && Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
 								$scope.checkAuthStatus(function () {
 									$http({
-										url: "/admin/api/1/projects/"+path[2],
+										url: global.apiBase + "projects/" + path[2],
 										method: "GET"
 									}).then(function (result){
 										if (result.data.meta.ok && result.data.rows.length > 0) {
 											$scope.selectProject(result.data.rows[0]);
 											$scope.setUpEditProject();
+											fn.hideLoading();
 										}
 									});
 								});
@@ -481,6 +482,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					Colour: "",
 					Pictures: []
 				};
+
+				fn.hideLoading();
 			};
 
 			$scope.setUpEditProject = function () {
