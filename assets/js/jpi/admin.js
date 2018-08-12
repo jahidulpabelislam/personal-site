@@ -138,9 +138,6 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				showProjects: function () {
-					//make the log in/sign up form not visible
-					jQuery(".login-form-container").hide();
-					jQuery(".nav").show();
 					$scope.getProjectList(1);
 				},
 
@@ -149,6 +146,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					//check if data was valid
 					if (result.data.meta.status && result.data.meta.status == 200) {
+
+						//make the log in/sign up form not visible
+						jQuery(".login-form-container").hide();
+						jQuery(".nav").show();
+
 						$scope.loggedIn = true;
 
 						if (global.redirectTo) {
