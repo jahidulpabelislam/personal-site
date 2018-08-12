@@ -298,6 +298,33 @@ class API {
 		return $results;
 	}
 
+	public function getProjectPicture($projectID, $pictureID) {
+
+		//Check the project trying to get pictures
+		$results = self::getProject($projectID, true);
+		if ($results["count"] > 0) {
+
+			$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID AND ID = :pictureID ORDER BY Number;";
+			$bindings[":projectID"] = $projectID;
+			$bindings[":pictureID"] = $pictureID;
+			$results = $this->db->query($query, $bindings);
+
+			//check if database provided any meta data if so no problem with executing query but no project pictures found
+			if ($results["count"] <= 0 && !isset($result["meta"])) {
+				$results["meta"]["ok"] = false;
+				$results["meta"]["status"] = 404;
+				$results["meta"]["feedback"] = "No project image found with ${$pictureID} as ID for ${projectID} as Project ID.";
+				$results["meta"]["message"] = "Not Found";
+			}
+			else {
+				$results["meta"]["ok"] = true;
+			}
+
+		}
+
+		return $results;
+	}
+
 	//Tries to upload a picture user has tried to add as a project image
 	public function addProjectPicture($data) {
 
