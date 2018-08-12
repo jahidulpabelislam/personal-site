@@ -51,6 +51,8 @@ Temporary Items
 projects/*.zip
 
 node_modules/*
-database-config.php
+config.php
+api/inc/Hasher.php
+api/inc/Auth.php
 
 logs/*

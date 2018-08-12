@@ -12,30 +12,35 @@
         <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
-        <!-- Favicons/Icons for devices -->
-        <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicons/apple-touch-icon-57x57.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicons/apple-touch-icon-60x60.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicons/apple-touch-icon-72x72.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicons/apple-touch-icon-76x76.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicons/apple-touch-icon-114x114.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicons/apple-touch-icon-120x120.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicons/apple-touch-icon-144x144.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicons/apple-touch-icon-152x152.png?v=1"/>
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon-180x180.png?v=1"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v=1"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png?v=1"/>
-        <link rel="manifest" href="/assets/favicons/site.webmanifest?v=1"/>
-        <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg?v=1" color="#0375b4"/>
-        <link rel="shortcut icon" href="/assets/favicons/favicon.ico?v=1"/>
-        <meta name="msapplication-TileColor" content="#f5f5f5"/>
-        <meta name="msapplication-TileImage" content="/assets/favicons/mstile-144x144.png?v=1"/>
-        <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml?v=1"/>
-        <meta name="theme-color" content="#337ab7"/>
+	    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
+
+	    <?php
+		    include $_SERVER['DOCUMENT_ROOT'].'/inc/favicons.php';
+	    ?>
     </head>
 
     <body ng-controller="projectsAdminController" class="admin-page">
 
-        <section>
+	    <nav class="nav nav--dark">
+		    <div class="container nav__wrapper">
+			    <div class="nav__mobile-header">
+				    <button type="button" class="nav__links__toggle">
+					    <span class="screen-reader-text">Toggle navigation</span>
+					    <span class="menu-bar menu-bar--top"></span>
+					    <span class="menu-bar menu-bar--middle"></span>
+					    <span class="menu-bar menu-bar--bottom"></span>
+				    </button>
+			    </div>
+			    <div class="nav__links-container">
+				    <ul class="nav__links clearfix">
+					    <li ng-show="loggedIn"><a href="/admin/" title="Link to Logout Page" class="js-admin-logout">Logout</a></li>
+				    </ul>
+			    </div>
+		    </div>
+	    </nav>
+
+        <section class="main-content">
             <div class="container">
 
                 <div class="select-project-container">
@@ -50,9 +55,9 @@
                     <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div id="selectProjectButtons">
-                        <button ng-if="projects.length > 0" ng-click="setUpEditProject()" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
-                        <button ng-if="projects.length > 0" ng-click="deleteProject()" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
-                        <button ng-click="setUpAddProject()" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
+                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(setUpEditProject)" ng-disabled="!selectedProject.ID" type="button" value="Edit" class="btn btn--blue btn--edit-project" tabindex="3">Edit</button>
+                        <button ng-if="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
+                        <button ng-click="checkAuthStatus(setUpAddProject)" type="button" value="Add Another Project" class="btn btn--green btn--add-project" tabindex="5">Add A Project</button>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
                         <li ng-repeat="page in pages" ng-click="getProjectList(page)" class="pagination__item" ng-class="{'active': page == currentPage}">{{page}}</li>
@@ -64,7 +69,7 @@
 
                     <button ng-click="getProjectList(1)" type="button" value="Back" class="btn btn--orange btn--back" tabindex="6">Back</button>
 
-                    <form id="projectForm" ng-submit="submitProject()">
+                    <form id="projectForm" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 
@@ -105,8 +110,8 @@
                             <option value="purple">Purple</option>
                         </select>
 
-	                    <ul ui-sortable ng-model="selectedProject.pictures" class="project-images ui-state-default">
-		                    <li class="project-image" ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
+	                    <ul ui-sortable ng-model="selectedProject.Pictures" class="project-images ui-state-default">
+		                    <li class="project-image" ng-repeat="picture in selectedProject.Pictures" id="{{picture.File}}">
 			                    <img src="{{picture.File}}">
 			                    <button ng-click="deleteProjectImage(picture)" class="btn btn--red btn--delete-project-img" type="button">X</button>
 		                    </li>
@@ -130,7 +135,7 @@
         </section>
 
         <!-- The drag and drop area -->
-        <section class="drop-zone"><h1 class="drop-zone__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
+        <section class="js-drop-zone fixed-overlay"><h1 class="fixed-overlay__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
 
         <section class="login-form-container">
             <div class="container">
@@ -140,13 +145,16 @@
                     <label for="password">Password</label>
                     <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="jpi.helpers.checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
-                    <p class="feedback feedback--user-form feedback--error" ng-if="userFormFeedback">{{userFormFeedback}}</p>
+                    <p class="feedback feedback--user-form feedback--error" ng-show="userFormFeedback">{{userFormFeedback}}</p>
                     <button type="submit" value="Log In" class="btn btn--green">Log In</button>
                 </form>
             </div>
         </section>
 
-        <!-- The Scripts -->
+	    <!-- The loading area -->
+	    <section class="js-loading fixed-overlay fixed-overlay--loading"><h1 class="fixed-overlay__text"><i class='fa fa-spinner fa-spin'></i></h1></section>
+
+	    <!-- The Scripts -->
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -160,6 +168,8 @@
         <?php else: ?>
         <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
         <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/dragNDrop.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
         <!-- The third party script needed for the page for the sorting of pictures -->
         <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js?v=1"></script>
 
@@ -169,8 +179,5 @@
 
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/jpi/admin.js?v=1"></script>
-
-
-        <script type="text/javascript" src="/assets/js/jpi/dragDrop.js"></script>
     </body>
 </html>

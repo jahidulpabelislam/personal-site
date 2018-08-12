@@ -5,131 +5,136 @@ window.jpi.expandedSlideShow = (function (jQuery) {
 	"use strict";
 
 	//initiates variables
-	var currentSlide = 0,
-			slides = {},
-			expandedImageDivContainer = jQuery(".expanded-slide-show"),
+	var global = {
+		currentSlide: 0,
+		slides: {},
+		expandedImageDivContainer: jQuery(".expanded-slide-show")
+	};
 
-			//changes current slide to new slide
-			changeElement = function (nextSlideId) {
-				jQuery(".expanded-image-slide-show__bullet").removeClass("active");
-				currentSlide = nextSlideId;
+	var fn = {
 
-				if (currentSlide >= slides.length) {
-					currentSlide = 0;
-				}
-				else if (currentSlide < 0) {
-					currentSlide = slides.length - 1;
-				}
+		//changes current slide to new slide
+		changeElement: function (nextSlideId) {
+			jQuery(".expanded-image-slide-show__bullet").removeClass("active");
+			global.currentSlide = nextSlideId;
 
-				var expandedImage = jQuery(".expanded-image.current"),
-						expandedImage2 = jQuery(".expanded-image:not(.current)");
+			if (global.currentSlide >= global.slides.length) {
+				global.currentSlide = 0;
+			}
+			else if (global.currentSlide < 0) {
+				global.currentSlide = global.slides.length - 1;
+			}
 
-				expandedImage2.attr("src", slides[currentSlide].src);
-				expandedImage.removeClass("current");
-				expandedImage2.addClass("current");
-				jQuery(".js-expanded-slide-show-current-count").text((currentSlide + 1).toString());
+			var expandedImage = jQuery(".expanded-image.current"),
+					expandedImage2 = jQuery(".expanded-image:not(.current)");
 
-				jQuery(".expanded-image-slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
-			},
+			expandedImage2.attr("src", global.slides[global.currentSlide].src);
+			expandedImage.removeClass("current");
+			expandedImage2.addClass("current");
+			jQuery(".js-expanded-slide-show-current-count").text((global.currentSlide + 1).toString());
 
-			//sends event to change to next slide
-			next = function () {
-				changeElement(currentSlide + 1);
-			},
+			jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
+		},
 
-			//sends event to change to previous slide
-			previous = function () {
-				changeElement(currentSlide - 1);
-			},
+		//sends event to change to next slide
+		next: function () {
+			fn.changeElement(global.currentSlide + 1);
+		},
 
-			//closes expanded image div
-			close = function () {
+		//sends event to change to previous slide
+		previous: function () {
+			fn.changeElement(global.currentSlide - 1);
+		},
 
-				expandedImageDivContainer.removeClass("active").addClass("hiding");
+		//closes expanded image div
+		close: function () {
 
-				setTimeout(function () {
-					document.body.style.overflow = "auto";
-					expandedImageDivContainer.removeClass("hiding");
-				}, 990);
+			global.expandedImageDivContainer.removeClass("active").addClass("hiding");
 
-				jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
+			setTimeout(function () {
+				document.body.style.overflow = "auto";
+				global.expandedImageDivContainer.removeClass("hiding");
+			}, 990);
 
-				jQuery(".expanded-slide-show__bullets").text("");
-			},
+			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
 
-			//sets up slide show when image is clicked on
-			setUp = function (e) {
-				var expandedImage = jQuery(".expanded-image.current");
+			jQuery(".expanded-slide-show__bullets").text("");
+		},
 
-				//stops all the slide shows
-				jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+		//sets up slide show when image is clicked on
+		setUp: function (e) {
+			var expandedImage = jQuery(".expanded-image.current");
 
-				expandedImageDivContainer.addClass("active");
+			//stops all the slide shows
+			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-				//display the expanded image div
-				expandedImage.attr("src", e.target.src).show();
+			global.expandedImageDivContainer.addClass("active");
 
-				document.body.style.overflow = "hidden";
+			//display the expanded image div
+			expandedImage.attr("src", e.target.src).show();
 
-				//get all slides in slide show
-				var slideShowId = jQuery(e.target).data("slideShowId");
-				slides = jQuery(slideShowId + " .slide");
+			document.body.style.overflow = "hidden";
 
-				//loops through all slide shows images and set up a bullet navigation for each
-				for (var i = 0; i < slides.length; i++) {
+			//get all slides in slide show
+			var slideShowId = jQuery(e.target).data("slideShowId");
+			global.slides = jQuery(slideShowId + " .slide");
 
-					//checks if the current loop is the current image on slideShow
-					if (slides[i] === e.target) {
-						currentSlide = i;
-					}
+			//loops through all slide shows images and set up a bullet navigation for each
+			for (var i = 0; i < global.slides.length; i++) {
 
-					//set up bullet navigation for slide
-					jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {
-						class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
-						"data-slide-id": i
-					});
+				//checks if the current loop is the current image on slideShow
+				if (global.slides[i] === e.target) {
+					global.currentSlide = i;
 				}
 
-				//display the current slide number and slide show length
-				jQuery(".js-expanded-slide-show-current-count").text((currentSlide + 1).toString());
-				jQuery(".js-expanded-slide-show-total-count").text(slides.length);
-
-				//check there are more than one slide show image to slide through
-				if (slides.length > 1) {
-					//set up next and previous buttons
-					jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").show();
-				}
-				//only one slide show image so stop next and previous buttons
-				else {
-					jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").hide();
-				}
-
-				//makes current slides bullet navigation display as active
-				jQuery(".expanded-image-slide-show__bullet:eq(" + currentSlide + ")").addClass("active");
-
-				jQuery(".modal--detailed-project").removeClass("open").hide();
-
-				setTimeout(function () {
-					//display the expanded image div
-					expandedImage.attr("src", "");
-					expandedImage.attr("src", e.target.src);
-				}, 1000);
-			},
-
-			initListeners = function () {
-				jQuery("body").on("click", ".js-expandable-image", setUp);
-
-				jQuery("body").on("click", ".js-expanded-image-bullet", function (e) {
-					changeElement(parseInt(jQuery(e.target).data("slideId")));
+				//set up bullet navigation for slide
+				jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {
+					class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
+					"data-slide-id": i
 				});
+			}
 
-				//add listener for when the user wants to close expanded image
-				jQuery(".expanded-slide-show__close").click(close);
+			//display the current slide number and slide show length
+			jQuery(".js-expanded-slide-show-current-count").text((global.currentSlide + 1).toString());
+			jQuery(".js-expanded-slide-show-total-count").text(global.slides.length);
 
-				jQuery(".js-expanded-slide-show-next").click(next);
-				jQuery(".js-expanded-slide-show-previous").click(previous);
-			};
+			//check there are more than one slide show image to slide through
+			if (global.slides.length > 1) {
+				//set up next and previous buttons
+				jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").show();
+			}
+			//only one slide show image so stop next and previous buttons
+			else {
+				jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").hide();
+			}
 
-	jQuery(document).on("ready", initListeners);
+			//makes current slides bullet navigation display as active
+			jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
+
+			jQuery(".modal--detailed-project").removeClass("open").hide();
+
+			setTimeout(function () {
+				//display the expanded image div
+				expandedImage.attr("src", "");
+				expandedImage.attr("src", e.target.src);
+			}, 1000);
+		},
+
+		initListeners: function () {
+			jQuery("body").on("click", ".js-expandable-image", fn.setUp);
+
+			jQuery("body").on("click", ".js-expanded-image-bullet", function (e) {
+				fn.changeElement(parseInt(jQuery(e.target).data("slideId")));
+			});
+
+			//add listener for when the user wants to close expanded image
+			jQuery(".expanded-slide-show__close").click(fn.close);
+
+			jQuery(".js-expanded-slide-show-next").click(fn.next);
+			jQuery(".js-expanded-slide-show-previous").click(fn.previous);
+		}
+	};
+
+	jQuery(document).on("ready", fn.initListeners);
 
 }(jQuery));

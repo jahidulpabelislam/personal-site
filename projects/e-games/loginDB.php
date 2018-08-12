@@ -38,7 +38,7 @@ session_start();
 
 					//echo "You typed " . $username . " " . $password;//shows what user typed in for confirmation
 
-					$con = mysqli_connect (IP, USERNAME, PASSWORD);//gets login details for mysql
+					$con = mysqli_connect (DB_IP, DB_USERNAME, DB_PASSWORD);//gets login details for mysql
 
 					if (!$con)
                     {
@@ -48,7 +48,7 @@ session_start();
                         die('Could not connect.');
                     }
 
-					mysqli_select_db($con, DATABASENAME);//gets database from mysql
+					mysqli_select_db($con, DB_NAME);//gets database from mysql
 
 					//searches the table for record that has the same username as the one that has been typed
                     $query = $con->prepare("SELECT * FROM egamesuser WHERE Username = ?;");

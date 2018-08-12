@@ -22,10 +22,10 @@ class pdodb
      */
     public function __construct()
     {
-        $dsn = "mysql:host=" . IP . ";dbname=" . DATABASENAME . ";charset-UTF-8";
+        $dsn = "mysql:host=" . DB_IP . ";dbname=" . DB_NAME . ";charset-UTF-8";
         $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
         try {
-            $this->db = new PDO($dsn, USERNAME, PASSWORD, $option);
+            $this->db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
         } catch (PDOException $failure) {
             if (defined("DEBUG") && DEBUG) {
                 echo 'Connection failed: ' . $failure->getMessage();

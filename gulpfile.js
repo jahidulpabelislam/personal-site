@@ -25,6 +25,8 @@ var scripts = {
 	admin: [
 		"assets/js/jpi/helpers.js",
 		"assets/js/jpi/stickyFooter.js",
+		"assets/js/jpi/dragNDrop.js",
+		"assets/js/jpi/nav.js",
 		"assets/js/third-party/jquery-ui.min.js",
 		"assets/js/third-party/sortable.js"
 	]
@@ -70,8 +72,7 @@ gulp.task('sass', function () {
 });
 // Watch Files For Changes
 gulp.task('watch', function () {
-	gulp.watch('assets/css/**/*.scss', ['sass', 'styles']);
-	gulp.watch('assets/js/**/*.js', ['scripts']);
+	gulp.watch('assets/css/**/*.scss', ['sass']);
 });
 
 gulp.task("default", ["scripts", "styles"]);

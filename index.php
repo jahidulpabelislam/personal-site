@@ -87,15 +87,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <a class="btn" href="/projects/">View All My Work</a>
                 </div>
 
-                <div class="article article--blue article--50-50">
-                    <div class="container">
-                        <div class="article-50" style="margin: auto;">
-                            <p class="article__header">&ldquo; He a lovely guy &bdquo;</p>
-                            <p style="text-align: right; font-style: italic">- Kerry Tan: Manager/Director</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="article article--green">
                     <div class="container">
                         <div class="stats">
@@ -118,12 +109,6 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                     </div>
                 </div>
-
-				<?php /*<div class="article">
-                    <div class="container">
-                        <h3 class="article__header">Instagram</h3>
-                    </div>
-                </div> */ ?>
 
                 <div class="article article--50-50">
                     <div class="container">

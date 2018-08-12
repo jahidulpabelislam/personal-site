@@ -1,6 +1,6 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
-$con = mysqli_connect(IP, USERNAME, PASSWORD);
+$con = mysqli_connect(DB_IP, DB_USERNAME, DB_PASSWORD);
 if(!$con)
 {
     if (defined("DEBUG") && DEBUG) {
@@ -10,7 +10,7 @@ if(!$con)
 }
 
 
-mysqli_select_db($con, DATABASENAME);
+mysqli_select_db($con, DB_NAME);
 
 /*This selects the database (Login) on the mySQL server. Note use the name of your database.*/
 
