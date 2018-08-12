@@ -276,15 +276,20 @@ angular.module('projectsAdmin', ['ui.sortable'])
 								}, "project/" + path[2] + "/edit");
 							}
 						}
-						else if (root === "login") {
-							fn.showLoginForm([], null, '');
-						}
 						else {
-							$scope.checkAuthStatus(fn.showProjects, null, '');
+							$scope.checkAuthStatus(function () {
+								global.url.pathname = global.baseURL + "projects/1/";
+								history.pushState(null, null, global.url.toString());
+								fn.showProjects();
+							}, null, '');
 						}
 					}
 					else {
-						$scope.checkAuthStatus(fn.showProjects, null, '');
+						$scope.checkAuthStatus(function () {
+							global.url.pathname = global.baseURL + "projects/1/";
+							history.pushState(null, null, global.url.toString());
+							fn.showProjects();
+						}, null, '');
 					}
 				},
 
