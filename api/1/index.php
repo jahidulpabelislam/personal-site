@@ -46,7 +46,12 @@ switch ($path[0]) {
 				if (isset($path[1]) && trim($path[1]) !== "") {
 					$projectID = $path[1];
 					if (isset($path[2]) && $path[2] === "pictures") {
-						$results = $api->getProjectPictures($projectID);
+						if (isset($path[3]) && $path[3] !== "") {
+							$results = $api->getProjectPicture($projectID, $path[3]);
+						}
+						else {
+							$results = $api->getProjectPictures($projectID);
+						}
 					}
 					else {
 						$results = $api->getProject($projectID);

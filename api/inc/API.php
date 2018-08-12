@@ -313,7 +313,7 @@ class API {
 			if ($results["count"] <= 0 && !isset($result["meta"])) {
 				$results["meta"]["ok"] = false;
 				$results["meta"]["status"] = 404;
-				$results["meta"]["feedback"] = "No project image found with ${$pictureID} as ID for ${projectID} as Project ID.";
+				$results["meta"]["feedback"] = "No project image found with ${pictureID} as ID for ${projectID} as Project ID.";
 				$results["meta"]["message"] = "Not Found";
 			}
 			else {
