@@ -153,15 +153,14 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						$scope.loggedIn = true;
 
-						if (global.redirectTo) {
-							global.url.pathname = global.baseURL + global.redirectTo;
-							history.pushState(null, null, global.url.toString());
-							fn.loadApp();
-							global.redirectTo = null;
+						if (!global.redirectTo) {
+							global.redirectTo = "projects/1/";
 						}
-						else {
-							fn.showProjects();
-						}
+
+						global.url.pathname = global.baseURL + global.redirectTo;
+						history.pushState(null, null, global.url.toString());
+						fn.loadApp();
+						global.redirectTo = null;
 					}
 					//check if feedback was provided or generic error message
 					else {
