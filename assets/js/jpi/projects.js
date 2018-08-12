@@ -301,7 +301,7 @@ window.jpi.projects = (function (jQuery) {
 
 		//set up page
 		initListeners: function () {
-			jQuery(".search-form").on("submit", doSearch);
+			jQuery(".search-form").on("submit", fn.doSearch);
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
 				jQuery(".search-input")[0].value = e.target.innerHTML;
