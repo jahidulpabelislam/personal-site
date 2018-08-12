@@ -16,7 +16,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 		.controller('projectsAdminController', function ($scope, $http) {
 
 			var global = {
-				apiBase: "/admin/api/1/"
+				apiBase: "/api/1/"
 			};
 
 			var fn = {
@@ -49,16 +49,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					var feedbackClass = "feedback--error";
 
 					//check if the deletion of project image has been processed
-					if (result.data.rows && result.data.rows.file) {
+					if (result.data.rows && result.data.rows.id) {
 
 						var i = 0, found = false;
 						//find and remove the image
-						for (i = 0; i < $scope.selectedProject.pictures.length; i++) {
-							if ($scope.selectedProject.pictures[i]["File"] === result.data.rows.file) {
-								var pictureToDelete = $scope.selectedProject.pictures[i];
-								var index = $scope.selectedProject.pictures.indexOf(pictureToDelete);
+						for (i = 0; i < $scope.selectedProject.Pictures.length; i++) {
+							if ($scope.selectedProject.Pictures[i]["ID"] === result.data.rows.id) {
+								var pictureToDelete = $scope.selectedProject.Pictures[i];
+								var index = $scope.selectedProject.Pictures.indexOf(pictureToDelete);
 								if (index > -1) {
-									$scope.selectedProject.pictures.splice(index, 1);
+									$scope.selectedProject.Pictures.splice(index, 1);
 								}
 								found = true;
 								break;
@@ -246,7 +246,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				Download: "",
 				Date: "",
 				Colour: "",
-				pictures: []
+				Pictures: []
 			};
 
 			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
@@ -287,11 +287,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					//add the picture
 					form.append("picture", upload.file);
 
-					$http.post(global.apiBase + "pictures/" + $scope.selectedProject.ID, form, {
+					$http.post(global.apiBase + "projects/" + $scope.selectedProject.ID + "/pictures/", form, {
 						transformRequest: angular.identity,
 						headers: {'Content-Type': undefined, 'Process-Data': false}
 					}).then(function (result) {
-						$scope.selectedProject.pictures.push(result.data.rows[0]);
+						$scope.selectedProject.Pictures.push(result.data.rows[0]);
 						var index = $scope.uploads.indexOf(upload);
 						if (index > -1) {
 							$scope.uploads.splice(index, 1);
@@ -344,11 +344,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				$scope.checkAuthStatus(function () {
 					$http({
-						url: global.apiBase + "pictures/" + projectImage.ProjectID,
-						method: "POST",
-						params: {
-							file: projectImage.File
-						}
+						url: global.apiBase + "projects/" + projectImage.ProjectID + "/pictures/" + projectImage.ID,
+						method: "DELETE"
 					}).then(fn.deletedProjectImage, function (result) {
 						var message = fn.addFeedback(result, "Error deleting the Project Image.");
 						fn.showErrorMessage(message, "feedback--error");
@@ -380,17 +377,19 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val());
 
 				if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
+					var method = "PUT";
 					if (!$scope.selectedProject.ID) {
 						$scope.selectedProject.ID = "";
+						method = "POST";
 					}
 
-					$scope.selectedProject.pictures.forEach(function (picture, i) {
+					$scope.selectedProject.Pictures.forEach(function (picture, i) {
 						picture.Number = i + 1;
 					});
 
 					$http({
-						url: "/admin/api/1/projects/" + $scope.selectedProject.ID,
-						method: "POST",
+						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
+						method: method,
 						params: {
 							projectName: $scope.selectedProject.Name,
 							skills: $scope.selectedProject.Skills.join(","),
@@ -401,7 +400,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							download: $scope.selectedProject.Download,
 							date: $scope.selectedProject.Date,
 							colour: $scope.selectedProject.Colour,
-							pictures: angular.toJson($scope.selectedProject.pictures)
+							pictures: angular.toJson($scope.selectedProject.Pictures)
 						}
 					}).then(function (result) {
 						result.data.rows[0].Date = new Date(result.data.rows[0].Date);
@@ -440,7 +439,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					Download: "",
 					Date: "",
 					Colour: "",
-					pictures: []
+					Pictures: []
 				};
 			};
 
@@ -466,8 +465,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				if ($scope.selectedProject && $scope.selectedProject.ID) {
 					$http({
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
-						method: "POST",
-						params: {method: "DELETE"}
+						method: "DELETE"
 					}).then(fn.renderProjectDelete, function (result) {
 						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
 						fn.hideLoading();

@@ -74,19 +74,19 @@ window.jpi.projects = (function (jQuery) {
 					slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
 			//loop through each row of data in rows
-			for (var i = 0; i < project.pictures.length; i++) {
+			for (var i = 0; i < project.Pictures.length; i++) {
 
-				if (project.pictures.hasOwnProperty(i)) {
+				if (project.Pictures.hasOwnProperty(i)) {
 
 					var slideTemplate = jQuery('#tmpl-slide-template').text();
 					var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
-					for (var data in project.pictures[i]) {
-						if (project.pictures[i].hasOwnProperty(data)) {
+					for (var data in project.Pictures[i]) {
+						if (project.Pictures[i].hasOwnProperty(data)) {
 							if (typeof data === "string") {
 								var reg = new RegExp("{{" + data + "}}", "g");
-								slideTemplate = slideTemplate.replace(reg, project.pictures[i][data]);
-								bulletTemplate = bulletTemplate.replace(reg, project.pictures[i][data]);
+								slideTemplate = slideTemplate.replace(reg, project.Pictures[i][data]);
+								bulletTemplate = bulletTemplate.replace(reg, project.Pictures[i][data]);
 							}
 						}
 					}
@@ -102,7 +102,7 @@ window.jpi.projects = (function (jQuery) {
 				}
 			}
 
-			if (project.pictures.length > 0) {
+			if (project.Pictures.length > 0) {
 				jpi.slideShow.setUp(slideShowId);
 			}
 		},
@@ -168,9 +168,9 @@ window.jpi.projects = (function (jQuery) {
 				}
 				jQuery(".projects").append(template);
 
-				addSkills(project, "#project--" + project.ID);
-				addLinks(project, "#project--" + project.ID);
-				addProjectPictures(project, "#slide-show--" + project.ID);
+				fn.addSkills(project, "#project--" + project.ID);
+				fn.addLinks(project, "#project--" + project.ID);
+				fn.addProjectPictures(project, "#slide-show--" + project.ID);
 
 				jQuery("#project--" + project.ID + " .js-open-modal").data("projectData", project);
 			}
@@ -190,7 +190,7 @@ window.jpi.projects = (function (jQuery) {
 
 				var page = 1,
 						ul = jQuery(".pagination")[0],
-						path = url.pathname.substring(1).split('/');
+						path = global.url.pathname.substring(1).split('/');
 
 				if (Number.isInteger(parseInt(path[1]))) {
 					var currentPage = parseInt(path[1]);
@@ -236,7 +236,7 @@ window.jpi.projects = (function (jQuery) {
 			//send request to get projects
 			jpi.ajax.sendRequest({
 				method: "GET",
-				url: "/admin/api/1/projects/",
+				url: "/api/1/projects/",
 				query: query,
 				load: fn.gotProjects,
 				error: fn.renderError
@@ -301,7 +301,7 @@ window.jpi.projects = (function (jQuery) {
 
 		//set up page
 		initListeners: function () {
-			jQuery(".search-form").on("submit", doSearch);
+			jQuery(".search-form").on("submit", fn.doSearch);
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
 				jQuery(".search-input")[0].value = e.target.innerHTML;

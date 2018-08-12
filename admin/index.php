@@ -110,8 +110,8 @@
                             <option value="purple">Purple</option>
                         </select>
 
-	                    <ul ui-sortable ng-model="selectedProject.pictures" class="project-images ui-state-default">
-		                    <li class="project-image" ng-repeat="picture in selectedProject.pictures" id="{{picture.File}}">
+	                    <ul ui-sortable ng-model="selectedProject.Pictures" class="project-images ui-state-default">
+		                    <li class="project-image" ng-repeat="picture in selectedProject.Pictures" id="{{picture.File}}">
 			                    <img src="{{picture.File}}">
 			                    <button ng-click="deleteProjectImage(picture)" class="btn btn--red btn--delete-project-img" type="button">X</button>
 		                    </li>
