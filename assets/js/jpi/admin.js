@@ -111,7 +111,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					document.title = "Projects (" + $scope.currentPage + ") - JPI Admin";
 					jQuery(".project-form-container").hide();
 
-					jQuery(".select-project-container, .nav").show();
+					jQuery(".select-project-container, .nav, .btn--add-project").show();
 
 					$scope.selectedProject = undefined;
 
@@ -272,6 +272,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 											$scope.setUpEditProject();
 											fn.hideLoading();
 										}
+									}, function (result) {
+										$scope.selectProjectFeedback = fn.addFeedback(result, "Sorry, no Project found with ID: " + path[2] + ".");
+										jQuery(".select-project-container, .nav").show();
+										jQuery(".btn--add-project").hide();
+										fn.hideLoading()
 									});
 								}, "project/" + path[2] + "/edit");
 							}
