@@ -272,19 +272,25 @@ class API {
 
 	public function getPictures($projectID) {
 
-		$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
-		$bindings[":projectID"] = $projectID;
-		$results = $this->db->query($query, $bindings);
+		//Check the project trying to edit actually exists
+		$results = self::getProject($projectID);
+		if ($results["count"] > 0) {
 
-		//check if database provided any meta data if so no problem with executing query but no project pictures found
-		if ($results["count"] <= 0 && !isset($result["meta"])) {
-			$results["meta"]["ok"] = false;
-			$results["meta"]["status"] = 404;
-			$results["meta"]["feedback"] = "No project found with ${projectID} as ID.";
-			$results["meta"]["message"] = "Not Found";
-		}
-		else {
-			$results["meta"]["ok"] = true;
+			$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
+			$bindings[":projectID"] = $projectID;
+			$results = $this->db->query($query, $bindings);
+
+			//check if database provided any meta data if so no problem with executing query but no project pictures found
+			if ($results["count"] <= 0 && !isset($result["meta"])) {
+				$results["meta"]["ok"] = false;
+				$results["meta"]["status"] = 404;
+				$results["meta"]["feedback"] = "No project images found for ${projectID}.";
+				$results["meta"]["message"] = "Not Found";
+			}
+			else {
+				$results["meta"]["ok"] = true;
+			}
+
 		}
 
 		return $results;
