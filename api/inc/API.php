@@ -27,7 +27,7 @@ class API {
 	}
 
 	//get a particular project defined by $projectID
-	public function getProject($projectID) {
+	public function getProject($projectID, $projectOnly = false) {
 
 		$query = "SELECT * FROM portfolioproject WHERE ID = :projectID;";
 		$bindings = array(':projectID' => $projectID);
@@ -41,8 +41,10 @@ class API {
 			$result["meta"]["message"] = "Not Found";
 		}
 		else {
-			$picturesArray = self::getPictures($projectID);
-			$result["rows"][0]["Pictures"] = $picturesArray["rows"];
+			if (!$projectOnly) {
+				$picturesArray = self::getPictures($projectID);
+				$result["rows"][0]["Pictures"] = $picturesArray["rows"];
+			}
 
 			$result["meta"]["ok"] = true;
 		}
@@ -272,8 +274,8 @@ class API {
 
 	public function getPictures($projectID) {
 
-		//Check the project trying to edit actually exists
-		$results = self::getProject($projectID);
+		//Check the project trying to get pictures
+		$results = self::getProject($projectID, true);
 		if ($results["count"] > 0) {
 
 			$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
