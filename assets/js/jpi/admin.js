@@ -267,7 +267,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							}
 						}
 						else if (root === "login") {
-							fn.showLoginForm();
+							fn.showLoginForm([], '');
 						}
 					}
 				},
