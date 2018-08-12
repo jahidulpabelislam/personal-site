@@ -168,9 +168,9 @@ window.jpi.projects = (function (jQuery) {
 				}
 				jQuery(".projects").append(template);
 
-				addSkills(project, "#project--" + project.ID);
-				addLinks(project, "#project--" + project.ID);
-				addProjectPictures(project, "#slide-show--" + project.ID);
+				fn.addSkills(project, "#project--" + project.ID);
+				fn.addLinks(project, "#project--" + project.ID);
+				fn.addProjectPictures(project, "#slide-show--" + project.ID);
 
 				jQuery("#project--" + project.ID + " .js-open-modal").data("projectData", project);
 			}
