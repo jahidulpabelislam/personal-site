@@ -167,7 +167,7 @@
     color: colour(blue, main);
 }
 
-.nav__links > li.active > a {
+.nav__links li .active {
     background-color: colour(blue, main);
     color: white;
 }
@@ -259,7 +259,7 @@
         border-bottom-color: colour(blue, main);
     }
 
-    .nav__links > li.active > a {
+    .nav__links li .active {
         border-bottom-color: colour(blue, main);
     }
 

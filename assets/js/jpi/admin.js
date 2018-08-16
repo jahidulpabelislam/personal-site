@@ -138,6 +138,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					document.title = "Add New Project" + global.titlePostfix;
 
 					$scope.selectProjectFeedback = "";
+
+					jQuery(".nav .js-admin-projects").removeClass("active");
+					jQuery(".nav .js-admin-new-project").addClass("active");
+
 					fn.setUpProjectForm();
 
 					fn.initNewProject();
@@ -165,6 +169,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".project-form-container").hide();
 
 					jQuery(".select-project-container, .nav, .btn--add-project").show();
+
+					jQuery(".nav .js-admin-projects").addClass("active");
+					jQuery(".nav .js-admin-new-project").removeClass("active");
 
 					$scope.selectedProject = undefined;
 

@@ -745,7 +745,7 @@ label {
 .nav__links > li > a:hover {
   color: #0375b4; }
 
-.nav__links > li.active > a {
+.nav__links li .active {
   background-color: #0375b4;
   color: white; }
 
@@ -805,7 +805,7 @@ label {
     border-bottom: solid transparent 2px; }
   .nav__links > li > a:hover {
     border-bottom-color: #0375b4; }
-  .nav__links > li.active > a {
+  .nav__links li .active {
     border-bottom-color: #0375b4; }
   .nav__social-links .social-link__img.social-link__img {
     margin: 5px 2px; }
