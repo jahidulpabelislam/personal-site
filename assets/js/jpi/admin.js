@@ -1,4 +1,5 @@
 angular.module('projectsAdmin', ['ui.sortable'])
+
 		.directive("fileUpload", function () {
 			return {
 				restrict: 'A',
@@ -13,16 +14,25 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 		})
+
 		.controller('projectsAdminController', function ($scope, $http) {
 
+			/*
+			* Any global variables used in multiple places with JS
+			 */
 			var global = {
 				apiBase: "/api/1/",
 				url: new URL(window.location),
 				baseURL: "admin/",
-				redirectTo: null
+				redirectTo: null,
+				titlePostfix: " - JPI Admin"
 			};
 
+			/*
+			* Any Functions only used within JS
+			 */
 			var fn = {
+
 				addFeedback: function (result, genericFeedback) {
 					if (result && result.data && result.data.meta && result.data.meta.feedback) {
 						return result.data.meta.feedback;
@@ -86,7 +96,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					//check if project delete has been processed
 					if (result.data.rows && result.data.rows.projectID) {
 
-						$scope.getProjectList(1);
+						fn.getProjectList(1);
 					} else {
 						//else check if there if feedback to print
 						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
@@ -107,8 +117,51 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jpi.footer.delayExpand();
 				},
 
+				setUpEditProject: function () {
+
+					$scope.selectProjectFeedback = "";
+
+					if ($scope.selectedProject && $scope.selectedProject.ID) {
+						document.title = "Edit Project (" + $scope.selectedProject.ID + ")" + global.titlePostfix;
+
+						jpi.dnd.setUp();
+						fn.setUpProjectForm();
+						$(".project-images-uploads").sortable();
+						$(".project-images-uploads").disableSelection();
+					} else {
+						$scope.selectProjectFeedback = "Select A Project To Update.";
+					}
+				},
+
+				setUpAddProject: function () {
+
+					document.title = "Add New Project" + global.titlePostfix;
+
+					$scope.selectProjectFeedback = "";
+					fn.setUpProjectForm();
+
+					fn.initNewProject();
+
+					fn.hideLoading();
+				},
+
+				initNewProject: function () {
+					$scope.selectedProject = {
+						Name: "",
+						Skills: [],
+						LongDescription: "",
+						ShortDescription: "",
+						Link: "",
+						GitHub: "",
+						Download: "",
+						Date: "",
+						Colour: "",
+						Pictures: []
+					};
+				},
+
 				gotProjects: function (result) {
-					document.title = "Projects (" + $scope.currentPage + ") - JPI Admin";
+					document.title = "Projects (" + $scope.currentPage + ")" + global.titlePostfix;
 					jQuery(".project-form-container").hide();
 
 					jQuery(".select-project-container, .nav, .btn--add-project").show();
@@ -137,8 +190,47 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					fn.hideLoading();
 				},
 
-				showProjects: function () {
-					$scope.getProjectList(1);
+				getProjectList: function (page, addToHistory) {
+					fn.showLoading();
+
+					$scope.selectProjectFeedback = "";
+
+					$scope.currentPage = page;
+
+					jpi.dnd.stop();
+
+					if (addToHistory !== false) {
+						global.url.pathname = global.baseURL + "projects/" + page + "/";
+						history.pushState(null, null, global.url.toString());
+					}
+
+					//Sends a object with necessary data to XHR
+					$http({
+						url: global.apiBase + "projects",
+						method: "GET",
+						params: {page: $scope.currentPage}
+					}).then(fn.gotProjects, function (result) {
+						$scope.selectProjectFeedback = fn.addFeedback(result, "Error getting projects.");
+						fn.hideLoading();
+					});
+				},
+
+				getAndEditProject: function (id) {
+					$http({
+						url: global.apiBase + "projects/" + id,
+						method: "GET"
+					}).then(function (result) {
+						if (result.data.meta.ok && result.data.rows.length > 0) {
+							$scope.selectProject(result.data.rows[0]);
+							fn.setUpEditProject();
+							fn.hideLoading();
+						}
+					}, function (result) {
+						$scope.selectProjectFeedback = fn.addFeedback(result, "Sorry, no Project found with ID: " + id + ".");
+						jQuery(".select-project-container, .nav").show();
+						jQuery(".btn--add-project").hide();
+						fn.hideLoading()
+					});
 				},
 
 				//after user has attempted to log in
@@ -172,7 +264,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				showLoginForm: function (result, redirectTo, messageOverride) {
 
-					document.title = "Login - JPI Admin";
+					document.title = "Login" + global.titlePostfix;
 
 					jQuery(".select-project-container, .project-form-container, .nav").hide();
 					jQuery(".login-form-container").show();
@@ -240,70 +332,53 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					});
 				},
 
+				initialLogin: function () {
+					$scope.checkAuthStatus(function () {
+						fn.getProjectList(1);
+					}, null, '');
+				},
+
 				loadApp: function () {
 					var path = global.url.pathname.substring(1).split('/');
 
-					if (path[1])
-					{
+					if (path[1]) {
 						var root = path[1];
 
 						//check what page should be shown
 						if (root === "projects") {
 							var pageNum = 1;
 							if (path[2] && Number.isInteger(parseInt(path[2]))) {
-								pageNum = path[2];
+								pageNum = parseInt(path[2], 10);
 							}
 							$scope.checkAuthStatus(function () {
-								$scope.getProjectList(pageNum);
+								fn.getProjectList(pageNum, false);
 							}, "projects/" + pageNum + "/");
 						}
 						else if (root === "project" && path[2]) {
 							if (path[2] === "add") {
-								$scope.checkAuthStatus($scope.setUpAddProject, "project/add/");
+								$scope.checkAuthStatus(fn.setUpAddProject, "project/add/");
 							}
-							else if (Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit"){
+							else if (Number.isInteger(parseInt(path[2])) && path[3] && path[3] === "edit") {
 								$scope.checkAuthStatus(function () {
-									$http({
-										url: global.apiBase + "projects/" + path[2],
-										method: "GET"
-									}).then(function (result){
-										if (result.data.meta.ok && result.data.rows.length > 0) {
-											$scope.selectProject(result.data.rows[0]);
-											$scope.setUpEditProject();
-											fn.hideLoading();
-										}
-									}, function (result) {
-										$scope.selectProjectFeedback = fn.addFeedback(result, "Sorry, no Project found with ID: " + path[2] + ".");
-										jQuery(".select-project-container, .nav").show();
-										jQuery(".btn--add-project").hide();
-										fn.hideLoading()
-									});
-								}, "project/" + path[2] + "/edit");
+									fn.getAndEditProject(parseInt(path[2], 10));
+								}, "project/" + parseInt(path[2], 10) + "/edit");
 							}
 						}
 						else {
-							$scope.checkAuthStatus(function () {
-								global.url.pathname = global.baseURL + "projects/1/";
-								history.pushState(null, null, global.url.toString());
-								fn.showProjects();
-							}, null, '');
+							fn.initialLogin();
 						}
 					}
 					else {
-						$scope.checkAuthStatus(function () {
-							global.url.pathname = global.baseURL + "projects/1/";
-							history.pushState(null, null, global.url.toString());
-							fn.showProjects();
-						}, null, '');
+						fn.initialLogin();
 					}
 				},
 
-				initListeners: function() {
+				initListeners: function () {
 					jQuery(".admin-page").on("click", ".js-hide-error", $scope.hideErrorMessage);
 
 					jQuery(".admin-page").on("click", ".js-admin-logout", fn.logout);
 
-					jQuery(".admin-page").on("click", ".js-admin-projects",function (e) {
+					jQuery(".admin-page").on("click", ".js-admin-projects", function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 
@@ -313,20 +388,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 
 						$scope.checkAuthStatus(function () {
-							global.url.pathname = global.baseURL + "projects/" + page + "/";
-							history.pushState(null, null, global.url.toString());
-							$scope.getProjectList(page);
+							fn.getProjectList(page);
 						}, "projects/" + page + "/");
 					});
 
-					jQuery(".admin-page").on("click", ".js-admin-new-project",function (e) {
+					jQuery(".admin-page").on("click", ".js-admin-new-project", function (e) {
 						e.preventDefault();
 						e.stopPropagation();
 
-						$scope.checkAuthStatus(function(){
+						$scope.checkAuthStatus(function () {
 							global.url.pathname = global.baseURL + "project/add/";
 							history.pushState(null, null, global.url.toString());
-							$scope.setUpAddProject();
+							fn.setUpAddProject();
 						}, "project/add/");
 					});
 
@@ -334,11 +407,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						e.preventDefault();
 						e.stopPropagation();
 
-						$scope.checkAuthStatus(function() {
+						$scope.checkAuthStatus(function () {
 							global.url.pathname = global.baseURL + "project/" + $scope.selectedProject.ID + "/edit";
 							history.pushState(null, null, global.url.toString());
 
-							$scope.setUpEditProject();
+							fn.setUpEditProject();
 						}, "project/" + $scope.selectedProject.ID + "/edit");
 					});
 
@@ -349,8 +422,20 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					});
 				},
 
-				init: function() {
+				initVariables: function () {
+					$scope.loggedIn = false;
+					$scope.projects = $scope.pages = $scope.uploads = [];
+					$scope.currentPage = 1;
+
+					$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
+				},
+
+				init: function () {
 					fn.showLoading();
+
+					fn.initVariables();
+
+					fn.initNewProject();
 
 					fn.initListeners();
 
@@ -362,26 +447,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
-			$scope.loggedIn = false;
-			$scope.projects = $scope.pages = $scope.uploads = [];
-			$scope.currentPage = 1;
 
-			$scope.selectedProject = {
-				Name: "",
-				Skills: [],
-				LongDescription: "",
-				ShortDescription: "",
-				Link: "",
-				GitHub: "",
-				Download: "",
-				Date: "",
-				Colour: "",
-				Pictures: []
-			};
+			/*
+			* Any functions used in HTML (and JS)
+			*/
 
-			$scope.userFormFeedback = $scope.selectProjectFeedback = $scope.projectFormFeedback = $scope.skillInput = "";
 
-			$scope.checkAuthStatus = function(successFunc, redirectTo, messageOverride) {
+			$scope.checkAuthStatus = function (successFunc, redirectTo, messageOverride) {
 				$http({
 					url: global.apiBase + "session",
 					method: "GET"
@@ -393,7 +465,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					else {
 						fn.showLoginForm(result, redirectTo, messageOverride);
 					}
-				},  function(result) {
+				}, function (result) {
 					fn.showLoginForm(result, redirectTo, messageOverride);
 				});
 			};
@@ -554,45 +626,6 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
-			$scope.setUpAddProject = function () {
-
-				document.title = "Add New Project - JPI Admin";
-
-				$scope.selectProjectFeedback = "";
-				fn.setUpProjectForm();
-
-				$scope.selectedProject = {
-					Name: "",
-					Skills: [],
-					LongDescription: "",
-					ShortDescription: "",
-					Link: "",
-					GitHub: "",
-					Download: "",
-					Date: "",
-					Colour: "",
-					Pictures: []
-				};
-
-				fn.hideLoading();
-			};
-
-			$scope.setUpEditProject = function () {
-
-				$scope.selectProjectFeedback = "";
-
-				if ($scope.selectedProject && $scope.selectedProject.ID) {
-					document.title = "Edit Project (" + $scope.selectedProject.ID + ") - JPI Admin";
-
-					jpi.dnd.setUp();
-					fn.setUpProjectForm();
-					$(".project-images-uploads").sortable();
-					$(".project-images-uploads").disableSelection();
-				} else {
-					$scope.selectProjectFeedback = "Select A Project To Update.";
-				}
-			};
-
 			$scope.deleteProject = function () {
 
 				fn.showLoading();
@@ -617,30 +650,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			$scope.selectProject = function (project) {
 				$scope.selectedProject = project;
 
-				if (typeof project.Skills == "string")
+				if (typeof project.Skills == "string") {
 					$scope.selectedProject.Skills = project.Skills.split(",");
+				}
 
 				$scope.selectedProject.Date = new Date(project.Date);
-			};
-
-			$scope.getProjectList = function (page) {
-				fn.showLoading();
-
-				$scope.selectProjectFeedback = "";
-
-				$scope.currentPage = page;
-
-				jpi.dnd.stop();
-
-				//Sends a object with necessary data to XHR
-				$http({
-					url: global.apiBase + "projects",
-					method: "GET",
-					params: {page: $scope.currentPage}
-				}).then(fn.gotProjects, function (result) {
-					$scope.selectProjectFeedback = fn.addFeedback(result, "Error getting projects.");
-					fn.hideLoading();
-				});
 			};
 
 			$scope.logIn = function () {
@@ -679,6 +693,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				}
 			};
 
+			/*
+			* Allow some selective functions to be window scoped (So it can be used in other JS files)
+			 */
 			window.jpi = window.jpi || {};
 			window.jpi.admin = {
 				checkFile: $scope.checkFile,
