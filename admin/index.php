@@ -75,7 +75,7 @@
 
                     <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange btn--back js-admin-projects" tabindex="6">Back</a>
 
-                    <form id="projectForm" ng-submit="checkAuthStatus(submitProject)">
+                    <form id="projectForm" class="project-form" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 

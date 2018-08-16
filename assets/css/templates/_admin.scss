@@ -5,7 +5,7 @@
 .admin-page {
 	background-color: $light;
 	margin: auto;
-	text-align: center;
+	text-align: left;
 }
 
 .admin-page .nav {
@@ -19,6 +19,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	text-align: center;
 }
 
 .login-form {
@@ -51,25 +52,26 @@
 	color: white;
 }
 
-.btn--add-project,
+.btn--add-project.btn--add-project,
 .btn--send-project {
 	display: block;
 	margin: 5px auto;
+	font-weight: 400;
 }
 
 .btn--delete-project,
-.btn--edit-project {
+.btn--edit-project.btn--edit-project {
 	margin: 5px auto;
+	font-weight: 400;
 }
 
 .btn--send-project {
 	margin-right: 0;
 }
 
-.btn--back {
-	display: block;
+.btn--back.btn--back {
 	margin-left: 0;
-	margin-top: 5px;
+	margin-top: 15px;
 }
 
 .select-project-form > div > * {
@@ -117,6 +119,7 @@
 .feedback--select-project {
 	padding: 5px;
 	display: block;
+	text-align: center;
 }
 
 .feedback--project-form {
@@ -128,6 +131,7 @@
 	right: 0;
 	margin: 15px;
 	padding: 10px;
+	padding-right: 30px;
 	z-index: 10;
 	opacity: 1;
 	max-height: 50px;
@@ -167,12 +171,16 @@
 
 .select-project-container {
 	display: none;
+	text-align: center;
 }
 
 .project-form-container {
 	display: none;
 }
 
+.project-form {
+	text-align: center;
+}
 .project-images.project-images {
 	padding: 0;
 }
