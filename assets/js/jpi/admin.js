@@ -56,7 +56,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				//render a project image delete
 				deletedProjectImage: function (result) {
-					$scope.projectFormFeedback = '';
+					$scope.hideErrorMessage();
 
 					var message = "Error deleting the Project Image.";
 					var feedbackClass = "feedback--error";
@@ -472,17 +472,13 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 			$scope.hideErrorMessage = function () {
 				jQuery(".feedback--project-form").addClass("hide");
-
-				window.setTimeout(function () {
-					jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
-					$scope.projectFormFeedback = '';
-				}, 500);
 			};
 
 			//send a image to API
 			$scope.sendImage = function (upload) {
 
 				fn.showLoading();
+				$scope.hideErrorMessage();
 
 				$scope.checkAuthStatus(function () {
 					var form = new FormData();
@@ -544,6 +540,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				fn.showLoading();
 
+				$scope.hideErrorMessage();
+
 				$scope.checkAuthStatus(function () {
 					$http({
 						url: global.apiBase + "projects/" + projectImage.ProjectID + "/pictures/" + projectImage.ID,
@@ -569,7 +567,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			$scope.submitProject = function () {
 
 				fn.showLoading();
-				$scope.projectFormFeedback = '';
+				$scope.hideErrorMessage();
 
 				var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
 						projectNameValidation = jpi.helpers.checkInputField(jQuery("#projectName")[0]),
