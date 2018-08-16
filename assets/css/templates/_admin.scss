@@ -217,6 +217,11 @@
 
 .pagination--admin.pagination--admin {
     display: block;
+    list-style: none;
+}
+
+.pagination--admin li{
+    display: inline-block;
 }
 
 .skill-input-group {
