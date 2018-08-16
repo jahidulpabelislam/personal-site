@@ -92,7 +92,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <h3 class="article__header">Follow what I get up to.</h3>
                         </div>
                         <div class="article-50">
-                            <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
+                            <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link">
                                 <span class="social-link__img social-link__img--instagram"><i></i></span>
                                 <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
                             </a>
