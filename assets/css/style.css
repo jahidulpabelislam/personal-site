@@ -1727,7 +1727,7 @@ label {
 .project-form-container {
   display: none; }
 
-.project-images {
+.project-images.project-images {
   padding: 0; }
 
 .project-image {
