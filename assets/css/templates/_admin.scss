@@ -3,42 +3,42 @@
  */
 /* For all devices */
 .admin-page {
-    background-color: $light;
-    margin: auto;
-    text-align: center;
+	background-color: $light;
+	margin: auto;
+	text-align: center;
 }
 
 .admin-page .nav {
-    display: none;
+	display: none;
 }
 
 .login-form-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .login-form {
-    width: 100%;
-    max-width: 330px;
-    margin: auto;
+	width: 100%;
+	max-width: 330px;
+	margin: auto;
 }
 
 .fixed-overlay {
-    z-index: -10;
-    opacity: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    background: transparentize($dark, .4);
-    font-size: 50px;
+	z-index: -10;
+	opacity: 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+	background: transparentize($dark, .4);
+	font-size: 50px;
 	line-height: 60px;
-    transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
+	transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
 }
 
 .fixed-overlay--loading {
@@ -47,34 +47,34 @@
 }
 
 .fixed-overlay__text {
-    margin: auto;
-    color: white;
+	margin: auto;
+	color: white;
 }
 
 .btn--add-project,
 .btn--send-project {
-    display: block;
-    margin: 5px auto;
+	display: block;
+	margin: 5px auto;
 }
 
 .btn--delete-project,
 .btn--edit-project {
-    margin: 5px auto;
+	margin: 5px auto;
 }
 
 .btn--send-project {
-    margin-right: 0;
+	margin-right: 0;
 }
 
 .btn--back {
-    display: block;
-    margin-left: 0;
-    margin-top: 5px;
+	display: block;
+	margin-left: 0;
+	margin-top: 5px;
 }
 
 .select-project-form > div > * {
-    vertical-align: middle;
-    margin: 5px;
+	vertical-align: middle;
+	margin: 5px;
 }
 
 .selectproject__option label,
@@ -83,57 +83,57 @@
 }
 
 .project-images-uploads {
-    margin: 10px 0;
+	margin: 10px 0;
 }
 
 .upload {
-    margin: 10px auto;
-    padding: 5px;
-    @include border-radius(6px);
-    background-color: white;
+	margin: 10px auto;
+	padding: 5px;
+	@include border-radius(6px);
+	background-color: white;
 }
 
 .upload--success {
-    border: solid $primary-color;
+	border: solid $primary-color;
 }
 
 .upload--success * {
-    display: inline-block;
-    vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .upload--success img {
-    max-width: 100%;
-    max-height: 200px;
+	max-width: 100%;
+	max-height: 200px;
 }
 
 .upload--failed {
-    border: solid darken($error, 5%);
-    color: $error;
+	border: solid darken($error, 5%);
+	color: $error;
 }
 
 .feedback--user-form,
 .feedback--project-form,
 .feedback--select-project {
-    padding: 5px;
-    display: block;
+	padding: 5px;
+	display: block;
 }
 
 .feedback--project-form {
-    position: fixed;
-    color: white;
+	position: fixed;
+	color: white;
 	background: white;
 	border: 1px solid white;
-    left: 0;
-    right: 0;
-    margin: 15px;
-    padding: 10px;
-    z-index: 10;
+	left: 0;
+	right: 0;
+	margin: 15px;
+	padding: 10px;
+	z-index: 10;
 	opacity: 1;
 	max-height: 50px;
 	transition: opacity 0.5s ease-in-out,
-		padding 0.5s ease-in-out 0.5s,
-		max-height 0.5s ease-in-out 0.5s;
+	padding 0.5s ease-in-out 0.5s,
+	max-height 0.5s ease-in-out 0.5s;
 }
 
 .feedback--project-form.hide {
@@ -143,13 +143,13 @@
 }
 
 .feedback--project-form.feedback--error {
-    border-color: $error;
-    background: $error;
+	border-color: $error;
+	background: $error;
 }
 
 .feedback--project-form.feedback--success {
 	border-color: $success;
-    background: $success;
+	background: $success;
 }
 
 .projectform__hide-error {
@@ -161,159 +161,160 @@
 }
 
 .feedback--user-form {
-    text-align: center;
-    margin: 5px;
+	text-align: center;
+	margin: 5px;
 }
 
 .select-project-container {
-    display: none;
+	display: none;
 }
 
 .project-form-container {
-    display: none;
+	display: none;
 }
 
 .project-images {
-    padding: 0;
+	padding: 0;
 }
 
 .project-image {
-    width: 100%;
-    padding: 5px;
-    background-color: white;
-    @include border-radius(4px);
-    margin: 5px 0;
-    position: relative;
-    list-style: none;
+	width: 100%;
+	padding: 5px;
+	background-color: white;
+	@include border-radius(4px);
+	margin: 5px 0;
+	position: relative;
+	list-style: none;
 	border: 1px solid #E0E0E0;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .project-image > img {
-    max-width: 100%;
-    max-height: 200px;
-    height: auto;
+	max-width: 100%;
+	max-height: 200px;
+	height: auto;
 }
 
 .btn--edit-project {
-    display: inline-block;
+	display: inline-block;
 }
 
 .btn--delete-project {
-    display: inline-block;
+	display: inline-block;
 }
 
 .btn--delete-project-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 7px;
-    height: 30px;
-    width: 30px;
-    padding: 0;
-    @include border-radius(50%);
-    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 7px;
+	height: 30px;
+	width: 30px;
+	padding: 0;
+	@include border-radius(50%);
+	@include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
 .pagination--admin.pagination--admin {
-    display: block;
-    list-style: none;
+	display: block;
+	list-style: none;
 }
 
-.pagination--admin li{
-    display: inline-block;
+.pagination--admin li {
+	display: inline-block;
 }
 
 .skill-input-group {
-    position: relative;
+	position: relative;
 }
+
 .skill-input {
-    margin: 0;
-    width: 100%;
+	margin: 0;
+	width: 100%;
 }
 
 .skill-add {
-    position: absolute;
-    right: 0;
-    margin: 0;
-    top: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding: 7px 12px;
+	position: absolute;
+	right: 0;
+	margin: 0;
+	top: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	padding: 7px 12px;
 }
 
 .admin-project-skill {
-    position: relative;
-    border: 1px solid darken($dark, 5%);
-    @include border-radius(5px);
-    padding: 2px 4px;
-    display: inline-block;
-    margin: 2px;
-    @include transition(.4s);
-    background-color: $dark;
-    color: white;
-    cursor: pointer;
+	position: relative;
+	border: 1px solid darken($dark, 5%);
+	@include border-radius(5px);
+	padding: 2px 4px;
+	display: inline-block;
+	margin: 2px;
+	@include transition(.4s);
+	background-color: $dark;
+	color: white;
+	cursor: pointer;
 }
 
 @each $color, $colors in $colors {
-    .admin-project-skill--#{$color} {
-        background-color: map-get($colors, main);
-        border-color: map-get($colors, hover);
-    }
+	.admin-project-skill--#{$color} {
+		background-color: map-get($colors, main);
+		border-color: map-get($colors, hover);
+	}
 }
 
 .delete-skill {
-    margin: 2px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
+	margin: 2px;
+	padding: 0;
+	background-color: transparent;
+	border: none;
 }
 
 .delete-skill:hover,
 .delete-skill:active {
-    background-color: transparent;
+	background-color: transparent;
 }
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
-    .project-images-uploads,
-    .project-form-container {
-        max-width: 640px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	.project-images-uploads,
+	.project-form-container {
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 /* For desktops */
 @media only screen and (min-width: $desktop) {
-    .project-image {
-        width: calc(50% - 5px);
-        display: inline-block;
-    }
+	.project-image {
+		width: calc(50% - 5px);
+		display: inline-block;
+	}
 
-    .project-image:nth-child(odd) {
-        margin: 0 5px 10px 0;
-    }
+	.project-image:nth-child(odd) {
+		margin: 0 5px 10px 0;
+	}
 
-    .project-image:nth-child(even) {
-        margin: 0 0 10px 5px;
-    }
+	.project-image:nth-child(even) {
+		margin: 0 0 10px 5px;
+	}
 
-    .project-image:last-child {
-        margin-bottom: 0;
-    }
+	.project-image:last-child {
+		margin-bottom: 0;
+	}
 
-    .project-image:nth-last-child(2):nth-child(odd) {
-        margin-bottom: 0;
-    }
+	.project-image:nth-last-child(2):nth-child(odd) {
+		margin-bottom: 0;
+	}
 
-    .project-image:last-child:nth-child(odd) {
-        margin-right: 0;
-    }
+	.project-image:last-child:nth-child(odd) {
+		margin-right: 0;
+	}
 
-    .skill-add {
-        padding: 10px 12px;
-    }
+	.skill-add {
+		padding: 10px 12px;
+	}
 }
 
 /*
