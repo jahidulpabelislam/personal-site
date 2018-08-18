@@ -132,14 +132,11 @@
 	border: solid $primary-color;
 }
 
-.project__upload--success * {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 .project__upload--success img {
+	display: block;
 	max-width: 100%;
 	max-height: 200px;
+	margin: 0 auto;
 }
 
 .project__upload--failed {
