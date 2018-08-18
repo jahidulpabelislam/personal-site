@@ -34,13 +34,13 @@
 			    </div>
 			    <div class="nav__links-container">
 				    <ul class="nav__links clearfix">
-					    <li><a href="/admin/projects/1" title="Link to Projects Page" class="js-admin-projects">Projects</a></li>
-					    <li><a href="/admin/project/new" title="Link to New Project Form Page" class="js-admin-new-project">Add Project</a></li>
+					    <li><a href="/admin/projects/1" title="Link to Projects Page" class="js-admin-projects"><span class="screen-reader-text">Projects</span><i class="fa fa-list-ul"></i></a></li>
+					    <li><a href="/admin/project/new" title="Link to New Project Form Page" class="js-admin-new-project"><span class="screen-reader-text">Add A Project</span><i class="fa fa-plus"></i></a></li>
 				    </ul>
 			    </div>
 			    <div class="nav__links-container nav__links-container--left">
 				    <ul class="nav__links clearfix">
-					    <li><a href="/admin/logout" title="Link to Logout Page" class="js-admin-logout">Logout</a></li>
+					    <li><a href="/admin/logout" title="Link to Logout Page" class="js-admin-logout"><span class="screen-reader-text">Logoutt</span><i class="fa fa-times-circle"></i></a></li>
 				    </ul>
 			    </div>
 		    </div>
@@ -61,9 +61,9 @@
                     <p class="feedback feedback--error project-select__feedback" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div>
-                        <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue project-select__edit-button js-admin-edit-project" tabindex="3">Edit</a>
-                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" type="button" value="Delete" class="btn btn--red project-select__delete-button" tabindex="4">Delete</button>
-                        <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green project-select__add-button js-admin-new-project" tabindex="5">Add A Project</a>
+                        <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue project-select__edit-button js-admin-edit-project" tabindex="3"><span class="screen-reader-text">Edit</span><i class="fa fa-edit"></i></a>
+                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" type="button" value="Delete" class="btn btn--red project-select__delete-button" tabindex="4"><span class="screen-reader-text">Delete</span><i class="fa fa-trash"></i></button>
+                        <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green project-select__add-button js-admin-new-project" tabindex="5"><span class="screen-reader-text">Add A Project</span><i class="fa fa-plus"></i></a>
                     </div>
 
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
@@ -74,7 +74,7 @@
                 <div class="project-view">
 	                <p class="feedback project__feedback hide"><span>{{projectFormFeedback}}</span><button class="project__hide-error" ng-click="hideErrorMessage()">X</button></p>
 
-                    <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange project__back-button js-admin-projects" tabindex="6">Back</a>
+	                <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange project__back-button js-admin-projects" tabindex="6"><span class="screen-reader-text">Back</span><i class="fa fa-arrow-circle-left"></i></a>
 
                     <form id="projectForm" class="project__form" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
@@ -89,7 +89,7 @@
                         <div class="project__skill-input-container">
                             <label for="skill-input" class="screen-reader-text">Add skills for project.</label>
                             <input type="text" class="input project__skill-input" id="skill-input" placeholder="HTML5" ng-model="skillInput">
-                            <button class="btn btn--green project__skill-add-button" type="button" id="skill-add" ng-click="addSkill()" type="button">Add</button>
+	                        <button class="btn btn--green project__skill-add-button" type="button" id="skill-add" ng-click="addSkill()" type="button"><span class="screen-reader-text">Add</span><i class="fa fa-plus"></i></button>
                         </div>
 
                         <label for="longDescription">Long Description <span class="required">*</span></label>
@@ -124,7 +124,7 @@
 		                    </li>
 	                    </ul>
 
-	                    <button type="submit" value="Add Project" class="btn btn--green project__save-button" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
+	                    <button type="submit" value="Add Project" class="btn btn--green project__save-button" tabindex="14"><span class="screen-reader-text">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</span><i class="fa fa-upload"></i></button>
 
 	                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15">
 
@@ -133,7 +133,7 @@
 		                    <div ng-repeat="upload in uploads" class="project__upload" ng-class="upload.ok == true ? 'project__upload--success' : 'project__upload--failed'">
 			                    <p>{{upload.text}}</p>
 			                    <img ng-if="upload.ok == true" src="{{upload.image}}">
-			                    <button ng-if="upload.ok == true" ng-click="sendImage(upload)" class="btn btn--red" type="button">Upload This Picture</button>
+			                    <button ng-if="upload.ok == true" ng-click="sendImage(upload)" class="btn btn--red" type="button"><span class="screen-reader-text">Upload This Picture</span><i class="fa fa-upload"></i></button>
 		                    </div>
 	                    </div>
                     </form>

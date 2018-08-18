@@ -1644,20 +1644,13 @@ label {
   text-align: center; }
 
 .project-select__add-button.project-select__add-button {
-  display: block;
-  margin: 5px auto;
-  font-weight: 400;
-  width: fit-content; }
+  margin-top: 10px; }
 
 .project-select__edit-button {
-  display: inline-block;
-  margin: 5px auto;
-  font-weight: 400; }
+  margin-top: 10px; }
 
 .project-select__delete-button {
-  display: inline-block;
-  margin: 5px auto;
-  font-weight: 400; }
+  margin-top: 10px; }
 
 .project-select__option label,
 .project-select__option input {
