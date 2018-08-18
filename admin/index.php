@@ -62,7 +62,7 @@
 
                     <div id="selectProjectButtons">
                         <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue btn--edit-project js-admin-edit-project" tabindex="3">Edit</a>
-                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" ng-disabled="!selectedProject.ID" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
+                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
                         <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green btn--add-project js-admin-new-project" tabindex="5">Add A Project</a>
                     </div>
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
