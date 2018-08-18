@@ -49,46 +49,47 @@
         <section class="main-content">
             <div class="container">
 
-                <div class="select-project-container">
+                <div class="project-select">
 
-                    <div class="select-project-form">
-                        <div ng-repeat="project in projects" class="selectproject__option">
+                    <div class="project-select__form">
+                        <div ng-repeat="project in projects" class="project-select__option">
                             <label ng-click="selectProject(project)" for="{{project.ID}}">{{project.Name}}</label>
                             <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
                         </div>
                     </div>
 
-                    <p class="feedback feedback--select-project feedback--error" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
+                    <p class="feedback feedback--error project-select__feedback" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
-                    <div id="selectProjectButtons">
-                        <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue btn--edit-project js-admin-edit-project" tabindex="3">Edit</a>
-                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" type="button" value="Delete" class="btn btn--red btn--delete-project" tabindex="4">Delete</button>
-                        <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green btn--add-project js-admin-new-project" tabindex="5">Add A Project</a>
+                    <div>
+                        <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue project-select__edit-button js-admin-edit-project" tabindex="3">Edit</a>
+                        <button ng-show="projects.length > 0" ng-click="checkAuthStatus(deleteProject)" type="button" value="Delete" class="btn btn--red project-select__delete-button" tabindex="4">Delete</button>
+                        <a href="/admin/project/new" title="Link to New Project Form Page" class="btn btn--green project-select__add-button js-admin-new-project" tabindex="5">Add A Project</a>
                     </div>
+
                     <ul class="pagination pagination--admin" ng-show="pages.length > 1">
-	                    <li ng-repeat="page in pages"><a href="/admin/projects/{{ page }}" title="Link to Projects Page" class="pagination__item js-admin-projects" ng-class="{'active': page == currentPage}" data-page="{{ page }}">{{ page }}</a></li>
+	                    <li ng-repeat="page in pages" class="pagination__item"><a href="/admin/projects/{{ page }}" title="Link to Projects Page" class="pagination__item-link js-admin-projects" ng-class="{'active': page == currentPage}" data-page="{{ page }}">{{ page }}</a></li>
                     </ul>
                 </div>
 
-                <div class="project-form-container">
-	                <p class="feedback feedback--project-form hide"><span>{{projectFormFeedback}}</span><button class="projectform__hide-error" ng-click="hideErrorMessage()">X</button></p>
+                <div class="project-view">
+	                <p class="feedback project__feedback hide"><span>{{projectFormFeedback}}</span><button class="project__hide-error" ng-click="hideErrorMessage()">X</button></p>
 
-                    <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange btn--back js-admin-projects" tabindex="6">Back</a>
+                    <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange project__back-button js-admin-projects" tabindex="6">Back</a>
 
-                    <form id="projectForm" class="project-form" ng-submit="checkAuthStatus(submitProject)">
+                    <form id="projectForm" class="project__form" ng-submit="checkAuthStatus(submitProject)">
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 
                         <label for="skills">Skills <span class="required">*</span></label>
 
                         <div ng-model="selectedProject.Skills" ui-sortable class="ui-state-default">
-                            <p ng-repeat="skill in selectedProject.Skills" class="admin-project-skill admin-project-skill--{{selectedProject.Colour}}">{{skill}} <button class="btn delete-skill" ng-click="deleteSkill(skill)" type="button">x</button></p>
+                            <p ng-repeat="skill in selectedProject.Skills" class="project__skill project__skill--{{selectedProject.Colour}}">{{skill}} <button class="btn project__skill-delete-button" ng-click="deleteSkill(skill)" type="button">x</button></p>
                         </div>
 
-                        <div class="skill-input-group">
+                        <div class="project__skill-input-container">
                             <label for="skill-input" class="screen-reader-text">Add skills for project.</label>
-                            <input type="text" class="input skill-input"id="skill-input" placeholder="HTML5" ng-model="skillInput">
-                            <button class="btn btn--green skill-add" type="button" id="skill-add" ng-click="addSkill()" type="button">Add</button>
+                            <input type="text" class="input project__skill-input" id="skill-input" placeholder="HTML5" ng-model="skillInput">
+                            <button class="btn btn--green project__skill-add-button" type="button" id="skill-add" ng-click="addSkill()" type="button">Add</button>
                         </div>
 
                         <label for="longDescription">Long Description <span class="required">*</span></label>
@@ -116,20 +117,20 @@
                             <option value="purple">Purple</option>
                         </select>
 
-	                    <ul ui-sortable ng-model="selectedProject.Pictures" class="project-images ui-state-default">
-		                    <li class="project-image" ng-repeat="picture in selectedProject.Pictures" id="{{picture.File}}">
-			                    <img src="{{picture.File}}">
-			                    <button ng-click="deleteProjectImage(picture)" class="btn btn--red btn--delete-project-img" type="button">X</button>
+	                    <ul ui-sortable ng-model="selectedProject.Pictures" class="project__images-container ui-state-default">
+		                    <li class="project__image-container" ng-repeat="picture in selectedProject.Pictures" id="{{picture.File}}">
+			                    <img class="project__image" src="{{picture.File}}">
+			                    <button ng-click="deleteProjectImage(picture)" class="btn btn--red project__image-delete-button" type="button">X</button>
 		                    </li>
 	                    </ul>
 
-	                    <button type="submit" value="Add Project" class="btn btn--green btn--send-project" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
+	                    <button type="submit" value="Add Project" class="btn btn--green project__save-button" tabindex="14">{{selectedProject.ID ? 'Update Project' : 'Add Project'}}</button>
 
 	                    <input ng-if="selectedProject.ID" data-file-Upload type="file" name="imageUpload" id="imageUpload" class="input" multiple accept="image/*" tabindex="15">
 
 	                    <!-- Div containing the uploads -->
-	                    <div class="project-images-uploads">
-		                    <div ng-repeat="upload in uploads" class="upload" ng-class="upload.ok == true ? 'upload--success' : 'upload--failed'">
+	                    <div class="project__uploads">
+		                    <div ng-repeat="upload in uploads" class="project__upload" ng-class="upload.ok == true ? 'project__upload--success' : 'project__upload--failed'">
 			                    <p>{{upload.text}}</p>
 			                    <img ng-if="upload.ok == true" src="{{upload.image}}">
 			                    <button ng-if="upload.ok == true" ng-click="sendImage(upload)" class="btn btn--red" type="button">Upload This Picture</button>
@@ -143,15 +144,15 @@
         <!-- The drag and drop area -->
         <section class="js-drop-zone fixed-overlay"><h1 class="fixed-overlay__text">Drag And Drop Image Here To Upload A Slide for Project</h1></section>
 
-        <section class="login-form-container">
+        <section class="login">
             <div class="container">
-                <form class="login-form" ng-submit="logIn()">
+                <form class="login__form" ng-submit="logIn()">
                     <label for="username">Username</label>
                     <input ng-model="username" type="text" name="username" id="username" placeholder="myusername" autofocus class="input" tabindex="1" oninput="jpi.helpers.checkInputField(this);" required>
                     <label for="password">Password</label>
                     <input ng-model="password" type="password" name="password" id="password" placeholder="mypassword" class="input" tabindex="2" oninput="jpi.helpers.checkInputField(this);" required>
                     <!-- Where the feedback will go if any error -->
-                    <p class="feedback feedback--user-form feedback--error" ng-show="userFormFeedback">{{userFormFeedback}}</p>
+                    <p class="feedback feedback--error login__feedback" ng-show="userFormFeedback">{{userFormFeedback}}</p>
                     <button type="submit" value="Log In" class="btn btn--green">Log In</button>
                 </form>
             </div>

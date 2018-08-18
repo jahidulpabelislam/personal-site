@@ -738,10 +738,11 @@ label {
 .nav__links > li > a {
   padding: 12px 12px;
   display: block;
-  color: white; }
+  color: white;
+  text-align: center; }
 
-.scrolled .nav__links > li > a,
-.opened .nav__links > li > a {
+.scrolled .nav__links a,
+.opened .nav__links a {
   color: #333; }
 
 .nav__links > li > a:focus,
@@ -834,7 +835,7 @@ label {
   display: none;
   padding: 0; }
 
-.pagination__item.pagination__item {
+.pagination__item-link.pagination__item-link {
   display: inline-block;
   margin: 6px 4px;
   cursor: pointer;
@@ -843,12 +844,12 @@ label {
   border: 1px solid #03659b;
   color: white; }
 
-.pagination__item:hover {
+.pagination__item-link:hover {
   background-color: #03659b;
   border-color: #024469; }
 
-.pagination__item.active,
-.pagination__item.active:hover {
+.pagination__item-link.active,
+.pagination__item-link.active:hover {
   background-color: #333;
   border-color: #2e2e2e; }
 
@@ -1597,20 +1598,6 @@ label {
 .admin-page .nav {
   display: none; }
 
-.login-form-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center; }
-
-.login-form {
-  width: 100%;
-  max-width: 330px;
-  margin: auto; }
-
 .fixed-overlay {
   z-index: -10;
   opacity: 0;
@@ -1632,64 +1619,106 @@ label {
   margin: auto;
   color: white; }
 
-.btn--add-project.btn--add-project,
-.btn--send-project {
+.login {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+
+.login__form {
+  width: 100%;
+  max-width: 330px;
+  margin: auto; }
+
+.login__feedback {
+  padding: 5px;
+  display: block;
+  text-align: center;
+  margin: 5px; }
+
+.project-select {
+  display: none;
+  text-align: center; }
+
+.project-select__add-button.project-select__add-button {
   display: block;
   margin: 5px auto;
-  font-weight: 400; }
+  font-weight: 400;
+  width: fit-content; }
 
-.btn--delete-project,
-.btn--edit-project.btn--edit-project {
+.project-select__edit-button {
+  display: inline-block;
   margin: 5px auto;
   font-weight: 400; }
 
-.btn--send-project {
-  margin-right: 0; }
+.project-select__delete-button {
+  display: inline-block;
+  margin: 5px auto;
+  font-weight: 400; }
 
-.btn--back.btn--back {
-  margin-left: 0;
-  margin-top: 15px; }
-
-.select-project-form > div > * {
+.project-select__option label,
+.project-select__option input {
+  cursor: pointer;
   vertical-align: middle;
   margin: 5px; }
 
-.selectproject__option label,
-.selectproject__option input {
-  cursor: pointer; }
+.project-select__feedback {
+  padding: 5px;
+  display: block;
+  text-align: center; }
 
-.project-images-uploads {
+.pagination--admin.pagination--admin {
+  display: block;
+  list-style: none; }
+
+.pagination--admin .pagination__item {
+  display: inline-block; }
+
+.project-view {
+  display: none; }
+
+.project__form {
+  text-align: center; }
+
+.project__save-button {
+  display: block;
+  margin: 5px 0 5px auto;
+  font-weight: 400; }
+
+.project__back-button.project__back-button {
+  margin-left: 0;
+  margin-top: 15px; }
+
+.project__uploads {
   margin: 10px 0; }
 
-.upload {
+.project__upload {
   margin: 10px auto;
   padding: 5px;
   border-radius: 6px;
   background-color: white; }
 
-.upload--success {
+.project__upload--success {
   border: solid #0375b4; }
 
-.upload--success * {
+.project__upload--success * {
   display: inline-block;
   vertical-align: middle; }
 
-.upload--success img {
+.project__upload--success img {
   max-width: 100%;
   max-height: 200px; }
 
-.upload--failed {
+.project__upload--failed {
   border: solid #d71a1a;
   color: #e52525; }
 
-.feedback--user-form,
-.feedback--project-form,
-.feedback--select-project {
-  padding: 5px;
+.project__feedback {
   display: block;
-  text-align: center; }
-
-.feedback--project-form {
+  text-align: center;
   position: fixed;
   color: white;
   background: white;
@@ -1704,44 +1733,30 @@ label {
   max-height: 50px;
   transition: opacity 0.2s ease-in-out, padding 0.2s ease-in-out 0.2s, max-height 0.2s ease-in-out 0.2s; }
 
-.feedback--project-form.hide {
+.project__feedback.hide {
   opacity: 0;
   padding: 0;
   max-height: 0; }
 
-.feedback--project-form.feedback--error {
+.project__feedback.feedback--error {
   border-color: #e52525;
   background: #e52525; }
 
-.feedback--project-form.feedback--success {
+.project__feedback.feedback--success {
   border-color: green;
   background: green; }
 
-.projectform__hide-error {
+.project__hide-error {
   position: absolute;
   right: 0;
   margin-right: 10px;
   color: white;
   font-weight: 700; }
 
-.feedback--user-form {
-  text-align: center;
-  margin: 5px; }
-
-.select-project-container {
-  display: none;
-  text-align: center; }
-
-.project-form-container {
-  display: none; }
-
-.project-form {
-  text-align: center; }
-
-.project-images.project-images {
+.project__images-container.project__images-container {
   padding: 0; }
 
-.project-image {
+.project__image-container {
   width: 100%;
   padding: 5px;
   background-color: white;
@@ -1752,18 +1767,12 @@ label {
   border: 1px solid #E0E0E0;
   cursor: pointer; }
 
-.project-image > img {
+.project__image {
   max-width: 100%;
   max-height: 200px;
   height: auto; }
 
-.btn--edit-project {
-  display: inline-block; }
-
-.btn--delete-project {
-  display: inline-block; }
-
-.btn--delete-project-img {
+.project__image-delete-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -1774,21 +1783,14 @@ label {
   border-radius: 50%;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.19); }
 
-.pagination--admin.pagination--admin {
-  display: block;
-  list-style: none; }
-
-.pagination--admin li {
-  display: inline-block; }
-
-.skill-input-group {
+.project__skill-input-container {
   position: relative; }
 
-.skill-input {
+.project__skill-input {
   margin: 0;
   width: 100%; }
 
-.skill-add {
+.project__skill-add-button {
   position: absolute;
   right: 0;
   margin: 0;
@@ -1797,7 +1799,7 @@ label {
   border-top-left-radius: 0;
   padding: 7px 12px; }
 
-.admin-project-skill {
+.project__skill {
   position: relative;
   border: 1px solid #262626;
   border-radius: 5px;
@@ -1809,64 +1811,63 @@ label {
   color: white;
   cursor: pointer; }
 
-.admin-project-skill--blue {
+.project__skill--blue {
   background-color: #0375b4;
   border-color: #035691; }
 
-.admin-project-skill--red {
+.project__skill--red {
   background-color: #e52525;
   border-color: #c32424; }
 
-.admin-project-skill--orange {
+.project__skill--orange {
   background-color: #e1a02f;
   border-color: #d2922e; }
 
-.admin-project-skill--lime-green {
+.project__skill--lime-green {
   background-color: #b5c82f;
   border-color: #a6b930; }
 
-.admin-project-skill--green {
+.project__skill--green {
   background-color: #5cb85c;
   border-color: #54a754; }
 
-.admin-project-skill--purple {
+.project__skill--purple {
   background-color: #80379b;
   border-color: #62357d; }
 
-.delete-skill {
+.project__skill-delete-button {
   margin: 2px;
   padding: 0;
   background-color: transparent;
   border: none; }
 
-.delete-skill:hover,
-.delete-skill:active {
+.project__skill-delete-button:hover,
+.project__skill-delete-button:active {
   background-color: transparent; }
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: 768px) {
-  .project-images-uploads,
-  .project-form-container {
+  .project-view,
+  .project__uploads {
     max-width: 640px;
     margin-left: auto;
     margin-right: auto; } }
 
 /* For desktops */
 @media only screen and (min-width: 1200px) {
-  .project-image {
+  .project__image-container {
     width: calc(50% - 5px);
     display: inline-block; }
-  .project-image:nth-child(odd) {
+  .project__image-container:nth-child(odd) {
     margin: 0 5px 10px 0; }
-  .project-image:nth-child(even) {
+  .project__image-container:nth-child(even) {
     margin: 0 0 10px 5px; }
-  .project-image:last-child {
+  .project__image-container:last-child,
+  .project__image-container:nth-last-child(2):nth-child(odd) {
     margin-bottom: 0; }
-  .project-image:nth-last-child(2):nth-child(odd) {
-    margin-bottom: 0; }
-  .project-image:last-child:nth-child(odd) {
+  .project__image-container:last-child:nth-child(odd) {
     margin-right: 0; }
-  .skill-add {
+  .project__skill-add-button {
     padding: 10px 12px; } }
 
 /*
