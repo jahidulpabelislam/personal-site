@@ -414,12 +414,17 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						e.preventDefault();
 						e.stopPropagation();
 
+						var id = $scope.selectedProject ? $scope.selectedProject.ID : null;
+
 						$scope.checkAuthStatus(function () {
-							global.url.pathname = global.baseURL + "project/" + $scope.selectedProject.ID + "/edit";
-							history.pushState(null, null, global.url.toString());
+
+							if (id) {
+								global.url.pathname = global.baseURL + "project/" + id + "/edit";
+								history.pushState(null, null, global.url.toString());
+							}
 
 							fn.setUpEditProject();
-						}, "project/" + $scope.selectedProject.ID + "/edit");
+						}, "project/" + id + "/edit");
 					});
 
 					window.addEventListener('popstate', function () {
