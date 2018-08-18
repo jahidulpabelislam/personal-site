@@ -2412,8 +2412,8 @@ label {
   top: 0;
   bottom: 0;
   font-family: FontAwesome;
-  font-size: 30px;
-  line-height: 26px;
+  font-size: 36px;
+  line-height: 32px;
   color: white;
   text-align: center;
   content: '\f0a9';
@@ -2491,7 +2491,10 @@ label {
   .search-submit {
     padding: 10px 12px; }
   .pagination--projects.pagination--projects {
-    margin-top: 40px; } }
+    margin-top: 40px; }
+  .project__read-more:after {
+    font-size: 40px;
+    line-height: 33px; } }
 
 .jumbotron--500 {
   background-image: url("/assets/images/500.jpg"); }
