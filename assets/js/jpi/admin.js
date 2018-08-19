@@ -636,8 +636,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							result.data.rows[0].Skills = result.data.rows[0].Skills.split(",");
 						$scope.selectedProject = result.data.rows[0];
 
-						var message = fn.getFeedback(result, "Successfully saved project.");
+						var typeSubmit = (!$scope.selectedProject.ID) ? "saved" : "updated";
+						var defaultFeedback = "Successfully " + typeSubmit + " project.";
+						var message = fn.getFeedback(result, defaultFeedback);
 						fn.showProjectError(message, "feedback--success");
+
 						fn.hideLoading();
 					}, function (result) {
 						var message = fn.getFeedback(result, "Error sending the project.");
