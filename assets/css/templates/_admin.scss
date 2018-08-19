@@ -135,10 +135,11 @@
 	padding: 5px;
 	@include border-radius(6px);
 	background-color: white;
+	border: 2px solid white;
 }
 
 .project__upload--success {
-	border: solid $primary-color;
+	border-color: $primary-color;
 }
 
 .project__upload--success img {
@@ -149,7 +150,7 @@
 }
 
 .project__upload--failed {
-	border: solid darken($error, 5%);
+	border-color: darken($error, 5%);
 	color: $error;
 }
 
@@ -162,8 +163,8 @@
 	border: 1px solid white;
 	left: 0;
 	right: 0;
-	margin: 15px;
-	padding: 10px 30px 10px;
+	margin: 15px 20px;
+	padding: 10px;
 	z-index: 2;
 	opacity: 1;
 	max-height: 50px;
@@ -194,6 +195,7 @@
 	margin-right: 10px;
 	color: white;
 	font-weight: 700;
+	padding-left: 30px;
 }
 
 .project__images-container.project__images-container {
@@ -284,9 +286,14 @@
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
 	.project-view,
-	.project__uploads,
-	.project__feedback {
+	.project__uploads {
 		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.project__feedback {
+		max-width: 635px;
 		margin-left: auto;
 		margin-right: auto;
 	}
