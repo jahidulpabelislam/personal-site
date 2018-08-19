@@ -24,12 +24,12 @@ window.jpi.nav = (function (jQuery) {
 			}
 		},
 
-		toggleNavBar: function () {
-			var nav_height = jQuery(".nav").height();
-			var scroll_pos = jQuery(window).scrollTop() + nav_height;
-			var win_height = jQuery(window).height();
+		toggleNavBarColour: function () {
+			var navHeight = jQuery(".nav").height();
+			var scrollPos = jQuery(window).scrollTop() + navHeight;
+			var headerHeight = jQuery(".jumbotron").height();
 
-			if (scroll_pos >= win_height) {
+			if (scrollPos >= headerHeight) {
 				jQuery(".nav").addClass("scrolled");
 			} else {
 				jQuery(".nav").removeClass("scrolled");
@@ -43,7 +43,8 @@ window.jpi.nav = (function (jQuery) {
 
 			jQuery(window).on("orientationchange resize", fn.initDesktopNav);
 
-			jQuery(window).on("scroll", fn.toggleNavBar);
+			jQuery(window).on("scroll", fn.toggleNavBarColour);
+			fn.toggleNavBarColour();
 		}
 	};
 
