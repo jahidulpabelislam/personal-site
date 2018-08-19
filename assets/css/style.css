@@ -1629,6 +1629,10 @@ label {
 .admin-page .nav {
   display: none; }
 
+.admin-page .nav__links a {
+  padding: 8px 12px;
+  font-size: 28px; }
+
 .admin-page .nav__links a:hover {
   border-bottom-color: transparent; }
 
