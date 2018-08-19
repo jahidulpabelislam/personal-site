@@ -4,6 +4,10 @@
     padding: 0;
 }
 
+.pagination__item {
+    display: inline-block;
+}
+
 .pagination__item-link.pagination__item-link {
     display: inline-block;
     margin: 6px 4px;

@@ -199,11 +199,15 @@ window.jpi.projects = (function (jQuery) {
 				if (!currentPage) currentPage = 1;
 
 				for (var i = 0; i < count; i += 10, page++) {
-					var attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item"};
+					var attributes = {"class": "pagination__item"};
+
+					var item = jpi.helpers.createElement(ul, "li", attributes);
+
+					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": "/projects/"+page+"/"+global.url.search};
 					if (page === currentPage) {
 						attributes.class = "pagination__item-link active";
 					}
-					jpi.helpers.createElement(ul, "li", attributes);
+					var link = jpi.helpers.createElement(item, "a", attributes);
 				}
 
 				jQuery(".pagination").show();
@@ -309,11 +313,19 @@ window.jpi.projects = (function (jQuery) {
 			});
 
 			jQuery(".pagination--projects").on("click", ".js-pagination-item", function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
 				fn.scrollToProjects();
 
-				global.url.pathname = "/projects/" + e.target.innerHTML + "/";
+				var page = jQuery(this).attr("data-page");
+				if (!page) {
+					page = 1;
+				}
+
+				global.url.pathname = "/projects/" + page + "/";
 				history.pushState(null, null, global.url.toString());
-				load();
+				fn.load();
 			});
 
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);

@@ -863,6 +863,9 @@ label {
   display: none;
   padding: 0; }
 
+.pagination__item {
+  display: inline-block; }
+
 .pagination__item-link.pagination__item-link {
   display: inline-block;
   margin: 6px 4px;
@@ -1699,9 +1702,6 @@ label {
 .pagination--admin.pagination--admin {
   display: block;
   list-style: none; }
-
-.pagination--admin .pagination__item {
-  display: inline-block; }
 
 .project-view {
   display: none; }
