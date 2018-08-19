@@ -264,9 +264,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					//check if feedback was provided or generic error message
 					else {
 						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
+						fn.hideLoading();
 					}
-
-					fn.hideLoading();
 				},
 
 				showLoginForm: function (result, redirectTo, messageOverride) {
