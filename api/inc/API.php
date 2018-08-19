@@ -239,12 +239,25 @@ class API {
 				if ($results["count"] > 0) {
 
 					//Delete the images linked to project
-					$query = "DELETE FROM portfolioprojectimage WHERE ProjectID = :projectID;";
-					$bindings = array(":projectID" => $data["projectID"]);
-					$this->db->query($query, $bindings);
+					$pictures = $results["rows"][0]["Pictures"];
+					foreach ($pictures as $picture) {
 
-					//finally delete the actual project
+						// Delete the image from the database
+						$query = "DELETE FROM portfolioprojectimage WHERE ID = :ID;";
+						$bindings = array(":ID" => $picture["ID"]);
+						$this->db->query($query, $bindings);
+
+
+						// Checks if file exists to delete the picture from server
+						$fileName = $picture["File"];
+						if (file_exists($_SERVER['DOCUMENT_ROOT'] . $fileName)) {
+							unlink($_SERVER['DOCUMENT_ROOT'] . $fileName);
+						}
+					}
+
+					// Finally delete the actual project from database
 					$query = "DELETE FROM portfolioproject WHERE ID = :projectID;";
+					$bindings = array(":projectID" => $data["projectID"]);
 					$results = $this->db->query($query, $bindings);
 
 					//if deletion was ok
