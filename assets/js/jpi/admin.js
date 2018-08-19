@@ -47,6 +47,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					$scope.projectFormFeedback = message;
 				},
 
+				showProjectSelectError: function (feedback, classToAdd) {
+					if (!classToAdd) classToAdd = "feedback--error";
+					jQuery(".project-select__feedback").removeClass("feedback--error feedback--success").addClass(classToAdd);
+					$scope.selectProjectFeedback = feedback;
+				},
+
 				//set image as failed upload div to display error
 				renderFailedUpload: function (errorMessage) {
 					$scope.uploads.push({ok: false, text: errorMessage});
@@ -93,15 +99,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				renderProjectDelete: function (result) {
 					$scope.selectProjectFeedback = "";
+					var defaultFeedback = "Error deleting your project.";
+
+					var feedbackClass = "feedback--error";
 					//check if project delete has been processed
 					if (result.data.rows && result.data.rows.projectID) {
 
+						defaultFeedback = "Successfully deleted the Project identified by: " + result.data.rows.projectID + ".";
+						feedbackClass = "feedback--success";
 						fn.getProjectList(1);
-					} else {
-						//else check if there if feedback to print
-						$scope.selectProjectFeedback = fn.getFeedback(result, "Error deleting your project.");
 					}
 
+					fn.showProjectSelectError(fn.getFeedback(result, defaultFeedback), feedbackClass);
 					jpi.footer.delayExpand();
 					fn.hideLoading();
 				},
@@ -129,7 +138,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						$(".project__uploads").sortable();
 						$(".project__uploads").disableSelection();
 					} else {
-						$scope.selectProjectFeedback = "Select A Project To Update.";
+						fn.showProjectSelectError("Select A Project To Update.");
 					}
 				},
 
@@ -179,7 +188,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
 
 						//assume there's no error and no projects to show
-						$scope.selectProjectFeedback = "Sorry, no Projects to show.";
+						fn.showProjectSelectError("Sorry, no Projects to show.");
 						$scope.projects = [];
 					} else if (result.data.rows.length > 0) {
 						$scope.projects = result.data.rows;
@@ -217,7 +226,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						method: "GET",
 						params: {page: $scope.currentPage}
 					}).then(fn.gotProjects, function (result) {
-						$scope.selectProjectFeedback = fn.getFeedback(result, "Error getting projects.");
+						fn.showProjectSelectError(fn.getFeedback(result, "Error getting projects."));
 						fn.hideLoading();
 					});
 				},
@@ -233,7 +242,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							fn.hideLoading();
 						}
 					}, function (result) {
-						$scope.selectProjectFeedback = fn.getFeedback(result, "Sorry, no Project found with ID: " + id + ".");
+						fn.showProjectSelectError(fn.getFeedback(result, "Sorry, no Project found with ID: " + id + "."));
 						jQuery(".project-select, .nav").show();
 						jQuery(".project-select__add-button").hide();
 						fn.hideLoading()
@@ -665,11 +674,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: "DELETE"
 					}).then(fn.renderProjectDelete, function (result) {
-						$scope.selectProjectFeedback = fn.getFeedback(result, "Error deleting your project.");
+						fn.showProjectSelectError(fn.getFeedback(result, "Error deleting your project."));
 						fn.hideLoading();
 					});
 				} else {
-					$scope.selectProjectFeedback = "Select A Project To Delete.";
+					fn.showProjectSelectError("Select A Project To Delete.");
 					fn.hideLoading();
 				}
 

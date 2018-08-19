@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <p class="feedback feedback--error project-select__feedback" ng-if="selectProjectFeedback">{{selectProjectFeedback}}</p>
+                    <p class="feedback feedback--error project-select__feedback" ng-show="selectProjectFeedback">{{selectProjectFeedback}}</p>
 
                     <div>
                         <a href="/admin/project/{{ selectedProject.ID }}/edit" title="Link to Edit Project Form Page" ng-show="projects.length > 0" ng-disabled="!selectedProject.ID" class="btn btn--blue project-select__edit-button js-admin-edit-project" tabindex="3"><span class="screen-reader-text">Edit</span><i class="fa fa-edit"></i></a>
