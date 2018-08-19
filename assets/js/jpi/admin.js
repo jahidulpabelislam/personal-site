@@ -638,6 +638,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 
 						$scope.selectedProject = result.data.rows[0];
+						jpi.dnd.start();
 
 						var typeSubmit = (!$scope.selectedProject.ID) ? "saved" : "updated";
 						var defaultFeedback = "Successfully " + typeSubmit + " project.";
