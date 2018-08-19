@@ -632,8 +632,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 					}).then(function (result) {
 						result.data.rows[0].Date = new Date(result.data.rows[0].Date);
-						if (typeof  result.data.rows[0].Skills == "string")
+
+						if (typeof  result.data.rows[0].Skills == "string") {
 							result.data.rows[0].Skills = result.data.rows[0].Skills.split(",");
+						}
+
 						$scope.selectedProject = result.data.rows[0];
 
 						var typeSubmit = (!$scope.selectedProject.ID) ? "saved" : "updated";
