@@ -606,9 +606,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
 					var method = "PUT";
+					var wasUpdate = true;
 					if (!$scope.selectedProject.ID) {
 						$scope.selectedProject.ID = "";
 						method = "POST";
+						wasUpdate = false;
 					}
 
 					$scope.selectedProject.Pictures.forEach(function (picture, i) {
@@ -638,9 +640,14 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 
 						$scope.selectedProject = result.data.rows[0];
-						jpi.dnd.setUp();
 
-						var typeSubmit = (!$scope.selectedProject.ID) ? "saved" : "updated";
+						if (!wasUpdate) {
+							global.url.pathname = global.baseURL + "project/" + $scope.selectedProject.ID + "/edit";
+							history.pushState(null, null, global.url.toString());
+							fn.setUpEditProject();
+						}
+
+						var typeSubmit = (wasUpdate) ? "updated" : "saved";
 						var defaultFeedback = "Successfully " + typeSubmit + " project.";
 						var message = fn.getFeedback(result, defaultFeedback);
 						fn.showProjectError(message, "feedback--success");
