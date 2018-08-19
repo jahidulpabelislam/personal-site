@@ -643,7 +643,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						fn.hideLoading();
 					}, function (result) {
-						var message = fn.getFeedback(result, "Error sending the project.");
+						var typeSubmit = (!$scope.selectedProject.ID) ? "saving" : "updating";
+						var defaultFeedback = "Error  " + typeSubmit + " the project.";
+
+						var message = fn.getFeedback(result, defaultFeedback);
 						fn.showProjectError(message, "feedback--error");
 						fn.hideLoading();
 					});
