@@ -71,9 +71,9 @@
                 </div>
                 <div class="nav__links-container">
                     <ul class="nav__links">
-                        <li <?php if ($page_title == "Projects") echo "class='active'"; ?> ><a href="/projects/<?php if ($page_title == "Projects") echo "#";?>" title="Link to Projects Page">Projects</a></li>
-                        <li <?php if ($page_title == "Contact") echo "class='active'"; ?> ><a href="/contact/<?php if ($page_title == "Contact") echo "#";?>" title="Link to Contact Page">Contact</a></li>
-                        <li <?php if ($page_title == "About") echo "class='active'"; ?> ><a href="/about/<?php if ($page_title == "About") echo "#";?>" title="Link to About Page">About</a></li>
+                        <li><a href="/projects/<?php if ($page_title == "Projects") echo "#";?>" <?php if ($page_title == "Projects") echo "class='active'"; ?> title="Link to Projects Page">Projects</a></li>
+                        <li><a href="/contact/<?php if ($page_title == "Contact") echo "#";?>" <?php if ($page_title == "Contact") echo "class='active'"; ?> title="Link to Contact Page">Contact</a></li>
+                        <li><a href="/about/<?php if ($page_title == "About") echo "#";?>" <?php if ($page_title == "About") echo "class='active'"; ?> title="Link to About Page">About</a></li>
                     </ul>
                 </div>
                 <div class="nav__social-links-wrapper">

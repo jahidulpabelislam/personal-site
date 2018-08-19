@@ -155,10 +155,11 @@
     padding: 12px 12px;
     display: block;
     color: white;
+	text-align: center;
 }
 
-.scrolled .nav__links > li > a,
-.opened .nav__links > li > a {
+.scrolled .nav__links a,
+.opened .nav__links a {
     color: $dark;
 }
 
@@ -167,7 +168,7 @@
     color: colour(blue, main);
 }
 
-.nav__links > li.active > a {
+.nav__links li .active {
     background-color: colour(blue, main);
     color: white;
 }
@@ -259,7 +260,7 @@
         border-bottom-color: colour(blue, main);
     }
 
-    .nav__links > li.active > a {
+    .nav__links li .active {
         border-bottom-color: colour(blue, main);
     }
 

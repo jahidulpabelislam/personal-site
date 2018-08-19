@@ -33,7 +33,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			 */
 			var fn = {
 
-				addFeedback: function (result, genericFeedback) {
+				getFeedback: function (result, genericFeedback) {
 					if (result && result.data && result.data.meta && result.data.meta.feedback) {
 						return result.data.meta.feedback;
 					}
@@ -42,9 +42,15 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 				},
 
-				showErrorMessage: function (message, classToAdd) {
-					jQuery(".feedback--project-form").removeClass("feedback--error feedback--success hide").addClass(classToAdd);
+				showProjectError: function (message, classToAdd) {
+					jQuery(".project__feedback").removeClass("feedback--error feedback--success hide").addClass(classToAdd);
 					$scope.projectFormFeedback = message;
+				},
+
+				showProjectSelectError: function (feedback, classToAdd) {
+					if (!classToAdd) classToAdd = "feedback--error";
+					jQuery(".project-select__feedback").removeClass("feedback--error feedback--success").addClass(classToAdd);
+					$scope.selectProjectFeedback = feedback;
 				},
 
 				//set image as failed upload div to display error
@@ -56,7 +62,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				//render a project image delete
 				deletedProjectImage: function (result) {
-					$scope.projectFormFeedback = '';
+					$scope.hideProjectError();
 
 					var message = "Error deleting the Project Image.";
 					var feedbackClass = "feedback--error";
@@ -84,7 +90,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 					}
 
-					fn.showErrorMessage(message, feedbackClass);
+					fn.showProjectError(message, feedbackClass);
 
 					jpi.footer.delayExpand();
 
@@ -93,15 +99,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				renderProjectDelete: function (result) {
 					$scope.selectProjectFeedback = "";
+					var defaultFeedback = "Error deleting your project.";
+
+					var feedbackClass = "feedback--error";
 					//check if project delete has been processed
 					if (result.data.rows && result.data.rows.projectID) {
 
+						defaultFeedback = "Successfully deleted the Project identified by: " + result.data.rows.projectID + ".";
+						feedbackClass = "feedback--success";
 						fn.getProjectList(1);
-					} else {
-						//else check if there if feedback to print
-						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
 					}
 
+					fn.showProjectSelectError(fn.getFeedback(result, defaultFeedback), feedbackClass);
 					jpi.footer.delayExpand();
 					fn.hideLoading();
 				},
@@ -109,10 +118,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				setUpProjectForm: function () {
 					$scope.skillInput = "";
 
-					jQuery(".project-form-container, .nav").show();
-					jQuery(".select-project-container").hide();
+					jQuery(".project-view, .nav").show();
+					jQuery(".project-select").hide();
 
-					jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
+					jQuery("#projectName, #skill-input, #longDescription, #shortDescription, #github, #date").removeClass("invalid valid");
 
 					jpi.footer.delayExpand();
 				},
@@ -126,10 +135,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 						jpi.dnd.setUp();
 						fn.setUpProjectForm();
-						$(".project-images-uploads").sortable();
-						$(".project-images-uploads").disableSelection();
+						$(".project__uploads").sortable();
+						$(".project__uploads").disableSelection();
 					} else {
-						$scope.selectProjectFeedback = "Select A Project To Update.";
+						fn.showProjectSelectError("Select A Project To Update.");
 					}
 				},
 
@@ -138,6 +147,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					document.title = "Add New Project" + global.titlePostfix;
 
 					$scope.selectProjectFeedback = "";
+
+					jQuery(".nav .js-admin-projects").removeClass("active");
+					jQuery(".nav .js-admin-new-project").addClass("active");
+
 					fn.setUpProjectForm();
 
 					fn.initNewProject();
@@ -162,9 +175,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				gotProjects: function (result) {
 					document.title = "Projects (" + $scope.currentPage + ")" + global.titlePostfix;
-					jQuery(".project-form-container").hide();
+					jQuery(".project-view").hide();
 
-					jQuery(".select-project-container, .nav, .btn--add-project").show();
+					jQuery(".project-select, .nav, .project-select__add-button").show();
+
+					jQuery(".nav .js-admin-projects").addClass("active");
+					jQuery(".nav .js-admin-new-project").removeClass("active");
 
 					$scope.selectedProject = undefined;
 
@@ -172,7 +188,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					if (result.data.meta.ok && result.data.rows.length <= 0 && !result.data.meta.feedback) {
 
 						//assume there's no error and no projects to show
-						$scope.selectProjectFeedback = "Sorry, no Projects to show.";
+						fn.showProjectSelectError("Sorry, no Projects to show.");
 						$scope.projects = [];
 					} else if (result.data.rows.length > 0) {
 						$scope.projects = result.data.rows;
@@ -210,7 +226,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						method: "GET",
 						params: {page: $scope.currentPage}
 					}).then(fn.gotProjects, function (result) {
-						$scope.selectProjectFeedback = fn.addFeedback(result, "Error getting projects.");
+						fn.showProjectSelectError(fn.getFeedback(result, "Error getting projects."));
 						fn.hideLoading();
 					});
 				},
@@ -226,9 +242,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 							fn.hideLoading();
 						}
 					}, function (result) {
-						$scope.selectProjectFeedback = fn.addFeedback(result, "Sorry, no Project found with ID: " + id + ".");
-						jQuery(".select-project-container, .nav").show();
-						jQuery(".btn--add-project").hide();
+						fn.showProjectSelectError(fn.getFeedback(result, "Sorry, no Project found with ID: " + id + "."));
+						jQuery(".project-select, .nav").show();
+						jQuery(".project-select__add-button").hide();
 						fn.hideLoading()
 					});
 				},
@@ -240,7 +256,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					if (result.data.meta.status && result.data.meta.status == 200) {
 
 						//make the log in/sign up form not visible
-						jQuery(".login-form-container").hide();
+						jQuery(".login").hide();
 						jQuery(".nav").show();
 
 						$scope.loggedIn = true;
@@ -256,24 +272,23 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 					//check if feedback was provided or generic error message
 					else {
-						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
+						$scope.userFormFeedback = fn.getFeedback(result, "Error logging you in.");
+						fn.hideLoading();
 					}
-
-					fn.hideLoading();
 				},
 
 				showLoginForm: function (result, redirectTo, messageOverride) {
 
 					document.title = "Login" + global.titlePostfix;
 
-					jQuery(".select-project-container, .project-form-container, .nav").hide();
-					jQuery(".login-form-container").show();
+					jQuery(".project-select, .project-view, .nav").hide();
+					jQuery(".login").show();
 
 					if (typeof messageOverride != "undefined") {
 						$scope.userFormFeedback = messageOverride;
 					}
 					else {
-						$scope.userFormFeedback = fn.addFeedback(result, "You need to be logged in!");
+						$scope.userFormFeedback = fn.getFeedback(result, "You need to be logged in!");
 					}
 
 					var success = false;
@@ -283,10 +298,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					}
 
 					if (success) {
-						jQuery(".feedback--user-form").removeClass("feedback--error").addClass("feedback--success");
+						jQuery(".login__feedback").removeClass("feedback--error").addClass("feedback--success");
 					}
 					else {
-						jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
+						jQuery(".login__feedback").removeClass("feedback--success").addClass("feedback--error");
 					}
 					fn.hideLoading();
 
@@ -374,7 +389,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				},
 
 				initListeners: function () {
-					jQuery(".admin-page").on("click", ".js-hide-error", $scope.hideErrorMessage);
+					jQuery(".admin-page").on("click", ".js-hide-error", $scope.hideProjectError);
 
 					jQuery(".admin-page").on("click", ".js-admin-logout", fn.logout);
 
@@ -407,12 +422,17 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						e.preventDefault();
 						e.stopPropagation();
 
+						var id = $scope.selectedProject ? $scope.selectedProject.ID : null;
+
 						$scope.checkAuthStatus(function () {
-							global.url.pathname = global.baseURL + "project/" + $scope.selectedProject.ID + "/edit";
-							history.pushState(null, null, global.url.toString());
+
+							if (id) {
+								global.url.pathname = global.baseURL + "project/" + id + "/edit";
+								history.pushState(null, null, global.url.toString());
+							}
 
 							fn.setUpEditProject();
-						}, "project/" + $scope.selectedProject.ID + "/edit");
+						}, "project/" + id + "/edit");
 					});
 
 					window.addEventListener('popstate', function () {
@@ -441,7 +461,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jQuery('.main-content').css("padding-top", jQuery('nav').height());
 
-					jQuery(".login-form-container, .project-form-container, .select-project-container").hide();
+					jQuery(".login, .project-view, .project-select").hide();
 
 					fn.loadApp();
 				}
@@ -470,19 +490,15 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				});
 			};
 
-			$scope.hideErrorMessage = function () {
-				jQuery(".feedback--project-form").addClass("hide");
-
-				window.setTimeout(function () {
-					jQuery(".feedback--project-form").removeClass("feedback--error feedback--success");
-					$scope.projectFormFeedback = '';
-				}, 500);
+			$scope.hideProjectError = function () {
+				jQuery(".project__feedback").addClass("hide");
 			};
 
 			//send a image to API
 			$scope.sendImage = function (upload) {
 
 				fn.showLoading();
+				$scope.hideProjectError();
 
 				$scope.checkAuthStatus(function () {
 					var form = new FormData();
@@ -500,12 +516,12 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 
 						var message = "Successfully added a new project image";
-						fn.showErrorMessage(message, "feedback--success");
+						fn.showProjectError(message, "feedback--success");
 						fn.hideLoading();
 
 					}, function (result) {
-						var message = fn.addFeedback(result, "Error uploading the Project Image.");
-						fn.showErrorMessage(message, "feedback--error");
+						var message = fn.getFeedback(result, "Error uploading the Project Image.");
+						fn.showProjectError(message, "feedback--error");
 						fn.hideLoading();
 					});
 				});
@@ -544,13 +560,15 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				fn.showLoading();
 
+				$scope.hideProjectError();
+
 				$scope.checkAuthStatus(function () {
 					$http({
 						url: global.apiBase + "projects/" + projectImage.ProjectID + "/pictures/" + projectImage.ID,
 						method: "DELETE"
 					}).then(fn.deletedProjectImage, function (result) {
-						var message = fn.addFeedback(result, "Error deleting the Project Image.");
-						fn.showErrorMessage(message, "feedback--error");
+						var message = fn.getFeedback(result, "Error deleting the Project Image.");
+						fn.showProjectError(message, "feedback--error");
 						fn.hideLoading();
 					});
 				});
@@ -569,16 +587,24 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			$scope.submitProject = function () {
 
 				fn.showLoading();
-				$scope.projectFormFeedback = '';
+				$scope.hideProjectError();
 
 				var validDatePattern = /\b[\d]{4}-[\d]{2}-[\d]{2}\b/im,
 						projectNameValidation = jpi.helpers.checkInputField(jQuery("#projectName")[0]),
 						longDescriptionValidation = jpi.helpers.checkInputField(jQuery("#longDescription")[0]),
 						shortDescriptionValidation = jpi.helpers.checkInputField(jQuery("#shortDescription")[0]),
 						githubValidation = jpi.helpers.checkInputField(jQuery("#github")[0]),
-						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val());
+						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val()),
+						skillsValidation = $scope.selectedProject.Skills.length > 0;
 
-				if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
+				if (!skillsValidation) {
+					jQuery(".project__skill-input").addClass("invalid").removeClass("valid");
+				}
+				else {
+					jQuery(".project__skill-input").addClass("valid").removeClass("invalid");
+				}
+
+				if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
 					var method = "PUT";
 					if (!$scope.selectedProject.ID) {
 						$scope.selectedProject.ID = "";
@@ -606,22 +632,44 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						}
 					}).then(function (result) {
 						result.data.rows[0].Date = new Date(result.data.rows[0].Date);
-						if (typeof  result.data.rows[0].Skills == "string")
-							result.data.rows[0].Skills = result.data.rows[0].Skills.split(",");
-						$scope.selectedProject = result.data.rows[0];
 
-						var message = fn.addFeedback(result, "Successfully saved project.");
-						fn.showErrorMessage(message, "feedback--success");
+						if (typeof  result.data.rows[0].Skills == "string") {
+							result.data.rows[0].Skills = result.data.rows[0].Skills.split(",");
+						}
+
+						$scope.selectedProject = result.data.rows[0];
+						jpi.dnd.start();
+
+						var typeSubmit = (!$scope.selectedProject.ID) ? "saved" : "updated";
+						var defaultFeedback = "Successfully " + typeSubmit + " project.";
+						var message = fn.getFeedback(result, defaultFeedback);
+						fn.showProjectError(message, "feedback--success");
+
 						fn.hideLoading();
 					}, function (result) {
-						var message = fn.addFeedback(result, "Error sending the project.");
-						fn.showErrorMessage(message, "feedback--error");
+						var typeSubmit = (!$scope.selectedProject.ID) ? "saving" : "updating";
+						var defaultFeedback = "Error  " + typeSubmit + " the project.";
+
+						var message = fn.getFeedback(result, defaultFeedback);
+						fn.showProjectError(message, "feedback--error");
 						fn.hideLoading();
 					});
 
 				} else {
 					var message = "Fill in Required Inputs Fields.";
-					fn.showErrorMessage(message, "feedback--error");
+					fn.showProjectError(message, "feedback--error");
+
+					setTimeout(function () {
+						var firstInvalidInput = jQuery(".project__form .invalid").first();
+						var id = firstInvalidInput.attr("id");
+						var pos = jQuery("label[for=" + id + "]").offset().top;
+						var navHeight = jQuery(".nav").outerHeight();
+						var feedbackHeight = jQuery(".project__feedback").outerHeight();
+						jQuery('html, body').animate({
+							scrollTop: pos - navHeight - feedbackHeight - 16
+						}, 1000);
+					}, 400);
+
 					fn.hideLoading();
 				}
 			};
@@ -636,11 +684,11 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: "DELETE"
 					}).then(fn.renderProjectDelete, function (result) {
-						$scope.selectProjectFeedback = fn.addFeedback(result, "Error deleting your project.");
+						fn.showProjectSelectError(fn.getFeedback(result, "Error deleting your project."));
 						fn.hideLoading();
 					});
 				} else {
-					$scope.selectProjectFeedback = "Select A Project To Delete.";
+					fn.showProjectSelectError("Select A Project To Delete.");
 					fn.hideLoading();
 				}
 
@@ -682,10 +730,10 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						method: "POST",
 						params: {username: $scope.username, password: $scope.password}
 					}).then(fn.loggedIn, function (result) {
-						$scope.userFormFeedback = fn.addFeedback(result, "Error logging you in.");
+						$scope.userFormFeedback = fn.getFeedback(result, "Error logging you in.");
 
 						if ($scope.userFormFeedback !== "") {
-							jQuery(".feedback--user-form").removeClass("feedback--success").addClass("feedback--error");
+							jQuery(".login__feedback").removeClass("feedback--success").addClass("feedback--error");
 						}
 
 						fn.hideLoading();

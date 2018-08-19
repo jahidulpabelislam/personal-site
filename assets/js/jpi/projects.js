@@ -199,9 +199,9 @@ window.jpi.projects = (function (jQuery) {
 				if (!currentPage) currentPage = 1;
 
 				for (var i = 0; i < count; i += 10, page++) {
-					var attributes = {innerHTML: page, "class": "pagination__item js-pagination-item"};
+					var attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item"};
 					if (page === currentPage) {
-						attributes.class = "pagination__item active";
+						attributes.class = "pagination__item-link active";
 					}
 					jpi.helpers.createElement(ul, "li", attributes);
 				}

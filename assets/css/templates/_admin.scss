@@ -3,42 +3,34 @@
  */
 /* For all devices */
 .admin-page {
-    background-color: $light;
-    margin: auto;
-    text-align: center;
+	background-color: $light;
+	margin: auto;
+	text-align: left;
 }
 
 .admin-page .nav {
-    display: none;
+	display: none;
 }
 
-.login-form-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.login-form {
-    width: 100%;
-    max-width: 330px;
-    margin: auto;
+.admin-page .nav__links a:hover {
+	border-bottom-color: transparent;
 }
 
 .fixed-overlay {
-    z-index: -10;
-    opacity: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    background: transparentize($dark, .4);
-    font-size: 50px;
+	z-index: -10;
+	opacity: 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	top: 0;
+	background: transparentize($dark, .4);
+	font-size: 50px;
 	line-height: 60px;
-    transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
+	transition: opacity 1s ease-in-out,
+				z-index 0s ease-in-out;
+	text-align: center;
+	padding: 50px;
 }
 
 .fixed-overlay--loading {
@@ -47,112 +39,157 @@
 }
 
 .fixed-overlay__text {
-    margin: auto;
-    color: white;
+	margin: auto;
+	color: white;
 }
 
-.btn--add-project,
-.btn--send-project {
-    display: block;
-    margin: 5px auto;
+.login {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
 
-.btn--delete-project,
-.btn--edit-project {
-    margin: 5px auto;
+.login__form {
+	width: 100%;
+	max-width: 330px;
+	margin: auto;
 }
 
-.btn--send-project {
-    margin-right: 0;
+.login__feedback {
+	padding: 5px;
+	display: block;
+	text-align: center;
+	margin: 5px;
 }
 
-.btn--back {
-    display: block;
-    margin-left: 0;
-    margin-top: 5px;
+.project-select {
+	display: none;
+	text-align: center;
 }
 
-.select-project-form > div > * {
-    vertical-align: middle;
-    margin: 5px;
+.project-select__add-button.project-select__add-button {
+	margin-top: 10px;
 }
 
-.selectproject__option label,
-.selectproject__option input {
+.project-select__edit-button {
+	margin-top: 10px;
+}
+
+.project-select__delete-button {
+	margin-top: 10px;
+}
+
+.project-select__option label,
+.project-select__option input {
 	cursor: pointer;
+	vertical-align: middle;
+	margin: 5px;
 }
 
-.project-images-uploads {
-    margin: 10px 0;
+.project-select__feedback {
+	padding: 5px;
+	display: block;
+	text-align: center;
 }
 
-.upload {
-    margin: 10px auto;
-    padding: 5px;
-    @include border-radius(6px);
-    background-color: white;
+.pagination--admin.pagination--admin {
+	display: block;
+	list-style: none;
 }
 
-.upload--success {
-    border: solid $primary-color;
+.pagination--admin .pagination__item {
+	display: inline-block;
 }
 
-.upload--success * {
-    display: inline-block;
-    vertical-align: middle;
+.project-view {
+	display: none;
 }
 
-.upload--success img {
-    max-width: 100%;
-    max-height: 200px;
+.project__form {
+	text-align: center;
 }
 
-.upload--failed {
-    border: solid darken($error, 5%);
-    color: $error;
+.project__save-button {
+	display: block;
+	margin: 5px 0 5px auto;
+	font-weight: 400;
 }
 
-.feedback--user-form,
-.feedback--project-form,
-.feedback--select-project {
-    padding: 5px;
-    display: block;
+.project__back-button.project__back-button {
+	margin-left: 0;
+	margin-top: 15px;
 }
 
-.feedback--project-form {
-    position: fixed;
-    color: white;
+.project__uploads {
+	margin: 10px 0;
+}
+
+.project__upload {
+	margin: 10px auto;
+	padding: 5px;
+	@include border-radius(6px);
+	background-color: white;
+}
+
+.project__upload--success {
+	border: solid $primary-color;
+}
+
+.project__upload--success img {
+	display: block;
+	max-width: 100%;
+	max-height: 200px;
+	margin: 0 auto;
+}
+
+.project__upload--failed {
+	border: solid darken($error, 5%);
+	color: $error;
+}
+
+.project__feedback {
+	display: block;
+	text-align: center;
+	position: fixed;
+	color: white;
 	background: white;
 	border: 1px solid white;
-    left: 0;
-    right: 0;
-    margin: 15px;
-    padding: 10px;
-    z-index: 10;
+	max-width: 640px;
+
+	left: 0;
+	right: 0;
+	margin: 15px auto;
+	padding: 10px;
+	padding-right: 30px;
+	z-index: 10;
 	opacity: 1;
 	max-height: 50px;
-	transition: opacity 0.5s ease-in-out,
-		padding 0.5s ease-in-out 0.5s,
-		max-height 0.5s ease-in-out 0.5s;
+	transition: opacity 0.2s ease-in-out,
+				padding 0.2s ease-in-out 0.2s,
+				max-height 0.2s ease-in-out 0.2s;
 }
 
-.feedback--project-form.hide {
+.project__feedback.hide {
 	opacity: 0;
 	padding: 0;
 	max-height: 0;
 }
 
-.feedback--project-form.feedback--error {
-    border-color: $error;
-    background: $error;
+.project__feedback.feedback--error {
+	border-color: $error;
+	background: $error;
 }
 
-.feedback--project-form.feedback--success {
+.project__feedback.feedback--success {
 	border-color: $success;
-    background: $success;
+	background: $success;
 }
 
-.projectform__hide-error {
+.project__hide-error {
 	position: absolute;
 	right: 0;
 	margin-right: 10px;
@@ -160,160 +197,128 @@
 	font-weight: 700;
 }
 
-.feedback--user-form {
-    text-align: center;
-    margin: 5px;
+.project__images-container.project__images-container {
+	padding: 0;
 }
 
-.select-project-container {
-    display: none;
-}
-
-.project-form-container {
-    display: none;
-}
-
-.project-images {
-    padding: 0;
-}
-
-.project-image {
-    width: 100%;
-    padding: 5px;
-    background-color: white;
-    @include border-radius(4px);
-    margin: 5px 0;
-    position: relative;
-    list-style: none;
+.project__image-container {
+	width: 100%;
+	padding: 5px;
+	background-color: white;
+	@include border-radius(4px);
+	margin: 5px 0;
+	position: relative;
+	list-style: none;
 	border: 1px solid #E0E0E0;
-    cursor: pointer;
+	cursor: pointer;
 }
 
-.project-image > img {
-    max-width: 100%;
-    max-height: 200px;
-    height: auto;
+.project__image {
+	max-width: 100%;
+	max-height: 200px;
+	height: auto;
 }
 
-.btn--edit-project {
-    display: inline-block;
+.project__image-delete-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 7px;
+	height: 30px;
+	width: 30px;
+	padding: 0;
+	@include border-radius(50%);
+	@include box-shadow(0 0 10px 0 transparentize($dark, .81));
 }
 
-.btn--delete-project {
-    display: inline-block;
+.project__skill-input-container {
+	position: relative;
 }
 
-.btn--delete-project-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 7px;
-    height: 30px;
-    width: 30px;
-    padding: 0;
-    @include border-radius(50%);
-    @include box-shadow(0 0 10px 0 transparentize($dark, .81));
+.project__skill-input {
+	margin: 0;
+	width: 100%;
 }
 
-.pagination--admin.pagination--admin {
-    display: block;
-    list-style: none;
+.project__skill-add-button {
+	position: absolute;
+	right: 0;
+	margin: 0;
+	top: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	padding: 7px 12px;
 }
 
-.pagination--admin li{
-    display: inline-block;
-}
-
-.skill-input-group {
-    position: relative;
-}
-.skill-input {
-    margin: 0;
-    width: 100%;
-}
-
-.skill-add {
-    position: absolute;
-    right: 0;
-    margin: 0;
-    top: 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding: 7px 12px;
-}
-
-.admin-project-skill {
-    position: relative;
-    border: 1px solid darken($dark, 5%);
-    @include border-radius(5px);
-    padding: 2px 4px;
-    display: inline-block;
-    margin: 2px;
-    @include transition(.4s);
-    background-color: $dark;
-    color: white;
-    cursor: pointer;
+.project__skill {
+	position: relative;
+	border: 1px solid darken($dark, 5%);
+	@include border-radius(5px);
+	padding: 2px 4px;
+	display: inline-block;
+	margin: 2px;
+	@include transition(.4s);
+	background-color: $dark;
+	color: white;
+	cursor: pointer;
 }
 
 @each $color, $colors in $colors {
-    .admin-project-skill--#{$color} {
-        background-color: map-get($colors, main);
-        border-color: map-get($colors, hover);
-    }
+	.project__skill--#{$color} {
+		background-color: map-get($colors, main);
+		border-color: map-get($colors, hover);
+	}
 }
 
-.delete-skill {
-    margin: 2px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
+.project__skill-delete-button {
+	margin: 2px;
+	padding: 0;
+	background-color: transparent;
+	border: none;
 }
 
-.delete-skill:hover,
-.delete-skill:active {
-    background-color: transparent;
+.project__skill-delete-button:hover,
+.project__skill-delete-button:active {
+	background-color: transparent;
 }
 
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
-    .project-images-uploads,
-    .project-form-container {
-        max-width: 640px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+	.project-view,
+	.project__uploads {
+		max-width: 640px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 /* For desktops */
 @media only screen and (min-width: $desktop) {
-    .project-image {
-        width: calc(50% - 5px);
-        display: inline-block;
-    }
+	.project__image-container {
+		width: calc(50% - 5px);
+		display: inline-block;
+	}
 
-    .project-image:nth-child(odd) {
-        margin: 0 5px 10px 0;
-    }
+	.project__image-container:nth-child(odd) {
+		margin: 0 5px 10px 0;
+	}
 
-    .project-image:nth-child(even) {
-        margin: 0 0 10px 5px;
-    }
+	.project__image-container:nth-child(even) {
+		margin: 0 0 10px 5px;
+	}
 
-    .project-image:last-child {
-        margin-bottom: 0;
-    }
+	.project__image-container:last-child,
+	.project__image-container:nth-last-child(2):nth-child(odd) {
+		margin-bottom: 0;
+	}
 
-    .project-image:nth-last-child(2):nth-child(odd) {
-        margin-bottom: 0;
-    }
+	.project__image-container:last-child:nth-child(odd) {
+		margin-right: 0;
+	}
 
-    .project-image:last-child:nth-child(odd) {
-        margin-right: 0;
-    }
-
-    .skill-add {
-        padding: 10px 12px;
-    }
+	.project__skill-add-button {
+		padding: 10px 12px;
+	}
 }
 
 /*

@@ -1,5 +1,6 @@
 /* For all devices */
 .input {
+    font: inherit;
     padding: 6px 12px;
     margin: 5px auto;
     width: 100%;
@@ -8,6 +9,7 @@
     color: $dark;
     outline: none;
     background: white;
+    transition: all .3s ease-in-out;
 }
 
 .input::placeholder {
@@ -37,6 +39,36 @@
     @include box-shadow(0 0 8px transparentize($success, .4));
 }
 
+.styled-checkbox .input {
+    display: none;
+}
+
+.styled-checkbox__pseudo {
+    position: relative;
+    margin-left: 20px;
+}
+
+.styled-checkbox__pseudo:before {
+    content: "\00a0";
+    display: block;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    border: 2px solid $grey;
+    transition: all .3s ease-in-out;
+}
+
+.input:checked + .styled-checkbox__pseudo:before {
+    background-color: $primary-color;
+    content: "\2714";
+    font-size: 16px;
+    line-height: 1;
+    color: white;
+    padding: 2px 4px;
+}
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
