@@ -23,8 +23,10 @@
 	background: transparentize($dark, .4);
 	font-size: 50px;
 	line-height: 60px;
-	transition: opacity 1s ease-in-out, z-index 0s ease-in-out;
+	transition: opacity 1s ease-in-out,
+				z-index 0s ease-in-out;
 	text-align: center;
+	padding: 50px;
 }
 
 .fixed-overlay--loading {
