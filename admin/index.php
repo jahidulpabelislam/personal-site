@@ -80,7 +80,7 @@
                         <label for="projectName">Project Name <span class="required">*</span></label>
                         <input ng-model="selectedProject.Name" type="text" name="projectName" id="projectName" class="input" placeholder="myproject" tabindex="7" oninput="jpi.helpers.checkInputField(this);" required>
 
-                        <label for="skills">Skills <span class="required">*</span></label>
+                        <label for="skill-input">Skills <span class="required">*</span></label>
 
                         <div ng-model="selectedProject.Skills" ui-sortable class="ui-state-default">
                             <p ng-repeat="skill in selectedProject.Skills" class="project__skill project__skill--{{selectedProject.Colour}}">{{skill}} <button class="btn project__skill-delete-button" ng-click="deleteSkill(skill)" type="button">x</button></p>

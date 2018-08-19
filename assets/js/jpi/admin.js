@@ -639,6 +639,18 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				} else {
 					var message = "Fill in Required Inputs Fields.";
 					fn.showErrorMessage(message, "feedback--error");
+
+					setTimeout(function () {
+						var firstInvalidInput = jQuery(".project__form .invalid").first();
+						var id = firstInvalidInput.attr("id");
+						var pos = jQuery("label[for=" + id + "]").offset().top;
+						var navHeight = jQuery(".nav").outerHeight();
+						var feedbackHeight = jQuery(".project__feedback").outerHeight();
+						jQuery('html, body').animate({
+							scrollTop: pos - navHeight - feedbackHeight - 16
+						}, 1000);
+					}, 400);
+
 					fn.hideLoading();
 				}
 			};
