@@ -52,9 +52,10 @@
                 <div class="project-select">
 
                     <div class="project-select__form">
-                        <div ng-repeat="project in projects" class="project-select__option">
+                        <div ng-repeat="project in projects" class="project-select__option styled-checkbox">
                             <label ng-click="selectProject(project)" for="{{project.ID}}">{{project.Name}}</label>
-                            <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}">
+                            <input ng-click="selectProject(project)" type="radio" id="{{project.ID}}" name="project" value="{{project.ID}}" class="input">
+	                        <span class="styled-checkbox__pseudo"></span>
                         </div>
                     </div>
 
