@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="project-view">
-	                <p class="feedback project__feedback hide"><span>{{projectFormFeedback}}</span><button class="project__hide-error" ng-click="hideErrorMessage()">X</button></p>
+	                <p class="feedback project__feedback hide"><span>{{projectFormFeedback}}</span><button class="project__hide-error" ng-click="hideProjectError()">X</button></p>
 
 	                <a href="/admin/projects" title="Link to Projects Page" class="btn btn--orange project__back-button js-admin-projects" tabindex="6"><span class="screen-reader-text">Back</span><i class="fa fa-arrow-circle-left"></i></a>
 
