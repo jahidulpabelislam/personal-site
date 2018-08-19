@@ -453,7 +453,7 @@ a.btn {
 
 .styled-checkbox__pseudo {
   position: relative;
-  padding-left: 40px; }
+  margin-left: 20px; }
 
 .styled-checkbox__pseudo:before {
   content: "\00a0";
