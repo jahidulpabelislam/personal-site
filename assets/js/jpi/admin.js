@@ -112,7 +112,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".project-view, .nav").show();
 					jQuery(".project-select").hide();
 
-					jQuery("#projectName, #skills, #description, #github, #date").removeClass("invalid");
+					jQuery("#projectName, #skill-input, #description, #github, #date").removeClass("invalid");
 
 					jpi.footer.delayExpand();
 				},
@@ -585,9 +585,14 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						longDescriptionValidation = jpi.helpers.checkInputField(jQuery("#longDescription")[0]),
 						shortDescriptionValidation = jpi.helpers.checkInputField(jQuery("#shortDescription")[0]),
 						githubValidation = jpi.helpers.checkInputField(jQuery("#github")[0]),
-						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val());
+						dateValidation = jpi.helpers.checkInputField(jQuery("#date")[0]) && validDatePattern.test(jQuery("#date").val()),
+						skillsValidation = $scope.selectedProject.Skills.length > 0;
 
-				if (projectNameValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
+				if (!skillsValidation) {
+					jQuery(".project__skill-input").addClass("invalid").removeClass("valid");
+				}
+
+				if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
 					var method = "PUT";
 					if (!$scope.selectedProject.ID) {
 						$scope.selectedProject.ID = "";
