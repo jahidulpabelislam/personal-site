@@ -112,7 +112,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 					jQuery(".project-view, .nav").show();
 					jQuery(".project-select").hide();
 
-					jQuery("#projectName, #skill-input, #description, #github, #date").removeClass("invalid");
+					jQuery("#projectName, #skill-input, #longDescription, #shortDescription, #github, #date").removeClass("invalid valid");
 
 					jpi.footer.delayExpand();
 				},
