@@ -154,13 +154,10 @@
 	color: white;
 	background: white;
 	border: 1px solid white;
-	max-width: 640px;
-
 	left: 0;
 	right: 0;
-	margin: 15px auto;
-	padding: 10px;
-	padding-right: 30px;
+	margin: 15px;
+	padding: 10px 30px 10px;
 	z-index: 2;
 	opacity: 1;
 	max-height: 50px;
@@ -281,7 +278,8 @@
 /* For tablets and some are for desktops */
 @media only screen and (min-width: $tablet) {
 	.project-view,
-	.project__uploads {
+	.project__uploads,
+	.project__feedback {
 		max-width: 640px;
 		margin-left: auto;
 		margin-right: auto;
