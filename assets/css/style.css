@@ -425,7 +425,8 @@ a.btn {
   border-radius: 2px;
   color: #333;
   outline: none;
-  background: white; }
+  background: white;
+  transition: all .3s ease-in-out; }
 
 .input::placeholder {
   color: gray; }
@@ -464,7 +465,8 @@ a.btn {
   left: 0;
   top: 0;
   background: white;
-  border: 2px solid gray; }
+  border: 2px solid gray;
+  transition: all .3s ease-in-out; }
 
 .input:checked + .styled-checkbox__pseudo:before {
   background-color: #0375b4;
