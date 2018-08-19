@@ -591,6 +591,9 @@ angular.module('projectsAdmin', ['ui.sortable'])
 				if (!skillsValidation) {
 					jQuery(".project__skill-input").addClass("invalid").removeClass("valid");
 				}
+				else {
+					jQuery(".project__skill-input").addClass("valid").removeClass("invalid");
+				}
 
 				if (projectNameValidation && skillsValidation && longDescriptionValidation && shortDescriptionValidation && githubValidation && dateValidation) {
 					var method = "PUT";
