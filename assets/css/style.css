@@ -470,6 +470,7 @@ a.btn {
 
 .input:checked + .styled-checkbox__pseudo:before {
   background-color: #0375b4;
+  border-color: #0375b4;
   content: "\2714";
   font-size: 16px;
   line-height: 1;
