@@ -12,6 +12,10 @@
 	display: none;
 }
 
+.admin-page .nav__links a:hover {
+	border-bottom-color: transparent;
+}
+
 .fixed-overlay {
 	z-index: -10;
 	opacity: 0;
