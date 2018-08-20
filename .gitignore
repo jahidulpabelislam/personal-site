@@ -52,7 +52,7 @@ projects/*.zip
 
 node_modules/*
 config.php
-api/inc/Hasher.php
-api/inc/Auth.php
+Hasher.php
+Auth.php
 
 logs/*
