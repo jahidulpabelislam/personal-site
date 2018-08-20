@@ -5,7 +5,7 @@
 */
 
 //include all files needed
-include $_SERVER['DOCUMENT_ROOT'] . '/api/inc/app.php';
+include 'inc/app.php';
 
 list($method, $path, $data) = Helper::extractFromRequest();
 
