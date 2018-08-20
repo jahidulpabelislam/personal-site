@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
+include $_SERVER['DOCUMENT_ROOT']. '/config.php';
 $createquery = "CREATE TABLE IF NOT EXISTS Task (
 				    ID int auto_increment PRIMARY KEY,
 					Text VARCHAR(100) not null,

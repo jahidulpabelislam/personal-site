@@ -28,7 +28,7 @@
 				<h1>User Details</h1>
 				<hr>
 				<?php
-                    include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
+                    include $_SERVER['DOCUMENT_ROOT']. '/config.php';
 
 					$con = mysqli_connect(DB_IP, DB_USERNAME, DB_PASSWORD);
 					//gets login details for mysql

@@ -31,7 +31,7 @@ session_start();
 				<h1>Login Confirmation</h1>
 				<hr>
 				<?php
-                    include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
+                    include $_SERVER['DOCUMENT_ROOT']. '/config.php';
 
 					$username=$_POST['username'];
 					$password=$_POST['password'];

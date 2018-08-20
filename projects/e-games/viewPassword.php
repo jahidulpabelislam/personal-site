@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT']. '/database-config.php';
+include $_SERVER['DOCUMENT_ROOT']. '/config.php';
 $con = mysqli_connect(DB_IP, DB_USERNAME, DB_PASSWORD);
 if(!$con)
 {
