@@ -93,7 +93,7 @@ window.jpi.home = (function (jQuery) {
 				jQuery(".projects-loading-img").show("fast");
 				jpi.ajax.sendRequest({
 					method: "GET",
-					url: "/api/1/projects/",
+					url: "/api/2/projects/",
 					query: {limit: 3},
 					load: fn.gotProjects,
 					error: fn.renderError

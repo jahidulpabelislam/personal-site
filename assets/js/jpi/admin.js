@@ -21,7 +21,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 			* Any global variables used in multiple places with JS
 			 */
 			var global = {
-				apiBase: "/api/1/",
+				apiBase: "/api/2/",
 				url: new URL(window.location),
 				baseURL: "admin/",
 				redirectTo: null,
