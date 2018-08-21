@@ -1,105 +1,104 @@
 .slide-show {
-    margin: 0 -15px;
-    display: none;
+	margin: 0 -15px;
+	display: none;
 }
 
 .slide-show__viewpoint {
-    @include transition(1s);
-    position: relative;
-    overflow: hidden;
+	@include transition(1s);
+	position: relative;
+	overflow: hidden;
 }
 
 .slide-show__viewpoint:hover {
-    @include box-shadow(0 0 10px 0 transparentize($dark, .7));
-    cursor: pointer;
+	@include box-shadow(0 0 10px 0 transparentize($dark, .7));
+	cursor: pointer;
 }
 
 .slide-show__slides-container {
-    width: 100%;
-    position: relative;
-    left: 0;
-    -webkit-transition: left 2s ease;
-    -moz-transition: left 2s ease;
-    -o-transition: left 2s ease;
-    transition: left 2s ease;
-    @include flexbox();
-    @include flexboxCenterAlign();
+	width: 100%;
+	position: relative;
+	left: 0;
+	-webkit-transition: left 2s ease;
+	-moz-transition: left 2s ease;
+	-o-transition: left 2s ease;
+	transition: left 2s ease;
+	@include flexbox();
+	@include flexboxCenterAlign();
 }
 
-.slide-show__slide-container {
-    position: relative;
-    margin: auto;
+.slide-show__slide {
+	position: relative;
+	margin: auto;
 }
 
-.slide {
-    max-width: 100%;
-    max-height: 350px;
-    @include transition(1s);
+.slide-show__img {
+	max-width: 100%;
+	max-height: 350px;
+	@include transition(1s);
 }
 
-.slide:hover {
-    @include transform(scale(1.1));
+.slide-show__img:hover {
+	@include transform(scale(1.1));
 }
 
 .slide-show__nav {
-    width: 30px;
-    height: 30px;
-    opacity: 0.8;
-    @include transition(.3s);
-    position: absolute;
-    top: calc(50% - 15px);
-    background: $dark;
-    @include box-shadow(0 0 20px 0 transparentize($dark, .7));
+	width: 30px;
+	height: 30px;
+	opacity: 0.8;
+	@include transition(.3s);
+	position: absolute;
+	top: calc(50% - 15px);
+	background: $dark;
+	@include box-shadow(0 0 20px 0 transparentize($dark, .7));
 }
 
 .slide-show__nav:hover {
-    opacity: 1;
-    cursor: pointer;
-    @include box-shadow(0 0 20px 0 $dark);
+	opacity: 1;
+	cursor: pointer;
+	@include box-shadow(0 0 20px 0 $dark);
 }
 
 .slide-show__nav-previous {
-    left: 0;
-    @include border-radius(0 50% 50% 0);
+	left: 0;
+	@include border-radius(0 50% 50% 0);
 }
 
 .slide-show__nav-next {
-    right: 0;
-    @include border-radius(50% 0 0 50%);
+	right: 0;
+	@include border-radius(50% 0 0 50%);
 }
 
 .slide-show__bullet {
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    @include border-radius(50%);
-    background-color: $grey;
-    margin: 14px 5px;
-    cursor: pointer;
-    @include transition(.4s);
-    opacity: 0.3;
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	@include border-radius(50%);
+	background-color: $grey;
+	margin: 14px 5px;
+	cursor: pointer;
+	@include transition(.4s);
+	opacity: 0.3;
 }
 
 .slide-show__bullet:hover {
-    opacity: 0.6;
+	opacity: 0.6;
 }
 
 .slide-show__bullet.active {
-    opacity: 1;
-    background-color: $dark;
+	opacity: 1;
+	background-color: $dark;
 }
 
-@each $color, $colors in $colors
-{
-    .slide-show__bullet--#{$color}.active {
-        background-color: map-get($colors, main);
-    }
+@each $color, $colors in $colors {
+	.slide-show__bullet--#{$color}.active {
+		background-color: map-get($colors, main);
+	}
 
-    .slide-show__nav--#{$color}{
-        background-color: map-get($colors, main);
-    }
+	.slide-show__nav--#{$color} {
+		background-color: map-get($colors, main);
+	}
 
-    .slide-show__nav--#{$color}:hover {
-        @include box-shadow(0 0 20px 0 map-get($colors, main));
-    }
+	.slide-show__nav--#{$color}:hover {
+		@include box-shadow(0 0 20px 0 map-get($colors, main));
+	}
 }

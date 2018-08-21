@@ -30,10 +30,10 @@ window.jpi.slideShow = (function (jQuery) {
 
 			var viewpoint = jQuery("#" + id + " .slide-show__viewpoint");
 
-			var currentSlide = jQuery("#" + id + " .slide-show__slide-container.active");
+			var currentSlide = jQuery("#" + id + " .slide-show__slide.active");
 
 			if (!currentSlide.length) {
-				currentSlide = jQuery("#" + id + " .slide-show__slide-container").first();
+				currentSlide = jQuery("#" + id + " .slide-show__slide").first();
 			}
 
 			fn.widenSlideShow(viewpoint);
@@ -87,8 +87,8 @@ window.jpi.slideShow = (function (jQuery) {
 
 			fn.resetTransition(slidesContainer);
 
-			if (id == "#slide-show--projects-preview") {
-				var colour = nextSlide.filter(".slide-show__slide-container").attr("data-slide-colour");
+			if (id == "#slide-show--home") {
+				var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
 				var regx = new RegExp("slide-show__nav--\\w*", 'g');
 
 				jQuery(id + " .slide-show__nav").each(function () {
@@ -153,7 +153,7 @@ window.jpi.slideShow = (function (jQuery) {
 		//moves current slide to correct position
 		resetToCurrentSlide: function (id) {
 
-			var position = jQuery(id + " .slide-show__slide-container.active").position(),
+			var position = jQuery(id + " .slide-show__slide.active").position(),
 					slidesContainer = jQuery(id + " .slide-show__slides-container");
 
 			slidesContainer.css({"transitionDuration": "0s", "left": "-" + position["left"] + "px"});
@@ -230,7 +230,7 @@ window.jpi.slideShow = (function (jQuery) {
 		setUp: function (id) {
 
 			var slideShowViewpoint = jQuery(id + " .slide-show__viewpoint"),
-					slideContainer = jQuery(id + " .slide-show__slide-container");
+					slideContainer = jQuery(id + " .slide-show__slide");
 
 			jQuery(id).addClass("hasSlideShow").show();
 

@@ -15,29 +15,27 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <p>These are some of the pieces of work I have completed during my time as a developer.</p>
 
                         <form class="search-form">
-                            <div class="search-input-group">
-                                <label for="search" class="screen-reader-text">Search for projects.</label>
-                                <input type="text" class="input search-input" placeholder="Search for projects...">
-                                <button class="btn btn--blue search-submit" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
+                            <label for="search" class="screen-reader-text">Search for projects.</label>
+                            <input type="text" class="input search-form__input" placeholder="Search for projects...">
+                            <button class="btn btn--blue search-form__submit" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </form>
 
                         <p class="feedback feedback--error"></p>
-                        <i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i>
-                        <div class="projects"></div>
+                        <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
+                        <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--purple" href="/contact/">Get in Touch</a>
                         </div>
 
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--green" href="/about/">Learn About Me</a>
                         </div>
                     </div>
@@ -70,13 +68,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                    <button type="button" class="btn btn--red expanded-slide-show__close">X</button>
                 </div>
 
-                <div class="modal modal--detailed-project">
+                <div class="modal detailed-project">
                     <div class="modal__content">
                         <div class="project__header">
-                            <h3 class="article__header project-title project-title--inline"></h3>
-                            <h4 class="project-date project-date--inline project-date--modal"></h4></div>
+                            <h3 class="project__title project__title--inline"></h3>
+                            <h4 class="project__date project__date--inline project__date--modal"></h4></div>
                         <div class="project__skills"></div>
-                        <div class="description"></div>
+                        <div class="project__description"></div>
                         <p class="project__links"></p>
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
@@ -91,10 +89,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <script type="text/template" id="tmpl-project-template">
                     <div id="project--{{ID}}" class="project">
-                        <h3 class="article__header project-title">{{Name}}</h3>
-                        <h4 class="project-date">{{Date}}</h4>
+                        <h3 class="article__header project__title">{{Name}}</h3>
+                        <h4 class="project__date">{{Date}}</h4>
                         <div class="project__skills"></div>
-                        <div class="description">{{ShortDescription}}</div>
+                        <div class="project__description">{{ShortDescription}}</div>
                         <p class="project__links"></p>
                         <button class="btn btn--{{Colour}} js-open-modal project__read-more project__read-more--{{Colour}}">Read More</button>
                         <div id="slide-show--{{ID}}" class="slide-show">
@@ -109,13 +107,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 </script>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide-container" id="slide--{{ID}}">
-                        <img src="{{File}}" class="slide js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
+                    <div class="slide-show__slide" id="slide-{{ID}}">
+                        <img src="{{File}}" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide--{{ID}}"></label>
+                    <label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{ID}}"></label>
                 </script>
 
 <?php

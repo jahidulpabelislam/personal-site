@@ -9,15 +9,15 @@ $nav_tint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
-                <div class="article article--home-hello">
+                <div class="article home__hello">
                     <div class="container">
                         <p><span class="main-hello">Hello</span> there everyone!</p>
-                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="image-of-me image-of-me--home" alt="Jahidul Pabel Islam">
-                        <img src="/assets/images/logo-inverted.png?v=1" class="home__hello-logo image-of-me image-of-me--home" alt="Jahidul Pabel Islam's Logo">
+                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam">
+                        <img src="/assets/images/logo-inverted.png?v=1" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
                     </div>
                 </div>
 
-                <div class="article article--home-intro">
+                <div class="article home__intro">
                     <div class="container">
                         <p>Welcome to my portfolio, thanks for clicking on my website!</p>
                     </div>
@@ -69,16 +69,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article">
+                <div class="article projects">
                     <h3 class="article__header">My Latest Projects</h3>
 
-                    <div><i class="projects-loading-img fa fa-spinner fa-spin fa-3x" style="display:none"></i></div>
+                    <div><i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i></div>
 
-                    <div id="slide-show--projects-preview" class="slide-show">
-                        <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--projects-preview">
+                    <div id="slide-show--home" class="slide-show">
+                        <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#slide-show--projects-preview" data-nav-direction="next">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next">
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>
@@ -92,49 +92,49 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="stats">
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">0</h3>
-                                <p class="stats__stat">Personal Projects (+ <span class="counter" data-to="22" data-speed="2000">0</span> work projects)</p>
+                                <p class="stats__text">Personal Projects (+ <span class="counter" data-to="22" data-speed="2000">0</span> work projects)</p>
                             </div>
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats counter" data-to="1249" data-speed="2000">0</h3>
-                                <p class="stats__stat">Commits</p>
+                                <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">0</h3>
-                                <p class="stats__stat">Years experience</p>
+                                <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats js-seconds-on-site">0</h3>
-                                <p class="stats__stat">Seconds on here</p>
+                                <p class="stats__text">Seconds on here</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50"><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
-                        <div class="article-50"><a class="btn btn--purple" href="/projects/">View My Work</a></div>
+                        <div class="article__half"><a class="btn btn--lime-green" href="/about/">Learn About Me</a></div>
+                        <div class="article__half"><a class="btn btn--purple" href="/projects/">View My Work</a></div>
                     </div>
                 </div>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide-container" id="slide--{{ID}}" data-slide-colour="{{Colour}}">
-                        <img class="slide" src="{{File}}" alt="Screen shot of Project">
-                        <div class="slide-show__project-description-container">
-                            <div class="slide-show__project-description slide-show__project-description--{{Colour}}">
+                    <div class="slide-show__slide" id="slide-{{ID}}" data-slide-colour="{{Colour}}">
+                        <img class="slide-show__img" src="{{File}}" alt="Screen shot of {{Name}} Project">
+                        <div class="slide-show__info-container">
+                            <div class="slide-show__info slide-show__info--{{Colour}}">
                                 <div class="project__header">
-                                    <h3 class="article__header project-title project-title--inline">{{Name}}</h3>
-                                    <h4 class="project-date project-date--inline">{{Date}}</h4>
+                                    <h3 class="project__title project__title--inline">{{Name}}</h3>
+                                    <h4 class="project__date project__date--inline">{{Date}}</h4>
                                 </div>
-                                <div class="project-description__text">{{ShortDescription}}</div>
-                                <div class="project-description__links"></div>
+                                <div class="project-info__desc">{{ShortDescription}}</div>
+                                <div class="project-info__links"></div>
                             </div>
                         </div>
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--projects-preview" data-slide-id="slide--{{ID}}"></label>
+                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ID}}"></label>
                 </script>
 
 

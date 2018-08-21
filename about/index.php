@@ -42,15 +42,15 @@ $interests = array(
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--halved article--about">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <div class="about__images-of-me">
                                 <img src="/assets/images/jahidul-pabel-islam-young.png?v=1" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
                                 <img src="/assets/images/JahidulPabelIslamCasual.jpg?v=1" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
                             </div>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <p>My name is Jahidul Pabel Islam.</p>
                             <p>I'm 22 years old.</p>
                             <p>A Full Stack Web and Software Developer.</p>
@@ -58,34 +58,34 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--halved article--about">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png?v=1" alt="Logo of BrightMinded"></a>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <p>Recently joined <a class="link--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--halved article--about">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.png?v=1" alt="Logo of University of Portsmouth"></a>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <p>Graduated from <a class="link--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--halved article--about">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=1" alt="Image of a Beach"></a>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <p>Based in <a class="link--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
                         </div>
                     </div>
@@ -95,12 +95,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="map" id="map"></div>
                 </div>
 
-                <div class="article article--50-50 article--about">
+                <div class="article article--halved article--about">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <img src="/assets/images/languages.png?v=1" alt="Image of 'hello' in different languages">
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                         </div>
                     </div>
@@ -246,13 +246,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--purple" href="/projects/">View My Work</a>
                         </div>
 
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--red" href="/contact/">Get in Touch</a>
                         </div>
                     </div>

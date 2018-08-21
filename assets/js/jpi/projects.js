@@ -13,7 +13,7 @@ window.jpi.projects = (function (jQuery) {
 		//prints out a error message provided
 		renderError: function (error) {
 			jQuery(".feedback--error").text(error).show("fast");
-			jQuery(".projects-loading-img, .pagination").text("").hide("fast");
+			jQuery(".projects__loading-img, .pagination").text("").hide("fast");
 			jpi.footer.delayExpand();
 		},
 
@@ -28,7 +28,7 @@ window.jpi.projects = (function (jQuery) {
 								innerHTML: skills[i],
 								class: "js-searchable-skill skill skill--" + project.Colour
 							}),
-							searches = jQuery(".search-input")[0].value.split(" ");
+							searches = jQuery(".search-form__input")[0].value.split(" ");
 
 					for (var j = 0; j < searches.length; j++) {
 						if (searches[j].trim() !== "" && skills[i].toLowerCase().includes(searches[j].toLowerCase())) skill.className += " searched";
@@ -110,28 +110,28 @@ window.jpi.projects = (function (jQuery) {
 		openProjectsExpandModal: function () {
 			var project = jQuery(this).data("projectData");
 
-			jQuery(".modal--detailed-project").addClass("open").show();
+			jQuery(".detailed-project").addClass("open").show();
 			document.body.style.overflow = "hidden";
 
 			//stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-			jQuery(".modal--detailed-project .project__links, .modal--detailed-project .project__skills, .modal--detailed-project .slide-show__slides-container, .modal--detailed-project .js-slide-show-bullets").text("");
+			jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
 
-			jQuery(".modal--detailed-project .project-title").text(project.Name);
-			jQuery(".modal--detailed-project .project-date").text(project.Date);
+			jQuery(".detailed-project .project__title").text(project.Name);
+			jQuery(".detailed-project .project__date").text(project.Date);
 
-			fn.addSkills(project, ".modal--detailed-project");
+			fn.addSkills(project, ".detailed-project");
 
-			jQuery(".modal--detailed-project .description").html(project.LongDescription);
+			jQuery(".detailed-project .project__description").html(project.LongDescription);
 
-			fn.addLinks(project, ".modal--detailed-project");
+			fn.addLinks(project, ".detailed-project");
 
 			fn.addProjectPictures(project, "#detailed-project__slide-show");
 
 			var regx = new RegExp("slide-show__nav--\\w*", 'g');
 
-			jQuery(".modal--detailed-project .slide-show__nav").each(function () {
+			jQuery(".detailed-project .slide-show__nav").each(function () {
 				var classList = jQuery(this).attr("class");
 				classList = classList.replace(regx, 'slide-show__nav--' + project.Colour);
 				jQuery(this).attr("class", classList);
@@ -139,8 +139,8 @@ window.jpi.projects = (function (jQuery) {
 		},
 
 		closeProjectsExpandModal: function (event) {
-			if (!jQuery(event.target).closest('.modal__content').length && jQuery(".modal--detailed-project").hasClass("open")) {
-				jQuery(".modal--detailed-project").removeClass("open").hide();
+			if (!jQuery(event.target).closest('.modal__content').length && jQuery(".detailed-project").hasClass("open")) {
+				jQuery(".detailed-project").removeClass("open").hide();
 				document.body.style.overflow = "auto";
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
@@ -218,7 +218,7 @@ window.jpi.projects = (function (jQuery) {
 
 		//set up events when projects were received
 		gotProjects: function (result) {
-			jQuery(".feedback--error, .projects-loading-img").text("").hide("fast");
+			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 			jQuery(".projects, .pagination").text("");
 
 			//send the data, the function to do if data is valid
@@ -235,8 +235,6 @@ window.jpi.projects = (function (jQuery) {
 			//stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-			jQuery(".projects-loading-img").show("fast");
-
 			//send request to get projects
 			jpi.ajax.sendRequest({
 				method: "GET",
@@ -252,11 +250,11 @@ window.jpi.projects = (function (jQuery) {
 			var query = {};
 
 			global.url.pathname = "/projects/";
-			if (jQuery(".search-input")[0].value.trim() !== "") {
-				global.url.search = "?search=" + jQuery(".search-input")[0].value;
-				query.search = jQuery(".search-input")[0].value;
+			if (jQuery(".search-form__input")[0].value.trim() !== "") {
+				global.url.search = "?search=" + jQuery(".search-form__input")[0].value;
+				query.search = jQuery(".search-form__input")[0].value;
 			} else {
-				jQuery(".search-input")[0].value = global.url.search = "";
+				jQuery(".search-form__input")[0].value = global.url.search = "";
 			}
 
 			history.pushState(null, null, global.url.toString());
@@ -295,9 +293,9 @@ window.jpi.projects = (function (jQuery) {
 			//check if search in involved
 			var search = fn.getSearch();
 			if (search) {
-				query.search = jQuery(".search-input")[0].value = search;
+				query.search = jQuery(".search-form__input")[0].value = search;
 			} else {
-				jQuery(".search-input").val("");
+				jQuery(".search-form__input").val("");
 			}
 
 			fn.getProjects(query);
@@ -308,7 +306,7 @@ window.jpi.projects = (function (jQuery) {
 			jQuery(".search-form").on("submit", fn.doSearch);
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
-				jQuery(".search-input")[0].value = e.target.innerHTML;
+				jQuery(".search-form__input")[0].value = e.target.innerHTML;
 				fn.doSearch();
 			});
 
@@ -337,11 +335,11 @@ window.jpi.projects = (function (jQuery) {
 			});
 
 			//Close the modal
-			jQuery(".modal--detailed-project").on("click", fn.closeProjectsExpandModal);
+			jQuery(".detailed-project").on("click", fn.closeProjectsExpandModal);
 		},
 
 		init: function () {
-			if (jQuery(".projects").length > 0) {
+			if (jQuery(".js-all-projects").length > 0) {
 				fn.initListeners();
 				fn.load();
 			}

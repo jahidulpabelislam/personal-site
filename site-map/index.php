@@ -56,13 +56,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--red" href="/contact/">Get in Touch</a>
                         </div>
 
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--purple" href="/projects/">View My Work</a>
                         </div>
                     </div>

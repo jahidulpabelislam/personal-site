@@ -21,12 +21,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
 
                 <!-- Start Dynamic content for page -->
-                <div class="article article--50-50 article--error">
+                <div class="article article--halved article--error">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <img src="/assets/images/no-entry.png?v=1" alt="No entry sign">
                         </div>
-                        <div class="article--50-50">
+                        <div class="article--halved">
                             <p>The page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials.</p>
                         </div>
                     </div>

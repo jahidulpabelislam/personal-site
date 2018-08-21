@@ -91,12 +91,12 @@ img {
         margin: 10px 0;
     }
 
-    .article--50-50 > .container {
+    .article--halved > .container {
         @include flexbox();
         @include flexboxCenterAlign();
     }
 
-    .article--50-50:nth-child(even) > .container {
+    .article--halved:nth-child(even) > .container {
         -webkit-box-direction: reverse;
         -moz-box-direction: reverse;
         -ms-flex-direction: row-reverse;
@@ -104,11 +104,11 @@ img {
         flex-direction: row-reverse;
     }
 
-    .article-50 {
+    .article__half {
         width: 50%;
     }
 
-    .article--50-50 .article__header {
+    .article--halved .article__header {
         margin: 0;
     }
 }

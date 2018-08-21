@@ -44,12 +44,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <h3 class="article__header">Drop me a old fashioned email.</h3>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="mailto:me@jahidulpabelislam.com" target="_blank" class="social-link">
                                 <img src="/assets/images/email.svg?v=1" alt="Email me" class="social-link__img social-link__img--email">
                                 <p class="social-link__text social-link__text--email"> me@jahidulpabelislam.com</p>
@@ -58,12 +58,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <h3 class="article__header">View my Linkedin profile.</h3>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
@@ -72,12 +72,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <h3 class="article__header">View code for projects and follow future projects.</h3>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
                                 <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                                 <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
@@ -86,12 +86,12 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <h3 class="article__header">Follow what I get up to.</h3>
                         </div>
-                        <div class="article-50">
+                        <div class="article__half">
                             <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link">
                                 <span class="social-link__img social-link__img--instagram"><i></i></span>
                                 <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
@@ -100,13 +100,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
-                <div class="article article--50-50">
+                <div class="article article--halved">
                     <div class="container">
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--blue" href="/projects/">View My Work</a>
                         </div>
 
-                        <div class="article-50">
+                        <div class="article__half">
                             <a class="btn btn--orange" href="/about/">Learn About Me</a>
                         </div>
                     </div>

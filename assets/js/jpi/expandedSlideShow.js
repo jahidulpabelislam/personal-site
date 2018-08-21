@@ -111,7 +111,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
 			//makes current slides bullet navigation display as active
 			jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
 
-			jQuery(".modal--detailed-project").removeClass("open").hide();
+			jQuery(".detailed-project").removeClass("open").hide();
 
 			setTimeout(function () {
 				//display the expanded image div

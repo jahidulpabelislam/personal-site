@@ -22,7 +22,7 @@ window.jpi.home = (function (jQuery) {
 		//prints out a error message provided
 		renderError: function (error) {
 			jQuery(".feedback--error").text(error).show("fast");
-			jQuery(".projects-loading-img").hide("fast");
+			jQuery(".projects__loading-img").hide("fast");
 			jpi.footer.delayExpand();
 		},
 
@@ -49,10 +49,10 @@ window.jpi.home = (function (jQuery) {
 			jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
 			if (!project.Pictures[0]) {
-				jQuery("#slide--" + project.ID + " .slide").remove();
+				jQuery("#slide-" + project.ID + " .slide").remove();
 			}
 
-			var projectLinks = jQuery("#slide--" + project.ID + " .project-description__links")[0];
+			var projectLinks = jQuery("#slide-" + project.ID + " .project-info__links")[0];
 
 			if (project.Link) {
 				jpi.helpers.createElement(projectLinks, "a", {
@@ -73,24 +73,24 @@ window.jpi.home = (function (jQuery) {
 
 		//sets up events when projects is received
 		gotProjects: function (result) {
-			jQuery(".feedback--error, .projects-loading-img").text("").hide("fast");
+			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 
 			//send the data, the function to do if data is valid
 			var dataValid = jpi.ajax.loopThroughData(result, fn.renderProject, fn.renderError, "Error Getting the Projects.");
 
 			if (dataValid) {
-				jpi.slideShow.setUp("#slide-show--projects-preview");
+				jpi.slideShow.setUp("#slide-show--home");
 			}
 
 			jpi.footer.delayExpand();
 		},
 
 		init: function () {
-			if (jQuery("#slide-show--projects-preview").length > 0) {
+			if (jQuery("#slide-show--home").length > 0) {
 
 				fn.initSecondsCounter();
 
-				jQuery(".projects-loading-img").show("fast");
+				jQuery(".projects__loading-img").show("fast");
 				jpi.ajax.sendRequest({
 					method: "GET",
 					url: "/api/2/projects/",

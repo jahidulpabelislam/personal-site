@@ -30,21 +30,25 @@
   padding: 20px 0 10px 0;
 }
 
-.project-title {
+.project__title {
   margin-top: 20px;
   margin-bottom: 4px;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
 }
 
-.project-date {
+.project__date {
   margin-bottom: 10px;
 }
 
-.project-title--inline {
+.project__title--inline {
   margin: 0;
   text-align: left;
 }
 
-.project-date--inline {
+.project__date--inline {
   margin: 0;
   margin-left: 24px;
   text-align: right;
