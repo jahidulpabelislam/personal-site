@@ -1,87 +1,87 @@
 /* For all devices */
 .jumbotron {
-    color: #FFFFFF;
-    background: $primary-color url('/assets/images/work.jpg') no-repeat center center scroll;
-    -o-background-size: cover;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: cover;
-    height: 100vh;
+	color: #FFFFFF;
+	background: $primary-color url('/assets/images/work.jpg') no-repeat center center scroll;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+	height: 100vh;
 }
 
 .jumbotron__overlay {
-    background: transparentize($dark, 0.85);
-    display: flex;
-    height: 100%;
+	background: transparentize($dark, 0.85);
+	display: flex;
+	height: 100%;
 }
 
 .jumbotron__title {
-    text-shadow: 2px 2px 3px black;
-    font-size: 50px;
-    font-weight: bold;
-    line-height: 52px;
+	text-shadow: 2px 2px 3px black;
+	font-size: 50px;
+	font-weight: bold;
+	line-height: 52px;
 }
 
 .jumbotron__line-breaker {
-    margin: 30px 0 38px 0;
+	margin: 30px 0 38px 0;
 }
 
 .jumbotron__desc {
-    text-shadow: 2px 2px 3px black;
-    font-size: 26px;
-    font-weight: bold;
-    line-height: 28px;
+	text-shadow: 2px 2px 3px black;
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 28px;
 }
 
 .scroll-to-content {
-    cursor: pointer;
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    margin-left: -18px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: bounce 1.5s linear infinite;
+	cursor: pointer;
+	position: absolute;
+	bottom: 24px;
+	left: 50%;
+	margin-left: -18px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	opacity: 0.8;
+	animation: bounce 1.5s linear infinite;
 }
 
 .scroll-to-content:hover {
-    opacity: 1;
-    background: transparentize($light, .9);
+	opacity: 1;
+	background: transparentize($light, .9);
 }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    .scroll-to-content {
-        margin-left: -20px;
-        width: 40px;
-        height: 40px;
-    }
+	.scroll-to-content {
+		margin-left: -20px;
+		width: 40px;
+		height: 40px;
+	}
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-    .jumbotron {
-        background-attachment: fixed;
-    }
+	.jumbotron {
+		background-attachment: fixed;
+	}
 
-    .scroll-to-content {
-        margin-left: -25px;
-        width: 50px;
-        height: 50px;
-    }
+	.scroll-to-content {
+		margin-left: -25px;
+		width: 50px;
+		height: 50px;
+	}
 }
 
 @keyframes bounce {
-    0% {
-        bottom: 24px;
-    }
-    50% {
-        bottom: 36px;
-    }
+	0% {
+		bottom: 24px;
+	}
+	50% {
+		bottom: 36px;
+	}
 
-    100% {
-        bottom: 24px;
-    }
+	100% {
+		bottom: 24px;
+	}
 }

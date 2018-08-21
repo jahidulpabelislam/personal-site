@@ -1,292 +1,291 @@
 .nav {
-    z-index: 3;
-    margin: 0 -15px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    @include transition(0.7s);
+	z-index: 3;
+	margin: 0 -15px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	@include transition(0.7s);
 }
 
 .nav--light {
-    background-color: transparentize(white, 0.92);
+	background-color: transparentize(white, 0.92);
 }
 
 .nav--dark {
-    background-color: transparentize($dark, 0.80);
+	background-color: transparentize($dark, 0.80);
 }
 
 .nav.scrolled,
 .nav.opened {
-    @include box-shadow(0 0 10px 0 $dark);
-    background-color: white;
+	@include box-shadow(0 0 10px 0 $dark);
+	background-color: white;
 }
 
 .nav__mobile-header {
-    height: 46px;
+	height: 46px;
 }
 
 .nav__mobile-header:before,
 .nav__mobile-header:after {
-    display: table;
-    content: " ";
+	display: table;
+	content: " ";
 }
 
 .nav__mobile-header:after {
-    clear: both;
+	clear: both;
 }
 
 .nav__brand {
-    display: inline-block;
+	display: inline-block;
 }
 
 .nav__brand--logo-container {
-    padding: 4px 0;
-    height: 46px;
+	padding: 4px 0;
+	height: 46px;
 }
 
 .nav__brand--logo {
-    height: 100%;
-    @include border-radius(50%);
-    background: transparent;
-    border: 1px solid transparent;
-    opacity: 1;
+	height: 100%;
+	@include border-radius(50%);
+	background: transparent;
+	border: 1px solid transparent;
+	opacity: 1;
 }
 
 .scrolled .nav__brand--logo,
 .opened .nav__brand--logo {
-    background: $dark;
-    border-color: $dark;
+	background: $dark;
+	border-color: $dark;
 }
 
 .nav__brand--logo.current,
 .nav__brand--logo-container:hover .nav__brand--logo {
-    background: $primary-color;
-    border-color: $primary-color;
+	background: $primary-color;
+	border-color: $primary-color;
 }
 
 .nav__brand--logo-container:hover .nav__brand--logo.current {
-    @include box-shadow(none);
+	@include box-shadow(none);
 }
 
-.opened .nav__brand--logo  {
-    display: none;
+.opened .nav__brand--logo {
+	display: none;
 }
 
 .nav__links__toggle {
-    position: absolute;
-    top: 0;
-    right: 16px;
-    margin: 6px 10px 6px 0;
-    padding: 7px;
-    border: solid transparent 2px;
-    @include border-radius(50%);
-    @include transition(0.7s);
+	position: absolute;
+	top: 0;
+	right: 16px;
+	margin: 6px 10px 6px 0;
+	padding: 7px;
+	border: solid transparent 2px;
+	@include border-radius(50%);
+	@include transition(0.7s);
 }
 
 .menu-bar {
-    display: block;
-    width: 18px;
-    height: 2px;
-    background-color: white;
-    @include transition(0.7s);
-    position: relative;
+	display: block;
+	width: 18px;
+	height: 2px;
+	background-color: white;
+	@include transition(0.7s);
+	position: relative;
 }
 
 .scrolled .menu-bar {
-    background-color: $dark;
+	background-color: $dark;
 }
 
 .opened .nav__links__toggle {
-    border-color: colour(red, main);
+	border-color: colour(red, main);
 }
 
 .opened .menu-bar {
-    background-color: colour(red, main)
+	background-color: colour(red, main)
 }
 
 .menu-bar--top {
-    top: 0;
+	top: 0;
 }
 
 .menu-bar--middle {
-    margin-top: 4px;
-    margin-left: auto;
-    margin-right: auto;
+	margin-top: 4px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .menu-bar--bottom {
-    top: 0;
-    margin-top: 4px;
+	top: 0;
+	margin-top: 4px;
 }
 
 .opened .menu-bar--top {
-    top: 6px;
-    @include transform(rotate(45deg));
+	top: 6px;
+	@include transform(rotate(45deg));
 }
 
 .opened .menu-bar--middle,
 .opened:hover .menu-bar--middle {
-    background-color: transparent;
-    width: 0;
+	background-color: transparent;
+	width: 0;
 }
 
 .opened .menu-bar--bottom {
-    top: -6px;
-    @include transform(rotate(-45deg));
+	top: -6px;
+	@include transform(rotate(-45deg));
 }
 
 .nav__links-container,
 .nav__social-links-wrapper {
-    display: none;
+	display: none;
 }
 
 .nav__links-container--left .nav__links {
-    border-top: none;
+	border-top: none;
 }
 
 .nav__links,
-.nav__social-links
-{
-    border-top: $light-grey 1px solid;
+.nav__social-links {
+	border-top: $light-grey 1px solid;
 }
 
 .nav__links > li > a {
-    padding: 12px 12px;
-    display: block;
-    color: white;
+	padding: 12px 12px;
+	display: block;
+	color: white;
 	text-align: center;
 }
 
 .scrolled .nav__links a,
 .opened .nav__links a {
-    color: $dark;
+	color: $dark;
 }
 
 .nav__links > li > a:focus,
 .nav__links > li > a:hover {
-    color: colour(blue, main);
+	color: colour(blue, main);
 }
 
 .nav__links li .active {
-    background-color: colour(blue, main);
-    color: white;
+	background-color: colour(blue, main);
+	color: white;
 }
 
 .nav__social-links li {
-    display: inline-block;
+	display: inline-block;
 }
 
 .nav__social-links .social-link__img {
-    height: 36px;
-    width: 36px;
-    margin: 10px 4px;
-    background: transparent;
+	height: 36px;
+	width: 36px;
+	margin: 10px 4px;
+	background: transparent;
 }
 
 .nav.scrolled .nav__social-links .social-link__img,
 .nav.opened .nav__social-links .social-link__img {
-    background: $dark;
+	background: $dark;
 }
 
 .nav__social-links .social-link:hover .social-link__img {
-    background: colour(blue, main);
+	background: colour(blue, main);
 }
 
 .nav__social-links .social-link__img--instagram {
-    transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    .nav {
-        margin: 0;
-    }
+	.nav {
+		margin: 0;
+	}
 
-    .nav__wrapper {
-        display: flex;
-    }
+	.nav__wrapper {
+		display: flex;
+	}
 
-    .nav__mobile-header {
-        flex: 1;
-        order: 2;
-    }
+	.nav__mobile-header {
+		flex: 1;
+		order: 2;
+	}
 
-    .nav__links__toggle {
-        display: none;
-    }
+	.nav__links__toggle {
+		display: none;
+	}
 
-    .nav__links-container {
-        display: block;
-        flex: 1;
-        order: 3;
-    }
+	.nav__links-container {
+		display: block;
+		flex: 1;
+		order: 3;
+	}
 
-    .nav__social-links-wrapper {
-        display: block;
-        order: 1;
-        flex: 1;
-    }
+	.nav__social-links-wrapper {
+		display: block;
+		order: 1;
+		flex: 1;
+	}
 
-    .nav__links-container--left {
-        display: block;
-        order: 1;
-        flex: 1;
-    }
+	.nav__links-container--left {
+		display: block;
+		order: 1;
+		flex: 1;
+	}
 
-    .nav__links-container--left .nav__links {
-        float: none;
-    }
+	.nav__links-container--left .nav__links {
+		float: none;
+	}
 
-    .nav__social-links {
-        border-top: none;
-        text-align: left;
-    }
+	.nav__social-links {
+		border-top: none;
+		text-align: left;
+	}
 
-    .nav__links {
-        border-top: none;
-        float: right;
-    }
+	.nav__links {
+		border-top: none;
+		float: right;
+	}
 
-    .nav__links > li {
-        float: left;
-    }
+	.nav__links > li {
+		float: left;
+	}
 
-    .nav__links > li > a {
-        border-bottom: solid transparent 2px;
-    }
+	.nav__links > li > a {
+		border-bottom: solid transparent 2px;
+	}
 
-    .nav__links > li > a:hover {
-        border-bottom-color: colour(blue, main);
-    }
+	.nav__links > li > a:hover {
+		border-bottom-color: colour(blue, main);
+	}
 
-    .nav__links li .active {
-        border-bottom-color: colour(blue, main);
-    }
+	.nav__links li .active {
+		border-bottom-color: colour(blue, main);
+	}
 
-    .nav__social-links .social-link__img.social-link__img {
-        margin: 5px 2px;
-    }
+	.nav__social-links .social-link__img.social-link__img {
+		margin: 5px 2px;
+	}
 
-    .nav__social-links .social-link__img--instagram  i {
-        width: 29.44px;
-        height: 29.44px;
-        border: 2.72px solid white;
-        border-radius: 8.33px;
-    }
+	.nav__social-links .social-link__img--instagram i {
+		width: 29.44px;
+		height: 29.44px;
+		border: 2.72px solid white;
+		border-radius: 8.33px;
+	}
 
-    .nav__social-links .social-link__img--instagram  i::before {
-        width: 15.22px;
-        height: 15.22px;
-        border: 2.72px solid white;
-        border-radius: 7.61px;
-    }
+	.nav__social-links .social-link__img--instagram i::before {
+		width: 15.22px;
+		height: 15.22px;
+		border: 2.72px solid white;
+		border-radius: 7.61px;
+	}
 
-    .nav__social-links .social-link__img--instagram i::after {
-        top: 2.38px;
-        right: 2.38px;
-        width: 3.55px;
-        height: 3.55px;
-        border-radius: 1.77px;
-    }
+	.nav__social-links .social-link__img--instagram i::after {
+		top: 2.38px;
+		right: 2.38px;
+		width: 3.55px;
+		height: 3.55px;
+		border-radius: 1.77px;
+	}
 }

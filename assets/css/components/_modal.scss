@@ -1,31 +1,31 @@
 /* For all devices */
 .modal {
-    background-color: transparentize($dark, .4);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    z-index: 10000;
-    overflow-x: hidden;
-    overflow-y: auto;
+	background-color: transparentize($dark, .4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 10000;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .modal__content {
-    background-color: white;
-    border: $grey solid 1px;
-    max-width: 75%;
-    overflow: hidden;
-    margin: 40px auto;
-    padding: 0 15px;
-    border-radius: 5px;
-    @include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	background-color: white;
+	border: $grey solid 1px;
+	max-width: 75%;
+	overflow: hidden;
+	margin: 40px auto;
+	padding: 0 15px;
+	border-radius: 5px;
+	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
 }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-    .modal__content {
-        max-width: 750px;
-    }
+	.modal__content {
+		max-width: 750px;
+	}
 }
