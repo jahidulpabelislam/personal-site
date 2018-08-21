@@ -2555,19 +2555,19 @@ label {
   width: 75%;
   max-width: 165px; }
 
-.site-map-list {
+.site-map__list {
   text-align: left;
   width: 100%;
   color: #333; }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
-  .site-map-list.site-map-list {
+  .site-map__list.site-map__list {
     width: 50%;
     margin-left: auto;
     margin-right: auto; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
-  .site-map-list.site-map-list {
+  .site-map__list.site-map__list {
     width: 25%; } }

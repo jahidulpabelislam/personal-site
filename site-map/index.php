@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                 <div class="article">
                     <div class="container">
-                        <ul class="site-map-list">
+                        <ul class="site-map__list">
                             <li>
                                 <a href="/" class="link">Home</a>
                             </li>
