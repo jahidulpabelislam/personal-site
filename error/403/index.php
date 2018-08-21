@@ -20,10 +20,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
 ?>
                 <!-- Start Dynamic content for page -->
-                <div class="article article--halved article--error">
+                <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="/assets/images/no-entry.png?v=1" alt="No entry sign">
+                            <img src="/assets/images/no-entry.png?v=1" alt="No entry sign" class="error__img">
                         </div>
                         <div class="article__half">
                             <p>The access to the requested page is strictly forbidden.</p>

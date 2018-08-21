@@ -2551,7 +2551,7 @@ label {
 .jumbotron--404 {
   background-image: url("/assets/images/mistake.jpg"); }
 
-.article--error img {
+.error__img {
   width: 75%;
   max-width: 165px; }
 
