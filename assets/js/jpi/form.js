@@ -10,9 +10,9 @@ window.jpi.form = (function (jQuery) {
 		messageInput: jQuery("#message-input"),
 		subjectInput: jQuery("#subject-input"),
 
-		emailFeedback: jQuery("#email-feedback"),
-		messageFeedback: jQuery("#message-feedback"),
-		formFeedback: jQuery("#form-feedback")
+		emailFeedback: jQuery("#contact-form__email-feedback"),
+		messageFeedback: jQuery("#contact-form__message-feedback"),
+		formFeedback: jQuery("#contact-form__feedback")
 	};
 
 	var fn = {

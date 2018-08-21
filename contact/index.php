@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <label for="email-input">Your Email Address <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <input class="input" type="email" name="email-input" placeholder="e.g. joe@example.com" required tabindex="1" id="email-input" title="Email Address">
-                                <p id="email-feedback" class="feedback feedback--error"></p>
+                                <p id="contact-form__email-feedback" class="feedback feedback--error"></p>
                             </div>
 
                             <div class="input-group">
@@ -34,10 +34,10 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 <label for="message-input">Your Message <span class="required">*</span></label>
                                 <!--validate using JavaScript on input-->
                                 <textarea class="input" name="message-input" placeholder="e.g. Your site could do with more colour." required tabindex="3" id="message-input" title="The Message" rows="10"></textarea>
-                                <p id="message-feedback" class="feedback feedback--error"></p>
+                                <p id="contact-form__message-feedback" class="feedback feedback--error"></p>
                             </div>
 
-                            <p id="form-feedback" class="feedback"></p>
+                            <p id="contact-form__feedback" class="feedback"></p>
                             <button id="submit" type="submit" class="btn btn--green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
 
                         </form>
