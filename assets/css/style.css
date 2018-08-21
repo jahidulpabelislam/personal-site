@@ -1384,11 +1384,10 @@ label {
 .jumbotron--about {
   background-image: url("/assets/images/marmaris.jpg"); }
 
-.about__skills.about__skills,
-.about__interests.about__interests {
+.about__skills-interests.about__skills-interests {
   padding-left: 0; }
 
-.label {
+.skills-interests__item {
   border: 1px solid #0d0d0d;
   border-radius: 5px;
   padding: 5px;
@@ -1399,43 +1398,43 @@ label {
   color: white;
   cursor: auto; }
 
-.label.label {
+.skills-interests__item.skills-interests__item {
   margin: 2px; }
 
-.label--blue {
+.skills-interests__item--blue {
   background-color: #0375b4;
   border: 1px solid #035691; }
 
-.label--red {
+.skills-interests__item--red {
   background-color: #e52525;
   border: 1px solid #c32424; }
 
-.label--orange {
+.skills-interests__item--orange {
   background-color: #e1a02f;
   border: 1px solid #d2922e; }
 
-.label--lime-green {
+.skills-interests__item--lime-green {
   background-color: #b5c82f;
   border: 1px solid #a6b930; }
 
-.label--green {
+.skills-interests__item--green {
   background-color: #5cb85c;
   border: 1px solid #54a754; }
 
-.label--purple {
+.skills-interests__item--purple {
   background-color: #80379b;
   border: 1px solid #62357d; }
 
-.js-expand-label {
+.js-expand-skill-interest {
   cursor: pointer; }
 
-.expanded-label {
+.expanded-item {
   display: block; }
 
-.label__expand-icon {
+.skills-interests__item-expand-icon {
   vertical-align: middle; }
 
-.label__more_content {
+.skills-interests__item-expand-content {
   display: none;
   font-weight: 400; }
 
@@ -1552,7 +1551,7 @@ label {
 .timeline-item__content p {
   margin: 0; }
 
-.timeline__date {
+.timeline-item__date {
   font-weight: 700;
   font-style: italic; }
 

@@ -110,20 +110,20 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <h3 class="article__header">Technical Skills</h3>
 
-                        <ul class="about__skills">
+                        <ul class="about__skills-interests">
                             <?php
                             foreach ($tech_skills as $skill)
                             {
                                 $skill_text = $skill["text"];
                                 $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="label label--blue ' . $expand_class .'">';
+                                echo '<li class="skills-interests__item skills-interests__item--blue ' . $expand_class .'">';
                                 echo $skill_text;
 
                                 if ($skill_desc)
-                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skill_desc . '</div>';
                                 echo '</li>';
                             }
                             ?>
@@ -135,20 +135,20 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <h3 class="article__header">Other Skills</h3>
 
-                        <ul class="about__skills">
+                        <ul class="about__skills-interests">
                             <?php
                             foreach ($other_skills as $skill)
                             {
                                 $skill_text = $skill["text"];
                                 $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="label label--purple ' . $expand_class .'">';
+                                echo '<li class="skills-interests__item skills-interests__item--purple ' . $expand_class .'">';
                                 echo $skill_text;
 
                                 if ($skill_desc)
-                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $skill_desc . '</div>';
+                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skill_desc . '</div>';
                                 echo '</li>';
                             }
                             ?>
@@ -160,7 +160,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <h3 class="article__header">Interests</h3>
 
-                        <ul class="about__interests">
+                        <ul class="about__skills-interests">
 
                             <?php
                             foreach ($interests as $interest)
@@ -168,13 +168,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                                 $interest_text = $interest["text"];
                                 $interest_desc = (isset($interest["desc"])) ? $interest["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-label" : "";
+                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="label label--green ' . $expand_class .'">';
+                                echo '<li class="skills-interests__item skills-interests__item--green ' . $expand_class .'">';
                                 echo $interest_text;
 
                                 if ($interest_desc)
-                                    echo ' <span class="fa fa-plus label__expand-icon"></span><div class="label__more_content">' . $interest_desc . '</div>';
+                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interest_desc . '</div>';
 
                                 echo '</li>';
                             }
@@ -189,55 +189,55 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <h3 class="article__header">What I've Been Up To</h3>
                         <div class="timeline">
                             <div class="timeline__item timeline__item--active">
-                                <h2 class="timeline__date">2017 - Present</h2>
+                                <h2 class="timeline-item__date">2017 - Present</h2>
                                 <div class="timeline-item__content timeline-item__content--work">
                                     <p>Junior Web Developer @ <a class="link--orange" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a></p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2014 - 2017</h2>
+                                <h2 class="timeline-item__date">2014 - 2017</h2>
                                 <div class="timeline-item__content timeline-item__content--school">
                                     <p>BSc (Hons) Web Technologies Student @ <a class="link--orange" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a></p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2014 - 2017</h2>
+                                <h2 class="timeline-item__date">2014 - 2017</h2>
                                 <div class="timeline-item__content timeline-item__content--film">
                                     <p>Working Part Time @ <a class="link--orange" href="https://uk.webuy.com/" title="Link to CeX website." target="_blank">CeX</a> as a Sales Assistant</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2014</h2>
+                                <h2 class="timeline-item__date">2014</h2>
                                 <div class="timeline-item__content timeline-item__content--food">
                                     <p>Working Part Time @ <a class="link--orange" href="https://www.kfc.co.uk/" title="Link to KFC website." target="_blank">KFC</a> as a Team Member</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2012 - 2014</h2>
+                                <h2 class="timeline-item__date">2012 - 2014</h2>
                                 <div class="timeline-item__content timeline-item__content--school">
                                     <p>BTEC Extended Diploma in IT Student @ <a class="link--orange" href="https://chichester.ac.uk/" title="Link to Chichester College website." target="_blank">Chichester College</a></p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2010</h2>
+                                <h2 class="timeline-item__date">2010</h2>
                                 <div class="timeline-item__content timeline-item__content--coding">
                                     <p>Got Introduced to Developing/Coding</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">2005 - 2009</h2>
+                                <h2 class="timeline-item__date">2005 - 2009</h2>
                                 <div class="timeline-item__content timeline-item__content--football">
                                     <p>Playing for a Competitive Football Team @ <a class="link--orange" href="http://www.felphamcolts.com/" title="Link to Felpham Colts website." target="_blank">Felpham Colts</a> </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">1996 - 2007</h2>
+                                <h2 class="timeline-item__date">1996 - 2007</h2>
                                 <div class="timeline-item__content timelime-item__content--childhood">
                                     <p>Life before getting introduced to technology</p>
                                 </div>
                             </div>
                             <div class="timeline__item">
-                                <h2 class="timeline__date">1996</h2>
+                                <h2 class="timeline-item__date">1996</h2>
                                 <div class="timeline-item__content timeline-item__content--baby">
                                     <p>Born</p>
                                 </div>

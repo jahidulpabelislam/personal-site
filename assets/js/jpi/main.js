@@ -28,26 +28,26 @@ window.jpi.main = (function (jQuery) {
 		},
 
 		toggleLabelContent: function () {
-			var selected = jQuery(this).children(".label__more_content"); // Get the new label that was clicked
-			var selectedIcon = jQuery(this).children(".label__expand-icon");
+			var selected = jQuery(this).children(".skills-interests__item-expand-content"); // Get the new label that was clicked
+			var selectedIcon = jQuery(this).children(".skills-interests__item-expand-icon");
 
 			// Reset all other label to closed
-			jQuery(".label__more_content").not(selected).slideUp();
-			jQuery(".label__expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+			jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
+			jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
 			//Toggle the clicked label
 			selectedIcon.toggleClass("fa-plus");
 			selectedIcon.toggleClass("fa-minus");
 			selected.slideToggle();
 
-			jQuery(this).toggleClass("expanded-label");
-			jQuery('.js-expand-label').not(this).removeClass("expanded-label");
+			jQuery(this).toggleClass("expanded-item");
+			jQuery('.js-expand-skill-interest').not(this).removeClass("expanded-item");
 		},
 
 		initListeners: function () {
 			jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
 
-			jQuery(".js-expand-label").on("click", fn.toggleLabelContent);
+			jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
 		},
 
 		init: function () {
