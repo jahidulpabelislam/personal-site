@@ -3,57 +3,57 @@
 */
 
 .link {
-  color: $dark;
-  border-bottom: transparent solid 1px;
+	color: $dark;
+	border-bottom: transparent solid 1px;
 }
 
 .link:hover {
-  color: darken($dark, 10%);
-  border-bottom-color: darken($dark, 10%);
+	color: darken($dark, 10%);
+	border-bottom-color: darken($dark, 10%);
 }
 
 @each $color, $colors in $colors {
-  .link--#{$color} {
-    color: map-get($colors, main);
-    border-bottom: transparent solid 1px;
-  }
+	.link--#{$color} {
+		color: map-get($colors, main);
+		border-bottom: transparent solid 1px;
+	}
 
-  .link--#{$color}:hover {
-    color: map-get($colors, hover);
-    border-bottom-color: map-get($colors, hover);
-  }
+	.link--#{$color}:hover {
+		color: map-get($colors, hover);
+		border-bottom-color: map-get($colors, hover);
+	}
 }
 
 .project__header {
-  @include flexbox();
-  @include flexboxCenterAlign();
-  padding: 20px 0 10px 0;
+	@include flexbox();
+	@include flexboxCenterAlign();
+	padding: 20px 0 10px 0;
 }
 
 .project__title {
-  margin-top: 20px;
-  margin-bottom: 4px;
-  font-size: 22px;
-  line-height: 24px;
-  font-weight: 700;
-  font-family: 'Oswald', sans-serif;
+	margin-top: 20px;
+	margin-bottom: 4px;
+	font-size: 22px;
+	line-height: 24px;
+	font-weight: 700;
+	font-family: 'Oswald', sans-serif;
 }
 
 .project__date {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .project__title--inline {
-  margin: 0;
-  text-align: left;
+	margin: 0;
+	text-align: left;
 }
 
 .project__date--inline {
-  margin: 0;
-  margin-left: 24px;
-  text-align: right;
+	margin: 0;
+	margin-left: 24px;
+	text-align: right;
 }
 
 .image-of-me {
-  @include border-radius(50%);
+	@include border-radius(50%);
 }
