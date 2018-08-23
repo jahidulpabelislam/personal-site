@@ -96,7 +96,7 @@
                     <h1 class="jumbotron__title"><?php echo $header_title ?></h1>
                     <hr class="jumbotron__line-breaker">
                     <p class="jumbotron__desc"><?php echo $header_description ?></p>
-                    <img src="/assets/images/down-arrow.svg" class="js-scroll-to-content scroll-to-content">
+                    <img src="/assets/images/down-arrow.svg" class="js-scroll-to-content jumbotron__scroll-to-content">
                 </div>
             </div>
         </header>

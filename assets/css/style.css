@@ -237,89 +237,61 @@ strong {
 /*
   Any css for many templates and/or components.
 */
-.link {
+.link-styled {
   color: #333;
   border-bottom: transparent solid 1px; }
 
-.link:hover {
+.link-styled:hover {
   color: #1a1a1a;
   border-bottom-color: #1a1a1a; }
 
-.link--blue {
+.link-styled--blue {
   color: #0375b4;
   border-bottom: transparent solid 1px; }
 
-.link--blue:hover {
+.link-styled--blue:hover {
   color: #035691;
   border-bottom-color: #035691; }
 
-.link--red {
+.link-styled--red {
   color: #e52525;
   border-bottom: transparent solid 1px; }
 
-.link--red:hover {
+.link-styled--red:hover {
   color: #c32424;
   border-bottom-color: #c32424; }
 
-.link--orange {
+.link-styled--orange {
   color: #e1a02f;
   border-bottom: transparent solid 1px; }
 
-.link--orange:hover {
+.link-styled--orange:hover {
   color: #d2922e;
   border-bottom-color: #d2922e; }
 
-.link--lime-green {
+.link-styled--lime-green {
   color: #b5c82f;
   border-bottom: transparent solid 1px; }
 
-.link--lime-green:hover {
+.link-styled--lime-green:hover {
   color: #a6b930;
   border-bottom-color: #a6b930; }
 
-.link--green {
+.link-styled--green {
   color: #5cb85c;
   border-bottom: transparent solid 1px; }
 
-.link--green:hover {
+.link-styled--green:hover {
   color: #54a754;
   border-bottom-color: #54a754; }
 
-.link--purple {
+.link-styled--purple {
   color: #80379b;
   border-bottom: transparent solid 1px; }
 
-.link--purple:hover {
+.link-styled--purple:hover {
   color: #62357d;
   border-bottom-color: #62357d; }
-
-.project__header {
-  display: flex;
-  align-items: center;
-  padding: 20px 0 10px 0; }
-
-.project__title {
-  margin-top: 20px;
-  margin-bottom: 4px;
-  font-size: 22px;
-  line-height: 24px;
-  font-weight: 700;
-  font-family: 'Oswald', sans-serif; }
-
-.project__date {
-  margin-bottom: 10px; }
-
-.project__title--inline {
-  margin: 0;
-  text-align: left; }
-
-.project__date--inline {
-  margin: 0;
-  margin-left: 24px;
-  text-align: right; }
-
-.image-of-me {
-  border-radius: 50%; }
 
 /* For all devices */
 button,
@@ -604,7 +576,7 @@ label {
   font-weight: bold;
   line-height: 28px; }
 
-.scroll-to-content {
+.jumbotron__scroll-to-content {
   cursor: pointer;
   position: absolute;
   bottom: 24px;
@@ -616,13 +588,13 @@ label {
   opacity: 0.8;
   animation: bounce 1.5s linear infinite; }
 
-.scroll-to-content:hover {
+.jumbotron__scroll-to-content:hover {
   opacity: 1;
   background: rgba(245, 245, 245, 0.1); }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: 768px) {
-  .scroll-to-content {
+  .jumbotron__scroll-to-content {
     margin-left: -20px;
     width: 40px;
     height: 40px; } }
@@ -631,7 +603,7 @@ label {
 @media only screen and (min-width: 1200px) {
   .jumbotron {
     background-attachment: fixed; }
-  .scroll-to-content {
+  .jumbotron__scroll-to-content {
     margin-left: -25px;
     width: 50px;
     height: 50px; } }
@@ -1367,6 +1339,31 @@ label {
     width: calc(25% - 20px);
     margin: 0 10px; } }
 
+.project__header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 10px 0; }
+
+.project__title {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif; }
+
+.project__date {
+  margin-bottom: 10px; }
+
+.project__title--inline {
+  margin: 0;
+  text-align: left; }
+
+.project__date--inline {
+  margin: 0;
+  margin-left: 24px;
+  text-align: right; }
+
 /* For all devices */
 .jumbotron--about {
   background-image: url("/assets/images/marmaris.jpg"); }
@@ -1541,6 +1538,9 @@ label {
 .timeline-item__date {
   font-weight: 700;
   font-style: italic; }
+
+.image-of-me {
+  border-radius: 50%; }
 
 .about__images-of-me {
   position: relative;

@@ -33,7 +33,7 @@
 	line-height: 28px;
 }
 
-.scroll-to-content {
+.jumbotron__scroll-to-content {
 	cursor: pointer;
 	position: absolute;
 	bottom: 24px;
@@ -46,14 +46,14 @@
 	animation: bounce 1.5s linear infinite;
 }
 
-.scroll-to-content:hover {
+.jumbotron__scroll-to-content:hover {
 	opacity: 1;
 	background: transparentize($light, .9);
 }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-	.scroll-to-content {
+	.jumbotron__scroll-to-content {
 		margin-left: -20px;
 		width: 40px;
 		height: 40px;
@@ -66,7 +66,7 @@
 		background-attachment: fixed;
 	}
 
-	.scroll-to-content {
+	.jumbotron__scroll-to-content {
 		margin-left: -25px;
 		width: 50px;
 		height: 50px;
