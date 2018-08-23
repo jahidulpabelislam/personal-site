@@ -5,22 +5,22 @@ window.jpi.nav = (function (jQuery) {
 
 	var fn = {
 		toggleMobileMenu: function () {
-			var container = jQuery(".nav__links-container, .nav__social-links-wrapper");
+			var container = jQuery(".nav__links-container, .nav__social-links-container");
 			jQuery(".nav").toggleClass("opened");
 			container.slideToggle();
 		},
 
 		initDesktopNav: function () {
 			if (jQuery(window).width() > 768) {
-				var container = jQuery(".nav__links-container, .nav__social-links-wrapper");
+				var container = jQuery(".nav__links-container, .nav__social-links-container");
 				container.show();
 			}
 		},
 
 		//Custom code to collapse mobile menu when user clicks off it.
 		closeMobileNav: function (event) {
-			if (!jQuery(event.target).closest('.nav').length && jQuery(".nav").hasClass("opened") && jQuery(".nav__links__toggle").css("display") !== "none") {
-				jQuery(".nav__links__toggle").trigger("click");
+			if (!jQuery(event.target).closest('.nav').length && jQuery(".nav").hasClass("opened") && jQuery(".nav__mobile-toggle").css("display") !== "none") {
+				jQuery(".nav__mobile-toggle").trigger("click");
 			}
 		},
 
@@ -39,7 +39,7 @@ window.jpi.nav = (function (jQuery) {
 		initListeners: function () {
 			jQuery(document).on("click", fn.closeMobileNav);
 
-			jQuery(".nav__links__toggle").on("click", fn.toggleMobileMenu);
+			jQuery(".nav__mobile-toggle").on("click", fn.toggleMobileMenu);
 
 			jQuery(window).on("orientationchange resize", fn.initDesktopNav);
 
