@@ -24,7 +24,7 @@
 .home-hello__img {
 	width: 66%;
 	max-width: 150px;
-	@include box-shadow(0 0 10px 0 $dark);
+	box-shadow: 0 0 10px 0 $dark;
 	position: absolute;
 	transform: translateX(-50%);
 	border-radius: 50%;
@@ -42,7 +42,7 @@
 	transform: translateX(-50%);
 	opacity: 0;
 	transition: 1s opacity ease;
-	@include border-radius(50%);
+	border-radius: 50%;
 	box-shadow: none;
 }
 
@@ -56,13 +56,13 @@
 }
 
 #slide-show--home .slide-show__viewpoint:hover {
-	@include box-shadow(none);
+	box-shadow: none;
 	cursor: initial;
 }
 
 #slide-show--home .slide-show__img {
 	opacity: 0;
-	@include transition(2s);
+	transition: all 2s ease-in-out;
 }
 
 #slide-show--home .active .slide-show__img {
@@ -74,7 +74,7 @@
 	color: white;
 	padding: 10px 35px;
 	cursor: initial;
-	@include transition(2s);
+	transition: all 2s ease-in-out;
 	opacity: 0;
 }
 
@@ -89,12 +89,12 @@
 }
 
 .project-info__links .btn {
-	@include transition(.3s);
+	transition: all .3s ease-in-out;
 	font-weight: 700;
 }
 
 #slide-show--home .slide-show__img:hover {
-	@include transform(scale(1));
+	transform: scale(1);
 }
 
 #slide-show--home .project__date, #slide-show--home .project__title {
@@ -137,20 +137,20 @@
 		height: 100%;
 		width: 100%;
 		position: absolute;
-		@include flexbox();
-		@include flexboxCenterAlign();
-		@include flexboxJustifyCenter();
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.slide-show__info {
 		background-color: transparentize($dark, .2);
-		@include border-radius(5px);
-		@include transform(translateY(100%));
+		border-radius: 5px;
+		transform: translateY(100%);
 		padding: 10px;
 	}
 
 	.active .slide-show__info {
-		@include transform(translateY(0));
+		transform: translateY(0);
 	}
 
 	.project-info__desc {
@@ -203,13 +203,11 @@
 	.slide-show__info {
 		height: 100%;
 		width: 100%;
-		@include flexbox();
-		@include flexboxCenterAlign();
-		@include flexboxJustifyCenter();
-		-ms-flex-direction: column;
-		-webkit-flex-direction: column;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		flex-direction: column;
-		@include transition(3s);
+		transition: all 3s ease-in-out;
 		padding: 0 40px;
 	}
 

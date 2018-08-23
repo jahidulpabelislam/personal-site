@@ -15,7 +15,7 @@
 }
 
 .social-link__img--facebook {
-	@include border-radius(5px);
+	border-radius: 5px;
 }
 
 .social-link:hover .social-link__text--facebook {
@@ -28,7 +28,7 @@
 }
 
 .social-link__img--twitter {
-	@include border-radius(50%);
+	border-radius: 50%;
 }
 
 .social-link:hover .social-link__text--twitter {
@@ -43,16 +43,14 @@
 .social-link__img--snapchat {
 	width: 100%;
 	height: auto;
-	@include border-radius(15%);
-	@include transition(.3s);
-	-webkit-filter: grayscale(100%);
+	border-radius: 15%;
+	transition: all .3s ease-in-out;
 	filter: grayscale(100%);
 }
 
 .social-link:hover .social-link__img--snapchat {
-	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	box-shadow: 0 0 10px 0 transparentize($dark, .6);
 	cursor: pointer;
-	-webkit-filter: grayscale(0);
 	filter: grayscale(0);
 }
 
@@ -60,7 +58,7 @@
 	color: white;
 	background-color: black;
 	padding: 4px;
-	@include border-radius(6px);
+	border-radius: 6px;
 }
 
 .social-link:hover .social-link__text--snapchat {
@@ -70,9 +68,9 @@
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
 	.social-links-page > .container {
-		@include flexbox();
-		@include flexboxCenterAlign();
-		@include flexboxJustifyCenter();
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.social-link-container--snapchat {

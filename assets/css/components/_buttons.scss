@@ -5,7 +5,7 @@ button,
 	border: 0;
 	background-color: transparent;
 	cursor: pointer;
-	-webkit-appearance: none;
+	appearance: none;
 }
 
 .btn {
@@ -13,7 +13,7 @@ button,
 	margin: 5px;
 	width: auto;
 	padding: 6px 12px;
-	@include border-radius(2px);
+	border-radius: 2px;
 	color: white;
 	background-color: $dark;
 }
@@ -57,9 +57,6 @@ button,
 
 a.btn {
 	margin: 5px;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
 	transition: none;
 	font-weight: 700;
 	text-decoration: none;

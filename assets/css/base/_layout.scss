@@ -2,8 +2,6 @@
 *,
 *::before,
 *::after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -15,12 +13,12 @@ body {
 	max-width: 100%;
 	padding: 0 15px;
 	margin: auto;
-	@include transition(1s);
+	transition: all 1s ease-in-out;
 }
 
 section {
-	@include flexbox();
-	@include transition(1s);
+	display: flex;
+	transition: all 1s ease-in-out;
 }
 
 .section-inner-container {
@@ -30,7 +28,7 @@ section {
 .article {
 	background-color: $light;
 	padding: 15px 0;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .8));
+	box-shadow: 0 0 10px 0 transparentize($dark, .8);
 }
 
 .article:nth-of-type(even) {
@@ -92,15 +90,11 @@ img {
 	}
 
 	.article--halved > .container {
-		@include flexbox();
-		@include flexboxCenterAlign();
+		display: flex;
+		align-items: center;
 	}
 
 	.article--halved:nth-child(even) > .container {
-		-webkit-box-direction: reverse;
-		-moz-box-direction: reverse;
-		-ms-flex-direction: row-reverse;
-		-webkit-flex-direction: row-reverse;
 		flex-direction: row-reverse;
 	}
 

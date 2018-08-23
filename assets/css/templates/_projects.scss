@@ -26,10 +26,10 @@
 .project {
 	background-color: white;
 	padding: 0 15px;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .8));
+	box-shadow: 0 0 10px 0 transparentize($dark, .8);
 	margin-top: 10px;
 	border: 1px solid $light-grey;
-	@include border-radius(5px);
+	border-radius: 5px;
 }
 
 .project__date--modal {
@@ -42,18 +42,18 @@
 
 .skill {
 	border: 1px solid $dark;
-	@include border-radius(2px);
+	border-radius: 2px;
 	padding: 5px;
 	color: $dark;
 	display: inline-block;
 	margin: 2px;
 	cursor: pointer;
-	@include transition(.4s);
+	transition: all .4s ease-in-out;
 }
 
 .skill:hover {
 	background-color: $dark;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	box-shadow: 0 0 10px 0 transparentize($dark, .6);
 	color: white;
 }
 
@@ -129,12 +129,12 @@
 	height: 1px;
 	background-color: $light;
 	opacity: 0;
-	@include transition(1s);
+	transition: all 1s ease-in-out;
 }
 
 .expanded-slide-show__controls {
-	@include flexbox();
-	@include flexboxCenterAlign();
+	display: flex;
+	align-items: center;
 	position: absolute;
 	background-color: black;
 	color: white;
@@ -162,7 +162,7 @@
 
 .expanded-slide-show__nav {
 	opacity: 0.8;
-	@include transition(.3s);
+	transition: all .3s ease-in-out;
 	height: 28px;
 	width: 28px;
 	cursor: pointer;
@@ -189,7 +189,7 @@
 	width: calc(100% - 20px);
 	height: calc(100% - 55px);
 	position: absolute;
-	@include flexbox();
+	display: flex;
 	left: 10px;
 	top: 20px;
 }
@@ -198,8 +198,8 @@
 	max-width: 100%;
 	max-height: 100%;
 	margin: auto;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .7));
-	@include transition(1s);
+	box-shadow: 0 0 10px 0 transparentize($dark, .7);
+	transition: all 1s ease-in-out;
 	opacity: 0;
 }
 
@@ -277,10 +277,8 @@
 	}
 
 	.projects {
-		@include flexbox();
-		@include flexboxJustifyCenter();
-		-ms-flex-wrap: wrap;
-		-webkit-flex-wrap: wrap;
+		display: flex;
+		justify-content: center;
 		flex-wrap: wrap;
 	}
 

@@ -52,8 +52,6 @@ table {
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
@@ -142,10 +140,6 @@ img {
     display: flex;
     align-items: center; }
   .article--halved:nth-child(even) > .container {
-    -webkit-box-direction: reverse;
-    -moz-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    -webkit-flex-direction: row-reverse;
     flex-direction: row-reverse; }
   .article__half {
     width: 50%; }
@@ -166,13 +160,13 @@ body {
 
 a {
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
   text-decoration: none;
   color: inherit; }
 
 a > img {
   opacity: .9;
-  transition: all 0.3s ease-in-out; }
+  transition: all .3s ease-in-out; }
 
 a:hover > img {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
@@ -300,7 +294,7 @@ button,
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  -webkit-appearance: none; }
+  appearance: none; }
 
 .btn {
   font: inherit;
@@ -377,9 +371,6 @@ button,
 
 a.btn {
   margin: 5px;
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
   transition: none;
   font-weight: 700;
   text-decoration: none;
@@ -490,7 +481,7 @@ a.btn {
   height: 1px;
   width: calc(100% - 12px);
   border-bottom: transparent solid 1px;
-  transition: all 0.3s ease-in-out; }
+  transition: all .3s ease-in-out; }
 
 .footer__link:hover {
   color: #1a1a1a; }
@@ -550,9 +541,6 @@ label {
 .jumbotron {
   color: #FFFFFF;
   background: #0375b4 url("/assets/images/work.jpg") no-repeat center center scroll;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
   background-size: cover;
   height: 100vh; }
 
@@ -865,9 +853,6 @@ label {
   width: 100%;
   position: relative;
   left: 0;
-  -webkit-transition: left 2s ease;
-  -moz-transition: left 2s ease;
-  -o-transition: left 2s ease;
   transition: left 2s ease;
   display: flex;
   align-items: center; }
@@ -888,7 +873,7 @@ label {
   width: 30px;
   height: 30px;
   opacity: 0.8;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
   position: absolute;
   top: calc(50% - 15px);
   background: #333;
@@ -915,7 +900,7 @@ label {
   background-color: gray;
   margin: 14px 5px;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all .4s ease-in-out;
   opacity: 0.3; }
 
 .slide-show__bullet:hover {
@@ -982,9 +967,6 @@ label {
 /* For all devices */
 .social-links {
   background: #EEEEEE url("/assets/images/social.jpg") no-repeat center center scroll;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
   background-size: cover;
   padding: 10px;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
@@ -1003,24 +985,18 @@ label {
 
 .social-links__img.social-link__img--instagram {
   width: 50px;
-  -webkit-border-radius: 11.11px;
-  -moz-border-radius: 11.11px;
   border-radius: 11.11px; }
 
 .social-links__img.social-link__img--instagram i {
   width: 36.81px;
   height: 36.81px;
   border: 3.4px solid white;
-  -webkit-border-radius: 10.42px;
-  -moz-border-radius: 10.42px;
   border-radius: 10.42px; }
 
 .social-links__img.social-link__img--instagram i::before {
   width: 19.03px;
   height: 19.03px;
   border: 3.4px solid white;
-  -webkit-border-radius: 9.51px;
-  -moz-border-radius: 9.51px;
   border-radius: 9.51px; }
 
 .social-links__img.social-link__img--instagram i::after {
@@ -1028,8 +1004,6 @@ label {
   right: 2.99px;
   width: 4.44px;
   height: 4.44px;
-  -webkit-border-radius: 2.22px;
-  -moz-border-radius: 2.22px;
   border-radius: 2.22px; }
 
 /* Only for Tablets & Desktops */
@@ -1041,30 +1015,22 @@ label {
     margin: 20px 3px; }
   .social-links__img.social-link__img--instagram {
     width: 60px;
-    -webkit-border-radius: 13.33px;
-    -moz-border-radius: 13.33px;
     border-radius: 13.33px; }
   .social-links__img.social-link__img--instagram i {
     width: 44.16px;
     height: 44.16px;
     border: 4.08px solid white;
-    -webkit-border-radius: 12.5px;
-    -moz-border-radius: 12.5px;
     border-radius: 12.5px; }
   .social-links__img.social-link__img--instagram i::before {
     width: 22.83px;
     height: 22.83px;
     border: 4.08px solid white;
-    -webkit-border-radius: 11.41px;
-    -moz-border-radius: 11.41px;
     border-radius: 11.41px; }
   .social-links__img.social-link__img--instagram i::after {
     top: 3.58px;
     right: 3.58px;
     width: 5.33px;
     height: 5.33px;
-    -webkit-border-radius: 2.66px;
-    -moz-border-radius: 2.66px;
     border-radius: 2.66px; } }
 
 /* Only for Desktops */
@@ -1080,30 +1046,22 @@ label {
     margin: 0 20px 25px 20px; }
   .social-links__img.social-link__img--instagram {
     width: 70px;
-    -webkit-border-radius: 15.55px;
-    -moz-border-radius: 15.55px;
     border-radius: 15.55px; }
   .social-links__img.social-link__img--instagram i {
     width: 51.52px;
     height: 51.52px;
     border: 4.76px solid white;
-    -webkit-border-radius: 14.58px;
-    -moz-border-radius: 14.58px;
     border-radius: 14.58px; }
   .social-links__img.social-link__img--instagram i::before {
     width: 26.63px;
     height: 26.63px;
     border: 4.76px solid white;
-    -webkit-border-radius: 13.31px;
-    -moz-border-radius: 13.31px;
     border-radius: 13.31px; }
   .social-links__img.social-link__img--instagram i::after {
     top: 4.18px;
     right: 4.18px;
     width: 6.22px;
     height: 6.22px;
-    -webkit-border-radius: 3.11px;
-    -moz-border-radius: 3.11px;
     border-radius: 3.11px; } }
 
 /* For all devices */
@@ -1115,7 +1073,7 @@ label {
 .social-link__text {
   color: #333;
   font-weight: 700;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
   display: inline-block; }
 
 .social-link__img--email {
@@ -1154,17 +1112,11 @@ label {
   display: inline-block;
   width: 40px;
   height: 40px;
-  -webkit-border-radius: 8.88px;
-  -moz-border-radius: 8.88px;
   border-radius: 8.88px;
   background: black;
   vertical-align: middle; }
 
 .social-link:hover .social-link__img--instagram {
-  background: -webkit-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -webkit-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
-  background: -moz-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -moz-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
-  background: -ms-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -ms-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
-  background: -o-radial-gradient(32% 106%, circle cover, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), -o-linear-gradient(-45deg, #234bd7 12%, #c33cbe 58%);
   background: radial-gradient(circle farthest-corner at 32% 106%, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), linear-gradient(135deg, #234bd7 12%, #c33cbe 58%);
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
@@ -1178,8 +1130,6 @@ label {
   width: 29.44px;
   height: 29.44px;
   border: 2.72px solid white;
-  -webkit-border-radius: 8.33px;
-  -moz-border-radius: 8.33px;
   border-radius: 8.33px; }
 
 .social-link__img--instagram i::before {
@@ -1193,8 +1143,6 @@ label {
   width: 15.22px;
   height: 15.22px;
   border: 2.72px solid white;
-  -webkit-border-radius: 7.61px;
-  -moz-border-radius: 7.61px;
   border-radius: 7.61px; }
 
 .social-link__img--instagram i::after {
@@ -1205,8 +1153,6 @@ label {
   width: 3.55px;
   height: 3.55px;
   background: white;
-  -webkit-border-radius: 1.77px;
-  -moz-border-radius: 1.77px;
   border-radius: 1.77px; }
 
 /* Only for Desktops */
@@ -1215,30 +1161,22 @@ label {
     height: 50px; }
   .social-link__img--instagram {
     width: 50px;
-    -webkit-border-radius: 11.11px;
-    -moz-border-radius: 11.11px;
     border-radius: 11.11px; }
   .social-link__img--instagram i {
     width: 36.81px;
     height: 36.81px;
     border: 3.4px solid white;
-    -webkit-border-radius: 10.42px;
-    -moz-border-radius: 10.42px;
     border-radius: 10.42px; }
   .social-link__img--instagram i::before {
     width: 19.03px;
     height: 19.03px;
     border: 3.4px solid white;
-    -webkit-border-radius: 9.51px;
-    -moz-border-radius: 9.51px;
     border-radius: 9.51px; }
   .social-link__img--instagram i::after {
     top: 2.99px;
     right: 2.99px;
     width: 4.44px;
     height: 4.44px;
-    -webkit-border-radius: 2.22px;
-    -moz-border-radius: 2.22px;
     border-radius: 2.22px; } }
 
 /* For all devices */
@@ -1289,8 +1227,6 @@ label {
   .workflow {
     display: flex;
     justify-content: center;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
   .workflow__item {
     display: inline-block;
@@ -1321,8 +1257,6 @@ label {
   .stats {
     display: flex;
     justify-content: center;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
   .stats__item {
     display: inline-block;
@@ -1377,7 +1311,7 @@ label {
   padding: 5px;
   display: inline-block;
   margin: 2px;
-  transition: all 0.4s ease-in-out;
+  transition: all .4s ease-in-out;
   background-color: #333;
   color: white;
   cursor: auto; }
@@ -1827,7 +1761,7 @@ label {
   padding: 2px 4px;
   display: inline-block;
   margin: 2px;
-  transition: all 0.4s ease-in-out;
+  transition: all .4s ease-in-out;
   background-color: #333;
   color: white;
   cursor: pointer; }
@@ -2008,7 +1942,7 @@ label {
   opacity: 1; }
 
 .project-info__links .btn {
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
   font-weight: 700; }
 
 #slide-show--home .slide-show__img:hover {
@@ -2087,8 +2021,6 @@ label {
     display: flex;
     align-items: center;
     justify-content: center;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
     flex-direction: column;
     transition: all 3s ease-in-out;
     padding: 0 40px; }
@@ -2134,14 +2066,12 @@ label {
   width: 100%;
   height: auto;
   border-radius: 15%;
-  transition: all 0.3s ease-in-out;
-  -webkit-filter: grayscale(100%);
+  transition: all .3s ease-in-out;
   filter: grayscale(100%); }
 
 .social-link:hover .social-link__img--snapchat {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   cursor: pointer;
-  -webkit-filter: grayscale(0);
   filter: grayscale(0); }
 
 .social-link__text--snapchat {
@@ -2209,7 +2139,7 @@ label {
   display: inline-block;
   margin: 2px;
   cursor: pointer;
-  transition: all 0.4s ease-in-out; }
+  transition: all .4s ease-in-out; }
 
 .skill:hover {
   background-color: #333;
@@ -2379,7 +2309,7 @@ label {
 
 .expanded-slide-show__nav {
   opacity: 0.8;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
   height: 28px;
   width: 28px;
   cursor: pointer; }
@@ -2505,8 +2435,6 @@ label {
   .projects {
     display: flex;
     justify-content: center;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap; }
   .project {
     width: calc(50% - 5px); }

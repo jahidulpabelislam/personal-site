@@ -14,18 +14,18 @@ body {
 
 a {
 	font-weight: 700;
-	@include transition(.3s);
+	transition: all .3s ease-in-out;
 	text-decoration: none;
 	color: inherit;
 }
 
 a > img {
 	opacity: .9;
-	@include transition(.3s);
+	transition: all .3s ease-in-out;
 }
 
 a:hover > img {
-	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	box-shadow: 0 0 10px 0 transparentize($dark, .6);
 	cursor: pointer;
 	opacity: 1;
 }

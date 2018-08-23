@@ -5,7 +5,7 @@
 	left: 0;
 	right: 0;
 	top: 0;
-	@include transition(0.7s);
+	transition: all 0.7s ease-in-out;
 }
 
 .nav--light {
@@ -18,7 +18,7 @@
 
 .nav.scrolled,
 .nav.opened {
-	@include box-shadow(0 0 10px 0 $dark);
+	box-shadow: 0 0 10px 0 $dark;
 	background-color: white;
 }
 
@@ -30,7 +30,7 @@
 
 .nav__logo {
 	height: 100%;
-	@include border-radius(50%);
+	border-radius: 50%;
 	background: transparent;
 	border: 1px solid transparent;
 	opacity: 1;
@@ -49,7 +49,7 @@
 }
 
 .nav__logo-container:hover .nav__logo.current {
-	@include box-shadow(none);
+	box-shadow: none;
 }
 
 .opened .nav__logo {
@@ -63,8 +63,8 @@
 	margin: 6px 10px 6px 0;
 	padding: 7px;
 	border: solid transparent 2px;
-	@include border-radius(50%);
-	@include transition(0.7s);
+	border-radius: 50%;
+	transition: all 0.7s ease-in-out;
 }
 
 .menu-bar {
@@ -72,7 +72,7 @@
 	width: 18px;
 	height: 2px;
 	background-color: white;
-	@include transition(0.7s);
+	transition: all 0.7s ease-in-out;
 	position: relative;
 }
 
@@ -105,7 +105,7 @@
 
 .opened .menu-bar--top {
 	top: 6px;
-	@include transform(rotate(45deg));
+	transform: rotate(45deg);
 }
 
 .opened .menu-bar--middle,
@@ -116,7 +116,7 @@
 
 .opened .menu-bar--bottom {
 	top: -6px;
-	@include transform(rotate(-45deg));
+	transform: rotate(-45deg);
 }
 
 .nav__links-container,

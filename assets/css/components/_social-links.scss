@@ -1,12 +1,9 @@
 /* For all devices */
 .social-links {
 	background: #EEEEEE url('/assets/images/social.jpg') no-repeat center center scroll;
-	-o-background-size: cover;
-	-moz-background-size: cover;
-	-webkit-background-size: cover;
 	background-size: cover;
 	padding: 10px;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	box-shadow: 0 0 10px 0 transparentize($dark, .6);
 }
 
 .social-links__header {
@@ -25,8 +22,6 @@
 
 .social-links__img.social-link__img--instagram {
 	width: 50px;
-	-webkit-border-radius: 11.11px;
-	-moz-border-radius: 11.11px;
 	border-radius: 11.11px;
 }
 
@@ -34,8 +29,6 @@
 	width: 36.81px;
 	height: 36.81px;
 	border: 3.4px solid white;
-	-webkit-border-radius: 10.42px;
-	-moz-border-radius: 10.42px;
 	border-radius: 10.42px;
 }
 
@@ -43,8 +36,6 @@
 	width: 19.03px;
 	height: 19.03px;
 	border: 3.4px solid white;
-	-webkit-border-radius: 9.51px;
-	-moz-border-radius: 9.51px;
 	border-radius: 9.51px;
 }
 
@@ -53,8 +44,6 @@
 	right: 2.99px;
 	width: 4.44px;
 	height: 4.44px;
-	-webkit-border-radius: 2.22px;
-	-moz-border-radius: 2.22px;
 	border-radius: 2.22px;
 }
 
@@ -71,8 +60,6 @@
 
 	.social-links__img.social-link__img--instagram {
 		width: 60px;
-		-webkit-border-radius: 13.33px;
-		-moz-border-radius: 13.33px;
 		border-radius: 13.33px;
 	}
 
@@ -80,8 +67,6 @@
 		width: 44.16px;
 		height: 44.16px;
 		border: 4.08px solid white;
-		-webkit-border-radius: 12.5px;
-		-moz-border-radius: 12.5px;
 		border-radius: 12.5px;
 	}
 
@@ -89,8 +74,6 @@
 		width: 22.83px;
 		height: 22.83px;
 		border: 4.08px solid white;
-		-webkit-border-radius: 11.41px;
-		-moz-border-radius: 11.41px;
 		border-radius: 11.41px;
 	}
 
@@ -99,8 +82,6 @@
 		right: 3.58px;
 		width: 5.33px;
 		height: 5.33px;
-		-webkit-border-radius: 2.66px;
-		-moz-border-radius: 2.66px;
 		border-radius: 2.66px;
 	}
 }
@@ -124,8 +105,6 @@
 
 	.social-links__img.social-link__img--instagram {
 		width: 70px;
-		-webkit-border-radius: 15.55px;
-		-moz-border-radius: 15.55px;
 		border-radius: 15.55px;
 	}
 
@@ -133,8 +112,6 @@
 		width: 51.52px;
 		height: 51.52px;
 		border: 4.76px solid white;
-		-webkit-border-radius: 14.58px;
-		-moz-border-radius: 14.58px;
 		border-radius: 14.58px;
 	}
 
@@ -142,8 +119,6 @@
 		width: 26.63px;
 		height: 26.63px;
 		border: 4.76px solid white;
-		-webkit-border-radius: 13.31px;
-		-moz-border-radius: 13.31px;
 		border-radius: 13.31px;
 	}
 
@@ -152,8 +127,6 @@
 		right: 4.18px;
 		width: 6.22px;
 		height: 6.22px;
-		-webkit-border-radius: 3.11px;
-		-moz-border-radius: 3.11px;
 		border-radius: 3.11px;
 	}
 }

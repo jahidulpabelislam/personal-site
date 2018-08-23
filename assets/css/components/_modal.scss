@@ -20,7 +20,7 @@
 	margin: 40px auto;
 	padding: 0 15px;
 	border-radius: 5px;
-	@include box-shadow(0 0 10px 0 transparentize($dark, .6));
+	box-shadow: 0 0 10px 0 transparentize($dark, .6);
 }
 
 /* For Tablets & Desktops */

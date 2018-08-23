@@ -4,13 +4,13 @@
 }
 
 .slide-show__viewpoint {
-	@include transition(1s);
+	transition: all 1s ease-in-out;
 	position: relative;
 	overflow: hidden;
 }
 
 .slide-show__viewpoint:hover {
-	@include box-shadow(0 0 10px 0 transparentize($dark, .7));
+	box-shadow: 0 0 10px 0 transparentize($dark, .7);
 	cursor: pointer;
 }
 
@@ -18,12 +18,9 @@
 	width: 100%;
 	position: relative;
 	left: 0;
-	-webkit-transition: left 2s ease;
-	-moz-transition: left 2s ease;
-	-o-transition: left 2s ease;
 	transition: left 2s ease;
-	@include flexbox();
-	@include flexboxCenterAlign();
+	display: flex;
+	align-items: center;
 }
 
 .slide-show__slide {
@@ -34,49 +31,49 @@
 .slide-show__img {
 	max-width: 100%;
 	max-height: 350px;
-	@include transition(1s);
+	transition: all 1s ease-in-out;
 }
 
 .slide-show__img:hover {
-	@include transform(scale(1.1));
+	transform: scale(1.1);
 }
 
 .slide-show__nav {
 	width: 30px;
 	height: 30px;
 	opacity: 0.8;
-	@include transition(.3s);
+	transition: all .3s ease-in-out;
 	position: absolute;
 	top: calc(50% - 15px);
 	background: $dark;
-	@include box-shadow(0 0 20px 0 transparentize($dark, .7));
+	box-shadow: 0 0 20px 0 transparentize($dark, .7);
 }
 
 .slide-show__nav:hover {
 	opacity: 1;
 	cursor: pointer;
-	@include box-shadow(0 0 20px 0 $dark);
+	box-shadow: 0 0 20px 0 $dark;
 }
 
 .slide-show__nav-previous {
 	left: 0;
-	@include border-radius(0 50% 50% 0);
+	border-radius: 0 50% 50% 0;
 }
 
 .slide-show__nav-next {
 	right: 0;
-	@include border-radius(50% 0 0 50%);
+	border-radius: 50% 0 0 50%;
 }
 
 .slide-show__bullet {
 	display: inline-block;
 	height: 15px;
 	width: 15px;
-	@include border-radius(50%);
+	border-radius: 50%;
 	background-color: $grey;
 	margin: 14px 5px;
 	cursor: pointer;
-	@include transition(.4s);
+	transition: all .4s ease-in-out;
 	opacity: 0.3;
 }
 
@@ -99,6 +96,6 @@
 	}
 
 	.slide-show__nav--#{$color}:hover {
-		@include box-shadow(0 0 20px 0 map-get($colors, main));
+		box-shadow: 0 0 20px 0 map-get($colors, main);
 	}
 }
