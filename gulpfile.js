@@ -6,6 +6,9 @@ var minifyCss = require("gulp-minify-css");
 var autoprefixer = require("gulp-autoprefixer");
 var sass = require('gulp-sass');
 
+var fs = require('fs');
+var exec = require('child_process').exec;
+
 // Concatenate & Minify JS
 var scripts = {
 	main: [
@@ -73,6 +76,57 @@ gulp.task('sass', function () {
 // Watch Files For Changes
 gulp.task('watch', function () {
 	gulp.watch('assets/css/**/*.scss', ['sass']);
+});
+
+gulp.task("store-version", function() {
+
+	var fileName = "assets/version.txt";
+
+	// Try to get current branch name
+	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
+
+		// If name found store in text file
+		// If current branch if master we used use tags (As most likely this is in production environment)
+		// Else it is one of dev branches so display branch name
+		if (branchName && branchName !== "null" && branchName !== "master")
+		{
+			fs.writeFile(fileName, branchName);
+		}
+		else
+		{
+			// Else just log errors & try to store latest tag name string in text file
+			console.log(branchNameErr);
+			console.log(branchName);
+			console.log(branchNameStderr);
+
+			// Try and get the latest tag on current branch
+			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
+
+				// If found store in text file
+				if (tagName && tagName !== "null")
+				{
+					fs.writeFile(fileName, tagName);
+				}
+				else
+				{
+					// Else log any errors
+					console.log(tagNameErr);
+					console.log(tagName);
+					console.log(tagNameStderr);
+
+					// Else drop back to branch name if exists else remove version value from file
+					if (branchName && branchName !== "null")
+					{
+						fs.writeFile(fileName, branchName);
+					}
+					else
+					{
+						fs.writeFile(fileName, '');
+					}
+				}
+			});
+		}
+	});
 });
 
 gulp.task("default", ["scripts", "styles"]);
