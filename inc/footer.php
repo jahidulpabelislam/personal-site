@@ -13,6 +13,10 @@
 
             <div class="container">
 
+	            <div class="footer__version">
+		            <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'].'/assets/version.txt') ?>
+	            </div>
+
                 <div class="footer__links">
                     <p>
                         <a class="footer__link" href="/site-map">Site Map</a>
