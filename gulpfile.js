@@ -82,6 +82,8 @@ gulp.task("store-version", function() {
 
 	var fileName = "assets/version.txt";
 
+	var githubBaseUrl = "https://github.com/JahidulPabelIslam/Portfolio/";
+
 	// Try to get current branch name
 	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
 
@@ -90,7 +92,8 @@ gulp.task("store-version", function() {
 		// Else it is one of dev branches so display branch name
 		if (branchName && branchName !== "null" && branchName !== "master")
 		{
-			fs.writeFile(fileName, branchName);
+			var string = "<a href='" + githubBaseUrl + "tree/" + branchName +"' target='_blank'>" + branchName + "</a>";
+			fs.writeFile(fileName, string);
 		}
 		else
 		{
@@ -105,7 +108,8 @@ gulp.task("store-version", function() {
 				// If found store in text file
 				if (tagName && tagName !== "null")
 				{
-					fs.writeFile(fileName, tagName);
+					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName + "' target='_blank'>" + tagName + "</a>";
+					fs.writeFile(fileName, string);
 				}
 				else
 				{
