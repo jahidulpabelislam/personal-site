@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="projectsAdmin">
     <head>
-        <meta charset="UTF-8"/>
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
+	    <script>
+		    window.dataLayer = window.dataLayer || [];
+		    function gtag(){dataLayer.push(arguments);}
+		    gtag('js', new Date());
+
+		    gtag('config', 'UA-70803146-2');
+	    </script>
+
+	    <meta charset="UTF-8"/>
         <meta name="author" content="Jahidul Pabel Islam"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>Admin</title>
