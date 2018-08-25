@@ -29,9 +29,16 @@ ErrorDocument 500 /error/500/
 #Make rewrite on
 RewriteEngine On
 
-#Rewrite old url to new one plus use https
+#Rewrite old old url to new one plus use https (From the very first domain)
 #What to check
-RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com
+RewriteCond %{HTTP_HOST} ^jahidulpabelislam.comxa.com [NC]
 RewriteCond %{SERVER_PORT} 80
 #Whathappens when it happens
-RewriteRule ^(.*)$ https://jahidulpabelislam.000webhostapp.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://jahidulpabelislam.com/$1 [R=301,L]
+
+#Rewrite old url to new one plus use https (From the last domain)
+#What to check
+RewriteCond %{HTTP_HOST} ^jahidulpabelislam.000webhostapp.com [NC]
+RewriteCond %{SERVER_PORT} 80
+#Whathappens when it happens
+RewriteRule ^(.*)$ https://jahidulpabelislam.com/$1 [R=301,L]
