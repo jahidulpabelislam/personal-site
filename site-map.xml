@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Link to the stylesheet-->
-<?xml-stylesheet type="text/xsl" href="site-map.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/assets/site-map.xsl"?>
 <!--The set of Pages-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!--A Page-->
