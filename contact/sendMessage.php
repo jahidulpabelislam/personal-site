@@ -40,7 +40,7 @@ if ($meta["ok"]) {
     if (trim($subject) == "") $subject = "Portfolio Contact Form";
 
     //creates the header for sending email
-    $headers = "From: contact@jahidulpabelislam.comxa.com\r\nReply-To:$emailAddress";
+    $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
 
     //the address to send mail to
     $to = 'jahidul.pabel.islam@hotmail.com';
