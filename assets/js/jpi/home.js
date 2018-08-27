@@ -49,7 +49,7 @@ window.jpi.home = (function (jQuery) {
 			jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
 			if (!project.Pictures[0]) {
-				jQuery("#slide-" + project.ID + " .slide").remove();
+				jQuery("#slide-" + project.ID + " .slide-show__img").remove();
 			}
 
 			var projectLinks = jQuery("#slide-" + project.ID + " .project-info__links")[0];
