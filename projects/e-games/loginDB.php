@@ -51,7 +51,7 @@ session_start();
 					mysqli_select_db($con, DB_NAME);//gets database from mysql
 
 					//searches the table for record that has the same username as the one that has been typed
-                    $query = $con->prepare("SELECT * FROM egamesuser WHERE Username = ?;");
+                    $query = $con->prepare("SELECT * FROM EGamesUser WHERE Username = ?;");
                     $query->bind_param("s", $username);
                     $query->execute();
                     $result = $query->get_result();

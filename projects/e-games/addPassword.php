@@ -45,7 +45,7 @@
 					$username = $_POST['txtUsername'];
 					$password = $_POST['txtPassword'];
 					//gets sign up details from text boxes on the form
-                    $query = $con->prepare("INSERT INTO egamesuser (Username, Password) VALUES (?, ?);");
+                    $query = $con->prepare("INSERT INTO EGamesUser (Username, Password) VALUES (?, ?);");
                     $query->bind_param("ss", $username, $password);
                     $query->execute();
 					//inputs data into database.

@@ -29,7 +29,7 @@ class API {
 	//get a particular project defined by $projectID
 	public function getProject($projectID, $projectOnly = false) {
 
-		$query = "SELECT * FROM portfolioproject WHERE ID = :projectID;";
+		$query = "SELECT * FROM PortfolioProject WHERE ID = :projectID;";
 		$bindings = array(':projectID' => $projectID);
 		$result = $this->db->query($query, $bindings);
 
@@ -99,13 +99,13 @@ class API {
 			$filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR LongDescription LIKE '" . $search . "' OR LongDescription LIKE '" . $search2 . "' OR ShortDescription LIKE '" . $search . "' OR ShortDescription LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
 		}
 
-		$query = "SELECT * FROM portfolioproject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
+		$query = "SELECT * FROM PortfolioOroject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
 		$results = $this->db->query($query);
 
 		//check if database provided any meta data if not all ok
 		if (!isset($results["meta"])) {
 
-			$query = "SELECT COUNT(*) AS Count FROM portfolioproject $filter;";
+			$query = "SELECT COUNT(*) AS Count FROM PortfolioProject $filter;";
 			$count = $this->db->query($query);
 			$results["count"] = $count["rows"][0]["Count"];
 
@@ -135,7 +135,7 @@ class API {
 
 				$data["date"] = date("Y-m-d", strtotime($data["date"]));
 
-				$query = "INSERT INTO portfolioproject (Name, Skills, LongDescription, ShortDescription, Link, GitHub, Download, Date, Colour) VALUES (:projectName, :skills, :longDescription, :shortDescription, :link, :github, :download, :date, :colour);";
+				$query = "INSERT INTO PortfolioProject (Name, Skills, LongDescription, ShortDescription, Link, GitHub, Download, Date, Colour) VALUES (:projectName, :skills, :longDescription, :shortDescription, :link, :github, :download, :date, :colour);";
 				$bindings = array(":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"], ":colour" => $data["colour"]);
 				$results = $this->db->query($query, $bindings);
 
@@ -186,7 +186,7 @@ class API {
 
 					$data["date"] = date("Y-m-d", strtotime($data["date"]));
 
-					$query = "UPDATE portfolioproject SET Name = :projectName, Skills = :skills, LongDescription = :longDescription, Link = :link, ShortDescription = :shortDescription, GitHub = :github, Download = :download, Date = :date, Colour = :colour WHERE ID = :projectID;";
+					$query = "UPDATE PortfolioProject SET Name = :projectName, Skills = :skills, LongDescription = :longDescription, Link = :link, ShortDescription = :shortDescription, GitHub = :github, Download = :download, Date = :date, Colour = :colour WHERE ID = :projectID;";
 					$bindings = array(":projectID" => $data["projectID"], ":projectName" => $data["projectName"], ":skills" => $data["skills"], ":longDescription" => $data["longDescription"], ":shortDescription" => $data["shortDescription"], ":link" => $data["link"], ":github" => $data["github"], ":download" => $data["download"], ":date" => $data["date"], ":colour" => $data["colour"]);
 					$results = $this->db->query($query, $bindings);
 
@@ -196,7 +196,7 @@ class API {
 
 						if (count($pictures) > 0) {
 							foreach ($pictures as $picture) {
-								$query = "UPDATE portfolioprojectimage SET Number = :Number WHERE ID = :ID;";
+								$query = "UPDATE PortfolioProjectImage SET Number = :Number WHERE ID = :ID;";
 								$bindings = array(":ID" => $picture->ID, ":Number" => $picture->Number);
 								$this->db->query($query, $bindings);
 							}
@@ -243,7 +243,7 @@ class API {
 					foreach ($pictures as $picture) {
 
 						// Delete the image from the database
-						$query = "DELETE FROM portfolioprojectimage WHERE ID = :ID;";
+						$query = "DELETE FROM PortfolioProjectImage WHERE ID = :ID;";
 						$bindings = array(":ID" => $picture["ID"]);
 						$this->db->query($query, $bindings);
 
@@ -256,7 +256,7 @@ class API {
 					}
 
 					// Finally delete the actual project from database
-					$query = "DELETE FROM portfolioproject WHERE ID = :projectID;";
+					$query = "DELETE FROM PortfolioProject WHERE ID = :projectID;";
 					$bindings = array(":projectID" => $data["projectID"]);
 					$results = $this->db->query($query, $bindings);
 
@@ -291,7 +291,7 @@ class API {
 		$results = self::getProject($projectID, true);
 		if ($results["count"] > 0) {
 
-			$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID ORDER BY Number;";
+			$query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID ORDER BY Number;";
 			$bindings[":projectID"] = $projectID;
 			$results = $this->db->query($query, $bindings);
 
@@ -317,7 +317,7 @@ class API {
 		$results = self::getProject($projectID, true);
 		if ($results["count"] > 0) {
 
-			$query = "SELECT * FROM portfolioprojectimage WHERE ProjectID = :projectID AND ID = :pictureID ORDER BY Number;";
+			$query = "SELECT * FROM PortfolioProjectImage WHERE ProjectID = :projectID AND ID = :pictureID ORDER BY Number;";
 			$bindings[":projectID"] = $projectID;
 			$bindings[":pictureID"] = $pictureID;
 			$results = $this->db->query($query, $bindings);
@@ -371,14 +371,14 @@ class API {
 						if (move_uploaded_file($_FILES["picture"]["tmp_name"], $fullPath)) {
 
 							//update database with location of new picture
-							$query = "INSERT INTO portfolioprojectimage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
+							$query = "INSERT INTO PortfolioProjectImage (File, ProjectID, Number) VALUES (:file, :projectID, 0);";
 							$bindings = array(":file" => $fileLocation, ":projectID" => $data["projectID"]);
 							$results = $this->db->query($query, $bindings);
 
 							//if update of user was ok
 							if ($results["count"] > 0) {
 
-								$query = "SELECT * FROM portfolioprojectimage WHERE File = :file AND ProjectID = :projectID;";
+								$query = "SELECT * FROM PortfolioProjectImage WHERE File = :file AND ProjectID = :projectID;";
 								$results = $this->db->query($query, $bindings);
 
 								$results["meta"]["ok"] = true;
@@ -433,7 +433,7 @@ class API {
 				$results = self::getProject($data["projectID"]);
 				if ($results["count"] > 0) {
 
-					$query = "SELECT File FROM portfolioprojectimage WHERE ID = :id;";
+					$query = "SELECT File FROM PortfolioProjectImage WHERE ID = :id;";
 					$bindings = array(":id" => $data["id"]);
 					$results = $this->db->query($query, $bindings);
 
@@ -442,7 +442,7 @@ class API {
 						$fileName = $results["rows"][0]["File"];
 
 						//update database to delete row
-						$query = "DELETE FROM portfolioprojectimage WHERE ID = :id;";
+						$query = "DELETE FROM PortfolioProjectImage WHERE ID = :id;";
 						$bindings = array(":id" => $data["id"]);
 						$results = $this->db->query($query, $bindings);
 

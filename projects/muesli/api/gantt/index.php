@@ -13,7 +13,7 @@ $bindings = array(
     ":ActualEndTime" => $_POST['ActualEndTime']
 );
 
-$query = "UPDATE mueslitask SET Text = :Text, Complete = :Complete, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, ActualStartTime = :ActualStartTime, ActualDuration = :ActualDuration, ActualEndTime = :ActualEndTime WHERE ID = :ID;";
+$query = "UPDATE MuesliTask SET Text = :Text, Complete = :Complete, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, ActualStartTime = :ActualStartTime, ActualDuration = :ActualDuration, ActualEndTime = :ActualEndTime WHERE ID = :ID;";
 
 $result = $db->prepare($query);
 $result->execute($bindings);

@@ -14,13 +14,13 @@ $bindings = array(
 );
 
 if (isset($_POST['PrecedingID'])) {
-    $query = "UPDATE mueslitask SET Text = :Text, PrecedingID = :PrecedingID, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, SlackStartTime = :SlackStartTime, SlackDuration = :SlackDuration, SlackEndTime = :SlackEndTime PERTX = :PERTX, PERTY = :PERTY, PERTWidth = :PERTWidth;, PERTHeight = :PERTHeight WHERE ID = :ID;";
+    $query = "UPDATE MuesliTask SET Text = :Text, PrecedingID = :PrecedingID, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, SlackStartTime = :SlackStartTime, SlackDuration = :SlackDuration, SlackEndTime = :SlackEndTime PERTX = :PERTX, PERTY = :PERTY, PERTWidth = :PERTWidth;, PERTHeight = :PERTHeight WHERE ID = :ID;";
     $bindings[":PrecedingID"] = $_POST['PrecedingID'];
     $bindings[":SlackStartTime"] = $_POST['SlackStartTime'];
     $bindings[":SlackDuration"] = $_POST['SlackDuration'];
     $bindings[":SlackEndTime"] =  $_POST['SlackEndTime'];
 } else {
-    $query = "UPDATE mueslitask SET Text = :Text, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, PERTX = :PERTX, PERTY = :PERTY, PERTWidth = :PERTWidth, PERTHeight = :PERTHeight WHERE ID = :ID;";
+    $query = "UPDATE MuesliTask SET Text = :Text, PlanStartTime = :PlanStartTime, PlanDuration = :PlanDuration, PlanEndTime = :PlanEndTime, PERTX = :PERTX, PERTY = :PERTY, PERTWidth = :PERTWidth, PERTHeight = :PERTHeight WHERE ID = :ID;";
 }
 
 $result = $db->prepare($query);
