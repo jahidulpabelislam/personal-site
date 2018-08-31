@@ -121,7 +121,8 @@ gulp.task("store-version", function() {
 					// Else drop back to branch name if exists else remove version value from file
 					if (branchName && branchName !== "null")
 					{
-						fs.writeFile(fileName, branchName);
+						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
+						fs.writeFile(fileName, string);
 					}
 					else
 					{
