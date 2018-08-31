@@ -2,15 +2,26 @@
 <html lang="en-gb">
 
     <head>
-	    <!-- Global site tag (gtag.js) - Google Analytics -->
-	    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
-	    <script>
-		    window.dataLayer = window.dataLayer || [];
-		    function gtag(){dataLayer.push(arguments);}
-		    gtag('js', new Date());
 
-		    gtag('config', 'UA-70803146-2');
-	    </script>
+	    <?php
+		    $environment = !empty(getenv('APPLICATION_ENV')) ? getenv('APPLICATION_ENV') : "local";
+
+		    // Only want Google Analytic for live site
+		    if ($environment === "production")
+		    {
+	        ?>
+			    <!-- Global site tag (gtag.js) - Google Analytics -->
+			    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
+			    <script>
+				    window.dataLayer = window.dataLayer || [];
+				    function gtag(){dataLayer.push(arguments);}
+				    gtag('js', new Date());
+
+				    gtag('config', 'UA-70803146-2');
+			    </script>
+	        <?php
+		    }
+	        ?>
 
 	    <?php
         $head_title = $page_title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
