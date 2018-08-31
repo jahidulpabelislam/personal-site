@@ -99,7 +99,7 @@ class API {
 			$filter = "WHERE Name LIKE '" . $search . "' OR Name LIKE '" . $search2 . "' OR LongDescription LIKE '" . $search . "' OR LongDescription LIKE '" . $search2 . "' OR ShortDescription LIKE '" . $search . "' OR ShortDescription LIKE '" . $search2 . "' OR Skills LIKE '" . $search . "' OR Skills LIKE '" . $search2 . "'";
 		}
 
-		$query = "SELECT * FROM PortfolioOroject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
+		$query = "SELECT * FROM PortfolioProject $filter ORDER BY Date DESC LIMIT $limit OFFSET $offset;";
 		$results = $this->db->query($query);
 
 		//check if database provided any meta data if not all ok
