@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="projectsAdmin">
     <head>
-	    <!-- Global site tag (gtag.js) - Google Analytics -->
-	    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
-	    <script>
-		    window.dataLayer = window.dataLayer || [];
-		    function gtag(){dataLayer.push(arguments);}
-		    gtag('js', new Date());
+	    <?php
+	    $environment = !empty(getenv('APPLICATION_ENV')) ? getenv('APPLICATION_ENV') : "development";
 
-		    gtag('config', 'UA-70803146-2');
-	    </script>
+	    // Only want Google Analytic for live site
+	    if ($environment === "production")
+	    {
+	    ?>
+		    <!-- Global site tag (gtag.js) - Google Analytics -->
+		    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
+		    <script>
+			    window.dataLayer = window.dataLayer || [];
+			    function gtag(){dataLayer.push(arguments);}
+			    gtag('js', new Date());
+
+			    gtag('config', 'UA-70803146-2');
+		    </script>
+	    <?php
+	    }
+	    ?>
 
 	    <meta charset="UTF-8"/>
         <meta name="author" content="Jahidul Pabel Islam"/>
