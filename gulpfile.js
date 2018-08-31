@@ -90,9 +90,9 @@ gulp.task("store-version", function() {
 		// If name found store in text file
 		// If current branch if master we used use tags (As most likely this is in production environment)
 		// Else it is one of dev branches so display branch name
-		if (branchName && branchName !== "null" && branchName !== "master")
+		if (branchName && branchName !== "null" && branchName.trim() !== "master")
 		{
-			var string = "<a href='" + githubBaseUrl + "tree/" + branchName +"' target='_blank'>" + branchName + "</a>";
+			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
 			fs.writeFile(fileName, string);
 		}
 		else
@@ -108,7 +108,7 @@ gulp.task("store-version", function() {
 				// If found store in text file
 				if (tagName && tagName !== "null")
 				{
-					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName + "' target='_blank'>" + tagName + "</a>";
+					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank'>" + tagName.trim() + "</a>";
 					fs.writeFile(fileName, string);
 				}
 				else
