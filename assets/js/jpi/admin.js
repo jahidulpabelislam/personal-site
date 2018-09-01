@@ -120,6 +120,7 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 					jQuery(".project-view, .nav").show();
 					jQuery(".project-select").hide();
+					$scope.hideProjectError();
 
 					jQuery("#projectName, #skill-input, #longDescription, #shortDescription, #github, #date").removeClass("invalid valid");
 
@@ -208,6 +209,8 @@ angular.module('projectsAdmin', ['ui.sortable'])
 
 				getProjectList: function (page, addToHistory) {
 					fn.showLoading();
+
+					$scope.hideProjectError();
 
 					$scope.selectProjectFeedback = "";
 
