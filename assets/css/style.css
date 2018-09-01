@@ -770,7 +770,7 @@ label {
     margin: 0; }
   .nav__container {
     display: flex; }
-  .nav__logo-container {
+  .nav__header {
     flex: 1;
     order: 2; }
   .nav__mobile-toggle {
