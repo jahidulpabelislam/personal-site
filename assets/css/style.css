@@ -1957,7 +1957,8 @@ label {
 #slide-show--home .slide-show__img:hover {
   transform: scale(1); }
 
-#slide-show--home .project__date, #slide-show--home .project__title {
+#slide-show--home .project__date,
+#slide-show--home .project__title {
   width: 100%;
   white-space: nowrap; }
 
