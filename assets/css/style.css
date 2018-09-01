@@ -295,7 +295,7 @@ button,
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  appearance: none; }
+  -webkit-appearance: none; }
 
 .btn {
   font: inherit;
