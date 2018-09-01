@@ -1697,6 +1697,7 @@ label {
   z-index: 2;
   opacity: 1;
   max-height: 50px;
+  width: auto;
   transition: opacity 0.2s ease-in-out, padding 0.2s ease-in-out 0.2s, max-height 0.2s ease-in-out 0.2s; }
 
 .project__feedback.hide {
