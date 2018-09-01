@@ -145,7 +145,7 @@ window.jpi.projects = (function (jQuery) {
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
 				jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
-				clearInterval(autoSlide["#detailed-project__slide-show"]);
+				clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
 				jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
 				jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
 			}

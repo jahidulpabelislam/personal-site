@@ -77,7 +77,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
 
 			//get all slides in slide show
 			var slideShowId = jQuery(e.target).data("slideShowId");
-			global.slides = jQuery(slideShowId + " .slide");
+			global.slides = jQuery(slideShowId + " .slide-show__img");
 
 			//loops through all slide shows images and set up a bullet navigation for each
 			for (var i = 0; i < global.slides.length; i++) {

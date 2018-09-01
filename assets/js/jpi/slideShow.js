@@ -274,7 +274,8 @@ window.jpi.slideShow = (function (jQuery) {
 		"dragStart": fn.dragStart,
 		"loopThroughSlideShows": fn.loopThroughSlideShows,
 		"stopSlideShow": fn.stopSlideShow,
-		"startSlideShow": fn.startSlideShow
+		"startSlideShow": fn.startSlideShow,
+		"slideShows": global.slideShows
 	}
 
 }(jQuery));
