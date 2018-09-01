@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article projects">
                     <h3 class="article__header">My Latest Projects</h3>
 
-                    <div><i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i></div>
+                    <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
 
                     <div id="slide-show--home" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">

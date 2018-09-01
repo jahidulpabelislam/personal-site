@@ -106,6 +106,10 @@
 	font-weight: 700;
 }
 
+.projects__loading-img {
+	width: 100%;
+}
+
 /* Only for Tablets */
 @media only screen and (min-width: $tablet) and (max-width: $desktop) {
 	.home__hello,

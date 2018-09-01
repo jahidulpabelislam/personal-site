@@ -108,7 +108,8 @@ section {
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 12px;
-  font-family: 'Oswald', sans-serif; }
+  font-family: 'Oswald', sans-serif;
+  width: 100%; }
 
 p {
   margin: 10px 0; }
@@ -536,7 +537,8 @@ label {
 .feedback {
   font-weight: 700;
   margin: 0;
-  display: none; }
+  display: none;
+  width: 100%; }
 
 .feedback--success {
   color: green; }
@@ -1961,6 +1963,9 @@ label {
 
 .counter {
   font-weight: 700; }
+
+.projects__loading-img {
+  width: 100%; }
 
 /* Only for Tablets */
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
