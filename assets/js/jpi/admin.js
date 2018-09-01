@@ -624,16 +624,16 @@ angular.module('projectsAdmin', ['ui.sortable'])
 						url: global.apiBase + "projects/" + $scope.selectedProject.ID,
 						method: method,
 						params: {
-							projectName: $scope.selectedProject.Name,
-							skills: $scope.selectedProject.Skills.join(","),
-							longDescription: $scope.selectedProject.LongDescription,
-							shortDescription: $scope.selectedProject.ShortDescription,
-							link: $scope.selectedProject.Link,
-							github: $scope.selectedProject.GitHub,
-							download: $scope.selectedProject.Download,
-							date: $scope.selectedProject.Date,
-							colour: $scope.selectedProject.Colour,
-							pictures: angular.toJson($scope.selectedProject.Pictures)
+							projectName: $scope.selectedProject.Name ? $scope.selectedProject.Name : "",
+							skills: $scope.selectedProject.Skills ? $scope.selectedProject.Skills.join(",") : "",
+							longDescription: $scope.selectedProject.LongDescription ? $scope.selectedProject.LongDescription : "",
+							shortDescription: $scope.selectedProject.ShortDescription ? $scope.selectedProject.ShortDescription : "",
+							link: $scope.selectedProject.Link ? $scope.selectedProject.Link : "",
+							github: $scope.selectedProject.GitHub ? $scope.selectedProject.GitHub : "",
+							download: $scope.selectedProject.Download ? $scope.selectedProject.Download : "",
+							date: $scope.selectedProject.Date ? $scope.selectedProject.Date : "",
+							colour: $scope.selectedProject.Colour ? $scope.selectedProject.Colour : "",
+							pictures: $scope.selectedProject.Pictures ? angular.toJson($scope.selectedProject.Pictures) : []
 						}
 					}).then(function (result) {
 						result.data.rows[0].Date = new Date(result.data.rows[0].Date);
