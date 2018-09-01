@@ -44,13 +44,13 @@
 
 	    <nav class="nav nav--dark">
 		    <div class="container nav__container">
-			    <button type="button" class="nav__mobile-toggle">
-				    <span class="screen-reader-text">Toggle navigation</span>
-				    <span class="menu-bar menu-bar--top"></span>
-				    <span class="menu-bar menu-bar--middle"></span>
-				    <span class="menu-bar menu-bar--bottom"></span>
-			    </button>
-			    <div class="nav__mobile-header">
+			    <div class="nav__header">
+				    <button type="button" class="nav__mobile-toggle">
+					    <span class="screen-reader-text">Toggle navigation</span>
+					    <span class="menu-bar menu-bar--top"></span>
+					    <span class="menu-bar menu-bar--middle"></span>
+					    <span class="menu-bar menu-bar--bottom"></span>
+				    </button>
 			    </div>
 			    <div class="nav__links-container">
 				    <ul class="nav__links clearfix">

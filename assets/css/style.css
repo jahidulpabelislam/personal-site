@@ -633,6 +633,9 @@ label {
   box-shadow: 0 0 10px 0 #333;
   background-color: white; }
 
+.nav__header {
+  height: 46px; }
+
 .nav__logo-container {
   display: inline-block;
   padding: 4px 0;

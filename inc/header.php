@@ -9,7 +9,7 @@
 	    // Only want Google Analytic for live site
 	    if ($environment === "production")
 	    {
-        ?>
+	    ?>
 		    <!-- Global site tag (gtag.js) - Google Analytics -->
 		    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
 		    <script>
@@ -19,9 +19,9 @@
 
 			    gtag('config', 'UA-70803146-2');
 		    </script>
-        <?php
+	    <?php
 	    }
-        ?>
+	    ?>
 
 	    <?php
         $head_title = $page_title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
@@ -81,14 +81,16 @@
 
         <nav class="nav nav--<?php echo $nav_tint; ?>">
             <div class="container nav__container">
-	            <button type="button" class="nav__mobile-toggle">
-		            <span class="screen-reader-text">Toggle navigation</span>
-		            <span class="menu-bar menu-bar--top"></span>
-		            <span class="menu-bar menu-bar--middle"></span>
-		            <span class="menu-bar menu-bar--bottom"></span>
-	            </button>
-                <a class="nav__logo-container" href="/<?php if ($page_title == "Home") echo "#";?>"><img class="nav__logo <?php if ($page_title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
-                <div class="nav__links-container">
+	            <div class="nav__header">
+		            <button type="button" class="nav__mobile-toggle">
+			            <span class="screen-reader-text">Toggle navigation</span>
+			            <span class="menu-bar menu-bar--top"></span>
+			            <span class="menu-bar menu-bar--middle"></span>
+			            <span class="menu-bar menu-bar--bottom"></span>
+		            </button>
+	                <a class="nav__logo-container" href="/<?php if ($page_title == "Home") echo "#";?>"><img class="nav__logo <?php if ($page_title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+	            </div>
+	            <div class="nav__links-container">
                     <ul class="nav__links">
                         <li class="nav-link__item"><a href="/projects/<?php if ($page_title == "Projects") echo "#";?>" class="nav-item__link <?php if ($page_title == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
                         <li class="nav-link__item"><a href="/contact/<?php if ($page_title == "Contact") echo "#";?>" class="nav-item__link <?php if ($page_title == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
