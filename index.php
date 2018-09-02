@@ -1,11 +1,11 @@
 <?php
-$page_title = "Home";
-$header_title = "Jahidul Pabel Islam";
+$pageTitle = "Home";
+$headerTitle = "Jahidul Pabel Islam";
 $keywords = "";
 $description = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-$header_description = "Full Stack Web &amp; Software Developer";
+$headerDesc = "Full Stack Web &amp; Software Developer";
 
-$nav_tint = "dark";
+$navTint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>

@@ -1,15 +1,15 @@
 <?php
-$page_title = "About";
-$header_title = "About Me";
+$pageTitle = "About";
+$headerTitle = "About Me";
 $keywords = "";
 
 $description = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$header_description = "Find Out About Me";
+$headerDesc = "Find Out About Me";
 
-$nav_tint = "light";
+$navTint = "light";
 
-$tech_skills = array(
+$techSkills = array(
     array("text" => "HTML", "desc" => "HTML5 & HTML4"),
     array("text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4"),
     array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery, AngularJS"),
@@ -23,7 +23,7 @@ $tech_skills = array(
     array("text" => "Microsoft Office", "desc" => "I have used Excel to create and use College/Uni grading systems and financial record system, Word, Powerpoint (Also recently move some work to Google Sheets, Docs & Slides)")
 );
 
-$other_skills = array(
+$otherSkills = array(
     array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
     array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good communication skills both written and spoken"),
     array("text" => "Hard Worker")
@@ -112,18 +112,18 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                         <ul class="about__skills-interests">
                             <?php
-                            foreach ($tech_skills as $skill)
-                            {
-                                $skill_text = $skill["text"];
-                                $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
+                            foreach ($techSkills as $skill) {
+                                $skillText = $skill["text"];
+                                $skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
+                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--blue ' . $expand_class .'">';
-                                echo $skill_text;
+                                echo '<li class="skills-interests__item skills-interests__item--blue ' . $expandClass .'">';
+                                echo $skillText;
 
-                                if ($skill_desc)
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skill_desc . '</div>';
+                                if ($skillDesc) {
+                                	echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
+                                }
                                 echo '</li>';
                             }
                             ?>
@@ -137,18 +137,18 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 
                         <ul class="about__skills-interests">
                             <?php
-                            foreach ($other_skills as $skill)
-                            {
-                                $skill_text = $skill["text"];
-                                $skill_desc = (isset($skill["desc"])) ? $skill["desc"] : false;
+                            foreach ($otherSkills as $skill) {
+                                $skillText = $skill["text"];
+                                $skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
+                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--purple ' . $expand_class .'">';
-                                echo $skill_text;
+                                echo '<li class="skills-interests__item skills-interests__item--purple ' . $expandClass .'">';
+                                echo $skillText;
 
-                                if ($skill_desc)
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skill_desc . '</div>';
+                                if ($skillDesc) {
+                                	echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
+                                }
                                 echo '</li>';
                             }
                             ?>
@@ -163,18 +163,18 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <ul class="about__skills-interests">
 
                             <?php
-                            foreach ($interests as $interest)
-                            {
-                                $interest_text = $interest["text"];
-                                $interest_desc = (isset($interest["desc"])) ? $interest["desc"] : false;
+                            foreach ($interests as $interest) {
+                                $interestText = $interest["text"];
+                                $interestDesc = (isset($interest["desc"])) ? $interest["desc"] : false;
 
-                                $expand_class = ($skill_desc) ? "js-expand-skill-interest" : "";
+                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--green ' . $expand_class .'">';
-                                echo $interest_text;
+                                echo '<li class="skills-interests__item skills-interests__item--green ' . $expandClass .'">';
+                                echo $interestText;
 
-                                if ($interest_desc)
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interest_desc . '</div>';
+                                if ($interestDesc) {
+                                	echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interestDesc . '</div>';
+                                }
 
                                 echo '</li>';
                             }

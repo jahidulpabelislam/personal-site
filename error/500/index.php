@@ -1,19 +1,19 @@
 <?php
 
 //title of page to use
-$page_title = "500";
+$pageTitle = "500";
 
-$header_title = "500";
+$headerTitle = "500";
 
 //the description to use for page
 $description = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$header_description = "Internal Server Error";
+$headerDesc = "Internal Server Error";
 
 //the keywords to use for page
 $keywords = "";
 
-$nav_tint = "light";
+$navTint = "light";
 
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';

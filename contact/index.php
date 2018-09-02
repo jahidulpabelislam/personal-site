@@ -1,11 +1,11 @@
 <?php
-$page_title = "Contact";
-$header_title = "Contact Me";
+$pageTitle = "Contact";
+$headerTitle = "Contact Me";
 $keywords = "";
 $description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$header_description = "Send Your Feedback &amp; Enquires My Way";
+$headerDesc = "Send Your Feedback &amp; Enquires My Way";
 
-$nav_tint = "light";
+$navTint = "light";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>

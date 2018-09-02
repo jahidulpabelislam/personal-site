@@ -1,11 +1,11 @@
 <?php
-$page_title = "Site Map";
-$header_title = "Site Map";
+$pageTitle = "Site Map";
+$headerTitle = "Site Map";
 $keywords = "";
 $description = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$header_description = "";
+$headerDesc = "";
 
-$nav_tint = "light";
+$navTint = "light";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>

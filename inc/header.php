@@ -23,12 +23,12 @@
 	    ?>
 
 	    <?php
-        $head_title = $page_title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
-        if ($page_title === "Home") {
-            $head_title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
+        $headTitle = $pageTitle . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+        if ($pageTitle === "Home") {
+            $headTitle = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
         }
         ?>
-        <title><?php echo $head_title; ?></title>
+        <title><?php echo $headTitle; ?></title>
 
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -53,22 +53,22 @@
         <?php
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
         $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
-        $page_url = $url;
-        if ($page_title !== "Home") {
-            $page_url .= strtolower($page_title);
+        $pageUrl = $url;
+        if ($pageTitle !== "Home") {
+            $pageUrl .= strtolower($pageTitle);
         }
         ?>
-        <meta property="og:title" content="<?php echo $head_title; ?>"/>
-        <meta property="og:url" content="<?php echo $page_url; ?>"/>
+        <meta property="og:title" content="<?php echo $headTitle; ?>"/>
+        <meta property="og:url" content="<?php echo $pageUrl; ?>"/>
         <meta property="og:description" content="<?php echo $description; ?>"/>
 
         <?php
-        $image_location = "assets/images/portfolio-". strtolower($page_title) . "-preview.png";
+        $imageLocation = "assets/images/portfolio-". strtolower($pageTitle) . "-preview.png";
 
-        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $image_location)) {
-	        $image_url = $url . $image_location;
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imageLocation)) {
+	        $imageUrl = $url . $imageLocation;
         ?>
-			<meta property="og:image" content="<?php echo $image_url; ?>"/>
+			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 	    <?php
         }
 	    ?>
@@ -84,7 +84,7 @@
 
     <body>
 
-        <nav class="nav nav--<?php echo $nav_tint; ?>">
+        <nav class="nav nav--<?php echo $navTint; ?>">
             <div class="container nav__container">
 	            <div class="nav__header">
 		            <button type="button" class="nav__mobile-toggle">
@@ -93,13 +93,13 @@
 			            <span class="menu-bar menu-bar--middle"></span>
 			            <span class="menu-bar menu-bar--bottom"></span>
 		            </button>
-	                <a class="nav__logo-container" href="/<?php if ($page_title == "Home") echo "#";?>"><img class="nav__logo <?php if ($page_title == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+	                <a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#";?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current";?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
 	            </div>
 	            <div class="nav__links-container">
                     <ul class="nav__links">
-                        <li class="nav-link__item"><a href="/projects/<?php if ($page_title == "Projects") echo "#";?>" class="nav-item__link <?php if ($page_title == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
-                        <li class="nav-link__item"><a href="/contact/<?php if ($page_title == "Contact") echo "#";?>" class="nav-item__link <?php if ($page_title == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
-                        <li class="nav-link__item"><a href="/about/<?php if ($page_title == "About") echo "#";?>" class="nav-item__link <?php if ($page_title == "About") echo "active"; ?>" title="Link to About Page">About</a></li>
+                        <li class="nav-link__item"><a href="/projects/<?php if ($pageTitle == "Projects") echo "#";?>" class="nav-item__link <?php if ($pageTitle == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
+                        <li class="nav-link__item"><a href="/contact/<?php if ($pageTitle == "Contact") echo "#";?>" class="nav-item__link <?php if ($pageTitle == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
+                        <li class="nav-link__item"><a href="/about/<?php if ($pageTitle == "About") echo "#";?>" class="nav-item__link <?php if ($pageTitle == "About") echo "active"; ?>" title="Link to About Page">About</a></li>
                     </ul>
                 </div>
                 <div class="nav__social-links-container">
@@ -113,17 +113,17 @@
         </nav>
 
         <?php
-        $css_page_title = strtolower($page_title);
-        $css_page_title = str_replace(" ", "-", $css_page_title);
+        $cssPageTitle = strtolower($pageTitle);
+        $cssPageTitle = str_replace(" ", "-", $cssPageTitle);
         ?>
 
         <!-- Main for a primary marketing message or call to action -->
-        <header class="jumbotron jumbotron--<?php echo $css_page_title; ?>">
+        <header class="jumbotron jumbotron--<?php echo $cssPageTitle; ?>">
             <div class="jumbotron__overlay">
                 <div class="container">
-                    <h1 class="jumbotron__title"><?php echo $header_title ?></h1>
+                    <h1 class="jumbotron__title"><?php echo $headerTitle ?></h1>
                     <hr class="jumbotron__line-breaker">
-                    <p class="jumbotron__desc"><?php echo $header_description ?></p>
+                    <p class="jumbotron__desc"><?php echo $headerDesc ?></p>
                     <img src="/assets/images/down-arrow.svg" class="js-scroll-to-content jumbotron__scroll-to-content">
                 </div>
             </div>

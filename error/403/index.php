@@ -1,19 +1,19 @@
 <?php
 
 //title of page to use
-$page_title = "403";
+$pageTitle = "403";
 
-$header_title = "403";
+$headerTitle = "403";
 
 //the description to use for page
 $description = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$header_description = "Forbidden Page";
+$headerDesc = "Forbidden Page";
 
 //the keywords to use for pages
 $keywords = "";
 
-$nav_tint = "dark";
+$navTint = "dark";
 
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';

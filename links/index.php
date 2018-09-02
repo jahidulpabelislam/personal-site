@@ -33,16 +33,16 @@
         <?php
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
         $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
-        $page_url = $url . "links/";
+        $pageUrl = $url . "links/";
         ?>
         <meta property="og:title" content="Social Media Links | Jahidul Pabel Islam - Full Stack Developer"/>
-        <meta property="og:url" content="<?php echo $page_url; ?>"/>
+        <meta property="og:url" content="<?php echo $pageUrl; ?>"/>
         <meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
 
         <?php
-        $image_url = $url . "images/portfolio-links-preview.png";
+        $imageUrl = $url . "images/portfolio-links-preview.png";
         ?>
-        <meta property="og:image" content="<?php echo $image_url; ?>"/>
+        <meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 
         <meta name="twitter:card" content="summary_large_image"/>
 
@@ -50,7 +50,7 @@
         <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
 
 	    <?php
-		    include $_SERVER['DOCUMENT_ROOT'].'/inc/favicons.php';
+	    include $_SERVER['DOCUMENT_ROOT'].'/inc/favicons.php';
 	    ?>
     </head>
 

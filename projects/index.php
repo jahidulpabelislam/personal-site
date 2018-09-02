@@ -1,11 +1,11 @@
 <?php
-$page_title = "Projects";
-$header_title = "My Projects";
+$pageTitle = "Projects";
+$headerTitle = "My Projects";
 $keywords = "";
 $description = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$header_description = "See My Skills in Action in My Previous Projects";
+$headerDesc = "See My Skills in Action in My Previous Projects";
 
-$nav_tint = "dark";
+$navTint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
 ?>
