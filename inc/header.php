@@ -64,9 +64,15 @@
         <meta property="og:description" content="<?php echo $description; ?>"/>
 
         <?php
-        $image_url = $url . "images/portfolio-". strtolower($page_title) . "-preview.png";
+        $image_location = "assets/images/portfolio-". strtolower($page_title) . "-preview.png";
+
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $image_location)) {
+	        $image_url = $url . $image_location;
         ?>
-        <meta property="og:image" content="<?php echo $image_url; ?>"/>
+		<meta property="og:image" content="<?php echo $image_url; ?>"/>
+	    <?php
+        }
+	    ?>
 
         <meta name="twitter:card" content="summary_large_image"/>
 
