@@ -7,8 +7,7 @@
 	    $environment = !empty(getenv('APPLICATION_ENV')) ? getenv('APPLICATION_ENV') : "development";
 
 	    // Only want Google Analytic for live site
-	    if ($environment === "production")
-	    {
+	    if ($environment === "production") {
 	    ?>
 		    <!-- Global site tag (gtag.js) - Google Analytics -->
 		    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
@@ -25,8 +24,7 @@
 
 	    <?php
         $head_title = $page_title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
-        if ($page_title === "Home")
-        {
+        if ($page_title === "Home") {
             $head_title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
         }
         ?>
@@ -41,12 +39,14 @@
         <meta name="keywords" content="<?php echo $keywords; ?>"/>
 
         <!-- Custom stylesheet for site -->
-
-        <?php if (!isset($_GET["debug"])):?>
-        <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-        <?php else: ?>
-        <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-        <?php endif; ?>
+        <?php if (!isset($_GET["debug"])) {?>
+            <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+        <?php
+        }
+        else {
+        ?>
+            <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+        <?php }; ?>
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -54,8 +54,7 @@
         $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
         $url = $protocol . '://' .$_SERVER["SERVER_NAME"] . "/";
         $page_url = $url;
-        if ($page_title !== "Home")
-        {
+        if ($page_title !== "Home") {
             $page_url .= strtolower($page_title);
         }
         ?>
@@ -69,7 +68,7 @@
         if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $image_location)) {
 	        $image_url = $url . $image_location;
         ?>
-		<meta property="og:image" content="<?php echo $image_url; ?>"/>
+			<meta property="og:image" content="<?php echo $image_url; ?>"/>
 	    <?php
         }
 	    ?>
@@ -79,7 +78,7 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
 	    <?php
-		    include $_SERVER['DOCUMENT_ROOT'].'/inc/favicons.php';
+	    include $_SERVER['DOCUMENT_ROOT'].'/inc/favicons.php';
 	    ?>
     </head>
 

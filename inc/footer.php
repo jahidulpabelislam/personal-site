@@ -37,9 +37,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <?php if (!isset($_GET["debug"])):?>
+        <?php if (!isset($_GET["debug"])) {
+        ?>
             <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
-        <?php else: ?>
+        <?php
+        }
+        else { ?>
             <script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
@@ -52,6 +55,8 @@
             <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
-        <?php endif; ?>
+        <?php
+        }
+        ?>
     </body>
 </html>
