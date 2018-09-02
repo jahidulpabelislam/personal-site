@@ -60,14 +60,14 @@
 
                 <div class="social-link-container">
                     <a href="https://facebook.com/jahidulpabelislam/" target="_blank" class="social-link">
-                        <img src="/assets/images/facebook.svg?v=1" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
+                        <img src="/assets/images/facebook.svg?v=3" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
                         <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
-                        <img src="/assets/images/twitter.png?v=1" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+                        <img src="/assets/images/twitter.png?v=3" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
                         <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                     </a>
                 </div>
@@ -89,14 +89,14 @@
 
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
-                        <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                        <img src="/assets/images/linkedin.svg?v=3" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                         <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://github.com/jahidulpabelislam/" target="_blank" class="social-link">
-                        <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                        <img src="/assets/images/github.svg?v=3" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                         <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                     </a>
                 </div>
@@ -113,6 +113,6 @@
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/stickyFooter.js?v=3" type="text/javascript"></script>
     </body>
 </html>

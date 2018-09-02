@@ -29,7 +29,7 @@
         <?php if (!isset($_GET["debug"])):?>
         <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
         <?php else: ?>
-        <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+        <link href="/assets/css/style.css?v=4" rel="stylesheet" title="style" media="all" type="text/css">
         <?php endif; ?>
 
 	    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -192,10 +192,10 @@
         <!-- the script for the page -->
         <script type="text/javascript" src="/assets/js/admin.min.js?v=1"></script>
         <?php else: ?>
-        <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
-        <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
-        <script src="/assets/js/jpi/dragNDrop.js?v=1" type="text/javascript"></script>
-        <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/helpers.js?v=3" type="text/javascript"></script>
+        <script src="/assets/js/jpi/stickyFooter.js?v=3" type="text/javascript"></script>
+        <script src="/assets/js/jpi/dragNDrop.js?v=3" type="text/javascript"></script>
+        <script src="/assets/js/jpi/nav.js?v=3" type="text/javascript"></script>
         <!-- The third party script needed for the page for the sorting of pictures -->
         <script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js?v=1"></script>
 
@@ -204,6 +204,6 @@
         <?php endif; ?>
 
         <!-- the script for the page -->
-        <script type="text/javascript" src="/assets/js/jpi/admin.js?v=1"></script>
+        <script type="text/javascript" src="/assets/js/jpi/admin.js?v=3"></script>
     </body>
 </html>

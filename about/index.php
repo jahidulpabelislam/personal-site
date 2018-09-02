@@ -47,7 +47,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         <div class="article__half">
                             <div class="about__images-of-me">
                                 <img src="/assets/images/jahidul-pabel-islam-young.png?v=1" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
-                                <img src="/assets/images/JahidulPabelIslamCasual.jpg?v=1" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
+                                <img src="/assets/images/JahidulPabelIslamCasual.jpg?v=3" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
                             </div>
                         </div>
                         <div class="article__half">
@@ -61,7 +61,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png?v=1" alt="Logo of BrightMinded"></a>
+                            <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png?v=2" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article__half">
                             <p>Recently joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.png?v=1" alt="Logo of University of Portsmouth"></a>
+                            <a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/UoP.png?v=4" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="article__half">
                             <p>Graduated from <a class="link-styled link-styled--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>

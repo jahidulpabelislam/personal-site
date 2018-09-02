@@ -51,7 +51,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                         <div class="article__half">
                             <a href="mailto:me@jahidulpabelislam.com" target="_blank" class="social-link">
-                                <img src="/assets/images/email.svg?v=1" alt="Email me" class="social-link__img social-link__img--email">
+                                <img src="/assets/images/email.svg?v=3" alt="Email me" class="social-link__img social-link__img--email">
                                 <p class="social-link__text social-link__text--email"> me@jahidulpabelislam.com</p>
                             </a>
                         </div>
@@ -65,7 +65,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
-                                <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="/assets/images/linkedin.svg?v=3" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                             </a>
                         </div>
@@ -79,7 +79,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
-                                <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                                <img src="/assets/images/github.svg?v=3" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                                 <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                             </a>
                         </div>

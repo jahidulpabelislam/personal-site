@@ -40,18 +40,18 @@
         <?php if (!isset($_GET["debug"])):?>
             <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
         <?php else: ?>
-            <script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/home.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/expandedSlideShow.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/slideShow.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/helpers.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/ajax.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/projects.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/home.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/form.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/stickyFooter.js?v=3" type="text/javascript"></script>
             <script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/nav.js?v=3" type="text/javascript"></script>
+            <script src="/assets/js/jpi/main.js?v=3" type="text/javascript"></script>
         <?php endif; ?>
     </body>
 </html>
