@@ -27,9 +27,9 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                         </div>
 
                         <div class="article__half">
-                            <p>The server couldn't follow your request and cannot be displayed.</p>
+                            <p>The server couldn't follow your request and can not displayed content.</p>
                             <p>Either refresh the page or try again later.</p>
-                            <p>If not it's not you, its me!</p>
+                            <p>If not it's not you, nor me, its the sysadmin guy (ME!)!</p>
                         </div>
                     </div>
                 </div>

@@ -111,6 +111,9 @@ section {
   font-family: 'Oswald', sans-serif;
   width: 100%; }
 
+.article__header--no-padding.article__header--no-padding {
+  margin: 0; }
+
 p {
   margin: 10px 0; }
 
@@ -140,7 +143,7 @@ img {
   .article--halved > .container {
     display: flex;
     align-items: center; }
-  .article--halved:nth-child(even) > .container {
+  .article--halved:nth-of-type(even) > .container {
     flex-direction: row-reverse; }
   .article__half {
     width: 50%; }

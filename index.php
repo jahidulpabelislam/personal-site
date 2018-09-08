@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article home__hello">
                     <div class="container">
                         <p><span class="main-hello">Hello</span> there everyone!</p>
-                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam">
+                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
                         <img src="/assets/images/logo-inverted.png?v=1" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
                     </div>
                 </div>
@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article">
                     <div class="container">
                         <p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
-                        <p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can do things better while also to expand my knowledge.</p>
+                        <p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
                         <p>Currently working as a Junior Web Developer at <a class="link-styled" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
                         <p>Reside in  <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the South Coast of England.</p>
                     </div>
@@ -43,26 +43,27 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <div class="workflow">
                             <div class="workflow__item ">
-                                <h3 class="article__header">Design > Code</h3>
+                                <h3 class="article__header">Design</h3>
                                 <img src="/assets/images/design-icon.png?v=1" class="workflow-item__image">
                                 <div class="workflow-item__description">
-                                    <p>My work starts after receiving finished designs on PSD's or Flat Image Files.</p>
-                                    <p>At this stage I begin turning designs into pixel perfect sites/apps.</p>
+                                    <p>My work starts after receiving finished designs on PSD's or flat image files.</p>
+                                    <p>At this stage I then begin turning designs into pixel perfect sites/apps.</p>
                                 </div>
                             </div>
+	                        <div class="workflow__item">
+		                        <h3 class="article__header">Responsive</h3>
+		                        <img src="/assets/images/responsive-icon.png?v=1"  class="workflow-item__image">
+		                        <div class="workflow-item__description">
+			                        <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
+			                        <p>By approaching styling in a mobile first point of view.</p>
+		                        </div>
+	                        </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Code</h3>
                                 <img src="/assets/images/code-icon.png?v=1" class="workflow-item__image">
                                 <div class="workflow-item__description">
-                                    <p>I tend to build systems fully bespoke, but if the requirements require I will use various frameworks and libraries to fulfill the required system (But try to keep that to a minimum).</p>
-                                </div>
-                            </div>
-                            <div class="workflow__item">
-                                <h3 class="article__header">Responsive Design</h3>
-                                <img src="/assets/images/responsive-icon.png?v=1"  class="workflow-item__image">
-                                <div class="workflow-item__description">
-                                    <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
-                                    <p>I always approach styling in a mobile first approach.</p>
+                                    <p>I tend to build systems fully bespoke.</p>
+	                                <p>But if the requirements specify I will use various frameworks or libraries to fulfill the required system.</p>
                                 </div>
                             </div>
                         </div>
@@ -91,15 +92,15 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">0</h3>
-                                <p class="stats__text">Personal Projects (+ <span class="counter" data-to="22" data-speed="2000">0</span> work projects)</p>
+                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">22</h3>
+                                <p class="stats__text">Personal Projects (+ <span class="counter" data-to="24" data-speed="2000">24</span> work projects)</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="1249" data-speed="2000">0</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="1249" data-speed="2000">1249</h3>
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">0</h3>
+                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">8</h3>
                                 <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">

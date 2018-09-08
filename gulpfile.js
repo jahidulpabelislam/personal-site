@@ -92,7 +92,7 @@ gulp.task("store-version", function() {
 		// Else it is one of dev branches so display branch name
 		if (branchName && branchName !== "null" && branchName.trim() !== "master")
 		{
-			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
+			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 			fs.writeFile(fileName, string);
 		}
 		else
@@ -108,7 +108,7 @@ gulp.task("store-version", function() {
 				// If found store in text file
 				if (tagName && tagName !== "null")
 				{
-					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank'>" + tagName.trim() + "</a>";
+					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank' class='link-styled'>" + tagName.trim() + "</a>";
 					fs.writeFile(fileName, string);
 				}
 				else
@@ -121,7 +121,7 @@ gulp.task("store-version", function() {
 					// Else drop back to branch name if exists else remove version value from file
 					if (branchName && branchName !== "null")
 					{
-						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
+						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 						fs.writeFile(fileName, string);
 					}
 					else

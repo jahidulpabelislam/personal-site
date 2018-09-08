@@ -47,7 +47,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">Drop me a old fashioned email.</h3>
+                            <h3 class="article__header">Drop me a old school email</h3>
                         </div>
                         <div class="article__half">
                             <a href="mailto:me@jahidulpabelislam.com" target="_blank" class="social-link">
@@ -58,10 +58,16 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                     </div>
                 </div>
 
+				<div class="article">
+					<div class="container">
+						<h3 class="article__header article__header--no-padding">Stay up to date with me</h3>
+					</div>
+				</div>
+
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my Linkedin profile.</h3>
+                            <h3 class="article__header">View my Linkedin profile</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link">
@@ -75,7 +81,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View code for projects and follow future projects.</h3>
+                            <h3 class="article__header">View & follow code for projects</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link">
@@ -89,7 +95,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">Follow what I get up to.</h3>
+                            <h3 class="article__header">Follow what I get up to</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link">

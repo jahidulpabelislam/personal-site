@@ -12,20 +12,20 @@ $navTint = "light";
 $techSkills = array(
     array("text" => "HTML", "desc" => "HTML5 & HTML4"),
     array("text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4"),
-    array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery, AngularJS"),
-    array("text" => "PHP", "desc" => "Wordpress, Laravel, PDO"),
+    array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery & AngularJS"),
+    array("text" => "PHP", "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO"),
     array("text" => "SQL", "desc" => "MySQL"),
-    array("text" => "NoSQL", "desc" => "Amazon DynamoDB"),
-    array("text" => "Java", "desc" => "Java EE 7, JSF 2, AWT, Swing"),
+    array("text" => "NoSQL", "desc" => "Amazon DynamoDB & MongoDB"),
+    array("text" => "Java", "desc" => "Java EE 7, JSF 2, AWT & Swing"),
     array("text" => "Python", "desc" => "graphics.py"),
     array("text" => "Visual Basic"),
-    array("text" => "DVCS", "desc" => "Git (GitHub) for personal projects & Mercurial (Bitbucket) for projects within work"),
-    array("text" => "Microsoft Office", "desc" => "I have used Excel to create and use College/Uni grading systems and financial record system, Word, Powerpoint (Also recently move some work to Google Sheets, Docs & Slides)")
+    array("text" => "DVCS", "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)"),
+    array("text" => "Microsoft Office", "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)")
 );
 
 $otherSkills = array(
     array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
-    array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good communication skills both written and spoken"),
+    array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills"),
     array("text" => "Hard Worker")
 );
 
@@ -64,7 +64,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                             <a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/BrightMinded.png?v=1" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article__half">
-                            <p>Recently joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
+                            <p>Joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
                         </div>
                     </div>
                 </div>
