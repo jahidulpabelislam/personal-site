@@ -263,7 +263,7 @@ window.jpi.slideShow = (function (jQuery) {
 				fn.moveSlide(jQuery(this).data("slideShowId"), jQuery(this).data("navDirection"));
 			});
 
-			jQuery("body").on("dragstart", ".slide", false);
+			jQuery("body").on("dragstart", ".slide-show__img", false);
 		}
 	};
 
