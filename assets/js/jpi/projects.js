@@ -19,16 +19,16 @@ window.jpi.projects = (function (jQuery) {
 
 		addSkills: function (project, divID) {
 			var skills = project.Skills.split(","),
-					skillsContainer = jQuery(divID + " .project__skills")[0];
+				skillsContainer = jQuery(divID + " .project__skills")[0];
 
 			for (var i = 0; i < skills.length; i++) {
 				if (skills[i].trim() !== "") {
 
 					var skill = jpi.helpers.createElement(skillsContainer, "p", {
-								innerHTML: skills[i],
-								class: "js-searchable-skill skill skill--" + project.Colour
-							}),
-							searches = jQuery(".search-form__input")[0].value.split(" ");
+							innerHTML: skills[i],
+							class: "js-searchable-skill skill skill--" + project.Colour
+						}),
+						searches = jQuery(".search-form__input")[0].value.split(" ");
 
 					for (var j = 0; j < searches.length; j++) {
 						if (searches[j].trim() !== "" && skills[i].toLowerCase().includes(searches[j].toLowerCase())) skill.className += " searched";
@@ -71,7 +71,7 @@ window.jpi.projects = (function (jQuery) {
 
 		addProjectPictures: function (project, slideShowId) {
 			var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
-					slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
+				slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
 			//loop through each row of data in rows
 			for (var i = 0; i < project.Pictures.length; i++) {
@@ -140,13 +140,20 @@ window.jpi.projects = (function (jQuery) {
 
 		closeProjectsExpandModal: function (event) {
 			if (!jQuery(event.target).closest('.modal__content').length && jQuery(".detailed-project").hasClass("open")) {
+
 				jQuery(".detailed-project").removeClass("open").hide();
+
 				document.body.style.overflow = "auto";
+
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
 				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
+
 				jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
+
 				clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
+
 				jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
+
 				jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
 			}
 		},
@@ -189,8 +196,8 @@ window.jpi.projects = (function (jQuery) {
 			if ((parseInt(count)) > 10) {
 
 				var page = 1,
-						ul = jQuery(".pagination")[0],
-						path = global.url.pathname.substring(1).split('/');
+					ul = jQuery(".pagination")[0],
+					path = global.url.pathname.substring(1).split('/');
 
 				if (Number.isInteger(parseInt(path[1]))) {
 					var currentPage = parseInt(path[1]);
@@ -203,7 +210,7 @@ window.jpi.projects = (function (jQuery) {
 
 					var item = jpi.helpers.createElement(ul, "li", attributes);
 
-					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": "/projects/"+page+"/"+global.url.search};
+					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": "/projects/" + page + "/" + global.url.search};
 					if (page === currentPage) {
 						attributes.class = "pagination__item-link active";
 					}
@@ -211,7 +218,8 @@ window.jpi.projects = (function (jQuery) {
 				}
 
 				jQuery(".pagination").show();
-			} else {
+			}
+			else {
 				jQuery(".pagination").hide();
 			}
 		},
@@ -253,7 +261,8 @@ window.jpi.projects = (function (jQuery) {
 			if (jQuery(".search-form__input")[0].value.trim() !== "") {
 				global.url.search = "?search=" + jQuery(".search-form__input")[0].value;
 				query.search = jQuery(".search-form__input")[0].value;
-			} else {
+			}
+			else {
 				jQuery(".search-form__input")[0].value = global.url.search = "";
 			}
 
@@ -267,7 +276,7 @@ window.jpi.projects = (function (jQuery) {
 		getSearch: function () {
 			var searches = global.url.search.substring(1).split('&'),
 
-					lookForSearch = /\bsearch=/im;
+				lookForSearch = /\bsearch=/im;
 
 			//loop through each search query of data in rows
 			for (var i = 0; i < searches.length; i++) {
@@ -283,7 +292,7 @@ window.jpi.projects = (function (jQuery) {
 		load: function () {
 
 			var query = {},
-					path = global.url.pathname.substring(1).split('/');
+				path = global.url.pathname.substring(1).split('/');
 
 			//check if pagination is involved
 			if (path[1] && Number.isInteger(parseInt(path[1]))) {
@@ -294,7 +303,8 @@ window.jpi.projects = (function (jQuery) {
 			var search = fn.getSearch();
 			if (search) {
 				query.search = jQuery(".search-form__input")[0].value = search;
-			} else {
+			}
+			else {
 				jQuery(".search-form__input").val("");
 			}
 

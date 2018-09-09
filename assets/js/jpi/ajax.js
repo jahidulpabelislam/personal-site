@@ -3,10 +3,9 @@ window.jpi.ajax = (function (jQuery) {
 
 	"use strict";
 
-
 	var fn = {
 
-		//checks if feedback was provided by API
+		// Checks if feedback was provided by API
 		checkFeedback: function (feedback, howToRenderError, genericMessage) {
 
 			//if there is feedback from Server give error message using the it otherwise output generic message
@@ -15,7 +14,7 @@ window.jpi.ajax = (function (jQuery) {
 			}
 		},
 
-		//loop through data to see if it exists
+		// Loop through data to see if it exists
 		loopThroughData: function (data, toRun, howToRenderError, genericMessage) {
 			var i;
 
@@ -33,7 +32,7 @@ window.jpi.ajax = (function (jQuery) {
 				}
 				return true;
 			}
-			//otherwise check feedback and show user and return false as data isn't there
+			// Otherwise check feedback and show user and return false as data isn't there
 			else {
 				fn.checkFeedback(data.meta.feedback, howToRenderError, genericMessage);
 				return false;
@@ -82,17 +81,17 @@ window.jpi.ajax = (function (jQuery) {
 				}
 			}
 
-			//open a XHR
+			// Open a XHR
 			xhr.open(request.method, request.url, true);
 
-			//set request header for XHR
+			// Set request header for XHR
 			xhr.setRequestHeader("Accept", "application/json");
 
 			if (request.query && request.method === "POST" && request.data !== "file") {
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			}
 
-			//add listener for when XHR is loaded
+			// Add listener for when XHR is loaded
 			xhr.addEventListener("load", function () {
 				if ((this && this.responseText !== "")) {
 					try {
@@ -109,12 +108,12 @@ window.jpi.ajax = (function (jQuery) {
 				}
 			});
 
-			//add listener for when XHR has a error
+			// Add listener for when XHR has a error
 			xhr.addEventListener("error", function () {
 				request.error("Error Loading Content.");
 			});
 
-			//send payload if any
+			// Send payload if any
 			xhr.send(request.query);
 		}
 	};

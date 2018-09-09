@@ -10,13 +10,14 @@ window.jpi.helpers = (function (jQuery) {
 		 * used to check if input field is empty
 		 * add invalid class if empty and return false
 		 * or remove invalid class if  not empty and return true
-	    */
+		 */
 		checkInputField: function (input) {
 			if (input.value.trim() === "") {
 				input.classList.add("invalid");
 				input.classList.remove("valid");
 				return false;
-			} else {
+			}
+			else {
 				input.classList.remove("invalid");
 				input.classList.add("valid");
 				return true;
@@ -30,7 +31,8 @@ window.jpi.helpers = (function (jQuery) {
 				if (attributes.hasOwnProperty(attribute)) {
 					if (attribute === "innerHTML") {
 						elem[attribute] = attributes[attribute];
-					} else {
+					}
+					else {
 						elem.setAttribute(attribute, attributes[attribute]);
 					}
 				}

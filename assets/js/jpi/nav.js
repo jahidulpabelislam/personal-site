@@ -31,7 +31,8 @@ window.jpi.nav = (function (jQuery) {
 
 			if (scrollPos >= headerHeight) {
 				jQuery(".nav").addClass("scrolled");
-			} else {
+			}
+			else {
 				jQuery(".nav").removeClass("scrolled");
 			}
 		},

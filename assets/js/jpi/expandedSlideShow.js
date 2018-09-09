@@ -26,7 +26,7 @@ window.jpi.expandedSlideShow = (function (jQuery) {
 			}
 
 			var expandedImage = jQuery(".expanded-image.current"),
-					expandedImage2 = jQuery(".expanded-image:not(.current)");
+				expandedImage2 = jQuery(".expanded-image:not(.current)");
 
 			expandedImage2.attr("src", global.slides[global.currentSlide].src);
 			expandedImage.removeClass("current");
