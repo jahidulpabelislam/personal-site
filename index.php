@@ -12,7 +12,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/inc/header.php';
                 <div class="article home__hello">
                     <div class="container">
                         <p><span class="main-hello">Hello</span> there everyone!</p>
-                        <img src="/assets/images/JahidulPabelIslamSmart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
+                        <img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
                         <img src="/assets/images/logo-inverted.png?v=1" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
                     </div>
                 </div>
