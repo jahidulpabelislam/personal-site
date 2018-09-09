@@ -126,7 +126,7 @@ img {
   list-style: inside; }
 
 .main-content li {
-  margin: 5px 0; }
+  margin: 2px 0; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -139,7 +139,7 @@ img {
     font-size: 26px;
     line-height: 30px; }
   .main-content li {
-    margin: 10px 0; }
+    margin: 5px 0; }
   .article--halved > .container {
     display: flex;
     align-items: center; }
