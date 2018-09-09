@@ -82,7 +82,7 @@ gulp.task("store-version", function() {
 
 	var fileName = "assets/version.txt";
 
-	var githubBaseUrl = "https://github.com/JahidulPabelIslam/Portfolio/";
+	var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
 
 	// Try to get current branch name
 	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
