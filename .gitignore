@@ -58,3 +58,5 @@ Auth.php
 logs/*
 
 version.txt
+
+assets/images/projects/*

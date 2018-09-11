@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Connects to a database and set up to send and receive data
  * using application constants defined in config.php. file
  * a reusable file for other projects

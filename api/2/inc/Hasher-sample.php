@@ -1,4 +1,8 @@
 <?php
+/*
+ * All the functions needed for the hashing doing for this API Authentication
+ * @author Jahidul Pabel Islam
+*/
 
 class Hasher {
 

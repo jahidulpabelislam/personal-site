@@ -26,7 +26,8 @@ window.jpi.form = (function (jQuery) {
 			if (result.ok) {
 				global.formFeedback.addClass("feedback--success");
 				jQuery("#email-input, #message-input, #subject-input").val("");
-			} else {
+			}
+			else {
 				if (result.feedback) {
 					global.formFeedback.addClass("feedback--error");
 				}
@@ -56,7 +57,7 @@ window.jpi.form = (function (jQuery) {
 
 			//validate each required user input
 			var messageValidation = fn.validateMessage(global.messageInput.val(), true),
-					emailValidation = fn.validateEmail(global.emailInput.val(), true);
+				emailValidation = fn.validateEmail(global.emailInput.val(), true);
 
 			//if form is valid send a request with necessary data to XHR
 			if (emailValidation && messageValidation) {
@@ -71,7 +72,8 @@ window.jpi.form = (function (jQuery) {
 					"load": fn.renderFeedback,
 					"error": fn.renderErrorMessage
 				});
-			} else {
+			}
+			else {
 				global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
 			}
 
@@ -84,7 +86,7 @@ window.jpi.form = (function (jQuery) {
 			global.emailInput.removeClass("valid");
 
 			var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
-					result = validEmailPattern.test(email);
+				result = validEmailPattern.test(email);
 
 			//checks if email is empty
 			if (email.trim() === "" && isForm) {

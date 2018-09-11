@@ -38,7 +38,7 @@ var scriptNames = Object.keys(scripts);
 scriptNames.forEach(function (key, i) {
 	gulp.task("scripts-" + key, function () {
 		return gulp.src(scripts[key])
-				.pipe(concat(key + ".min.js"))
+	            .pipe(concat(key + ".min.js"))
 				.pipe(uglify())
 				.pipe(gulp.dest("assets/js"));
 	});
@@ -55,22 +55,22 @@ var stylesheetNames = Object.keys(stylesheets);
 stylesheetNames.forEach(function (key) {
 	gulp.task("styles-" + key, function () {
 		return gulp.src(stylesheets[key])
-				.pipe(concat(key + ".min.css"))
-				.pipe(autoprefixer({
-					browsers: ["> 0.5%", "ie 8-11"],
-					remove: false
-				}))
-				.pipe(minifyCss({
-					compatibility: "ie8"
-				}))
-				.pipe(gulp.dest("assets/css"));
+	            .pipe(concat(key + ".min.css"))
+			.pipe(autoprefixer({
+				browsers: ["> 0.5%", "ie 8-11"],
+				remove: false
+			}))
+			.pipe(minifyCss({
+				compatibility: "ie8"
+			}))
+			.pipe(gulp.dest("assets/css"));
 	});
 });
 gulp.task("styles", ["styles-main"]);
 
 gulp.task('sass', function () {
 	return gulp.src('assets/css/style.scss')
-			.pipe(sass().on('error', sass.logError))
+            .pipe(sass().on('error', sass.logError))
 			.pipe(gulp.dest('assets/css/'));
 });
 // Watch Files For Changes
@@ -78,11 +78,11 @@ gulp.task('watch', function () {
 	gulp.watch('assets/css/**/*.scss', ['sass']);
 });
 
-gulp.task("store-version", function() {
+gulp.task("store-version", function () {
 
 	var fileName = "assets/version.txt";
 
-	var githubBaseUrl = "https://github.com/JahidulPabelIslam/Portfolio/";
+	var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
 
 	// Try to get current branch name
 	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
@@ -90,13 +90,11 @@ gulp.task("store-version", function() {
 		// If name found store in text file
 		// If current branch if master we used use tags (As most likely this is in production environment)
 		// Else it is one of dev branches so display branch name
-		if (branchName && branchName !== "null" && branchName.trim() !== "master")
-		{
-			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
+		if (branchName && branchName !== "null" && branchName.trim() !== "master") {
+			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 			fs.writeFile(fileName, string);
 		}
-		else
-		{
+		else {
 			// Else just log errors & try to store latest tag name string in text file
 			console.log(branchNameErr);
 			console.log(branchName);
@@ -106,26 +104,22 @@ gulp.task("store-version", function() {
 			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
 
 				// If found store in text file
-				if (tagName && tagName !== "null")
-				{
-					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank'>" + tagName.trim() + "</a>";
+				if (tagName && tagName !== "null") {
+					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank' class='link-styled'>" + tagName.trim() + "</a>";
 					fs.writeFile(fileName, string);
 				}
-				else
-				{
+				else {
 					// Else log any errors
 					console.log(tagNameErr);
 					console.log(tagName);
 					console.log(tagNameStderr);
 
 					// Else drop back to branch name if exists else remove version value from file
-					if (branchName && branchName !== "null")
-					{
-						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() +"' target='_blank'>" + branchName.trim() + "</a>";
+					if (branchName && branchName !== "null") {
+						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 						fs.writeFile(fileName, string);
 					}
-					else
-					{
+					else {
 						fs.writeFile(fileName, '');
 					}
 				}

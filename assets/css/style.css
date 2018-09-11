@@ -111,6 +111,9 @@ section {
   font-family: 'Oswald', sans-serif;
   width: 100%; }
 
+.article__header--no-padding.article__header--no-padding {
+  margin: 0; }
+
 p {
   margin: 10px 0; }
 
@@ -123,7 +126,7 @@ img {
   list-style: inside; }
 
 .main-content li {
-  margin: 5px 0; }
+  margin: 2px 0; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -136,11 +139,11 @@ img {
     font-size: 26px;
     line-height: 30px; }
   .main-content li {
-    margin: 10px 0; }
+    margin: 5px 0; }
   .article--halved > .container {
     display: flex;
     align-items: center; }
-  .article--halved:nth-child(even) > .container {
+  .article--halved:nth-of-type(even) > .container {
     flex-direction: row-reverse; }
   .article__half {
     width: 50%; }

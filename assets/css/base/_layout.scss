@@ -52,6 +52,10 @@ section {
 	width: 100%;
 }
 
+.article__header--no-padding.article__header--no-padding {
+	margin: 0;
+}
+
 p {
 	margin: 10px 0;
 }
@@ -67,7 +71,7 @@ img {
 }
 
 .main-content li {
-	margin: 5px 0;
+	margin: 2px 0;
 }
 
 /* Only for Desktops */
@@ -87,7 +91,7 @@ img {
 	}
 
 	.main-content li {
-		margin: 10px 0;
+		margin: 5px 0;
 	}
 
 	.article--halved > .container {
@@ -95,7 +99,7 @@ img {
 		align-items: center;
 	}
 
-	.article--halved:nth-child(even) > .container {
+	.article--halved:nth-of-type(even) > .container {
 		flex-direction: row-reverse;
 	}
 
