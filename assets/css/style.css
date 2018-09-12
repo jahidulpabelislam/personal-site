@@ -1210,7 +1210,7 @@ label {
 .modal__content {
   background-color: white;
   border: gray solid 1px;
-  max-width: 75%;
+  max-width: 90%;
   overflow: hidden;
   margin: 40px auto;
   padding: 0 15px;
@@ -1219,6 +1219,11 @@ label {
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
+  .modal__content {
+    max-width: 80%; } }
+
+/* For Desktops */
+@media only screen and (min-width: 1200px) {
   .modal__content {
     max-width: 750px; } }
 

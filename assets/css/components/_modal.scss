@@ -15,7 +15,7 @@
 .modal__content {
 	background-color: white;
 	border: $grey solid 1px;
-	max-width: 75%;
+	max-width: 90%;
 	overflow: hidden;
 	margin: 40px auto;
 	padding: 0 15px;
@@ -25,6 +25,13 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
+	.modal__content {
+		max-width: 80%;
+	}
+}
+
+/* For Desktops */
+@media only screen and (min-width: $desktop) {
 	.modal__content {
 		max-width: 750px;
 	}
