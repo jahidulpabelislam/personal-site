@@ -112,7 +112,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 					</div>
 				</div>
 
-
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half"><a class="btn btn--red" href="/about/">Learn About Me</a></div>
