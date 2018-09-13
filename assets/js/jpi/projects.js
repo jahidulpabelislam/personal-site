@@ -316,6 +316,7 @@ window.jpi.projects = (function (jQuery) {
 			jQuery(".search-form").on("submit", fn.doSearch);
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
+				jQuery(".detailed-project").trigger("click");
 				jQuery(".search-form__input")[0].value = e.target.innerHTML;
 				fn.doSearch();
 			});
