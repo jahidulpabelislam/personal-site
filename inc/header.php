@@ -13,11 +13,11 @@
 			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
 			<script>
 				window.dataLayer = window.dataLayer || [];
-				
+
 				function gtag() {
 					dataLayer.push(arguments);
 				}
-				
+
 				gtag('js', new Date());
 
 				gtag('config', 'UA-70803146-2');
@@ -44,14 +44,14 @@
 
 		<!-- Custom stylesheet for site -->
 		<?php if (!isset($_GET["debug"])) {
-		?>
+			?>
 			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-		<?php
+			<?php
 		}
 		else {
-		?>
+			?>
 			<link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-		<?php
+			<?php
 		};
 		?>
 
@@ -73,7 +73,7 @@
 		$imageLocation = "assets/images/portfolio-" . strtolower($pageTitle) . "-preview.png";
 
 		if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imageLocation)) {
-			$imageUrl = $url . $imageLocation;
+			$imageUrl = $url . $imageLocation . "?v=1";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 			<?php
@@ -100,7 +100,7 @@
 						<span class="menu-bar menu-bar--middle"></span>
 						<span class="menu-bar menu-bar--bottom"></span>
 					</button>
-					<a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current"; ?>" src="/assets/images/logo.png" alt="Jahidul Pabel Islam Logo"></a>
+					<a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=1" alt="Jahidul Pabel Islam Logo"></a>
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">
@@ -111,8 +111,8 @@
 				</div>
 				<div class="nav__social-links-container">
 					<ul class="nav__social-links">
-						<li class="nav-link__item"><a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin"></a></li>
-						<li class="nav-link__item"><a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github"></a></li>
+						<li class="nav-link__item"><a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin"></a></li>
+						<li class="nav-link__item"><a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github"></a></li>
 						<li class="nav-link__item"><a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link"><span class="social-link__img social-link__img--instagram "><i></i></span></a></li>
 					</ul>
 				</div>
@@ -131,7 +131,7 @@
 					<h1 class="jumbotron__title"><?php echo $headerTitle ?></h1>
 					<hr class="jumbotron__line-breaker">
 					<p class="jumbotron__desc"><?php echo $headerDesc ?></p>
-					<img src="/assets/images/down-arrow.svg" class="js-scroll-to-content jumbotron__scroll-to-content">
+					<img src="/assets/images/down-arrow.svg?v=1" class="js-scroll-to-content jumbotron__scroll-to-content">
 				</div>
 			</div>
 		</header>

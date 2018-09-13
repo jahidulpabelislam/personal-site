@@ -112,20 +112,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 
 						<ul class="about__skills-interests">
 							<?php
-								foreach ($techSkills as $skill) {
-									$skillText = $skill["text"];
-									$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
+							foreach ($techSkills as $skill) {
+								$skillText = $skill["text"];
+								$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-									$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+								$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-									echo '<li class="skills-interests__item skills-interests__item--blue ' . $expandClass . '">';
-									echo $skillText;
+								echo '<li class="skills-interests__item skills-interests__item--blue ' . $expandClass . '">';
+								echo $skillText;
 
-									if ($skillDesc) {
-										echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
-									}
-									echo '</li>';
+								if ($skillDesc) {
+									echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
 								}
+								echo '</li>';
+							}
 							?>
 						</ul>
 					</div>
@@ -137,20 +137,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 
 						<ul class="about__skills-interests">
 							<?php
-								foreach ($otherSkills as $skill) {
-									$skillText = $skill["text"];
-									$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
+							foreach ($otherSkills as $skill) {
+								$skillText = $skill["text"];
+								$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
 
-									$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+								$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-									echo '<li class="skills-interests__item skills-interests__item--purple ' . $expandClass . '">';
-									echo $skillText;
+								echo '<li class="skills-interests__item skills-interests__item--purple ' . $expandClass . '">';
+								echo $skillText;
 
-									if ($skillDesc) {
-										echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
-									}
-									echo '</li>';
+								if ($skillDesc) {
+									echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
 								}
+								echo '</li>';
+							}
 							?>
 						</ul>
 					</div>
@@ -163,21 +163,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 						<ul class="about__skills-interests">
 
 							<?php
-								foreach ($interests as $interest) {
-									$interestText = $interest["text"];
-									$interestDesc = (isset($interest["desc"])) ? $interest["desc"] : false;
+							foreach ($interests as $interest) {
+								$interestText = $interest["text"];
+								$interestDesc = (isset($interest["desc"])) ? $interest["desc"] : false;
 
-									$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+								$expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-									echo '<li class="skills-interests__item skills-interests__item--green ' . $expandClass . '">';
-									echo $interestText;
+								echo '<li class="skills-interests__item skills-interests__item--green ' . $expandClass . '">';
+								echo $interestText;
 
-									if ($interestDesc) {
-										echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interestDesc . '</div>';
-									}
-
-									echo '</li>';
+								if ($interestDesc) {
+									echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interestDesc . '</div>';
 								}
+
+								echo '</li>';
+							}
 							?>
 						</ul>
 					</div>

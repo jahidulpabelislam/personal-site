@@ -2,8 +2,8 @@
 				<div class="social-links">
 					<div class="container">
 						<h5 class="social-links__header">Follow Me Here!</h5>
-						<a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
-						<a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/assets/images/github.svg" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
+						<a href="https://uk.linkedin.com/in/jahidulpabelislam" target="_blank" class="social-link"><img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin"></a>
+						<a href="https://github.com/jahidulpabelislam" target="_blank" class="social-link "><img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github"></a>
 						<a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link "><span class="social-links__img social-link__img social-link__img--instagram "><i></i></span></a>
 					</div>
 				</div>
