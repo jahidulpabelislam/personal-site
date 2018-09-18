@@ -98,7 +98,7 @@ switch ($path[0]) {
 	default:
 		$results["meta"]["ok"] = false;
 		$results["meta"]["status"] = 404;
-		$results["meta"]["feedback"] = "Unrecognised URI (/api/2/" . implode("/", $path) . ")";
+		$results["meta"]["feedback"] = "Unrecognised URI (/api/v2/" . implode("/", $path) . ")";
 		$results["meta"]["message"] = "Not Found";
 }
 

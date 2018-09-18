@@ -21,7 +21,7 @@ app.controller('projectsAdminController', function ($scope, $http) {
 	 * Any global variables used in multiple places with JS
 	 */
 	var global = {
-		apiBase: "/api/2/",
+		apiBase: "/api/v2/",
 		url: new URL(window.location),
 		baseURL: "admin/",
 		redirectTo: null,
