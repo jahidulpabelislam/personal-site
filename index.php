@@ -94,7 +94,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 						<div class="stats">
 							<div class="stats__item">
 								<h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">22</h3>
-								<p class="stats__text">Personal Projects (+ <span class="counter" data-to="24" data-speed="2000">24</span> work projects)</p>
+								<p class="stats__text">Personal Projects (+ <span class="counter" data-to="26" data-speed="2000">26</span> work projects)</p>
 							</div>
 							<div class="stats__item">
 								<h3 class="article__header article__header--stats counter" data-to="1249" data-speed="2000">1249</h3>
