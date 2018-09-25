@@ -10,8 +10,8 @@
 		if ($environment === "production") {
 			?>
 			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
-			<script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
+			<script type="text/javascript">
 				window.dataLayer = window.dataLayer || [];
 
 				function gtag() {

@@ -8,8 +8,8 @@
 		if ($environment === "production") {
 			?>
 			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
-			<script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
+			<script type="text/javascript">
 				window.dataLayer = window.dataLayer || [];
 
 				function gtag() {
@@ -186,27 +186,27 @@
 		<!-- The Scripts -->
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" type="text/javascript"></script>
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<?php if (!isset($_GET["debug"])): ?>
 			<!-- the script for the page -->
-			<script type="text/javascript" src="/assets/js/admin.min.js?v=1"></script>
+			<script src="/assets/js/admin.min.js?v=1" type="text/javascript"></script>
 		<?php else: ?>
 			<script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/dragNDrop.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
 			<!-- The third party script needed for the page for the sorting of pictures -->
-			<script type="text/javascript" src="/assets/js/third-party/jquery-ui.min.js?v=1"></script>
+			<script src="/assets/js/third-party/jquery-ui.min.js?v=1" type="text/javascript"></script>
 
 			<!-- The third party script needed for the page for the sorting of pictures -->
-			<script type="text/javascript" src="/assets/js/third-party/sortable.js?v=1"></script>
+			<script src="/assets/js/third-party/sortable.js?v=1" type="text/javascript"></script>
 		<?php endif; ?>
 
 		<!-- the script for the page -->
-		<script type="text/javascript" src="/assets/js/jpi/admin.js?v=1"></script>
+		<script src="/assets/js/jpi/admin.js?v=1" type="text/javascript"></script>
 	</body>
 </html>

@@ -9,8 +9,8 @@
 		if ($environment === "production") {
 			?>
 			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2"></script>
-			<script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
+			<script type="text/javascript">
 				window.dataLayer = window.dataLayer || [];
 
 				function gtag() {
@@ -127,7 +127,7 @@
 		</section>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 		<script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
 	</body>
 
