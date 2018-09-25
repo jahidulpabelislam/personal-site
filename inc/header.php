@@ -42,21 +42,6 @@
 		<!-- Dynamically insert the keywords for a page -->
 		<meta name="keywords" content="<?php echo $keywords; ?>"/>
 
-		<!-- Custom stylesheet for site -->
-		<?php if (!isset($_GET["debug"])) {
-			?>
-			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-			<?php
-		}
-		else {
-			?>
-			<link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
-			<?php
-		};
-		?>
-
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
 		<?php
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
 		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
@@ -81,7 +66,22 @@
 		?>
 
 		<meta name="twitter:card" content="summary_large_image"/>
-
+		
+		<!-- Custom stylesheet for site -->
+		<?php if (!isset($_GET["debug"])) {
+			?>
+			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+			<?php
+		}
+		else {
+			?>
+			<link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+			<?php
+		};
+		?>
+		
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
+		
 		<link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
 		<?php
