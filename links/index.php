@@ -52,6 +52,8 @@
 		<!-- Custom stylesheet for site -->
 		<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
 
+		<link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
+
 		<?php
 		include $_SERVER['DOCUMENT_ROOT'] . '/inc/favicons.php';
 		?>
