@@ -97,7 +97,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 								<p class="stats__text">Personal Projects (+ <span class="counter" data-to="26" data-speed="2000">26</span> work projects)</p>
 							</div>
 							<div class="stats__item">
-								<h3 class="article__header article__header--stats counter" data-to="1249" data-speed="2000">1249</h3>
+								<h3 class="article__header article__header--stats counter" data-to="1630" data-speed="2000">1630</h3>
 								<p class="stats__text">Commits</p>
 							</div>
 							<div class="stats__item">
