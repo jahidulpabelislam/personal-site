@@ -13,3 +13,4 @@ include 'Hasher.php'; // Copy api/v2/inc/Hasher-sample.php and rename to Hasher.
 include 'Auth.php';  // Copy api/v2/inc/Auth-sample.php and rename to Auth.php then update all 3 functions with your Auth functionality
 include 'Helper.php';
 include 'API.php';
+include 'Router.php';
