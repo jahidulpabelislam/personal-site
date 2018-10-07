@@ -10,7 +10,7 @@ class Helper {
 	public static function extractFromRequest() {
 
 		//get the method
-		$method = $_SERVER['REQUEST_METHOD'];
+		$method = strtoupper($_SERVER['REQUEST_METHOD']);
 
 		//get the path to decide what happens
 		$path = explode('/', ltrim($_SERVER['PATH_INFO'], "/"));
@@ -120,6 +120,15 @@ class Helper {
 		$results["meta"]["message"] = $message;
 
 		header("HTTP/1.1 $status $message");
+
+		if ($method == "GET") {
+			//Set cache for 31 days
+			$seconds_to_cache = 2678400;
+			$expires_time = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
+			header("Cache-Control: max-age=$seconds_to_cache, public");
+			header("Expires: $expires_time");
+			header("Pragma: cache");
+		}
 
 		//send the results, send by json if json was requested
 		if ($json) {

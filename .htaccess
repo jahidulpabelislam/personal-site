@@ -82,7 +82,7 @@ ErrorDocument 500 /error/500/
   ExpiresByType image/svg+xml "access plus 2678400 seconds"
   ExpiresByType text/css "access plus 2678400 seconds"
   ExpiresByType text/javascript "access plus 2678400 seconds"
-  ExpiresByType application/x-javascript "access plus 2678400 seconds"
+  ExpiresByType application/json "access plus 2678400 seconds"
   ExpiresByType application/javascript "access plus 2678400 seconds"
-  ExpiresByType image/svg+xml "access plus 2678400 seconds"
+  ExpiresByType text/plain "access plus 2678400 seconds"
 </IfModule>
