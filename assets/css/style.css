@@ -2153,7 +2153,7 @@ label {
 .project__date--modal {
   margin-left: auto; }
 
-.project__description {
+.detailed-project .project__description {
   text-align: left; }
 
 .skill {
