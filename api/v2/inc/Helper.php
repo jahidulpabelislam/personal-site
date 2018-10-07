@@ -9,11 +9,13 @@ class Helper {
 
 	public static function extractFromRequest() {
 
-		//get the method
+		// Get the method
 		$method = strtoupper($_SERVER['REQUEST_METHOD']);
+		
+		$requested_path = !empty($_SERVER['PATH_INFO']) ? ltrim($_SERVER['PATH_INFO'], "/") : '';
 
-		//get the path to decide what happens
-		$path = explode('/', ltrim($_SERVER['PATH_INFO'], "/"));
+		// Get the path to decide what happens
+		$path = explode('/', $requested_path);
 
 		$data = [];
 		foreach ($_REQUEST as $key => $value) {
@@ -96,17 +98,14 @@ class Helper {
 
 	public static function sendData($results, $data, $method, $path) {
 
-		//send back the data provided
+		// Send back the data provided
 		$results['meta']["data"] = $data;
-		//send back the method requested
+		// Send back the method requested
 		$results['meta']["method"] = $method;
-		//send back the path they requested
+		// Send back the path they requested
 		$results['meta']["path"] = $path;
 
-		//check if requested to send json
-		$json = (stripos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
-
-		//check is everything was ok
+		// Figure out the correct meta responses to return
 		if (isset($results["meta"]["ok"]) && $results["meta"]["ok"] !== false) {
 			$status = isset($results["meta"]["status"]) ? $results["meta"]["status"] : 200;
 			$message = isset($results["meta"]["message"]) ? $results["meta"]["message"] : "OK";
@@ -120,21 +119,24 @@ class Helper {
 		$results["meta"]["message"] = $message;
 
 		header("HTTP/1.1 $status $message");
-
+		
+		// Set cache for 31 days for all GET Requests
 		if ($method == "GET") {
-			//Set cache for 31 days
 			$seconds_to_cache = 2678400;
 			$expires_time = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
 			header("Cache-Control: max-age=$seconds_to_cache, public");
 			header("Expires: $expires_time");
 			header("Pragma: cache");
 		}
+		
+		// Check if requested to send json
+		$json = (stripos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false);
 
-		//send the results, send by json if json was requested
+		// Send the results, send by json if json was requested
 		if ($json) {
 			header("Content-Type: application/json");
 			echo json_encode($results);
-		} //else send by plain text
+		} // Else send by plain text
 		else {
 			header("Content-Type: text/plain");
 			echo("results: ");
