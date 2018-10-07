@@ -4,15 +4,17 @@
  * @author Jahidul Pabel Islam
 */
 
-//include all files needed
-include 'inc/app.php';
+// Include initialisation file to include all files needed for API operations
+include 'inc/init.php';
 
 list($method, $path, $data) = Helper::extractFromRequest();
 
 $api = new API();
 
-//do relevant stuff with path[1]
-switch ($path[0]) {
+$object = !empty($path[0]) ? $path[0] : '';
+
+// Figure out what action on what object request is for & perform necessary action(s)
+switch ($object) {
 	case "login":
 		switch ($method) {
 			case "POST":
