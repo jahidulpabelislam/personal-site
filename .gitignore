@@ -51,6 +51,8 @@ Temporary Items
 projects/*.zip
 
 node_modules/*
+npm-debug.log*
+
 config.php
 Hasher.php
 Auth.php
