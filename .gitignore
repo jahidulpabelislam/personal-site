@@ -52,6 +52,7 @@ projects/*.zip
 
 node_modules/*
 npm-debug.log*
+package-lock.json
 
 config.php
 Hasher.php
