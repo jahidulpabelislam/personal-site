@@ -15,7 +15,7 @@ $keywords = "";
 $navTint = "light";
 
 //include the header for page
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 				<!-- Start Dynamic content for page -->
 				<div class="article article--halved">
@@ -35,5 +35,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 
 <?php
 //include the footer for page
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
 ?>

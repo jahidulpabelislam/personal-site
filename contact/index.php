@@ -7,7 +7,7 @@ $headerDesc = "Send Your Feedback &amp; Enquires My Way";
 
 $navTint = "light";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
 				<div class="article">
@@ -120,5 +120,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 				</div>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
 ?>

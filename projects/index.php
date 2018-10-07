@@ -7,7 +7,7 @@ $headerDesc = "See My Skills in Action in My Previous Projects";
 
 $navTint = "dark";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
 				<div class="article">
@@ -118,5 +118,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 				</script>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
 ?>

@@ -39,7 +39,7 @@ $interests = array(
 	array("text" => "Trading")
 );
 
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
 				<div class="article article--halved article--about">
@@ -295,5 +295,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/inc/header.php';
 				</script>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/inc/footer.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
 ?>

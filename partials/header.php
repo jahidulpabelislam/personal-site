@@ -85,7 +85,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
 
 		<?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/inc/favicons.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/partials/favicons.php';
 		?>
 	</head>
 
