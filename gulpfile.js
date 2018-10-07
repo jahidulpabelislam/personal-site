@@ -2,7 +2,7 @@ var gulp = require("gulp");
 
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
-var minifyCss = require("gulp-minify-css");
+var cleanCss = require("gulp-clean-css");
 var autoprefixer = require("gulp-autoprefixer");
 var sass = require('gulp-sass');
 
@@ -60,7 +60,7 @@ stylesheetNames.forEach(function (key) {
 				browsers: ["> 0.5%", "ie 8-11"],
 				remove: false
 			}))
-			.pipe(minifyCss({
+			.pipe(cleanCss({
 				compatibility: "ie8"
 			}))
 			.pipe(gulp.dest("assets/css"));
