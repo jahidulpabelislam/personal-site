@@ -1542,14 +1542,14 @@ label {
     line-height: 28px;
     font-size: 18px; }
   .timeline__item:nth-child(even) .timeline-item__content::before {
-    right: -12px;
+    left: auto;
+    right: -10px;
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #f5f5f5;
-    left: auto; }
+    border-color: transparent transparent transparent #eee; }
   .timeline__item:nth-child(odd) .timeline-item__content::before {
-    left: -12px;
+    left: -10px;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #f5f5f5 transparent transparent; }
+    border-color: transparent #eee transparent transparent; }
   .timeline__item:nth-child(even) .timeline-item__content::after {
     right: -58px;
     left: auto;

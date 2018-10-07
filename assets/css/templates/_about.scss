@@ -253,16 +253,16 @@
 	}
 
 	.timeline__item:nth-child(even) .timeline-item__content::before {
-		right: -12px;
-		border-width: 10px 0 10px 10px;
-		border-color: transparent transparent transparent $light;
 		left: auto;
+		right: -10px;
+		border-width: 10px 0 10px 10px;
+		border-color: transparent transparent transparent $light-grey;
 	}
 
 	.timeline__item:nth-child(odd) .timeline-item__content::before {
-		left: -12px;
+		left: -10px;
 		border-width: 10px 10px 10px 0;
-		border-color: transparent $light transparent transparent;
+		border-color: transparent $light-grey transparent transparent;
 	}
 
 	.timeline__item:nth-child(even) .timeline-item__content::after {
