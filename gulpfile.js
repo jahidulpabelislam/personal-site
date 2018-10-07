@@ -83,6 +83,12 @@ gulp.task("store-version", function () {
 	var fileName = "assets/version.txt";
 
 	var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
+	
+	var errorCallback = function (err) {
+		if (err) {
+			console.log(err);
+		}
+	};
 
 	// Try to get current branch name
 	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
@@ -92,7 +98,7 @@ gulp.task("store-version", function () {
 		// Else it is one of dev branches so display branch name
 		if (branchName && branchName !== "null" && branchName.trim() !== "master") {
 			var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
-			fs.writeFile(fileName, string);
+			fs.writeFile(fileName, string, errorCallback);
 		}
 		else {
 			// Else just log errors & try to store latest tag name string in text file
@@ -103,10 +109,11 @@ gulp.task("store-version", function () {
 			// Try and get the latest tag on current branch
 			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
 
+				var versionText = '';
+				
 				// If found store in text file
 				if (tagName && tagName !== "null") {
-					var string = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank' class='link-styled'>" + tagName.trim() + "</a>";
-					fs.writeFile(fileName, string);
+					versionText = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank' class='link-styled'>" + tagName.trim() + "</a>";
 				}
 				else {
 					// Else log any errors
@@ -116,13 +123,11 @@ gulp.task("store-version", function () {
 
 					// Else drop back to branch name if exists else remove version value from file
 					if (branchName && branchName !== "null") {
-						var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
-						fs.writeFile(fileName, string);
-					}
-					else {
-						fs.writeFile(fileName, '');
+						versionText = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 					}
 				}
+				
+				fs.writeFile(fileName, versionText, errorCallback);
 			});
 		}
 	});
