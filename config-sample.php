@@ -13,9 +13,4 @@ define('DB_NAME', 'jpi');
 // Username to database
 define('DB_USERNAME', 'root');
 // Password for the user above
-define('DB_PASSWORD', '');
-
-// Username for portfolio admin
-define('PORTFOLIO_ADMIN_USERNAME', 'root');
-// Password for portfolio admin
-define('PORTFOLIO_ADMIN_PASSWORD', 'root');
+define('DB_PASSWORD', '')

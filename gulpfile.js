@@ -24,14 +24,6 @@ var scripts = {
 		"assets/js/third-party/jquery.countTo.js",
 		"assets/js/jpi/nav.js",
 		"assets/js/jpi/main.js"
-	],
-	admin: [
-		"assets/js/jpi/helpers.js",
-		"assets/js/jpi/stickyFooter.js",
-		"assets/js/jpi/dragNDrop.js",
-		"assets/js/jpi/nav.js",
-		"assets/js/third-party/jquery-ui.min.js",
-		"assets/js/third-party/sortable.js"
 	]
 };
 var scriptNames = Object.keys(scripts);
@@ -43,7 +35,7 @@ scriptNames.forEach(function (key, i) {
 				.pipe(gulp.dest("assets/js"));
 	});
 });
-gulp.task("scripts", ["scripts-main", "scripts-admin"]);
+gulp.task("scripts", ["scripts-main"]);
 
 // Minify Stylesheets
 var stylesheets = {
