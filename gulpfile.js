@@ -16,6 +16,7 @@ var scripts = {
 		"assets/js/jpi/slideShow.js",
 		"assets/js/jpi/helpers.js",
 		"assets/js/jpi/ajax.js",
+		"assets/js/jpi/config.js",
 		"assets/js/jpi/projects.js",
 		"assets/js/jpi/home.js",
 		"assets/js/jpi/form.js",

@@ -55,6 +55,8 @@ npm-debug.log*
 package-lock.json
 
 config.php
+config.js
+
 Hasher.php
 Auth.php
 
