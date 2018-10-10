@@ -25,7 +25,7 @@ In early 2017 I was coming to the end of my degree, I wanted to use my portfolio
 * More accessible & valid code
 * More feedback on user events & system errors
 
-## v3
+## v4
 What started off [version 4](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v4/) was due to the fact, I had been in a commercial job developing, and now had experience of how sites/apps are developed on a production level, I thought I'd use that knowledge on my own site and do a major overhaul. This project started in the summer of 2017 and finished in the summer of 2018.
 
 ##### Work done in release:
