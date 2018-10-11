@@ -43,7 +43,7 @@
 		<meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
 
 		<?php
-		$imageUrl = $url . "images/portfolio-links-preview.png";
+		$imageUrl = $url . "images/portfolio-links-preview.png?v=1";
 		?>
 		<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 
