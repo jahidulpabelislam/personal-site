@@ -109,7 +109,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 				<script type="text/template" id="tmpl-slide-template">
 					<div class="slide-show__slide" id="slide-{{ID}}">
-						<img src="{{File}}" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
+						<img src="{{File}}?v=2" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
 					</div>
 				</script>
 

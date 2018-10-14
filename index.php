@@ -121,7 +121,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 				<script type="text/template" id="tmpl-slide-template">
 					<div class="slide-show__slide" id="slide-{{ID}}" data-slide-colour="{{Colour}}">
-						<img class="slide-show__img" src="{{File}}" alt="Screen shot of {{Name}} Project">
+						<img class="slide-show__img" src="{{File}}?v=2" alt="Screen shot of {{Name}} Project">
 						<div class="slide-show__info-container">
 							<div class="slide-show__info slide-show__info--{{Colour}}">
 								<div class="project__header">
