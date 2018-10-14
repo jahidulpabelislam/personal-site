@@ -552,7 +552,7 @@ label {
 /* For all devices */
 .jumbotron {
   color: #FFFFFF;
-  background: #0375b4 url("/assets/images/work.jpg?v=1") no-repeat center center scroll;
+  background: #0375b4 url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
   background-size: cover;
   height: 100vh; }
 
@@ -981,7 +981,7 @@ label {
 
 /* For all devices */
 .social-links {
-  background: #EEEEEE url("/assets/images/social.jpg?v=1") no-repeat center center scroll;
+  background: #EEEEEE url("/assets/images/social.jpg?v=2") no-repeat center center scroll;
   background-size: cover;
   padding: 10px;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
@@ -1320,7 +1320,7 @@ label {
 
 /* For all devices */
 .jumbotron--about {
-  background-image: url("/assets/images/marmaris.jpg?v=1"); }
+  background-image: url("/assets/images/marmaris.jpg?v=2"); }
 
 .about__skills-interests.about__skills-interests {
   padding-left: 0; }
@@ -1564,7 +1564,7 @@ label {
 
 /* For all devices */
 .jumbotron--contact {
-  background-image: url("/assets/images/contact.jpg?v=1"); }
+  background-image: url("/assets/images/contact.jpg?v=2"); }
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
@@ -1585,7 +1585,7 @@ label {
 
 /* For all devices */
 .jumbotron--home {
-  background-image: url("/assets/images/working.jpg?v=1"); }
+  background-image: url("/assets/images/working.jpg?v=2"); }
 
 .home__hello,
 .home__intro {
@@ -1832,7 +1832,7 @@ label {
 
 /* For all devices */
 .jumbotron--projects {
-  background-image: url("/assets/images/projects.jpg?v=1"); }
+  background-image: url("/assets/images/projects.jpg?v=2"); }
 
 .search-form {
   position: relative;
@@ -2196,12 +2196,12 @@ label {
     line-height: 33px; } }
 
 .jumbotron--500 {
-  background-image: url("/assets/images/500.jpg?v=1"); }
+  background-image: url("/assets/images/500.jpg?v=2"); }
 
 .jumbotron--401,
 .jumbotron--403,
 .jumbotron--404 {
-  background-image: url("/assets/images/mistake.jpg?v=1"); }
+  background-image: url("/assets/images/mistake.jpg?v=2"); }
 
 .error__img {
   width: 75%;
