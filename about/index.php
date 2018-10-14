@@ -46,8 +46,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					<div class="container">
 						<div class="article__half">
 							<div class="about__images-of-me">
-								<img src="/assets/images/jahidul-pabel-islam-young.png?v=1" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
-								<img src="/assets/images/jahidul-pabel-islam-casual.jpg?v=1" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
+								<img src="/assets/images/jahidul-pabel-islam-young.png?v=2" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
+								<img src="/assets/images/jahidul-pabel-islam-casual.jpg?v=2" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
 							</div>
 						</div>
 						<div class="article__half">
@@ -61,7 +61,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=1" alt="Logo of BrightMinded"></a>
+							<a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded"></a>
 						</div>
 						<div class="article__half">
 							<p>Joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=1" alt="Logo of University of Portsmouth"></a>
+							<a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth"></a>
 						</div>
 						<div class="article__half">
 							<p>Graduated from <a class="link-styled link-styled--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
@@ -83,7 +83,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=1" alt="Image of a Beach"></a>
+							<a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach"></a>
 						</div>
 						<div class="article__half">
 							<p>Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
@@ -98,7 +98,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<img src="/assets/images/languages.png?v=1" alt="Image of 'hello' in different languages">
+							<img src="/assets/images/languages.png?v=2" alt="Image of 'hello' in different languages">
 						</div>
 						<div class="article__half">
 							<p>I am Bilingual, I can speak English &amp; Bengali.</p>

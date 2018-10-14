@@ -43,7 +43,7 @@
 		<meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
 
 		<?php
-		$imageUrl = $url . "images/portfolio-links-preview.png?v=1";
+		$imageUrl = $url . "images/portfolio-links-preview.png?v=2";
 		?>
 		<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 
@@ -82,7 +82,7 @@
 
 				<div class="social-link-container">
 					<a href="https://twitter.com/itsjahidulislam/" target="_blank" class="social-link">
-						<img src="/assets/images/twitter.png?v=1" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+						<img src="/assets/images/twitter.png?v=2" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
 						<p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
 					</a>
 				</div>

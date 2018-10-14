@@ -22,7 +22,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<img src="/assets/images/no-entry.png?v=1" alt="No entry sign" class="error__img">
+							<img src="/assets/images/no-entry.png?v=2" alt="No entry sign" class="error__img">
 						</div>
 						<div class="article--halved">
 							<p>The page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials.</p>

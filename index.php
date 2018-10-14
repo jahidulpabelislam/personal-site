@@ -13,8 +13,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article home__hello">
 					<div class="container">
 						<p><span class="main-hello">Hello</span> there everyone!</p>
-						<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=1" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
-						<img src="/assets/images/logo-inverted.png?v=1" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
+						<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=2" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
+						<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
 					</div>
 				</div>
 
@@ -45,7 +45,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						<div class="workflow">
 							<div class="workflow__item ">
 								<h3 class="article__header">Design</h3>
-								<img src="/assets/images/design-icon.png?v=1" class="workflow-item__image">
+								<img src="/assets/images/design-icon.png?v=2" class="workflow-item__image">
 								<div class="workflow-item__description">
 									<p>My work starts after receiving finished designs on PSD's or flat image files.</p>
 									<p>At this stage I then begin turning designs into pixel perfect sites/apps.</p>
@@ -53,7 +53,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 							<div class="workflow__item">
 								<h3 class="article__header">Responsive</h3>
-								<img src="/assets/images/responsive-icon.png?v=1" class="workflow-item__image">
+								<img src="/assets/images/responsive-icon.png?v=2" class="workflow-item__image">
 								<div class="workflow-item__description">
 									<p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
 									<p>By approaching styling in a mobile first point of view.</p>
@@ -61,7 +61,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 							<div class="workflow__item">
 								<h3 class="article__header">Code</h3>
-								<img src="/assets/images/code-icon.png?v=1" class="workflow-item__image">
+								<img src="/assets/images/code-icon.png?v=2" class="workflow-item__image">
 								<div class="workflow-item__description">
 									<p>I tend to build systems fully bespoke.</p>
 									<p>But if the requirements specify I will use various frameworks or libraries to fulfill the required system.</p>

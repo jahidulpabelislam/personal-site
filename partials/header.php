@@ -58,7 +58,7 @@
 		$imageLocation = "assets/images/portfolio-" . strtolower($pageTitle) . "-preview.png";
 
 		if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imageLocation)) {
-			$imageUrl = $url . $imageLocation . "?v=1";
+			$imageUrl = $url . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 			<?php
@@ -100,7 +100,7 @@
 						<span class="menu-bar menu-bar--middle"></span>
 						<span class="menu-bar menu-bar--bottom"></span>
 					</button>
-					<a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=1" alt="Jahidul Pabel Islam Logo"></a>
+					<a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">

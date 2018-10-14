@@ -21,7 +21,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<img src="/assets/images/oops.png?v=1" alt="Road sign with the words oops" class="error__img">
+							<img src="/assets/images/oops.png?v=2" alt="Road sign with the words oops" class="error__img">
 						</div>
 
 						<div class="article__half">
