@@ -52,7 +52,25 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						</div>
 						<div class="article__half">
 							<p>My name is Jahidul Pabel Islam.</p>
-							<p>I'm 22 years old.</p>
+							
+							<?php
+							date_default_timezone_set("Europe/London");
+
+							// Generate DateTime from my date of birth
+							$dob = "22/02/1996";
+							$dobDate = DateTime::createFromFormat("d/m/Y", $dob);
+						
+							// Today's DateTime
+							$today = new DateTime();
+
+							// Work out the time difference from both dates
+							$diff = $today->diff($dobDate, true);
+							
+							// Get the number of years different
+							$yearsDiff = $diff->format("%y");
+							?>
+							
+							<p>I'm <?php echo $yearsDiff; ?> years old.</p>
 							<p>A Full Stack Web and Software Developer.</p>
 						</div>
 					</div>
