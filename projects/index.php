@@ -8,6 +8,13 @@ $headerDesc = "See My Skills in Action in My Previous Projects";
 $navTint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+
+$page = $_GET["page"] ?? 1;
+
+$search = $_GET["search"] ?? "";
+
+error_log(print_r($_REQUEST, true));
+error_log(print_r($_SERVER['REQUEST_URI'], true));
 ?>
 
 				<div class="article">
@@ -17,7 +24,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 						<form class="search-form">
 							<label for="search" class="screen-reader-text">Search for projects.</label>
-							<input type="text" class="input search-form__input" placeholder="Search for projects...">
+							<input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>">
 							<button class="btn btn--blue search-form__submit" type="submit">
 								<i class="fa fa-search"></i>
 							</button>
@@ -27,6 +34,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						<i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
 						<div class="projects js-all-projects"></div>
 						<ul class="pagination pagination--projects"></ul>
+						
+						<input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
 					</div>
 				</div>
 

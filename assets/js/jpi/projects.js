@@ -28,7 +28,7 @@ window.jpi.projects = (function (jQuery) {
 							innerHTML: skills[i],
 							class: "js-searchable-skill skill skill--" + project.Colour
 						}),
-						searches = jQuery(".search-form__input")[0].value.split(" ");
+						searches = jQuery(".search-form__input").val().split(" ");
 
 					for (var j = 0; j < searches.length; j++) {
 						if (searches[j].trim() !== "" && skills[i].toLowerCase().includes(searches[j].toLowerCase())) skill.className += " searched";
@@ -196,14 +196,10 @@ window.jpi.projects = (function (jQuery) {
 			if ((parseInt(count)) > 10) {
 
 				var page = 1,
-					ul = jQuery(".pagination")[0],
-					path = global.url.pathname.substring(1).split('/');
-
-				if (Number.isInteger(parseInt(path[1]))) {
-					var currentPage = parseInt(path[1]);
-				}
-
-				if (!currentPage) currentPage = 1;
+					ul = jQuery(".pagination")[0];
+				
+				var currentPage = jQuery(".js-projects-page").val();
+				currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
 
 				for (var i = 0; i < count; i += 10, page++) {
 					var attributes = {"class": "pagination__item"};
@@ -239,7 +235,18 @@ window.jpi.projects = (function (jQuery) {
 			jpi.footer.delayExpand();
 		},
 
-		getProjects: function (query) {
+		getProjects: function () {
+			
+			var page = jQuery(".js-projects-page").val();
+			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+			
+			var search = jQuery(".search-form__input").val();
+			
+			var query = {
+				page: page,
+				search: search
+			};
+			
 			//stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
@@ -252,63 +259,34 @@ window.jpi.projects = (function (jQuery) {
 				error: fn.renderError
 			});
 		},
+		
+		storeLatestSearch: function () {
+			var url = "/projects/";
+			
+			var page = jQuery(".js-projects-page").val();
+			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+			
+			url += page + "/";
+			
+			var searchValue = jQuery(".search-form__input").val();
+			
+			if (searchValue.trim() !== "") {
+				url += searchValue + "/";
+			}
+			
+			global.url.pathname = url;
+			
+			history.pushState(null, null, global.url.toString());
+		},
 
 		//send request when the user has done a search
 		doSearch: function () {
-			var query = {};
+			jQuery(".js-projects-page").val(1);
 
-			global.url.pathname = "/projects/";
-			if (jQuery(".search-form__input")[0].value.trim() !== "") {
-				global.url.search = "?search=" + jQuery(".search-form__input")[0].value;
-				query.search = jQuery(".search-form__input")[0].value;
-			}
-			else {
-				jQuery(".search-form__input")[0].value = global.url.search = "";
-			}
+			fn.storeLatestSearch();
 
-			history.pushState(null, null, global.url.toString());
-
-			fn.getProjects(query);
+			fn.getProjects();
 			return false;
-		},
-
-		//get the search query from URL if any
-		getSearch: function () {
-			var searches = global.url.search.substring(1).split('&'),
-
-				lookForSearch = /\bsearch=/im;
-
-			//loop through each search query of data in rows
-			for (var i = 0; i < searches.length; i++) {
-				var regExResult = lookForSearch.test(searches[i]);
-				if (regExResult) {
-					var searchSplit = searches[i].split('=');
-					return decodeURIComponent(searchSplit[1]);
-				}
-			}
-		},
-
-		//load projects
-		load: function () {
-
-			var query = {},
-				path = global.url.pathname.substring(1).split('/');
-
-			//check if pagination is involved
-			if (path[1] && Number.isInteger(parseInt(path[1]))) {
-				query.page = parseInt(path[1]);
-			}
-
-			//check if search in involved
-			var search = fn.getSearch();
-			if (search) {
-				query.search = jQuery(".search-form__input")[0].value = search;
-			}
-			else {
-				jQuery(".search-form__input").val("");
-			}
-
-			fn.getProjects(query);
 		},
 
 		//set up page
@@ -317,7 +295,7 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
 				jQuery(".detailed-project").trigger("click");
-				jQuery(".search-form__input")[0].value = e.target.innerHTML;
+				jQuery(".search-form__input").val(e.target.innerHTML);
 				fn.doSearch();
 			});
 
@@ -331,10 +309,11 @@ window.jpi.projects = (function (jQuery) {
 				if (!page) {
 					page = 1;
 				}
-
-				global.url.pathname = "/projects/" + page + "/";
-				history.pushState(null, null, global.url.toString());
-				fn.load();
+				
+				jQuery(".js-projects-page").val(page);
+				
+				fn.storeLatestSearch();
+				fn.getProjects();
 			});
 
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
@@ -342,7 +321,7 @@ window.jpi.projects = (function (jQuery) {
 			window.addEventListener('popstate', function () {
 				global.url = new URL(window.location);
 				fn.scrollToProjects();
-				fn.load();
+				fn.getProjects();
 			});
 
 			//Close the modal
@@ -352,7 +331,7 @@ window.jpi.projects = (function (jQuery) {
 		init: function () {
 			if (jQuery(".js-all-projects").length > 0) {
 				fn.initListeners();
-				fn.load();
+				fn.getProjects();
 			}
 		}
 	};
