@@ -32,6 +32,7 @@
 			$headTitle = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
 		}
 		?>
+
 		<title><?php echo $headTitle; ?></title>
 
 		<?php
@@ -57,6 +58,9 @@
 		
 		if (in_array($pageId, $indexedPages)) {
 			echo "<link rel='canonical' href='$liveURl'/>";
+		}
+		else {
+			echo "<meta name='robots' content='noindex,nofollow'/>";
 		}
 		?>
 
