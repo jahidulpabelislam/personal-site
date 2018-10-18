@@ -45,9 +45,20 @@
 			$pageUrl .= strtolower($pageTitle) . "/";
 			$liveURl .= strtolower($pageTitle) . "/";
 		}
+		
+		$indexedPages = array(
+			"Home",
+			"Projects",
+			"Contact",
+			"About",
+			"Links",
+			"Site Map",
+		);
+		
+		if (in_array($pageTitle, $indexedPages)) {
+			echo "<link rel='canonical' href='$liveURl'/>";
+		}
 		?>
-
-		<link rel="canonical" href="<?php echo $liveURl; ?>"/>
 
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
