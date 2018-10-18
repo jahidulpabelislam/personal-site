@@ -292,7 +292,12 @@ window.jpi.projects = (function (jQuery) {
 			
 			global.url.pathname = url;
 			
-			history.pushState(null, null, global.url.toString());
+			var state = {
+				search: searchValue,
+				page: page
+			};
+			
+			history.pushState(state, null, global.url.toString());
 		},
 
 		//send request when the user has done a search
@@ -334,8 +339,10 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
-			window.addEventListener('popstate', function () {
-				global.url = new URL(window.location);
+			window.addEventListener('popstate', function (event) {
+				jQuery(".js-projects-page").val(event.state.page);
+				jQuery(".search-form__input").val(event.state.search);
+				
 				fn.scrollToProjects();
 				fn.getProjects();
 			});
