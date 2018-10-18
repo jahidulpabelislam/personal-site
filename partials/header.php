@@ -34,6 +34,21 @@
 		?>
 		<title><?php echo $headTitle; ?></title>
 
+		<?php
+		$pageTitleArr = explode(" ", $pageTitle);
+		$pageTitle = $pageTitleArr[0] ?? $pageTitle;
+		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
+		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
+		$pageUrl = $url;
+		$liveURl = "https://jahidulpabelislam.com/";
+		if ($pageTitle !== "Home") {
+			$pageUrl .= strtolower($pageTitle) . "/";
+			$liveURl .= strtolower($pageTitle) . "/";
+		}
+		?>
+
+		<link rel="canonical" href="<?php echo $liveURl; ?>"/>
+
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="author" content="Jahidul Pabel Islam"/>
@@ -42,16 +57,6 @@
 		<!-- Dynamically insert the keywords for a page -->
 		<meta name="keywords" content="<?php echo $keywords; ?>"/>
 
-		<?php
-		$pageTitleArr = explode(" ", $pageTitle);
-		$pageTitle = $pageTitleArr[0] ?? $pageTitle;
-		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
-		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
-		$pageUrl = $url;
-		if ($pageTitle !== "Home") {
-			$pageUrl .= strtolower($pageTitle);
-		}
-		?>
 		<meta property="og:title" content="<?php echo $headTitle; ?>"/>
 		<meta property="og:url" content="<?php echo $pageUrl; ?>"/>
 		<meta property="og:description" content="<?php echo $description; ?>"/>
