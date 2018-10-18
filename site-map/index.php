@@ -1,6 +1,5 @@
 <?php
-$pageTitle = "Site Map";
-$headerTitle = "Site Map";
+$pageId = $pageTitle = $headerTitle = "Site Map";
 $keywords = "";
 $description = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $headerDesc = "";

@@ -28,22 +28,22 @@
 
 		<?php
 		$headTitle = $pageTitle . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
-		if ($pageTitle === "Home") {
+		if ($pageId === "Home") {
 			$headTitle = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
 		}
 		?>
 		<title><?php echo $headTitle; ?></title>
 
 		<?php
-		$pageTitleArr = explode(" ", $pageTitle);
-		$pageTitle = $pageTitleArr[0] ?? $pageTitle;
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
-		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
-		$pageUrl = $url;
+		$localURL = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
 		$liveURl = "https://jahidulpabelislam.com/";
-		if ($pageTitle !== "Home") {
-			$pageUrl .= strtolower($pageTitle) . "/";
-			$liveURl .= strtolower($pageTitle) . "/";
+		
+		$pageTitleFormatted = strtolower($pageTitle);
+		$pageTitleFormatted = str_replace(" ", "-", $pageTitleFormatted);
+		
+		if ($pageId !== "Home") {
+			$liveURl .= $pageTitleFormatted . "/";
 		}
 		
 		$indexedPages = array(
@@ -52,10 +52,10 @@
 			"Contact",
 			"About",
 			"Links",
-			"Site",
+			"Site Map",
 		);
 		
-		if (in_array($pageTitle, $indexedPages)) {
+		if (in_array($pageId, $indexedPages)) {
 			echo "<link rel='canonical' href='$liveURl'/>";
 		}
 		?>
@@ -69,14 +69,14 @@
 		<meta name="keywords" content="<?php echo $keywords; ?>"/>
 
 		<meta property="og:title" content="<?php echo $headTitle; ?>"/>
-		<meta property="og:url" content="<?php echo $pageUrl; ?>"/>
+		<meta property="og:url" content="<?php echo $liveURl; ?>"/>
 		<meta property="og:description" content="<?php echo $description; ?>"/>
 
 		<?php
-		$imageLocation = "assets/images/portfolio-" . strtolower($pageTitle) . "-preview.png";
+		$imageLocation = "assets/images/portfolio-$pageTitleFormatted-preview.png";
 
 		if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imageLocation)) {
-			$imageUrl = $url . $imageLocation . "?v=2";
+			$imageUrl = $localURL . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 			<?php
@@ -118,13 +118,13 @@
 						<span class="menu-bar menu-bar--middle"></span>
 						<span class="menu-bar menu-bar--bottom"></span>
 					</button>
-					<a class="nav__logo-container" href="/<?php if ($pageTitle == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageTitle == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
+					<a class="nav__logo-container" href="/<?php if ($pageId == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageId == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">
-						<li class="nav-link__item"><a href="/projects/<?php if ($pageTitle == "Projects") echo "#"; ?>" class="nav-item__link <?php if ($pageTitle == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
-						<li class="nav-link__item"><a href="/contact/<?php if ($pageTitle == "Contact") echo "#"; ?>" class="nav-item__link <?php if ($pageTitle == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
-						<li class="nav-link__item"><a href="/about/<?php if ($pageTitle == "About") echo "#"; ?>" class="nav-item__link <?php if ($pageTitle == "About") echo "active"; ?>" title="Link to About Page">About</a></li>
+						<li class="nav-link__item"><a href="/projects/<?php if ($pageId == "Projects") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
+						<li class="nav-link__item"><a href="/contact/<?php if ($pageId == "Contact") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
+						<li class="nav-link__item"><a href="/about/<?php if ($pageId == "About") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "About") echo "active"; ?>" title="Link to About Page">About</a></li>
 					</ul>
 				</div>
 				<div class="nav__social-links-container">
@@ -137,13 +137,8 @@
 			</div>
 		</nav>
 
-		<?php
-		$cssPageTitle = strtolower($pageTitle);
-		$cssPageTitle = str_replace(" ", "-", $cssPageTitle);
-		?>
-
 		<!-- Main for a primary marketing message or call to action -->
-		<header class="jumbotron jumbotron--<?php echo $cssPageTitle; ?>">
+		<header class="jumbotron jumbotron--<?php echo $pageTitleFormatted; ?>">
 			<div class="jumbotron__overlay">
 				<div class="container">
 					<h1 class="jumbotron__title"><?php echo $headerTitle ?></h1>

@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "About";
+$pageId = $pageTitle = "About";
 $headerTitle = "About Me";
 $keywords = "";
 
