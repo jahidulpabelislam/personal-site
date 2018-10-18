@@ -52,7 +52,7 @@
 			"Contact",
 			"About",
 			"Links",
-			"Site Map",
+			"Site",
 		);
 		
 		if (in_array($pageTitle, $indexedPages)) {
