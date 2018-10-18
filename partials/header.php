@@ -43,6 +43,8 @@
 		<meta name="keywords" content="<?php echo $keywords; ?>"/>
 
 		<?php
+		$pageTitleArr = explode(" ", $pageTitle);
+		$pageTitle = $pageTitleArr[0] ?? $pageTitle;
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
 		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
 		$pageUrl = $url;

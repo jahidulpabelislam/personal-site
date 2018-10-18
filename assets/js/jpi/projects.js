@@ -6,7 +6,9 @@ window.jpi.projects = (function (jQuery) {
 
 	//grabs elements for later use
 	var global = {
-		url: new URL(window.location)
+		url: new URL(window.location),
+		titleStart: "Project",
+		titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer"
 	};
 
 	var fn = {
@@ -197,7 +199,7 @@ window.jpi.projects = (function (jQuery) {
 
 				var page = 1,
 					ul = jQuery(".pagination")[0];
-				
+
 				var currentPage = jQuery(".js-projects-page").val();
 				currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
 
@@ -205,19 +207,9 @@ window.jpi.projects = (function (jQuery) {
 					var attributes = {"class": "pagination__item"};
 
 					var item = jpi.helpers.createElement(ul, "li", attributes);
-					
-					var url = "/projects/";
-					
-					var searchValue = jQuery(".search-form__input").val();
-					
-					if (searchValue.trim() !== "") {
-						url += searchValue + "/";
-					}
-					
-					if (page > 1) {
-						url += page + "/";
-					}
-					
+
+					var url = fn.getNewURL(page);
+
 					url += global.url.search;
 
 					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": url};
@@ -250,17 +242,17 @@ window.jpi.projects = (function (jQuery) {
 		},
 
 		getProjects: function () {
-			
+
 			var page = jQuery(".js-projects-page").val();
 			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
 			
 			var search = jQuery(".search-form__input").val();
-			
+
 			var query = {
 				page: page,
 				search: search
 			};
-			
+
 			//stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
@@ -273,31 +265,58 @@ window.jpi.projects = (function (jQuery) {
 				error: fn.renderError
 			});
 		},
-		
-		storeLatestSearch: function () {
+
+		getNewURL: function (page) {
 			var url = "/projects/";
-			
+
 			var searchValue = jQuery(".search-form__input").val();
-			
+
 			if (searchValue.trim() !== "") {
 				url += searchValue + "/";
 			}
-			
-			var page = jQuery(".js-projects-page").val();
-			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
-			
+
 			if (page > 1) {
 				url += page + "/";
 			}
-			
-			global.url.pathname = url;
-			
+
+			return url;
+		},
+
+		getNewTitle: function (page) {
+			var title = global.titleStart;
+
+			var searchValue = jQuery(".search-form__input").val();
+
+			if (searchValue.trim() !== "") {
+				title += " with " + searchValue;
+			}
+
+			if (page > 1) {
+				title += " - Page " + page;
+			}
+
+			title += global.titleEnd;
+
+			return title;
+		},
+
+		storeLatestSearch: function () {
+
+			var searchValue = jQuery(".search-form__input").val();
+
+			var page = jQuery(".js-projects-page").val();
+			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+
+			var title = fn.getNewTitle(page);
+			global.url.pathname = fn.getNewURL(page);
+
 			var state = {
 				search: searchValue,
 				page: page
 			};
-			
-			history.pushState(state, null, global.url.toString());
+
+			document.title = title;
+			history.pushState(state, title, global.url.toString());
 		},
 
 		//send request when the user has done a search
@@ -330,9 +349,9 @@ window.jpi.projects = (function (jQuery) {
 				if (!page) {
 					page = 1;
 				}
-				
+
 				jQuery(".js-projects-page").val(page);
-				
+
 				fn.storeLatestSearch();
 				fn.getProjects();
 			});
@@ -340,9 +359,14 @@ window.jpi.projects = (function (jQuery) {
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
 			window.addEventListener('popstate', function (event) {
-				jQuery(".js-projects-page").val(event.state.page);
+
+				var page = event.state.page;
+
+				document.title = fn.getNewTitle(page);
+
+				jQuery(".js-projects-page").val(page);
 				jQuery(".search-form__input").val(event.state.search);
-				
+
 				fn.scrollToProjects();
 				fn.getProjects();
 			});

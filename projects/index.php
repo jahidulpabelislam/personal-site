@@ -1,5 +1,4 @@
 <?php
-$pageTitle = "Projects";
 $headerTitle = "My Projects";
 $keywords = "";
 $description = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
@@ -7,14 +6,21 @@ $headerDesc = "See My Skills in Action in My Previous Projects";
 
 $navTint = "dark";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
-
 $page = $_GET["page"] ?? 1;
 
 $search = $_GET["search"] ?? "";
 
-error_log(print_r($_REQUEST, true));
-error_log(print_r($_SERVER['REQUEST_URI'], true));
+$pageTitle = "Projects";
+
+if (strlen(trim($search)) > 0) {
+	$pageTitle .= " with $search";
+}
+
+if ($page > 1) {
+	$pageTitle .= " - Page $page";
+}
+
+include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
 				<div class="article">
