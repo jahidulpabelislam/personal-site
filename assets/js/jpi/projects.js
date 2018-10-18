@@ -205,12 +205,26 @@ window.jpi.projects = (function (jQuery) {
 					var attributes = {"class": "pagination__item"};
 
 					var item = jpi.helpers.createElement(ul, "li", attributes);
+					
+					var url = "/projects/";
+					
+					var searchValue = jQuery(".search-form__input").val();
+					
+					if (searchValue.trim() !== "") {
+						url += searchValue + "/";
+					}
+					
+					if (page > 1) {
+						url += page + "/";
+					}
+					
+					url += global.url.search;
 
-					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": "/projects/" + page + "/" + global.url.search};
+					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": url};
 					if (page === currentPage) {
 						attributes.class = "pagination__item-link active";
 					}
-					var link = jpi.helpers.createElement(item, "a", attributes);
+					jpi.helpers.createElement(item, "a", attributes);
 				}
 
 				jQuery(".pagination").show();
