@@ -263,16 +263,16 @@ window.jpi.projects = (function (jQuery) {
 		storeLatestSearch: function () {
 			var url = "/projects/";
 			
-			var page = jQuery(".js-projects-page").val();
-			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
-			
-			url += page + "/";
-			
 			var searchValue = jQuery(".search-form__input").val();
 			
 			if (searchValue.trim() !== "") {
 				url += searchValue + "/";
 			}
+			
+			var page = jQuery(".js-projects-page").val();
+			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+			
+			url += page + "/";
 			
 			global.url.pathname = url;
 			
