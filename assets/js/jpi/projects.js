@@ -272,7 +272,9 @@ window.jpi.projects = (function (jQuery) {
 			var page = jQuery(".js-projects-page").val();
 			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
 			
-			url += page + "/";
+			if (page > 1) {
+				url += page + "/";
+			}
 			
 			global.url.pathname = url;
 			
