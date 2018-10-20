@@ -56,7 +56,7 @@
 			"Site Map",
 		);
 		
-		if (in_array($pageId, $indexedPages)) {
+		if (in_array($pageId, $indexedPages) && $environment === "production") {
 			echo "<link rel='canonical' href='$liveURl'/>";
 		}
 		else {
