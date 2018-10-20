@@ -71,10 +71,13 @@
 		<meta name="description" content="<?php echo $description; ?>"/>
 		<!-- Dynamically insert the keywords for a page -->
 		<meta name="keywords" content="<?php echo $keywords; ?>"/>
-
+		
+		<meta property="og:locale" content="en_GB"/>
+		<meta property="og:type" content="website"/>
 		<meta property="og:title" content="<?php echo $headTitle; ?>"/>
 		<meta property="og:url" content="<?php echo $liveURl; ?>"/>
 		<meta property="og:description" content="<?php echo $description; ?>"/>
+		<meta property="og:site_name" content="Jahidul Pabel Islam"/>
 
 		<?php
 		$imageLocation = "assets/images/portfolio-$pageTitleFormatted-preview.png";
@@ -88,6 +91,7 @@
 		?>
 
 		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:title" content="<?php echo $headTitle; ?>"/>
 		
 		<!-- Custom stylesheet for site -->
 		<?php if (!isset($_GET["debug"])) {
