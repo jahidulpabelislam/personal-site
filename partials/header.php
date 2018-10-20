@@ -37,14 +37,15 @@
 
 		<?php
 		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
-		$localURL = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
-		$liveURl = "https://jahidulpabelislam.com/";
+		$localDomain = $localURL = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
+		$liveDomain = $liveURl = "https://jahidulpabelislam.com/";
 		
 		$pageTitleFormatted = strtolower($pageTitle);
 		$pageTitleFormatted = str_replace(" ", "-", $pageTitleFormatted);
 		
 		if ($pageId !== "Home") {
 			$liveURl .= $pageTitleFormatted . "/";
+			$localURL .= $pageTitleFormatted . "/";
 		}
 		
 		$indexedPages = array(
@@ -75,7 +76,7 @@
 		<meta property="og:locale" content="en_GB"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:title" content="<?php echo $headTitle; ?>"/>
-		<meta property="og:url" content="<?php echo $liveURl; ?>"/>
+		<meta property="og:url" content="<?php echo $localURL; ?>"/>
 		<meta property="og:description" content="<?php echo $description; ?>"/>
 		<meta property="og:site_name" content="Jahidul Pabel Islam"/>
 
@@ -83,7 +84,7 @@
 		$imageLocation = "assets/images/portfolio-$pageTitleFormatted-preview.png";
 
 		if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imageLocation)) {
-			$imageUrl = $localURL . $imageLocation . "?v=2";
+			$imageUrl = $localDomain . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
 			<?php
