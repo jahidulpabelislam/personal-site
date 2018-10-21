@@ -35,9 +35,10 @@
 					if(!$con)
 					{
                         if (defined("DEBUG") && DEBUG) {
-                            echo mysqli_connect_error();
+                        	echo "Error adding password for e-games: " . mysqli_connect_error();
                         }
-					    die('Could not connect.');
+                        error_log("Error adding password for e-games: " . mysqli_connect_error());
+                        die('Could not connect.');
 					}
 					mysqli_select_db($con, DB_NAME);
 					//gets database from mysql

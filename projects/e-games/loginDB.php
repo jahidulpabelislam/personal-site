@@ -43,8 +43,9 @@ session_start();
 					if (!$con)
                     {
                         if (defined("DEBUG") && DEBUG) {
-                            echo mysqli_connect_error();
+                        	echo "Error logging in for for e-games: " . mysqli_connect_error();
                         }
+                        error_log("Error logging in for for e-games: " . mysqli_connect_error());
                         die('Could not connect.');
                     }
 

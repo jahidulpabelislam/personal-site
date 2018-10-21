@@ -27,8 +27,9 @@ class pdodb
         try {
             $this->db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
         } catch (PDOException $failure) {
+        	error_log("Database connection failed for lials: " . $failure->getMessage());
             if (defined("DEBUG") && DEBUG) {
-                echo 'Connection failed: ' . $failure->getMessage();
+            	echo "Database connection failed for lials: " . $failure->getMessage();
             }
         }
     }

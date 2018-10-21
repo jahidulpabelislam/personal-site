@@ -5,8 +5,9 @@ $dsn = "mysql:host=" . DB_IP . ";charset-UTF-8";
 try {
     $db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
 } catch (PDOException $failure) {
+	error_log("Database connection failed for Muesli: " . $failure->getMessage());
     if (defined("DEBUG") && DEBUG) {
-        echo 'Connection failed: ' . $failure->getMessage();
+    	echo "Database connection failed for Muesli: " . $failure->getMessage();
     }
 }
 try {
@@ -18,8 +19,9 @@ try {
     $db->exec("USE " . DB_NAME . ";");
     $db->exec($createquery);
 } catch (PDOException $failure) {
+	error_log("Server failed on database init for Muesli: " . $failure->getMessage());
     if (defined("DEBUG") && DEBUG) {
-        echo 'Server failed: ' . $failure->getMessage();
+    	echo "Server failed on database init for Muesli: " . $failure->getMessage();
     }
 }
 ?>
