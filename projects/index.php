@@ -137,7 +137,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.jpiAPIEndpoint = "<?php echo JPI_API_ENDPOINT; ?>";
+					window.jpi.config.jpiAPIEndpoint = "<?php echo (defined("JPI_API_ENDPOINT")) ? JPI_API_ENDPOINT : 'https://api.jahidulpabelislam.com/v2/'; ?>";
 				</script>
 
 <?php
