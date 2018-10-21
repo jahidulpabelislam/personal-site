@@ -110,7 +110,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 				<div class="article article--map">
-					<div class="map" id="map"></div>
+					<div class="map js-bognor-regis-map"></div>
 				</div>
 
 				<div class="article article--halved article--about">
@@ -276,40 +276,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg"></script>
-
+	
 				<script>
-					var style = <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/map-styling.json'); ?>;
-
-					var initMap = function () {
-						var lat = 50.78420;
-						var lng = -0.67400;
-
-						var bognorRegis = new google.maps.LatLng(lat, lng);
-						var zoom = 12;
-
-						var map = new google.maps.Map(document.getElementById('map'), {
-							center: bognorRegis,
-							zoom: zoom,
-							zoomControl: true,
-							mapTypeControl: false,
-							scaleControl: false,
-							streetViewControl: false,
-							rotateControl: false,
-							fullscreenControl: false,
-							styles: style
-						});
-
-						var bognorRegisMarker = new google.maps.Marker({
-							position: bognorRegis,
-							map: map
-						});
-
-						google.maps.event.addDomListener(window, 'resize', function () {
-							map.setCenter(bognorRegis);
-						});
-					};
-
-					google.maps.event.addDomListener(window, 'load', initMap);
+					window.jpi = window.jpi || {};
+					window.jpi.config = window.jpi.config || {};
+					window.jpi.config.googleMapStyles =  <?php echo file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/assets/map-styling.json'); ?>;
 				</script>
 
 <?php
