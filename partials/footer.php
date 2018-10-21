@@ -48,7 +48,6 @@
 			<script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>
-			<script src="/assets/js/jpi/config.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/home.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
@@ -60,6 +59,8 @@
 			<?php
 		}
 		?>
+		
+		<script src="/assets/js/jpi/config.js?v=1" type="text/javascript"></script>
 
 	</body>
 

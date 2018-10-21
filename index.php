@@ -8,6 +8,8 @@ $headerDesc = "Full Stack Web &amp; Software Developer";
 $navTint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 ?>
 
 				<div class="article home__hello">
@@ -137,6 +139,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 				<script type="text/template" id="tmpl-slide-bullet-template">
 					<label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ID}}"></label>
+				</script>
+	
+				<script>
+					window.jpi = window.jpi || {};
+					window.jpi.config = window.jpi.config || {};
+					window.jpi.config.jpiAPIEndpoint = "<?php echo JPI_API_ENDPOINT; ?>";
 				</script>
 
 <?php

@@ -21,6 +21,8 @@ if ($page > 1) {
 }
 
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 ?>
 
 				<div class="article">
@@ -130,6 +132,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 				<script type="text/template" id="tmpl-slide-bullet-template">
 					<label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{ID}}"></label>
+				</script>
+	
+				<script>
+					window.jpi = window.jpi || {};
+					window.jpi.config = window.jpi.config || {};
+					window.jpi.config.jpiAPIEndpoint = "<?php echo JPI_API_ENDPOINT; ?>";
 				</script>
 
 <?php

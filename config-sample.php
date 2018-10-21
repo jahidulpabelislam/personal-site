@@ -13,4 +13,7 @@ define('DB_NAME', 'jpi');
 // Username to database
 define('DB_USERNAME', 'root');
 // Password for the user above
-define('DB_PASSWORD', '')
+define('DB_PASSWORD', '');
+
+// The API endpoint for my portfolio
+define('JPI_API_ENDPOINT', 'http://portfolio-api.local/v2/');
