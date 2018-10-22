@@ -10,7 +10,7 @@ $navTint = "light";
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
-				<div class="article">
+				<section class="article">
 					<div class="container">
 						<h3 class="article__header">Form</h3>
 						<p>Use this contact form to give me a message quickly.</p>
@@ -43,9 +43,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 						</form>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--halved">
+				<section class="article article--halved">
 					<div class="container">
 						<div class="article__half">
 							<h3 class="article__header">Drop me a old school email</h3>
@@ -57,15 +57,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</a>
 						</div>
 					</div>
-				</div>
+				</section>
 
-				<div class="article">
+				<section class="article">
 					<div class="container">
 						<h3 class="article__header article__header--no-padding">Stay up to date with me</h3>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--halved">
+				<section class="article article--halved">
 					<div class="container">
 						<div class="article__half">
 							<h3 class="article__header">View my Linkedin profile</h3>
@@ -77,9 +77,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</a>
 						</div>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--halved">
+				<section class="article article--halved">
 					<div class="container">
 						<div class="article__half">
 							<h3 class="article__header">View & follow code for projects</h3>
@@ -91,9 +91,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</a>
 						</div>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--halved">
+				<section class="article article--halved">
 					<div class="container">
 						<div class="article__half">
 							<h3 class="article__header">Follow what I get up to</h3>
@@ -105,7 +105,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</a>
 						</div>
 					</div>
-				</div>
+				</section>
 
 				<div class="article article--halved">
 					<div class="container">

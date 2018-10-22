@@ -138,5 +138,5 @@
 			</div>
 		</header>
 
-		<section class="main-content">
-			<div class="section-inner-container">
+		<main class="main-content">
+			<div class="main-content__inner">

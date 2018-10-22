@@ -23,10 +23,10 @@ if ($page > 1) {
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
-				<div class="article">
+				<section class="article">
 					<div class="container">
 
-						<p>These are some of the pieces of work I have completed during my time as a developer.</p>
+						<h2>These are some of the pieces of work I have completed during my time as a developer.</h2>
 
 						<form class="search-form">
 							<label for="search" class="screen-reader-text">Search for projects.</label>
@@ -43,7 +43,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						
 						<input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
 					</div>
-				</div>
+				</section>
 
 				<div class="article article--halved">
 					<div class="container">
@@ -88,7 +88,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					<div class="modal__content">
 						<div class="project__header">
 							<h3 class="project__title project__title--inline"></h3>
-							<h4 class="project__date project__date--inline project__date--modal"></h4></div>
+							<time class="project__date project__date--inline project__date--modal"></time></div>
 						<div class="project__skills"></div>
 						<div class="project__description"></div>
 						<p class="project__links"></p>
@@ -104,9 +104,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 				<script type="text/template" id="tmpl-project-template">
-					<div id="project--{{ID}}" class="project">
+					<article id="project--{{ID}}" class="project">
 						<h3 class="article__header project__title">{{Name}}</h3>
-						<h4 class="project__date">{{Date}}</h4>
+						<time class="project__date">{{Date}}</time>
 						<div class="project__skills"></div>
 						<div class="project__description">{{ShortDescription}}</div>
 						<div class="project__links"></div>
@@ -119,7 +119,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 							<div class="js-slide-show-bullets"></div>
 						</div>
-					</div>
+					</article>
 				</script>
 
 				<script type="text/template" id="tmpl-slide-template">

@@ -9,38 +9,39 @@ $navTint = "dark";
 
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
-
-				<div class="article home__hello">
-					<div class="container">
-						<p><span class="main-hello">Hello</span> there everyone!</p>
-						<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=2" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
-						<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
+				<section>
+					<div class="article home__hello">
+						<div class="container">
+							<h2><span class="main-hello">Hello</span> there everyone!</h2>
+							<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=2" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
+							<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
+						</div>
 					</div>
-				</div>
-
-				<div class="article home__intro">
-					<div class="container">
-						<p>Welcome to my portfolio, thanks for clicking on my website!</p>
+	
+					<div class="article home__intro">
+						<div class="container">
+							<p>Welcome to my portfolio, thanks for clicking on my website!</p>
+						</div>
 					</div>
-				</div>
-
-				<div class="article">
-					<div class="container">
-						<p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
-						<p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
-						<p>Currently working as a Junior Web Developer at <a class="link-styled" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
-						<p>Reside in <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the South Coast of England.</p>
+	
+					<div class="article">
+						<div class="container">
+							<p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
+							<p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
+							<p>Currently working as a Junior Web Developer at <a class="link-styled" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
+							<p>Reside in <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the South Coast of England.</p>
+						</div>
 					</div>
-				</div>
-
-				<div class="article">
-					<div class="container">
-						<p>Here you will be able to look at all the <a class="link-styled" href="/projects">work</a> I have done over the last 6 years, <a class="link-styled" href="/about">learn about me</a>, and <a class="link-styled" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
-						<p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
+					
+					<div class="article">
+						<div class="container">
+							<p>Here you will be able to look at all the <a class="link-styled" href="/projects">work</a> I have done over the last 6 years, <a class="link-styled" href="/about">learn about me</a>, and <a class="link-styled" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
+							<p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
+						</div>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--orange clearfix">
+				<section class="article article--orange clearfix">
 					<div class="container">
 						<div class="workflow">
 							<div class="workflow__item ">
@@ -69,9 +70,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
-				<div class="article projects">
+				<section class="article projects">
 					<h3 class="article__header">My Latest Projects</h3>
 
 					<i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
@@ -87,9 +88,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					<p class="feedback feedback--error"></p>
 
 					<a class="btn" href="/projects/">View All My Work</a>
-				</div>
+				</section>
 
-				<div class="article article--green">
+				<section class="article article--green">
 					<div class="container">
 						<div class="stats">
 							<div class="stats__item">
@@ -110,7 +111,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 				<div class="article article--halved">
 					<div class="container">
@@ -126,7 +127,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							<div class="slide-show__info slide-show__info--{{Colour}}">
 								<div class="project__header">
 									<h3 class="project__title project__title--inline">{{Name}}</h3>
-									<h4 class="project__date project__date--inline">{{Date}}</h4>
+									<time class="project__date project__date--inline">{{Date}}</time>
 								</div>
 								<div class="project-info__desc">{{ShortDescription}}</div>
 								<div class="project-info__links"></div>
