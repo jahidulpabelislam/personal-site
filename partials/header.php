@@ -83,9 +83,6 @@
 		?>
 		
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
-		
-		<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
 		<?php
 		include $_SERVER['DOCUMENT_ROOT'] . '/partials/favicons.php';

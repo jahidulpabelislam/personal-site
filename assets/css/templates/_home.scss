@@ -3,8 +3,12 @@
 	background-image: url("/assets/images/working.jpg?v=2");
 }
 
-.home__hello,
-.home__intro {
+.home__hello {
+	margin: 10px 0;
+}
+
+.home__hello-wrapper,
+.home__intro-wrapper {
 	font-weight: 700;
 	color: $primary-color;
 	text-shadow: 1px 1px 2px transparentize($grey, 0.4);
@@ -12,12 +16,12 @@
 	line-height: 20px;
 }
 
-.home__hello {
+.home__hello-wrapper {
 	position: relative;
 	padding-bottom: 75px;
 }
 
-.home__intro {
+.home__intro-wrapper{
 	padding-top: 75px;
 }
 

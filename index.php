@@ -10,15 +10,15 @@ $navTint = "dark";
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 				<section>
-					<div class="article home__hello">
+					<div class="article home__hello-wrapper">
 						<div class="container">
-							<h2><span class="main-hello">Hello</span> there everyone!</h2>
+							<h2 class="home__hello"><span class="main-hello">Hello</span> there everyone!</h2>
 							<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=2" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
 							<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
 						</div>
 					</div>
 	
-					<div class="article home__intro">
+					<div class="article home__intro-wrapper">
 						<div class="container">
 							<p>Welcome to my portfolio, thanks for clicking on my website!</p>
 						</div>
