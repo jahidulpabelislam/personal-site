@@ -84,7 +84,8 @@
 		
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 		
-		<link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
 		<?php
 		include $_SERVER['DOCUMENT_ROOT'] . '/partials/favicons.php';
@@ -133,7 +134,7 @@
 					<h1 class="jumbotron__title"><?php echo $headerTitle ?></h1>
 					<hr class="jumbotron__line-breaker">
 					<p class="jumbotron__desc"><?php echo $headerDesc ?></p>
-					<img src="/assets/images/down-arrow.svg?v=1" class="js-scroll-to-content jumbotron__scroll-to-content">
+					<img src="/assets/images/down-arrow.svg?v=1" class="js-scroll-to-content jumbotron__scroll-to-content" alt="Arrow point down" aria-label="Jump to content">
 				</div>
 			</div>
 		</header>

@@ -46,7 +46,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						<div class="workflow">
 							<div class="workflow__item ">
 								<h3 class="article__header">Design</h3>
-								<img src="/assets/images/design-icon.png?v=2" class="workflow-item__image">
+								<img src="/assets/images/design-icon.png?v=2" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
 								<div class="workflow-item__description">
 									<p>My work starts after receiving finished designs on PSD's or flat image files.</p>
 									<p>At this stage I then begin turning designs into pixel perfect sites/apps.</p>
@@ -54,7 +54,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 							<div class="workflow__item">
 								<h3 class="article__header">Responsive</h3>
-								<img src="/assets/images/responsive-icon.png?v=2" class="workflow-item__image">
+								<img src="/assets/images/responsive-icon.png?v=2" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone">
 								<div class="workflow-item__description">
 									<p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
 									<p>By approaching styling in a mobile first point of view.</p>
@@ -62,7 +62,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							</div>
 							<div class="workflow__item">
 								<h3 class="article__header">Code</h3>
-								<img src="/assets/images/code-icon.png?v=2" class="workflow-item__image">
+								<img src="/assets/images/code-icon.png?v=2" class="workflow-item__image" alt="A image showing code">
 								<div class="workflow-item__description">
 									<p>I tend to build systems fully bespoke.</p>
 									<p>But if the requirements specify I will use various frameworks or libraries to fulfill the required system.</p>
@@ -80,8 +80,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					<div id="slide-show--home" class="slide-show">
 						<div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
 							<div class="slide-show__slides-container"></div>
-							<img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
-							<img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next">
+							<img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
+							<img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next">
 						</div>
 						<div class="js-slide-show-bullets"></div>
 					</div>
