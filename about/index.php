@@ -124,7 +124,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					</div>
 				</div>
 
-				<div class="article article--about">
+				<section class="article article--about">
 					<div class="container">
 						<h3 class="article__header">Technical Skills</h3>
 
@@ -147,9 +147,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							?>
 						</ul>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--about">
+				<section class="article article--about">
 					<div class="container">
 						<h3 class="article__header">Other Skills</h3>
 
@@ -172,9 +172,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							?>
 						</ul>
 					</div>
-				</div>
+				</section>
 
-				<div class="article article--about">
+				<section class="article article--about">
 					<div class="container">
 						<h3 class="article__header">Interests</h3>
 
@@ -199,9 +199,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							?>
 						</ul>
 					</div>
-				</div>
+				</section>
 
-				<div class="article">
+				<section class="article">
 					<div class="container">
 						<h3 class="article__header">What I've Been Up To</h3>
 						<div class="timeline">
@@ -224,7 +224,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 								</div>
 							</div>
 							<div class="timeline__item">
-								<h2 class="timeline-item__date">2014</h2>
+								<time class="timeline-item__date">2014</time>
 								<div class="timeline-item__content timeline-item__content--food">
 									<p>Working Part Time @ <a class="link-styled link-styled--orange" href="https://www.kfc.co.uk/" title="Link to KFC website." target="_blank">KFC</a> as a Team Member</p>
 								</div>
@@ -236,7 +236,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 								</div>
 							</div>
 							<div class="timeline__item">
-								<h2 class="timeline-item__date">2010</h2>
+								<time class="timeline-item__date">2010</time>
 								<div class="timeline-item__content timeline-item__content--coding">
 									<p>Got Introduced to Developing/Coding</p>
 								</div>
@@ -254,14 +254,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 								</div>
 							</div>
 							<div class="timeline__item">
-								<h2 class="timeline-item__date">1996</h2>
+								<time class="timeline-item__date">1996</time>
 								<div class="timeline-item__content timeline-item__content--baby">
 									<p>Born</p>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 				<div class="article article--halved">
 					<div class="container">

@@ -62,15 +62,13 @@
 		};
 		?>
 
-		<link href="https://fonts.googleapis.com/css?family=Cabin|Oswald" rel="stylesheet"/>
-
 		<?php
 		include $_SERVER['DOCUMENT_ROOT'] . '/partials/favicons.php';
 		?>
 	</head>
 
 	<body>
-		<section class="main-content social-links-page">
+		<main class="main-content social-links-page">
 			<div class="container">
 
 				<div class="social-link-container">
@@ -124,7 +122,7 @@
 				</div>
 
 			</div>
-		</section>
+		</main>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>

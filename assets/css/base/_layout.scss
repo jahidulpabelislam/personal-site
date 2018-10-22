@@ -16,12 +16,12 @@ body {
 	transition: all 1s ease-in-out;
 }
 
-section {
+.main-content {
 	display: flex;
 	transition: all 1s ease-in-out;
 }
 
-.section-inner-container {
+.main-content__inner {
 	width: 100%;
 }
 
@@ -31,7 +31,7 @@ section {
 	box-shadow: 0 0 10px 0 transparentize($dark, .8);
 }
 
-.article:nth-of-type(even) {
+.article:nth-child(even) {
 	background-color: white;
 }
 

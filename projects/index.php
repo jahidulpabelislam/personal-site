@@ -25,10 +25,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 ?>
 
-				<div class="article">
+				<section class="article">
 					<div class="container">
 
-						<p>These are some of the pieces of work I have completed during my time as a developer.</p>
+						<h2>These are some of the pieces of work I have completed during my time as a developer.</h2>
 
 						<form class="search-form">
 							<label for="search" class="screen-reader-text">Search for projects.</label>
@@ -45,7 +45,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 						
 						<input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
 					</div>
-				</div>
+				</section>
 
 				<div class="article article--halved">
 					<div class="container">
@@ -61,17 +61,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 				<div class="expanded-slide-show">
 					<div class="expanded-image-container">
-						<img src="/assets/images/blank.svg?v=1" class="expanded-image current">
+						<img src="/assets/images/blank.svg?v=1" class="expanded-image current" alt="Expanded Image of slide">
 					</div>
 
 					<div class="expanded-image-container">
-						<img src="/assets/images/blank.svg?v=1" class="expanded-image">
+						<img src="/assets/images/blank.svg?v=1" class="expanded-image" alt="Expanded Image of slide">
 					</div>
 
 					<div class="expanded-slide-show__controls">
 						<div class="expanded-slide-show__navs">
-							<img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="/assets/images/previous-white.svg?v=1" alt="Click to View Previous Image">
-							<img class="expanded-slide-show__nav js-expanded-slide-show-next" src="/assets/images/next-white.svg?v=1" alt="Click to View Next Image">
+							<img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="/assets/images/previous-white.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image">
+							<img class="expanded-slide-show__nav js-expanded-slide-show-next" src="/assets/images/next-white.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image">
 						</div>
 
 						<div class="expanded-slide-show__bullets"></div>
@@ -90,15 +90,15 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 					<div class="modal__content">
 						<div class="project__header">
 							<h3 class="project__title project__title--inline"></h3>
-							<h4 class="project__date project__date--inline project__date--modal"></h4></div>
+							<time class="project__date project__date--inline project__date--modal">2018</time></div>
 						<div class="project__skills"></div>
 						<div class="project__description"></div>
 						<p class="project__links"></p>
 						<div id="detailed-project__slide-show" class="slide-show">
 							<div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
 								<div class="slide-show__slides-container"></div>
-								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image"data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
 							</div>
 							<div class="js-slide-show-bullets"></div>
 						</div>
@@ -106,9 +106,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				</div>
 
 				<script type="text/template" id="tmpl-project-template">
-					<div id="project--{{ID}}" class="project">
+					<article id="project--{{ID}}" class="project">
 						<h3 class="article__header project__title">{{Name}}</h3>
-						<h4 class="project__date">{{Date}}</h4>
+						<time class="project__date">{{Date}}</time>
 						<div class="project__skills"></div>
 						<div class="project__description">{{ShortDescription}}</div>
 						<div class="project__links"></div>
@@ -116,12 +116,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 						<div id="slide-show--{{ID}}" class="slide-show">
 							<div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
 								<div class="slide-show__slides-container"></div>
-								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
-								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
+								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
+								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
 							</div>
 							<div class="js-slide-show-bullets"></div>
 						</div>
-					</div>
+					</article>
 				</script>
 
 				<script type="text/template" id="tmpl-slide-template">
