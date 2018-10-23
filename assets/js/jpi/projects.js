@@ -308,8 +308,8 @@ window.jpi.projects = (function (jQuery) {
 			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
 
 			var title = fn.getNewTitle(page);
-			global.url.pathname = fn.getNewURL(page);
-
+			var url = fn.getNewURL(page);
+			global.url.pathname = url;
 			var state = {
 				search: searchValue,
 				page: page
@@ -317,6 +317,11 @@ window.jpi.projects = (function (jQuery) {
 
 			document.title = title;
 			history.pushState(state, title, global.url.toString());
+
+			if (typeof ga !== "undefined") {
+				ga("set", "page", url);
+				ga('send', 'pageview');
+			}
 		},
 
 		//send request when the user has done a search
