@@ -26,6 +26,8 @@
 		?>
 
 		<title>Social Media Links | Jahidul Pabel Islam - Full Stack Web & Software Developer</title>
+		
+		<link rel='canonical' href='https://jahidulpabelislam.com/links/'/>
 
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>

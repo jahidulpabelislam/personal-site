@@ -1,8 +1,6 @@
 <?php
 //title of page to use
-$pageTitle = "500";
-
-$headerTitle = "500";
+$pageId = $pageTitle = $headerTitle = "500";
 
 //the description to use for page
 $description = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";

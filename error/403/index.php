@@ -1,8 +1,6 @@
 <?php
 //title of page to use
-$pageTitle = "403";
-
-$headerTitle = "403";
+$pageId = $pageTitle = $headerTitle = "403";
 
 //the description to use for page
 $description = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
