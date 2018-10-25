@@ -188,8 +188,11 @@ window.jpi.projects = (function (jQuery) {
 		},
 
 		scrollToProjects: function () {
+			var projectsPos = jQuery(".projects").offset().top,
+				navHeight = jQuery(".nav").height();
+
 			jQuery('html, body').animate({
-				scrollTop: jQuery(".projects").offset().top - jQuery(".nav").height()
+				scrollTop: projectsPos - navHeight - 20
 			}, 2000);
 		},
 
