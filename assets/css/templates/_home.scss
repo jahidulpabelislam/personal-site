@@ -117,21 +117,21 @@
 
 /* Only for Tablets */
 @media only screen and (min-width: $tablet) and (max-width: $desktop) {
-	.home__hello,
-	.home__intro {
+	.home__hello-wrapper,
+	.home__intro-wrapper {
 		font-size: 22px;
 		line-height: 24px;
 	}
 
-	.home__hello {
+	.home__hello-wrapper {
 		padding-bottom: 100px;
 	}
 
-	.home__intro {
+	.home__intro-wrapper {
 		padding-top: 100px;
 	}
 
-	.main-hello {
+	.home__hello {
 		font-size: 34px;
 		line-height: 36px;
 	}
@@ -169,21 +169,21 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-	.home__hello,
-	.home__intro {
+	.home__hello-wrapper,
+	.home__intro-wrapper {
 		font-size: 26px;
 		line-height: 30px;
 	}
 
-	.home__hello {
+	.home__hello-wrapper {
 		padding-bottom: 110px;
 	}
 
-	.home__intro {
+	.home__intro-wrapper {
 		padding-top: 110px;
 	}
 
-	.main-hello {
+	.home__hello {
 		font-size: 38px;
 		line-height: 40px;
 	}

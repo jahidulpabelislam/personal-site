@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				<section class="article">
 					<div class="container">
 
-						<h2>These are some of the pieces of work I have completed during my time as a developer.</h2>
+						<h2 class="faux-heading">These are some of the pieces of work I have completed during my time as a developer.</h2>
 
 						<form class="search-form">
 							<label for="search" class="screen-reader-text">Search for projects.</label>

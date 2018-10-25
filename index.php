@@ -15,7 +15,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				<section>
 					<div class="article home__hello-wrapper">
 						<div class="container">
-							<h2 class="home__hello"><span class="main-hello">Hello</span> there everyone!</h2>
+							<h2 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h2>
 							<img src="/assets/images/jahidul-pabel-islam-smart.jpg?v=2" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
 							<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
 						</div>
