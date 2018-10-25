@@ -145,7 +145,7 @@
 		</nav>
 
 		<!-- Main for a primary marketing message or call to action -->
-		<header class="jumbotron jumbotron--<?php echo $pageTitleFormatted; ?>">
+		<header class="jumbotron jumbotron--<?php echo $pageId; ?>">
 			<div class="jumbotron__overlay">
 				<div class="container">
 					<h1 class="jumbotron__title"><?php echo $headerTitle ?></h1>
