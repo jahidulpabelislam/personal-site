@@ -1938,7 +1938,8 @@ label {
   display: inline-block;
   margin: 2px;
   cursor: pointer;
-  transition: all .4s ease-in-out; }
+  transition: all .4s ease-in-out;
+  font-weight: 400; }
 
 .skill:hover {
   background-color: #333;
@@ -1949,6 +1950,9 @@ label {
   background-color: #2e2e2e;
   color: white; }
 
+.skill:not(.js-searchable-skill):hover {
+  box-shadow: none; }
+
 .skill--blue {
   border: 1px solid #0375b4;
   color: #0375b4; }
@@ -1956,7 +1960,8 @@ label {
 .skill--blue:hover {
   background-color: #035691; }
 
-.skill--blue.searched {
+.skill--blue.searched,
+.skill--blue:not(.js-searchable-skill):hover {
   background-color: #03427d; }
 
 .skill--red {
@@ -1966,7 +1971,8 @@ label {
 .skill--red:hover {
   background-color: #c32424; }
 
-.skill--red.searched {
+.skill--red.searched,
+.skill--red:not(.js-searchable-skill):hover {
   background-color: #af2323; }
 
 .skill--orange {
@@ -1976,7 +1982,8 @@ label {
 .skill--orange:hover {
   background-color: #d2922e; }
 
-.skill--orange.searched {
+.skill--orange.searched,
+.skill--orange:not(.js-searchable-skill):hover {
   background-color: #c88c2e; }
 
 .skill--lime-green {
@@ -1986,7 +1993,8 @@ label {
 .skill--lime-green:hover {
   background-color: #a6b930; }
 
-.skill--lime-green.searched {
+.skill--lime-green.searched,
+.skill--lime-green:not(.js-searchable-skill):hover {
   background-color: #91a42f; }
 
 .skill--green {
@@ -1996,7 +2004,8 @@ label {
 .skill--green:hover {
   background-color: #54a754; }
 
-.skill--green.searched {
+.skill--green.searched,
+.skill--green:not(.js-searchable-skill):hover {
   background-color: #4b944b; }
 
 .skill--purple {
@@ -2006,7 +2015,8 @@ label {
 .skill--purple:hover {
   background-color: #62357d; }
 
-.skill--purple.searched {
+.skill--purple.searched,
+.skill--purple:not(.js-searchable-skill):hover {
   background-color: #4e3469; }
 
 .project__links {

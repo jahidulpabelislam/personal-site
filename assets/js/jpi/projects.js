@@ -7,7 +7,7 @@ window.jpi.projects = (function (jQuery) {
 	//grabs elements for later use
 	var global = {
 		url: new URL(window.location),
-		titleStart: "Project",
+		titleStart: "Projects",
 		titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer"
 	};
 
@@ -21,19 +21,28 @@ window.jpi.projects = (function (jQuery) {
 
 		addSkills: function (project, divID) {
 			var skills = project.Skills.split(","),
-				skillsContainer = jQuery(divID + " .project__skills")[0];
+				skillsContainer = jQuery(divID + " .project__skills")[0],
+				search = jQuery(".search-form__input").val(),
+				searches = search.split(" ");
 
 			for (var i = 0; i < skills.length; i++) {
-				if (skills[i].trim() !== "") {
+				var skill = skills[i];
+				if (skill.trim() !== "") {
 
-					var skill = jpi.helpers.createElement(skillsContainer, "p", {
-							innerHTML: skills[i],
-							class: "js-searchable-skill skill skill--" + project.Colour
-						}),
-						searches = jQuery(".search-form__input").val().split(" ");
+					var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
+							innerHTML: skill,
+							class: "skill skill--" + project.Colour,
+							href: "/projects/" + skill + "/"
+						});
 
 					for (var j = 0; j < searches.length; j++) {
-						if (searches[j].trim() !== "" && skills[i].toLowerCase().includes(searches[j].toLowerCase())) skill.className += " searched";
+						if (searches[j].trim() !== "" && skill.toLowerCase().includes(searches[j].toLowerCase())) {
+							skillElem.className += " searched";
+						}
+					}
+					
+					if (search.trim() === "" || skill.toLowerCase() !== search.toLowerCase()) {
+						skillElem.className += " js-searchable-skill";
 					}
 				}
 			}
@@ -340,10 +349,15 @@ window.jpi.projects = (function (jQuery) {
 		//set up page
 		initListeners: function () {
 			jQuery(".search-form").on("submit", fn.doSearch);
+			
+			jQuery("body").on("click", ".skill", function (e) {
+				e.preventDefault();
+			});
 
 			jQuery("body").on("click", ".js-searchable-skill", function (e) {
 				jQuery(".detailed-project").trigger("click");
 				jQuery(".search-form__input").val(e.target.innerHTML);
+				fn.scrollToProjects();
 				fn.doSearch();
 			});
 

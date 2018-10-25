@@ -49,6 +49,7 @@
 	margin: 2px;
 	cursor: pointer;
 	transition: all .4s ease-in-out;
+	font-weight: 400;
 }
 
 .skill:hover {
@@ -62,6 +63,10 @@
 	color: white;
 }
 
+.skill:not(.js-searchable-skill):hover {
+	box-shadow: none;
+}
+
 @each $color, $colors in $colors {
 	.skill--#{$color} {
 		border: 1px solid map-get($colors, main);
@@ -72,7 +77,8 @@
 		background-color: map-get($colors, hover);
 	}
 
-	.skill--#{$color}.searched {
+	.skill--#{$color}.searched,
+	.skill--#{$color}:not(.js-searchable-skill):hover {
 		background-color: map-get($colors, dark);
 	}
 }
