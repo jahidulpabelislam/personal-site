@@ -1,5 +1,6 @@
 <?php
-$pageId = $pageTitle = "Home";
+$pageId = "home";
+$pageTitle = "Home";
 $headerTitle = "Jahidul Pabel Islam";
 $keywords = "";
 $description = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";

@@ -28,7 +28,7 @@
 
 		<?php
 		$headTitle = $pageTitle . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
-		if ($pageId === "Home") {
+		if ($pageId === "home") {
 			$headTitle = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
 		}
 		?>
@@ -43,18 +43,18 @@
 		$pageTitleFormatted = strtolower($pageTitle);
 		$pageTitleFormatted = str_replace(" ", "-", $pageTitleFormatted);
 		
-		if ($pageId !== "Home") {
+		if ($pageId !== "home") {
 			$liveURl .= $pageTitleFormatted . "/";
 			$localURL .= $pageTitleFormatted . "/";
 		}
 		
 		$indexedPages = array(
-			"Home",
-			"Projects",
-			"Contact",
-			"About",
-			"Links",
-			"Site Map",
+			"home",
+			"projects",
+			"contact",
+			"about",
+			"links",
+			"site-map",
 		);
 		
 		if (in_array($pageId, $indexedPages) && $environment === "production") {
@@ -125,13 +125,13 @@
 						<span class="menu-bar menu-bar--middle"></span>
 						<span class="menu-bar menu-bar--bottom"></span>
 					</button>
-					<a class="nav__logo-container" href="/<?php if ($pageId == "Home") echo "#"; ?>"><img class="nav__logo <?php if ($pageId == "Home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
+					<a class="nav__logo-container" href="/<?php if ($pageId == "home") echo "#"; ?>"><img class="nav__logo <?php if ($pageId == "home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">
-						<li class="nav-link__item"><a href="/projects/<?php if ($pageId == "Projects") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "Projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
-						<li class="nav-link__item"><a href="/contact/<?php if ($pageId == "Contact") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "Contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
-						<li class="nav-link__item"><a href="/about/<?php if ($pageId == "About") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "About") echo "active"; ?>" title="Link to About Page">About</a></li>
+						<li class="nav-link__item"><a href="/projects/<?php if ($pageId == "projects") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "projects") echo "active"; ?>" title="Link to Projects Page">Projects</a></li>
+						<li class="nav-link__item"><a href="/contact/<?php if ($pageId == "contact") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "contact") echo "active"; ?>" title="Link to Contact Page">Contact</a></li>
+						<li class="nav-link__item"><a href="/about/<?php if ($pageId == "about") echo "#"; ?>" class="nav-item__link <?php if ($pageId == "about") echo "active"; ?>" title="Link to About Page">About</a></li>
 					</ul>
 				</div>
 				<div class="nav__social-links-container">
