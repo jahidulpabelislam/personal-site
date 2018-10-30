@@ -33,7 +33,11 @@
 			
 			</div>
 		</footer>
-		
+
+		<?php
+		include $_SERVER['DOCUMENT_ROOT'] . '/partials/cookie-banner.php';
+		?>
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		
@@ -57,6 +61,7 @@
 			<script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
+			<script src="/assets/js/jpi/cookie-banner.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
 			<?php
 		}

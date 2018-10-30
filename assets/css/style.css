@@ -1386,6 +1386,56 @@ label {
   margin-left: 24px;
   text-align: right; }
 
+.cookie-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(51, 51, 51, 0.8); }
+
+.cookie-banner .container {
+  display: flex;
+  align-items: center;
+  padding: 0 15px; }
+
+.cookie-banner__text {
+  width: 75%;
+  text-align: left;
+  color: white;
+  font-weight: 700; }
+
+.cookie-banner__actions {
+  width: 25%;
+  text-align: right; }
+
+.cookie-banner__button {
+  padding: 4px 8px;
+  font-weight: 700; }
+
+.cookie-banner__link {
+  color: white;
+  border-bottom-color: white; }
+
+.cookie-banner__link:hover {
+  color: #54a754;
+  border-bottom-color: #54a754; }
+
+/* Only for Tablets & Desktops */
+@media only screen and (min-width: 768px) {
+  .cookie-banner .container {
+    padding: 0 60px; }
+  .cookie-banner {
+    font-size: 14px;
+    line-height: 18px; } }
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .cookie-banner .container {
+    padding: 0 120px; }
+  .cookie-banner__button {
+    padding: 5px 10px; } }
+
 /* For all devices */
 .jumbotron--about {
   background-image: url("/assets/images/marmaris.jpg?v=2"); }
