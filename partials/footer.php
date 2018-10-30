@@ -61,7 +61,7 @@
 			<script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
-			<script src="/assets/js/jpi/cookie-banner.js?v=1" type="text/javascript"></script>
+			<script src="/assets/js/jpi/cookieBanner.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
 			<?php
 		}
