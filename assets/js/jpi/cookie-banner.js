@@ -48,9 +48,11 @@ window.jpi.cookieBanner = (function (jQuery) {
 		},
 
 		init: function () {
-			jQuery(window).on("scroll orientationchange resize", fn.showOrHideBanner);
-			jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
-			fn.initDisplayOfBanner();
+			if (global.container.length > 0 ) {
+				jQuery(window).on("scroll orientationchange resize", fn.showOrHideBanner);
+				jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
+				fn.initDisplayOfBanner();
+			}
 		}
 	};
 
