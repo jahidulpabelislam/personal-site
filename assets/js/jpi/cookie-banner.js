@@ -17,7 +17,9 @@ window.jpi.cookieBanner = (function (jQuery) {
 		},
 
 		closeBanner: function () {
-			global.container.fadeOut(global.transitionSpeedSecs);
+			global.container.fadeOut(global.transitionSpeedSecs, function () {
+				global.container.remove();
+			});
 			localStorage.setItem(global.storageKey, true);
 		},
 
