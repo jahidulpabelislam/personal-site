@@ -14,15 +14,14 @@
 }
 
 .cookie-banner__text {
-	width: 75%;
 	text-align: left;
 	color: white;
 	font-weight: 700;
 }
 
 .cookie-banner__actions {
-	width: 25%;
 	text-align: right;
+	margin-left: 15px;
 }
 
 .cookie-banner__button {
@@ -42,13 +41,22 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet) {
-	.cookie-banner .container {
-		padding: 0 60px;
-	}
-	
 	.cookie-banner {
 		font-size: 14px;
 		line-height: 18px;
+	}
+
+	.cookie-banner .container {
+		padding: 0 60px;
+	}
+
+	.cookie-banner__text {
+		width: 80%;
+	}
+	
+	.cookie-banner__actions {
+		width: 20%;
+		margin-left: 0;
 	}
 }
 
@@ -57,7 +65,7 @@
 	.cookie-banner .container {
 		padding: 0 120px;
 	}
-	
+
 	.cookie-banner__button {
 		padding: 5px 10px;
 	}
