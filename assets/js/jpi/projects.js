@@ -80,24 +80,24 @@ window.jpi.projects = (function (jQuery) {
 			});
 		},
 
-		addProjectPictures: function (project, slideShowId) {
+		addProjectImages: function (project, slideShowId) {
 			var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
 				slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
 			//loop through each row of data in rows
-			for (var i = 0; i < project.Pictures.length; i++) {
+			for (var i = 0; i < project.Images.length; i++) {
 
-				if (project.Pictures.hasOwnProperty(i)) {
+				if (project.Images.hasOwnProperty(i)) {
 
 					var slideTemplate = jQuery('#tmpl-slide-template').text();
 					var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
-					for (var data in project.Pictures[i]) {
-						if (project.Pictures[i].hasOwnProperty(data)) {
+					for (var data in project.Images[i]) {
+						if (project.Images[i].hasOwnProperty(data)) {
 							if (typeof data === "string") {
 								var reg = new RegExp("{{" + data + "}}", "g");
-								slideTemplate = slideTemplate.replace(reg, project.Pictures[i][data]);
-								bulletTemplate = bulletTemplate.replace(reg, project.Pictures[i][data]);
+								slideTemplate = slideTemplate.replace(reg, project.Images[i][data]);
+								bulletTemplate = bulletTemplate.replace(reg, project.Images[i][data]);
 							}
 						}
 					}
@@ -113,7 +113,7 @@ window.jpi.projects = (function (jQuery) {
 				}
 			}
 
-			if (project.Pictures.length > 0) {
+			if (project.Images.length > 0) {
 				jpi.slideShow.setUp(slideShowId);
 			}
 		},
@@ -138,7 +138,7 @@ window.jpi.projects = (function (jQuery) {
 
 			fn.addLinks(project, ".detailed-project");
 
-			fn.addProjectPictures(project, "#detailed-project__slide-show");
+			fn.addProjectImages(project, "#detailed-project__slide-show");
 
 			var regx = new RegExp("slide-show__nav--\\w*", 'g');
 
@@ -188,7 +188,7 @@ window.jpi.projects = (function (jQuery) {
 
 				fn.addSkills(project, "#project--" + project.ID);
 				fn.addLinks(project, "#project--" + project.ID);
-				fn.addProjectPictures(project, "#slide-show--" + project.ID);
+				fn.addProjectImages(project, "#slide-show--" + project.ID);
 
 				jQuery("#project--" + project.ID + " .js-open-modal").data("projectData", project);
 			}

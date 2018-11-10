@@ -40,15 +40,15 @@ window.jpi.home = (function (jQuery) {
 					}
 				}
 			}
-			if (project.Pictures[0]) {
+			if (project.Images[0]) {
 				var imageReg = new RegExp("{{File}}", "g");
-				slideTemplate = slideTemplate.replace(imageReg, project.Pictures[0].File);
+				slideTemplate = slideTemplate.replace(imageReg, project.Images[0].File);
 			}
 
 			jQuery(".slide-show__slides-container").append(slideTemplate);
 			jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
-			if (!project.Pictures[0]) {
+			if (!project.Images[0]) {
 				jQuery("#slide-" + project.ID + " .slide-show__img").remove();
 			}
 
