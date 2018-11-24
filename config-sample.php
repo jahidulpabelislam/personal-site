@@ -16,4 +16,5 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 
 // The API endpoint for my portfolio
-define('JPI_API_ENDPOINT', 'https://api.jahidulpabelislam.com/v3/');
+define('JPI_API_ENDPOINT', 'https://api.jahidulpabelislam.com/');
+define('JPI_API_VERSION', 'v3/');
