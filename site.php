@@ -9,7 +9,7 @@ class Site {
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/footer.php";
 	}
 
-	public static function echoHTMLHead($pageId, $pageTitle, $desc) {
+	public static function echoHTMLHead($pageId, $title, $desc) {
 		// Include the common html head for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/head.php";
 	}

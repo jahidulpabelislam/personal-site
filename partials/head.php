@@ -27,7 +27,7 @@
 		?>
 
 		<?php
-		$title = $pageTitle . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+		$title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
 		if ($pageId === "home") {
 			$title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
 		}
@@ -39,12 +39,9 @@
 		$localDomain = $localURL = Site::getLocalDomain();
 		$liveDomain = $liveURl = Site::getLiveDomain();
 
-		$pageTitleFormatted = strtolower($pageTitle);
-		$pageTitleFormatted = str_replace(" ", "-", $pageTitleFormatted);
-
 		if ($pageId !== "home") {
-			$liveURl .= $pageTitleFormatted . "/";
-			$localURL .= $pageTitleFormatted . "/";
+			$liveURl .= "$pageId/";
+			$localURL .= "$pageId/";
 		}
 
 		$indexedPages = array(
@@ -78,7 +75,7 @@
 		<meta property="og:site_name" content="Jahidul Pabel Islam"/>
 
 		<?php
-		$imageLocation = "assets/images/portfolio-$pageTitleFormatted-preview.png";
+		$imageLocation = "assets/images/portfolio-$pageId-preview.png";
 
 		if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/" . $imageLocation)) {
 			$imageUrl = $localDomain . $imageLocation . "?v=2";
