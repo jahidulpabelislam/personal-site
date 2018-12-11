@@ -50,11 +50,11 @@ Site::getConfig();
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a class="btn btn--purple" href="/contact/">Get in Touch</a>
+							<a href="<?php Site::echoURL("contact"); ?>" class="btn btn--purple">Get in Touch</a>
 						</div>
 
 						<div class="article__half">
-							<a class="btn btn--green" href="/about/">Learn About Me</a>
+							<a href="<?php Site::echoURL("about"); ?>" class="btn btn--green">Learn About Me</a>
 						</div>
 					</div>
 				</div>

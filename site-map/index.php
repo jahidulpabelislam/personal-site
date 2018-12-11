@@ -15,10 +15,10 @@ Site::getHeader($pageId, $headerTitle, "", $navTint);
 					<div class="container">
 						<ul class="site-map__list">
 							<li>
-								<a href="/" class="link">Home</a>
+								<a href="<?php Site::echoURL(); ?>" class="link">Home</a>
 							</li>
 							<li>
-								<a href="/projects/" class="link">Projects</a>
+								<a href="<?php Site::echoURL("projects"); ?>" class="link">Projects</a>
 								<ul>
 									<li>
 										<a href="/projects/mind-map/" class="link">Mind Map</a>
@@ -44,16 +44,16 @@ Site::getHeader($pageId, $headerTitle, "", $navTint);
 								</ul>
 							</li>
 							<li>
-								<a href="/contact/" class="link">Contact</a>
+								<a href="<?php Site::echoURL("contact"); ?>" class="link">Contact</a>
 							</li>
 							<li>
-								<a href="/about/" class="link">About</a>
+								<a href="<?php Site::echoURL("about"); ?>" class="link">About</a>
 							</li>
 							<li>
-								<a href="/privacy-policy/" class="link">Privacy Policy</a>
+								<a href="<?php Site::echoURL("privacy-policy"); ?>" class="link">Privacy Policy</a>
 							</li>
 							<li>
-								<a href="/links/" class="link">Links</a>
+								<a href="<?php Site::echoURL("links"); ?>" class="link">Links</a>
 							</li>
 						</ul>
 					</div>
@@ -62,11 +62,11 @@ Site::getHeader($pageId, $headerTitle, "", $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a class="btn btn--red" href="/contact/">Get in Touch</a>
+							<a href="<?php Site::echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
 						</div>
 
 						<div class="article__half">
-							<a class="btn btn--purple" href="/projects/">View My Work</a>
+							<a href="<?php Site::echoURL("projects"); ?>" class="btn btn--purple">View My Work</a>
 						</div>
 					</div>
 				</div>

@@ -53,7 +53,7 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 							<h3 class="article__header">Drop me a old school email</h3>
 						</div>
 						<div class="article__half">
-							<a href="mailto:me@jahidulpabelislam.com" target="_blank" class="social-link">
+							<a href="mailto:me@jahidulpabelislam.com" class="social-link" target="_blank">
 								<img src="/assets/images/email.svg?v=1" alt="Email me" class="social-link__img social-link__img--email">
 								<p class="social-link__text social-link__text--email"> me@jahidulpabelislam.com</p>
 							</a>
@@ -73,7 +73,7 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 							<h3 class="article__header">View my Linkedin profile</h3>
 						</div>
 						<div class="article__half">
-							<a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
+							<a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank" >
 								<img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
 								<p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
 							</a>
@@ -87,7 +87,7 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 							<h3 class="article__header">View & follow code for projects</h3>
 						</div>
 						<div class="article__half">
-							<a href="https://github.com/jahidulpabelislam/" target="_blank" class="social-link">
+							<a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank" >
 								<img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
 								<p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
 							</a>
@@ -112,11 +112,11 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a class="btn btn--blue" href="/projects/">View My Work</a>
+							<a href="<?php Site::echoURL("projects"); ?>" class="btn btn--blue">View My Work</a>
 						</div>
 
 						<div class="article__half">
-							<a class="btn btn--orange" href="/about/">Learn About Me</a>
+							<a href="<?php Site::echoURL("about"); ?>" class="btn btn--orange">Learn About Me</a>
 						</div>
 					</div>
 				</div>

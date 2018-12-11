@@ -55,7 +55,7 @@ Site::getHeader($pageId, $headerTitle);
 				</tr>
 			</table>
 			<p>The cookies used and the Google Analytics data stored will be anonymized and cannot be used to identify individual people.</p>
-			<p>To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at <a href="http://www.allaboutcookies.org/" class="link-styled">allaboutcookies</a></p>
+			<p>To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at <a href="http://www.allaboutcookies.org/" class="link-styled" target="_blank">allaboutcookies</a></p>
 		</div>
 	</div>
 

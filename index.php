@@ -32,14 +32,14 @@ Site::getConfig();
 						<div class="container">
 							<p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
 							<p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
-							<p>Currently working as a Junior Web Developer at <a class="link-styled" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
-							<p>Reside in <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the South Coast of England.</p>
+							<p>Currently working as a Junior Web Developer at <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
+							<p>Reside in <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the South Coast of England.</p>
 						</div>
 					</div>
 					
 					<div class="article">
 						<div class="container">
-							<p>Here you will be able to look at all the <a class="link-styled" href="/projects/">work</a> I have done over the last 6 years, <a class="link-styled" href="/about/">learn about me</a>, and <a class="link-styled" href="/contact/">contact me</a> for any enquiries or to provide any feedback.</p>
+							<p>Here you will be able to look at all the <a href="<?php Site::echoURL("projects"); ?>" class="link-styled" >work</a> I have done over the last 6 years, <a href="<?php Site::echoURL("about"); ?>" class="link-styled" >learn about me</a>, and <a href="<?php Site::echoURL("contact"); ?>" class="link-styled" >contact me</a> for any enquiries or to provide any feedback.</p>
 							<p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
 						</div>
 					</div>
@@ -91,7 +91,7 @@ Site::getConfig();
 					</div>
 					<p class="feedback feedback--error"></p>
 
-					<a class="btn" href="/projects/">View All My Work</a>
+					<a href="<?php Site::echoURL("projects"); ?>" class="btn">View All My Work</a>
 				</section>
 
 				<section class="article article--green">
@@ -119,8 +119,8 @@ Site::getConfig();
 
 				<div class="article article--halved">
 					<div class="container">
-						<div class="article__half"><a class="btn btn--red" href="/about/">Learn About Me</a></div>
-						<div class="article__half"><a class="btn btn--purple" href="/projects/">View My Work</a></div>
+						<div class="article__half"><a href="<?php Site::echoURL("about"); ?>" class="btn btn--red">Learn About Me</a></div>
+						<div class="article__half"><a href="<?php Site::echoURL("projects"); ?>" class="btn btn--purple">View My Work</a></div>
 					</div>
 				</div>
 

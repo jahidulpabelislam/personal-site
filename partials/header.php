@@ -8,7 +8,7 @@
 						<span class="menu-bar menu-bar--middle"></span>
 						<span class="menu-bar menu-bar--bottom"></span>
 					</button>
-					<a class="nav__logo-container" href="/<?php if ($pageId == "home") echo "#"; ?>"><img class="nav__logo <?php if ($pageId == "home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
+					<a href="/<?php if ($pageId == "home") echo "#"; ?>" class="nav__logo-container"><img class="nav__logo <?php if ($pageId == "home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo"></a>
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">
