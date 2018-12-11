@@ -15,8 +15,7 @@ $navTint = "dark";
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
-	
-				<!-- Start Dynamic content for page -->
+
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
@@ -27,7 +26,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						</div>
 					</div>
 				</div>
-				<!-- End dynamic content -->
 
 <?php
 //include the footer for page

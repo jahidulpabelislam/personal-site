@@ -18,8 +18,7 @@ $navTint = "dark";
 //include the header for page
 include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
-	
-	<!-- Start Dynamic content for page -->
+
 	<div class="article">
 		<div class="container">
 			<h2 class="article__header">Contact Form</h2>
@@ -67,7 +66,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 			<p>To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at <a href="http://www.allaboutcookies.org/" class="link-styled">allaboutcookies</a></p>
 		</div>
 	</div>
-	<!-- End dynamic content -->
 
 <?php
 //include the footer for page

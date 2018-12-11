@@ -1,4 +1,4 @@
-
+				<!-- End dynamic content -->
 				<section class="social-links">
 					<div class="container">
 						<h5 class="social-links__header">Follow Me Here!</h5>
