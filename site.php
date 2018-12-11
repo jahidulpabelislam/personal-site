@@ -36,6 +36,8 @@ class Site {
 
 	public static function getURL($url = "", $full = false, $live = false) {
 
+		$url = trim($url);
+
 		if (!empty($url)) {
 			$url = "/" . trim($url, "/") . "/";
 		}
@@ -82,7 +84,7 @@ class Site {
 	}
 
 	public static function echoProjectImageURL($filepath = "") {
-		$root = rtrim(JPI_API_ENDPOINT, '/');
+		$root = rtrim(JPI_API_ENDPOINT, ' /');
 		$imageURL = $root . $filepath;
 		echo $imageURL;
 	}
@@ -95,7 +97,7 @@ class Site {
 	}
 	
 	public static function addTrailingSlash($url) {
-		$url = rtrim($url, '/');
+		$url = rtrim($url, ' /');
 		$url = "$url/";
 		return $url;
 	}
