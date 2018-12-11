@@ -36,7 +36,7 @@
 		</footer>
 
 		<?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/partials/cookie-banner.php';
+		Site::getCookieBanner();
 		?>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -1,19 +1,14 @@
 <?php
-//title of page to use
-$pageId = $pageTitle = $headerTitle = "500";
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-//the description to use for page
-$description = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$pageId = $headTitle = $headerTitle = "500";
+
+$headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerDesc = "Internal Server Error";
-
-//the keywords to use for page
-$keywords = "";
-
 $navTint = "light";
-
-//include the header for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<div class="article article--halved">
@@ -31,6 +26,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 <?php
-//include the footer for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

@@ -1,75 +1,12 @@
-<!DOCTYPE html>
-<html lang="en-gb">
+<?php
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-	<head>
-		<?php
-		$environment = !empty(getenv('APPLICATION_ENV')) ? getenv('APPLICATION_ENV') : "development";
+$pageId = "links";
 
-		// Only want Google Analytic for live site
-		if ($environment === "production") {
-			?>
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
-			<script type="text/javascript">
-				window.dataLayer = window.dataLayer || [];
-
-				function gtag() {
-					dataLayer.push(arguments);
-				}
-
-				gtag('js', new Date());
-
-				gtag('config', 'UA-70803146-2');
-			</script>
-			<?php
-		}
-		?>
-
-		<title>Social Media Links | Jahidul Pabel Islam - Full Stack Web & Software Developer</title>
-		
-		<link rel='canonical' href='https://jahidulpabelislam.com/links/'/>
-
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<meta name="author" content="Jahidul Pabel Islam"/>
-		<meta name="description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
-		<meta name="keywords" content=""/>
-
-		<?php
-		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https' : 'http';
-		$url = $protocol . '://' . $_SERVER["SERVER_NAME"] . "/";
-		$pageUrl = $url . "links/";
-		?>
-		<meta property="og:title" content="Social Media Links | Jahidul Pabel Islam - Full Stack Developer"/>
-		<meta property="og:url" content="<?php echo $pageUrl; ?>"/>
-		<meta property="og:description" content="Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England."/>
-
-		<?php
-		$imageUrl = $url . "images/portfolio-links-preview.png?v=2";
-		?>
-		<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
-
-		<meta name="twitter:card" content="summary_large_image"/>
-
-		<!-- Custom stylesheet for site -->
-		<?php if (!isset($_GET["debug"])) {
-			?>
-			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css"/>
-			<?php
-		}
-		else {
-			?>
-			<link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css"/>
-			<?php
-		};
-		?>
-
-		<?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/partials/favicons.php';
-		?>
-	</head>
-
-	<body>
+$headTitle = "Social Media Links";
+$headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
+?>
 		<main class="main-content social-links-page">
 			<div class="container">
 

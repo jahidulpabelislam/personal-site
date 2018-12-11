@@ -1,13 +1,18 @@
 <?php
-$pageId = "contact";
-$pageTitle = $headerTitle = "Contact Me";
-$keywords = "";
-$description = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$headerDesc = "Send Your Feedback &amp; Enquires My Way";
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
+$pageId = "contact";
+
+$headTitle = $headerTitle = "Contact Me";
+
+$headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
+
+$headerDesc = "Send Your Feedback &amp; Enquires My Way";
 $navTint = "light";
 
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<section class="article">
@@ -120,5 +125,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

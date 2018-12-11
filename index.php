@@ -1,16 +1,17 @@
 <?php
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
+
 $pageId = "home";
-$pageTitle = "Home";
+
+$headTitle = "Home";
+$headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
+
 $headerTitle = "Jahidul Pabel Islam";
-$keywords = "";
-$description = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
 $headerDesc = "Full Stack Web &amp; Software Developer";
+Site::getHeader($pageId, $headerTitle, $headerDesc);
 
-$navTint = "dark";
-
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
-
-include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+Site::getConfig();
 ?>
 				<section>
 					<div class="article home__hello-wrapper">
@@ -150,4 +151,4 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				</script>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();

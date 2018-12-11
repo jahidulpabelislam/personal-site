@@ -1,13 +1,14 @@
 <?php
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
+
 $pageId = "site-map";
-$pageTitle = $headerTitle = "Site Map";
-$keywords = "";
-$description = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$headerDesc = "";
+
+$headTitle = $headerTitle = "Site Map";
+$headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
 
 $navTint = "light";
-
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHeader($pageId, $headerTitle, "", $navTint);
 ?>
 
 				<div class="article">
@@ -70,5 +71,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					</div>
 				</div>
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

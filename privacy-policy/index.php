@@ -1,22 +1,14 @@
 <?php
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
 $pageId = "privacy-policy";
 
-// Title of page to use
-$pageTitle = $headerTitle = "Privacy Policy";
+$headTitle = $headerTitle = "Privacy Policy";
+$headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-// The description to use for page
-$description = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
 
-$headerDesc = "";
-
-// The keywords to use for pages
-$keywords = "";
-
-$navTint = "dark";
-
-//include the header for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHeader($pageId, $headerTitle);
 ?>
 
 	<div class="article">
@@ -68,6 +60,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 	</div>
 
 <?php
-//include the footer for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

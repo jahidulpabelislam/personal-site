@@ -1,26 +1,28 @@
 <?php
-$pageId = "projects";
-$pageTitle = "Projects";
-$headerTitle = "My Projects";
-$keywords = "";
-$description = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$headerDesc = "See My Skills in Action in My Previous Projects";
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-$navTint = "dark";
+$pageId = "projects";
+
+$headTitle = "Projects";
+$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $search = $_GET["search"] ?? "";
 if (strlen(trim($search)) > 0) {
-	$pageTitle .= " with $search";
+	$headTitle .= " with $search";
 }
 
 $page = $_GET["page"] ?? 1;
 if ($page > 1) {
-	$pageTitle .= " - Page $page";
+	$headTitle .= " - Page $page";
 }
 
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
 
-include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+$headerTitle = "My Projects";
+$headerDesc = "See My Skills in Action in My Previous Projects";
+Site::getHeader($pageId, $headerTitle, $headerDesc);
+
+Site::getConfig();
 ?>
 
 				<section class="article">
@@ -139,5 +141,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 				</script>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

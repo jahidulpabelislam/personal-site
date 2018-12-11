@@ -1,46 +1,18 @@
 <?php
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
+
 $pageId = "about";
-$pageTitle = "About";
+
+$headTitle = "About";
+$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
+
 $headerTitle = "About Me";
-$keywords = "";
-
-$description = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
 $headerDesc = "Find Out About Me";
-
 $navTint = "light";
 
-$techSkills = array(
-	array("text" => "HTML", "desc" => "HTML5 & HTML4"),
-	array("text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4"),
-	array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery & AngularJS"),
-	array("text" => "PHP", "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO"),
-	array("text" => "SQL", "desc" => "MySQL"),
-	array("text" => "NoSQL", "desc" => "Amazon DynamoDB & MongoDB"),
-	array("text" => "Java", "desc" => "Java EE 7, JSF 2, AWT & Swing"),
-	array("text" => "Python", "desc" => "graphics.py"),
-	array("text" => "Visual Basic"),
-	array("text" => "DVCS", "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)"),
-	array("text" => "Microsoft Office", "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)")
-);
-
-$otherSkills = array(
-	array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
-	array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills"),
-	array("text" => "Hard Worker")
-);
-
-$interests = array(
-	array("text" => "Sports"),
-	array("text" => "Music"),
-	array("text" => "Photography"),
-	array("text" => "Fashion"),
-	array("text" => "Programming"),
-	array("text" => "Gaming"),
-	array("text" => "Trading")
-);
-
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<div class="article article--halved article--about">
@@ -131,6 +103,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 						<ul class="about__skills-interests">
 							<?php
+
+							$techSkills = array(
+								array("text" => "HTML", "desc" => "HTML5 & HTML4"),
+								array("text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4"),
+								array("text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery & AngularJS"),
+								array("text" => "PHP", "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO"),
+								array("text" => "SQL", "desc" => "MySQL"),
+								array("text" => "NoSQL", "desc" => "Amazon DynamoDB & MongoDB"),
+								array("text" => "Java", "desc" => "Java EE 7, JSF 2, AWT & Swing"),
+								array("text" => "Python", "desc" => "graphics.py"),
+								array("text" => "Visual Basic"),
+								array("text" => "DVCS", "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)"),
+								array("text" => "Microsoft Office", "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)")
+							);
+
 							foreach ($techSkills as $skill) {
 								$skillText = $skill["text"];
 								$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
@@ -156,6 +143,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 
 						<ul class="about__skills-interests">
 							<?php
+
+							$otherSkills = array(
+								array("text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams"),
+								array("text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills"),
+								array("text" => "Hard Worker")
+							);
+
 							foreach ($otherSkills as $skill) {
 								$skillText = $skill["text"];
 								$skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
@@ -182,6 +176,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 						<ul class="about__skills-interests">
 
 							<?php
+
+							$interests = array(
+								array("text" => "Sports"),
+								array("text" => "Music"),
+								array("text" => "Photography"),
+								array("text" => "Fashion"),
+								array("text" => "Programming"),
+								array("text" => "Gaming"),
+								array("text" => "Trading")
+							);
+
 							foreach ($interests as $interest) {
 								$interestText = $interest["text"];
 								$interestDesc = (isset($interest["desc"])) ? $interest["desc"] : false;
@@ -285,5 +290,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</script>
 
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>

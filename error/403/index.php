@@ -1,19 +1,13 @@
 <?php
-//title of page to use
-$pageId = $pageTitle = $headerTitle = "403";
+include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-//the description to use for page
-$description = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$pageId = $headTitle = $headerTitle = "403";
 
+$headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+Site::getHeader($pageId, $headerTitle, $headerDesc);
+
+Site::getHTMLHead($pageId, $headTitle, $headDesc);
 $headerDesc = "Forbidden Page";
-
-//the keywords to use for pages
-$keywords = "";
-
-$navTint = "dark";
-
-//include the header for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 ?>
 
 				<div class="article article--halved">
@@ -28,6 +22,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				</div>
 
 <?php
-//include the footer for page
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+Site::getFooter();
 ?>
