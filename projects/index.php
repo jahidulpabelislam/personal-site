@@ -126,7 +126,7 @@ Site::echoConfig();
 
 				<script type="text/template" id="tmpl-slide-template">
 					<div class="slide-show__slide" id="slide-{{ID}}">
-						<img src="<?php echo rtrim(JPI_API_ENDPOINT, '/'); ?>{{File}}?v=2" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
+						<img src="<?php Site::echoProjectImageURL("{{File}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
 					</div>
 				</script>
 
@@ -137,7 +137,7 @@ Site::echoConfig();
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.jpiAPIEndpoint = "<?php echo JPI_API_ENDPOINT . JPI_API_VERSION; ?>";
+					window.jpi.config.jpiAPIEndpoint = "<?php Site::echoAPIEndpoint(); ?>";
 				</script>
 
 <?php

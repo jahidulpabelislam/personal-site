@@ -78,4 +78,17 @@ class Site {
 	public static function isDebug() {
 		return (isset($_GET["debug"]) && ($_GET["debug"] == "true" || $_GET["debug"] == "1"));
 	}
+
+	public static function echoProjectImageURL($filepath = "") {
+		Site::echoConfig();
+		$root = rtrim(JPI_API_ENDPOINT, '/');
+		$imageURL = $root . $filepath;
+		echo $imageURL;
+	}
+
+	public static function echoAPIEndpoint() {
+		Site::echoConfig();
+		$endpoint = JPI_API_ENDPOINT . JPI_API_VERSION;
+		echo $endpoint;
+	}
 }
