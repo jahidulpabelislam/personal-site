@@ -21,12 +21,10 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 						<p>Use this contact form to give me a message quickly.</p>
 						<p><span class="required">*</span> indicates a required field</p>
 
-						<!--validate using JavaScript on submit-->
 						<form class="contact-form" name="contact-form" method="post">
 
 							<div class="input-group">
 								<label for="email-input">Your Email Address <span class="required">*</span></label>
-								<!--validate using JavaScript on input-->
 								<input class="input" type="email" name="email-input" placeholder="e.g. joe@example.com" required tabindex="1" id="email-input" title="Email Address">
 								<p id="contact-form__email-feedback" class="feedback feedback--error"></p>
 							</div>
@@ -38,7 +36,6 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 
 							<div class="input-group input-group--message">
 								<label for="message-input">Your Message <span class="required">*</span></label>
-								<!--validate using JavaScript on input-->
 								<textarea class="input" name="message-input" placeholder="e.g. Your site could do with more colour." required tabindex="3" id="message-input" title="The Message" rows="10"></textarea>
 								<p id="contact-form__message-feedback" class="feedback feedback--error"></p>
 							</div>

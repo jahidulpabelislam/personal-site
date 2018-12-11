@@ -69,7 +69,6 @@
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="author" content="Jahidul Pabel Islam"/>
-		<!-- Dynamically insert the description for a page -->
 		<meta name="description" content="<?php echo $desc; ?>"/>
 		
 		<meta property="og:locale" content="en_GB"/>

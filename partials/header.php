@@ -27,7 +27,7 @@
 			</div>
 		</nav>
 
-		<!-- Main for a primary marketing message or call to action -->
+		<!-- Header to grab users attention -->
 		<header class="jumbotron jumbotron--<?php echo $pageId; ?>">
 			<div class="jumbotron__overlay">
 				<div class="container">
@@ -41,4 +41,4 @@
 
 		<main class="main-content">
 			<div class="main-content__inner">
-				<!-- Start Dynamic content for page -->
+				<!-- Start dynamic content for page -->

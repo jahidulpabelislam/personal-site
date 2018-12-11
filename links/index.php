@@ -32,7 +32,6 @@ Site::getHTMLHead($pageId, $headTitle, $headDesc);
 				</div>
 
 				<div class="social-link-container social-link-container--snapchat">
-					<!--Snapcode-->
 					<a class="social-link" href="https://snapchat.com/add/jahidulpislam/" target="_blank">
 						<object data="https://feelinsonice-hrd.appspot.com/web/deeplink/snapcode?username=jahidulpislam&amp;type=PNG" type="image/png" class="social-link__img social-link__img--snapchat"></object>
 						<p class="social-link__text social-link__text--snapchat">jahidulpislam</p>
