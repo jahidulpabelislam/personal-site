@@ -1,3 +1,10 @@
+<?php
+if (isset($_COOKIE["cookie-banner-closed"]) && $_COOKIE["cookie-banner-closed"] == "true") {
+	setcookie("cookie-banner-closed", true, time() + (30 * 24 * 60 * 60 * 1000), "/");
+	return;
+}
+?>
+
 <div class="cookie-banner">
 	<div class="container clearfix">
 		<div class="cookie-banner__text">
