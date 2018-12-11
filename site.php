@@ -34,7 +34,7 @@ class Site {
 		include $_SERVER["DOCUMENT_ROOT"] . "/config.php";
 	}
 
-	public static function echoURL($url = "", $full = false, $live = false) {
+	public static function getURL($url = "", $full = false, $live = false) {
 
 		if (!empty($url)) {
 			$url = "/" . trim($url, "/") . "/";
@@ -53,6 +53,13 @@ class Site {
 			$localDomain = self::getLocalDomain();
 			$url = rtrim($localDomain, "/") . $url;
 		}
+
+		return $url;
+	}
+
+	public static function echoURL($url = "", $full = false, $live = false) {
+
+		$url = self::getURL($url, $full, $live);
 
 		echo $url;
 	}
