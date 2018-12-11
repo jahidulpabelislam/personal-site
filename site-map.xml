@@ -32,7 +32,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -43,7 +43,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -54,7 +54,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -65,7 +65,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -76,7 +76,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -87,7 +87,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -98,7 +98,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2016-01-07</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>never</changefreq>
 		<!--How important the page is to the site-->
 		<priority>1.0</priority>
 	</url>
@@ -109,7 +109,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2018-09-09</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>never</changefreq>
+		<changefreq>montly</changefreq>
 		<!--How important the page is to the site-->
 		<priority>0.7</priority>
 	</url>
@@ -133,7 +133,7 @@
 		<!--How often the page is changed-->
 		<changefreq>yearly</changefreq>
 		<!--How important the page is to the site-->
-		<priority>0.4</priority>
+		<priority>0.6</priority>
 	</url>
 	<!--A Page-->
 	<url>
@@ -142,7 +142,7 @@
 		<!--The last modification date of page-->
 		<lastmod>2018-09-09</lastmod>
 		<!--How often the page is changed-->
-		<changefreq>monthly</changefreq>
+		<changefreq>yearly</changefreq>
 		<!--How important the page is to the site-->
 		<priority>0.6</priority>
 	</url>

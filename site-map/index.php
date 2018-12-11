@@ -48,11 +48,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							<li>
 								<a href="/about/" class="link">About</a>
 							</li>
-							
 							<li>
 								<a href="/privacy-policy/" class="link">Privacy Policy</a>
 							</li>
-
 							<li>
 								<a href="/links/" class="link">Links</a>
 							</li>
