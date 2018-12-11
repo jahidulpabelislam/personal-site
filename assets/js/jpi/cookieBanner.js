@@ -5,41 +5,49 @@ window.jpi.cookieBanner = (function (jQuery) {
 
 	var global = {
 		container: jQuery(".cookie-banner"),
-		storageKey: "cookie-banner-closed",
-		transitionSpeedSecs: 700
+		transitionSpeedSecs: 700,
+		cookieKey: "cookie-banner-closed",
+		bannerCookieExpirationDays: 30,
+		bannerCookieClickedValue: "true"
 	};
 
 	var fn = {
 
 		getHasClosedBannerBefore: function () {
-			var storedValue = localStorage.getItem(global.storageKey);
-			return (storedValue && storedValue == 'true');
+			return jpi.helpers.checkCookieValue(global.cookieKey, global.bannerCookieClickedValue);
+		},
+
+		setCookie: function (){
+			jpi.helpers.setCookie(global.cookieKey, global.bannerCookieClickedValue, global.bannerCookieExpirationDays);
 		},
 
 		closeBanner: function () {
 			global.container.fadeOut(global.transitionSpeedSecs, function () {
 				global.container.remove();
 			});
-			localStorage.setItem(global.storageKey, true);
+			fn.setCookie();
 		},
 
 		showOrHideBanner: function () {
 
-			var height = global.container.height();
-			var scrollPos = jQuery(window).scrollTop();
-			var lowestTop = jQuery("body").height() - (jQuery(window).height() + height);
+			if (global.container.length > 0) {
+				var height = global.container.height();
+				var scrollPos = jQuery(window).scrollTop();
+				var lowestTop = jQuery("body").height() - (jQuery(window).height() + height);
 
-			if (scrollPos < height || scrollPos > lowestTop) {
-				global.container.slideUp(global.transitionSpeedSecs);
-			}
-			else {
-				global.container.slideDown(global.transitionSpeedSecs);
+				if (scrollPos < height || scrollPos > lowestTop) {
+					global.container.slideUp(global.transitionSpeedSecs);
+				}
+				else {
+					global.container.slideDown(global.transitionSpeedSecs);
+				}
 			}
 		},
 		
 		initDisplayOfBanner: function () {
 			var hasClosedBefore = fn.getHasClosedBannerBefore();
 			if (hasClosedBefore) {
+				fn.setCookie();
 				global.container.remove();
 			}
 			else {

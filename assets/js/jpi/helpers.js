@@ -1,4 +1,4 @@
-//Holds any helpers functions for whole project
+// Holds any helpers functions for whole project
 window.jpi = window.jpi || {};
 window.jpi.helpers = (function (jQuery) {
 
@@ -7,7 +7,7 @@ window.jpi.helpers = (function (jQuery) {
 	var fn = {
 
 		/*
-		 * used to check if input field is empty
+		 * Used to check if a input field is empty
 		 * add invalid class if empty and return false
 		 * or remove invalid class if  not empty and return true
 		 */
@@ -24,10 +24,12 @@ window.jpi.helpers = (function (jQuery) {
 			}
 		},
 
-		//creates a element with attributes appended to parent
+		// Creates an element with attributes appended to parent
 		createElement: function (parent, element, attributes) {
 			var elem = document.createElement(element);
+
 			for (var attribute in attributes) {
+
 				if (attributes.hasOwnProperty(attribute)) {
 					if (attribute === "innerHTML") {
 						elem[attribute] = attributes[attribute];
@@ -37,14 +39,50 @@ window.jpi.helpers = (function (jQuery) {
 					}
 				}
 			}
+
 			parent.appendChild(elem);
+
 			return elem;
+		},
+		
+		getCookie: function (key) {
+			key += "=";
+
+			var cookies = document.cookie.split(";");
+
+			for (var i = 0; i < cookies.length; i++) {
+
+				var cookie = cookies[i];
+
+				cookie = cookie.toString().trim();
+
+				if (cookie.indexOf(key) === 0) {
+					return cookie.substring(key.length);
+				}
+			}
+
+			return false;
+		},
+
+		checkCookieValue: function (key, valueToCheck) {
+			var cookie = fn.getCookie(key);
+			return (cookie && cookie != "" && cookie == valueToCheck);
+		},
+
+		setCookie: function (key, value, expirationDays) {
+			var expiryDate = new Date();
+			expiryDate.setTime(expiryDate.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+			var expires = "expires=" + expiryDate.toUTCString();
+			document.cookie = key + "=" + value + ";" + expires + ";path=/";
 		}
 	};
 
 	return {
 		"checkInputField": fn.checkInputField,
-		"createElement": fn.createElement
+		"createElement": fn.createElement,
+		"getCookie": fn.getCookie,
+		"checkCookieValue": fn.checkCookieValue,
+		"setCookie": fn.setCookie
 	};
 
 }(jQuery));
