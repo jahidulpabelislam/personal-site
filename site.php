@@ -65,13 +65,15 @@ class Site {
 	}
 	
 	public static function getLiveDomain() {
-		return self::$LIVE_DOMAIN;
+		$liveDomain = self::$LIVE_DOMAIN;
+		$liveDomain = self::addTrailingSlash($liveDomain);
+		return $liveDomain;
 	}
 	
 	public static function getLocalDomain() {
 		$protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-		$localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"] . "/";
-		
+		$localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"];
+		$localDomain = self::addTrailingSlash($localDomain);
 		return $localDomain;
 	}
 	
@@ -80,15 +82,21 @@ class Site {
 	}
 
 	public static function echoProjectImageURL($filepath = "") {
-		Site::echoConfig();
 		$root = rtrim(JPI_API_ENDPOINT, '/');
 		$imageURL = $root . $filepath;
 		echo $imageURL;
 	}
 
 	public static function echoAPIEndpoint() {
-		Site::echoConfig();
-		$endpoint = JPI_API_ENDPOINT . JPI_API_VERSION;
+		$endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
+		$endpoint .= JPI_API_VERSION;
+		$endpoint = self::addTrailingSlash($endpoint);
 		echo $endpoint;
+	}
+	
+	public static function addTrailingSlash($url) {
+		$url = rtrim($url, '/');
+		$url = "$url/";
+		return $url;
 	}
 }
