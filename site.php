@@ -1,6 +1,6 @@
 <?php
 /*
- * A class to use throughtout the site.
+ * A class to use throughout the site, to aid in include common files, content & configuration.
  * Developed so it can be used in multiple sites.
  *
  * PHP version 7
@@ -16,11 +16,15 @@ class Site {
 
 	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
+	private static function getProjectRoot() {
+		return $_SERVER["DOCUMENT_ROOT"];
+	}
+
 	/**
 	 * Include the common footer content for page/site
 	 */
 	public static function echoFooter() {
-		include $_SERVER["DOCUMENT_ROOT"] . "/partials/footer.php";
+		include self::getProjectRoot() . "/partials/footer.php";
 	}
 
 	/**
@@ -31,7 +35,7 @@ class Site {
 	 * @param $desc string
 	 */
 	public static function echoHTMLHead($pageId, $title, $desc) {
-		include $_SERVER["DOCUMENT_ROOT"] . "/partials/head.php";
+		include self::getProjectRoot() . "/partials/head.php";
 	}
 
 	/**
@@ -43,28 +47,28 @@ class Site {
 	 * @param string $navTint string
 	 */
 	public static function echoHeader($pageId, $title, $desc = "", $navTint = "dark") {
-		include $_SERVER["DOCUMENT_ROOT"] . "/partials/header.php";
+		include self::getProjectRoot() . "/partials/header.php";
 	}
 
 	/**
 	 * Include the common favicons content for page/site
 	 */
 	public static function echoFavicons() {
-		include $_SERVER["DOCUMENT_ROOT"] . "/partials/favicons.php";
+		include self::getProjectRoot() . "/partials/favicons.php";
 	}
 
 	/**
 	 * Include the common cookie banner content for page/site
 	 */
 	public static function echoCookieBanner() {
-		include $_SERVER["DOCUMENT_ROOT"] . "/partials/cookie-banner.php";
+		include self::getProjectRoot() . "/partials/cookie-banner.php";
 	}
 
 	/**
 	 * Include the common config file for page/site
 	 */
 	public static function echoConfig() {
-		include $_SERVER["DOCUMENT_ROOT"] . "/config.php";
+		include self::getProjectRoot() . "/config.php";
 	}
 
 	/**
