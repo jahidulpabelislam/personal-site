@@ -23,6 +23,7 @@ var scripts = {
 		"assets/js/third-party/waypoint.min.js",
 		"assets/js/third-party/jquery.countTo.js",
 		"assets/js/jpi/nav.js",
+		"assets/js/jpi/cookieBanner.js",
 		"assets/js/jpi/main.js"
 	]
 };
@@ -48,14 +49,14 @@ stylesheetNames.forEach(function (key) {
 	gulp.task("styles-" + key, function () {
 		return gulp.src(stylesheets[key])
 	            .pipe(concat(key + ".min.css"))
-			.pipe(autoprefixer({
-				browsers: ["> 0.5%", "ie 8-11"],
-				remove: false
-			}))
-			.pipe(cleanCss({
-				compatibility: "ie8"
-			}))
-			.pipe(gulp.dest("assets/css"));
+				.pipe(autoprefixer({
+					browsers: ["> 0.5%", "ie 8-11"],
+					remove: false
+				}))
+				.pipe(cleanCss({
+					compatibility: "ie8"
+				}))
+				.pipe(gulp.dest("assets/css"));
 	});
 });
 gulp.task("styles", ["styles-main"]);
@@ -65,6 +66,7 @@ gulp.task('sass', function () {
             .pipe(sass().on('error', sass.logError))
 			.pipe(gulp.dest('assets/css/'));
 });
+
 // Watch Files For Changes
 gulp.task('watch', function () {
 	gulp.watch('assets/css/**/*.scss', ['sass']);
@@ -75,7 +77,7 @@ gulp.task("store-version", function () {
 	var fileName = "assets/version.txt";
 
 	var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
-	
+
 	var errorCallback = function (err) {
 		if (err) {
 			console.log(err);
@@ -102,7 +104,7 @@ gulp.task("store-version", function () {
 			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
 
 				var versionText = '';
-				
+
 				// If found store in text file
 				if (tagName && tagName !== "null") {
 					versionText = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "' target='_blank' class='link-styled'>" + tagName.trim() + "</a>";
@@ -118,7 +120,7 @@ gulp.task("store-version", function () {
 						versionText = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "' target='_blank' class='link-styled'>" + branchName.trim() + "</a>";
 					}
 				}
-				
+
 				fs.writeFile(fileName, versionText, errorCallback);
 			});
 		}

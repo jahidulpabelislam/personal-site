@@ -52,7 +52,7 @@ window.jpi.main = (function (jQuery) {
 
 		jumpToContent: function () {
 			jQuery('html, body').animate({
-				scrollTop: jQuery("section").offset().top - jQuery(".nav").height()
+				scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
 			}, 1000);
 		},
 
