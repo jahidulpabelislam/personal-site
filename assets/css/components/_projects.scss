@@ -6,12 +6,14 @@
 }
 
 .project__title {
-	margin-top: 20px;
 	margin-bottom: 4px;
 	font-size: 22px;
 	line-height: 24px;
 	font-weight: 700;
-	font-family: 'Oswald', sans-serif;
+}
+
+.project__title.project__title {
+	margin-top: 20px;
 }
 
 .project__date {

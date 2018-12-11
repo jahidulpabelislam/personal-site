@@ -172,6 +172,9 @@ body {
   font-family: 'Oswald', sans-serif;
   width: 100%; }
 
+.article__header.article__header--no-padding {
+  margin: 0; }
+
 .article__header:first-child {
   margin-top: 0; }
 
@@ -182,9 +185,6 @@ body {
   margin: 8px 0;
   font-family: 'Oswald', sans-serif;
   width: 100%; }
-
-.article__header--no-padding.article__header--no-padding {
-  margin: 0; }
 
 p {
   margin: 10px 0; }
@@ -1394,12 +1394,13 @@ label {
   padding: 20px 0 10px 0; }
 
 .project__title {
-  margin-top: 20px;
   margin-bottom: 4px;
   font-size: 22px;
   line-height: 24px;
-  font-weight: 700;
-  font-family: 'Oswald', sans-serif; }
+  font-weight: 700; }
+
+.project__title.project__title {
+  margin-top: 20px; }
 
 .project__date {
   margin-bottom: 10px; }
