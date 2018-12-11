@@ -46,8 +46,20 @@ body {
 	font-size: 22px;
 	line-height: 24px;
 	font-weight: 700;
+	margin: 12px 0;
+	font-family: 'Oswald', sans-serif;
+	width: 100%;
+}
+
+.article__header:first-child {
 	margin-top: 0;
-	margin-bottom: 12px;
+}
+
+.article__sub-heading {
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 700;
+	margin: 8px 0;
 	font-family: 'Oswald', sans-serif;
 	width: 100%;
 }
@@ -82,6 +94,23 @@ img {
 	margin: 2px 0;
 }
 
+.table {
+	margin: 0 auto;
+	border-color: $dark;
+}
+
+.table__row {
+	border: 1px solid $dark;
+}
+
+.table__col {
+	padding: 6px;
+}
+
+.table__col--header {
+	font-weight: 700;
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
 	.container {
@@ -93,9 +122,15 @@ img {
 	}
 
 	.article__header {
-		margin-bottom: 24px;
 		font-size: 26px;
 		line-height: 30px;
+		margin: 24px 0;
+	}
+
+	.article__sub-heading {
+		font-size: 18px;
+		line-height: 20px;
+		margin: 10px 0;
 	}
 
 	.main-content li {
