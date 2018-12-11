@@ -43,7 +43,7 @@ class Site {
 			$url = "/";
 		}
 
-		$url = (isset($_GET["debug"]) && $_GET["debug"]) ? $url . "?debug=true" : $url;
+		$url = self::isDebug() ? $url . "?debug=true" : $url;
 
 		if ($full && $live) {
 			$liveDomain = self::getLiveDomain();
@@ -73,5 +73,9 @@ class Site {
 		$localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"] . "/";
 		
 		return $localDomain;
+	}
+	
+	public static function isDebug() {
+		return (isset($_GET["debug"]) && ($_GET["debug"] == "true" || $_GET["debug"] == "1"));
 	}
 }

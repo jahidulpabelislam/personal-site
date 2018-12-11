@@ -92,7 +92,7 @@
 		<meta name="twitter:title" content="<?php echo $title; ?>"/>
 
 		<!-- Custom stylesheet for site -->
-		<?php if (!isset($_GET["debug"]) || !$_GET["debug"]) {
+		<?php if (!Site::isDebug()) {
 			?>
 			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
 			<?php
