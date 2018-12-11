@@ -4,9 +4,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 $pageId = $headTitle = $headerTitle = "403";
 
 $headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::getHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($pageId, $headerTitle, $headerDesc);
 
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 $headerDesc = "Forbidden Page";
 ?>
 
@@ -22,5 +22,5 @@ $headerDesc = "Forbidden Page";
 				</div>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

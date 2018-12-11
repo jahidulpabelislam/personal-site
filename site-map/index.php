@@ -5,10 +5,10 @@ $pageId = "site-map";
 
 $headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $navTint = "light";
-Site::getHeader($pageId, $headerTitle, "", $navTint);
+Site::echoHeader($pageId, $headerTitle, "", $navTint);
 ?>
 
 				<div class="article">
@@ -71,5 +71,5 @@ Site::getHeader($pageId, $headerTitle, "", $navTint);
 					</div>
 				</div>
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

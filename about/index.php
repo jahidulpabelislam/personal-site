@@ -6,13 +6,13 @@ $pageId = "about";
 $headTitle = "About";
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerTitle = "About Me";
 $headerDesc = "Find Out About Me";
 $navTint = "light";
 
-Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
+Site::echoHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<div class="article article--halved article--about">
@@ -290,5 +290,5 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 				</script>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

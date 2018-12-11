@@ -6,9 +6,9 @@ $pageId = "privacy-policy";
 $headTitle = $headerTitle = "Privacy Policy";
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
-Site::getHeader($pageId, $headerTitle);
+Site::echoHeader($pageId, $headerTitle);
 ?>
 
 	<div class="article">
@@ -60,5 +60,5 @@ Site::getHeader($pageId, $headerTitle);
 	</div>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

@@ -4,10 +4,10 @@ include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 $pageId = $headTitle = $headerTitle = "401";
 
 $headDesc = "Error: 401 - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerDesc = "Unauthorized";
-Site::getHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($pageId, $headerTitle, $headerDesc);
 ?>
 
 				<div class="article article--halved">
@@ -22,5 +22,5 @@ Site::getHeader($pageId, $headerTitle, $headerDesc);
 				</div>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

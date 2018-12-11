@@ -7,12 +7,12 @@ $headTitle = $headerTitle = "Contact Me";
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
 $navTint = "light";
 
-Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
+Site::echoHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<section class="article">
@@ -122,5 +122,5 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 				</div>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

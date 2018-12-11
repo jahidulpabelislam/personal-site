@@ -16,13 +16,13 @@ if ($page > 1) {
 	$headTitle .= " - Page $page";
 }
 
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerTitle = "My Projects";
 $headerDesc = "See My Skills in Action in My Previous Projects";
-Site::getHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($pageId, $headerTitle, $headerDesc);
 
-Site::getConfig();
+Site::echoConfig();
 ?>
 
 				<section class="article">
@@ -141,5 +141,5 @@ Site::getConfig();
 				</script>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>

@@ -5,13 +5,13 @@ $pageId = "home";
 
 $headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerTitle = "Jahidul Pabel Islam";
 $headerDesc = "Full Stack Web &amp; Software Developer";
-Site::getHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($pageId, $headerTitle, $headerDesc);
 
-Site::getConfig();
+Site::echoConfig();
 ?>
 				<section>
 					<div class="article home__hello-wrapper">
@@ -151,4 +151,4 @@ Site::getConfig();
 				</script>
 
 <?php
-Site::getFooter();
+Site::echoFooter();

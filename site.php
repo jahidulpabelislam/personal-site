@@ -4,32 +4,32 @@ class Site {
 
 	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-	public static function getFooter() {
+	public static function echoFooter() {
 		// Include the common footer content for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/footer.php";
 	}
 
-	public static function getHTMLHead($pageId, $pageTitle, $desc) {
+	public static function echoHTMLHead($pageId, $pageTitle, $desc) {
 		// Include the common html head for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/head.php";
 	}
 
-	public static function getHeader($pageId, $title, $desc = "", $navTint = "dark") {
+	public static function echoHeader($pageId, $title, $desc = "", $navTint = "dark") {
 		// Include the common html header content for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/header.php";
 	}
 
-	public static function getFavicons() {
+	public static function echoFavicons() {
 		// Include the common favicons content for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/favicons.php";
 	}
 
-	public static function getCookieBanner() {
+	public static function echoCookieBanner() {
 		// Include the common cookie banner content for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/partials/cookie-banner.php";
 	}
 
-	public static function getConfig() {
+	public static function echoConfig() {
 		// Include the common config file for page/site
 		include $_SERVER["DOCUMENT_ROOT"] . "/config.php";
 	}

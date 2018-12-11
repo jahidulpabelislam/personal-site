@@ -36,7 +36,7 @@
 		</footer>
 
 		<?php
-		Site::getCookieBanner();
+		Site::echoCookieBanner();
 		?>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

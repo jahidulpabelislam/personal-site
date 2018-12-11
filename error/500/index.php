@@ -4,11 +4,11 @@ include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 $pageId = $headTitle = $headerTitle = "500";
 
 $headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::getHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($pageId, $headTitle, $headDesc);
 
 $headerDesc = "Internal Server Error";
 $navTint = "light";
-Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
+Site::echoHeader($pageId, $headerTitle, $headerDesc, $navTint);
 ?>
 
 				<div class="article article--halved">
@@ -26,5 +26,5 @@ Site::getHeader($pageId, $headerTitle, $headerDesc, $navTint);
 				</div>
 
 <?php
-Site::getFooter();
+Site::echoFooter();
 ?>
