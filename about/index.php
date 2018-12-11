@@ -80,21 +80,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<a href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded"></a>
+							<a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded"></a>
 						</div>
 						<div class="article__half">
-							<p>Joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="article article--halved article--about">
-					<div class="container">
-						<div class="article__half">
-							<a href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth"></a>
-						</div>
-						<div class="article__half">
-							<p>Graduated from <a class="link-styled link-styled--purple" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
+							<p>Joined <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
 						</div>
 					</div>
 				</div>
@@ -102,10 +91,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 				<div class="article article--halved article--about">
 					<div class="container">
 						<div class="article__half">
-							<a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach"></a>
+							<a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth"></a>
 						</div>
 						<div class="article__half">
-							<p>Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
+							<p>Graduated from <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="article article--halved article--about">
+					<div class="container">
+						<div class="article__half">
+							<a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach"></a>
+						</div>
+						<div class="article__half">
+							<p>Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">Bognor Regis</a>, <a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
 						</div>
 					</div>
 				</div>
@@ -209,13 +209,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 							<div class="timeline__item timeline__item--active">
 								<h2 class="timeline-item__date">2017 - Present</h2>
 								<div class="timeline-item__content timeline-item__content--work">
-									<p>Junior Web Developer @ <a class="link-styled link-styled--orange" href="https://www.brightminded.com" title="Link to BrightMinded website." target="_blank">BrightMinded</a></p>
+									<p>Junior Web Developer @ <a class="link-styled link-styled--orange" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">BrightMinded</a></p>
 								</div>
 							</div>
 							<div class="timeline__item">
 								<h2 class="timeline-item__date">2014 - 2017</h2>
 								<div class="timeline-item__content timeline-item__content--school">
-									<p>BSc (Hons) Web Technologies Student @ <a class="link-styled link-styled--orange" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a></p>
+									<p>BSc (Hons) Web Technologies Student @ <a class="link-styled link-styled--orange" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a></p>
 								</div>
 							</div>
 							<div class="timeline__item">
