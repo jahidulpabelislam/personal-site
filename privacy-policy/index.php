@@ -57,6 +57,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
 					<td class="table__col">10 minutes</td>
 					<td class="table__col">Used to throttle request rate.</td>
 				</tr>
+				<tr class="table__row">
+					<td class="table__col">cookie-banner-closed</td>
+					<td class="table__col">30 days</td>
+					<td class="table__col">Used to make sure the banner isn't shown if clicked 'OK'.</td>
+				</tr>
 			</table>
 			<p>The cookies used and the Google Analytics data stored will be anonymized and cannot be used to identify individual people.</p>
 			<p>To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at <a href="http://www.allaboutcookies.org/" class="link-styled">allaboutcookies</a></p>
