@@ -19,12 +19,26 @@ class Site {
 	private static function getProjectRoot() {
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
+	
+	private static function formatPageId($pageId) {
+		$pageIdFormatted = trim($pageId);
+		$pageIdFormatted = strtolower($pageIdFormatted);
+		$pageIdFormatted = preg_replace('/[^a-z0-9]+/', '-', $pageIdFormatted);
+
+		return $pageIdFormatted;
+	}
+	
+	private static function generatePageIdFromTitle($title) {
+		$pageId = self::formatPageId($title);
+
+		return $pageId;
+	}
 
 	/**
-	 * Include the common footer content for page/site
+	 * Include the common config file for page/site
 	 */
-	public static function echoFooter() {
-		include self::getProjectRoot() . "/partials/footer.php";
+	public static function echoConfig() {
+		include self::getProjectRoot() . "/config.php";
 	}
 
 	/**
@@ -34,7 +48,13 @@ class Site {
 	 * @param $title string
 	 * @param $desc string
 	 */
-	public static function echoHTMLHead($pageId, $title, $desc) {
+	public static function echoHTMLHead($title, $desc, $pageId = "") {
+		$title = trim($title);
+		$desc = trim($desc);
+		$pageId = trim($pageId);
+		
+		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+
 		include self::getProjectRoot() . "/partials/head.php";
 	}
 
@@ -46,7 +66,14 @@ class Site {
 	 * @param string $desc string
 	 * @param string $navTint string
 	 */
-	public static function echoHeader($pageId, $title, $desc = "", $navTint = "dark") {
+	public static function echoHeader($title, $desc = "", $pageId = "", $navTint = "dark") {
+		$title = trim($title);
+		$desc = trim($desc);
+		$pageId = trim($pageId);
+		$navTint = trim($navTint);
+		
+		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+
 		include self::getProjectRoot() . "/partials/header.php";
 	}
 
@@ -58,17 +85,17 @@ class Site {
 	}
 
 	/**
+	 * Include the common footer content for page/site
+	 */
+	public static function echoFooter() {
+		include self::getProjectRoot() . "/partials/footer.php";
+	}
+
+	/**
 	 * Include the common cookie banner content for page/site
 	 */
 	public static function echoCookieBanner() {
 		include self::getProjectRoot() . "/partials/cookie-banner.php";
-	}
-
-	/**
-	 * Include the common config file for page/site
-	 */
-	public static function echoConfig() {
-		include self::getProjectRoot() . "/config.php";
 	}
 
 	/**

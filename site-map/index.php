@@ -1,14 +1,12 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-$pageId = "site-map";
-
 $headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::echoHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($headTitle, $headDesc);
 
 $navTint = "light";
-Site::echoHeader($pageId, $headerTitle, "", $navTint);
+Site::echoHeader($headerTitle, "", "", $navTint);
 ?>
 
 				<div class="article">

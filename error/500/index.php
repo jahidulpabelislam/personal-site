@@ -1,14 +1,14 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
 
-$pageId = $headTitle = $headerTitle = "500";
+$headTitle = $headerTitle = "500";
 
 $headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::echoHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Internal Server Error";
 $navTint = "light";
-Site::echoHeader($pageId, $headerTitle, $headerDesc, $navTint);
+Site::echoHeader($headerTitle, $headerDesc, "", $navTint);
 ?>
 
 				<div class="article article--halved">

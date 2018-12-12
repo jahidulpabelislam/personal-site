@@ -5,11 +5,11 @@ $pageId = "home";
 
 $headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-Site::echoHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($headTitle, $headDesc);
 
 $headerTitle = "Jahidul Pabel Islam";
 $headerDesc = "Full Stack Web &amp; Software Developer";
-Site::echoHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($headerTitle, $headerDesc, $pageId);
 
 Site::echoConfig();
 ?>

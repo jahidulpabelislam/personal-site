@@ -16,11 +16,11 @@ if ($page > 1) {
 	$headTitle .= " - Page $page";
 }
 
-Site::echoHTMLHead($pageId, $headTitle, $headDesc);
+Site::echoHTMLHead($headTitle, $headDesc, $pageId);
 
 $headerTitle = "My Projects";
 $headerDesc = "See My Skills in Action in My Previous Projects";
-Site::echoHeader($pageId, $headerTitle, $headerDesc);
+Site::echoHeader($headerTitle, $headerDesc, $pageId);
 
 Site::echoConfig();
 ?>
