@@ -6,7 +6,7 @@ $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stac
 
 Site::echoHTMLHead($headTitle, $headDesc);
 
-Site::echoHeader($pageId, $headerTitle);
+Site::echoHeader($headerTitle);
 ?>
 
 				<div class="article">
