@@ -16,10 +16,12 @@ class Site {
 
 	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
+	private static $VALID_NAV_TINTS = ['dark', 'light'];
+
 	private static function getProjectRoot() {
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
-	
+
 	private static function formatPageId($pageId) {
 		$pageIdFormatted = trim($pageId);
 		$pageIdFormatted = strtolower($pageIdFormatted);
@@ -27,7 +29,7 @@ class Site {
 
 		return $pageIdFormatted;
 	}
-	
+
 	private static function generatePageIdFromTitle($title) {
 		$pageId = self::formatPageId($title);
 
@@ -52,7 +54,7 @@ class Site {
 		$title = trim($title);
 		$desc = trim($desc);
 		$pageId = trim($pageId);
-		
+
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
 		include self::getProjectRoot() . "/partials/head.php";
@@ -71,7 +73,9 @@ class Site {
 		$desc = trim($desc);
 		$pageId = trim($pageId);
 		$navTint = trim($navTint);
-		
+
+		$navTint = (in_array($navTint, self::$VALID_NAV_TINTS)) ? $navTint : "dark";
+
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
 		include self::getProjectRoot() . "/partials/header.php";
