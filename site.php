@@ -205,6 +205,6 @@ class Site {
 	 * @return bool Whether or not the debug was set by user on page view
 	 */
 	public static function isDebug() {
-		return (isset($_GET["debug"]) && ($_GET["debug"] == "true" || $_GET["debug"] == "1"));
+		return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
 	}
 }
