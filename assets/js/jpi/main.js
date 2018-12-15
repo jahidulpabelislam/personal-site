@@ -29,29 +29,29 @@ window.jpi.main = (function (jQuery) {
 				map: map
 			});
 			
-			google.maps.event.addDomListener(window, 'resize', function () {
+			google.maps.event.addDomListener(window, "resize", function () {
 				map.setCenter(bognorRegisLocation);
 			});
 		},
 
 		count: function (options) {
 			var counter = jQuery(this);
-			options = jQuery.extend({}, options || {}, counter.data('countToOptions') || {});
+			options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
 			counter.countTo(options);
 		},
 
 		initCounters: function () {
-			var counters = jQuery('.counter');
+			var counters = jQuery(".counter");
 
 			if (counters.length > 0) {
-				jQuery('.counter').waypoint(function () {
-					jQuery('.counter').each(fn.count);
-				}, {offset: '100%'});
+				jQuery(".counter").waypoint(function () {
+					jQuery(".counter").each(fn.count);
+				}, {offset: "100%"});
 			}
 		},
 
 		jumpToContent: function () {
-			jQuery('html, body').animate({
+			jQuery("html, body").animate({
 				scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
 			}, 1000);
 		},
@@ -70,7 +70,7 @@ window.jpi.main = (function (jQuery) {
 			selected.slideToggle();
 
 			jQuery(this).toggleClass("expanded-item");
-			jQuery('.js-expand-skill-interest').not(this).removeClass("expanded-item");
+			jQuery(".js-expand-skill-interest").not(this).removeClass("expanded-item");
 		},
 
 		initListeners: function () {
@@ -84,7 +84,7 @@ window.jpi.main = (function (jQuery) {
 			fn.initCounters();
 			
 			if (jQuery(".js-bognor-regis-map").length > 0) {
-				google.maps.event.addDomListener(window, 'load', fn.initBognorRegisMap);
+				google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
 			}
 		}
 	};

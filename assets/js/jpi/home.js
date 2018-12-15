@@ -28,8 +28,8 @@ window.jpi.home = (function (jQuery) {
 
 		//renders a project
 		renderProject: function (project) {
-			var slideTemplate = jQuery('#tmpl-slide-template').text();
-			var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
+			var slideTemplate = jQuery("#tmpl-slide-template").text();
+			var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
 			for (var data in project) {
 				if (project.hasOwnProperty(data)) {

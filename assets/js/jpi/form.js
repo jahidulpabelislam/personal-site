@@ -41,19 +41,19 @@ window.jpi.form = (function (jQuery) {
 				}
 			}
 
-			global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
+			global.submitButton.prop("disabled", false).html(global.submitButton.data("initialText"));
 		},
 
 		//render a error message whe AJAX has error
 		renderErrorMessage: function () {
 			global.formFeedback.show("fast").text("Something went wrong, please try again later.").addClass("feedback--error");
-			global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
+			global.submitButton.prop("disabled", false).html(global.submitButton.data("initialText"));
 		},
 
 		//validates the whole form
 		validateForm: function () {
 
-			global.submitButton.prop('disabled', true).html(global.submitButton.data("loadingText"));
+			global.submitButton.prop("disabled", true).html(global.submitButton.data("loadingText"));
 
 			//validate each required user input
 			var messageValidation = fn.validateMessage(global.messageInput.val(), true),
@@ -74,7 +74,7 @@ window.jpi.form = (function (jQuery) {
 				});
 			}
 			else {
-				global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
+				global.submitButton.prop("disabled", false).html(global.submitButton.data("initialText"));
 			}
 
 			return false;

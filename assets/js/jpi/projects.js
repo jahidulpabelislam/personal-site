@@ -89,8 +89,8 @@ window.jpi.projects = (function (jQuery) {
 
 				if (project.images.hasOwnProperty(i)) {
 
-					var slideTemplate = jQuery('#tmpl-slide-template').text();
-					var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
+					var slideTemplate = jQuery("#tmpl-slide-template").text();
+					var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
 					for (var data in project.images[i]) {
 						if (project.images[i].hasOwnProperty(data)) {
@@ -140,17 +140,17 @@ window.jpi.projects = (function (jQuery) {
 
 			fn.addProjectImages(project, "#detailed-project__slide-show");
 
-			var regx = new RegExp("slide-show__nav--\\w*", 'g');
+			var regx = new RegExp("slide-show__nav--\\w*", "g");
 
 			jQuery(".detailed-project .slide-show__nav").each(function () {
 				var classList = jQuery(this).attr("class");
-				classList = classList.replace(regx, 'slide-show__nav--' + project.colour);
+				classList = classList.replace(regx, "slide-show__nav--" + project.colour);
 				jQuery(this).attr("class", classList);
 			});
 		},
 
 		closeProjectsExpandModal: function (event) {
-			if (!jQuery(event.target).closest('.modal__content').length && jQuery(".detailed-project").hasClass("open")) {
+			if (!jQuery(event.target).closest(".modal__content").length && jQuery(".detailed-project").hasClass("open")) {
 
 				jQuery(".detailed-project").removeClass("open").hide();
 
@@ -174,7 +174,7 @@ window.jpi.projects = (function (jQuery) {
 
 			if (!document.getElementById("project--" + project.id)) {
 
-				var template = jQuery('#tmpl-project-template').text();
+				var template = jQuery("#tmpl-project-template").text();
 
 				for (var data in project) {
 					if (project.hasOwnProperty(data)) {
@@ -200,7 +200,7 @@ window.jpi.projects = (function (jQuery) {
 			var projectsPos = jQuery(".projects").offset().top,
 				navHeight = jQuery(".nav").height();
 
-			jQuery('html, body').animate({
+			jQuery("html, body").animate({
 				scrollTop: projectsPos - navHeight - 20
 			}, 2000);
 		},
@@ -332,7 +332,7 @@ window.jpi.projects = (function (jQuery) {
 
 			if (typeof ga !== "undefined") {
 				ga("set", "page", url);
-				ga('send', 'pageview');
+				ga("send", "pageview");
 			}
 		},
 
@@ -380,7 +380,7 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
-			window.addEventListener('popstate', function (event) {
+			window.addEventListener("popstate", function (event) {
 
 				var page = event.state.page;
 

@@ -72,7 +72,7 @@
 }
 
 .timeline::after {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 6px;
 	background-color: colour(orange, main);
@@ -121,7 +121,7 @@
 }
 
 .timeline-item__content::after {
-	content: '';
+	content: "";
 	position: absolute;
 	width: 28px;
 	height: 28px;
