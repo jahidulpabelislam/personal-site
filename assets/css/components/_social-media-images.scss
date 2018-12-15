@@ -82,7 +82,7 @@
 }
 
 .social-link__img--instagram i::before {
-	content: "";
+	content: "\00a0";
 	top: 0;
 	left: 0;
 	right: 0;
@@ -96,7 +96,7 @@
 }
 
 .social-link__img--instagram i::after {
-	content: "";
+	content: "\00a0";
 	top: 2.38px;
 	right: 2.38px;
 	position: absolute;

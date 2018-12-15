@@ -6,7 +6,7 @@
  */
 /* vietnamese */
 @font-face {
-  font-family: 'Cabin';
+  font-family: "Cabin";
   font-style: normal;
   font-weight: 400;
   src: local("Cabin"), local("Cabin-Regular"), url(https://fonts.gstatic.com/s/cabin/v12/u-4x0qWljRw-Pd8___1amg.woff2) format("woff2");
@@ -14,7 +14,7 @@
 
 /* latin-ext */
 @font-face {
-  font-family: 'Cabin';
+  font-family: "Cabin";
   font-style: normal;
   font-weight: 400;
   src: local("Cabin"), local("Cabin-Regular"), url(https://fonts.gstatic.com/s/cabin/v12/u-4x0qWljRw-Pd8-__1amg.woff2) format("woff2");
@@ -22,7 +22,7 @@
 
 /* latin */
 @font-face {
-  font-family: 'Cabin';
+  font-family: "Cabin";
   font-style: normal;
   font-weight: 400;
   src: local("Cabin"), local("Cabin-Regular"), url(https://fonts.gstatic.com/s/cabin/v12/u-4x0qWljRw-Pd8w__0.woff2) format("woff2");
@@ -33,7 +33,7 @@
  */
 /* cyrillic */
 @font-face {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
   src: local("Oswald Regular"), local("Oswald-Regular"), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752HT8Ghe4.woff2) format("woff2");
@@ -41,7 +41,7 @@
 
 /* vietnamese */
 @font-face {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
   src: local("Oswald Regular"), local("Oswald-Regular"), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fj8Ghe4.woff2) format("woff2");
@@ -49,7 +49,7 @@
 
 /* latin-ext */
 @font-face {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
   src: local("Oswald Regular"), local("Oswald-Regular"), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752Fz8Ghe4.woff2) format("woff2");
@@ -57,7 +57,7 @@
 
 /* latin */
 @font-face {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-style: normal;
   font-weight: 400;
   src: local("Oswald Regular"), local("Oswald-Regular"), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8G.woff2) format("woff2");
@@ -574,7 +574,7 @@ a.btn {
   color: #333; }
 
 .footer__link:before {
-  content: "";
+  content: "\00a0";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -1243,7 +1243,7 @@ label {
   border-radius: 8.33px; }
 
 .social-link__img--instagram i::before {
-  content: "";
+  content: "\00a0";
   top: 0;
   left: 0;
   right: 0;
@@ -1256,7 +1256,7 @@ label {
   border-radius: 7.61px; }
 
 .social-link__img--instagram i::after {
-  content: "";
+  content: "\00a0";
   top: 2.38px;
   right: 2.38px;
   position: absolute;
@@ -1546,7 +1546,7 @@ label {
   margin: 0 auto; }
 
 .timeline::after {
-  content: '';
+  content: "\00a0";
   position: absolute;
   width: 6px;
   background-color: #e1a02f;
@@ -1590,7 +1590,7 @@ label {
   z-index: 1; }
 
 .timeline-item__content::after {
-  content: '';
+  content: "\00a0";
   position: absolute;
   width: 28px;
   height: 28px;
@@ -2117,7 +2117,7 @@ label {
   margin-right: 10px; }
 
 .project__link:after {
-  content: "";
+  content: "\00a0";
   margin: 0 4px;
   position: absolute;
   top: 0;
@@ -2188,7 +2188,7 @@ label {
   line-height: 32px;
   color: white;
   text-align: center;
-  content: '\f0a9';
+  content: "\f0a9";
   background: #333;
   left: 100%;
   border-radius: 0 30px 30px 0; }
