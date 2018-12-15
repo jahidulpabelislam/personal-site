@@ -18,7 +18,7 @@ class Site {
 
 	private static $VALID_NAV_TINTS = ['dark', 'light'];
 
-	private static function getProjectRoot() {
+	public static function getProjectRoot() {
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
 

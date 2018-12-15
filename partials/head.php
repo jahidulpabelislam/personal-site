@@ -77,7 +77,7 @@
 		<?php
 		$imageLocation = "assets/images/portfolio-$pageId-preview.png";
 
-		if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/" . $imageLocation)) {
+		if (file_exists(Site::getProjectRoot() . "/" . $imageLocation)) {
 			$imageUrl = $localDomain . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>

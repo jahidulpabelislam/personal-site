@@ -286,7 +286,7 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.googleMapStyles =  <?php echo file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/assets/map-styling.json"); ?>;
+					window.jpi.config.googleMapStyles =  <?php echo file_get_contents(Site::getProjectRoot() . "/assets/map-styling.json"); ?>;
 				</script>
 
 <?php
