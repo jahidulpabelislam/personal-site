@@ -16,7 +16,7 @@ class Site {
 
 	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-	private static $VALID_NAV_TINTS = ['dark', 'light'];
+	private static $VALID_NAV_TINTS = array("dark", "light",);
 
 	/**
 	 * Return this projects root directory
@@ -37,7 +37,7 @@ class Site {
 	private static function formatPageId($pageId) {
 		$pageIdFormatted = trim($pageId);
 		$pageIdFormatted = strtolower($pageIdFormatted);
-		$pageIdFormatted = preg_replace('/[^a-z0-9]+/', '-', $pageIdFormatted);
+		$pageIdFormatted = preg_replace("/[^a-z0-9]+/", "-", $pageIdFormatted);
 
 		return $pageIdFormatted;
 	}
@@ -194,7 +194,7 @@ class Site {
 	 * @param string $filepath string The relative url of image
 	 */
 	public static function echoProjectImageURL($filepath = "") {
-		$root = rtrim(JPI_API_ENDPOINT, ' /');
+		$root = rtrim(JPI_API_ENDPOINT, " /");
 		$imageURL = $root . $filepath;
 		echo $imageURL;
 	}
@@ -214,7 +214,7 @@ class Site {
 	 * @return string The new url
 	 */
 	public static function addTrailingSlash($url) {
-		$url = rtrim($url, ' /');
+		$url = rtrim($url, " /");
 		$url = "$url/";
 		return $url;
 	}

@@ -16,7 +16,7 @@
 					<ul class="nav__links">
 
 						<?php
-						$links = ["Projects", "Contact", "About",];
+						$links = array("Projects", "Contact", "About",);
 
 						foreach ($links as $link) {
 							$url = strtolower($link);
