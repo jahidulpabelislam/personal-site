@@ -246,8 +246,8 @@ window.jpi.projects = (function (jQuery) {
 			//send the data, the function to do if data is valid
 			jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
 
-			if (response.total_count) {
-				fn.addPagination(response.total_count);
+			if (response && response.meta && response.meta.total_count) {
+				fn.addPagination(response.meta.total_count);
 			}
 
 			jpi.footer.delayExpand();
