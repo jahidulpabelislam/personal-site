@@ -61,6 +61,6 @@ $meta["data"] = $data;
 
 header("HTTP/1.1 $status $message");
 
-//send the results, send by json
+//send the responses, send by json
 header("Content-Type: application/json");
 echo json_encode($meta);

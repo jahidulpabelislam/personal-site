@@ -72,11 +72,11 @@ window.jpi.home = (function (jQuery) {
 		},
 
 		//sets up events when projects is received
-		gotProjects: function (result) {
+		gotProjects: function (response) {
 			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 
 			//send the data, the function to do if data is valid
-			var dataValid = jpi.ajax.loopThroughData(result, fn.renderProject, fn.renderError, "Error Getting the Projects.");
+			var dataValid = jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "Error Getting the Projects.");
 
 			if (dataValid) {
 				jpi.slideShow.setUp("#slide-show--home");

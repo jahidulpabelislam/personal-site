@@ -239,15 +239,15 @@ window.jpi.projects = (function (jQuery) {
 		},
 
 		//set up events when projects were received
-		gotProjects: function (result) {
+		gotProjects: function (response) {
 			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 			jQuery(".projects, .pagination").text("");
 
 			//send the data, the function to do if data is valid
-			jpi.ajax.loopThroughData(result, fn.renderProject, fn.renderError, "No Projects Found.");
+			jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
 
-			if (result.total_count) {
-				fn.addPagination(result.total_count);
+			if (response.total_count) {
+				fn.addPagination(response.total_count);
 			}
 
 			jpi.footer.delayExpand();

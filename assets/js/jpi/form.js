@@ -18,26 +18,26 @@ window.jpi.form = (function (jQuery) {
 	var fn = {
 
 		//respond to the user with relevant feedback after attempt of sending a message
-		renderFeedback: function (result) {
+		renderFeedback: function (response) {
 
-			global.formFeedback.show("fast").text(result.feedback);
+			global.formFeedback.show("fast").text(response.feedback);
 
 			//if message was sent
-			if (result.ok) {
+			if (response.ok) {
 				global.formFeedback.addClass("feedback--success");
 				jQuery("#email-input, #message-input, #subject-input").val("");
 			}
 			else {
-				if (result.feedback) {
+				if (response.feedback) {
 					global.formFeedback.addClass("feedback--error");
 				}
 
-				if (result.messageFeedback) {
-					global.messageFeedback.show("fast").text(result.messageFeedback);
+				if (response.messageFeedback) {
+					global.messageFeedback.show("fast").text(response.messageFeedback);
 				}
 
-				if (result.emailAddressFeedback) {
-					global.emailFeedback.show("fast").text(result.emailAddressFeedback);
+				if (response.emailAddressFeedback) {
+					global.emailFeedback.show("fast").text(response.emailAddressFeedback);
 				}
 			}
 
@@ -86,7 +86,7 @@ window.jpi.form = (function (jQuery) {
 			global.emailInput.removeClass("valid");
 
 			var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
-				result = validEmailPattern.test(email);
+				emailValidationTest = validEmailPattern.test(email);
 
 			//checks if email is empty
 			if (email.trim() === "" && isForm) {
@@ -94,12 +94,12 @@ window.jpi.form = (function (jQuery) {
 				global.emailFeedback.show("fast").text("Email Address must be provided and valid.");
 			}
 			//checks if email is valid, then give user message
-			else if (!result && isForm) {
+			else if (!emailValidationTest && isForm) {
 				global.emailInput.addClass("invalid");
 				global.emailFeedback.show("fast").text("Email Address must be valid.");
 			}
 			//else remove feedback message
-			else if (email.trim() !== "" && result) {
+			else if (email.trim() !== "" && emailValidationTest) {
 				global.emailInput.removeClass("invalid");
 				global.emailInput.addClass("valid");
 				global.emailFeedback.hide("fast");
