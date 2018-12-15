@@ -18,10 +18,22 @@ class Site {
 
 	private static $VALID_NAV_TINTS = ['dark', 'light'];
 
+	/**
+	 * Return this projects root directory
+	 *
+	 * @return string
+	 */
 	public static function getProjectRoot() {
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
 
+	/**
+	 * Helper function to tidy up page id
+	 * and remove any non alpha text
+	 *
+	 * @param $pageId
+	 * @return string|string[]|null
+	 */
 	private static function formatPageId($pageId) {
 		$pageIdFormatted = trim($pageId);
 		$pageIdFormatted = strtolower($pageIdFormatted);
@@ -30,6 +42,12 @@ class Site {
 		return $pageIdFormatted;
 	}
 
+	/**
+	 * Generate pageId using page Title
+	 *
+	 * @param $title string
+	 * @return string
+	 */
 	private static function generatePageIdFromTitle($title) {
 		$pageId = self::formatPageId($title);
 
