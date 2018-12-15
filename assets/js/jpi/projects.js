@@ -40,7 +40,7 @@ window.jpi.projects = (function (jQuery) {
 							skillElem.className += " searched";
 						}
 					}
-					
+
 					if (search.trim() === "" || skill.toLowerCase() !== search.toLowerCase()) {
 						skillElem.className += " js-searchable-skill";
 					}
@@ -257,7 +257,7 @@ window.jpi.projects = (function (jQuery) {
 
 			var page = jQuery(".js-projects-page").val();
 			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
-			
+
 			var search = jQuery(".search-form__input").val();
 
 			var query = {
@@ -349,7 +349,7 @@ window.jpi.projects = (function (jQuery) {
 		//set up page
 		initListeners: function () {
 			jQuery(".search-form").on("submit", fn.doSearch);
-			
+
 			jQuery("body").on("click", ".skill", function (e) {
 				e.preventDefault();
 			});

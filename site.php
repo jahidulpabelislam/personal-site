@@ -208,7 +208,7 @@ class Site {
 		$endpoint = self::addTrailingSlash($endpoint);
 		echo $endpoint;
 	}
-	
+
 	/**
 	 * @param $url string The url to add slash to
 	 * @return string The new url

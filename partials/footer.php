@@ -9,7 +9,7 @@
 				</section>
 			</div>
 		</main>
-	
+
 		<!-- Footer for site -->
 		<footer class="footer">
 			<div class="container">

@@ -21,13 +21,13 @@ Site::echoConfig();
 							<img src="/assets/images/logo-inverted.png?v=2" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
 						</div>
 					</div>
-	
+
 					<div class="article home__intro-wrapper">
 						<div class="container">
 							<p>Welcome to my portfolio, thanks for clicking on my website!</p>
 						</div>
 					</div>
-	
+
 					<div class="article">
 						<div class="container">
 							<p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
@@ -36,7 +36,7 @@ Site::echoConfig();
 							<p>Reside in <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the South Coast of England.</p>
 						</div>
 					</div>
-					
+
 					<div class="article">
 						<div class="container">
 							<p>Here you will be able to look at all the <a href="<?php Site::echoURL("projects"); ?>" class="link-styled" >work</a> I have done over the last 6 years, <a href="<?php Site::echoURL("about"); ?>" class="link-styled" >learn about me</a>, and <a href="<?php Site::echoURL("contact"); ?>" class="link-styled" >contact me</a> for any enquiries or to provide any feedback.</p>
@@ -143,7 +143,7 @@ Site::echoConfig();
 				<script type="text/template" id="tmpl-slide-bullet-template">
 					<label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></label>
 				</script>
-	
+
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};

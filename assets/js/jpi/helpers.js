@@ -44,7 +44,7 @@ window.jpi.helpers = (function (jQuery) {
 
 			return elem;
 		},
-		
+
 		getCookie: function (key) {
 			key += "=";
 

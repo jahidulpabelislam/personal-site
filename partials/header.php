@@ -14,10 +14,10 @@
 				</div>
 				<div class="nav__links-container">
 					<ul class="nav__links">
-						
+
 						<?php
 						$links = ["Projects", "Contact", "About",];
-						
+
 						foreach ($links as $link) {
 							$url = strtolower($link);
 							$url = Site::getURL($url);

@@ -43,7 +43,7 @@ window.jpi.cookieBanner = (function (jQuery) {
 				}
 			}
 		},
-		
+
 		initDisplayOfBanner: function () {
 			var hasClosedBefore = fn.getHasClosedBannerBefore();
 			if (hasClosedBefore) {

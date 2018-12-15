@@ -25,24 +25,24 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 						</div>
 						<div class="article__half">
 							<p>My name is Jahidul Pabel Islam.</p>
-							
+
 							<?php
 							date_default_timezone_set("Europe/London");
 
 							// Generate DateTime from my date of birth
 							$dob = "22/02/1996";
 							$dobDate = DateTime::createFromFormat("d/m/Y", $dob);
-						
+
 							// Today's DateTime
 							$today = new DateTime();
 
 							// Work out the time difference from both dates
 							$diff = $today->diff($dobDate, true);
-							
+
 							// Get the number of years different
 							$yearsDiff = $diff->format("%y");
 							?>
-							
+
 							<p>I'm <?php echo $yearsDiff; ?> years old.</p>
 							<p>A Full Stack Web and Software Developer.</p>
 						</div>
@@ -282,7 +282,7 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				</div>
 
 				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg"></script>
-	
+
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};

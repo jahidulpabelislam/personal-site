@@ -4,14 +4,14 @@ window.jpi.main = (function (jQuery) {
 	"use strict";
 
 	var fn = {
-		
+
 		initBognorRegisMap: function () {
 			var bognorRegisLat = 50.78420;
 			var bognorRegisLng = -0.67400;
-			
+
 			var bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng);
 			var zoomLevel = 12;
-			
+
 			var map = new google.maps.Map(jQuery(".js-bognor-regis-map")[0], {
 				center: bognorRegisLocation,
 				zoom: zoomLevel,
@@ -23,12 +23,12 @@ window.jpi.main = (function (jQuery) {
 				fullscreenControl: false,
 				styles: jpi.config.googleMapStyles
 			});
-			
+
 			var bognorRegisMarker = new google.maps.Marker({
 				position: bognorRegisLocation,
 				map: map
 			});
-			
+
 			google.maps.event.addDomListener(window, "resize", function () {
 				map.setCenter(bognorRegisLocation);
 			});
@@ -82,7 +82,7 @@ window.jpi.main = (function (jQuery) {
 		init: function () {
 			fn.initListeners();
 			fn.initCounters();
-			
+
 			if (jQuery(".js-bognor-regis-map").length > 0) {
 				google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
 			}

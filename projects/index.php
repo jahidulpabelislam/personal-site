@@ -42,7 +42,7 @@ Site::echoConfig();
 						<i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
 						<div class="projects js-all-projects"></div>
 						<ul class="pagination pagination--projects"></ul>
-						
+
 						<input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
 					</div>
 				</section>
@@ -75,7 +75,7 @@ Site::echoConfig();
 						</div>
 
 						<div class="expanded-slide-show__bullets"></div>
-						
+
 						<p class="expanded-slide-show__counter">
 							<span class="js-expanded-slide-show-current-count"></span>
 							<span>/</span>
@@ -133,7 +133,7 @@ Site::echoConfig();
 				<script type="text/template" id="tmpl-slide-bullet-template">
 					<label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{id}}"></label>
 				</script>
-	
+
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
