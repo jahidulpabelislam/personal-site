@@ -40,7 +40,7 @@ class Site {
 	 * Include the common config file for page/site
 	 */
 	public static function echoConfig() {
-		include self::getProjectRoot() . "/config.php";
+		include_once(self::getProjectRoot() . "/config.php");
 	}
 
 	/**
@@ -57,7 +57,7 @@ class Site {
 
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-		include self::getProjectRoot() . "/partials/head.php";
+		include_once(self::getProjectRoot() . "/partials/head.php");
 	}
 
 	/**
@@ -78,28 +78,28 @@ class Site {
 
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-		include self::getProjectRoot() . "/partials/header.php";
+		include_once(self::getProjectRoot() . "/partials/header.php");
 	}
 
 	/**
 	 * Include the common favicons content for page/site
 	 */
 	public static function echoFavicons() {
-		include self::getProjectRoot() . "/partials/favicons.php";
+		include_once(self::getProjectRoot() . "/partials/favicons.php");
 	}
 
 	/**
 	 * Include the common footer content for page/site
 	 */
 	public static function echoFooter() {
-		include self::getProjectRoot() . "/partials/footer.php";
+		include_once(self::getProjectRoot() . "/partials/footer.php");
 	}
 
 	/**
 	 * Include the common cookie banner content for page/site
 	 */
 	public static function echoCookieBanner() {
-		include self::getProjectRoot() . "/partials/cookie-banner.php";
+		include_once(self::getProjectRoot() . "/partials/cookie-banner.php");
 	}
 
 	/**

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
+include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
 $headTitle = $headerTitle = "Privacy Policy";
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"] . "/site.php";
+include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
 $headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
