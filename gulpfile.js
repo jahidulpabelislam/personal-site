@@ -12,6 +12,9 @@ var exec = require("child_process").exec;
 // Concatenate & Minify JS
 var scripts = {
 	main: [
+		"assets/js/third-party/jquery.min.js",
+		"assets/js/third-party/waypoint.min.js",
+		"assets/js/third-party/jquery.countTo.js",
 		"assets/js/jpi/expandedSlideShow.js",
 		"assets/js/jpi/slideShow.js",
 		"assets/js/jpi/helpers.js",
@@ -20,8 +23,6 @@ var scripts = {
 		"assets/js/jpi/home.js",
 		"assets/js/jpi/form.js",
 		"assets/js/jpi/stickyFooter.js",
-		"assets/js/third-party/waypoint.min.js",
-		"assets/js/third-party/jquery.countTo.js",
 		"assets/js/jpi/nav.js",
 		"assets/js/jpi/cookieBanner.js",
 		"assets/js/jpi/main.js"

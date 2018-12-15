@@ -7,9 +7,9 @@ $headTitle = "Social Media Links";
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 Site::echoHTMLHead($headTitle, $headDesc, $pageId);
 ?>
+
 		<main class="main-content social-links-page">
 			<div class="container">
-
 				<div class="social-link-container">
 					<a href="https://facebook.com/jahidulpabelislam/" class="social-link" target="_blank">
 						<img src="/assets/images/facebook.svg?v=1" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
@@ -58,13 +58,11 @@ Site::echoHTMLHead($headTitle, $headDesc, $pageId);
 						<p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
 					</a>
 				</div>
-
 			</div>
 		</main>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+		<!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
+		<script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
 		<script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
 	</body>
-
 </html>

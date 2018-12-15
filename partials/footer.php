@@ -37,9 +37,6 @@
 		Site::echoCookieBanner();
 		?>
 
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 		<?php // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified ?>
 		<?php if (!Site::isDebug()) {
 			?>
@@ -50,6 +47,9 @@
 		else {
 			?>
 			<!-- All individual js files for site as debug is specified -->
+			<script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
+			<script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
+			<script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
@@ -58,8 +58,6 @@
 			<script src="/assets/js/jpi/home.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
-			<script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
-			<script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/cookieBanner.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
