@@ -26,6 +26,7 @@
 		}
 		?>
 
+		<!-- All meta data for page -->
 		<?php
 		$title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
 		if ($pageId === "home") {

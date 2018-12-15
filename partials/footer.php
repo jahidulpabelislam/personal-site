@@ -9,13 +9,12 @@
 				</section>
 			</div>
 		</main>
-
+	
+		<!-- Footer for site -->
 		<footer class="footer">
-
 			<div class="container">
-
 				<div class="footer__version">
-					<?php echo file_get_contents(Site::getProjectRoot() . "/assets/version.txt") . PHP_EOL; ?>
+					<p><?php echo file_get_contents(Site::getProjectRoot() . "/assets/version.txt") . PHP_EOL; ?></p>
 				</div>
 
 				<div class="footer__links">
@@ -29,9 +28,8 @@
 
 				<div class="footer__legal">
 					<?php date_default_timezone_set("Europe/London"); ?>
-					<p>&copy; Jahidul Pabel Islam <?php echo date("Y"); ?> All Rights Reserved</p>
+					<p>&copy; Jahidul Pabel Islam 2014-<?php echo date("y"); ?> All Rights Reserved</p>
 				</div>
-
 			</div>
 		</footer>
 
@@ -39,16 +37,19 @@
 		Site::echoCookieBanner();
 		?>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<?php if (!isset($_GET["debug"])) {
+		<?php // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified ?>
+		<?php if (!Site::isDebug()) {
 			?>
+			<!-- Compiled project & libraries js files -->
 			<script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
 			<?php
 		}
-		else { ?>
+		else {
+			?>
+			<!-- All individual js files for site as debug is specified -->
 			<script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
 			<script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>

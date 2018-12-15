@@ -1,4 +1,4 @@
-
+		<!-- Navigation for site -->
 		<nav class="nav nav--<?php echo $navTint; ?>">
 			<div class="container nav__container">
 				<div class="nav__header">
@@ -62,6 +62,7 @@
 			</div>
 		</header>
 
+		<!-- Main content for page -->
 		<main class="main-content">
 			<div class="main-content__inner">
 				<!-- Start dynamic content for page -->
