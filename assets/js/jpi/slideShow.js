@@ -89,11 +89,11 @@ window.jpi.slideShow = (function (jQuery) {
 
 			if (id == "#slide-show--home") {
 				var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
-				var regx = new RegExp("slide-show__nav--\\w*", 'g');
+				var regx = new RegExp("slide-show__nav--\\w*", "g");
 
 				jQuery(id + " .slide-show__nav").each(function () {
 					var classList = jQuery(this).attr("class");
-					classList = classList.replace(regx, 'slide-show__nav--' + colour);
+					classList = classList.replace(regx, "slide-show__nav--" + colour);
 					jQuery(this).attr("class", classList);
 				});
 			}

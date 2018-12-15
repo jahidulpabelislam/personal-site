@@ -103,7 +103,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
+  content: "\00a0";
   content: none; }
 
 table {
@@ -169,7 +169,7 @@ body {
   line-height: 24px;
   font-weight: 700;
   margin: 12px 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   width: 100%; }
 
 .article__header.article__header--no-padding {
@@ -183,7 +183,7 @@ body {
   line-height: 18px;
   font-weight: 700;
   margin: 8px 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   width: 100%; }
 
 p {
@@ -251,8 +251,8 @@ img {
 */
 /* For all devices */
 body {
-  font: 400 14px 'Cabin', sans-serif;
-  font-family: 'Cabin', sans-serif;
+  font: 400 14px "Cabin", sans-serif;
+  font-family: "Cabin", sans-serif;
   font-size: 14px;
   line-height: 18px;
   color: #333; }

@@ -43,7 +43,7 @@ if ($meta["ok"]) {
 	$headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
 
 	//the address to send mail to
-	$to = 'jahidul.pabel.islam@hotmail.com';
+	$to = "jahidul.pabel.islam@hotmail.com";
 
 	//try to send email
 	if (mail($to, $subject, $message, $headers)) {

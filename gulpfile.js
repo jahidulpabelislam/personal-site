@@ -4,10 +4,10 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var cleanCss = require("gulp-clean-css");
 var autoprefixer = require("gulp-autoprefixer");
-var sass = require('gulp-sass');
+var sass = require("gulp-sass");
 
-var fs = require('fs');
-var exec = require('child_process').exec;
+var fs = require("fs");
+var exec = require("child_process").exec;
 
 // Concatenate & Minify JS
 var scripts = {
@@ -61,15 +61,15 @@ stylesheetNames.forEach(function (key) {
 });
 gulp.task("styles", ["styles-main"]);
 
-gulp.task('sass', function () {
-	return gulp.src('assets/css/style.scss')
-            .pipe(sass().on('error', sass.logError))
-			.pipe(gulp.dest('assets/css/'));
+gulp.task("sass", function () {
+	return gulp.src("assets/css/style.scss")
+            .pipe(sass().on("error", sass.logError))
+			.pipe(gulp.dest("assets/css/"));
 });
 
 // Watch Files For Changes
-gulp.task('watch', function () {
-	gulp.watch('assets/css/**/*.scss', ['sass']);
+gulp.task("watch", function () {
+	gulp.watch("assets/css/**/*.scss", ["sass"]);
 });
 
 gulp.task("store-version", function () {
@@ -103,7 +103,7 @@ gulp.task("store-version", function () {
 			// Try and get the latest tag on current branch
 			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
 
-				var versionText = '';
+				var versionText = "";
 
 				// If found store in text file
 				if (tagName && tagName !== "null") {
