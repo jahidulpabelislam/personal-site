@@ -16,7 +16,7 @@ class Site {
 
 	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-	private static $VALID_NAV_TINTS = array("dark", "light",);
+	private static $VALID_NAV_TINTS = ["dark", "light",];
 
 	/**
 	 * Return this projects root directory

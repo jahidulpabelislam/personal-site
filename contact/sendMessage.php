@@ -1,7 +1,7 @@
 <?php
 
 //get the data from request
-$data = array();
+$data = [];
 foreach ($_REQUEST as $key => $value) {
 	$data[$key] = stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING))));
 }

@@ -45,7 +45,7 @@
 			$localURL .= "$pageId/";
 		}
 
-		$indexedPages = array(
+		$indexedPages = [
 			"home",
 			"projects",
 			"contact",
@@ -53,7 +53,7 @@
 			"links",
 			"privacy-policy",
 			"site-map",
-		);
+		];
 
 		if (in_array($pageId, $indexedPages) && $environment === "production") {
 			echo "<link rel='canonical' href='$liveURl'/>";
