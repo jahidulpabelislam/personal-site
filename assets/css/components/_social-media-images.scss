@@ -1,141 +1,141 @@
 /* For all devices */
 .social-link__img {
-	height: 40px;
-	background-color: black;
-	opacity: 1;
+    height: 40px;
+    background-color: black;
+    opacity: 1;
 }
 
 .social-link__text {
-	color: $dark;
-	font-weight: 700;
-	transition: all .3s ease-in-out;
-	display: inline-block;
+    color: $dark;
+    font-weight: 700;
+    transition: all .3s ease-in-out;
+    display: inline-block;
 }
 
 .social-link__img--email {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 .social-link:hover .social-link__img--email {
-	background-color: $email;
+    background-color: $email;
 }
 
 .social-link:hover .social-link__text--email {
-	color: $email;
-	text-decoration: underline;
+    color: $email;
+    text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--linkedin {
-	background-color: $linkedin;
+    background-color: $linkedin;
 }
 
 .social-link:hover .social-link__text--linkedin {
-	color: $linkedin;
-	text-decoration: underline;
+    color: $linkedin;
+    text-decoration: underline;
 }
 
 .social-link__img--github {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 .social-link:hover .social-link__img--github {
-	background-color: $github;
+    background-color: $github;
 }
 
 .social-link:hover .social-link__text--github {
-	color: $github;
-	text-decoration: underline;
+    color: $github;
+    text-decoration: underline;
 }
 
 .social-link:hover .social-link__text--instagram {
-	color: $instagram-purple;
-	text-decoration: underline;
+    color: $instagram-purple;
+    text-decoration: underline;
 }
 
 //Based on styling from https://codepen.io/anon/pen/xdXNjw
 .social-link__img--instagram {
-	position: relative;
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	border-radius: 8.88px;
-	background: black;
-	vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 8.88px;
+    background: black;
+    vertical-align: middle;
 }
 
 .social-link:hover .social-link__img--instagram {
-	background: radial-gradient(circle farthest-corner at 32% 106%, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), linear-gradient(135deg, #234bd7 12%, #c33cbe 58%);
-	box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+    background: radial-gradient(circle farthest-corner at 32% 106%, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), linear-gradient(135deg, #234bd7 12%, #c33cbe 58%);
+    box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
 }
 
 .social-link__img--instagram i {
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	position: absolute;
-	width: 29.44px;
-	height: 29.44px;
-	border: 2.72px solid white;
-	border-radius: 8.33px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    width: 29.44px;
+    height: 29.44px;
+    border: 2.72px solid white;
+    border-radius: 8.33px;
 }
 
 .social-link__img--instagram i::before {
-	content: "\00a0";
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
-	position: absolute;
-	width: 15.22px;
-	height: 15.22px;
-	border: 2.72px solid white;
-	border-radius: 7.61px;
+    content: "\00a0";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    width: 15.22px;
+    height: 15.22px;
+    border: 2.72px solid white;
+    border-radius: 7.61px;
 }
 
 .social-link__img--instagram i::after {
-	content: "\00a0";
-	top: 2.38px;
-	right: 2.38px;
-	position: absolute;
-	width: 3.55px;
-	height: 3.55px;
-	background: white;
-	border-radius: 1.77px;
+    content: "\00a0";
+    top: 2.38px;
+    right: 2.38px;
+    position: absolute;
+    width: 3.55px;
+    height: 3.55px;
+    background: white;
+    border-radius: 1.77px;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-	.social-link__img {
-		height: 50px;
-	}
+    .social-link__img {
+        height: 50px;
+    }
 
-	.social-link__img--instagram {
-		width: 50px;
-		border-radius: 11.11px;
-	}
+    .social-link__img--instagram {
+        width: 50px;
+        border-radius: 11.11px;
+    }
 
-	.social-link__img--instagram i {
-		width: 36.81px;
-		height: 36.81px;
-		border: 3.4px solid white;
-		border-radius: 10.42px;
-	}
+    .social-link__img--instagram i {
+        width: 36.81px;
+        height: 36.81px;
+        border: 3.4px solid white;
+        border-radius: 10.42px;
+    }
 
-	.social-link__img--instagram i::before {
-		width: 19.03px;
-		height: 19.03px;
-		border: 3.4px solid white;
-		border-radius: 9.51px;
-	}
+    .social-link__img--instagram i::before {
+        width: 19.03px;
+        height: 19.03px;
+        border: 3.4px solid white;
+        border-radius: 9.51px;
+    }
 
-	.social-link__img--instagram i::after {
-		top: 2.99px;
-		right: 2.99px;
-		width: 4.44px;
-		height: 4.44px;
-		border-radius: 2.22px;
-	}
+    .social-link__img--instagram i::after {
+        top: 2.99px;
+        right: 2.99px;
+        width: 4.44px;
+        height: 4.44px;
+        border-radius: 2.22px;
+    }
 }

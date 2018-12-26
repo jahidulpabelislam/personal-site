@@ -13,18 +13,18 @@ $navTint = "light";
 $site->echoHeader($headerTitle, $headerDesc, "", $navTint);
 ?>
 
-				<div class="article article--halved">
-					<div class="container">
-						<div class="article__half">
-							<img src="/assets/images/oops.png?v=2" alt="Road sign with the words oops" class="error__img">
-						</div>
+                <div class="article article--halved">
+                    <div class="container">
+                        <div class="article__half">
+                            <img src="/assets/images/oops.png?v=2" alt="Road sign with the words oops" class="error__img">
+                        </div>
 
-						<div class="article__half">
-							<p>The server couldn't follow your request and can not displayed content.</p>
-							<p>Either refresh the page or try again later.</p>
-							<p>If not it's not you, nor me, its the sysadmin guy (ME!)!</p>
-						</div>
-					</div>
-				</div>
+                        <div class="article__half">
+                            <p>The server couldn't follow your request and can not displayed content.</p>
+                            <p>Either refresh the page or try again later.</p>
+                            <p>If not it's not you, nor me, its the sysadmin guy (ME!)!</p>
+                        </div>
+                    </div>
+                </div>
 
 <?php $site->echoFooter();

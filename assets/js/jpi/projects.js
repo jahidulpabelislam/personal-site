@@ -3,410 +3,409 @@
 window.jpi = window.jpi || {};
 window.jpi.projects = (function(jQuery) {
 
-	"use strict";
-
-	// Grabs elements for later use
-	var global = {
-		url: new URL(window.location),
-		titleStart: "Projects",
-		titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer"
-	};
-
-	var fn = {
-		// Prints out a error message provided
-		renderError: function(error) {
-			jQuery(".feedback--error").text(error).show("fast");
-			jQuery(".projects__loading-img, .pagination").text("").hide("fast");
-			jpi.footer.delayExpand();
-		},
-
-		addSkills: function(project, divID) {
-			var skills = project.skills.split(","),
-
-				skillsContainer = jQuery(divID + " .project__skills")[0],
-				search = jQuery(".search-form__input").val(),
-				searches = search.split(" ");
-
-			for (var i = 0; i < skills.length; i++) {
-				var skill = skills[i];
-				if (skill.trim() !== "") {
-
-					var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
-						innerHTML: skill,
-						class: "skill skill--" + project.colour,
-						href: "/projects/" + skill + "/"
-					});
-
-					for (var j = 0; j < searches.length; j++) {
-						if (searches[j].trim() !== "" && skill.toLowerCase().includes(searches[j].toLowerCase())) {
-							skillElem.className += " searched";
-						}
-					}
-
-					if (search.trim() === "" || skill.toLowerCase() !== search.toLowerCase()) {
-						skillElem.className += " js-searchable-skill";
-					}
-				}
-			}
-		},
-
-		addLinks: function(project, divID) {
-			var linksp = jQuery(divID + " .project__links")[0];
-
-			if (project.link) {
-				jpi.helpers.createElement(linksp, "a", {
-					href: project.link,
-					title: "Link to " + project.name + " Site",
-					target: "_blank",
-					innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
-					class: "project__link project__link--" + project.colour
-				});
-			}
-
-			if (project.download) {
-				jpi.helpers.createElement(linksp, "a", {
-					href: project.download,
-					title: "Link to Download " + project.name,
-					target: "_blank",
-					innerHTML: "<i class='fa fa-download fa-2x'></i>",
-					class: "project__link project__link--" + project.colour
-				});
-			}
-
-			jpi.helpers.createElement(linksp, "a", {
-				href: project.github,
-				title: "Link to " + project.name + "  Code On GitHub",
-				target: "_blank",
-				innerHTML: "<i class='fa fa-github fa-2x'></i>",
-				class: "project__link project__link--" + project.colour
-			});
-		},
-
-		addProjectImages: function(project, slideShowId) {
-			var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
-				slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
-
-			// Loop through each row of data in rows
-			for (var i = 0; i < project.images.length; i++) {
-
-				if (project.images.hasOwnProperty(i)) {
-
-					var slideTemplate = jQuery("#tmpl-slide-template").text();
-					var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
-
-					for (var data in project.images[i]) {
-						if (project.images[i].hasOwnProperty(data)) {
-							if (typeof data === "string") {
-								var reg = new RegExp("{{" + data + "}}", "g");
-								slideTemplate = slideTemplate.replace(reg, project.images[i][data]);
-								bulletTemplate = bulletTemplate.replace(reg, project.images[i][data]);
-							}
-						}
-					}
-					var colourReg = new RegExp("{{colour}}", "g");
-					slideTemplate = slideTemplate.replace(colourReg, project.colour);
-					bulletTemplate = bulletTemplate.replace(colourReg, project.colour);
+    "use strict";
+
+    // Grabs elements for later use
+    var global = {
+        url: new URL(window.location),
+        titleStart: "Projects",
+        titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer"
+    };
+
+    var fn = {
+        // Prints out a error message provided
+        renderError: function(error) {
+            jQuery(".feedback--error").text(error).show("fast");
+            jQuery(".projects__loading-img, .pagination").text("").hide("fast");
+            jpi.footer.delayExpand();
+        },
+
+        addSkills: function(project, divID) {
+            var skills = project.skills.split(","),
+                skillsContainer = jQuery(divID + " .project__skills")[0],
+                search = jQuery(".search-form__input").val(),
+                searches = search.split(" ");
+
+            for (var i = 0; i < skills.length; i++) {
+                var skill = skills[i];
+                if (skill.trim() !== "") {
+
+                    var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
+                        innerHTML: skill,
+                        class: "skill skill--" + project.colour,
+                        href: "/projects/" + skill + "/"
+                    });
+
+                    for (var j = 0; j < searches.length; j++) {
+                        if (searches[j].trim() !== "" && skill.toLowerCase().includes(searches[j].toLowerCase())) {
+                            skillElem.className += " searched";
+                        }
+                    }
+
+                    if (search.trim() === "" || skill.toLowerCase() !== search.toLowerCase()) {
+                        skillElem.className += " js-searchable-skill";
+                    }
+                }
+            }
+        },
+
+        addLinks: function(project, divID) {
+            var linksp = jQuery(divID + " .project__links")[0];
+
+            if (project.link) {
+                jpi.helpers.createElement(linksp, "a", {
+                    href: project.link,
+                    title: "Link to " + project.name + " Site",
+                    target: "_blank",
+                    innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
+                    class: "project__link project__link--" + project.colour
+                });
+            }
+
+            if (project.download) {
+                jpi.helpers.createElement(linksp, "a", {
+                    href: project.download,
+                    title: "Link to Download " + project.name,
+                    target: "_blank",
+                    innerHTML: "<i class='fa fa-download fa-2x'></i>",
+                    class: "project__link project__link--" + project.colour
+                });
+            }
+
+            jpi.helpers.createElement(linksp, "a", {
+                href: project.github,
+                title: "Link to " + project.name + "  Code On GitHub",
+                target: "_blank",
+                innerHTML: "<i class='fa fa-github fa-2x'></i>",
+                class: "project__link project__link--" + project.colour
+            });
+        },
+
+        addProjectImages: function(project, slideShowId) {
+            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
+                slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
+
+            // Loop through each row of data in rows
+            for (var i = 0; i < project.images.length; i++) {
+
+                if (project.images.hasOwnProperty(i)) {
+
+                    var slideTemplate = jQuery("#tmpl-slide-template").text();
+                    var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+
+                    for (var data in project.images[i]) {
+                        if (project.images[i].hasOwnProperty(data)) {
+                            if (typeof data === "string") {
+                                var reg = new RegExp("{{" + data + "}}", "g");
+                                slideTemplate = slideTemplate.replace(reg, project.images[i][data]);
+                                bulletTemplate = bulletTemplate.replace(reg, project.images[i][data]);
+                            }
+                        }
+                    }
+                    var colourReg = new RegExp("{{colour}}", "g");
+                    slideTemplate = slideTemplate.replace(colourReg, project.colour);
+                    bulletTemplate = bulletTemplate.replace(colourReg, project.colour);
 
-					var idReg = new RegExp("{{Slide-Show-ID}}", "g");
-					bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
+                    var idReg = new RegExp("{{Slide-Show-ID}}", "g");
+                    bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
 
-					slidesContainer.append(slideTemplate);
-					slideShowBullets.append(bulletTemplate);
-				}
-			}
+                    slidesContainer.append(slideTemplate);
+                    slideShowBullets.append(bulletTemplate);
+                }
+            }
 
-			if (project.images.length > 0) {
-				jpi.slideShow.setUp(slideShowId);
-			}
-		},
+            if (project.images.length > 0) {
+                jpi.slideShow.setUp(slideShowId);
+            }
+        },
 
-		openProjectsExpandModal: function() {
-			var project = jQuery(this).attr("data-projectData");
+        openProjectsExpandModal: function() {
+            var project = jQuery(this).attr("data-projectData");
 
-			jQuery(".detailed-project").addClass("open").show();
-			document.body.style.overflow = "hidden";
+            jQuery(".detailed-project").addClass("open").show();
+            document.body.style.overflow = "hidden";
 
-			// Stops all the slide shows
-			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+            // Stops all the slide shows
+            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-			jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
+            jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
 
-			jQuery(".detailed-project .project__title").text(project.name);
-			jQuery(".detailed-project .project__date").text(project.date);
+            jQuery(".detailed-project .project__title").text(project.name);
+            jQuery(".detailed-project .project__date").text(project.date);
 
-			fn.addSkills(project, ".detailed-project");
+            fn.addSkills(project, ".detailed-project");
 
-			jQuery(".detailed-project .project__description").html(project.long_description);
+            jQuery(".detailed-project .project__description").html(project.long_description);
 
-			fn.addLinks(project, ".detailed-project");
+            fn.addLinks(project, ".detailed-project");
 
-			fn.addProjectImages(project, "#detailed-project__slide-show");
+            fn.addProjectImages(project, "#detailed-project__slide-show");
 
-			var regx = new RegExp("slide-show__nav--\\w*", "g");
+            var regx = new RegExp("slide-show__nav--\\w*", "g");
 
-			jQuery(".detailed-project .slide-show__nav").each(function() {
-				var classList = jQuery(this).attr("class");
-				classList = classList.replace(regx, "slide-show__nav--" + project.colour);
-				jQuery(this).attr("class", classList);
-			});
-		},
+            jQuery(".detailed-project .slide-show__nav").each(function() {
+                var classList = jQuery(this).attr("class");
+                classList = classList.replace(regx, "slide-show__nav--" + project.colour);
+                jQuery(this).attr("class", classList);
+            });
+        },
 
-		closeProjectsExpandModal: function(event) {
-			if (!jQuery(event.target).closest(".modal__content").length && jQuery(".detailed-project").hasClass("open")) {
+        closeProjectsExpandModal: function(event) {
+            if (!jQuery(event.target).closest(".modal__content").length && jQuery(".detailed-project").hasClass("open")) {
 
-				jQuery(".detailed-project").removeClass("open").hide();
+                jQuery(".detailed-project").removeClass("open").hide();
 
-				document.body.style.overflow = "auto";
+                document.body.style.overflow = "auto";
 
-				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
-				jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
+                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
+                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
 
-				jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
+                jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
 
-				clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
+                clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
 
-				jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
+                jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
 
-				jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
-			}
-		},
+                jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
+            }
+        },
 
-		// Renders a single project
-		renderProject: function(project) {
+        // Renders a single project
+        renderProject: function(project) {
 
-			if (!document.getElementById("project--" + project.id)) {
+            if (!document.getElementById("project--" + project.id)) {
 
-				var template = jQuery("#tmpl-project-template").text();
+                var template = jQuery("#tmpl-project-template").text();
 
-				for (var data in project) {
-					if (project.hasOwnProperty(data)) {
-						if (typeof data === "string") {
-							var reg = new RegExp("{{" + data + "}}", "g");
-							template = template.replace(reg, project[data]);
-						}
-					}
-				}
-				jQuery(".projects").append(template);
+                for (var data in project) {
+                    if (project.hasOwnProperty(data)) {
+                        if (typeof data === "string") {
+                            var reg = new RegExp("{{" + data + "}}", "g");
+                            template = template.replace(reg, project[data]);
+                        }
+                    }
+                }
+                jQuery(".projects").append(template);
 
-				fn.addSkills(project, "#project--" + project.id);
-				fn.addLinks(project, "#project--" + project.id);
-				fn.addProjectImages(project, "#slide-show--" + project.id);
+                fn.addSkills(project, "#project--" + project.id);
+                fn.addLinks(project, "#project--" + project.id);
+                fn.addProjectImages(project, "#slide-show--" + project.id);
 
-				jQuery("#project--" + project.id + " .js-open-modal").attr("data-projectData", project);
-			}
+                jQuery("#project--" + project.id + " .js-open-modal").attr("data-projectData", project);
+            }
 
-			jpi.footer.delayExpand();
-		},
+            jpi.footer.delayExpand();
+        },
 
-		scrollToProjects: function() {
-			var projectsPos = jQuery(".projects").offset().top,
-				navHeight = jQuery(".nav").height();
+        scrollToProjects: function() {
+            var projectsPos = jQuery(".projects").offset().top,
+                navHeight = jQuery(".nav").height();
 
-			jQuery("html, body").animate({
-				scrollTop: projectsPos - navHeight - 20
-			}, 2000);
-		},
+            jQuery("html, body").animate({
+                scrollTop: projectsPos - navHeight - 20
+            }, 2000);
+        },
 
-		// Adds pagination buttons/elements to the page
-		addPagination: function(count) {
-			if ((parseInt(count)) > 10) {
+        // Adds pagination buttons/elements to the page
+        addPagination: function(count) {
+            if ((parseInt(count)) > 10) {
 
-				var page = 1,
-					ul = jQuery(".pagination")[0];
+                var page = 1,
+                    ul = jQuery(".pagination")[0];
 
-				var currentPage = jQuery(".js-projects-page").val();
-				currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
+                var currentPage = jQuery(".js-projects-page").val();
+                currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
 
-				for (var i = 0; i < count; i += 10, page++) {
-					var attributes = {class: "pagination__item"};
+                for (var i = 0; i < count; i += 10, page++) {
+                    var attributes = {class: "pagination__item"};
 
-					var item = jpi.helpers.createElement(ul, "li", attributes);
+                    var item = jpi.helpers.createElement(ul, "li", attributes);
 
-					var url = fn.getNewURL(page);
+                    var url = fn.getNewURL(page);
 
-					url += global.url.search;
+                    url += global.url.search;
 
-					attributes = {innerHTML: page, class: "pagination__item-link js-pagination-item", "data-page": page, href: url};
-					if (page === currentPage) {
-						attributes.class = "pagination__item-link active";
-					}
-					jpi.helpers.createElement(item, "a", attributes);
-				}
+                    attributes = {innerHTML: page, class: "pagination__item-link js-pagination-item", "data-page": page, href: url};
+                    if (page === currentPage) {
+                        attributes.class = "pagination__item-link active";
+                    }
+                    jpi.helpers.createElement(item, "a", attributes);
+                }
 
-				jQuery(".pagination").show();
-			}
-			else {
-				jQuery(".pagination").hide();
-			}
-		},
+                jQuery(".pagination").show();
+            }
+            else {
+                jQuery(".pagination").hide();
+            }
+        },
 
-		// Sets up events when projects were received
-		gotProjects: function(response) {
-			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-			jQuery(".projects, .pagination").text("");
+        // Sets up events when projects were received
+        gotProjects: function(response) {
+            jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
+            jQuery(".projects, .pagination").text("");
 
-			// Send the data, the function to do if data is valid
-			jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
+            // Send the data, the function to do if data is valid
+            jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
 
-			if (response && response.meta && response.meta.total_count) {
-				fn.addPagination(response.meta.total_count);
-			}
+            if (response && response.meta && response.meta.total_count) {
+                fn.addPagination(response.meta.total_count);
+            }
 
-			jpi.footer.delayExpand();
-		},
+            jpi.footer.delayExpand();
+        },
 
-		getProjects: function() {
+        getProjects: function() {
 
-			var page = jQuery(".js-projects-page").val();
-			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+            var page = jQuery(".js-projects-page").val();
+            page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
 
-			var search = jQuery(".search-form__input").val();
+            var search = jQuery(".search-form__input").val();
 
-			var query = {
-				page: page,
-				search: search
-			};
+            var query = {
+                page: page,
+                search: search
+            };
 
-			// Stops all the slide shows
-			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+            // Stops all the slide shows
+            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-			// Send request to get projects for page and search
-			jpi.ajax.sendRequest({
-				method: "GET",
-				url: jpi.config.jpiAPIEndpoint + "projects/",
-				query: query,
-				load: fn.gotProjects,
-				error: fn.renderError
-			});
-		},
+            // Send request to get projects for page and search
+            jpi.ajax.sendRequest({
+                method: "GET",
+                url: jpi.config.jpiAPIEndpoint + "projects/",
+                query: query,
+                load: fn.gotProjects,
+                error: fn.renderError
+            });
+        },
 
-		getNewURL: function(page) {
-			var url = "/projects/";
+        getNewURL: function(page) {
+            var url = "/projects/";
 
-			var searchValue = jQuery(".search-form__input").val();
+            var searchValue = jQuery(".search-form__input").val();
 
-			if (searchValue.trim() !== "") {
-				url += searchValue + "/";
-			}
+            if (searchValue.trim() !== "") {
+                url += searchValue + "/";
+            }
 
-			if (page > 1) {
-				url += page + "/";
-			}
+            if (page > 1) {
+                url += page + "/";
+            }
 
-			return url;
-		},
+            return url;
+        },
 
-		getNewTitle: function(page) {
-			var title = global.titleStart;
+        getNewTitle: function(page) {
+            var title = global.titleStart;
 
-			var searchValue = jQuery(".search-form__input").val();
+            var searchValue = jQuery(".search-form__input").val();
 
-			if (searchValue.trim() !== "") {
-				title += " with " + searchValue;
-			}
+            if (searchValue.trim() !== "") {
+                title += " with " + searchValue;
+            }
 
-			if (page > 1) {
-				title += " - Page " + page;
-			}
+            if (page > 1) {
+                title += " - Page " + page;
+            }
 
-			title += global.titleEnd;
+            title += global.titleEnd;
 
-			return title;
-		},
+            return title;
+        },
 
-		storeLatestSearch: function() {
+        storeLatestSearch: function() {
 
-			var searchValue = jQuery(".search-form__input").val();
+            var searchValue = jQuery(".search-form__input").val();
 
-			var page = jQuery(".js-projects-page").val();
-			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
+            var page = jQuery(".js-projects-page").val();
+            page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
 
-			var title = fn.getNewTitle(page);
-			var url = fn.getNewURL(page);
-			global.url.pathname = url;
-			var state = {
-				search: searchValue,
-				page: page
-			};
+            var title = fn.getNewTitle(page);
+            var url = fn.getNewURL(page);
+            global.url.pathname = url;
+            var state = {
+                search: searchValue,
+                page: page
+            };
 
-			document.title = title;
-			history.pushState(state, title, global.url.toString());
+            document.title = title;
+            history.pushState(state, title, global.url.toString());
 
-			if (typeof ga !== "undefined") {
-				ga("set", "page", url);
-				ga("send", "pageview");
-			}
-		},
+            if (typeof ga !== "undefined") {
+                ga("set", "page", url);
+                ga("send", "pageview");
+            }
+        },
 
-		// Sends request when the user has done a search
-		doSearch: function() {
-			jQuery(".js-projects-page").val(1);
+        // Sends request when the user has done a search
+        doSearch: function() {
+            jQuery(".js-projects-page").val(1);
 
-			fn.storeLatestSearch();
+            fn.storeLatestSearch();
 
-			fn.getProjects();
-			return false;
-		},
+            fn.getProjects();
+            return false;
+        },
 
-		// Set up page
-		initListeners: function() {
-			jQuery(".search-form").on("submit", fn.doSearch);
+        // Set up page
+        initListeners: function() {
+            jQuery(".search-form").on("submit", fn.doSearch);
 
-			jQuery("body").on("click", ".skill", function(e) {
-				e.preventDefault();
-			});
+            jQuery("body").on("click", ".skill", function(e) {
+                e.preventDefault();
+            });
 
-			jQuery("body").on("click", ".js-searchable-skill", function(e) {
-				jQuery(".detailed-project").trigger("click");
-				jQuery(".search-form__input").val(e.target.innerHTML);
-				fn.scrollToProjects();
-				fn.doSearch();
-			});
+            jQuery("body").on("click", ".js-searchable-skill", function(e) {
+                jQuery(".detailed-project").trigger("click");
+                jQuery(".search-form__input").val(e.target.innerHTML);
+                fn.scrollToProjects();
+                fn.doSearch();
+            });
 
-			jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
-				e.preventDefault();
-				e.stopPropagation();
+            jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-				fn.scrollToProjects();
+                fn.scrollToProjects();
 
-				var page = jQuery(this).attr("data-page");
-				if (!page) {
-					page = 1;
-				}
+                var page = jQuery(this).attr("data-page");
+                if (!page) {
+                    page = 1;
+                }
 
-				jQuery(".js-projects-page").val(page);
+                jQuery(".js-projects-page").val(page);
 
-				fn.storeLatestSearch();
-				fn.getProjects();
-			});
+                fn.storeLatestSearch();
+                fn.getProjects();
+            });
 
-			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
+            jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
-			window.addEventListener("popstate", function(event) {
+            window.addEventListener("popstate", function(event) {
 
-				var page = event.state.page;
+                var page = event.state.page;
 
-				document.title = fn.getNewTitle(page);
+                document.title = fn.getNewTitle(page);
 
-				jQuery(".js-projects-page").val(page);
-				jQuery(".search-form__input").val(event.state.search);
+                jQuery(".js-projects-page").val(page);
+                jQuery(".search-form__input").val(event.state.search);
 
-				fn.scrollToProjects();
-				fn.getProjects();
-			});
+                fn.scrollToProjects();
+                fn.getProjects();
+            });
 
-			// Close the modal
-			jQuery(".detailed-project").on("click", fn.closeProjectsExpandModal);
-		},
+            // Close the modal
+            jQuery(".detailed-project").on("click", fn.closeProjectsExpandModal);
+        },
 
-		init: function() {
-			if (jQuery(".js-all-projects").length > 0) {
-				fn.initListeners();
-				fn.getProjects();
-			}
-		}
-	};
+        init: function() {
+            if (jQuery(".js-all-projects").length > 0) {
+                fn.initListeners();
+                fn.getProjects();
+            }
+        }
+    };
 
-	jQuery(document).on("ready", fn.init);
+    jQuery(document).on("ready", fn.init);
 
 }(jQuery));

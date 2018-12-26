@@ -3,7 +3,7 @@
 // Get the data from request
 $data = [];
 foreach ($_POST as $key => $value) {
-	$data[$key] = trim(stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING)))));
+    $data[$key] = trim(stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING)))));
 }
 
 // The email user provided to reply to
@@ -19,40 +19,40 @@ $subject = $data["subject"] ?? "";
 $meta["ok"] = true;
 
 if ($message === "") {
-	$meta["ok"] = false;
-	$meta["messageFeedback"] = "Message isn't provided.";
+    $meta["ok"] = false;
+    $meta["messageFeedback"] = "Message isn't provided.";
 }
 
 if ($emailAddress === "") {
-	$meta["ok"] = false;
-	$meta["emailAddressFeedback"] = "Email Address isn't provided.";
+    $meta["ok"] = false;
+    $meta["emailAddressFeedback"] = "Email Address isn't provided.";
 } // Checks if email provided is valid using REGEX
 else if (!preg_match("/\b[\w._-]+@[\w-]+.[\w]{2,}\b/im", $emailAddress)) {
-	$meta["ok"] = false;
-	$meta["emailAddressFeedback"] = "Email Address isn't valid.";
+    $meta["ok"] = false;
+    $meta["emailAddressFeedback"] = "Email Address isn't valid.";
 }
 
 if ($meta["ok"]) {
 
-	// If user didn't provide subject create a default one
-	if ($subject === "") {
-		$subject = "Portfolio Contact Form";
-	}
+    // If user didn't provide subject create a default one
+    if ($subject === "") {
+        $subject = "Portfolio Contact Form";
+    }
 
-	// Creates the headers for sending email
-	$headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
+    // Creates the headers for sending email
+    $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
 
-	// The address to send mail to
-	$to = "contact@jahidulpabelislam.com";
+    // The address to send mail to
+    $to = "contact@jahidulpabelislam.com";
 
-	// Try to send the email, check it was sent
-	if (mail($to, $subject, $message, $headers)) {
-		$meta["feedback"] = "Your message has been sent.";
-	} // Something went wrong
-	else {
-		$meta["ok"] = false;
-		$meta["feedback"] = "Something went wrong, please try again.";
-	}
+    // Try to send the email, check it was sent
+    if (mail($to, $subject, $message, $headers)) {
+        $meta["feedback"] = "Your message has been sent.";
+    } // Something went wrong
+    else {
+        $meta["ok"] = false;
+        $meta["feedback"] = "Something went wrong, please try again.";
+    }
 }
 $meta["status"] = $status = $meta["ok"] ? 200 : 500;
 $meta["message"] = $message = $meta["ok"] ? "OK" : "Internal Server Error";
