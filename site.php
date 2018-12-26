@@ -14,9 +14,9 @@
 
 class Site {
 
-	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+	const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-	private static $VALID_NAV_TINTS = ["dark", "light",];
+	const VALID_NAV_TINTS = ["dark", "light",];
 
 	private static $instance = null;
 
@@ -39,7 +39,7 @@ class Site {
 	 *
 	 * @return string
 	 */
-	public static function getProjectRoot() {
+	private static function getProjectRoot() {
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
 
@@ -108,7 +108,7 @@ class Site {
 		$pageId = trim($pageId);
 		$navTint = trim($navTint);
 
-		$navTint = (in_array($navTint, self::$VALID_NAV_TINTS)) ? $navTint : "dark";
+		$navTint = (in_array($navTint, self::VALID_NAV_TINTS)) ? $navTint : "dark";
 
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
@@ -190,7 +190,7 @@ class Site {
 	 * @return string Generate and return the LIVE domain
 	 */
 	public static function getLiveDomain() {
-		$liveDomain = self::$LIVE_DOMAIN;
+		$liveDomain = self::LIVE_DOMAIN;
 		$liveDomain = self::addTrailingSlash($liveDomain);
 		return $liveDomain;
 	}
