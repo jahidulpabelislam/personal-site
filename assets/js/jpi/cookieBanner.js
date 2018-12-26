@@ -1,5 +1,5 @@
 window.jpi = window.jpi || {};
-window.jpi.cookieBanner = (function (jQuery) {
+window.jpi.cookieBanner = (function(jQuery) {
 
 	"use strict";
 
@@ -13,22 +13,22 @@ window.jpi.cookieBanner = (function (jQuery) {
 
 	var fn = {
 
-		getHasClosedBannerBefore: function () {
+		getHasClosedBannerBefore: function() {
 			return jpi.helpers.checkCookieValue(global.cookieKey, global.bannerCookieClickedValue);
 		},
 
-		setCookie: function (){
+		setCookie: function() {
 			jpi.helpers.setCookie(global.cookieKey, global.bannerCookieClickedValue, global.bannerCookieExpirationDays);
 		},
 
-		closeBanner: function () {
-			jQuery(global.container).fadeOut(global.transitionSpeedSecs, function () {
+		closeBanner: function() {
+			jQuery(global.container).fadeOut(global.transitionSpeedSecs, function() {
 				jQuery(global.container).remove();
 			});
 			fn.setCookie();
 		},
 
-		showOrHideBanner: function () {
+		showOrHideBanner: function() {
 			var container = jQuery(global.container);
 			if (container.length > 0) {
 				var height = container.height();
@@ -44,7 +44,7 @@ window.jpi.cookieBanner = (function (jQuery) {
 			}
 		},
 
-		initDisplayOfBanner: function () {
+		initDisplayOfBanner: function() {
 			var hasClosedBefore = fn.getHasClosedBannerBefore();
 			if (hasClosedBefore) {
 				fn.setCookie();
@@ -55,8 +55,8 @@ window.jpi.cookieBanner = (function (jQuery) {
 			}
 		},
 
-		init: function () {
-			if (jQuery(global.container).length > 0 ) {
+		init: function() {
+			if (jQuery(global.container).length > 0) {
 				jQuery(window).on("scroll orientationchange resize", fn.showOrHideBanner);
 				jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
 				fn.initDisplayOfBanner();

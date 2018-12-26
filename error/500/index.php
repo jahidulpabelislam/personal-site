@@ -27,6 +27,4 @@ $site->echoHeader($headerTitle, $headerDesc, "", $navTint);
 					</div>
 				</div>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

@@ -274,11 +274,11 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple" >View My Work</a>
+							<a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">View My Work</a>
 						</div>
 
 						<div class="article__half">
-							<a href="<?php $site->echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
+							<a href="<?php $site->echoURL("contact"); ?>" class="btn btn--red">Get in Touch</a>
 						</div>
 					</div>
 				</div>
@@ -291,6 +291,4 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 					window.jpi.config.googleMapStyles =  <?php echo file_get_contents(ROOT . "/assets/map-styling.json"); ?>;
 				</script>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

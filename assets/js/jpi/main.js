@@ -1,11 +1,11 @@
 window.jpi = window.jpi || {};
-window.jpi.main = (function (jQuery) {
+window.jpi.main = (function(jQuery) {
 
 	"use strict";
 
 	var fn = {
 
-		initBognorRegisMap: function () {
+		initBognorRegisMap: function() {
 			var bognorRegisLat = 50.78420;
 			var bognorRegisLng = -0.67400;
 
@@ -29,34 +29,34 @@ window.jpi.main = (function (jQuery) {
 				map: map
 			});
 
-			google.maps.event.addDomListener(window, "resize", function () {
+			google.maps.event.addDomListener(window, "resize", function() {
 				map.setCenter(bognorRegisLocation);
 			});
 		},
 
-		count: function (options) {
+		count: function(options) {
 			var counter = jQuery(this);
 			options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
 			counter.countTo(options);
 		},
 
-		initCounters: function () {
+		initCounters: function() {
 			var counters = jQuery(".counter");
 
 			if (counters.length > 0) {
-				jQuery(".counter").waypoint(function () {
+				jQuery(".counter").waypoint(function() {
 					jQuery(".counter").each(fn.count);
 				}, {offset: "100%"});
 			}
 		},
 
-		jumpToContent: function () {
+		jumpToContent: function() {
 			jQuery("html, body").animate({
 				scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
 			}, 1000);
 		},
 
-		toggleLabelContent: function () {
+		toggleLabelContent: function() {
 			var selected = jQuery(this).children(".skills-interests__item-expand-content"); // Get the new label that was clicked
 			var selectedIcon = jQuery(this).children(".skills-interests__item-expand-icon");
 
@@ -64,7 +64,7 @@ window.jpi.main = (function (jQuery) {
 			jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
 			jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
-			//Toggle the clicked label
+			// Toggle the clicked label
 			selectedIcon.toggleClass("fa-plus");
 			selectedIcon.toggleClass("fa-minus");
 			selected.slideToggle();
@@ -73,13 +73,13 @@ window.jpi.main = (function (jQuery) {
 			jQuery(".js-expand-skill-interest").not(this).removeClass("expanded-item");
 		},
 
-		initListeners: function () {
+		initListeners: function() {
 			jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
 
 			jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
 		},
 
-		init: function () {
+		init: function() {
 			fn.initListeners();
 			fn.initCounters();
 

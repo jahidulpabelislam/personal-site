@@ -41,7 +41,7 @@ $site->echoConfig();
 
 					<div class="article">
 						<div class="container">
-							<p>Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled" >work</a> I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled" >learn about me</a>, and <a href="<?php $site->echoURL("contact"); ?>" class="link-styled" >contact me</a> for any enquiries or to provide any feedback.</p>
+							<p>Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a> I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a>, and <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide any feedback.</p>
 							<p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
 						</div>
 					</div>
@@ -152,5 +152,4 @@ $site->echoConfig();
 					window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
 				</script>
 
-<?php
-$site->echoFooter();
+<?php $site->echoFooter();

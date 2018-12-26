@@ -1,4 +1,5 @@
 <?php
+
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
 $site = Site::get();
@@ -23,6 +24,4 @@ $site->echoHeader($headerTitle, $headerDesc);
 					</div>
 				</div>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

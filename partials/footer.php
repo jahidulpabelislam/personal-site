@@ -25,8 +25,8 @@ $site = Site::get();
 
 				<div class="footer__links">
 					<p>
-						<a href="<?php $site->echoURL("site-map"); ?>" class="footer__link" >Site Map</a>
-						<a href="<?php $site->echoURL("privacy-policy"); ?>" class="footer__link" >Privacy Policy</a>
+						<a href="<?php $site->echoURL("site-map"); ?>" class="footer__link">Site Map</a>
+						<a href="<?php $site->echoURL("privacy-policy"); ?>" class="footer__link">Privacy Policy</a>
 						<a href="https://validator.w3.org/check/?uri=referer" class="footer__link" target="_blank">Valid HTML</a>
 						<a href="https://jigsaw.w3.org/css-validator/check/referer/" class="footer__link" target="_blank">Valid CSS</a>
 					</p>
@@ -45,10 +45,9 @@ $site = Site::get();
 
 		<?php
 		$site->echoCookieBanner();
-		?>
 
-		<?php // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified ?>
-		<?php if (!$site->isDebug()) {
+		// Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
+		if (!$site->isDebug()) {
 			?>
 			<!-- Compiled project & libraries js files -->
 			<script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>

@@ -29,8 +29,8 @@ var scripts = {
 	]
 };
 var scriptNames = Object.keys(scripts);
-scriptNames.forEach(function (key, i) {
-	gulp.task("scripts-" + key, function () {
+scriptNames.forEach(function(key, i) {
+	gulp.task("scripts-" + key, function() {
 		return gulp.src(scripts[key])
 	            .pipe(concat(key + ".min.js"))
 				.pipe(uglify())
@@ -46,8 +46,8 @@ var stylesheets = {
 	]
 };
 var stylesheetNames = Object.keys(stylesheets);
-stylesheetNames.forEach(function (key) {
-	gulp.task("styles-" + key, function () {
+stylesheetNames.forEach(function(key) {
+	gulp.task("styles-" + key, function() {
 		return gulp.src(stylesheets[key])
 	            .pipe(concat(key + ".min.css"))
 				.pipe(autoprefixer({
@@ -62,31 +62,31 @@ stylesheetNames.forEach(function (key) {
 });
 gulp.task("styles", ["styles-main"]);
 
-gulp.task("sass", function () {
+gulp.task("sass", function() {
 	return gulp.src("assets/css/style.scss")
             .pipe(sass().on("error", sass.logError))
 			.pipe(gulp.dest("assets/css/"));
 });
 
 // Watch Files For Changes
-gulp.task("watch", function () {
+gulp.task("watch", function() {
 	gulp.watch("assets/css/**/*.scss", ["sass"]);
 });
 
-gulp.task("store-version", function () {
+gulp.task("store-version", function() {
 
 	var fileName = "assets/version.txt";
 
 	var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
 
-	var errorCallback = function (err) {
+	var errorCallback = function(err) {
 		if (err) {
 			console.log(err);
 		}
 	};
 
 	// Try to get current branch name
-	exec("git branch | grep \\* | cut -d ' ' -f2", function (branchNameErr, branchName, branchNameStderr) {
+	exec("git branch | grep \\* | cut -d ' ' -f2", function(branchNameErr, branchName, branchNameStderr) {
 
 		// If name found store in text file
 		// If current branch if master we used use tags (As most likely this is in production environment)
@@ -102,7 +102,7 @@ gulp.task("store-version", function () {
 			console.log(branchNameStderr);
 
 			// Try and get the latest tag on current branch
-			exec("git describe --abbrev=0 --tags\n", function (tagNameErr, tagName, tagNameStderr) {
+			exec("git describe --abbrev=0 --tags\n", function(tagNameErr, tagName, tagNameStderr) {
 
 				var versionText = "";
 

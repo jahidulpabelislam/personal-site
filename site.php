@@ -196,6 +196,7 @@ class Site {
 	public static function getLiveDomain() {
 		$liveDomain = self::LIVE_DOMAIN;
 		$liveDomain = self::addTrailingSlash($liveDomain);
+
 		return $liveDomain;
 	}
 
@@ -206,11 +207,13 @@ class Site {
 		$protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
 		$localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"];
 		$localDomain = self::addTrailingSlash($localDomain);
+
 		return $localDomain;
 	}
 
 	/**
 	 * Generate a full url to a image file
+	 *
 	 * @param string $filepath string The relative url of image
 	 */
 	public static function echoProjectImageURL($filepath = "") {
@@ -236,6 +239,7 @@ class Site {
 	public static function addTrailingSlash($url) {
 		$url = rtrim($url, " /");
 		$url = "$url/";
+
 		return $url;
 	}
 

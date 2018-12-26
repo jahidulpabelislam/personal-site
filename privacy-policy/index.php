@@ -38,7 +38,7 @@ $site->echoHeader($headerTitle);
 								<th class="table__col table__col--header">Expiration Time</th>
 								<th class="table__col table__col--header">Description</th>
 							</tr>
-							<tr  class="table__row">
+							<tr class="table__row">
 								<td class="table__col">_ga</td>
 								<td class="table__col">2 years</td>
 								<td class="table__col">Used to distinguish unique users.</td>
@@ -59,6 +59,4 @@ $site->echoHeader($headerTitle);
 					</div>
 				</div>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

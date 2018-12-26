@@ -1,7 +1,4 @@
 /*
-  IMPORT ALL NECESSARY CSS FILES
-*/
-/*
  Google Cabin Font
  */
 /* vietnamese */
@@ -485,73 +482,6 @@ a.btn {
     padding: 9px 14px; } }
 
 /* For all devices */
-.input {
-  font: inherit;
-  padding: 6px 12px;
-  margin: 5px auto;
-  width: 100%;
-  border: solid #E0E0E0 1px;
-  border-radius: 2px;
-  color: #333;
-  outline: none;
-  background: white;
-  transition: all .3s ease-in-out; }
-
-.input::placeholder {
-  color: gray; }
-
-.input:focus {
-  box-shadow: 0 0 8px #0375b4;
-  border-color: #0375b4; }
-
-.input.invalid {
-  border-color: #e52525; }
-
-.input:focus.invalid {
-  border-color: #e52525;
-  box-shadow: 0 0 8px rgba(229, 37, 37, 0.6); }
-
-.input.valid {
-  border-color: green; }
-
-.input:focus.valid {
-  border-color: green;
-  box-shadow: 0 0 8px rgba(0, 128, 0, 0.6); }
-
-.styled-checkbox .input {
-  display: none; }
-
-.styled-checkbox__pseudo {
-  position: relative;
-  margin-left: 20px; }
-
-.styled-checkbox__pseudo:before {
-  content: "\00a0";
-  display: block;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: white;
-  border: 2px solid gray;
-  transition: all .3s ease-in-out; }
-
-.input:checked + .styled-checkbox__pseudo:before {
-  background-color: #0375b4;
-  border-color: #0375b4;
-  content: "\2714";
-  font-size: 16px;
-  line-height: 1;
-  color: white;
-  padding: 1px 2px; }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .input {
-    padding: 9px 14px; } }
-
-/* For all devices */
 .footer {
   background-color: #f5f5f5;
   color: gray;
@@ -625,6 +555,67 @@ a.btn {
   margin-bottom: 10px;
   padding: 0 2px; }
 
+.input {
+  font: inherit;
+  padding: 6px 12px;
+  margin: 5px auto;
+  width: 100%;
+  border: solid #E0E0E0 1px;
+  border-radius: 2px;
+  color: #333;
+  outline: none;
+  background: white;
+  transition: all .3s ease-in-out; }
+
+.input::placeholder {
+  color: gray; }
+
+.input:focus {
+  box-shadow: 0 0 8px #0375b4;
+  border-color: #0375b4; }
+
+.input.invalid {
+  border-color: #e52525; }
+
+.input:focus.invalid {
+  border-color: #e52525;
+  box-shadow: 0 0 8px rgba(229, 37, 37, 0.6); }
+
+.input.valid {
+  border-color: green; }
+
+.input:focus.valid {
+  border-color: green;
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.6); }
+
+.styled-checkbox .input {
+  display: none; }
+
+.styled-checkbox__pseudo {
+  position: relative;
+  margin-left: 20px; }
+
+.styled-checkbox__pseudo:before {
+  content: "\00a0";
+  display: block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+  border: 2px solid gray;
+  transition: all .3s ease-in-out; }
+
+.input:checked + .styled-checkbox__pseudo:before {
+  background-color: #0375b4;
+  border-color: #0375b4;
+  content: "\2714";
+  font-size: 16px;
+  line-height: 1;
+  color: white;
+  padding: 1px 2px; }
+
 label {
   margin: 5px 0 0 0;
   font-weight: 700;
@@ -646,6 +637,11 @@ label {
 
 .feedback--error {
   color: #e52525; }
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .input {
+    padding: 9px 14px; } }
 
 /* For all devices */
 .jumbotron {

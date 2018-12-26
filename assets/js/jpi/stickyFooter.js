@@ -1,5 +1,5 @@
 window.jpi = window.jpi || {};
-window.jpi.footer = (function (jQuery) {
+window.jpi.footer = (function(jQuery) {
 
 	"use strict";
 
@@ -9,34 +9,34 @@ window.jpi.footer = (function (jQuery) {
 
 	var fn = {
 
-		//expands height of section to create sticky footer
-		expandSection: function () {
-			//makes section default height to work out if content is too small or big
+		// Expands height of section element to create sticky footer
+		expandSection: function() {
+			// Makes section default height to work out if content is too small or big
 			global.section.height("auto");
 
-			//calculates the default height of the content
+			// Calculates the default height of the content
 			var height = jQuery("header").outerHeight(true) + global.section.outerHeight(true) + jQuery("footer").outerHeight(true);
 
-			//checks if default height of content is shorter than screen height
+			// Checks if default height of content is shorter than screen height
 			if (height < jQuery(window).height()) {
 
-				//section is extended to fill the difference
+				// Section is extended to fill the difference
 				global.section.height((jQuery(window).height() - height) + global.section.height());
 			}
 		},
 
 		/*
-		 * used to expand height of section every 10 milliseconds
+		 * Used to expand height of section every 10 milliseconds
 		 * created to combat against the css transition delays
 		 */
-		delayExpand: function () {
+		delayExpand: function() {
 			var timer = setInterval(fn.expandSection, 100);
-			setTimeout(function () {
+			setTimeout(function() {
 				clearInterval(timer);
 			}, 2500);
 		},
 
-		initListeners: function () {
+		initListeners: function() {
 			jQuery(window).on("load orientationchange resize", fn.expandSection);
 		}
 	};

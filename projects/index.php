@@ -1,4 +1,5 @@
 <?php
+
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
 $site = Site::get();
@@ -92,14 +93,15 @@ $site->echoConfig();
 					<div class="modal__content">
 						<div class="project__header">
 							<h3 class="project__title project__title--inline"></h3>
-							<time class="project__date project__date--inline project__date--modal">2018</time></div>
+							<time class="project__date project__date--inline project__date--modal">2018</time>
+						</div>
 						<div class="project__skills"></div>
 						<div class="project__description"></div>
 						<p class="project__links"></p>
 						<div id="detailed-project__slide-show" class="slide-show">
 							<div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
 								<div class="slide-show__slides-container"></div>
-								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image"data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
 								<img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
 							</div>
 							<div class="js-slide-show-bullets"></div>
@@ -142,6 +144,4 @@ $site->echoConfig();
 					window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
 				</script>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

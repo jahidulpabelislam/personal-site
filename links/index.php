@@ -18,7 +18,7 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
 				</div>
 
 				<div class="social-link-container">
-					<a href="https://twitter.com/itsjahidulislam/" class="social-link"  target="_blank">
+					<a href="https://twitter.com/itsjahidulislam/" class="social-link" target="_blank">
 						<img src="/assets/images/twitter.png?v=2" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
 						<p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
 					</a>
@@ -46,7 +46,7 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
 				</div>
 
 				<div class="social-link-container">
-					<a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank" >
+					<a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
 						<img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
 						<p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
 					</a>

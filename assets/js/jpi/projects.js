@@ -1,10 +1,11 @@
-//holds all the functions needed to display project in the projects page
+// Holds all the functions needed for the projects page
+// e.g. display projects
 window.jpi = window.jpi || {};
-window.jpi.projects = (function (jQuery) {
+window.jpi.projects = (function(jQuery) {
 
 	"use strict";
 
-	//grabs elements for later use
+	// Grabs elements for later use
 	var global = {
 		url: new URL(window.location),
 		titleStart: "Projects",
@@ -12,15 +13,16 @@ window.jpi.projects = (function (jQuery) {
 	};
 
 	var fn = {
-		//prints out a error message provided
-		renderError: function (error) {
+		// Prints out a error message provided
+		renderError: function(error) {
 			jQuery(".feedback--error").text(error).show("fast");
 			jQuery(".projects__loading-img, .pagination").text("").hide("fast");
 			jpi.footer.delayExpand();
 		},
 
-		addSkills: function (project, divID) {
+		addSkills: function(project, divID) {
 			var skills = project.skills.split(","),
+
 				skillsContainer = jQuery(divID + " .project__skills")[0],
 				search = jQuery(".search-form__input").val(),
 				searches = search.split(" ");
@@ -30,10 +32,10 @@ window.jpi.projects = (function (jQuery) {
 				if (skill.trim() !== "") {
 
 					var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
-							innerHTML: skill,
-							class: "skill skill--" + project.colour,
-							href: "/projects/" + skill + "/"
-						});
+						innerHTML: skill,
+						class: "skill skill--" + project.colour,
+						href: "/projects/" + skill + "/"
+					});
 
 					for (var j = 0; j < searches.length; j++) {
 						if (searches[j].trim() !== "" && skill.toLowerCase().includes(searches[j].toLowerCase())) {
@@ -48,7 +50,7 @@ window.jpi.projects = (function (jQuery) {
 			}
 		},
 
-		addLinks: function (project, divID) {
+		addLinks: function(project, divID) {
 			var linksp = jQuery(divID + " .project__links")[0];
 
 			if (project.link) {
@@ -80,11 +82,11 @@ window.jpi.projects = (function (jQuery) {
 			});
 		},
 
-		addProjectImages: function (project, slideShowId) {
+		addProjectImages: function(project, slideShowId) {
 			var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
 				slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
-			//loop through each row of data in rows
+			// Loop through each row of data in rows
 			for (var i = 0; i < project.images.length; i++) {
 
 				if (project.images.hasOwnProperty(i)) {
@@ -118,13 +120,13 @@ window.jpi.projects = (function (jQuery) {
 			}
 		},
 
-		openProjectsExpandModal: function () {
-			var project = jQuery(this).data("projectData");
+		openProjectsExpandModal: function() {
+			var project = jQuery(this).attr("data-projectData");
 
 			jQuery(".detailed-project").addClass("open").show();
 			document.body.style.overflow = "hidden";
 
-			//stops all the slide shows
+			// Stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
 			jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
@@ -142,14 +144,14 @@ window.jpi.projects = (function (jQuery) {
 
 			var regx = new RegExp("slide-show__nav--\\w*", "g");
 
-			jQuery(".detailed-project .slide-show__nav").each(function () {
+			jQuery(".detailed-project .slide-show__nav").each(function() {
 				var classList = jQuery(this).attr("class");
 				classList = classList.replace(regx, "slide-show__nav--" + project.colour);
 				jQuery(this).attr("class", classList);
 			});
 		},
 
-		closeProjectsExpandModal: function (event) {
+		closeProjectsExpandModal: function(event) {
 			if (!jQuery(event.target).closest(".modal__content").length && jQuery(".detailed-project").hasClass("open")) {
 
 				jQuery(".detailed-project").removeClass("open").hide();
@@ -169,8 +171,8 @@ window.jpi.projects = (function (jQuery) {
 			}
 		},
 
-		//renders a project
-		renderProject: function (project) {
+		// Renders a single project
+		renderProject: function(project) {
 
 			if (!document.getElementById("project--" + project.id)) {
 
@@ -190,13 +192,13 @@ window.jpi.projects = (function (jQuery) {
 				fn.addLinks(project, "#project--" + project.id);
 				fn.addProjectImages(project, "#slide-show--" + project.id);
 
-				jQuery("#project--" + project.id + " .js-open-modal").data("projectData", project);
+				jQuery("#project--" + project.id + " .js-open-modal").attr("data-projectData", project);
 			}
 
 			jpi.footer.delayExpand();
 		},
 
-		scrollToProjects: function () {
+		scrollToProjects: function() {
 			var projectsPos = jQuery(".projects").offset().top,
 				navHeight = jQuery(".nav").height();
 
@@ -205,8 +207,8 @@ window.jpi.projects = (function (jQuery) {
 			}, 2000);
 		},
 
-		//adds pagination to the page
-		addPagination: function (count) {
+		// Adds pagination buttons/elements to the page
+		addPagination: function(count) {
 			if ((parseInt(count)) > 10) {
 
 				var page = 1,
@@ -216,7 +218,7 @@ window.jpi.projects = (function (jQuery) {
 				currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
 
 				for (var i = 0; i < count; i += 10, page++) {
-					var attributes = {"class": "pagination__item"};
+					var attributes = {class: "pagination__item"};
 
 					var item = jpi.helpers.createElement(ul, "li", attributes);
 
@@ -224,7 +226,7 @@ window.jpi.projects = (function (jQuery) {
 
 					url += global.url.search;
 
-					attributes = {innerHTML: page, "class": "pagination__item-link js-pagination-item", "data-page": page, "href": url};
+					attributes = {innerHTML: page, class: "pagination__item-link js-pagination-item", "data-page": page, href: url};
 					if (page === currentPage) {
 						attributes.class = "pagination__item-link active";
 					}
@@ -238,12 +240,12 @@ window.jpi.projects = (function (jQuery) {
 			}
 		},
 
-		//set up events when projects were received
-		gotProjects: function (response) {
+		// Sets up events when projects were received
+		gotProjects: function(response) {
 			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 			jQuery(".projects, .pagination").text("");
 
-			//send the data, the function to do if data is valid
+			// Send the data, the function to do if data is valid
 			jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
 
 			if (response && response.meta && response.meta.total_count) {
@@ -253,7 +255,7 @@ window.jpi.projects = (function (jQuery) {
 			jpi.footer.delayExpand();
 		},
 
-		getProjects: function () {
+		getProjects: function() {
 
 			var page = jQuery(".js-projects-page").val();
 			page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
@@ -265,10 +267,10 @@ window.jpi.projects = (function (jQuery) {
 				search: search
 			};
 
-			//stops all the slide shows
+			// Stops all the slide shows
 			jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-			//send request to get projects
+			// Send request to get projects for page and search
 			jpi.ajax.sendRequest({
 				method: "GET",
 				url: jpi.config.jpiAPIEndpoint + "projects/",
@@ -278,7 +280,7 @@ window.jpi.projects = (function (jQuery) {
 			});
 		},
 
-		getNewURL: function (page) {
+		getNewURL: function(page) {
 			var url = "/projects/";
 
 			var searchValue = jQuery(".search-form__input").val();
@@ -294,7 +296,7 @@ window.jpi.projects = (function (jQuery) {
 			return url;
 		},
 
-		getNewTitle: function (page) {
+		getNewTitle: function(page) {
 			var title = global.titleStart;
 
 			var searchValue = jQuery(".search-form__input").val();
@@ -312,7 +314,7 @@ window.jpi.projects = (function (jQuery) {
 			return title;
 		},
 
-		storeLatestSearch: function () {
+		storeLatestSearch: function() {
 
 			var searchValue = jQuery(".search-form__input").val();
 
@@ -336,8 +338,8 @@ window.jpi.projects = (function (jQuery) {
 			}
 		},
 
-		//send request when the user has done a search
-		doSearch: function () {
+		// Sends request when the user has done a search
+		doSearch: function() {
 			jQuery(".js-projects-page").val(1);
 
 			fn.storeLatestSearch();
@@ -346,22 +348,22 @@ window.jpi.projects = (function (jQuery) {
 			return false;
 		},
 
-		//set up page
-		initListeners: function () {
+		// Set up page
+		initListeners: function() {
 			jQuery(".search-form").on("submit", fn.doSearch);
 
-			jQuery("body").on("click", ".skill", function (e) {
+			jQuery("body").on("click", ".skill", function(e) {
 				e.preventDefault();
 			});
 
-			jQuery("body").on("click", ".js-searchable-skill", function (e) {
+			jQuery("body").on("click", ".js-searchable-skill", function(e) {
 				jQuery(".detailed-project").trigger("click");
 				jQuery(".search-form__input").val(e.target.innerHTML);
 				fn.scrollToProjects();
 				fn.doSearch();
 			});
 
-			jQuery(".pagination--projects").on("click", ".js-pagination-item", function (e) {
+			jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
 				e.preventDefault();
 				e.stopPropagation();
 
@@ -380,7 +382,7 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
-			window.addEventListener("popstate", function (event) {
+			window.addEventListener("popstate", function(event) {
 
 				var page = event.state.page;
 
@@ -393,11 +395,11 @@ window.jpi.projects = (function (jQuery) {
 				fn.getProjects();
 			});
 
-			//Close the modal
+			// Close the modal
 			jQuery(".detailed-project").on("click", fn.closeProjectsExpandModal);
 		},
 
-		init: function () {
+		init: function() {
 			if (jQuery(".js-all-projects").length > 0) {
 				fn.initListeners();
 				fn.getProjects();

@@ -18,17 +18,7 @@ $site = Site::get();
 			?>
 			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
-			<script type="text/javascript">
-				window.dataLayer = window.dataLayer || [];
-
-				function gtag() {
-					dataLayer.push(arguments);
-				}
-
-				gtag("js", new Date());
-
-				gtag("config", "UA-70803146-2");
-			</script>
+			<script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-70803146-2");</script>
 			<?php
 		}
 		?>
@@ -70,17 +60,17 @@ $site = Site::get();
 		}
 		?>
 
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<meta name="author" content="Jahidul Pabel Islam"/>
-		<meta name="description" content="<?php echo $desc; ?>"/>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Jahidul Pabel Islam" />
+		<meta name="description" content="<?php echo $desc; ?>" />
 
-		<meta property="og:locale" content="en_GB"/>
-		<meta property="og:type" content="website"/>
-		<meta property="og:title" content="<?php echo $title; ?>"/>
-		<meta property="og:url" content="<?php echo $localURL; ?>"/>
-		<meta property="og:description" content="<?php echo $desc; ?>"/>
-		<meta property="og:site_name" content="Jahidul Pabel Islam"/>
+		<meta property="og:locale" content="en_GB" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="<?php echo $title; ?>" />
+		<meta property="og:url" content="<?php echo $localURL; ?>" />
+		<meta property="og:description" content="<?php echo $desc; ?>" />
+		<meta property="og:site_name" content="Jahidul Pabel Islam" />
 
 		<?php
 		$imageLocation = "assets/images/portfolio-$pageId-preview.png";
@@ -88,13 +78,13 @@ $site = Site::get();
 		if (file_exists(ROOT . "/" . $imageLocation)) {
 			$imageUrl = $localDomain . $imageLocation . "?v=2";
 			?>
-			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
+			<meta property="og:image" content="<?php echo $imageUrl; ?>" />
 			<?php
 		}
 		?>
 
-		<meta name="twitter:card" content="summary_large_image"/>
-		<meta name="twitter:title" content="<?php echo $title; ?>"/>
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="<?php echo $title; ?>" />
 
 		<!-- Custom stylesheet for site -->
 		<?php if (!$site->isDebug()) {
@@ -111,9 +101,7 @@ $site = Site::get();
 
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 
-		<?php
-		$site->echoFavicons();
-		?>
+		<?php $site->echoFavicons(); ?>
 	</head>
 
 	<body>

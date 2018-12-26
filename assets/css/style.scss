@@ -1,7 +1,5 @@
-/*
-  IMPORT ALL NECESSARY CSS FILES
-*/
-@import "tools/fonts";
+@import "third-party/google-fonts";
+
 @import "tools/variables";
 @import "tools/mixins";
 
@@ -13,7 +11,6 @@
 @import "base/global";
 
 @import "components/buttons";
-@import "components/inputs";
 @import "components/footer";
 @import "components/form";
 @import "components/header";

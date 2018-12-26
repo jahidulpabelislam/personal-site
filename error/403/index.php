@@ -23,6 +23,4 @@ $site->echoHeader($headerTitle, $headerDesc);
 					</div>
 				</div>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

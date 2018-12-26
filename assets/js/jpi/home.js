@@ -1,16 +1,17 @@
-//holds all functions needed to display latest 3 project on the home page
+// Holds all functions needed for the homepage
+// eg. to display latest 3 project on the home page
 window.jpi = window.jpi || {};
-window.jpi.home = (function (jQuery) {
+window.jpi.home = (function(jQuery) {
 
 	"use strict";
 
 	var fn = {
 
-		initSecondsCounter: function () {
+		initSecondsCounter: function() {
 			var secsElem = jQuery(".js-seconds-on-site");
 			if (secsElem.length > 0) {
-				setTimeout(function () {
-					setInterval(function () {
+				setTimeout(function() {
+					setInterval(function() {
 						var lastSec = secsElem.text();
 						lastSec = parseInt(lastSec);
 						secsElem.text(lastSec + 1);
@@ -19,15 +20,15 @@ window.jpi.home = (function (jQuery) {
 			}
 		},
 
-		//prints out a error message provided
-		renderError: function (error) {
+		// Prints out a error message provided
+		renderError: function(error) {
 			jQuery(".feedback--error").text(error).show("fast");
 			jQuery(".projects__loading-img").hide("fast");
 			jpi.footer.delayExpand();
 		},
 
-		//renders a project
-		renderProject: function (project) {
+		// Renders a project
+		renderProject: function(project) {
 			var slideTemplate = jQuery("#tmpl-slide-template").text();
 			var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
@@ -71,11 +72,11 @@ window.jpi.home = (function (jQuery) {
 			});
 		},
 
-		//sets up events when projects is received
-		gotProjects: function (response) {
+		// Sets up events when projects is received
+		gotProjects: function(response) {
 			jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 
-			//send the data, the function to do if data is valid
+			// Send the data, the function to do if data is valid
 			var dataValid = jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "Error Getting the Projects.");
 
 			if (dataValid) {
@@ -85,7 +86,7 @@ window.jpi.home = (function (jQuery) {
 			jpi.footer.delayExpand();
 		},
 
-		init: function () {
+		init: function() {
 			if (jQuery("#slide-show--home").length > 0) {
 
 				fn.initSecondsCounter();

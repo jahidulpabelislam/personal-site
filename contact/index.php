@@ -76,7 +76,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 							<h3 class="article__header">View my Linkedin profile</h3>
 						</div>
 						<div class="article__half">
-							<a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank" >
+							<a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
 								<img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
 								<p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
 							</a>
@@ -90,7 +90,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 							<h3 class="article__header">View & follow code for projects</h3>
 						</div>
 						<div class="article__half">
-							<a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank" >
+							<a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
 								<img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
 								<p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
 							</a>
@@ -124,6 +124,4 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 					</div>
 				</div>
 
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

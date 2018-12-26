@@ -70,6 +70,4 @@ $site->echoHeader($headerTitle, "", "", $navTint);
 						</div>
 					</div>
 				</div>
-<?php
-$site->echoFooter();
-?>
+<?php $site->echoFooter();

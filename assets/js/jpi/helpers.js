@@ -1,6 +1,6 @@
 // Holds any helpers functions for whole project
 window.jpi = window.jpi || {};
-window.jpi.helpers = (function (jQuery) {
+window.jpi.helpers = (function(jQuery) {
 
 	"use strict";
 
@@ -11,7 +11,7 @@ window.jpi.helpers = (function (jQuery) {
 		 * add invalid class if empty and return false
 		 * or remove invalid class if  not empty and return true
 		 */
-		checkInputField: function (input) {
+		checkInputField: function(input) {
 			if (input.value.trim() === "") {
 				input.classList.add("invalid");
 				input.classList.remove("valid");
@@ -25,7 +25,7 @@ window.jpi.helpers = (function (jQuery) {
 		},
 
 		// Creates an element with attributes appended to parent
-		createElement: function (parent, element, attributes) {
+		createElement: function(parent, element, attributes) {
 			var elem = document.createElement(element);
 
 			for (var attribute in attributes) {
@@ -45,7 +45,7 @@ window.jpi.helpers = (function (jQuery) {
 			return elem;
 		},
 
-		getCookie: function (key) {
+		getCookie: function(key) {
 			key += "=";
 
 			var cookies = document.cookie.split(";");
@@ -64,12 +64,12 @@ window.jpi.helpers = (function (jQuery) {
 			return false;
 		},
 
-		checkCookieValue: function (key, valueToCheck) {
+		checkCookieValue: function(key, valueToCheck) {
 			var cookie = fn.getCookie(key);
 			return (cookie && cookie != "" && cookie == valueToCheck);
 		},
 
-		setCookie: function (key, value, expirationDays) {
+		setCookie: function(key, value, expirationDays) {
 			var expiryDate = new Date();
 			expiryDate.setTime(expiryDate.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
 			var expires = "expires=" + expiryDate.toUTCString();
