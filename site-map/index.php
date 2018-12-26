@@ -21,25 +21,25 @@ $site->echoHeader($headerTitle, "", "", $navTint);
 								<a href="<?php $site->echoURL("projects"); ?>" class="link">Projects</a>
 								<ul>
 									<li>
-										<a href="/projects/mind-map/" class="link">Mind Map</a>
+										<a href="<?php $site->echoURL("projects/mind-map"); ?>" class="link">Mind Map</a>
 									</li>
 									<li>
-										<a href="/projects/bubbles-bargain-world/" class="link">BubblesBargainWorld</a>
+										<a href="<?php $site->echoURL("projects/bubbles-bargain-world"); ?>" class="link">BubblesBargainWorld</a>
 									</li>
 									<li>
-										<a href="/projects/lials/" class="link">Lials</a>
+										<a href="<?php $site->echoURL("projects/lials"); ?>" class="link">Lials</a>
 									</li>
 									<li>
-										<a href="/projects/muesli/" class="link">Muesli</a>
+										<a href="<?php $site->echoURL("projects/muesli"); ?>" class="link">Muesli</a>
 									</li>
 									<li>
 										<a href="/projects/izibalo-android/frame.html" class="link">Izibalo - Android</a>
 									</li>
 									<li>
-										<a href="/projects/e-games/" class="link">e-games</a>
+										<a href="<?php $site->echoURL("projects/e-games"); ?>" class="link">e-games</a>
 									</li>
 									<li>
-										<a href="/projects/sportsite-universal/" class="link">Sportsite Universal</a>
+										<a href="<?php $site->echoURL("projects/sportsite-universal"); ?>" class="link">Sportsite Universal</a>
 									</li>
 								</ul>
 							</li>
