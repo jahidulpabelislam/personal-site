@@ -40,6 +40,10 @@ class Site {
 	 * @return string
 	 */
 	private static function getProjectRoot() {
+		if (defined("ROOT")) {
+			return ROOT;
+		}
+
 		return $_SERVER["DOCUMENT_ROOT"];
 	}
 
