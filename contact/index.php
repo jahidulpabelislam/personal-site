@@ -63,9 +63,10 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 					</div>
 				</section>
 
-				<section class="article">
+				<section class="article article--lime-green">
 					<div class="container">
 						<h3 class="article__header article__header--no-padding">Stay up to date with me</h3>
+						<p><i class="fa fa-3x fa-arrow-circle-down"></i></p>
 					</div>
 				</section>
 
