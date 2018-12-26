@@ -59,16 +59,16 @@ $site = Site::get();
             <script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/expandedSlideShow.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/slideShow.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/expanded-slide-show.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/slide-show.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/home.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/sticky-footer.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/cookieBanner.js?v=1" type="text/javascript"></script>
+            <script src="/assets/js/jpi/cookie-banner.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
             <?php
         }

@@ -63,6 +63,6 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
 
         <!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
         <script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
-        <script src="/assets/js/jpi/stickyFooter.js?v=1" type="text/javascript"></script>
+        <script src="/assets/js/jpi/sticky-footer.js?v=1" type="text/javascript"></script>
     </body>
 </html>
