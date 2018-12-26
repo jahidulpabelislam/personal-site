@@ -1,54 +1,54 @@
 <?php
 
-//get the data from request
+// Get the data from request
 $data = [];
-foreach ($_REQUEST as $key => $value) {
-	$data[$key] = stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING))));
+foreach ($_POST as $key => $value) {
+	$data[$key] = trim(stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING)))));
 }
 
-//the email user provided to reply to
-$emailAddress = $data["emailAddress"];
+// The email user provided to reply to
+$emailAddress = $data["emailAddress"] ?? "";
 
-//the message the user is trying to send
-$message = $data["message"];
+// The message the user is trying to send
+$message = $data["message"] ?? "";
 
-//the subject of the message the user is trying to send
-$subject = $data["subject"];
+// The subject of the message the user is trying to send
+$subject = $data["subject"] ?? "";
 
+// Default to as everything is okay
 $meta["ok"] = true;
 
-//checks if message is not empty
-if (trim($message) === "") {
+if ($message === "") {
 	$meta["ok"] = false;
 	$meta["messageFeedback"] = "Message isn't provided.";
 }
 
-//checks if email is not empty
-if (trim($emailAddress) === "") {
+if ($emailAddress === "") {
 	$meta["ok"] = false;
 	$meta["emailAddressFeedback"] = "Email Address isn't provided.";
-} //checks if email provided is valid using REGEX
+} // Checks if email provided is valid using REGEX
 else if (!preg_match("/\b[\w._-]+@[\w-]+.[\w]{2,}\b/im", $emailAddress)) {
-	$ok = false;
+	$meta["ok"] = false;
 	$meta["emailAddressFeedback"] = "Email Address isn't valid.";
 }
 
-//checks if message is not empty
 if ($meta["ok"]) {
 
-	//if user didn't provide subject create a default one
-	if (trim($subject) == "") $subject = "Portfolio Contact Form";
+	// If user didn't provide subject create a default one
+	if ($subject === "") {
+		$subject = "Portfolio Contact Form";
+	}
 
-	//creates the header for sending email
+	// Creates the headers for sending email
 	$headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
 
-	//the address to send mail to
-	$to = "jahidul.pabel.islam@hotmail.com";
+	// The address to send mail to
+	$to = "contact@jahidulpabelislam.com";
 
-	//try to send email
+	// Try to send the email, check it was sent
 	if (mail($to, $subject, $message, $headers)) {
 		$meta["feedback"] = "Your message has been sent.";
-	} //if not sent give message
+	} // Something went wrong
 	else {
 		$meta["ok"] = false;
 		$meta["feedback"] = "Something went wrong, please try again.";
@@ -61,6 +61,6 @@ $meta["data"] = $data;
 
 header("HTTP/1.1 $status $message");
 
-//send the responses, send by json
+// Send the response, by json
 header("Content-Type: application/json");
 echo json_encode($meta);
