@@ -214,7 +214,7 @@ class Site {
 	 */
 	public static function echoAPIEndpoint() {
 		$endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
-		$endpoint .= JPI_API_VERSION;
+		$endpoint .= "v" . JPI_API_VERSION;
 		$endpoint = self::addTrailingSlash($endpoint);
 		echo $endpoint;
 	}
