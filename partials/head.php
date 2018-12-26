@@ -80,7 +80,7 @@
 		<?php
 		$imageLocation = "assets/images/portfolio-$pageId-preview.png";
 
-		if (file_exists($site->getProjectRoot() . "/" . $imageLocation)) {
+		if (file_exists(ROOT . "/" . $imageLocation)) {
 			$imageUrl = $localDomain . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>

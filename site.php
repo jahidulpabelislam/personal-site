@@ -20,6 +20,12 @@ class Site {
 
 	private static $instance = null;
 
+	public function __construct() {
+		if (!defined("ROOT")) {
+			define("ROOT", self::getProjectRoot());
+		}
+	}
+
 	public static function get() {
 		if (self::$instance === null) {
 			self::$instance = new self();
@@ -68,7 +74,7 @@ class Site {
 	 * Include the common config file for page/site
 	 */
 	public static function echoConfig() {
-		include_once(self::getProjectRoot() . "/config.php");
+		include_once(ROOT . "/config.php");
 	}
 
 	/**
@@ -85,7 +91,7 @@ class Site {
 
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-		include_once(self::getProjectRoot() . "/partials/head.php");
+		include_once(ROOT . "/partials/head.php");
 	}
 
 	/**
@@ -106,28 +112,28 @@ class Site {
 
 		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-		include_once(self::getProjectRoot() . "/partials/header.php");
+		include_once(ROOT . "/partials/header.php");
 	}
 
 	/**
 	 * Include the common favicons content for page/site
 	 */
 	public static function echoFavicons() {
-		include_once(self::getProjectRoot() . "/partials/favicons.php");
+		include_once(ROOT . "/partials/favicons.php");
 	}
 
 	/**
 	 * Include the common footer content for page/site
 	 */
 	public static function echoFooter() {
-		include_once(self::getProjectRoot() . "/partials/footer.php");
+		include_once(ROOT . "/partials/footer.php");
 	}
 
 	/**
 	 * Include the common cookie banner content for page/site
 	 */
 	public static function echoCookieBanner() {
-		include_once(self::getProjectRoot() . "/partials/cookie-banner.php");
+		include_once(ROOT . "/partials/cookie-banner.php");
 	}
 
 	/**

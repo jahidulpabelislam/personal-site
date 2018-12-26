@@ -15,7 +15,7 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="footer__version">
-					<p><?php echo file_get_contents($site->getProjectRoot() . "/assets/version.txt") . PHP_EOL; ?></p>
+					<p><?php echo file_get_contents(ROOT . "/assets/version.txt") . PHP_EOL; ?></p>
 				</div>
 
 				<div class="footer__links">
