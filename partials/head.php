@@ -1,4 +1,9 @@
-<?php $site = Site::get(); ?>
+<?php
+if (!defined("ROOT")) {
+	die();
+}
+$site = Site::get();
+?>
 
 <!DOCTYPE html>
 <html lang="en-gb">

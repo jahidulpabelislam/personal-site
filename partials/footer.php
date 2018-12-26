@@ -1,4 +1,9 @@
-<?php $site = Site::get(); ?>
+<?php
+if (!defined("ROOT")) {
+	die();
+}
+$site = Site::get();
+?>
 				<!-- End dynamic content -->
 				<section class="social-links">
 					<div class="container">

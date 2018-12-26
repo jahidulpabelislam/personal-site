@@ -1,3 +1,9 @@
+<?php
+if (!defined("ROOT")) {
+	die();
+}
+?>
+
 <div class="cookie-banner">
 	<div class="container clearfix">
 		<div class="cookie-banner__text">

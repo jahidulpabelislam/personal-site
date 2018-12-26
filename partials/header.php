@@ -1,4 +1,9 @@
-<?php $site = Site::get(); ?>
+<?php
+if (!defined("ROOT")) {
+	die();
+}
+$site = Site::get();
+?>
 
 		<!-- Navigation for site -->
 		<nav class="nav nav--<?php echo $navTint; ?>">
