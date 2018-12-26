@@ -23,7 +23,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <p>Use this contact form to give me a message quickly.</p>
                         <p><span class="required">*</span> indicates a required field</p>
 
-                        <form class="contact-form" name="contact-form" method="post">
+                        <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
 
                             <div class="input-group">
                                 <label for="email-input">Your Email Address <span class="required">*</span></label>

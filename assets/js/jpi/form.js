@@ -63,7 +63,7 @@ window.jpi.form = (function(jQuery) {
             if (emailValidation && messageValidation) {
                 jpi.ajax.sendRequest({
                     method: "POST",
-                    url: "sendMessage.php",
+                    url: "/contact/form-submission.php",
                     query: {
                         emailAddress: global.emailInput.val(),
                         message: global.messageInput.val(),
