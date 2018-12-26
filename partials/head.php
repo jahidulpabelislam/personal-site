@@ -1,3 +1,5 @@
+<?php $site = Site::get(); ?>
+
 <!DOCTYPE html>
 <html lang="en-gb">
 
@@ -37,8 +39,8 @@
 		<title><?php echo $title; ?></title>
 
 		<?php
-		$localDomain = $localURL = Site::getLocalDomain();
-		$liveDomain = $liveURl = Site::getLiveDomain();
+		$localDomain = $localURL = $site->getLocalDomain();
+		$liveDomain = $liveURl = $site->getLiveDomain();
 
 		if ($pageId !== "home") {
 			$liveURl .= "$pageId/";
@@ -78,7 +80,7 @@
 		<?php
 		$imageLocation = "assets/images/portfolio-$pageId-preview.png";
 
-		if (file_exists(Site::getProjectRoot() . "/" . $imageLocation)) {
+		if (file_exists($site->getProjectRoot() . "/" . $imageLocation)) {
 			$imageUrl = $localDomain . $imageLocation . "?v=2";
 			?>
 			<meta property="og:image" content="<?php echo $imageUrl; ?>"/>
@@ -90,7 +92,7 @@
 		<meta name="twitter:title" content="<?php echo $title; ?>"/>
 
 		<!-- Custom stylesheet for site -->
-		<?php if (!Site::isDebug()) {
+		<?php if (!$site->isDebug()) {
 			?>
 			<link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
 			<?php
@@ -105,7 +107,7 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 
 		<?php
-		Site::echoFavicons();
+		$site->echoFavicons();
 		?>
 	</head>
 

@@ -1,6 +1,8 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $pageId = "projects";
 
 $headTitle = "Projects";
@@ -16,13 +18,13 @@ if ($page > 1) {
 	$headTitle .= " - Page $page";
 }
 
-Site::echoHTMLHead($headTitle, $headDesc, $pageId);
+$site->echoHTMLHead($headTitle, $headDesc, $pageId);
 
 $headerTitle = "My Projects";
 $headerDesc = "See My Skills in Action in My Previous Projects";
-Site::echoHeader($headerTitle, $headerDesc, $pageId);
+$site->echoHeader($headerTitle, $headerDesc, $pageId);
 
-Site::echoConfig();
+$site->echoConfig();
 ?>
 
 				<section class="article">
@@ -50,11 +52,11 @@ Site::echoConfig();
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a href="<?php Site::echoURL("contact"); ?>" class="btn btn--purple">Get in Touch</a>
+							<a href="<?php $site->echoURL("contact"); ?>" class="btn btn--purple">Get in Touch</a>
 						</div>
 
 						<div class="article__half">
-							<a href="<?php Site::echoURL("about"); ?>" class="btn btn--green">Learn About Me</a>
+							<a href="<?php $site->echoURL("about"); ?>" class="btn btn--green">Learn About Me</a>
 						</div>
 					</div>
 				</div>
@@ -126,7 +128,7 @@ Site::echoConfig();
 
 				<script type="text/template" id="tmpl-slide-template">
 					<div class="slide-show__slide" id="slide-{{id}}">
-						<img src="<?php Site::echoProjectImageURL("{{file}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
+						<img src="<?php $site->echoProjectImageURL("{{file}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
 					</div>
 				</script>
 
@@ -137,9 +139,9 @@ Site::echoConfig();
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.jpiAPIEndpoint = "<?php Site::echoAPIEndpoint(); ?>";
+					window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
 				</script>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>

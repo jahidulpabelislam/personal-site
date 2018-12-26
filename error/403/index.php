@@ -1,13 +1,15 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $headTitle = $headerTitle = "403";
 
 $headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::echoHTMLHead($headTitle, $headDesc);
+$site->echoHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Forbidden Page";
-Site::echoHeader($headerTitle, $headerDesc);
+$site->echoHeader($headerTitle, $headerDesc);
 ?>
 
 				<div class="article article--halved">
@@ -22,5 +24,5 @@ Site::echoHeader($headerTitle, $headerDesc);
 				</div>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>

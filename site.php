@@ -18,6 +18,16 @@ class Site {
 
 	private static $VALID_NAV_TINTS = ["dark", "light",];
 
+	private static $instance = null;
+
+	public static function get() {
+		if (self::$instance === null) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
 	/**
 	 * Return this projects root directory
 	 *
@@ -226,3 +236,5 @@ class Site {
 		return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
 	}
 }
+
+Site::get();

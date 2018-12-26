@@ -1,3 +1,4 @@
+<?php $site = Site::get(); ?>
 				<!-- End dynamic content -->
 				<section class="social-links">
 					<div class="container">
@@ -14,13 +15,13 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="footer__version">
-					<p><?php echo file_get_contents(Site::getProjectRoot() . "/assets/version.txt") . PHP_EOL; ?></p>
+					<p><?php echo file_get_contents($site->getProjectRoot() . "/assets/version.txt") . PHP_EOL; ?></p>
 				</div>
 
 				<div class="footer__links">
 					<p>
-						<a href="<?php Site::echoURL("site-map"); ?>" class="footer__link" >Site Map</a>
-						<a href="<?php Site::echoURL("privacy-policy"); ?>" class="footer__link" >Privacy Policy</a>
+						<a href="<?php $site->echoURL("site-map"); ?>" class="footer__link" >Site Map</a>
+						<a href="<?php $site->echoURL("privacy-policy"); ?>" class="footer__link" >Privacy Policy</a>
 						<a href="https://validator.w3.org/check/?uri=referer" class="footer__link" target="_blank">Valid HTML</a>
 						<a href="https://jigsaw.w3.org/css-validator/check/referer/" class="footer__link" target="_blank">Valid CSS</a>
 					</p>
@@ -34,11 +35,11 @@
 		</footer>
 
 		<?php
-		Site::echoCookieBanner();
+		$site->echoCookieBanner();
 		?>
 
 		<?php // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified ?>
-		<?php if (!Site::isDebug()) {
+		<?php if (!$site->isDebug()) {
 			?>
 			<!-- Compiled project & libraries js files -->
 			<script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>

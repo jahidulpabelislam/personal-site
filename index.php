@@ -1,17 +1,19 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $pageId = "home";
 
 $headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-Site::echoHTMLHead($headTitle, $headDesc);
+$site->echoHTMLHead($headTitle, $headDesc);
 
 $headerTitle = "Jahidul Pabel Islam";
 $headerDesc = "Full Stack Web &amp; Software Developer";
-Site::echoHeader($headerTitle, $headerDesc, $pageId);
+$site->echoHeader($headerTitle, $headerDesc, $pageId);
 
-Site::echoConfig();
+$site->echoConfig();
 ?>
 				<section>
 					<div class="article home__hello-wrapper">
@@ -39,7 +41,7 @@ Site::echoConfig();
 
 					<div class="article">
 						<div class="container">
-							<p>Here you will be able to look at all the <a href="<?php Site::echoURL("projects"); ?>" class="link-styled" >work</a> I have done over the last 6 years, <a href="<?php Site::echoURL("about"); ?>" class="link-styled" >learn about me</a>, and <a href="<?php Site::echoURL("contact"); ?>" class="link-styled" >contact me</a> for any enquiries or to provide any feedback.</p>
+							<p>Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled" >work</a> I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled" >learn about me</a>, and <a href="<?php $site->echoURL("contact"); ?>" class="link-styled" >contact me</a> for any enquiries or to provide any feedback.</p>
 							<p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
 						</div>
 					</div>
@@ -91,7 +93,7 @@ Site::echoConfig();
 					</div>
 					<p class="feedback feedback--error"></p>
 
-					<a href="<?php Site::echoURL("projects"); ?>" class="btn">View All My Work</a>
+					<a href="<?php $site->echoURL("projects"); ?>" class="btn">View All My Work</a>
 				</section>
 
 				<section class="article article--green">
@@ -119,14 +121,14 @@ Site::echoConfig();
 
 				<div class="article article--halved">
 					<div class="container">
-						<div class="article__half"><a href="<?php Site::echoURL("about"); ?>" class="btn btn--red">Learn About Me</a></div>
-						<div class="article__half"><a href="<?php Site::echoURL("projects"); ?>" class="btn btn--purple">View My Work</a></div>
+						<div class="article__half"><a href="<?php $site->echoURL("about"); ?>" class="btn btn--red">Learn About Me</a></div>
+						<div class="article__half"><a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">View My Work</a></div>
 					</div>
 				</div>
 
 				<script type="text/template" id="tmpl-slide-template">
 					<div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
-						<img class="slide-show__img" src="<?php Site::echoProjectImageURL("{{file}}?v=2"); ?>" alt="Screen shot of {{name}} Project">
+						<img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}?v=2"); ?>" alt="Screen shot of {{name}} Project">
 						<div class="slide-show__info-container">
 							<div class="slide-show__info slide-show__info--{{colour}}">
 								<div class="project__header">
@@ -147,8 +149,8 @@ Site::echoConfig();
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.jpiAPIEndpoint = "<?php Site::echoAPIEndpoint(); ?>";
+					window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
 				</script>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();

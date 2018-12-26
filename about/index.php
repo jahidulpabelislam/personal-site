@@ -1,18 +1,20 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $pageId = "about";
 
 $headTitle = "About";
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-Site::echoHTMLHead($headTitle, $headDesc);
+$site->echoHTMLHead($headTitle, $headDesc);
 
 $headerTitle = "About Me";
 $headerDesc = "Find Out About Me";
 $navTint = "light";
 
-Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 ?>
 
 				<div class="article article--halved article--about">
@@ -272,11 +274,11 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a href="<?php Site::echoURL("projects"); ?>" class="btn btn--purple" >View My Work</a>
+							<a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple" >View My Work</a>
 						</div>
 
 						<div class="article__half">
-							<a href="<?php Site::echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
+							<a href="<?php $site->echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
 						</div>
 					</div>
 				</div>
@@ -286,9 +288,9 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				<script>
 					window.jpi = window.jpi || {};
 					window.jpi.config = window.jpi.config || {};
-					window.jpi.config.googleMapStyles =  <?php echo file_get_contents(Site::getProjectRoot() . "/assets/map-styling.json"); ?>;
+					window.jpi.config.googleMapStyles =  <?php echo file_get_contents($site->getProjectRoot() . "/assets/map-styling.json"); ?>;
 				</script>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>

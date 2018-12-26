@@ -1,18 +1,20 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $pageId = "contact";
 
 $headTitle = $headerTitle = "Contact Me";
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-Site::echoHTMLHead($headTitle, $headDesc, $pageId);
+$site->echoHTMLHead($headTitle, $headDesc, $pageId);
 
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
 $navTint = "light";
 
-Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 ?>
 
 				<section class="article">
@@ -112,15 +114,15 @@ Site::echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a href="<?php Site::echoURL("projects"); ?>" class="btn btn--blue">View My Work</a>
+							<a href="<?php $site->echoURL("projects"); ?>" class="btn btn--blue">View My Work</a>
 						</div>
 
 						<div class="article__half">
-							<a href="<?php Site::echoURL("about"); ?>" class="btn btn--orange">Learn About Me</a>
+							<a href="<?php $site->echoURL("about"); ?>" class="btn btn--orange">Learn About Me</a>
 						</div>
 					</div>
 				</div>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>

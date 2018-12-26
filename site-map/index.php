@@ -1,22 +1,24 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::echoHTMLHead($headTitle, $headDesc);
+$site->echoHTMLHead($headTitle, $headDesc);
 
 $navTint = "light";
-Site::echoHeader($headerTitle, "", "", $navTint);
+$site->echoHeader($headerTitle, "", "", $navTint);
 ?>
 
 				<div class="article">
 					<div class="container">
 						<ul class="site-map__list">
 							<li>
-								<a href="<?php Site::echoURL(); ?>" class="link">Home</a>
+								<a href="<?php $site->echoURL(); ?>" class="link">Home</a>
 							</li>
 							<li>
-								<a href="<?php Site::echoURL("projects"); ?>" class="link">Projects</a>
+								<a href="<?php $site->echoURL("projects"); ?>" class="link">Projects</a>
 								<ul>
 									<li>
 										<a href="/projects/mind-map/" class="link">Mind Map</a>
@@ -42,16 +44,16 @@ Site::echoHeader($headerTitle, "", "", $navTint);
 								</ul>
 							</li>
 							<li>
-								<a href="<?php Site::echoURL("contact"); ?>" class="link">Contact</a>
+								<a href="<?php $site->echoURL("contact"); ?>" class="link">Contact</a>
 							</li>
 							<li>
-								<a href="<?php Site::echoURL("about"); ?>" class="link">About</a>
+								<a href="<?php $site->echoURL("about"); ?>" class="link">About</a>
 							</li>
 							<li>
-								<a href="<?php Site::echoURL("privacy-policy"); ?>" class="link">Privacy Policy</a>
+								<a href="<?php $site->echoURL("privacy-policy"); ?>" class="link">Privacy Policy</a>
 							</li>
 							<li>
-								<a href="<?php Site::echoURL("links"); ?>" class="link">Links</a>
+								<a href="<?php $site->echoURL("links"); ?>" class="link">Links</a>
 							</li>
 						</ul>
 					</div>
@@ -60,14 +62,14 @@ Site::echoHeader($headerTitle, "", "", $navTint);
 				<div class="article article--halved">
 					<div class="container">
 						<div class="article__half">
-							<a href="<?php Site::echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
+							<a href="<?php $site->echoURL("contact"); ?>" class="btn btn--red" >Get in Touch</a>
 						</div>
 
 						<div class="article__half">
-							<a href="<?php Site::echoURL("projects"); ?>" class="btn btn--purple">View My Work</a>
+							<a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">View My Work</a>
 						</div>
 					</div>
 				</div>
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>

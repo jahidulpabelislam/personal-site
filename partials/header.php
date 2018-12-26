@@ -1,3 +1,5 @@
+<?php $site = Site::get(); ?>
+
 		<!-- Navigation for site -->
 		<nav class="nav nav--<?php echo $navTint; ?>">
 			<div class="container nav__container">
@@ -20,7 +22,7 @@
 
 						foreach ($links as $link) {
 							$url = strtolower($link);
-							$url = Site::getURL($url);
+							$url = $site->getURL($url);
 
 							$classes = "nav-item__link";
 							if ($pageId == strtolower($link)) {

@@ -1,14 +1,16 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/site.php");
 
+$site = Site::get();
+
 $headTitle = $headerTitle = "500";
 
 $headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::echoHTMLHead($headTitle, $headDesc);
+$site->echoHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Internal Server Error";
 $navTint = "light";
-Site::echoHeader($headerTitle, $headerDesc, "", $navTint);
+$site->echoHeader($headerTitle, $headerDesc, "", $navTint);
 ?>
 
 				<div class="article article--halved">
@@ -26,5 +28,5 @@ Site::echoHeader($headerTitle, $headerDesc, "", $navTint);
 				</div>
 
 <?php
-Site::echoFooter();
+$site->echoFooter();
 ?>
