@@ -108,7 +108,25 @@ $site->echoConfig();
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="8" data-speed="2000">8</h3>
+                                <?php
+                                $orig = date_default_timezone_get();
+                                date_default_timezone_set("Europe/London");
+
+                                // Generate DateTime from the date
+                                $dateStarted = "04/10/2010";
+                                $dateStartedDate = DateTime::createFromFormat("d/m/Y", $dateStarted);
+
+                                // Today's DateTime
+                                $today = new DateTime();
+
+                                // Work out the time difference from both dates
+                                $diff = $today->diff($dateStartedDate, true);
+
+                                // Get the number of years different
+                                $yearsDiff = $diff->format("%y");
+                                date_default_timezone_set($orig);
+                                ?>
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="2000"><?php echo $yearsDiff; ?></h3>
                                 <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">
