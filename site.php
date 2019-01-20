@@ -160,7 +160,7 @@ class Site {
             $url = "/";
         }
 
-        $url = self::isDebug() ? $url . "?debug=true" : $url;
+        $url = self::isDebug() ? $url . "?debug" : $url;
 
         if ($full && $live) {
             $liveDomain = self::getLiveDomain();
