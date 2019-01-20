@@ -20,7 +20,7 @@ window.jpi.projects = (function (jQuery) {
 		},
 
 		addSkills: function (project, divID) {
-			var skills = project.Skills.split(","),
+			var skills = project.skills.split(","),
 				skillsContainer = jQuery(divID + " .project__skills")[0],
 				search = jQuery(".search-form__input").val(),
 				searches = search.split(" ");
@@ -31,7 +31,7 @@ window.jpi.projects = (function (jQuery) {
 
 					var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
 							innerHTML: skill,
-							class: "skill skill--" + project.Colour,
+							class: "skill skill--" + project.colour,
 							href: "/projects/" + skill + "/"
 						});
 
@@ -51,32 +51,32 @@ window.jpi.projects = (function (jQuery) {
 		addLinks: function (project, divID) {
 			var linksp = jQuery(divID + " .project__links")[0];
 
-			if (project.Link) {
+			if (project.link) {
 				jpi.helpers.createElement(linksp, "a", {
-					href: project.Link,
-					title: "Link to " + project.Name + " Site",
+					href: project.link,
+					title: "Link to " + project.name + " Site",
 					target: "_blank",
 					innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
-					class: "project__link project__link--" + project.Colour
+					class: "project__link project__link--" + project.colour
 				});
 			}
 
-			if (project.Download) {
+			if (project.download) {
 				jpi.helpers.createElement(linksp, "a", {
-					href: project.Download,
-					title: "Link to Download " + project.Name,
+					href: project.download,
+					title: "Link to Download " + project.name,
 					target: "_blank",
 					innerHTML: "<i class='fa fa-download fa-2x'></i>",
-					class: "project__link project__link--" + project.Colour
+					class: "project__link project__link--" + project.colour
 				});
 			}
 
 			jpi.helpers.createElement(linksp, "a", {
-				href: project.GitHub,
-				title: "Link to " + project.Name + "  Code On GitHub",
+				href: project.github,
+				title: "Link to " + project.name + "  Code On GitHub",
 				target: "_blank",
 				innerHTML: "<i class='fa fa-github fa-2x'></i>",
-				class: "project__link project__link--" + project.Colour
+				class: "project__link project__link--" + project.colour
 			});
 		},
 
@@ -85,25 +85,25 @@ window.jpi.projects = (function (jQuery) {
 				slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
 			//loop through each row of data in rows
-			for (var i = 0; i < project.Images.length; i++) {
+			for (var i = 0; i < project.images.length; i++) {
 
-				if (project.Images.hasOwnProperty(i)) {
+				if (project.images.hasOwnProperty(i)) {
 
 					var slideTemplate = jQuery('#tmpl-slide-template').text();
 					var bulletTemplate = jQuery('#tmpl-slide-bullet-template').text();
 
-					for (var data in project.Images[i]) {
-						if (project.Images[i].hasOwnProperty(data)) {
+					for (var data in project.images[i]) {
+						if (project.images[i].hasOwnProperty(data)) {
 							if (typeof data === "string") {
 								var reg = new RegExp("{{" + data + "}}", "g");
-								slideTemplate = slideTemplate.replace(reg, project.Images[i][data]);
-								bulletTemplate = bulletTemplate.replace(reg, project.Images[i][data]);
+								slideTemplate = slideTemplate.replace(reg, project.images[i][data]);
+								bulletTemplate = bulletTemplate.replace(reg, project.images[i][data]);
 							}
 						}
 					}
-					var colourReg = new RegExp("{{Colour}}", "g");
-					slideTemplate = slideTemplate.replace(colourReg, project.Colour);
-					bulletTemplate = bulletTemplate.replace(colourReg, project.Colour);
+					var colourReg = new RegExp("{{colour}}", "g");
+					slideTemplate = slideTemplate.replace(colourReg, project.colour);
+					bulletTemplate = bulletTemplate.replace(colourReg, project.colour);
 
 					var idReg = new RegExp("{{Slide-Show-ID}}", "g");
 					bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
@@ -113,7 +113,7 @@ window.jpi.projects = (function (jQuery) {
 				}
 			}
 
-			if (project.Images.length > 0) {
+			if (project.images.length > 0) {
 				jpi.slideShow.setUp(slideShowId);
 			}
 		},
@@ -129,12 +129,12 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
 
-			jQuery(".detailed-project .project__title").text(project.Name);
-			jQuery(".detailed-project .project__date").text(project.Date);
+			jQuery(".detailed-project .project__title").text(project.name);
+			jQuery(".detailed-project .project__date").text(project.date);
 
 			fn.addSkills(project, ".detailed-project");
 
-			jQuery(".detailed-project .project__description").html(project.LongDescription);
+			jQuery(".detailed-project .project__description").html(project.long_description);
 
 			fn.addLinks(project, ".detailed-project");
 
@@ -144,7 +144,7 @@ window.jpi.projects = (function (jQuery) {
 
 			jQuery(".detailed-project .slide-show__nav").each(function () {
 				var classList = jQuery(this).attr("class");
-				classList = classList.replace(regx, 'slide-show__nav--' + project.Colour);
+				classList = classList.replace(regx, 'slide-show__nav--' + project.colour);
 				jQuery(this).attr("class", classList);
 			});
 		},
@@ -172,7 +172,7 @@ window.jpi.projects = (function (jQuery) {
 		//renders a project
 		renderProject: function (project) {
 
-			if (!document.getElementById("project--" + project.ID)) {
+			if (!document.getElementById("project--" + project.id)) {
 
 				var template = jQuery('#tmpl-project-template').text();
 
@@ -186,11 +186,11 @@ window.jpi.projects = (function (jQuery) {
 				}
 				jQuery(".projects").append(template);
 
-				fn.addSkills(project, "#project--" + project.ID);
-				fn.addLinks(project, "#project--" + project.ID);
-				fn.addProjectImages(project, "#slide-show--" + project.ID);
+				fn.addSkills(project, "#project--" + project.id);
+				fn.addLinks(project, "#project--" + project.id);
+				fn.addProjectImages(project, "#slide-show--" + project.id);
 
-				jQuery("#project--" + project.ID + " .js-open-modal").data("projectData", project);
+				jQuery("#project--" + project.id + " .js-open-modal").data("projectData", project);
 			}
 
 			jpi.footer.delayExpand();

@@ -106,18 +106,18 @@ Site::echoConfig();
 				</div>
 
 				<script type="text/template" id="tmpl-project-template">
-					<article id="project--{{ID}}" class="project">
-						<h3 class="article__header project__title">{{Name}}</h3>
-						<time class="project__date">{{Date}}</time>
+					<article id="project--{{id}}" class="project">
+						<h3 class="article__header project__title">{{name}}</h3>
+						<time class="project__date">{{date}}</time>
 						<div class="project__skills"></div>
-						<div class="project__description">{{ShortDescription}}</div>
+						<div class="project__description">{{short_description}}</div>
 						<div class="project__links"></div>
-						<button class="btn btn--{{Colour}} js-open-modal project__read-more project__read-more--{{Colour}}">Read More</button>
-						<div id="slide-show--{{ID}}" class="slide-show">
-							<div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ID}}">
+						<button class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}">Read More</button>
+						<div id="slide-show--{{id}}" class="slide-show">
+							<div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
 								<div class="slide-show__slides-container"></div>
-								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="previous">
-								<img class="slide-show__nav slide-show__nav--{{Colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{ID}}" data-nav-direction="next">
+								<img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
+								<img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
 							</div>
 							<div class="js-slide-show-bullets"></div>
 						</div>
@@ -125,13 +125,13 @@ Site::echoConfig();
 				</script>
 
 				<script type="text/template" id="tmpl-slide-template">
-					<div class="slide-show__slide" id="slide-{{ID}}">
-						<img src="<?php Site::echoProjectImageURL("{{File}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ProjectID}}" data-slide-colour="{{Colour}}">
+					<div class="slide-show__slide" id="slide-{{id}}">
+						<img src="<?php Site::echoProjectImageURL("{{file}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
 					</div>
 				</script>
 
 				<script type="text/template" id="tmpl-slide-bullet-template">
-					<label class="slide-show__bullet slide-show__bullet--{{Colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{ID}}"></label>
+					<label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{id}}"></label>
 				</script>
 	
 				<script>

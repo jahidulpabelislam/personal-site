@@ -40,23 +40,23 @@ window.jpi.home = (function (jQuery) {
 					}
 				}
 			}
-			if (project.Images[0]) {
-				var imageReg = new RegExp("{{File}}", "g");
-				slideTemplate = slideTemplate.replace(imageReg, project.Images[0].File);
+			if (project.images[0]) {
+				var imageReg = new RegExp("{{file}}", "g");
+				slideTemplate = slideTemplate.replace(imageReg, project.images[0].file);
 			}
 
 			jQuery(".slide-show__slides-container").append(slideTemplate);
 			jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
-			if (!project.Images[0]) {
-				jQuery("#slide-" + project.ID + " .slide-show__img").remove();
+			if (!project.images[0]) {
+				jQuery("#slide-" + project.id + " .slide-show__img").remove();
 			}
 
-			var projectLinks = jQuery("#slide-" + project.ID + " .project-info__links")[0];
+			var projectLinks = jQuery("#slide-" + project.id + " .project-info__links")[0];
 
-			if (project.Link) {
+			if (project.link) {
 				jpi.helpers.createElement(projectLinks, "a", {
-					href: project.Link,
+					href: project.link,
 					innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
 					class: "btn btn--clear",
 					target: "_blank"
@@ -64,7 +64,7 @@ window.jpi.home = (function (jQuery) {
 			}
 
 			jpi.helpers.createElement(projectLinks, "a", {
-				href: project.GitHub,
+				href: project.github,
 				innerHTML: "<i class='fa fa-github fa-2x'></i>",
 				class: "btn btn--clear",
 				target: "_blank"

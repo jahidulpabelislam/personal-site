@@ -125,15 +125,15 @@ Site::echoConfig();
 				</div>
 
 				<script type="text/template" id="tmpl-slide-template">
-					<div class="slide-show__slide" id="slide-{{ID}}" data-slide-colour="{{Colour}}">
-						<img class="slide-show__img" src="<?php Site::echoProjectImageURL("{{File}}?v=2"); ?>" alt="Screen shot of {{Name}} Project">
+					<div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
+						<img class="slide-show__img" src="<?php Site::echoProjectImageURL("{{file}}?v=2"); ?>" alt="Screen shot of {{name}} Project">
 						<div class="slide-show__info-container">
-							<div class="slide-show__info slide-show__info--{{Colour}}">
+							<div class="slide-show__info slide-show__info--{{colour}}">
 								<div class="project__header">
-									<h3 class="project__title project__title--inline">{{Name}}</h3>
-									<time class="project__date project__date--inline">{{Date}}</time>
+									<h3 class="project__title project__title--inline">{{name}}</h3>
+									<time class="project__date project__date--inline">{{date}}</time>
 								</div>
-								<div class="project-info__desc">{{ShortDescription}}</div>
+								<div class="project-info__desc">{{short_description}}</div>
 								<div class="project-info__links"></div>
 							</div>
 						</div>
@@ -141,7 +141,7 @@ Site::echoConfig();
 				</script>
 
 				<script type="text/template" id="tmpl-slide-bullet-template">
-					<label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{Colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ID}}"></label>
+					<label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></label>
 				</script>
 	
 				<script>
