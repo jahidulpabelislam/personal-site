@@ -30,6 +30,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <p>My name is Jahidul Pabel Islam.</p>
 
                             <?php
+                            $orig = date_default_timezone_get();
                             date_default_timezone_set("Europe/London");
 
                             // Generate DateTime from my date of birth
@@ -44,6 +45,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                             // Get the number of years different
                             $yearsDiff = $diff->format("%y");
+                            date_default_timezone_set($orig);
                             ?>
 
                             <p>I'm <?php echo $yearsDiff; ?> years old.</p>
