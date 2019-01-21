@@ -1,12 +1,15 @@
 @import "third-party/google-fonts";
+
 @import "tools/variables";
 @import "tools/mixins";
+
 @import "base/reset";
 @import "base/layout";
 @import "base/base";
 @import "base/clearfix";
 @import "base/accessibility";
 @import "base/global";
+
 @import "components/buttons";
 @import "components/footer";
 @import "components/form";
@@ -21,6 +24,7 @@
 @import "components/stats";
 @import "components/projects";
 @import "components/cookie-banner";
+
 @import "templates/about";
 @import "templates/contact";
 @import "templates/home";
