@@ -17,20 +17,20 @@
 }
 
 .social-link:hover .social-link__img--email {
-    background-color: $email;
+    background-color: $email-colour;
 }
 
 .social-link:hover .social-link__text--email {
-    color: $email;
+    color: $email-colour;
     text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--linkedin {
-    background-color: $linkedin;
+    background-color: $linkedin-colour;
 }
 
 .social-link:hover .social-link__text--linkedin {
-    color: $linkedin;
+    color: $linkedin-colour;
     text-decoration: underline;
 }
 
@@ -39,16 +39,16 @@
 }
 
 .social-link:hover .social-link__img--github {
-    background-color: $github;
+    background-color: $github-colour;
 }
 
 .social-link:hover .social-link__text--github {
-    color: $github;
+    color: $github-colour;
     text-decoration: underline;
 }
 
 .social-link:hover .social-link__text--instagram {
-    color: $instagram-purple;
+    color: $instagram-purple-colour;
     text-decoration: underline;
 }
 

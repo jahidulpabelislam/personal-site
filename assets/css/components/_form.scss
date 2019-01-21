@@ -22,26 +22,26 @@
 }
 
 .input:focus {
-    box-shadow: 0 0 8px $primary-color;
-    border-color: $primary-color;
+    box-shadow: 0 0 8px $primary-colour;
+    border-color: $primary-colour;
 }
 
 .input.invalid {
-    border-color: $error;
+    border-color: $error-colour;
 }
 
 .input:focus.invalid {
-    border-color: $error;
-    box-shadow: 0 0 8px transparentize($error, .4);
+    border-color: $error-colour;
+    box-shadow: 0 0 8px transparentize($error-colour, .4);
 }
 
 .input.valid {
-    border-color: $success;
+    border-color: $success-colour;
 }
 
 .input:focus.valid {
-    border-color: $success;
-    box-shadow: 0 0 8px transparentize($success, .4);
+    border-color: $success-colour;
+    box-shadow: 0 0 8px transparentize($success-colour, .4);
 }
 
 .styled-checkbox .input {
@@ -67,8 +67,8 @@
 }
 
 .input:checked + .styled-checkbox__pseudo:before {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: $primary-colour;
+    border-color: $primary-colour;
     content: "\2714";
     font-size: 16px;
     line-height: 1;
@@ -96,11 +96,11 @@ label {
 }
 
 .feedback--success {
-    color: $success;
+    color: $success-colour;
 }
 
 .feedback--error {
-    color: $error;
+    color: $error-colour;
 }
 
 /* Only for Desktops */

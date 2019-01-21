@@ -19,12 +19,12 @@
 }
 
 .social-link:hover .social-link__text--facebook {
-    color: $facebook;
+    color: $facebook-colour;
     text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--facebook {
-    background: $facebook;
+    background: $facebook-colour;
 }
 
 .social-link__img--twitter {
@@ -32,12 +32,12 @@
 }
 
 .social-link:hover .social-link__text--twitter {
-    color: $twitter;
+    color: $twitter-colour;
     text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--twitter {
-    background: $twitter;
+    background: $twitter-colour;
 }
 
 .social-link__img--snapchat {
@@ -62,7 +62,7 @@
 }
 
 .social-link:hover .social-link__text--snapchat {
-    color: $snapchat;
+    color: $snapchat-colour;
 }
 
 /* Only for Desktops */
