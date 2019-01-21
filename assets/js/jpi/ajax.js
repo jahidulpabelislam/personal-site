@@ -5,54 +5,50 @@ window.jpi.ajax = (function(jQuery) {
 
     var fn = {
 
-        // Checks if feedback was provided by API
-        checkFeedback: function(feedback, howToRenderError, genericMessage) {
-
-            //if there is feedback from Server give error message using the it otherwise output generic message
-            if (feedback || genericMessage) {
-                howToRenderError(feedback || genericMessage);
+        // If there is feedback from Server give error message using the it otherwise output generic message
+        checkAndRenderFeedback: function(data, renderErrorFunc, genericMessage) {
+            var message = (data && data.meta && data.meta.feedback) ? data.meta.feedback : genericMessage;
+            if (message) {
+                renderErrorFunc(message);
             }
         },
 
-        // Loop through data to see if it exists
-        loopThroughData: function(data, toRun, howToRenderError, genericMessage) {
-            var i;
-
-            // Check if data exists
-            if (data.rows && data.rows.length > 0) {
-
-                // Loop through each row of data in rows
-                for (i = 0; i < data.rows.length; i++) {
-
+        // Loop through data to see if it exists and if it does run a function on each row
+        renderRowsOrFeedback: function(data, funcToRun, renderErrorFunc, genericMessage) {
+            // If data/rows exists, For each row run a function
+            if (data && data.rows && data.rows.length > 0) {
+                for (var i = 0; i < data.rows.length; i++) {
                     if (data.rows.hasOwnProperty(i)) {
-
-                        // Run the function provided as data exists and is valid
-                        toRun(data.rows[i]);
+                        funcToRun(data.rows[i]);
                     }
                 }
+
                 return true;
             }
             // Otherwise check feedback and show user and return false as data isn't there
             else {
-                fn.checkFeedback(data.meta.feedback, howToRenderError, genericMessage);
+                fn.checkAndRenderFeedback(data, renderErrorFunc, genericMessage);
                 return false;
             }
         },
 
         /*
-         Given a payload that is an object (containing name/value pairs), this function
-         converts that array into a URLEncoded string.
+         * Given a payload that is an object (containing name/value pairs), this function
+         * converts that array into a URLEncoded string.
          */
-        encodePayload: function(x) {
-            var i, payload = "";
-            for (i in x) {
-                if (x.hasOwnProperty(i)) {
-                    payload += i + "=" + encodeURIComponent(x[i]) + "&";
-                    payload = payload.replace("%20", "+");
-                    payload = payload.replace("%3D", "=");
+        encodePayload: function(params) {
+            var name, payload = [];
+            for (name in params) {
+                if (params.hasOwnProperty(name)) {
+                    payload.push(name + "=" + encodeURIComponent(params[name]));
                 }
             }
-            return payload.slice(0, -1);
+
+            var payloadString = payload.join("&");
+            payloadString = payloadString.replace("%20", "+");
+            payloadString = payloadString.replace("%3D", "=");
+
+            return payloadString;
         },
 
         /**
@@ -60,66 +56,58 @@ window.jpi.ajax = (function(jQuery) {
          * {
          *     "method": "HTTP METHOD",
          *     "url": "URL to load",
-         *     "query": "object of payload",
-         *     "load": function to run when XHR is loaded
+         *     "params": {"object of payload"},
+         *     "onSuccess": function to run when XHR request is successful
+         *     "onError": function to run when there's an error
          * }
-         ** @param request object of data necessary needed to do a http request
+         ** @param request object of params necessary needed to do a http request
          */
         sendRequest: function(request) {
-
-            //start a XHR
             var xhr = new XMLHttpRequest();
+            var errorText = "Error Loading Content.";
 
-            // Checks if there is query to send to payload and checks its not sending a file
-            if (request.query && request.data !== "file") {
+            // Checks if there is params to send to payload and checks its not sending a file
+            if (request.params && request.data !== "file") {
 
-                request.query = fn.encodePayload(request.query);
+                request.params = fn.encodePayload(request.params);
 
                 if (request.method !== "POST") {
-
-                    request.url += "?" + request.query;
+                    request.url += "?" + request.params;
                 }
             }
 
-            // Open a XHR
             xhr.open(request.method, request.url, true);
 
-            // Set request header for XHR
             xhr.setRequestHeader("Accept", "application/json");
 
-            if (request.query && request.method === "POST" && request.data !== "file") {
+            if (request.params && request.method === "POST" && request.data !== "file") {
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             }
 
-            // Add listener for when XHR is loaded
             xhr.addEventListener("load", function() {
                 if ((this && this.responseText !== "")) {
                     try {
                         var jsonData = JSON.parse(this.responseText);
-                        request.load(jsonData);
+                        request.onSuccess(jsonData);
+                        return;
                     }
                     catch (e) {
-                        request.error("Error Loading Content.");
                         console.log(e);
                     }
                 }
-                else {
-                    request.error("Error Loading Content.");
-                }
+                request.onError(errorText);
             });
 
-            // Add listener for when XHR has a error
             xhr.addEventListener("error", function() {
-                request.error("Error Loading Content.");
+                request.onError(errorText);
             });
 
-            // Send payload if any
-            xhr.send(request.query);
+            xhr.send(request.params);
         }
     };
 
     return {
-        "loopThroughData": fn.loopThroughData,
+        "renderRowsOrFeedback": fn.renderRowsOrFeedback,
         "sendRequest": fn.sendRequest
     };
 

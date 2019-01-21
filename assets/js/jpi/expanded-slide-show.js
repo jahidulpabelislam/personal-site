@@ -1,14 +1,13 @@
-//Used to expand a projects slide show
+// Used to expand a projects slide show
 window.jpi = window.jpi || {};
 window.jpi.expandedSlideShow = (function(jQuery) {
 
     "use strict";
 
-    // Initiates variables
     var global = {
+        expandedImageDivContainer: jQuery(".expanded-slide-show"),
         currentSlide: 0,
-        slides: {},
-        expandedImageDivContainer: jQuery(".expanded-slide-show")
+        slides: {}
     };
 
     var fn = {
@@ -16,39 +15,34 @@ window.jpi.expandedSlideShow = (function(jQuery) {
         // Changes the current slide to new slide
         changeElement: function(nextSlideId) {
             jQuery(".expanded-image-slide-show__bullet").removeClass("active");
-            global.currentSlide = nextSlideId;
 
-            if (global.currentSlide >= global.slides.length) {
-                global.currentSlide = 0;
+            if (nextSlideId >= global.slides.length) {
+                nextSlideId = 0;
             }
-            else if (global.currentSlide < 0) {
-                global.currentSlide = global.slides.length - 1;
+            else if (nextSlideId < 0) {
+                nextSlideId = global.slides.length - 1;
             }
+            global.currentSlide = nextSlideId;
 
             var expandedImage = jQuery(".expanded-image.current"),
                 expandedImage2 = jQuery(".expanded-image:not(.current)");
 
-            expandedImage2.attr("src", global.slides[global.currentSlide].src);
+            expandedImage2.attr("src", global.slides[global.currentSlide].src).addClass("current");
             expandedImage.removeClass("current");
-            expandedImage2.addClass("current");
-            jQuery(".js-expanded-slide-show-current-count").text((global.currentSlide + 1).toString());
 
+            jQuery(".js-expanded-slide-show-current-count").text(global.currentSlide + 1);
             jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
         },
 
-        // Sends event to change to next slide
         next: function() {
             fn.changeElement(global.currentSlide + 1);
         },
 
-        // Sends event to change to previous slide
         previous: function() {
             fn.changeElement(global.currentSlide - 1);
         },
 
-        // Closes expanded image div
         close: function() {
-
             global.expandedImageDivContainer.removeClass("active").addClass("hiding");
 
             setTimeout(function() {
@@ -63,24 +57,17 @@ window.jpi.expandedSlideShow = (function(jQuery) {
 
         // Sets up slide show when image is clicked on
         setUp: function(e) {
-            var expandedImage = jQuery(".expanded-image.current");
-
             // Stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-            global.expandedImageDivContainer.addClass("active");
-
-            // Display the expanded image div
-            expandedImage.attr("src", e.target.src).show();
-
-            document.body.style.overflow = "hidden";
-
             // Get all slides in slide show
-            var slideShowId = jQuery(e.target).attr("data-slideShowId");
+            var slideShowId = jQuery(e.target).attr("data-slide-show-id");
             global.slides = jQuery(slideShowId + " .slide-show__img");
 
+            var slidesCount = global.slides.length;
+
             // Loops through all slide shows images and set up a bullet navigation for each
-            for (var i = 0; i < global.slides.length; i++) {
+            for (var i = 0; i < slidesCount; i++) {
 
                 // Checks if the current loop is the current image on slideShow
                 if (global.slides[i] === e.target) {
@@ -95,11 +82,11 @@ window.jpi.expandedSlideShow = (function(jQuery) {
             }
 
             // Display the current slide number and slide show length
-            jQuery(".js-expanded-slide-show-current-count").text((global.currentSlide + 1).toString());
-            jQuery(".js-expanded-slide-show-total-count").text(global.slides.length);
+            jQuery(".js-expanded-slide-show-current-count").text(global.currentSlide + 1);
+            jQuery(".js-expanded-slide-show-total-count").text(slidesCount);
 
             // Check there are more than one slide show image to slide through
-            if (global.slides.length > 1) {
+            if (slidesCount > 1) {
                 // Sets up next and previous buttons
                 jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").show();
             }
@@ -108,30 +95,27 @@ window.jpi.expandedSlideShow = (function(jQuery) {
                 jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").hide();
             }
 
+            jQuery(".detailed-project").removeClass("open").hide();
+
+            jQuery(".expanded-image.current").attr("src", e.target.src).show();
+
             // Makes current slides bullet navigation display as active
             jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
 
-            jQuery(".detailed-project").removeClass("open").hide();
-
-            setTimeout(function() {
-                // Display the expanded image div
-                expandedImage.attr("src", "");
-                expandedImage.attr("src", e.target.src);
-            }, 1000);
+            // Display the expanded image div
+            global.expandedImageDivContainer.addClass("active");
+            document.body.style.overflow = "hidden";
         },
 
         initListeners: function() {
-            jQuery("body").on("click", ".js-expandable-image", fn.setUp);
-
             jQuery("body").on("click", ".js-expanded-image-bullet", function(e) {
-                var slideId = jQuery(e.target).attr("data-slideId");
-                slideId = parseInt(slideId, 10);
+                var slideId = jQuery(e.target).attr("data-slide-id");
+                slideId = jpi.helpers.getInt(slideId);
                 fn.changeElement(slideId);
             });
 
-            // Add listener for when the user wants to close expanded image
+            jQuery("body").on("click", ".js-expandable-image", fn.setUp);
             jQuery(".expanded-slide-show__close").click(fn.close);
-
             jQuery(".js-expanded-slide-show-next").click(fn.next);
             jQuery(".js-expanded-slide-show-previous").click(fn.previous);
         }

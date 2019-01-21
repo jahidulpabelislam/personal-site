@@ -13,21 +13,18 @@ window.jpi.home = (function(jQuery) {
                 setTimeout(function() {
                     setInterval(function() {
                         var lastSec = secsElem.text();
-                        lastSec = parseInt(lastSec);
+                        lastSec = jpi.helpers.getInt(lastSec, 1);
                         secsElem.text(lastSec + 1);
                     }, 1000);
                 }, 1000);
             }
         },
 
-        // Prints out a error message provided
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img").hide("fast");
-            jpi.footer.delayExpand();
         },
 
-        // Renders a project
         renderProject: function(project) {
             var slideTemplate = jQuery("#tmpl-slide-template").text();
             var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
@@ -41,7 +38,8 @@ window.jpi.home = (function(jQuery) {
                     }
                 }
             }
-            if (project.images[0]) {
+
+            if (project.images && project.images.length > 0 && project.images[0]) {
                 var imageReg = new RegExp("{{file}}", "g");
                 slideTemplate = slideTemplate.replace(imageReg, project.images[0].file);
             }
@@ -49,7 +47,7 @@ window.jpi.home = (function(jQuery) {
             jQuery(".slide-show__slides-container").append(slideTemplate);
             jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
-            if (!project.images[0]) {
+            if (!project.images || project.images.length === 0 || !project.images[0]) {
                 jQuery("#slide-" + project.id + " .slide-show__img").remove();
             }
 
@@ -77,27 +75,28 @@ window.jpi.home = (function(jQuery) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 
             // Send the data, the function to do if data is valid
-            var dataValid = jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "Error Getting the Projects.");
+            var dataValid = jpi.ajax.renderRowsOrFeedback(response, fn.renderProject, fn.renderError, "Error Getting the Projects.");
 
             if (dataValid) {
                 jpi.slideShow.setUp("#slide-show--home");
             }
 
-            jpi.footer.delayExpand();
+            jpi.footer.expandContent();
         },
 
         init: function() {
+            fn.initSecondsCounter();
+
             if (jQuery("#slide-show--home").length > 0) {
 
-                fn.initSecondsCounter();
-
                 jQuery(".projects__loading-img").show("fast");
+
                 jpi.ajax.sendRequest({
                     method: "GET",
                     url: jpi.config.jpiAPIEndpoint + "projects/",
-                    query: {limit: 3},
-                    load: fn.gotProjects,
-                    error: fn.renderError
+                    params: {limit: 3},
+                    onSuccess: fn.gotProjects,
+                    onError: fn.renderError
                 });
             }
         }

@@ -24,25 +24,33 @@ window.jpi.helpers = (function(jQuery) {
             }
         },
 
-        // Creates an element with attributes appended to parent
-        createElement: function(parent, element, attributes) {
-            var elem = document.createElement(element);
+        // Creates an element with attributes and appended to parent
+        createElement: function(parentElem, elementName, attributes) {
+            var newElem = document.createElement(elementName);
 
             for (var attribute in attributes) {
-
                 if (attributes.hasOwnProperty(attribute)) {
                     if (attribute === "innerHTML") {
-                        elem[attribute] = attributes[attribute];
+                        newElem[attribute] = attributes[attribute];
                     }
                     else {
-                        elem.setAttribute(attribute, attributes[attribute]);
+                        newElem.setAttribute(attribute, attributes[attribute]);
                     }
                 }
             }
+            parentElem.appendChild(newElem);
 
-            parent.appendChild(elem);
+            return newElem;
+        },
 
-            return elem;
+        getInt: function(value, defaultInt) {
+            var int = defaultInt;
+
+            if (!isNaN(value)) {
+                int = parseInt(value, 10);
+            }
+
+            return int;
         },
 
         getCookie: function(key) {
@@ -51,7 +59,6 @@ window.jpi.helpers = (function(jQuery) {
             var cookies = document.cookie.split(";");
 
             for (var i = 0; i < cookies.length; i++) {
-
                 var cookie = cookies[i];
 
                 cookie = cookie.toString().trim();
@@ -80,6 +87,7 @@ window.jpi.helpers = (function(jQuery) {
     return {
         "checkInputField": fn.checkInputField,
         "createElement": fn.createElement,
+        "getInt": fn.getInt,
         "getCookie": fn.getCookie,
         "checkCookieValue": fn.checkCookieValue,
         "setCookie": fn.setCookie

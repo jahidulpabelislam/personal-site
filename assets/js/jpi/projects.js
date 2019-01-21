@@ -13,11 +13,19 @@ window.jpi.projects = (function(jQuery) {
     };
 
     var fn = {
+
+        getCurrentPageNum: function() {
+            var currentPageNum = jQuery(".js-projects-page").val();
+            currentPageNum = jpi.helpers.getInt(currentPageNum, 1);
+
+            return currentPageNum;
+        },
+
         // Prints out a error message provided
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img, .pagination").text("").hide("fast");
-            jpi.footer.delayExpand();
+            jpi.footer.expandContent();
         },
 
         addSkills: function(project, divID) {
@@ -50,10 +58,10 @@ window.jpi.projects = (function(jQuery) {
         },
 
         addLinks: function(project, divID) {
-            var linksp = jQuery(divID + " .project__links")[0];
+            var linksContainer = jQuery(divID + " .project__links")[0];
 
             if (project.link) {
-                jpi.helpers.createElement(linksp, "a", {
+                jpi.helpers.createElement(linksContainer, "a", {
                     href: project.link,
                     title: "Link to " + project.name + " Site",
                     target: "_blank",
@@ -63,7 +71,7 @@ window.jpi.projects = (function(jQuery) {
             }
 
             if (project.download) {
-                jpi.helpers.createElement(linksp, "a", {
+                jpi.helpers.createElement(linksContainer, "a", {
                     href: project.download,
                     title: "Link to Download " + project.name,
                     target: "_blank",
@@ -72,7 +80,7 @@ window.jpi.projects = (function(jQuery) {
                 });
             }
 
-            jpi.helpers.createElement(linksp, "a", {
+            jpi.helpers.createElement(linksContainer, "a", {
                 href: project.github,
                 title: "Link to " + project.name + "  Code On GitHub",
                 target: "_blank",
@@ -120,7 +128,8 @@ window.jpi.projects = (function(jQuery) {
         },
 
         openProjectsExpandModal: function() {
-            var project = jQuery(this).attr("data-projectData");
+            var projectDataString = jQuery(this).attr("data-project-data"),
+                project = JSON.parse(projectDataString);
 
             jQuery(".detailed-project").addClass("open").show();
             document.body.style.overflow = "hidden";
@@ -150,15 +159,17 @@ window.jpi.projects = (function(jQuery) {
             });
         },
 
-        closeProjectsExpandModal: function(event) {
-            if (!jQuery(event.target).closest(".modal__content").length && jQuery(".detailed-project").hasClass("open")) {
+        closeProjectsExpandModal: function(e) {
+            var modal = jQuery(".detailed-project");
+            if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
 
-                jQuery(".detailed-project").removeClass("open").hide();
+                modal.removeClass("open").hide();
 
                 document.body.style.overflow = "auto";
 
-                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("mousedown", jpi.slideShow.dragStart);
-                jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0].removeEventListener("touchstart", jpi.slideShow.dragStart);
+                var viewpoint = jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0];
+                viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
+                viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
                 jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
 
@@ -191,10 +202,10 @@ window.jpi.projects = (function(jQuery) {
                 fn.addLinks(project, "#project--" + project.id);
                 fn.addProjectImages(project, "#slide-show--" + project.id);
 
-                jQuery("#project--" + project.id + " .js-open-modal").attr("data-projectData", project);
+                jQuery("#project--" + project.id + " .js-open-modal").attr("data-project-data", JSON.stringify(project));
             }
 
-            jpi.footer.delayExpand();
+            jpi.footer.expandContent();
         },
 
         scrollToProjects: function() {
@@ -207,21 +218,19 @@ window.jpi.projects = (function(jQuery) {
         },
 
         // Adds pagination buttons/elements to the page
-        addPagination: function(count) {
-            if ((parseInt(count)) > 10) {
+        addPagination: function(totalItems) {
+            var paginationElem = jQuery(".pagination");
+
+            if (jpi.helpers.getInt(totalItems) > 10) {
 
                 var page = 1,
-                    ul = jQuery(".pagination")[0];
+                    ul = paginationElem[0],
+                    currentPage = fn.getCurrentPageNum();
 
-                var currentPage = jQuery(".js-projects-page").val();
-                currentPage = Number.isInteger(parseInt(currentPage)) ? parseInt(currentPage) : 1;
-
-                for (var i = 0; i < count; i += 10, page++) {
-                    var attributes = {class: "pagination__item"};
-
-                    var item = jpi.helpers.createElement(ul, "li", attributes);
-
-                    var url = fn.getNewURL(page);
+                for (var i = 0; i < totalItems; i += 10, page++) {
+                    var attributes = {class: "pagination__item"},
+                        item = jpi.helpers.createElement(ul, "li", attributes),
+                        url = fn.getNewURL(page);
 
                     url += global.url.search;
 
@@ -232,10 +241,10 @@ window.jpi.projects = (function(jQuery) {
                     jpi.helpers.createElement(item, "a", attributes);
                 }
 
-                jQuery(".pagination").show();
+                paginationElem.show();
             }
             else {
-                jQuery(".pagination").hide();
+                paginationElem.hide();
             }
         },
 
@@ -245,26 +254,22 @@ window.jpi.projects = (function(jQuery) {
             jQuery(".projects, .pagination").text("");
 
             // Send the data, the function to do if data is valid
-            jpi.ajax.loopThroughData(response, fn.renderProject, fn.renderError, "No Projects Found.");
+            jpi.ajax.renderRowsOrFeedback(response, fn.renderProject, fn.renderError, "No Projects Found.");
 
             if (response && response.meta && response.meta.total_count) {
                 fn.addPagination(response.meta.total_count);
             }
 
-            jpi.footer.delayExpand();
+            jpi.footer.expandContent();
         },
 
         getProjects: function() {
-
-            var page = jQuery(".js-projects-page").val();
-            page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
-
-            var search = jQuery(".search-form__input").val();
-
-            var query = {
-                page: page,
-                search: search
-            };
+            var page = fn.getCurrentPageNum(),
+                search = jQuery(".search-form__input").val(),
+                query = {
+                    page: page,
+                    search: search
+                };
 
             // Stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
@@ -273,16 +278,15 @@ window.jpi.projects = (function(jQuery) {
             jpi.ajax.sendRequest({
                 method: "GET",
                 url: jpi.config.jpiAPIEndpoint + "projects/",
-                query: query,
-                load: fn.gotProjects,
-                error: fn.renderError
+                params: query,
+                onSuccess: fn.gotProjects,
+                onError: fn.renderError
             });
         },
 
         getNewURL: function(page) {
-            var url = "/projects/";
-
-            var searchValue = jQuery(".search-form__input").val();
+            var url = "/projects/",
+                searchValue = jQuery(".search-form__input").val();
 
             if (searchValue.trim() !== "") {
                 url += searchValue + "/";
@@ -296,9 +300,8 @@ window.jpi.projects = (function(jQuery) {
         },
 
         getNewTitle: function(page) {
-            var title = global.titleStart;
-
-            var searchValue = jQuery(".search-form__input").val();
+            var title = global.titleStart,
+                searchValue = jQuery(".search-form__input").val();
 
             if (searchValue.trim() !== "") {
                 title += " with " + searchValue;
@@ -314,20 +317,16 @@ window.jpi.projects = (function(jQuery) {
         },
 
         storeLatestSearch: function() {
+            var searchValue = jQuery(".search-form__input").val(),
+                page = fn.getCurrentPageNum(),
+                title = fn.getNewTitle(page),
+                url = fn.getNewURL(page),
+                state = {
+                    search: searchValue,
+                    page: page
+                };
 
-            var searchValue = jQuery(".search-form__input").val();
-
-            var page = jQuery(".js-projects-page").val();
-            page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1;
-
-            var title = fn.getNewTitle(page);
-            var url = fn.getNewURL(page);
             global.url.pathname = url;
-            var state = {
-                search: searchValue,
-                page: page
-            };
-
             document.title = title;
             history.pushState(state, title, global.url.toString());
 
@@ -381,14 +380,13 @@ window.jpi.projects = (function(jQuery) {
 
             jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
-            window.addEventListener("popstate", function(event) {
-
-                var page = event.state.page;
+            window.addEventListener("popstate", function(e) {
+                var page = e.state.page;
 
                 document.title = fn.getNewTitle(page);
 
                 jQuery(".js-projects-page").val(page);
-                jQuery(".search-form__input").val(event.state.search);
+                jQuery(".search-form__input").val(e.state.search);
 
                 fn.scrollToProjects();
                 fn.getProjects();

@@ -7,18 +7,18 @@ window.jpi.cookieBanner = (function(jQuery) {
         container: ".cookie-banner",
         transitionSpeedSecs: 700,
         cookieKey: "cookie-banner-closed",
-        bannerCookieExpirationDays: 30,
-        bannerCookieClickedValue: "true"
+        cookieClickedValue: "true",
+        cookieExpirationDays: 30
     };
 
     var fn = {
 
         getHasClosedBannerBefore: function() {
-            return jpi.helpers.checkCookieValue(global.cookieKey, global.bannerCookieClickedValue);
+            return jpi.helpers.checkCookieValue(global.cookieKey, global.cookieClickedValue);
         },
 
         setCookie: function() {
-            jpi.helpers.setCookie(global.cookieKey, global.bannerCookieClickedValue, global.bannerCookieExpirationDays);
+            jpi.helpers.setCookie(global.cookieKey, global.cookieClickedValue, global.cookieExpirationDays);
         },
 
         closeBanner: function() {

@@ -3,52 +3,60 @@ window.jpi.nav = (function(jQuery) {
 
     "use strict";
 
+    var global = {
+        mainSelector: ".nav",
+        linksElector: ".nav__links-container, .nav__social-links-container",
+        mobileButtonElector: ".nav__mobile-toggle"
+    };
+
     var fn = {
+
         toggleMobileMenu: function() {
-            var container = jQuery(".nav__links-container, .nav__social-links-container");
-            jQuery(".nav").toggleClass("opened");
+            var container = jQuery(global.linksElector);
+            jQuery(global.mainSelector).toggleClass("opened");
             container.slideToggle();
         },
 
         initDesktopNav: function() {
             if (jQuery(window).width() > 768) {
-                var container = jQuery(".nav__links-container, .nav__social-links-container");
+                var container = jQuery(global.linksElector);
                 container.show();
             }
         },
 
-        // Custom code to collapse mobile menu when user clicks off it.
-        closeMobileNav: function(event) {
-            if (!jQuery(event.target).closest(".nav").length && jQuery(".nav").hasClass("opened") && jQuery(".nav__mobile-toggle").css("display") !== "none") {
-                jQuery(".nav__mobile-toggle").trigger("click");
+        // Code to collapse mobile menu when user clicks anywhere off it.
+        closeMobileNav: function(e) {
+            if (!jQuery(e.target).closest(global.mainSelector).length && jQuery(global.mainSelector).hasClass("opened") && jQuery(global.mobileButtonElector).css("display") !== "none") {
+                jQuery(global.mobileButtonElector).trigger("click");
             }
         },
 
         toggleNavBarColour: function() {
-            var navHeight = jQuery(".nav").height();
+            var navHeight = jQuery(global.mainSelector).height();
             var scrollPos = jQuery(window).scrollTop() + navHeight;
             var headerHeight = jQuery(".jumbotron").height();
 
             if (scrollPos >= headerHeight) {
-                jQuery(".nav").addClass("scrolled");
+                jQuery(global.mainSelector).addClass("scrolled");
             }
             else {
-                jQuery(".nav").removeClass("scrolled");
+                jQuery(global.mainSelector).removeClass("scrolled");
             }
         },
 
         initListeners: function() {
             jQuery(document).on("click", fn.closeMobileNav);
-
-            jQuery(".nav__mobile-toggle").on("click", fn.toggleMobileMenu);
-
             jQuery(window).on("orientationchange resize", fn.initDesktopNav);
-
             jQuery(window).on("scroll", fn.toggleNavBarColour);
+            jQuery(global.mobileButtonElector).on("click", fn.toggleMobileMenu);
+        },
+
+        init: function() {
+            fn.initListeners();
             fn.toggleNavBarColour();
         }
     };
 
-    jQuery(document).on("ready", fn.initListeners);
+    jQuery(document).on("ready", fn.init);
 
 }(jQuery));

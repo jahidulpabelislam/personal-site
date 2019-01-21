@@ -17,28 +17,24 @@ window.jpi.slideShow = (function(jQuery) {
 
         // Widens slide show to fit all slides
         widenSlideShow: function(slideShowViewpoint) {
-
             var width = slideShowViewpoint.innerWidth() * slideShowViewpoint.children().first().children().length;
 
             slideShowViewpoint.children().first().css("width", width + "px");
         },
 
         // Adjusts all slides in slide show to fit
-        repositionSlides: function(id) {
-
-            var slidesContainer = jQuery("#" + id + " .slide-show__slides-container");
-
-            var viewpoint = jQuery("#" + id + " .slide-show__viewpoint");
-
-            var currentSlide = jQuery("#" + id + " .slide-show__slide.active");
+        repositionSlides: function(slideShowId) {
+            var slidesContainer = jQuery("#" + slideShowId + " .slide-show__slides-container"),
+                viewpoint = jQuery("#" + slideShowId + " .slide-show__viewpoint"),
+                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide.active");
 
             if (!currentSlide.length) {
-                currentSlide = jQuery("#" + id + " .slide-show__slide").first();
+                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide").first();
             }
 
             fn.widenSlideShow(viewpoint);
 
-            slidesContainer.children().css("width", jQuery("#" + id).innerWidth() + "px");
+            slidesContainer.children().css("width", jQuery("#" + slideShowId).innerWidth() + "px");
             var position = currentSlide.position();
 
             slidesContainer.css({
@@ -50,25 +46,25 @@ window.jpi.slideShow = (function(jQuery) {
         },
 
         // Starts a slide show by slide show element id
-        startSlideShow: function(id) {
-            if (jQuery("#" + id + " .slide-show__slides-container").children().length > 1) {
-                global.slideShows["#" + id] = setInterval(function() {
-                    fn.moveSlide("#" + id, "next");
+        startSlideShow: function(slideShowId) {
+            if (jQuery("#" + slideShowId + " .slide-show__slides-container").children().length > 1) {
+                global.slideShows["#" + slideShowId] = setInterval(function() {
+                    fn.moveSlide("#" + slideShowId, "next");
                 }, 5000);
             }
         },
 
         // Stops a slide show by slide show element id
-        stopSlideShow: function(id) {
-            clearInterval(global.slideShows["#" + id]);
+        stopSlideShow: function(slideShowId) {
+            clearInterval(global.slideShows["#" + slideShowId]);
         },
 
         // Loops through all slide shows
-        loopThroughSlideShows: function(afterLooped) {
+        loopThroughSlideShows: function(afterLoopedFunc) {
             var i, slideShows = jQuery(".hasSlideShow");
 
             for (i = 0; i < slideShows.length; i++) {
-                afterLooped(slideShows[i].id);
+                afterLoopedFunc(slideShows[i].id);
             }
         },
 
@@ -80,43 +76,43 @@ window.jpi.slideShow = (function(jQuery) {
             }, 1000);
         },
 
-        moveToSlide: function(id, nextSlide) {
-            var slidesContainer = jQuery(id + " .slide-show__slides-container");
+        moveToSlide: function(slideShowId, nextSlide) {
+            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container");
 
-            clearInterval(global.slideShows[id]);
+            clearInterval(global.slideShows[slideShowId]);
 
             fn.resetTransition(slidesContainer);
 
-            if (id == "#slide-show--home") {
-                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
-                var regx = new RegExp("slide-show__nav--\\w*", "g");
+            if (slideShowId === "#slide-show--home") {
+                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour"),
+                    regx = new RegExp("slide-show__nav--\\w*", "g");
 
-                jQuery(id + " .slide-show__nav").each(function() {
+                jQuery(slideShowId + " .slide-show__nav").each(function() {
                     var classList = jQuery(this).attr("class");
                     classList = classList.replace(regx, "slide-show__nav--" + colour);
                     jQuery(this).attr("class", classList);
                 });
             }
 
-            jQuery(id + " .active").removeClass("active");
+            jQuery(slideShowId + " .active").removeClass("active");
 
-            var position = nextSlide.position();
+            var newSlideID = nextSlide[0].id,
+                position = nextSlide.position();
+
             nextSlide.addClass("active");
-            var newSlideID = nextSlide[0].id;
 
             slidesContainer.css("left", "-" + position["left"] + "px");
 
-            jQuery(id + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
+            jQuery(slideShowId + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
 
-            global.slideShows[id] = setInterval(function() {
-                fn.moveSlide(id, "next");
+            global.slideShows[slideShowId] = setInterval(function() {
+                fn.moveSlide(slideShowId, "next");
             }, 5000);
         },
 
         // Moves to next or previous slide
-        moveSlide: function(id, direction) {
-
-            var oldSlide = jQuery(id + " .active"),
+        moveSlide: function(slideShowId, direction) {
+            var oldSlide = jQuery(slideShowId + " .active"),
                 nextSlide;
 
             if (direction === "next") {
@@ -136,25 +132,22 @@ window.jpi.slideShow = (function(jQuery) {
                 }
             }
 
-            fn.moveToSlide(id, nextSlide);
+            fn.moveToSlide(slideShowId, nextSlide);
         },
 
         // Function when bullet was clicked to change slide show to a particular slide
         changeToSlide: function() {
+            var slideShowId = jQuery(this).attr("data-slide-show-id"),
+                clickedSlideId = jQuery(this).attr("data-slide-id"),
+                nextSlide = jQuery(slideShowId + " #" + clickedSlideId);
 
-            var id = jQuery(this).attr("data-slideShowId"),
-                clickedSlide = jQuery(this).attr("data-slideId");
-
-            var nextSlide = jQuery(id + " #" + clickedSlide);
-
-            fn.moveToSlide(id, nextSlide);
+            fn.moveToSlide(slideShowId, nextSlide);
         },
 
         // Moves current slide to correct position
-        resetToCurrentSlide: function(id) {
-
-            var position = jQuery(id + " .slide-show__slide.active").position(),
-                slidesContainer = jQuery(id + " .slide-show__slides-container");
+        resetToCurrentSlide: function(slideShowId) {
+            var position = jQuery(slideShowId + " .slide-show__slide.active").position(),
+                slidesContainer = jQuery(slideShowId + " .slide-show__slides-container");
 
             slidesContainer.css({
                 transitionDuration: "0s",
@@ -163,66 +156,59 @@ window.jpi.slideShow = (function(jQuery) {
 
             setTimeout(fn.resetTransition, 100, slidesContainer);
 
-            global.slideShows[id] = setInterval(function() {
-                fn.moveSlide(id, "next");
+            global.slideShows[slideShowId] = setInterval(function() {
+                fn.moveSlide(slideShowId, "next");
             }, 5000);
         },
 
         // Sets up events when the user wants to change slides with drag control
         dragStart: function(e) {
-
-            var id = jQuery(this).attr("data-slideShowId"),
+            var slideShowId = jQuery(this).attr("data-slide-show-id"),
                 start = e.changedTouches ? e.changedTouches[0].clientX : e.clientX,
-                slidesContainer = jQuery(id + " .slide-show__slides-container"),
+                slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
                 slidesContainerLeft = slidesContainer.css("left"),
-                slideShowViewpoint = jQuery(id + " .slide-show__viewpoint")[0],
+                slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint")[0],
+
+                removeListeners = function () {
+                    slideShowViewpoint.removeEventListener("touchmove", dragMove);
+                    slideShowViewpoint.removeEventListener("touchend", dragEnd);
+                    slideShowViewpoint.removeEventListener("mousemove", dragMove);
+                    slideShowViewpoint.removeEventListener("mouseup", dragEnd);
+                    slideShowViewpoint.removeEventListener("mouseleave", dragCancel);
+                },
 
                 dragMove = function(e) {
-
                     var diff = start - (e.changedTouches ? e.changedTouches[0].clientX : e.clientX),
+                        left = jpi.helpers.getInt(slidesContainerLeft, 0);
 
-                        left = parseInt(slidesContainerLeft);
-
-                    if (!left) {
-                        left = 0;
-                    }
-
-                    slidesContainer.css({transitionDuration: "0s", left: (left - diff) + "px"});
+                    slidesContainer.css({
+                        transitionDuration: "0s",
+                        left: (left - diff) + "px"
+                    });
                 },
 
                 dragEnd = function(e) {
-
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
                     if ((start - end) > 15) {
-                        fn.moveSlide(id, "next");
+                        fn.moveSlide(slideShowId, "next");
                     }
                     else if ((start - end) < -15) {
-                        fn.moveSlide(id, "previous");
+                        fn.moveSlide(slideShowId, "previous");
                     }
                     else {
-                        fn.resetToCurrentSlide(id);
+                        fn.resetToCurrentSlide(slideShowId);
                     }
 
-                    slideShowViewpoint.removeEventListener("touchmove", dragMove);
-                    slideShowViewpoint.removeEventListener("touchend", dragEnd);
-                    slideShowViewpoint.removeEventListener("mousemove", dragMove);
-                    slideShowViewpoint.removeEventListener("mouseup", dragEnd);
-                    slideShowViewpoint.removeEventListener("mouseleave", dragCancel);
+                    removeListeners();
                 },
 
                 dragCancel = function() {
-
-                    fn.resetToCurrentSlide(id);
-
-                    slideShowViewpoint.removeEventListener("touchmove", dragMove);
-                    slideShowViewpoint.removeEventListener("touchend", dragEnd);
-                    slideShowViewpoint.removeEventListener("mousemove", dragMove);
-                    slideShowViewpoint.removeEventListener("mouseup", dragEnd);
-                    slideShowViewpoint.removeEventListener("mouseleave", dragCancel);
+                    fn.resetToCurrentSlide(slideShowId);
+                    removeListeners();
                 };
 
-            clearInterval(global.slideShows[id]);
+            clearInterval(global.slideShows[slideShowId]);
 
             slideShowViewpoint.addEventListener("touchmove", dragMove);
             slideShowViewpoint.addEventListener("touchend", dragEnd);
@@ -232,12 +218,11 @@ window.jpi.slideShow = (function(jQuery) {
         },
 
         // Sets up a slide show
-        setUp: function(id) {
+        setUp: function(slideShowId) {
+            var slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
+                slideContainer = jQuery(slideShowId + " .slide-show__slide");
 
-            var slideShowViewpoint = jQuery(id + " .slide-show__viewpoint"),
-                slideContainer = jQuery(id + " .slide-show__slide");
-
-            jQuery(id).addClass("hasSlideShow").show();
+            jQuery(slideShowId).addClass("hasSlideShow").show();
 
             fn.widenSlideShow(slideShowViewpoint);
 
@@ -245,30 +230,28 @@ window.jpi.slideShow = (function(jQuery) {
 
                 slideContainer.css("width", slideShowViewpoint.innerWidth() + "px");
 
-                jQuery(id + " .js-move-slide, " + id + " .js-slide-show-bullets").show();
+                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").show();
 
                 setTimeout(function() {
-                    fn.moveToSlide(id, slideContainer.first());
+                    fn.moveToSlide(slideShowId, slideContainer.first());
                 }, 100);
 
                 slideShowViewpoint[0].addEventListener("mousedown", fn.dragStart);
                 slideShowViewpoint[0].addEventListener("touchstart", fn.dragStart);
             }
             else {
-                jQuery(id + " .js-move-slide, " + id + " .js-slide-show-bullets").hide();
+                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").hide();
             }
         },
 
         initListeners: function() {
             jQuery(window).on("orientationchange resize", fn.fixSlides);
-
+            jQuery("body").on("dragstart", ".slide-show__img", false);
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 
             jQuery("body").on("click", ".js-move-slide", function() {
-                fn.moveSlide(jQuery(this).attr("data-slideShowId"), jQuery(this).attr("data-navDirection"));
+                fn.moveSlide(jQuery(this).attr("data-slide-show-id"), jQuery(this).attr("data-nav-direction"));
             });
-
-            jQuery("body").on("dragstart", ".slide-show__img", false);
         }
     };
 

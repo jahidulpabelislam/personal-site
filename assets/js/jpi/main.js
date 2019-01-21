@@ -3,38 +3,45 @@ window.jpi.main = (function(jQuery) {
 
     "use strict";
 
+    var global = {
+        mapSelector: ".js-bognor-regis-map"
+    };
+
     var fn = {
 
         initBognorRegisMap: function() {
-            var bognorRegisLat = 50.78420;
-            var bognorRegisLng = -0.67400;
+            var zoomLevel = 12,
 
-            var bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng);
-            var zoomLevel = 12;
+                bognorRegisLat = 50.78420,
+                bognorRegisLng = -0.67400,
 
-            var map = new google.maps.Map(jQuery(".js-bognor-regis-map")[0], {
-                center: bognorRegisLocation,
-                zoom: zoomLevel,
-                zoomControl: true,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                rotateControl: false,
-                fullscreenControl: false,
-                styles: jpi.config.googleMapStyles
-            });
+                bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng),
 
-            var bognorRegisMarker = new google.maps.Marker({
-                position: bognorRegisLocation,
-                map: map
-            });
+                config = {
+                    center: bognorRegisLocation,
+                    zoom: zoomLevel,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    fullscreenControl: false,
+                    styles: jpi.config.googleMapStyles
+                },
+
+                map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
+
+                new google.maps.Marker({
+                    position: bognorRegisLocation,
+                    map: map
+                });
 
             google.maps.event.addDomListener(window, "resize", function() {
                 map.setCenter(bognorRegisLocation);
             });
         },
 
-        count: function(options) {
+        initCounter: function(options) {
             var counter = jQuery(this);
             options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
             counter.countTo(options);
@@ -44,8 +51,8 @@ window.jpi.main = (function(jQuery) {
             var counters = jQuery(".counter");
 
             if (counters.length > 0) {
-                jQuery(".counter").waypoint(function() {
-                    jQuery(".counter").each(fn.count);
+                counters.waypoint(function() {
+                    counters.each(fn.initCounter);
                 }, {offset: "100%"});
             }
         },
@@ -57,8 +64,11 @@ window.jpi.main = (function(jQuery) {
         },
 
         toggleLabelContent: function() {
-            var selected = jQuery(this).children(".skills-interests__item-expand-content"); // Get the new label that was clicked
-            var selectedIcon = jQuery(this).children(".skills-interests__item-expand-icon");
+            var label = jQuery(this);
+
+            // Get the new label elems that was clicked
+            var selected = label.children(".skills-interests__item-expand-content");
+            var selectedIcon = label.children(".skills-interests__item-expand-icon");
 
             // Reset all other label to closed
             jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
@@ -69,23 +79,22 @@ window.jpi.main = (function(jQuery) {
             selectedIcon.toggleClass("fa-minus");
             selected.slideToggle();
 
-            jQuery(this).toggleClass("expanded-item");
-            jQuery(".js-expand-skill-interest").not(this).removeClass("expanded-item");
+            label.toggleClass("expanded-item");
+            jQuery(".js-expand-skill-interest").not(label).removeClass("expanded-item");
         },
 
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
-
             jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
+
+            if (jQuery(global.mapSelector).length > 0) {
+                google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
+            }
         },
 
         init: function() {
             fn.initListeners();
             fn.initCounters();
-
-            if (jQuery(".js-bognor-regis-map").length > 0) {
-                google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
-            }
         }
     };
 
