@@ -93,7 +93,7 @@ $site = Site::get();
         }
         else {
             ?>
-            <link href="/assets/css/style.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/main.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
             <?php
         };
         ?>
