@@ -28,7 +28,7 @@ body {
 .article {
     background-color: $light;
     padding: 15px 0;
-    box-shadow: 0 0 10px 0 transparentize($dark, .8);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.8);
 }
 
 .article:nth-child(even) {

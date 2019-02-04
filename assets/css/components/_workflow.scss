@@ -9,7 +9,7 @@
     height: auto;
     border-radius: 50%;
     background: white;
-    box-shadow: 0 0 10px 0 transparentize($dark, .6);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
 }
 
 .workflow-item__description {

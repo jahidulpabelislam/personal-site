@@ -8,12 +8,12 @@
 }
 
 .skills-interests__item {
-    border: 1px solid darken($dark, 15%);;
+    border: 1px solid darken($dark, 15%);
     border-radius: 5px;
     padding: 5px;
     display: inline-block;
     margin: 2px;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     background-color: $dark;
     color: white;
     cursor: auto;
@@ -99,7 +99,7 @@
     padding: 8px;
     background-color: $light-grey;
     position: relative;
-    box-shadow: 0 0 10px 0 transparentize($grey, .9);
+    box-shadow: 0 0 10px 0 transparentize($grey, 0.9);
     border: 1px solid $light-grey;
     border-radius: 5px;
     text-align: left;
@@ -200,7 +200,7 @@
 .about__images-of-me .image-of-me {
     width: 100%;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 0 10px 0 transparentize($dark, .6);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
 }
 
 .image-of-me--grown {

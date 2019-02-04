@@ -93,7 +93,7 @@
 }
 
 .project-info__links .btn {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     font-weight: 700;
 }
 
@@ -152,7 +152,7 @@
     }
 
     .slide-show__info {
-        background-color: transparentize($dark, .2);
+        background-color: transparentize($dark, 0.2);
         border-radius: 5px;
         transform: translateY(100%);
         padding: 10px;
@@ -190,7 +190,7 @@
 
     .home-hello__img {
         width: 25%;
-        max-width: 220px
+        max-width: 220px;
     }
 
     #slide-show--home .slide-show__slide {

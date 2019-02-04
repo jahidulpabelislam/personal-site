@@ -10,7 +10,7 @@
 }
 
 .slide-show__viewpoint:hover {
-    box-shadow: 0 0 10px 0 transparentize($dark, .7);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.7);
     cursor: pointer;
 }
 
@@ -42,11 +42,11 @@
     width: 30px;
     height: 30px;
     opacity: 0.8;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     position: absolute;
     top: calc(50% - 15px);
     background: $dark;
-    box-shadow: 0 0 20px 0 transparentize($dark, .7);
+    box-shadow: 0 0 20px 0 transparentize($dark, 0.7);
 }
 
 .slide-show__nav:hover {
@@ -73,7 +73,7 @@
     background-color: $grey;
     margin: 14px 5px;
     cursor: pointer;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     opacity: 0.3;
 }
 

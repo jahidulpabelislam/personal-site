@@ -1,6 +1,6 @@
 /* For all devices */
 .jumbotron {
-    color: #FFFFFF;
+    color: #ffffff;
     background: $primary-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
     height: 100vh;
@@ -45,7 +45,7 @@
 
 .jumbotron__scroll-to-content:hover {
     opacity: 1;
-    background: transparentize($light, .9);
+    background: transparentize($light, 0.9);
 }
 
 /* Only for Tablets & Desktops */

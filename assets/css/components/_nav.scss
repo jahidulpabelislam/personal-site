@@ -13,7 +13,7 @@
 }
 
 .nav--dark {
-    background-color: transparentize($dark, 0.80);
+    background-color: transparentize($dark, 0.8);
 }
 
 .nav.scrolled,
@@ -89,7 +89,7 @@
 }
 
 .opened .menu-bar {
-    background-color: colour(red, main)
+    background-color: colour(red, main);
 }
 
 .menu-bar--top {

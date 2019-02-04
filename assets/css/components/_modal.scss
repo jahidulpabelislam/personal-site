@@ -1,6 +1,6 @@
 /* For all devices */
 .modal {
-    background-color: transparentize($dark, .4);
+    background-color: transparentize($dark, 0.4);
     position: fixed;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@
     margin: 40px auto;
     padding: 0 15px;
     border-radius: 5px;
-    box-shadow: 0 0 10px 0 transparentize($dark, .6);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
 }
 
 /* For Tablets & Desktops */

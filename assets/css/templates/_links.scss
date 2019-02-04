@@ -44,12 +44,12 @@
     width: 100%;
     height: auto;
     border-radius: 15%;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     filter: grayscale(100%);
 }
 
 .social-link:hover .social-link__img--snapchat {
-    box-shadow: 0 0 10px 0 transparentize($dark, .6);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
     cursor: pointer;
     filter: grayscale(0);
 }
