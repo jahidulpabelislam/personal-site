@@ -30,7 +30,7 @@ window.jpi.cookieBanner = (function(jQuery) {
 
         showOrHideBanner: function() {
             var container = jQuery(global.container);
-            if (container.length > 0) {
+            if (container.length) {
                 var height = container.height();
                 var scrollPos = jQuery(window).scrollTop();
                 var lowestTop = jQuery("body").height() - (jQuery(window).height() + height);
@@ -56,7 +56,7 @@ window.jpi.cookieBanner = (function(jQuery) {
         },
 
         init: function() {
-            if (jQuery(global.container).length > 0) {
+            if (jQuery(global.container).length) {
                 jQuery(window).on("scroll orientationchange resize", fn.showOrHideBanner);
                 jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
                 fn.initDisplayOfBanner();
@@ -66,4 +66,4 @@ window.jpi.cookieBanner = (function(jQuery) {
 
     jQuery(document).on("ready", fn.init);
 
-}(jQuery));
+})(jQuery);

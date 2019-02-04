@@ -116,9 +116,9 @@ window.jpi.form = (function(jQuery) {
         },
 
         initListeners: function() {
-            global.subjectInput.on("keyup", (function() {
+            global.subjectInput.on("keyup", function() {
                 global.formFeedback.hide("fast");
-            }));
+            });
             global.emailInput.on("input", function() {
                 fn.validateEmail(this.value);
             });
@@ -132,4 +132,4 @@ window.jpi.form = (function(jQuery) {
 
     jQuery(document).on("ready", fn.initListeners);
 
-}(jQuery));
+})(jQuery);

@@ -73,24 +73,24 @@ window.jpi.helpers = (function(jQuery) {
 
         checkCookieValue: function(key, valueToCheck) {
             var cookie = fn.getCookie(key);
-            return (cookie && cookie != "" && cookie == valueToCheck);
+            return cookie && cookie != "" && cookie == valueToCheck;
         },
 
         setCookie: function(key, value, expirationDays) {
             var expiryDate = new Date();
-            expiryDate.setTime(expiryDate.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+            expiryDate.setTime(expiryDate.getTime() + expirationDays * 24 * 60 * 60 * 1000);
             var expires = "expires=" + expiryDate.toUTCString();
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
         }
     };
 
     return {
-        "checkInputField": fn.checkInputField,
-        "createElement": fn.createElement,
-        "getInt": fn.getInt,
-        "getCookie": fn.getCookie,
-        "checkCookieValue": fn.checkCookieValue,
-        "setCookie": fn.setCookie
+        checkInputField: fn.checkInputField,
+        createElement: fn.createElement,
+        getInt: fn.getInt,
+        getCookie: fn.getCookie,
+        checkCookieValue: fn.checkCookieValue,
+        setCookie: fn.setCookie
     };
 
-}(jQuery));
+})(jQuery);

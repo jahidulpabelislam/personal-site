@@ -16,7 +16,7 @@ window.jpi.ajax = (function(jQuery) {
         // Loop through data to see if it exists and if it does run a function on each row
         renderRowsOrFeedback: function(data, funcToRun, renderErrorFunc, genericMessage) {
             // If data/rows exists, For each row run a function
-            if (data && data.rows && data.rows.length > 0) {
+            if (data && data.rows && data.rows.length) {
                 for (var i = 0; i < data.rows.length; i++) {
                     if (data.rows.hasOwnProperty(i)) {
                         funcToRun(data.rows[i]);
@@ -37,7 +37,8 @@ window.jpi.ajax = (function(jQuery) {
          * converts that array into a URLEncoded string.
          */
         encodePayload: function(params) {
-            var name, payload = [];
+            var name,
+                payload = [];
             for (name in params) {
                 if (params.hasOwnProperty(name)) {
                     payload.push(name + "=" + encodeURIComponent(params[name]));
@@ -68,7 +69,6 @@ window.jpi.ajax = (function(jQuery) {
 
             // Checks if there is params to send to payload and checks its not sending a file
             if (request.params && request.data !== "file") {
-
                 request.params = fn.encodePayload(request.params);
 
                 if (request.method !== "POST") {
@@ -85,7 +85,7 @@ window.jpi.ajax = (function(jQuery) {
             }
 
             xhr.addEventListener("load", function() {
-                if ((this && this.responseText !== "")) {
+                if (this && this.responseText !== "") {
                     try {
                         var jsonData = JSON.parse(this.responseText);
                         request.onSuccess(jsonData);
@@ -107,8 +107,8 @@ window.jpi.ajax = (function(jQuery) {
     };
 
     return {
-        "renderRowsOrFeedback": fn.renderRowsOrFeedback,
-        "sendRequest": fn.sendRequest
+        renderRowsOrFeedback: fn.renderRowsOrFeedback,
+        sendRequest: fn.sendRequest
     };
 
-}(jQuery));
+})(jQuery);

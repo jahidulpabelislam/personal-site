@@ -11,12 +11,9 @@ window.jpi.main = (function(jQuery) {
 
         initBognorRegisMap: function() {
             var zoomLevel = 12,
-
-                bognorRegisLat = 50.78420,
-                bognorRegisLng = -0.67400,
-
+                bognorRegisLat = 50.7842,
+                bognorRegisLng = -0.674,
                 bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng),
-
                 config = {
                     center: bognorRegisLocation,
                     zoom: zoomLevel,
@@ -28,13 +25,12 @@ window.jpi.main = (function(jQuery) {
                     fullscreenControl: false,
                     styles: jpi.config.googleMapStyles
                 },
-
                 map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
 
-                new google.maps.Marker({
-                    position: bognorRegisLocation,
-                    map: map
-                });
+            new google.maps.Marker({
+                position: bognorRegisLocation,
+                map: map
+            });
 
             google.maps.event.addDomListener(window, "resize", function() {
                 map.setCenter(bognorRegisLocation);
@@ -50,7 +46,7 @@ window.jpi.main = (function(jQuery) {
         initCounters: function() {
             var counters = jQuery(".counter");
 
-            if (counters.length > 0) {
+            if (counters.length) {
                 counters.waypoint(function() {
                     counters.each(fn.initCounter);
                 }, {offset: "100%"});
@@ -58,9 +54,12 @@ window.jpi.main = (function(jQuery) {
         },
 
         jumpToContent: function() {
-            jQuery("html, body").animate({
-                scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
-            }, 1000);
+            jQuery("html, body").animate(
+                {
+                    scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
+                },
+                1000
+            );
         },
 
         toggleLabelContent: function() {
@@ -72,6 +71,7 @@ window.jpi.main = (function(jQuery) {
 
             // Reset all other label to closed
             jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
+
             jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
             // Toggle the clicked label
@@ -87,7 +87,7 @@ window.jpi.main = (function(jQuery) {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
             jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
 
-            if (jQuery(global.mapSelector).length > 0) {
+            if (jQuery(global.mapSelector).length) {
                 google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
             }
         },
@@ -100,4 +100,4 @@ window.jpi.main = (function(jQuery) {
 
     jQuery(document).on("ready", fn.init);
 
-}(jQuery));
+})(jQuery);

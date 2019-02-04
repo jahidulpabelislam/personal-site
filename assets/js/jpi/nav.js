@@ -26,7 +26,11 @@ window.jpi.nav = (function(jQuery) {
 
         // Code to collapse mobile menu when user clicks anywhere off it.
         closeMobileNav: function(e) {
-            if (!jQuery(e.target).closest(global.mainSelector).length && jQuery(global.mainSelector).hasClass("opened") && jQuery(global.mobileButtonElector).css("display") !== "none") {
+            if (
+                !jQuery(e.target).closest(global.mainSelector).length &&
+                jQuery(global.mainSelector).hasClass("opened") &&
+                jQuery(global.mobileButtonElector).css("display") !== "none"
+            ) {
                 jQuery(global.mobileButtonElector).trigger("click");
             }
         },
@@ -59,4 +63,4 @@ window.jpi.nav = (function(jQuery) {
 
     jQuery(document).on("ready", fn.init);
 
-}(jQuery));
+})(jQuery);

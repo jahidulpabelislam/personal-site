@@ -9,7 +9,7 @@ window.jpi.home = (function(jQuery) {
 
         initSecondsCounter: function() {
             var secsElem = jQuery(".js-seconds-on-site");
-            if (secsElem.length > 0) {
+            if (secsElem.length) {
                 setTimeout(function() {
                     setInterval(function() {
                         var lastSec = secsElem.text();
@@ -39,7 +39,7 @@ window.jpi.home = (function(jQuery) {
                 }
             }
 
-            if (project.images && project.images.length > 0 && project.images[0]) {
+            if (project.images && project.images.length && project.images[0]) {
                 var imageReg = new RegExp("{{file}}", "g");
                 slideTemplate = slideTemplate.replace(imageReg, project.images[0].file);
             }
@@ -75,7 +75,12 @@ window.jpi.home = (function(jQuery) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
 
             // Send the data, the function to do if data is valid
-            var dataValid = jpi.ajax.renderRowsOrFeedback(response, fn.renderProject, fn.renderError, "Error Getting the Projects.");
+            var dataValid = jpi.ajax.renderRowsOrFeedback(
+                response,
+                fn.renderProject,
+                fn.renderError,
+                "Error Getting the Projects."
+            );
 
             if (dataValid) {
                 jpi.slideShow.setUp("#slide-show--home");
@@ -87,8 +92,7 @@ window.jpi.home = (function(jQuery) {
         init: function() {
             fn.initSecondsCounter();
 
-            if (jQuery("#slide-show--home").length > 0) {
-
+            if (jQuery("#slide-show--home").length) {
                 jQuery(".projects__loading-img").show("fast");
 
                 jpi.ajax.sendRequest({
@@ -104,4 +108,4 @@ window.jpi.home = (function(jQuery) {
 
     jQuery(document).on("ready", fn.init);
 
-}(jQuery));
+})(jQuery);

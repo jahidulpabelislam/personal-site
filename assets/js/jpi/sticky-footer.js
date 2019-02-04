@@ -17,12 +17,14 @@ window.jpi.footer = (function(jQuery) {
             global.mainContent.height("auto");
 
             // Calculates the default height of the page
-            var currentHeight = global.header.outerHeight(true) + global.mainContent.outerHeight(true) + global.footer.outerHeight(true);
+            var currentHeight =
+                global.header.outerHeight(true) +
+                global.mainContent.outerHeight(true) +
+                global.footer.outerHeight(true);
 
             // If default height of content is shorter than screen height, main content is extended to fill the difference
             if (currentHeight < jQuery(window).height()) {
-
-                var newHeight = (jQuery(window).height() - currentHeight) + global.mainContent.height();
+                var newHeight = jQuery(window).height() - currentHeight + global.mainContent.height();
                 global.mainContent.height(newHeight);
             }
         },
@@ -46,7 +48,7 @@ window.jpi.footer = (function(jQuery) {
     jQuery(document).on("ready", fn.initListeners);
 
     return {
-        "expandContent": fn.expandContent
+        expandContent: fn.expandContent
     };
 
-}(jQuery));
+})(jQuery);

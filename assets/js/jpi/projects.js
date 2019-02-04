@@ -37,7 +37,6 @@ window.jpi.projects = (function(jQuery) {
             for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i];
                 if (skill.trim() !== "") {
-
                     var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
                         innerHTML: skill,
                         class: "skill skill--" + project.colour,
@@ -95,9 +94,7 @@ window.jpi.projects = (function(jQuery) {
 
             // Loop through each row of data in rows
             for (var i = 0; i < project.images.length; i++) {
-
                 if (project.images.hasOwnProperty(i)) {
-
                     var slideTemplate = jQuery("#tmpl-slide-template").text();
                     var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
@@ -122,7 +119,7 @@ window.jpi.projects = (function(jQuery) {
                 }
             }
 
-            if (project.images.length > 0) {
+            if (project.images.length) {
                 jpi.slideShow.setUp(slideShowId);
             }
         },
@@ -162,7 +159,6 @@ window.jpi.projects = (function(jQuery) {
         closeProjectsExpandModal: function(e) {
             var modal = jQuery(".detailed-project");
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
-
                 modal.removeClass("open").hide();
 
                 document.body.style.overflow = "auto";
@@ -183,9 +179,7 @@ window.jpi.projects = (function(jQuery) {
 
         // Renders a single project
         renderProject: function(project) {
-
             if (!document.getElementById("project--" + project.id)) {
-
                 var template = jQuery("#tmpl-project-template").text();
 
                 for (var data in project) {
@@ -202,7 +196,10 @@ window.jpi.projects = (function(jQuery) {
                 fn.addLinks(project, "#project--" + project.id);
                 fn.addProjectImages(project, "#slide-show--" + project.id);
 
-                jQuery("#project--" + project.id + " .js-open-modal").attr("data-project-data", JSON.stringify(project));
+                jQuery("#project--" + project.id + " .js-open-modal").attr(
+                    "data-project-data",
+                    JSON.stringify(project)
+                );
             }
 
             jpi.footer.expandContent();
@@ -212,9 +209,12 @@ window.jpi.projects = (function(jQuery) {
             var projectsPos = jQuery(".projects").offset().top,
                 navHeight = jQuery(".nav").height();
 
-            jQuery("html, body").animate({
-                scrollTop: projectsPos - navHeight - 20
-            }, 2000);
+            jQuery("html, body").animate(
+                {
+                    scrollTop: projectsPos - navHeight - 20
+                },
+                2000
+            );
         },
 
         // Adds pagination buttons/elements to the page
@@ -222,7 +222,6 @@ window.jpi.projects = (function(jQuery) {
             var paginationElem = jQuery(".pagination");
 
             if (jpi.helpers.getInt(totalItems) > 10) {
-
                 var page = 1,
                     ul = paginationElem[0],
                     currentPage = fn.getCurrentPageNum();
@@ -234,7 +233,12 @@ window.jpi.projects = (function(jQuery) {
 
                     url += global.url.search;
 
-                    attributes = {innerHTML: page, class: "pagination__item-link js-pagination-item", "data-page": page, href: url};
+                    attributes = {
+                        innerHTML: page,
+                        class: "pagination__item-link js-pagination-item",
+                        "data-page": page,
+                        href: url
+                    };
                     if (page === currentPage) {
                         attributes.class = "pagination__item-link active";
                     }
@@ -397,7 +401,7 @@ window.jpi.projects = (function(jQuery) {
         },
 
         init: function() {
-            if (jQuery(".js-all-projects").length > 0) {
+            if (jQuery(".js-all-projects").length) {
                 fn.initListeners();
                 fn.getProjects();
             }
@@ -406,4 +410,4 @@ window.jpi.projects = (function(jQuery) {
 
     jQuery(document).on("ready", fn.init);
 
-}(jQuery));
+})(jQuery);

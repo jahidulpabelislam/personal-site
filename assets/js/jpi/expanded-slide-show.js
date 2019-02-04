@@ -68,7 +68,6 @@ window.jpi.expandedSlideShow = (function(jQuery) {
 
             // Loops through all slide shows images and set up a bullet navigation for each
             for (var i = 0; i < slidesCount; i++) {
-
                 // Checks if the current loop is the current image on slideShow
                 if (global.slides[i] === e.target) {
                     global.currentSlide = i;
@@ -123,4 +122,4 @@ window.jpi.expandedSlideShow = (function(jQuery) {
 
     jQuery(document).on("ready", fn.initListeners);
 
-}(jQuery));
+})(jQuery);

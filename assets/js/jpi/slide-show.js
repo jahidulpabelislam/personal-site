@@ -17,7 +17,9 @@ window.jpi.slideShow = (function(jQuery) {
 
         // Widens slide show to fit all slides
         widenSlideShow: function(slideShowViewpoint) {
-            var width = slideShowViewpoint.innerWidth() * slideShowViewpoint.children().first().children().length;
+            var width =
+                slideShowViewpoint.innerWidth() *
+                slideShowViewpoint.children().first().children().length;
 
             slideShowViewpoint.children().first().css("width", width + "px");
         },
@@ -61,7 +63,8 @@ window.jpi.slideShow = (function(jQuery) {
 
         // Loops through all slide shows
         loopThroughSlideShows: function(afterLoopedFunc) {
-            var i, slideShows = jQuery(".hasSlideShow");
+            var i,
+                slideShows = jQuery(".hasSlideShow");
 
             for (i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc(slideShows[i].id);
@@ -116,7 +119,7 @@ window.jpi.slideShow = (function(jQuery) {
                 nextSlide;
 
             if (direction === "next") {
-                if (oldSlide.next().length > 0) {
+                if (oldSlide.next().length) {
                     nextSlide = oldSlide.next();
                 }
                 else {
@@ -124,7 +127,7 @@ window.jpi.slideShow = (function(jQuery) {
                 }
             }
             else {
-                if (oldSlide.prev().length > 0) {
+                if (oldSlide.prev().length) {
                     nextSlide = oldSlide.prev();
                 }
                 else {
@@ -169,7 +172,7 @@ window.jpi.slideShow = (function(jQuery) {
                 slidesContainerLeft = slidesContainer.css("left"),
                 slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint")[0],
 
-                removeListeners = function () {
+                removeListeners = function() {
                     slideShowViewpoint.removeEventListener("touchmove", dragMove);
                     slideShowViewpoint.removeEventListener("touchend", dragEnd);
                     slideShowViewpoint.removeEventListener("mousemove", dragMove);
@@ -183,17 +186,17 @@ window.jpi.slideShow = (function(jQuery) {
 
                     slidesContainer.css({
                         transitionDuration: "0s",
-                        left: (left - diff) + "px"
+                        left: left - diff + "px"
                     });
                 },
 
                 dragEnd = function(e) {
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
-                    if ((start - end) > 15) {
+                    if (start - end > 15) {
                         fn.moveSlide(slideShowId, "next");
                     }
-                    else if ((start - end) < -15) {
+                    else if (start - end < -15) {
                         fn.moveSlide(slideShowId, "previous");
                     }
                     else {
@@ -258,12 +261,12 @@ window.jpi.slideShow = (function(jQuery) {
     jQuery(document).on("ready", fn.initListeners);
 
     return {
-        "setUp": fn.setUp,
-        "dragStart": fn.dragStart,
-        "loopThroughSlideShows": fn.loopThroughSlideShows,
-        "stopSlideShow": fn.stopSlideShow,
-        "startSlideShow": fn.startSlideShow,
-        "slideShows": global.slideShows
+        setUp: fn.setUp,
+        dragStart: fn.dragStart,
+        loopThroughSlideShows: fn.loopThroughSlideShows,
+        stopSlideShow: fn.stopSlideShow,
+        startSlideShow: fn.startSlideShow,
+        slideShows: global.slideShows
     };
 
-}(jQuery));
+})(jQuery);
