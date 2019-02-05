@@ -35,9 +35,9 @@ body {
     background-color: white;
 }
 
-@each $color, $colors in $colors {
-    .article--#{$color}.article--#{$color} {
-        background-color: map-get($colors, main);
+@each $colour, $colours in $colour-schemes {
+    .article--#{$colour}.article--#{$colour} {
+        background-color: map-get($colours, main);
         color: white;
     }
 }

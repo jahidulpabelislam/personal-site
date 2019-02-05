@@ -82,9 +82,9 @@
     opacity: 0;
 }
 
-@each $color, $colors in $colors {
-    .slide-show__info--#{$color} {
-        background-color: map-get($colors, main);
+@each $colour, $colours in $colour-schemes {
+    .slide-show__info--#{$colour} {
+        background-color: map-get($colours, main);
     }
 }
 

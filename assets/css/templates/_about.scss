@@ -23,10 +23,10 @@
     margin: 2px;
 }
 
-@each $color, $colors in $colors {
-    .skills-interests__item--#{$color} {
-        background-color: map-get($colors, main);
-        border: 1px solid map-get($colors, hover);
+@each $colour, $colours in $colour-schemes {
+    .skills-interests__item--#{$colour} {
+        background-color: map-get($colours, main);
+        border: 1px solid map-get($colours, hover);
     }
 }
 
