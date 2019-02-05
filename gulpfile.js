@@ -56,13 +56,17 @@ stylesheetNames.forEach(function(key) {
     gulp.task(stylesheetTask, function() {
         return gulp.src(stylesheets[key])
                 .pipe(concat(key + ".min.css"))
-                .pipe(autoprefixer({
-                    browsers: ["> 0.5%", "ie 8-11"],
-                    remove: false
-                }))
-                .pipe(cleanCss({
-                    compatibility: "ie8"
-                }))
+                .pipe(
+                    autoprefixer({
+                        browsers: ["> 0.5%", "ie 8-11"],
+                        remove: false
+                    })
+                )
+                .pipe(
+                    cleanCss({
+                        compatibility: "ie8"
+                    })
+                )
                 .pipe(gulp.dest("assets/css"));
     });
 });
@@ -80,7 +84,6 @@ gulp.task("watch", function() {
 });
 
 gulp.task("store-version", function() {
-
     var fileName = "assets/version.txt";
 
     var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
@@ -93,7 +96,6 @@ gulp.task("store-version", function() {
 
     // Try to get current branch name
     exec("git branch | grep \\* | cut -d ' ' -f2", function(branchNameErr, branchName, branchNameStderr) {
-
         // If name found store in text file
         // If current branch if master we used use tags (As most likely this is in production environment)
         // Else it is one of dev branches so display branch name
@@ -109,7 +111,6 @@ gulp.task("store-version", function() {
 
             // Try and get the latest tag on current branch
             exec("git describe --abbrev=0 --tags\n", function(tagNameErr, tagName, tagNameStderr) {
-
                 var versionText = "";
 
                 // If found store in text file
