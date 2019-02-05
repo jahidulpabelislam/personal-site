@@ -47,7 +47,7 @@ window.jpi.home = (function(jQuery) {
             jQuery(".slide-show__slides-container").append(slideTemplate);
             jQuery(".js-slide-show-bullets").append(bulletTemplate);
 
-            if (!project.images || project.images.length === 0 || !project.images[0]) {
+            if (!project.images || !project.images.length || !project.images[0]) {
                 jQuery("#slide-" + project.id + " .slide-show__img").remove();
             }
 
