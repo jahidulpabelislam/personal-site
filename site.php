@@ -150,7 +150,6 @@ class Site {
      * @return string
      */
     public static function getURL($url = "", $full = false, $live = false) {
-
         $url = trim($url);
 
         if (!empty($url)) {
@@ -184,10 +183,20 @@ class Site {
      * @param bool $live bool Whether the url should be a full live url
      */
     public static function echoURL($url = "", $full = false, $live = false) {
-
         $url = self::getURL($url, $full, $live);
 
         echo $url;
+    }
+
+    /**
+     * @param $url string The url to add slash to
+     * @return string The new url
+     */
+    public static function addTrailingSlash($url) {
+        $url = rtrim($url, " /");
+        $url = "$url/";
+
+        return $url;
     }
 
     /**
@@ -212,17 +221,6 @@ class Site {
     }
 
     /**
-     * Generate a full url to a image file
-     *
-     * @param string $filepath string The relative url of image
-     */
-    public static function echoProjectImageURL($filepath = "") {
-        $root = rtrim(JPI_API_ENDPOINT, " /");
-        $imageURL = $root . $filepath;
-        echo $imageURL;
-    }
-
-    /**
      * Generate the API endpoint and echo
      */
     public static function echoAPIEndpoint() {
@@ -233,14 +231,14 @@ class Site {
     }
 
     /**
-     * @param $url string The url to add slash to
-     * @return string The new url
+     * Generate a full url to a image file
+     *
+     * @param string $filepath string The relative url of image
      */
-    public static function addTrailingSlash($url) {
-        $url = rtrim($url, " /");
-        $url = "$url/";
-
-        return $url;
+    public static function echoProjectImageURL($filepath = "") {
+        $root = rtrim(JPI_API_ENDPOINT, " /");
+        $imageURL = $root . $filepath;
+        echo $imageURL;
     }
 
     /**

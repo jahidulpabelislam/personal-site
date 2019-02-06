@@ -133,7 +133,7 @@ $site->echoConfig();
                         <img src="<?php $site->echoProjectImageURL("{{file}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
                     </div>
                 </script>
-                
+
                 <script type="text/template" id="tmpl-slide-bullet-template">
                     <label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{id}}"></label>
                 </script>
