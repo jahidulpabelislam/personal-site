@@ -10,7 +10,7 @@ window.jpi.form = (function(jQuery) {
         subjectInput: jQuery("#subject-input"),
         emailFeedback: jQuery("#contact-form__email-feedback"),
         messageFeedback: jQuery("#contact-form__message-feedback"),
-        formFeedback: jQuery("#contact-form__feedback")
+        formFeedback: jQuery("#contact-form__feedback"),
     };
 
     var fn = {
@@ -43,13 +43,17 @@ window.jpi.form = (function(jQuery) {
 
         // Render a error message whe AJAX has error
         renderErrorMessage: function() {
-            global.formFeedback.text("Something went wrong, please try again later.").addClass("feedback--error").show("fast");
+            global.formFeedback.text("Something went wrong, please try again later.")
+                  .addClass("feedback--error")
+                  .show("fast");
 
-            global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
+            global.submitButton.prop("disabled", false)
+                  .html(global.submitButton.attr("data-initial-text"));
         },
 
         validateForm: function() {
-            global.submitButton.prop("disabled", true).html(global.submitButton.attr("data-loading-text"));
+            global.submitButton.prop("disabled", true)
+                  .html(global.submitButton.attr("data-loading-text"));
 
             var isMessageValid = fn.validateMessage(global.messageInput.val(), true),
                 isEmailValid = fn.validateEmail(global.emailInput.val(), true);
@@ -61,10 +65,10 @@ window.jpi.form = (function(jQuery) {
                     params: {
                         emailAddress: global.emailInput.val(),
                         subject: global.subjectInput.val(),
-                        message: global.messageInput.val()
+                        message: global.messageInput.val(),
                     },
                     onSuccess: fn.renderFeedback,
-                    onError: fn.renderErrorMessage
+                    onError: fn.renderErrorMessage,
                 });
             }
             else {
@@ -127,7 +131,7 @@ window.jpi.form = (function(jQuery) {
             });
 
             jQuery(".contact-form").on("submit", fn.validateForm);
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.initListeners);

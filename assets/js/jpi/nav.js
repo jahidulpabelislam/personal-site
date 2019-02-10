@@ -6,7 +6,7 @@ window.jpi.nav = (function(jQuery) {
     var global = {
         mainSelector: ".nav",
         linksElector: ".nav__links-container, .nav__social-links-container",
-        mobileButtonElector: ".nav__mobile-toggle"
+        mobileButtonElector: ".nav__mobile-toggle",
     };
 
     var fn = {
@@ -58,7 +58,7 @@ window.jpi.nav = (function(jQuery) {
         init: function() {
             fn.initListeners();
             fn.toggleNavBarColour();
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.init);

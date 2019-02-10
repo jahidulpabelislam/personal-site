@@ -8,7 +8,7 @@ window.jpi.cookieBanner = (function(jQuery) {
         transitionSpeedSecs: 700,
         cookieKey: "cookie-banner-closed",
         cookieClickedValue: "true",
-        cookieExpirationDays: 30
+        cookieExpirationDays: 30,
     };
 
     var fn = {
@@ -61,7 +61,7 @@ window.jpi.cookieBanner = (function(jQuery) {
                 jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
                 fn.initDisplayOfBanner();
             }
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.init);

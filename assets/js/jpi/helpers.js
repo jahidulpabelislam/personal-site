@@ -81,7 +81,7 @@ window.jpi.helpers = (function(jQuery) {
             expiryDate.setTime(expiryDate.getTime() + expirationDays * 24 * 60 * 60 * 1000);
             var expires = "expires=" + expiryDate.toUTCString();
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
-        }
+        },
     };
 
     return {
@@ -90,7 +90,7 @@ window.jpi.helpers = (function(jQuery) {
         getInt: fn.getInt,
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,
-        setCookie: fn.setCookie
+        setCookie: fn.setCookie,
     };
 
 })(jQuery);

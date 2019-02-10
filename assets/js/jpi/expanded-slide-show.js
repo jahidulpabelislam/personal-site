@@ -7,7 +7,7 @@ window.jpi.expandedSlideShow = (function(jQuery) {
     var global = {
         expandedImageDivContainer: jQuery(".expanded-slide-show"),
         currentSlide: 0,
-        slides: {}
+        slides: {},
     };
 
     var fn = {
@@ -75,8 +75,8 @@ window.jpi.expandedSlideShow = (function(jQuery) {
 
                 // Set up bullet navigation for slide
                 jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {
-                    class: "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
-                    "data-slide-id": i
+                    "class": "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
+                    "data-slide-id": i,
                 });
             }
 
@@ -117,7 +117,7 @@ window.jpi.expandedSlideShow = (function(jQuery) {
             jQuery(".expanded-slide-show__close").click(fn.close);
             jQuery(".js-expanded-slide-show-next").click(fn.next);
             jQuery(".js-expanded-slide-show-previous").click(fn.previous);
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.initListeners);

@@ -9,7 +9,7 @@ window.jpi.projects = (function(jQuery) {
     var global = {
         url: new URL(window.location),
         titleStart: "Projects",
-        titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer"
+        titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
     };
 
     var fn = {
@@ -40,7 +40,7 @@ window.jpi.projects = (function(jQuery) {
                     var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
                         innerHTML: skill,
                         class: "skill skill--" + project.colour,
-                        href: "/projects/" + skill + "/"
+                        href: "/projects/" + skill + "/",
                     });
 
                     for (var j = 0; j < searches.length; j++) {
@@ -65,7 +65,7 @@ window.jpi.projects = (function(jQuery) {
                     title: "Link to " + project.name + " Site",
                     target: "_blank",
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
-                    class: "project__link project__link--" + project.colour
+                    class: "project__link project__link--" + project.colour,
                 });
             }
 
@@ -75,7 +75,7 @@ window.jpi.projects = (function(jQuery) {
                     title: "Link to Download " + project.name,
                     target: "_blank",
                     innerHTML: "<i class='fa fa-download fa-2x'></i>",
-                    class: "project__link project__link--" + project.colour
+                    class: "project__link project__link--" + project.colour,
                 });
             }
 
@@ -84,7 +84,7 @@ window.jpi.projects = (function(jQuery) {
                 title: "Link to " + project.name + "  Code On GitHub",
                 target: "_blank",
                 innerHTML: "<i class='fa fa-github fa-2x'></i>",
-                class: "project__link project__link--" + project.colour
+                class: "project__link project__link--" + project.colour,
             });
         },
 
@@ -211,7 +211,7 @@ window.jpi.projects = (function(jQuery) {
 
             jQuery("html, body").animate(
                 {
-                    scrollTop: projectsPos - navHeight - 20
+                    scrollTop: projectsPos - navHeight - 20,
                 },
                 2000
             );
@@ -237,7 +237,7 @@ window.jpi.projects = (function(jQuery) {
                         innerHTML: page,
                         class: "pagination__item-link js-pagination-item",
                         "data-page": page,
-                        href: url
+                        href: url,
                     };
                     if (page === currentPage) {
                         attributes.class = "pagination__item-link active";
@@ -272,7 +272,7 @@ window.jpi.projects = (function(jQuery) {
                 search = jQuery(".search-form__input").val(),
                 query = {
                     page: page,
-                    search: search
+                    search: search,
                 };
 
             // Stops all the slide shows
@@ -284,7 +284,7 @@ window.jpi.projects = (function(jQuery) {
                 url: jpi.config.jpiAPIEndpoint + "projects/",
                 params: query,
                 onSuccess: fn.gotProjects,
-                onError: fn.renderError
+                onError: fn.renderError,
             });
         },
 
@@ -327,7 +327,7 @@ window.jpi.projects = (function(jQuery) {
                 url = fn.getNewURL(page),
                 state = {
                     search: searchValue,
-                    page: page
+                    page: page,
                 };
 
             global.url.pathname = url;
@@ -405,7 +405,7 @@ window.jpi.projects = (function(jQuery) {
                 fn.initListeners();
                 fn.getProjects();
             }
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.init);

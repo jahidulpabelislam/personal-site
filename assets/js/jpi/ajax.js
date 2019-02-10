@@ -103,12 +103,12 @@ window.jpi.ajax = (function(jQuery) {
             });
 
             xhr.send(request.params);
-        }
+        },
     };
 
     return {
         renderRowsOrFeedback: fn.renderRowsOrFeedback,
-        sendRequest: fn.sendRequest
+        sendRequest: fn.sendRequest,
     };
 
 })(jQuery);

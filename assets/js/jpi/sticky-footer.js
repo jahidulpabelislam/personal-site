@@ -6,7 +6,7 @@ window.jpi.footer = (function(jQuery) {
     var global = {
         header: jQuery(".jumbotron"),
         mainContent: jQuery(".main-content"),
-        footer: jQuery(".footer")
+        footer: jQuery(".footer"),
     };
 
     var fn = {
@@ -42,13 +42,13 @@ window.jpi.footer = (function(jQuery) {
 
         initListeners: function() {
             jQuery(window).on("load orientationchange resize", fn.delayExpand);
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.initListeners);
 
     return {
-        expandContent: fn.expandContent
+        expandContent: fn.expandContent,
     };
 
 })(jQuery);

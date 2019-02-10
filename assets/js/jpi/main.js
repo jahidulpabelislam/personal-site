@@ -4,7 +4,7 @@ window.jpi.main = (function(jQuery) {
     "use strict";
 
     var global = {
-        mapSelector: ".js-bognor-regis-map"
+        mapSelector: ".js-bognor-regis-map",
     };
 
     var fn = {
@@ -23,13 +23,13 @@ window.jpi.main = (function(jQuery) {
                     streetViewControl: false,
                     rotateControl: false,
                     fullscreenControl: false,
-                    styles: jpi.config.googleMapStyles
+                    styles: jpi.config.googleMapStyles,
                 },
                 map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
 
             new google.maps.Marker({
                 position: bognorRegisLocation,
-                map: map
+                map: map,
             });
 
             google.maps.event.addDomListener(window, "resize", function() {
@@ -56,7 +56,7 @@ window.jpi.main = (function(jQuery) {
         jumpToContent: function() {
             jQuery("html, body").animate(
                 {
-                    scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height()
+                    scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height(),
                 },
                 1000
             );
@@ -95,7 +95,7 @@ window.jpi.main = (function(jQuery) {
         init: function() {
             fn.initListeners();
             fn.initCounters();
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.init);

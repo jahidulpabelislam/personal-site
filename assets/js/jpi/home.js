@@ -58,7 +58,7 @@ window.jpi.home = (function(jQuery) {
                     href: project.link,
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                     class: "btn btn--clear",
-                    target: "_blank"
+                    target: "_blank",
                 });
             }
 
@@ -66,7 +66,7 @@ window.jpi.home = (function(jQuery) {
                 href: project.github,
                 innerHTML: "<i class='fa fa-github fa-2x'></i>",
                 class: "btn btn--clear",
-                target: "_blank"
+                target: "_blank",
             });
         },
 
@@ -100,10 +100,10 @@ window.jpi.home = (function(jQuery) {
                     url: jpi.config.jpiAPIEndpoint + "projects/",
                     params: {limit: 3},
                     onSuccess: fn.gotProjects,
-                    onError: fn.renderError
+                    onError: fn.renderError,
                 });
             }
-        }
+        },
     };
 
     jQuery(document).on("ready", fn.init);
