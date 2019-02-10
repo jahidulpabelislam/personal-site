@@ -179,15 +179,15 @@ $site->echoConfig();
 <?php
 $extraFooterLinks = [
     [
-        "title" => "About",
-        "url" => "about",
-        "text" => "Learn About Me",
-        "colour" => "red",
-    ], [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
         "colour" => "purple",
+    ], [
+        "title" => "About",
+        "url" => "about",
+        "text" => "Learn About Me",
+        "colour" => "red",
     ],
 ];
 $site->echoFooter($extraFooterLinks);

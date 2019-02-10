@@ -62,15 +62,15 @@ $site->echoHeader($headerTitle, "", "", $navTint);
 <?php
 $extraFooterLinks = [
     [
-        "title" => "Contact",
-        "url" => "contact",
-        "text" => "Get in Touch",
-        "colour" => "red",
-    ], [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
         "colour" => "purple",
+    ], [
+        "title" => "Contact",
+        "url" => "contact",
+        "text" => "Get in Touch",
+        "colour" => "red",
     ],
 ];
 $site->echoFooter($extraFooterLinks);
