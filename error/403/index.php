@@ -23,4 +23,18 @@ $site->echoHeader($headerTitle, $headerDesc);
                     </div>
                 </div>
 
-<?php $site->echoFooter();
+<?php
+$similarLinks = [
+    [
+        "title" => "Projects",
+        "url" => "projects",
+        "text" => "View My Work",
+        "colour" => "purple",
+    ], [
+        "title" => "Contact",
+        "url" => "contact",
+        "text" => "Get in Touch",
+        "colour" => "blue",
+    ],
+];
+$site->echoFooter($similarLinks);
