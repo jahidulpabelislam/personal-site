@@ -347,7 +347,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";
                                 echo "<div class='timeline-item__content {$iconClass}'>";
 
-                                echo $timelineItem["text"];
+                                echo "<p>". $timelineItem["text"] . "</p>";
                                 echo "</div>";
                                 echo "</div>";
                             }
