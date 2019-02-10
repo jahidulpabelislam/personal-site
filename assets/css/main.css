@@ -235,7 +235,7 @@ img {
   .article--halved > .container {
     display: flex;
     align-items: center; }
-  .article--halved:nth-of-type(even) > .container {
+  .article--halved:nth-of-type(even):not(.article--similar-links) > .container {
     flex-direction: row-reverse; }
   .article__half {
     width: 50%; }

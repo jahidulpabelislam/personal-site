@@ -7,7 +7,7 @@ $site = Site::get();
 
                 <?php
                 if (!empty($extraFooterLinks)) {
-                    echo "<div class='article article--halved'>";
+                    echo "<div class='article article--halved article--similar-links'>";
                     echo "<div class='container'>";
 
                     foreach ($extraFooterLinks as $link) {

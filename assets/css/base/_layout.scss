@@ -142,7 +142,7 @@ img {
         align-items: center;
     }
 
-    .article--halved:nth-of-type(even) > .container {
+    .article--halved:nth-of-type(even):not(.article--similar-links) > .container {
         flex-direction: row-reverse;
     }
 
