@@ -87,11 +87,11 @@ window.jpi.expandedSlideShow = (function(jQuery) {
             // Check there are more than one slide show image to slide through
             if (slidesCount > 1) {
                 // Sets up next and previous buttons
-                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").show();
+                jQuery(".expanded-slide-show__nav, .expanded-image-slide-show__bullet").show();
             }
             // Only one slide show image so stop next and previous buttons
             else {
-                jQuery(".js-expanded-slide-show-previous, .js-expanded-slide-show-next, .expanded-image-slide-show__bullet").hide();
+                jQuery(".expanded-slide-show__nav, .expanded-image-slide-show__bullet").hide();
             }
 
             jQuery(".detailed-project").removeClass("open").hide();

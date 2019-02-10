@@ -17,11 +17,14 @@ window.jpi.slideShow = (function(jQuery) {
 
         // Widens slide show to fit all slides
         widenSlideShow: function(slideShowViewpoint) {
+            var slideContainer = slideShowViewpoint.children().first();
+
             var width =
                 slideShowViewpoint.innerWidth() *
-                slideShowViewpoint.children().first().children().length;
+                slideContainer
+                    .children().length;
 
-            slideShowViewpoint.children().first().css("width", width + "px");
+            slideContainer.css("width", width + "px");
         },
 
         // Adjusts all slides in slide show to fit
@@ -230,7 +233,6 @@ window.jpi.slideShow = (function(jQuery) {
             fn.widenSlideShow(slideShowViewpoint);
 
             if (slideContainer.length > 1) {
-
                 slideContainer.css("width", slideShowViewpoint.innerWidth() + "px");
 
                 jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").show();
