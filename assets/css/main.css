@@ -1618,7 +1618,7 @@ label {
 .timeline-item__content--football::after {
   content: "\f1e3"; }
 
-.timelime-item__content--childhood::after {
+.timeline-item__content--childhood::after {
   content: "\f1b3"; }
 
 .timeline-item__content--food::after {
