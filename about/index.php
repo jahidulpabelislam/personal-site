@@ -60,7 +60,13 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded"></a>
                         </div>
                         <div class="article__half">
-                            <p>Joined <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">BrightMinded</a> as a Junior Web Developer in June 2017.</p>
+                            <p>
+                                Joined
+                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
+                                    BrightMinded
+                                </a>
+                                 as a Junior Web Developer in June 2017.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +77,13 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth"></a>
                         </div>
                         <div class="article__half">
-                            <p>Graduated from <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">University of Portsmouth</a> with First Class Honours in BSc (Hons) Web Technologies in July 2017.</p>
+                            <p>
+                                Graduated from
+                                <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">
+                                    University of Portsmouth
+                                </a>
+                                 with First Class Honours in BSc (Hons) Web Technologies in July 2017.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -82,7 +94,11 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach"></a>
                         </div>
                         <div class="article__half">
-                            <p>Based in <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." class="link-styled link-styled--red" target="_blank">Bognor Regis</a>, <a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">West Sussex</a>, South East Coast of England.</p>
+                            <p>
+                                Based in <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." class="link-styled link-styled--red" target="_blank">
+                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">
+                                    West Sussex</a>, South East Coast of England.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -216,31 +232,58 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <div class="timeline__item timeline__item--active">
                                 <h2 class="timeline-item__date">2017 - Present</h2>
                                 <div class="timeline-item__content timeline-item__content--work">
-                                    <p>Junior Web Developer @ <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--orange" target="_blank">BrightMinded</a></p>
+                                    <p>
+                                        Junior Web Developer @
+                                        <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--orange" target="_blank">
+                                            BrightMinded
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <h2 class="timeline-item__date">2014 - 2017</h2>
                                 <div class="timeline-item__content timeline-item__content--school">
-                                    <p>BSc (Hons) Web Technologies Student @ <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--orange" target="_blank">University of Portsmouth</a></p>
+                                    <p>
+                                        BSc (Hons) Web Technologies Student @
+                                        <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--orange" target="_blank">
+                                            University of Portsmouth
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <h2 class="timeline-item__date">2014 - 2017</h2>
                                 <div class="timeline-item__content timeline-item__content--film">
-                                    <p>Working Part Time @ <a href="https://uk.webuy.com/" title="Link to CeX website." class="link-styled link-styled--orange" target="_blank">CeX</a> as a Sales Assistant</p>
+                                    <p>
+                                        Working Part Time @
+                                        <a href="https://uk.webuy.com/" title="Link to CeX website." class="link-styled link-styled--orange" target="_blank">
+                                            CeX
+                                        </a>
+                                         as a Sales Assistant
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <time class="timeline-item__date">2014</time>
                                 <div class="timeline-item__content timeline-item__content--food">
-                                    <p>Working Part Time @ <a href="https://www.kfc.co.uk/" title="Link to KFC website." class="link-styled link-styled--orange" target="_blank">KFC</a> as a Team Member</p>
+                                    <p>
+                                        Working Part Time @
+                                        <a href="https://www.kfc.co.uk/" title="Link to KFC website." class="link-styled link-styled--orange" target="_blank">
+                                            KFC
+                                        </a>
+                                         as a Team Member
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
                                 <h2 class="timeline-item__date">2012 - 2014</h2>
                                 <div class="timeline-item__content timeline-item__content--school">
-                                    <p>BTEC Extended Diploma in IT Student @ <a href="https://chichester.ac.uk/" title="Link to Chichester College website." class="link-styled link-styled--orange" target="_blank">Chichester College</a></p>
+                                    <p>
+                                        BTEC Extended Diploma in IT Student @
+                                        <a href="https://chichester.ac.uk/" title="Link to Chichester College website." class="link-styled link-styled--orange" target="_blank">
+                                            Chichester College
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">
@@ -252,7 +295,12 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <div class="timeline__item">
                                 <h2 class="timeline-item__date">2005 - 2009</h2>
                                 <div class="timeline-item__content timeline-item__content--football">
-                                    <p>Playing for a Competitive Football Team @ <a href="http://www.felphamcolts.com/" title="Link to Felpham Colts website." class="link-styled link-styled--orange" target="_blank">Felpham Colts</a></p>
+                                    <p>
+                                        Playing for a Competitive Football Team @
+                                        <a href="http://www.felphamcolts.com/" title="Link to Felpham Colts website." class="link-styled link-styled--orange" target="_blank">
+                                            Felpham Colts
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="timeline__item">

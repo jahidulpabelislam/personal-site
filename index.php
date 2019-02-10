@@ -34,14 +34,25 @@ $site->echoConfig();
                         <div class="container">
                             <p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
                             <p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
-                            <p>Currently working as a Junior Web Developer at <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.</p>
-                            <p>Reside in <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the South Coast of England.</p>
+                            <p>
+                                Currently working as a Junior Web Developer at
+                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the
+                                <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.
+                            </p>
+                            <p>
+                                Reside in
+                                <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the South Coast of England.
+                            </p>
                         </div>
                     </div>
 
                     <div class="article">
                         <div class="container">
-                            <p>Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a> I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a>, and <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide any feedback.</p>
+                            <p>
+                                Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a>
+                                 I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a>, and
+                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide any feedback.
+                            </p>
                             <p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
                         </div>
                     </div>
@@ -101,7 +112,9 @@ $site->echoConfig();
                         <div class="stats">
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">22</h3>
-                                <p class="stats__text">Personal Projects (+ <span class="counter" data-to="26" data-speed="2000">26</span> work projects)</p>
+                                <p class="stats__text">
+                                    Personal Projects (+<span class="counter" data-to="26" data-speed="2000">26</span> work projects)
+                                </p>
                             </div>
                             <div class="stats__item">
                                 <h3 class="article__header article__header--stats counter" data-to="1630" data-speed="2000">1630</h3>
@@ -139,8 +152,16 @@ $site->echoConfig();
 
                 <div class="article article--halved">
                     <div class="container">
-                        <div class="article__half"><a href="<?php $site->echoURL("about"); ?>" class="btn btn--red">Learn About Me</a></div>
-                        <div class="article__half"><a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">View My Work</a></div>
+                        <div class="article__half">
+                            <a href="<?php $site->echoURL("about"); ?>" class="btn btn--red">
+                                Learn About Me
+                            </a>
+                        </div>
+                        <div class="article__half">
+                            <a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">
+                                View My Work
+                            </a>
+                        </div>
                     </div>
                 </div>
 
