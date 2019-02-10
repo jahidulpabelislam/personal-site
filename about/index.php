@@ -257,92 +257,92 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     <div class="container">
                         <h3 class="article__header">What I've Been Up To</h3>
                         <div class="timeline">
-                            <div class="timeline__item timeline__item--active">
-                                <h2 class="timeline-item__date">2017 - Present</h2>
-                                <div class="timeline-item__content timeline-item__content--work">
-                                    <p>
-                                        Junior Web Developer @
-                                        <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--orange" target="_blank">
+                            <?php
+                            $timelineItems = [
+                                [
+                                    "date" => "2017 - Present",
+                                    "icon" => "work",
+                                    "text" => "Junior Web Developer @
+                                        <a href='https://www.brightminded.com/' title='Link to BrightMinded website.' class='link-styled link-styled--orange' target='_blank'>
                                             BrightMinded
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <h2 class="timeline-item__date">2014 - 2017</h2>
-                                <div class="timeline-item__content timeline-item__content--school">
-                                    <p>
-                                        BSc (Hons) Web Technologies Student @
-                                        <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--orange" target="_blank">
+                                        </a>",
+                                    "isActive" => true,
+                                ], [
+                                    "date" => "2014 - 2017",
+                                    "icon" => "school",
+                                    "text" => "BSc (Hons) Web Technologies Student @
+                                        <a href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' class='link-styled link-styled--orange' target='_blank'>
                                             University of Portsmouth
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <h2 class="timeline-item__date">2014 - 2017</h2>
-                                <div class="timeline-item__content timeline-item__content--film">
-                                    <p>
-                                        Working Part Time @
-                                        <a href="https://uk.webuy.com/" title="Link to CeX website." class="link-styled link-styled--orange" target="_blank">
+                                        </a>",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "2014 - 2017",
+                                    "icon" => "film",
+                                    "text" => "Working Part Time @
+                                        <a href='https://uk.webuy.com/' title='Link to CeX website.' class='link-styled link-styled--orange' target='_blank'>
                                             CeX
                                         </a>
-                                         as a Sales Assistant
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <time class="timeline-item__date">2014</time>
-                                <div class="timeline-item__content timeline-item__content--food">
-                                    <p>
-                                        Working Part Time @
-                                        <a href="https://www.kfc.co.uk/" title="Link to KFC website." class="link-styled link-styled--orange" target="_blank">
+                                         as a Sales Assistant",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "2014",
+                                    "icon" => "food",
+                                    "text" => "Working Part Time @
+                                        <a href='https://www.kfc.co.uk/' title='Link to KFC website.' class='link-styled link-styled--orange' target='_blank'>
                                             KFC
                                         </a>
-                                         as a Team Member
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <h2 class="timeline-item__date">2012 - 2014</h2>
-                                <div class="timeline-item__content timeline-item__content--school">
-                                    <p>
-                                        BTEC Extended Diploma in IT Student @
-                                        <a href="https://chichester.ac.uk/" title="Link to Chichester College website." class="link-styled link-styled--orange" target="_blank">
+                                         as a Team Member",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "2012 - 2014",
+                                    "icon" => "school",
+                                    "text" => "BTEC Extended Diploma in IT Student @
+                                        <a href='https://chichester.ac.uk/' title='Link to Chichester College website.' class='link-styled link-styled--orange' target='_blank'>
                                             Chichester College
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <time class="timeline-item__date">2010</time>
-                                <div class="timeline-item__content timeline-item__content--coding">
-                                    <p>Got Introduced to Developing/Coding</p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <h2 class="timeline-item__date">2005 - 2009</h2>
-                                <div class="timeline-item__content timeline-item__content--football">
-                                    <p>
-                                        Playing for a Competitive Football Team @
-                                        <a href="http://www.felphamcolts.com/" title="Link to Felpham Colts website." class="link-styled link-styled--orange" target="_blank">
+                                        </a>",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "2010",
+                                    "icon" => "coding",
+                                    "text" => "Got Introduced to Developing/Coding",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "2005 - 2009",
+                                    "icon" => "football",
+                                    "text" => "Playing for a Competitive Football Team @
+                                        <a href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' class='link-styled link-styled--orange' target='_blank'>
                                             Felpham Colts
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <h2 class="timeline-item__date">1996 - 2007</h2>
-                                <div class="timeline-item__content timelime-item__content--childhood">
-                                    <p>Life before getting introduced to technology</p>
-                                </div>
-                            </div>
-                            <div class="timeline__item">
-                                <time class="timeline-item__date">1996</time>
-                                <div class="timeline-item__content timeline-item__content--baby">
-                                    <p>Born</p>
-                                </div>
-                            </div>
+                                        </a>",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "1996 - 2007",
+                                    "icon" => "childhood",
+                                    "text" => "Life before getting introduced to technology",
+                                    "isActive" => false,
+                                ], [
+                                    "date" => "1996",
+                                    "icon" => "baby",
+                                    "text" => "Born",
+                                    "isActive" => false,
+                                ],
+                            ];
+
+                            foreach ($timelineItems as $timelineItem) {
+                                $activeClass = $timelineItem["isActive"] ? "timeline__item--active" : "";
+                                echo "<div class='timeline__item {$activeClass}'>";
+
+                                $date = $timelineItem["date"];
+                                echo "<h2 class='timeline-item__date'>{$date}</h2>";
+
+                                $iconName = $timelineItem["icon"];
+                                $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";
+                                echo "<div class='timeline-item__content {$iconClass}'>";
+
+                                echo $timelineItem["text"];
+                                echo "</div>";
+                                echo "</div>";
+                            }
+                            ?>
                         </div>
                     </div>
                 </section>
