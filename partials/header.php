@@ -23,19 +23,36 @@ $site = Site::get();
                     <ul class="nav__links">
 
                         <?php
-                        $links = ["Projects", "Contact", "About"];
+                        $links = [
+                            [
+                                "title" => "Home",
+                                "url" => "",
+                            ], [
+                                "title" => "Projects",
+                                "url" => "/projects/",
+                            ], [
+                                "title" => "Contact",
+                                "url" => "/contact/",
+                            ], [
+                                "title" => "About",
+                                "url" => "/about/",
+                            ],
+                        ];
 
                         foreach ($links as $link) {
-                            $url = strtolower($link);
+                            $title = $link["title"];
+
+                            $url = $link["url"];
+                            $url = strtolower($url);
                             $url = $site->getURL($url);
 
                             $classes = "nav-item__link";
-                            if ($pageId == strtolower($link)) {
+                            if ($pageId == strtolower($title)) {
                                 $classes .= " active";
                             }
 
                             echo "<li class='nav-link__item'>";
-                            echo "<a href='{$url}' class='{$classes}' title='Link to {$link} Page'>{$link}</a>";
+                            echo "<a href='{$url}' class='{$classes}' title='Link to {$title} Page'>{$title}</a>";
                             echo "</li>";
                         }
                         ?>
