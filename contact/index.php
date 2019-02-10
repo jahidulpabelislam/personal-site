@@ -112,7 +112,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 </section>
 
 <?php
-$extraFooterLinks = [
+$similarLinks = [
     [
         "title" => "Projects",
         "url" => "projects",
@@ -125,4 +125,4 @@ $extraFooterLinks = [
         "colour" => "orange",
     ],
 ];
-$site->echoFooter($extraFooterLinks);
+$site->echoFooter($similarLinks);

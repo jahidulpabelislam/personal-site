@@ -133,7 +133,7 @@ $site->echoConfig();
                 </script>
 
 <?php
-$extraFooterLinks = [
+$similarLinks = [
     [
         "title" => "Contact",
         "url" => "contact",
@@ -146,4 +146,4 @@ $extraFooterLinks = [
         "colour" => "green",
     ],
 ];
-$site->echoFooter($extraFooterLinks);
+$site->echoFooter($similarLinks);

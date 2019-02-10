@@ -6,11 +6,11 @@ $site = Site::get();
 ?>
 
                 <?php
-                if (!empty($extraFooterLinks)) {
+                if (!empty($similarLinks)) {
                     echo "<div class='article article--halved article--similar-links'>";
                     echo "<div class='container'>";
 
-                    foreach ($extraFooterLinks as $link) {
+                    foreach ($similarLinks as $link) {
                         $pageTitle = $link["title"];
                         $buttonText = !empty($link["text"]) ? $link["text"] : $title ;
 
