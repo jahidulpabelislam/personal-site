@@ -347,18 +347,6 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     </div>
                 </section>
 
-                <div class="article article--halved">
-                    <div class="container">
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">View My Work</a>
-                        </div>
-
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("contact"); ?>" class="btn btn--red">Get in Touch</a>
-                        </div>
-                    </div>
-                </div>
-
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg"></script>
 
                 <script>
@@ -367,4 +355,18 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     window.jpi.config.googleMapStyles =  <?php echo file_get_contents(ROOT . "/assets/map-styling.json"); ?>;
                 </script>
 
-<?php $site->echoFooter();
+<?php
+$extraFooterLinks = [
+    [
+        "title" => "Projects",
+        "url" => "projects",
+        "text" => "View My Work",
+        "colour" => "purple",
+    ], [
+        "title" => "Contact",
+        "url" => "contact",
+        "text" => "Get in Touch",
+        "colour" => "red",
+    ],
+];
+$site->echoFooter($extraFooterLinks);

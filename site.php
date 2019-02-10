@@ -129,7 +129,7 @@ class Site {
     /**
      * Include the common footer content for page/site
      */
-    public static function echoFooter() {
+    public static function echoFooter($extraFooterLinks = []) {
         include_once(ROOT . "/partials/footer.php");
     }
 

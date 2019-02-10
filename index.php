@@ -150,21 +150,6 @@ $site->echoConfig();
                     </div>
                 </section>
 
-                <div class="article article--halved">
-                    <div class="container">
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("about"); ?>" class="btn btn--red">
-                                Learn About Me
-                            </a>
-                        </div>
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("projects"); ?>" class="btn btn--purple">
-                                View My Work
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
                         <img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}?v=2"); ?>" alt="Screen shot of {{name}} Project">
@@ -191,4 +176,18 @@ $site->echoConfig();
                     window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
                 </script>
 
-<?php $site->echoFooter();
+<?php
+$extraFooterLinks = [
+    [
+        "title" => "About",
+        "url" => "about",
+        "text" => "Learn About Me",
+        "colour" => "red",
+    ], [
+        "title" => "Projects",
+        "url" => "projects",
+        "text" => "View My Work",
+        "colour" => "purple",
+    ],
+];
+$site->echoFooter($extraFooterLinks);

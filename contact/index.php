@@ -111,16 +111,18 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     </div>
                 </section>
 
-                <div class="article article--halved">
-                    <div class="container">
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("projects"); ?>" class="btn btn--blue">View My Work</a>
-                        </div>
-
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("about"); ?>" class="btn btn--orange">Learn About Me</a>
-                        </div>
-                    </div>
-                </div>
-
-<?php $site->echoFooter();
+<?php
+$extraFooterLinks = [
+    [
+        "title" => "Projects",
+        "url" => "projects",
+        "text" => "View My Work",
+        "colour" => "blue",
+    ], [
+        "title" => "About",
+        "url" => "about",
+        "text" => "Learn About Me",
+        "colour" => "orange",
+    ],
+];
+$site->echoFooter($extraFooterLinks);

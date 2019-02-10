@@ -50,18 +50,6 @@ $site->echoConfig();
                     </div>
                 </section>
 
-                <div class="article article--halved">
-                    <div class="container">
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("contact"); ?>" class="btn btn--purple">Get in Touch</a>
-                        </div>
-
-                        <div class="article__half">
-                            <a href="<?php $site->echoURL("about"); ?>" class="btn btn--green">Learn About Me</a>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="expanded-slide-show">
                     <div class="expanded-image-container">
                         <img src="/assets/images/blank.svg?v=1" class="expanded-image current" alt="Expanded Image of slide">
@@ -144,4 +132,18 @@ $site->echoConfig();
                     window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
                 </script>
 
-<?php $site->echoFooter();
+<?php
+$extraFooterLinks = [
+    [
+        "title" => "Contact",
+        "url" => "contact",
+        "text" => "Get in Touch",
+        "colour" => "purple",
+    ], [
+        "title" => "About",
+        "url" => "about",
+        "text" => "Learn About Me",
+        "colour" => "green",
+    ],
+];
+$site->echoFooter($extraFooterLinks);

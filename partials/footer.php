@@ -4,6 +4,32 @@ if (!defined("ROOT")) {
 }
 $site = Site::get();
 ?>
+
+                <?php
+                if (!empty($extraFooterLinks)) {
+                    echo "<div class='article article--halved'>";
+                    echo "<div class='container'>";
+
+                    foreach ($extraFooterLinks as $link) {
+                        $pageTitle = $link["title"];
+                        $buttonText = !empty($link["text"]) ? $link["text"] : $title ;
+
+                        $url = $link["url"];
+                        $url = $site->getURL($url);
+
+                        $buttonClasses = "btn";
+                        $buttonClasses .= !empty($link["colour"]) ? " btn--{$link["colour"]}" : "";
+
+                        echo "<div class='article__half'>";
+                        echo "<a href='{$url}' class='{$buttonClasses}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
+                        echo "</div>";
+                    }
+
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
+
                 <!-- End dynamic content -->
                 <section class="social-links">
                     <div class="container">
