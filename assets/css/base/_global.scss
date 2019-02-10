@@ -3,23 +3,23 @@
 */
 
 .link-styled {
-	color: $dark;
-	border-bottom: transparent solid 1px;
+    color: $dark;
+    border-bottom: transparent solid 1px;
 }
 
 .link-styled:hover {
-	color: darken($dark, 10%);
-	border-bottom-color: darken($dark, 10%);
+    color: darken($dark, 10%);
+    border-bottom-color: darken($dark, 10%);
 }
 
-@each $color, $colors in $colors {
-	.link-styled--#{$color} {
-		color: map-get($colors, main);
-		border-bottom: transparent solid 1px;
-	}
+@each $colour, $colours in $colour-schemes {
+    .link-styled--#{$colour} {
+        color: map-get($colours, main);
+        border-bottom: transparent solid 1px;
+    }
 
-	.link-styled--#{$color}:hover {
-		color: map-get($colors, hover);
-		border-bottom-color: map-get($colors, hover);
-	}
+    .link-styled--#{$colour}:hover {
+        color: map-get($colours, hover);
+        border-bottom-color: map-get($colours, hover);
+    }
 }

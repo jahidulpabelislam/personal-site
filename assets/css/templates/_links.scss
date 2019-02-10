@@ -1,85 +1,85 @@
 .social-links-page {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .social-link-container {
-	margin: 5px;
-	padding: 15px;
-	display: inline-block;
+    margin: 5px;
+    padding: 15px;
+    display: inline-block;
 }
 
 .social-link-container--snapchat {
-	display: block;
-	max-width: 200px;
-	margin: auto;
+    display: block;
+    max-width: 200px;
+    margin: auto;
 }
 
 .social-link__img--facebook {
-	border-radius: 5px;
+    border-radius: 5px;
 }
 
 .social-link:hover .social-link__text--facebook {
-	color: $facebook;
-	text-decoration: underline;
+    color: $facebook-colour;
+    text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--facebook {
-	background: $facebook;
+    background: $facebook-colour;
 }
 
 .social-link__img--twitter {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 .social-link:hover .social-link__text--twitter {
-	color: $twitter;
-	text-decoration: underline;
+    color: $twitter-colour;
+    text-decoration: underline;
 }
 
 .social-link:hover .social-link__img--twitter {
-	background: $twitter;
+    background: $twitter-colour;
 }
 
 .social-link__img--snapchat {
-	width: 100%;
-	height: auto;
-	border-radius: 15%;
-	transition: all .3s ease-in-out;
-	filter: grayscale(100%);
+    width: 100%;
+    height: auto;
+    border-radius: 15%;
+    transition: all 0.3s ease-in-out;
+    filter: grayscale(100%);
 }
 
 .social-link:hover .social-link__img--snapchat {
-	box-shadow: 0 0 10px 0 transparentize($dark, .6);
-	cursor: pointer;
-	filter: grayscale(0);
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
+    cursor: pointer;
+    filter: grayscale(0);
 }
 
 .social-link__text--snapchat {
-	color: white;
-	background-color: black;
-	padding: 4px;
-	border-radius: 6px;
+    color: white;
+    background-color: black;
+    padding: 4px;
+    border-radius: 6px;
 }
 
 .social-link:hover .social-link__text--snapchat {
-	color: $snapchat;
+    color: $snapchat-colour;
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop) {
-	.social-links-page > .container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+    .social-links-page > .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-	.social-link-container--snapchat {
-		width: calc(33% - 10px);
-		max-width: 200px;
-		margin: 5px;
-	}
+    .social-link-container--snapchat {
+        width: calc(33% - 10px);
+        max-width: 200px;
+        margin: 5px;
+    }
 
-	.social-link__img--snapchat {
-		max-width: 200px;
-	}
+    .social-link__img--snapchat {
+        max-width: 200px;
+    }
 }

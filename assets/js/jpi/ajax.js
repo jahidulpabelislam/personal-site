@@ -1,126 +1,114 @@
 window.jpi = window.jpi || {};
-window.jpi.ajax = (function (jQuery) {
+window.jpi.ajax = (function(jQuery) {
 
-	"use strict";
+    "use strict";
 
-	var fn = {
+    var fn = {
 
-		// Checks if feedback was provided by API
-		checkFeedback: function (feedback, howToRenderError, genericMessage) {
+        // If there is feedback from Server give error message using the it otherwise output generic message
+        checkAndRenderFeedback: function(data, renderErrorFunc, genericMessage) {
+            var message = (data && data.meta && data.meta.feedback) ? data.meta.feedback : genericMessage;
+            if (message) {
+                renderErrorFunc(message);
+            }
+        },
 
-			//if there is feedback from Server give error message using the it otherwise output generic message
-			if (feedback || genericMessage) {
-				howToRenderError(feedback || genericMessage);
-			}
-		},
+        // Loop through data to see if it exists and if it does run a function on each row
+        renderRowsOrFeedback: function(data, funcToRun, renderErrorFunc, genericMessage) {
+            // If data/rows exists, For each row run a function
+            if (data && data.rows && data.rows.length) {
+                for (var i = 0; i < data.rows.length; i++) {
+                    if (data.rows.hasOwnProperty(i)) {
+                        funcToRun(data.rows[i]);
+                    }
+                }
 
-		// Loop through data to see if it exists
-		loopThroughData: function (data, toRun, howToRenderError, genericMessage) {
-			var i;
+                return true;
+            }
+            // Otherwise check feedback and show user and return false as data isn't there
+            else {
+                fn.checkAndRenderFeedback(data, renderErrorFunc, genericMessage);
+                return false;
+            }
+        },
 
-			//check if data exists
-			if (data.rows && data.rows.length > 0) {
+        /*
+         * Given a payload that is an object (containing name/value pairs), this function
+         * converts that array into a URLEncoded string.
+         */
+        encodePayload: function(params) {
+            var name,
+                payload = [];
+            for (name in params) {
+                if (params.hasOwnProperty(name)) {
+                    payload.push(name + "=" + encodeURIComponent(params[name]));
+                }
+            }
 
-				//loop through each row of data in rows
-				for (i = 0; i < data.rows.length; i++) {
+            var payloadString = payload.join("&");
+            payloadString = payloadString.replace("%20", "+");
+            payloadString = payloadString.replace("%3D", "=");
 
-					if (data.rows.hasOwnProperty(i)) {
+            return payloadString;
+        },
 
-						//run the function provided as data exists and is valid
-						toRun(data.rows[i]);
-					}
-				}
-				return true;
-			}
-			// Otherwise check feedback and show user and return false as data isn't there
-			else {
-				fn.checkFeedback(data.meta.feedback, howToRenderError, genericMessage);
-				return false;
-			}
-		},
+        /**
+         * Function for sending XHR requests
+         * {
+         *     "method": "HTTP METHOD",
+         *     "url": "URL to load",
+         *     "params": {"object of payload"},
+         *     "onSuccess": function to run when XHR request is successful
+         *     "onError": function to run when there's an error
+         * }
+         ** @param request object of params necessary needed to do a http request
+         */
+        sendRequest: function(request) {
+            var xhr = new XMLHttpRequest();
+            var errorText = "Error Loading Content.";
 
-		/*
-		 Given a payload that is an object (containing name/value pairs), this function
-		 converts that array into a URLEncoded string.
-		 */
-		encodePayload: function (x) {
-			var i, payload = "";
-			for (i in x) {
-				if (x.hasOwnProperty(i)) {
-					payload += i + "=" + encodeURIComponent(x[i]) + "&";
-					payload = payload.replace("%20", "+");
-					payload = payload.replace("%3D", "=");
-				}
-			}
-			return payload.slice(0, -1);
-		},
+            // Checks if there is params to send to payload and checks its not sending a file
+            if (request.params && request.data !== "file") {
+                request.params = fn.encodePayload(request.params);
 
-		/**
-		 * Function for sending XHR requests
-		 * {
-		 *     "method": "HTTP METHOD",
-		 *     "url": "URL to load",
-		 *     "query": "object of payload",
-		 *     "load": function to run when XHR is loaded
-		 * }
-		 ** @param request object of data necessary needed to do a http request
-		 */
-		sendRequest: function (request) {
+                if (request.method !== "POST") {
+                    request.url += "?" + request.params;
+                }
+            }
 
-			//start a XHR
-			var xhr = new XMLHttpRequest();
+            xhr.open(request.method, request.url, true);
 
-			//checks if there is query to send to payload and checks its not sending a file
-			if (request.query && request.data !== "file") {
+            xhr.setRequestHeader("Accept", "application/json");
 
-				request.query = fn.encodePayload(request.query);
+            if (request.params && request.method === "POST" && request.data !== "file") {
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            }
 
-				if (request.method !== "POST") {
+            xhr.addEventListener("load", function() {
+                if (this && this.responseText !== "") {
+                    try {
+                        var jsonData = JSON.parse(this.responseText);
+                        request.onSuccess(jsonData);
+                        return;
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                }
+                request.onError(errorText);
+            });
 
-					request.url += "?" + request.query;
-				}
-			}
+            xhr.addEventListener("error", function() {
+                request.onError(errorText);
+            });
 
-			// Open a XHR
-			xhr.open(request.method, request.url, true);
+            xhr.send(request.params);
+        },
+    };
 
-			// Set request header for XHR
-			xhr.setRequestHeader("Accept", "application/json");
+    return {
+        renderRowsOrFeedback: fn.renderRowsOrFeedback,
+        sendRequest: fn.sendRequest,
+    };
 
-			if (request.query && request.method === "POST" && request.data !== "file") {
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			}
-
-			// Add listener for when XHR is loaded
-			xhr.addEventListener("load", function () {
-				if ((this && this.responseText !== "")) {
-					try {
-						var jsonData = JSON.parse(this.responseText);
-						request.load(jsonData);
-					}
-					catch (e) {
-						request.error("Error Loading Content.");
-						console.log(e);
-					}
-				}
-				else {
-					request.error("Error Loading Content.");
-				}
-			});
-
-			// Add listener for when XHR has a error
-			xhr.addEventListener("error", function () {
-				request.error("Error Loading Content.");
-			});
-
-			// Send payload if any
-			xhr.send(request.query);
-		}
-	};
-
-	return {
-		"loopThroughData": fn.loopThroughData,
-		"sendRequest": fn.sendRequest
-	};
-
-}(jQuery));
+})(jQuery);

@@ -9,202 +9,244 @@
  * @version 1
  * @link https://github.com/jahidulpabelislam/portfolio/
  * @since Class available since Release: v4.1
- * @copyright 2014-2018 JPI
+ * @copyright 2010-2018 JPI
 */
 
 class Site {
 
-	private static $LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+    const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-	private static $VALID_NAV_TINTS = ['dark', 'light'];
+    const VALID_NAV_TINTS = ["dark", "light",];
 
-	private static function getProjectRoot() {
-		return $_SERVER["DOCUMENT_ROOT"];
-	}
+    private static $instance = null;
 
-	private static function formatPageId($pageId) {
-		$pageIdFormatted = trim($pageId);
-		$pageIdFormatted = strtolower($pageIdFormatted);
-		$pageIdFormatted = preg_replace('/[^a-z0-9]+/', '-', $pageIdFormatted);
+    public function __construct() {
+        if (!defined("ROOT")) {
+            define("ROOT", self::getProjectRoot());
+        }
+    }
 
-		return $pageIdFormatted;
-	}
+    public static function get() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
 
-	private static function generatePageIdFromTitle($title) {
-		$pageId = self::formatPageId($title);
+        return self::$instance;
+    }
 
-		return $pageId;
-	}
+    /**
+     * Return this projects root directory
+     *
+     * @return string
+     */
+    private static function getProjectRoot() {
+        if (defined("ROOT")) {
+            return ROOT;
+        }
 
-	/**
-	 * Include the common config file for page/site
-	 */
-	public static function echoConfig() {
-		include self::getProjectRoot() . "/config.php";
-	}
+        return $_SERVER["DOCUMENT_ROOT"];
+    }
 
-	/**
-	 * Include the common html head for page/site
-	 *
-	 * @param $pageId string
-	 * @param $title string
-	 * @param $desc string
-	 */
-	public static function echoHTMLHead($title, $desc, $pageId = "") {
-		$title = trim($title);
-		$desc = trim($desc);
-		$pageId = trim($pageId);
+    /**
+     * Helper function to tidy up page id
+     * and remove any non alpha text
+     *
+     * @param $pageId
+     * @return string|string[]|null
+     */
+    private static function formatPageId($pageId) {
+        $pageIdFormatted = trim($pageId);
+        $pageIdFormatted = strtolower($pageIdFormatted);
+        $pageIdFormatted = preg_replace("/[^a-z0-9]+/", "-", $pageIdFormatted);
 
-		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+        return $pageIdFormatted;
+    }
 
-		include self::getProjectRoot() . "/partials/head.php";
-	}
+    /**
+     * Generate pageId using page Title
+     *
+     * @param $title string
+     * @return string
+     */
+    private static function generatePageIdFromTitle($title) {
+        $pageId = self::formatPageId($title);
 
-	/**
-	 * Include the common html header content for page/site
-	 *
-	 * @param $pageId string
-	 * @param $title string
-	 * @param string $desc string
-	 * @param string $navTint string
-	 */
-	public static function echoHeader($title, $desc = "", $pageId = "", $navTint = "dark") {
-		$title = trim($title);
-		$desc = trim($desc);
-		$pageId = trim($pageId);
-		$navTint = trim($navTint);
+        return $pageId;
+    }
 
-		$navTint = (in_array($navTint, self::$VALID_NAV_TINTS)) ? $navTint : "dark";
+    /**
+     * Include the common config file for page/site
+     */
+    public static function echoConfig() {
+        include_once(ROOT . "/config.php");
+    }
 
-		$pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+    /**
+     * Include the common html head for page/site
+     *
+     * @param $pageId string
+     * @param $title string
+     * @param $desc string
+     */
+    public static function echoHTMLHead($title, $desc, $pageId = "") {
+        $title = trim($title);
+        $desc = trim($desc);
+        $pageId = trim($pageId);
 
-		include self::getProjectRoot() . "/partials/header.php";
-	}
+        $pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-	/**
-	 * Include the common favicons content for page/site
-	 */
-	public static function echoFavicons() {
-		include self::getProjectRoot() . "/partials/favicons.php";
-	}
+        include_once(ROOT . "/partials/head.php");
+    }
 
-	/**
-	 * Include the common footer content for page/site
-	 */
-	public static function echoFooter() {
-		include self::getProjectRoot() . "/partials/footer.php";
-	}
+    /**
+     * Include the common html header content for page/site
+     *
+     * @param $pageId string
+     * @param $title string
+     * @param string $desc string
+     * @param string $navTint string
+     */
+    public static function echoHeader($title, $desc = "", $pageId = "", $navTint = "dark") {
+        $title = trim($title);
+        $desc = trim($desc);
+        $pageId = trim($pageId);
+        $navTint = trim($navTint);
 
-	/**
-	 * Include the common cookie banner content for page/site
-	 */
-	public static function echoCookieBanner() {
-		include self::getProjectRoot() . "/partials/cookie-banner.php";
-	}
+        $navTint = (in_array($navTint, self::VALID_NAV_TINTS)) ? $navTint : "dark";
 
-	/**
-	 * Generate and return a url from passed url
-	 * Depending on param values, return url can be a relative, full live or a full local url.
-	 *
-	 * @param string $url string The relative url part/s to use to generate url from
-	 * @param bool $full bool Whether the url should be a full url
-	 * @param bool $live bool Whether the url should be a full live url
-	 * @return string
-	 */
-	public static function getURL($url = "", $full = false, $live = false) {
+        $pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
-		$url = trim($url);
+        include_once(ROOT . "/partials/header.php");
+    }
 
-		if (!empty($url)) {
-			$url = "/" . trim($url, "/") . "/";
-		}
-		else {
-			$url = "/";
-		}
+    /**
+     * Include the common favicons content for page/site
+     */
+    public static function echoFavicons() {
+        include_once(ROOT . "/partials/favicons.php");
+    }
 
-		$url = self::isDebug() ? $url . "?debug=true" : $url;
+    /**
+     * Include the common footer content for page/site
+     */
+    public static function echoFooter($similarLinks = []) {
+        include_once(ROOT . "/partials/footer.php");
+    }
 
-		if ($full && $live) {
-			$liveDomain = self::getLiveDomain();
-			$url = rtrim($liveDomain, "/") . $url;
-		}
-		else if ($full) {
-			$localDomain = self::getLocalDomain();
-			$url = rtrim($localDomain, "/") . $url;
-		}
+    /**
+     * Include the common cookie banner content for page/site
+     */
+    public static function echoCookieBanner() {
+        include_once(ROOT . "/partials/cookie-banner.php");
+    }
 
-		return $url;
-	}
+    /**
+     * Generate and return a url from passed url
+     * Depending on param values, return url can be a relative, full live or a full local url.
+     *
+     * @param string $url string The relative url part/s to use to generate url from
+     * @param bool $full bool Whether the url should be a full url
+     * @param bool $live bool Whether the url should be a full live url
+     * @return string
+     */
+    public static function getURL($url = "", $full = false, $live = false) {
+        $url = trim($url);
 
-	/**
-	 * Generates and echos a url
-	 * Used getURL to generate the url, then echoes what is returned
-	 * Depending on param values, return url can be a relative, full live or a full local url.
-	 *
-	 * @param string $url string The relative url part/s to use to generate url from
-	 * @param bool $full bool Whether the url should be a full url
-	 * @param bool $live bool Whether the url should be a full live url
-	 */
-	public static function echoURL($url = "", $full = false, $live = false) {
+        if (!empty($url)) {
+            $url = "/" . trim($url, "/") . "/";
+        }
+        else {
+            $url = "/";
+        }
 
-		$url = self::getURL($url, $full, $live);
+        $url = self::isDebug() ? $url . "?debug" : $url;
 
-		echo $url;
-	}
+        if ($full && $live) {
+            $liveDomain = self::getLiveDomain();
+            $url = rtrim($liveDomain, "/") . $url;
+        }
+        else if ($full) {
+            $localDomain = self::getLocalDomain();
+            $url = rtrim($localDomain, "/") . $url;
+        }
 
-	/**
-	 * @return string Generate and return the LIVE domain
-	 */
-	public static function getLiveDomain() {
-		$liveDomain = self::$LIVE_DOMAIN;
-		$liveDomain = self::addTrailingSlash($liveDomain);
-		return $liveDomain;
-	}
+        return $url;
+    }
 
-	/**
-	 * @return string Generate and return the local domain
-	 */
-	public static function getLocalDomain() {
-		$protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-		$localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"];
-		$localDomain = self::addTrailingSlash($localDomain);
-		return $localDomain;
-	}
+    /**
+     * Generates and echos a url
+     * Used getURL to generate the url, then echoes what is returned
+     * Depending on param values, return url can be a relative, full live or a full local url.
+     *
+     * @param string $url string The relative url part/s to use to generate url from
+     * @param bool $full bool Whether the url should be a full url
+     * @param bool $live bool Whether the url should be a full live url
+     */
+    public static function echoURL($url = "", $full = false, $live = false) {
+        $url = self::getURL($url, $full, $live);
 
-	/**
-	 * Generate a full url to a image file
-	 * @param string $filepath string The relative url of image
-	 */
-	public static function echoProjectImageURL($filepath = "") {
-		$root = rtrim(JPI_API_ENDPOINT, ' /');
-		$imageURL = $root . $filepath;
-		echo $imageURL;
-	}
+        echo $url;
+    }
 
-	/**
-	 * Generate the API endpoint and echo
-	 */
-	public static function echoAPIEndpoint() {
-		$endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
-		$endpoint .= JPI_API_VERSION;
-		$endpoint = self::addTrailingSlash($endpoint);
-		echo $endpoint;
-	}
-	
-	/**
-	 * @param $url string The url to add slash to
-	 * @return string The new url
-	 */
-	public static function addTrailingSlash($url) {
-		$url = rtrim($url, ' /');
-		$url = "$url/";
-		return $url;
-	}
+    /**
+     * @param $url string The url to add slash to
+     * @return string The new url
+     */
+    public static function addTrailingSlash($url) {
+        $url = rtrim($url, " /");
+        $url = "$url/";
 
-	/**
-	 * @return bool Whether or not the debug was set by user on page view
-	 */
-	public static function isDebug() {
-		return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
-	}
+        return $url;
+    }
+
+    /**
+     * @return string Generate and return the LIVE domain
+     */
+    public static function getLiveDomain() {
+        $liveDomain = self::LIVE_DOMAIN;
+        $liveDomain = self::addTrailingSlash($liveDomain);
+
+        return $liveDomain;
+    }
+
+    /**
+     * @return string Generate and return the local domain
+     */
+    public static function getLocalDomain() {
+        $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+        $localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"];
+        $localDomain = self::addTrailingSlash($localDomain);
+
+        return $localDomain;
+    }
+
+    /**
+     * Generate the API endpoint and echo
+     */
+    public static function echoAPIEndpoint() {
+        $endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
+        $endpoint .= "v" . JPI_API_VERSION;
+        $endpoint = self::addTrailingSlash($endpoint);
+        echo $endpoint;
+    }
+
+    /**
+     * Generate a full url to a image file
+     *
+     * @param string $filepath string The relative url of image
+     */
+    public static function echoProjectImageURL($filepath = "") {
+        $root = rtrim(JPI_API_ENDPOINT, " /");
+        $imageURL = $root . $filepath;
+        echo $imageURL;
+    }
+
+    /**
+     * @return bool Whether or not the debug was set by user on page view
+     */
+    public static function isDebug() {
+        return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
+    }
 }
+
+Site::get();

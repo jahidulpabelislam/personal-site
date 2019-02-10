@@ -1,88 +1,96 @@
 // Holds any helpers functions for whole project
 window.jpi = window.jpi || {};
-window.jpi.helpers = (function (jQuery) {
+window.jpi.helpers = (function(jQuery) {
 
-	"use strict";
+    "use strict";
 
-	var fn = {
+    var fn = {
 
-		/*
-		 * Used to check if a input field is empty
-		 * add invalid class if empty and return false
-		 * or remove invalid class if  not empty and return true
-		 */
-		checkInputField: function (input) {
-			if (input.value.trim() === "") {
-				input.classList.add("invalid");
-				input.classList.remove("valid");
-				return false;
-			}
-			else {
-				input.classList.remove("invalid");
-				input.classList.add("valid");
-				return true;
-			}
-		},
+        /*
+         * Used to check if a input field is empty
+         * add invalid class if empty and return false
+         * or remove invalid class if  not empty and return true
+         */
+        checkInputField: function(input) {
+            if (input.value.trim() === "") {
+                input.classList.add("invalid");
+                input.classList.remove("valid");
+                return false;
+            }
+            else {
+                input.classList.remove("invalid");
+                input.classList.add("valid");
+                return true;
+            }
+        },
 
-		// Creates an element with attributes appended to parent
-		createElement: function (parent, element, attributes) {
-			var elem = document.createElement(element);
+        // Creates an element with attributes and appended to parent
+        createElement: function(parentElem, elementName, attributes) {
+            var newElem = document.createElement(elementName);
 
-			for (var attribute in attributes) {
+            for (var attribute in attributes) {
+                if (attributes.hasOwnProperty(attribute)) {
+                    if (attribute === "innerHTML") {
+                        newElem[attribute] = attributes[attribute];
+                    }
+                    else {
+                        newElem.setAttribute(attribute, attributes[attribute]);
+                    }
+                }
+            }
+            parentElem.appendChild(newElem);
 
-				if (attributes.hasOwnProperty(attribute)) {
-					if (attribute === "innerHTML") {
-						elem[attribute] = attributes[attribute];
-					}
-					else {
-						elem.setAttribute(attribute, attributes[attribute]);
-					}
-				}
-			}
+            return newElem;
+        },
 
-			parent.appendChild(elem);
+        getInt: function(value, defaultInt) {
+            var int = defaultInt;
 
-			return elem;
-		},
-		
-		getCookie: function (key) {
-			key += "=";
+            if (!isNaN(value)) {
+                int = parseInt(value, 10);
+            }
 
-			var cookies = document.cookie.split(";");
+            return int;
+        },
 
-			for (var i = 0; i < cookies.length; i++) {
+        getCookie: function(key) {
+            key += "=";
 
-				var cookie = cookies[i];
+            var cookies = document.cookie.split(";");
 
-				cookie = cookie.toString().trim();
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
 
-				if (cookie.indexOf(key) === 0) {
-					return cookie.substring(key.length);
-				}
-			}
+                cookie = cookie.toString().trim();
 
-			return false;
-		},
+                if (cookie.indexOf(key) === 0) {
+                    return cookie.substring(key.length);
+                }
+            }
 
-		checkCookieValue: function (key, valueToCheck) {
-			var cookie = fn.getCookie(key);
-			return (cookie && cookie != "" && cookie == valueToCheck);
-		},
+            return false;
+        },
 
-		setCookie: function (key, value, expirationDays) {
-			var expiryDate = new Date();
-			expiryDate.setTime(expiryDate.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
-			var expires = "expires=" + expiryDate.toUTCString();
-			document.cookie = key + "=" + value + ";" + expires + ";path=/";
-		}
-	};
+        checkCookieValue: function(key, valueToCheck) {
+            var cookie = fn.getCookie(key);
+            return cookie && cookie != "" && cookie == valueToCheck;
+        },
 
-	return {
-		"checkInputField": fn.checkInputField,
-		"createElement": fn.createElement,
-		"getCookie": fn.getCookie,
-		"checkCookieValue": fn.checkCookieValue,
-		"setCookie": fn.setCookie
-	};
+        setCookie: function(key, value, expirationDays) {
+            var expiryDate = new Date();
+            expiryDate.setTime(expiryDate.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+            var expires = "expires=" + expiryDate.toUTCString();
+            document.cookie = key + "=" + value + ";" + expires + ";path=/";
+        },
+    };
 
-}(jQuery));
+    return {
+        checkInputField: fn.checkInputField,
+        createElement: fn.createElement,
+        getInt: fn.getInt,
+        getCookie: fn.getCookie,
+        checkCookieValue: fn.checkCookieValue,
+        setCookie: fn.setCookie,
+    };
+
+})(jQuery);

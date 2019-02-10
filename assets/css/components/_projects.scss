@@ -1,32 +1,31 @@
-
 .project__header {
-	display: flex;
-	align-items: center;
-	padding: 20px 0 10px 0;
+    display: flex;
+    align-items: center;
+    padding: 20px 0 10px 0;
 }
 
 .project__title {
-	margin-bottom: 4px;
-	font-size: 22px;
-	line-height: 24px;
-	font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
 }
 
 .project__title.project__title {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .project__date {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .project__title--inline {
-	margin: 0;
-	text-align: left;
+    margin: 0;
+    text-align: left;
 }
 
 .project__date--inline {
-	margin: 0;
-	margin-left: 24px;
-	text-align: right;
+    margin: 0;
+    margin-left: 24px;
+    text-align: right;
 }
