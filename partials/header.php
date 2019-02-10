@@ -35,7 +35,7 @@ $site = Site::get();
                             }
 
                             echo "<li class='nav-link__item'>";
-                            echo "<a href='$url' class='$classes' title='Link to $link Page'>$link</a>";
+                            echo "<a href='{$url}' class='{$classes}' title='Link to {$link} Page'>{$link}</a>";
                             echo "</li>";
                         }
                         ?>

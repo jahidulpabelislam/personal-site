@@ -40,7 +40,7 @@ if ($meta["ok"]) {
     }
 
     // Creates the headers for sending email
-    $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
+    $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:{$emailAddress}";
 
     // The address to send mail to
     $to = "contact@jahidulpabelislam.com";
@@ -59,7 +59,7 @@ $meta["message"] = $message = $meta["ok"] ? "OK" : "Internal Server Error";
 
 $meta["data"] = $data;
 
-header("HTTP/1.1 $status $message");
+header("HTTP/1.1 {$status} {$message}");
 
 // Send the response, by json
 header("Content-Type: application/json");

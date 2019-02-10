@@ -24,7 +24,7 @@ $site = Site::get();
 
         <!-- All meta data for page -->
         <?php
-        $title = $title . " | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+        $title = "{$title} | Jahidul Pabel Islam - Full Stack Web & Software Developer";
         if ($pageId === "home") {
             $title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
         }
@@ -37,8 +37,8 @@ $site = Site::get();
         $liveDomain = $liveURl = $site->getLiveDomain();
 
         if ($pageId !== "home") {
-            $liveURl .= "$pageId/";
-            $localURL .= "$pageId/";
+            $liveURl .= "{$pageId}/";
+            $localURL .= "{$pageId}/";
         }
 
         $indexedPages = [
@@ -52,7 +52,7 @@ $site = Site::get();
         ];
 
         if (in_array($pageId, $indexedPages) && $environment === "production") {
-            echo "<link rel='canonical' href='$liveURl'/>";
+            echo "<link rel='canonical' href='{$liveURl}'/>";
         }
         else {
             echo "<meta name='robots' content='noindex,nofollow'/>";
@@ -72,10 +72,10 @@ $site = Site::get();
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 
         <?php
-        $imageLocation = "assets/images/portfolio-$pageId-preview.png";
+        $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
 
-        if (file_exists(ROOT . "/" . $imageLocation)) {
-            $imageUrl = $localDomain . $imageLocation . "?v=2";
+        if (file_exists(ROOT . "/{$imageLocation}")) {
+            $imageUrl = "{$localDomain}{$imageLocation}?v=2";
             ?>
             <meta property="og:image" content="<?php echo $imageUrl; ?>" />
             <?php
