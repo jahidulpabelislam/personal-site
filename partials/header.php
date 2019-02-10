@@ -23,7 +23,7 @@ $site = Site::get();
                     <ul class="nav__links">
 
                         <?php
-                        $links = ["Projects", "Contact", "About",];
+                        $links = ["Projects", "Contact", "About"];
 
                         foreach ($links as $link) {
                             $url = strtolower($link);

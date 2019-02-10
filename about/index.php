@@ -125,17 +125,39 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <ul class="about__skills-interests">
                             <?php
                             $techSkills = [
-                                ["text" => "HTML", "desc" => "HTML5 & HTML4",],
-                                ["text" => "CSS", "desc" => "CSS3, SCSS, Bootstrap3/4",],
-                                ["text" => "JavaScript", "desc" => "Node.js (socket.io & Express), JQuery & AngularJS",],
-                                ["text" => "PHP", "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO",],
-                                ["text" => "SQL", "desc" => "MySQL",],
-                                ["text" => "NoSQL", "desc" => "Amazon DynamoDB & MongoDB",],
-                                ["text" => "Java", "desc" => "Java EE 7, JSF 2, AWT & Swing",],
-                                ["text" => "Python", "desc" => "graphics.py",],
-                                ["text" => "Visual Basic",],
-                                ["text" => "DVCS", "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)",],
-                                ["text" => "Microsoft Office", "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)",],
+                                [
+                                    "text" => "HTML",
+                                    "desc" => "HTML5 & HTML4",
+                                ], [
+                                    "text" => "CSS",
+                                    "desc" => "CSS3, SCSS, Bootstrap3/4",
+                                ], [
+                                    "text" => "JavaScript",
+                                    "desc" => "Node.js (socket.io & Express), JQuery & AngularJS",
+                                ], [
+                                    "text" => "PHP",
+                                    "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO",
+                                ], [
+                                    "text" => "SQL",
+                                    "desc" => "MySQL",
+                                ], [
+                                    "text" => "NoSQL",
+                                    "desc" => "Amazon DynamoDB & MongoDB",
+                                ], [
+                                    "text" => "Java",
+                                    "desc" => "Java EE 7, JSF 2, AWT & Swing",
+                                ], [
+                                    "text" => "Python",
+                                    "desc" => "graphics.py",
+                                ], [
+                                    "text" => "Visual Basic",
+                                ], [
+                                    "text" => "DVCS",
+                                    "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)",
+                                ], [
+                                    "text" => "Microsoft Office",
+                                    "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)",
+                                ],
                             ];
 
                             foreach ($techSkills as $skill) {
@@ -164,9 +186,15 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <ul class="about__skills-interests">
                             <?php
                             $otherSkills = [
-                                ["text" => "Team Player", "desc" => "Being a good team player has been installed in me after playing with competitive Football teams",],
-                                ["text" => "Communication", "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills",],
-                                ["text" => "Hard Worker",],
+                                [
+                                    "text" => "Team Player",
+                                    "desc" => "Being a good team player has been installed in me after playing with competitive Football teams",
+                                ], [
+                                    "text" => "Communication",
+                                    "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills",
+                                ], [
+                                    "text" => "Hard Worker",
+                                ],
                             ];
 
                             foreach ($otherSkills as $skill) {
@@ -196,13 +224,13 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                             <?php
                             $interests = [
-                                ["text" => "Sports",],
-                                ["text" => "Music",],
-                                ["text" => "Photography",],
-                                ["text" => "Fashion",],
-                                ["text" => "Programming",],
-                                ["text" => "Gaming",],
-                                ["text" => "Trading",],
+                                ["text" => "Sports"],
+                                ["text" => "Music"],
+                                ["text" => "Photography"],
+                                ["text" => "Fashion"],
+                                ["text" => "Programming"],
+                                ["text" => "Gaming"],
+                                ["text" => "Trading"],
                             ];
 
                             foreach ($interests as $interest) {
