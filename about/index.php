@@ -57,7 +57,9 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank"><img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded"></a>
+                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
+                                <img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded">
+                            </a>
                         </div>
                         <div class="article__half">
                             <p>
@@ -74,7 +76,9 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank"><img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth"></a>
+                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
+                                <img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth">
+                            </a>
                         </div>
                         <div class="article__half">
                             <p>
@@ -91,7 +95,9 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank"><img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach"></a>
+                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
+                                <img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach">
+                            </a>
                         </div>
                         <div class="article__half">
                             <p>
@@ -166,13 +172,14 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                                 $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--blue ' . $expandClass . '">';
+                                echo "<li class='skills-interests__item skills-interests__item--blue {$expandClass}'>";
                                 echo $skillText;
 
                                 if ($skillDesc) {
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
                                 }
-                                echo '</li>';
+                                echo "</li>";
                             }
                             ?>
                         </ul>
@@ -203,13 +210,14 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                                 $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--purple ' . $expandClass . '">';
+                                echo "<li class='skills-interests__item skills-interests__item--purple {$expandClass}'>";
                                 echo $skillText;
 
                                 if ($skillDesc) {
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $skillDesc . '</div>';
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
                                 }
-                                echo '</li>';
+                                echo "</li>";
                             }
                             ?>
                         </ul>
@@ -239,14 +247,15 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                                 $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
 
-                                echo '<li class="skills-interests__item skills-interests__item--green ' . $expandClass . '">';
+                                echo "<li class='skills-interests__item skills-interests__item--green {$expandClass}'>";
                                 echo $interestText;
 
                                 if ($interestDesc) {
-                                    echo ' <span class="fa fa-plus skills-interests__item-expand-icon"></span><div class="skills-interests__item-expand-content">' . $interestDesc . '</div>';
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$interestDesc}</div>";
                                 }
 
-                                echo '</li>';
+                                echo "</li>";
                             }
                             ?>
                         </ul>

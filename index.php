@@ -139,7 +139,9 @@ $site->echoConfig();
                                 $yearsDiff = $diff->format("%y");
                                 date_default_timezone_set($orig);
                                 ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="2000"><?php echo $yearsDiff; ?></h3>
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="2000">
+                                    <?php echo $yearsDiff; ?>
+                                </h3>
                                 <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">
