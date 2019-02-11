@@ -16,7 +16,7 @@ class Site {
 
     const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-    const VALID_NAV_TINTS = ["dark", "light",];
+    const VALID_NAV_TINTS = ["dark", "light"];
 
     private static $instance = null;
 
@@ -145,11 +145,11 @@ class Site {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param string $url string The relative url part/s to use to generate url from
-     * @param bool $full bool Whether the url should be a full url
-     * @param bool $live bool Whether the url should be a full live url
+     * @param bool $isFull bool Whether the url should be a full url
+     * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public static function getURL($url = "", $full = false, $live = false) {
+    public static function getURL($url = "", $isFull = false, $isLive = false) {
         $url = trim($url);
 
         if (!empty($url)) {
@@ -159,13 +159,13 @@ class Site {
             $url = "/";
         }
 
-        $url = self::isDebug() ? $url . "?debug" : $url;
+        $url .= self::isDebug() ? "?debug" : "";
 
-        if ($full && $live) {
+        if ($isFull && $isLive) {
             $liveDomain = self::getLiveDomain();
             $url = rtrim($liveDomain, "/") . $url;
         }
-        else if ($full) {
+        else if ($isFull) {
             $localDomain = self::getLocalDomain();
             $url = rtrim($localDomain, "/") . $url;
         }
@@ -179,11 +179,11 @@ class Site {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param string $url string The relative url part/s to use to generate url from
-     * @param bool $full bool Whether the url should be a full url
-     * @param bool $live bool Whether the url should be a full live url
+     * @param bool $isFull bool Whether the url should be a full url
+     * @param bool $isLive bool Whether the url should be a full live url
      */
-    public static function echoURL($url = "", $full = false, $live = false) {
-        $url = self::getURL($url, $full, $live);
+    public static function echoURL($url = "", $isFull = false, $isLive = false) {
+        $url = self::getURL($url, $isFull, $isLive);
 
         echo $url;
     }
@@ -194,7 +194,7 @@ class Site {
      */
     public static function addTrailingSlash($url) {
         $url = rtrim($url, " /");
-        $url = "$url/";
+        $url = "{$url}/";
 
         return $url;
     }
@@ -214,7 +214,7 @@ class Site {
      */
     public static function getLocalDomain() {
         $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-        $localDomain = $protocol . "://" . $_SERVER["SERVER_NAME"];
+        $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
         $localDomain = self::addTrailingSlash($localDomain);
 
         return $localDomain;
@@ -237,7 +237,7 @@ class Site {
      */
     public static function echoProjectImageURL($filepath = "") {
         $root = rtrim(JPI_API_ENDPOINT, " /");
-        $imageURL = $root . $filepath;
+        $imageURL = "{$root}{$filepath}";
         echo $imageURL;
     }
 

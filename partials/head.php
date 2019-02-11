@@ -86,14 +86,14 @@ $site = Site::get();
         <meta name="twitter:title" content="<?php echo $title; ?>" />
 
         <!-- Custom stylesheet for site -->
-        <?php if (!$site->isDebug()) {
+        <?php if ($site->isDebug()) {
             ?>
-            <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/main.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
             <?php
         }
         else {
             ?>
-            <link href="/assets/css/main.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
             <?php
         };
         ?>

@@ -18,7 +18,8 @@ $site = Site::get();
                         $url = $site->getURL($url);
 
                         $buttonClasses = "btn";
-                        $buttonClasses .= !empty($link["colour"]) ? " btn--{$link["colour"]}" : "";
+                        $buttonColour = $link["colour"] ?? "";
+                        $buttonClasses .= !empty($buttonColour) ? " btn--{$buttonColour}" : "";
 
                         echo "<div class='article__half'>";
                         echo "<a href='{$url}' class='{$buttonClasses}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
@@ -79,13 +80,7 @@ $site = Site::get();
         $site->echoCookieBanner();
 
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
-        if (!$site->isDebug()) {
-            ?>
-            <!-- Compiled project & libraries js files -->
-            <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
-            <?php
-        }
-        else {
+        if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
             <script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
@@ -102,6 +97,12 @@ $site = Site::get();
             <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/cookie-banner.js?v=1" type="text/javascript"></script>
             <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
+            <?php
+        }
+        else {
+            ?>
+            <!-- Compiled project & libraries js files -->
+            <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
             <?php
         }
         ?>
