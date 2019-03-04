@@ -12,14 +12,14 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
             <div class="container">
                 <div class="social-link-container">
                     <a href="https://facebook.com/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="/assets/images/facebook.svg?v=1" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
                         <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://twitter.com/itsjahidulislam/" class="social-link" target="_blank">
-                        <img src="/assets/images/twitter.png?v=2" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
                         <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
                     </a>
                 </div>
@@ -40,14 +40,14 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
 
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                         <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                         <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
                     </a>
                 </div>
@@ -62,7 +62,7 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
         </main>
 
         <!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
-        <script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
-        <script src="/assets/js/jpi/sticky-footer.js?v=1" type="text/javascript"></script>
+        <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+        <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
     </body>
 </html>

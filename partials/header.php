@@ -16,7 +16,7 @@ $site = Site::get();
                         <span class="menu-bar menu-bar--bottom"></span>
                     </button>
                     <a href="<?php $site->echoURL(); ?>" class="nav__logo-container">
-                        <img class="nav__logo <?php if ($pageId == "home") echo "current"; ?>" src="/assets/images/logo.png?v=2" alt="Jahidul Pabel Islam Logo">
+                        <img class="nav__logo <?php if ($pageId == "home") echo "current"; ?>" src="<?php $site->echoWithAssetVersion("/assets/images/logo.png"); ?>" alt="Jahidul Pabel Islam Logo">
                     </a>
                 </div>
                 <div class="nav__links-container">
@@ -62,12 +62,12 @@ $site = Site::get();
                     <ul class="nav__social-links">
                         <li class="nav-link__item">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
-                                <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                             </a>
                         </li>
                         <li class="nav-link__item">
                             <a href="https://github.com/jahidulpabelislam/" target="_blank" class="social-link">
-                                <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
                             </a>
                         </li>
                         <li class="nav-link__item">
@@ -87,7 +87,7 @@ $site = Site::get();
                     <h1 class="jumbotron__title"><?php echo $title ?></h1>
                     <hr class="jumbotron__line-breaker">
                     <p class="jumbotron__desc"><?php echo $desc ?></p>
-                    <img src="/assets/images/down-arrow.svg?v=1" class="js-scroll-to-content jumbotron__scroll-to-content" alt="Arrow point down" aria-label="Jump to content">
+                    <img src="<?php $site->echoWithAssetVersion("/assets/images/down-arrow.svg"); ?>" class="js-scroll-to-content jumbotron__scroll-to-content" alt="Arrow point down" aria-label="Jump to content">
                 </div>
             </div>
         </header>

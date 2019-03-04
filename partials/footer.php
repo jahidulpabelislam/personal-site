@@ -36,10 +36,10 @@ $site = Site::get();
                     <div class="container">
                         <h5 class="social-links__header">Follow Me Here!</h5>
                         <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="/assets/images/linkedin.svg?v=1" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
                         </a>
                         <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="/assets/images/github.svg?v=1" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
                         </a>
                         <a href="https://www.instagram.com/jahidulcodes/" class="social-link" target="_blank">
                             <span class="social-links__img social-link__img social-link__img--instagram "><i></i></span>
@@ -83,26 +83,26 @@ $site = Site::get();
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
-            <script src="/assets/js/third-party/jquery.min.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/third-party/waypoint.min.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/third-party/jquery.countTo.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/expanded-slide-show.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/slide-show.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/helpers.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/ajax.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/projects.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/home.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/form.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/sticky-footer.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/nav.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/cookie-banner.js?v=1" type="text/javascript"></script>
-            <script src="/assets/js/jpi/main.js?v=1" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
             ?>
             <!-- Compiled project & libraries js files -->
-            <script src="/assets/js/main.min.js?v=1" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
         ?>

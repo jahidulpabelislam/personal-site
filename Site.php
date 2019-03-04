@@ -15,8 +15,8 @@
 class Site {
 
     const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
-
     const VALID_NAV_TINTS = ["dark", "light"];
+    const DEFAULT_ASSET_VERSION = "1";
 
     private static $instance = null;
 
@@ -221,6 +221,57 @@ class Site {
     }
 
     /**
+     * Get a version number of a asset file.
+     *
+     * The number to use can be passed as a param.
+     * Else it tries to get the last modified date string from file.
+     * And if that fails it fall backs to global default version number
+     *
+     * @param $src string The relative path to a asset
+     * @param bool $ver string A version number to use
+     * @param bool $root string The root location of where the file should be if not the default
+     * @return string The version number found
+     */
+    public static function getAssetVersion(string $src, $ver = false, $root = false) {
+        if (!$ver) {
+            if (!$root) {
+                $root = self::getProjectRoot();
+            }
+
+            $src = ltrim($src, " /");
+
+            $file = self::addTrailingSlash($root) . $src;
+
+            if (file_exists($file)) {
+                $ver = date("mdYHi", filemtime($file));
+            }
+            else {
+                $ver = self::DEFAULT_ASSET_VERSION;
+            }
+        }
+
+        return $ver;
+    }
+
+    /**
+     * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
+     * including a version number
+     */
+    public static function getWithAssetVersion($src, $ver = false, $root = false) {
+        $ver = self::getAssetVersion($src, $ver, $root);
+
+         return "{$src}?v={$ver}";
+    }
+
+    /**
+     * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
+     * Used to echo the full relative URL for the asset including a version number
+     */
+    public static function echoWithAssetVersion($src, $ver = false, $root = false) {
+        echo self::getWithAssetVersion($src, $ver, $root);
+    }
+
+    /**
      * Generate the API endpoint and echo
      */
     public static function echoAPIEndpoint() {
@@ -238,7 +289,7 @@ class Site {
     public static function echoProjectImageURL($filepath = "") {
         $root = rtrim(JPI_API_ENDPOINT, " /");
         $imageURL = "{$root}{$filepath}";
-        echo $imageURL;
+        self::echoWithAssetVersion($imageURL);
     }
 
     /**

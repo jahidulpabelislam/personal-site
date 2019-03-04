@@ -15,7 +15,7 @@ $site->echoHeader($headerTitle, $headerDesc);
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="/assets/images/404.jpg?v=2" alt="Missing page image" class="error__img">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" class="error__img">
                         </div>
                         <div class="article__half">
                             <p>The page you are trying to view can not be found.</p>

@@ -52,17 +52,17 @@ $site->echoConfig();
 
                 <div class="expanded-slide-show">
                     <div class="expanded-image-container">
-                        <img src="/assets/images/blank.svg?v=1" class="expanded-image current" alt="Expanded Image of slide">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide">
                     </div>
 
                     <div class="expanded-image-container">
-                        <img src="/assets/images/blank.svg?v=1" class="expanded-image" alt="Expanded Image of slide">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide">
                     </div>
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="/assets/images/previous-white.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image">
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-next" src="/assets/images/next-white.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image">
+                            <img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image">
+                            <img class="expanded-slide-show__nav js-expanded-slide-show-next" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image">
                         </div>
 
                         <div class="expanded-slide-show__bullets"></div>
@@ -89,8 +89,8 @@ $site->echoConfig();
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -108,8 +108,8 @@ $site->echoConfig();
                         <div id="slide-show--{{id}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous js-move-slide" src="/assets/images/previous.svg?v=1" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next js-move-slide" src="/assets/images/next.svg?v=1" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -118,7 +118,7 @@ $site->echoConfig();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}">
-                        <img src="<?php $site->echoProjectImageURL("{{file}}?v=2"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
+                        <img src="<?php $site->echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
                     </div>
                 </script>
 

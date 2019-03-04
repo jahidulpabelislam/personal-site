@@ -73,11 +73,12 @@ $site = Site::get();
 
         <?php
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
-
-        if (file_exists(ROOT . "/{$imageLocation}")) {
-            $imageUrl = "{$localDomain}{$imageLocation}?v=2";
+        $filePath = rtrim(ROOT, " /") . "/" . ltrim($imageLocation, " /");
+        if (file_exists($filePath)) {
+            $relativeImageURL = $site->getWithAssetVersion($imageLocation);
+            $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>
-            <meta property="og:image" content="<?php echo $imageUrl; ?>" />
+            <meta property="og:image" content="<?php echo $imageURL; ?>" />
             <?php
         }
         ?>
@@ -88,12 +89,12 @@ $site = Site::get();
         <!-- Custom stylesheet for site -->
         <?php if ($site->isDebug()) {
             ?>
-            <link href="/assets/css/main.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="<?php $site->echoWithAssetVersion("/assets/css/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css">
             <?php
         }
         else {
             ?>
-            <link href="/assets/css/main.min.css?v=1" rel="stylesheet" title="style" media="all" type="text/css">
+            <link href="<?php $site->echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css">
             <?php
         };
         ?>

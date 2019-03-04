@@ -22,8 +22,8 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     <div class="container">
                         <div class="article__half">
                             <div class="about__images-of-me">
-                                <img src="/assets/images/jahidul-pabel-islam-young.png?v=2" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
-                                <img src="/assets/images/jahidul-pabel-islam-casual.jpg?v=2" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
                             </div>
                         </div>
                         <div class="article__half">
@@ -58,7 +58,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     <div class="container">
                         <div class="article__half">
                             <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
-                                <img src="/assets/images/brightminded.png?v=2" alt="Logo of BrightMinded">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded">
                             </a>
                         </div>
                         <div class="article__half">
@@ -77,7 +77,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     <div class="container">
                         <div class="article__half">
                             <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
-                                <img src="/assets/images/uop.png?v=2" alt="Logo of University of Portsmouth">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth">
                             </a>
                         </div>
                         <div class="article__half">
@@ -96,7 +96,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                     <div class="container">
                         <div class="article__half">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
-                                <img src="/assets/images/beach.jpg?v=2" alt="Image of a Beach">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach">
                             </a>
                         </div>
                         <div class="article__half">
@@ -116,7 +116,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <img src="/assets/images/languages.png?v=2" alt="Image of 'hello' in different languages">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages">
                         </div>
                         <div class="article__half">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
