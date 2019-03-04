@@ -17,11 +17,13 @@ $site = Site::get();
         <link rel="apple-touch-icon" sizes="152x152" href="<?php $site->echoWithAssetVersion("/assets/favicons/apple-touch-icon-152x152.png"); ?>" />
         <link rel="apple-touch-icon" sizes="180x180" href="<?php $site->echoWithAssetVersion("/assets/favicons/apple-touch-icon-180x180.png"); ?>" />
         <link rel="icon" type="image/png" sizes="32x32" href="<?php $site->echoWithAssetVersion("/assets/favicons/favicon-32x32.png"); ?>" />
+        <link rel="icon" type="image/png" sizes="194x194" href="<?php $site->echoWithAssetVersion("/assets/favicons/favicon-194x194.png"); ?>" />
+        <link rel="icon" type="image/png" sizes="192x192" href="<?php $site->echoWithAssetVersion("/assets/favicons/android-chrome-192x192.png"); ?>" />
         <link rel="icon" type="image/png" sizes="16x16" href="<?php $site->echoWithAssetVersion("/assets/favicons/favicon-16x16.png"); ?>" />
         <link rel="manifest" href="<?php $site->echoWithAssetVersion("/assets/favicons/site.webmanifest"); ?>" />
         <link rel="mask-icon" href="<?php $site->echoWithAssetVersion("/assets/favicons/safari-pinned-tab.svg"); ?>" color="#0375b4" />
-        <link rel="shortcut icon" href="<?php $site->echoWithAssetVersion("favicon.ico"); ?>" />
-        <meta name="msapplication-TileColor" content="#f5f5f5" />
+        <link rel="shortcut icon" href="<?php $site->echoWithAssetVersion("/favicon.ico"); ?>" />
+        <meta name="msapplication-TileColor" content="#0375b4" />
         <meta name="msapplication-TileImage" content="<?php $site->echoWithAssetVersion("/assets/favicons/mstile-144x144.png"); ?>" />
         <meta name="msapplication-config" content="<?php $site->echoWithAssetVersion("/assets/favicons/browserconfig.xml"); ?>" />
-        <meta name="theme-color" content="#337ab7" />
+        <meta name="theme-color" content="#f5f5f5" />
