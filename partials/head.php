@@ -53,10 +53,10 @@ $site = Site::get();
         ];
 
         if (in_array($pageId, $indexedPages) && $environment === "production") {
-            echo "<link rel='canonical' href='{$liveURl}'/>";
+            echo "<link rel='canonical' href='{$liveURl}' />" . PHP_EOL;
         }
         else {
-            echo "<meta name='robots' content='noindex,nofollow'/>";
+            echo "<meta name='robots' content='noindex,nofollow' />" . PHP_EOL;
         }
         ?>
 

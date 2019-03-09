@@ -106,5 +106,6 @@ $site = Site::get();
             <?php
         }
         ?>
+
     </body>
 </html>
