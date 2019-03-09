@@ -1,16 +1,16 @@
-var gulp = require("gulp");
+const gulp = require("gulp");
 
-var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
-var cleanCss = require("gulp-clean-css");
-var autoprefixer = require("gulp-autoprefixer");
-var sass = require("gulp-sass");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const cleanCss = require("gulp-clean-css");
+const autoprefixer = require("gulp-autoprefixer");
+const sass = require("gulp-sass");
 
-var fs = require("fs");
-var exec = require("child_process").exec;
+const fs = require("fs");
+const exec = require("child_process").exec;
 
 // Concatenate & Minify JS
-var scripts = {
+const scripts = {
     main: [
         "assets/js/third-party/jquery.min.js",
         "assets/js/third-party/waypoint.min.js",
@@ -25,11 +25,11 @@ var scripts = {
         "assets/js/jpi/sticky-footer.js",
         "assets/js/jpi/nav.js",
         "assets/js/jpi/cookie-banner.js",
-        "assets/js/jpi/main.js"
-    ]
+        "assets/js/jpi/main.js",
+    ],
 };
-var scriptNames = Object.keys(scripts);
-var scriptTasks = [];
+const scriptNames = Object.keys(scripts);
+let scriptTasks = [];
 scriptNames.forEach(function(key) {
     var scriptTask = "scripts-" + key;
     scriptTasks.push(scriptTask);
@@ -43,13 +43,13 @@ scriptNames.forEach(function(key) {
 gulp.task("scripts", scriptTasks);
 
 // Minify Stylesheets
-var stylesheets = {
+const stylesheets = {
     main: [
-        "assets/css/main.css"
-    ]
+        "assets/css/main.css",
+    ],
 };
-var stylesheetNames = Object.keys(stylesheets);
-var stylesheetTasks = [];
+const stylesheetNames = Object.keys(stylesheets);
+let stylesheetTasks = [];
 stylesheetNames.forEach(function(key) {
     var stylesheetTask = "styles-" + key;
     stylesheetTasks.push(stylesheetTask);
@@ -59,12 +59,12 @@ stylesheetNames.forEach(function(key) {
                    .pipe(
                        autoprefixer({
                            browsers: ["> 0.5%", "ie 8-11"],
-                           remove: false
+                           remove: false,
                        })
                    )
                    .pipe(
                        cleanCss({
-                           compatibility: "ie8"
+                           compatibility: "ie8",
                        })
                    )
                    .pipe(gulp.dest("assets/css"));
@@ -77,7 +77,6 @@ gulp.task("sass", function() {
                .pipe(sass().on("error", sass.logError))
                .pipe(gulp.dest("assets/css/"));
 });
-
 // Watch Files For Changes
 gulp.task("watch", function() {
     gulp.watch("assets/css/**/*.scss", ["sass"]);
