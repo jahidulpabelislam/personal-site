@@ -1,4 +1,4 @@
-window.jpi = window.jpi || {};
+;window.jpi = window.jpi || {};
 window.jpi.form = (function(jQuery) {
 
     "use strict";
@@ -135,5 +135,7 @@ window.jpi.form = (function(jQuery) {
     };
 
     jQuery(document).on("ready", fn.initListeners);
+
+    return {};
 
 })(jQuery);

@@ -1,4 +1,4 @@
-window.jpi = window.jpi || {};
+;window.jpi = window.jpi || {};
 window.jpi.cookieBanner = (function(jQuery) {
 
     "use strict";
@@ -65,5 +65,7 @@ window.jpi.cookieBanner = (function(jQuery) {
     };
 
     jQuery(document).on("ready", fn.init);
+
+    return {};
 
 })(jQuery);

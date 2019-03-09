@@ -1,4 +1,6 @@
-// Holds all functions needed for a project slide show
+;/*
+ * Holds all functions needed for a project slide show
+ */
 window.jpi = window.jpi || {};
 window.jpi.slideShow = (function(jQuery) {
 
@@ -44,7 +46,7 @@ window.jpi.slideShow = (function(jQuery) {
 
             slidesContainer.css({
                 transitionDuration: "0s",
-                left: "-" + position["left"] + "px",
+                left: "-" + position.left + "px",
             });
 
             setTimeout(fn.resetTransition, 100, slidesContainer);
@@ -107,7 +109,7 @@ window.jpi.slideShow = (function(jQuery) {
 
             nextSlide.addClass("active");
 
-            slidesContainer.css("left", "-" + position["left"] + "px");
+            slidesContainer.css("left", "-" + position.left + "px");
 
             jQuery(slideShowId + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
 
@@ -157,7 +159,7 @@ window.jpi.slideShow = (function(jQuery) {
 
             slidesContainer.css({
                 transitionDuration: "0s",
-                left: "-" + position["left"] + "px",
+                left: "-" + position.left + "px",
             });
 
             setTimeout(fn.resetTransition, 100, slidesContainer);

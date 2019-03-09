@@ -1,5 +1,7 @@
-// Holds all the functions needed for the projects page
-// e.g. display projects
+;/*
+ * Holds all the functions needed for the projects page
+ * e.g. display projects
+ */
 window.jpi = window.jpi || {};
 window.jpi.projects = (function(jQuery) {
 
@@ -234,10 +236,10 @@ window.jpi.projects = (function(jQuery) {
                     url += global.url.search;
 
                     attributes = {
-                        innerHTML: page,
-                        class: "pagination__item-link js-pagination-item",
+                        "innerHTML": page,
+                        "class": "pagination__item-link js-pagination-item",
                         "data-page": page,
-                        href: url,
+                        "href": url,
                     };
                     if (page === currentPage) {
                         attributes.class = "pagination__item-link active";
@@ -409,5 +411,7 @@ window.jpi.projects = (function(jQuery) {
     };
 
     jQuery(document).on("ready", fn.init);
+
+    return {};
 
 })(jQuery);

@@ -1,4 +1,4 @@
-window.jpi = window.jpi || {};
+;window.jpi = window.jpi || {};
 window.jpi.ajax = (function(jQuery) {
 
     "use strict";

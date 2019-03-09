@@ -1,4 +1,4 @@
-window.jpi = window.jpi || {};
+;window.jpi = window.jpi || {};
 window.jpi.footer = (function(jQuery) {
 
     "use strict";

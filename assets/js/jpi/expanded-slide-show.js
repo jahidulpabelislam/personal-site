@@ -1,4 +1,6 @@
-// Used to expand a projects slide show
+;/*
+ * Used to expand a projects slide show
+ */
 window.jpi = window.jpi || {};
 window.jpi.expandedSlideShow = (function(jQuery) {
 
@@ -121,5 +123,7 @@ window.jpi.expandedSlideShow = (function(jQuery) {
     };
 
     jQuery(document).on("ready", fn.initListeners);
+
+    return {};
 
 })(jQuery);

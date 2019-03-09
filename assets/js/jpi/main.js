@@ -1,4 +1,4 @@
-window.jpi = window.jpi || {};
+;window.jpi = window.jpi || {};
 window.jpi.main = (function(jQuery) {
 
     "use strict";
@@ -99,5 +99,7 @@ window.jpi.main = (function(jQuery) {
     };
 
     jQuery(document).on("ready", fn.init);
+
+    return {};
 
 })(jQuery);
