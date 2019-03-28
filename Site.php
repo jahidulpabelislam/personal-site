@@ -1,6 +1,8 @@
 <?php
 /*
- * A class to use throughout the site, to aid in include common files, content & configuration.
+ * A helper class to use throughout the site.
+ * To aid in including global/common files, content & configurations.
+ *
  * Developed so it can be used in multiple sites.
  *
  * PHP version 7
@@ -8,14 +10,16 @@
  * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
  * @version 1
  * @link https://github.com/jahidulpabelislam/portfolio/
- * @since Class available since Release: v4.1
+ * @since Class available since Release: v4.1.0
  * @copyright 2010-2018 JPI
 */
 
 class Site {
 
     const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+
     const VALID_NAV_TINTS = ["dark", "light"];
+
     const DEFAULT_ASSET_VERSION = "1";
 
     private static $instance = null;
@@ -239,14 +243,11 @@ class Site {
             }
 
             $src = ltrim($src, " /");
-
             $file = self::addTrailingSlash($root) . $src;
 
+            $ver = self::DEFAULT_ASSET_VERSION;
             if (file_exists($file)) {
                 $ver = date("mdYHi", filemtime($file));
-            }
-            else {
-                $ver = self::DEFAULT_ASSET_VERSION;
             }
         }
 
