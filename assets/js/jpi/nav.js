@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.nav = (function(jQuery) {
+window.jpi.nav = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -65,4 +65,4 @@ window.jpi.nav = (function(jQuery) {
 
     return {};
 
-})(jQuery);
+})(jQuery, jpi);

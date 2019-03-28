@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.form = (function(jQuery) {
+window.jpi.form = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -138,4 +138,4 @@ window.jpi.form = (function(jQuery) {
 
     return {};
 
-})(jQuery);
+})(jQuery, jpi);

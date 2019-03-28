@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.ajax = (function(jQuery) {
+window.jpi.ajax = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -111,4 +111,4 @@ window.jpi.ajax = (function(jQuery) {
         sendRequest: fn.sendRequest,
     };
 
-})(jQuery);
+})(jQuery, jpi);

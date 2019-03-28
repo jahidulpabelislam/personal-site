@@ -3,7 +3,7 @@
  * e.g. display projects
  */
 window.jpi = window.jpi || {};
-window.jpi.projects = (function(jQuery) {
+window.jpi.projects = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -152,9 +152,10 @@ window.jpi.projects = (function(jQuery) {
             var regx = new RegExp("slide-show__nav--\\w*", "g");
 
             jQuery(".detailed-project .slide-show__nav").each(function() {
-                var classList = jQuery(this).attr("class");
+                var slideShowNav = jQuery(this);
+                var classList = slideShowNav.attr("class");
                 classList = classList.replace(regx, "slide-show__nav--" + project.colour);
-                jQuery(this).attr("class", classList);
+                slideShowNav.attr("class", classList);
             });
         },
 
@@ -414,4 +415,4 @@ window.jpi.projects = (function(jQuery) {
 
     return {};
 
-})(jQuery);
+})(jQuery, jpi);

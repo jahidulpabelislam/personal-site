@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.footer = (function(jQuery) {
+window.jpi.footer = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -51,4 +51,4 @@ window.jpi.footer = (function(jQuery) {
         expandContent: fn.expandContent,
     };
 
-})(jQuery);
+})(jQuery, jpi);

@@ -2,7 +2,7 @@
  * Holds any helpers functions for whole project
  */
 window.jpi = window.jpi || {};
-window.jpi.helpers = (function(jQuery) {
+window.jpi.helpers = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -95,4 +95,4 @@ window.jpi.helpers = (function(jQuery) {
         setCookie: fn.setCookie,
     };
 
-})(jQuery);
+})(jQuery, jpi);

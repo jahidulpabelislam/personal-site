@@ -2,11 +2,12 @@
  * Holds all functions needed for a project slide show
  */
 window.jpi = window.jpi || {};
-window.jpi.slideShow = (function(jQuery) {
+window.jpi.slideShow = (function(jQuery, jpi) {
 
     "use strict";
 
     var global = {
+        milliSecsPerSlide: 5000,
         slideShows: {},
     };
 
@@ -41,7 +42,9 @@ window.jpi.slideShow = (function(jQuery) {
 
             fn.widenSlideShow(viewpoint);
 
-            slidesContainer.children().css("width", jQuery("#" + slideShowId).innerWidth() + "px");
+            slidesContainer.children().css({
+                width: jQuery("#" + slideShowId).innerWidth() + "px",
+            });
             var position = currentSlide.position();
 
             slidesContainer.css({
@@ -57,7 +60,7 @@ window.jpi.slideShow = (function(jQuery) {
             if (jQuery("#" + slideShowId + " .slide-show__slides-container").children().length > 1) {
                 global.slideShows["#" + slideShowId] = setInterval(function() {
                     fn.moveSlide("#" + slideShowId, "next");
-                }, 5000);
+                }, global.milliSecsPerSlide);
             }
         },
 
@@ -96,9 +99,10 @@ window.jpi.slideShow = (function(jQuery) {
                     regx = new RegExp("slide-show__nav--\\w*", "g");
 
                 jQuery(slideShowId + " .slide-show__nav").each(function() {
-                    var classList = jQuery(this).attr("class");
+                    var slideShowNav = jQuery(this);
+                    var classList = slideShowNav.attr("class");
                     classList = classList.replace(regx, "slide-show__nav--" + colour);
-                    jQuery(this).attr("class", classList);
+                    slideShowNav.attr("class", classList);
                 });
             }
 
@@ -115,7 +119,7 @@ window.jpi.slideShow = (function(jQuery) {
 
             global.slideShows[slideShowId] = setInterval(function() {
                 fn.moveSlide(slideShowId, "next");
-            }, 5000);
+            }, global.milliSecsPerSlide);
         },
 
         // Moves to next or previous slide
@@ -145,8 +149,9 @@ window.jpi.slideShow = (function(jQuery) {
 
         // Function when bullet was clicked to change slide show to a particular slide
         changeToSlide: function() {
-            var slideShowId = jQuery(this).attr("data-slide-show-id"),
-                clickedSlideId = jQuery(this).attr("data-slide-id"),
+            var bulletElem = jQuery(this),
+                slideShowId = bulletElem.attr("data-slide-show-id"),
+                clickedSlideId = bulletElem.attr("data-slide-id"),
                 nextSlide = jQuery(slideShowId + " #" + clickedSlideId);
 
             fn.moveToSlide(slideShowId, nextSlide);
@@ -166,13 +171,13 @@ window.jpi.slideShow = (function(jQuery) {
 
             global.slideShows[slideShowId] = setInterval(function() {
                 fn.moveSlide(slideShowId, "next");
-            }, 5000);
+            }, global.milliSecsPerSlide);
         },
 
         // Sets up events when the user wants to change slides with drag control
-        dragStart: function(e) {
+        dragStart: function(startEvent) {
             var slideShowId = jQuery(this).attr("data-slide-show-id"),
-                start = e.changedTouches ? e.changedTouches[0].clientX : e.clientX,
+                start = startEvent.changedTouches ? startEvent.changedTouches[0].clientX : startEvent.clientX,
                 slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
                 slidesContainerLeft = slidesContainer.css("left"),
                 slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint")[0],
@@ -257,7 +262,11 @@ window.jpi.slideShow = (function(jQuery) {
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 
             jQuery("body").on("click", ".js-move-slide", function() {
-                fn.moveSlide(jQuery(this).attr("data-slide-show-id"), jQuery(this).attr("data-nav-direction"));
+                var elem = jQuery(this);
+                fn.moveSlide(
+                    elem.attr("data-slide-show-id"),
+                    elem.attr("data-nav-direction")
+                );
             });
         },
     };
@@ -273,4 +282,4 @@ window.jpi.slideShow = (function(jQuery) {
         slideShows: global.slideShows,
     };
 
-})(jQuery);
+})(jQuery, jpi);
