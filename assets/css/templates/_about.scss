@@ -100,7 +100,7 @@
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .map {
         height: 250px;
     }

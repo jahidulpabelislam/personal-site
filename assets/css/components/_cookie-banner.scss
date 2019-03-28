@@ -44,7 +44,7 @@
 }
 
 /* Only for Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .cookie-banner {
         font-size: 14px;
         line-height: 18px;
@@ -65,7 +65,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
     .cookie-banner .container {
         padding: 0 120px;
     }

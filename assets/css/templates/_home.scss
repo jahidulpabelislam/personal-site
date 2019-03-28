@@ -116,7 +116,7 @@
 }
 
 /* Only for Tablets */
-@media only screen and (min-width: $tablet) and (max-width: $desktop) {
+@media only screen and (min-width: $tablet-width) and (max-width: $desktop-width) {
     .home__hello-wrapper,
     .home__intro-wrapper {
         font-size: 22px;
@@ -168,7 +168,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
     .home__hello-wrapper,
     .home__intro-wrapper {
         font-size: 26px;

@@ -5,7 +5,7 @@
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .site-map__list.site-map__list {
         width: 50%;
         margin-left: auto;
@@ -14,7 +14,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
     .site-map__list.site-map__list {
         width: 25%;
     }

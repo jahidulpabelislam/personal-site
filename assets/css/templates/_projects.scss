@@ -180,7 +180,7 @@
     left: 50%;
     width: 1px;
     height: 1px;
-    background-color: $light;
+    background-color: $light-colour;
     opacity: 0;
     transition: all 1s ease-in-out;
 }
@@ -279,7 +279,7 @@
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .search-form {
         max-width: 439px;
         margin-left: auto;
@@ -310,7 +310,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
     .search-form {
         margin-bottom: 40px;
     }

@@ -48,7 +48,7 @@
 }
 
 /* Only for Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .social-links__header {
         margin: 15px 0 10px 0;
     }
@@ -87,7 +87,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
     .social-links {
         background-attachment: fixed;
     }

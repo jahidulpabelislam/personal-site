@@ -184,7 +184,7 @@
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
+@media only screen and (min-width: $tablet-width) {
     .nav {
         margin: 0;
     }
