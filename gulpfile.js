@@ -9,6 +9,8 @@ const sass = require("gulp-sass");
 const fs = require("fs");
 const exec = require("child_process").exec;
 
+let defaultTasks = [];
+
 // Concatenate & Minify JS
 const scripts = {
     main: [
@@ -28,10 +30,11 @@ const scripts = {
         "assets/js/jpi/main.js",
     ],
 };
-const scriptNames = Object.keys(scripts);
+
 let scriptTasks = [];
+const scriptNames = Object.keys(scripts);
 scriptNames.forEach(function(key) {
-    var scriptTask = "scripts-" + key;
+    const scriptTask = "scripts-" + key;
     scriptTasks.push(scriptTask);
     gulp.task(scriptTask, function() {
         return gulp.src(scripts[key])
@@ -41,6 +44,7 @@ scriptNames.forEach(function(key) {
     });
 });
 gulp.task("scripts", scriptTasks);
+defaultTasks.push("scripts");
 
 // Minify Stylesheets
 const stylesheets = {
@@ -48,10 +52,11 @@ const stylesheets = {
         "assets/css/main.css",
     ],
 };
-const stylesheetNames = Object.keys(stylesheets);
+
 let stylesheetTasks = [];
+const stylesheetNames = Object.keys(stylesheets);
 stylesheetNames.forEach(function(key) {
-    var stylesheetTask = "styles-" + key;
+    const stylesheetTask = "styles-" + key;
     stylesheetTasks.push(stylesheetTask);
     gulp.task(stylesheetTask, function() {
         return gulp.src(stylesheets[key])
@@ -71,61 +76,64 @@ stylesheetNames.forEach(function(key) {
     });
 });
 gulp.task("styles", stylesheetTasks);
+defaultTasks.push("styles");
 
 gulp.task("sass", function() {
     return gulp.src("assets/css/main.scss")
                .pipe(sass().on("error", sass.logError))
-               .pipe(gulp.dest("assets/css/"));
+               .pipe(gulp.dest("assets/css"));
 });
 // Watch Files For Changes
 gulp.task("watch", function() {
     gulp.watch("assets/css/**/*.scss", ["sass"]);
 });
 
-gulp.task("store-version", function() {
-    var fileName = "assets/version.txt";
+const errorCallback = function(err) {
+    if (err) {
+        console.log(err);
+    }
+};
 
-    var githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
-
-    var errorCallback = function(err) {
-        if (err) {
-            console.log(err);
+const runCommand = function(command, callback) {
+    exec(command, function(err, res, stdErr) {
+        // If found store in text file
+        if (res && res.trim() !== "null") {
+            callback(res.trim());
+            return;
         }
-    };
+        // Else log any errors
+        console.log(err, res, stdErr);
+        callback(null);
+    });
+};
+
+defaultTasks.push("store-version");
+gulp.task("store-version", function() {
+    const githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
+    const fileName = "assets/version.txt";
+    let versionText = "";
 
     // Try to get current branch name
-    exec("git branch | grep \\* | cut -d ' ' -f2", function(branchNameErr, branchName, branchNameStderr) {
-        // If name found store in text file
-        // If current branch if master we used use tags (As most likely this is in production environment)
-        // Else it is one of dev branches so display branch name
-        if (branchName && branchName !== "null" && branchName.trim() !== "master") {
-            var string = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "/' class='link-styled' target='_blank'>" + branchName.trim() + "</a>";
-            fs.writeFile(fileName, string, errorCallback);
+    runCommand("git branch | grep \\* | cut -d ' ' -f2", function(branchName) {
+        /*
+         * If name found store in text file
+         * If current branch if master we used use tags (As most likely this is in production environment)
+         * Else it is one of dev branches so display branch name
+         */
+        if (branchName && branchName !== "master") {
+            versionText = `<a href="${githubBaseUrl}tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
+            fs.writeFile(fileName, versionText, errorCallback);
         }
         else {
-            // Else just log errors & try to store latest tag name string in text file
-            console.log(branchNameErr);
-            console.log(branchName);
-            console.log(branchNameStderr);
-
             // Try and get the latest tag on current branch
-            exec("git describe --abbrev=0 --tags\n", function(tagNameErr, tagName, tagNameStderr) {
-                var versionText = "";
-
+            runCommand("git describe --abbrev=0 --tags", function(tagName) {
                 // If found store in text file
-                if (tagName && tagName !== "null") {
-                    versionText = "<a href='" + githubBaseUrl + "releases/tag/" + tagName.trim() + "/' class='link-styled' target='_blank'>" + tagName.trim() + "</a>";
+                if (tagName) {
+                    versionText = `<a href="${githubBaseUrl}releases/tag/${tagName}/" class="link-styled" target="_blank">${tagName}</a>`;
                 }
-                else {
-                    // Else log any errors
-                    console.log(tagNameErr);
-                    console.log(tagName);
-                    console.log(tagNameStderr);
-
-                    // Else drop back to branch name if exists else remove version value from file
-                    if (branchName && branchName !== "null") {
-                        versionText = "<a href='" + githubBaseUrl + "tree/" + branchName.trim() + "/' class='link-styled' target='_blank'>" + branchName.trim() + "</a>";
-                    }
+                // Else drop back to branch name if exists else remove version value from file
+                else if (branchName) {
+                    versionText = `<a href="${githubBaseUrl}tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
                 }
 
                 fs.writeFile(fileName, versionText, errorCallback);
@@ -134,4 +142,4 @@ gulp.task("store-version", function() {
     });
 });
 
-gulp.task("default", ["scripts", "styles", "store-version"]);
+gulp.task("default", defaultTasks);
