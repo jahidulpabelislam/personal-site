@@ -1,326 +1,330 @@
 /* For all devices */
 .jumbotron--projects {
-	background-image: url("/assets/images/projects.jpg");
+    background-image: url("/assets/images/projects.jpg?v=2");
 }
 
 .search-form {
-	position: relative;
-	margin-bottom: 20px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .search-form__input {
-	margin: 0;
-	width: 100%;
+    margin: 0;
+    width: 100%;
 }
 
 .search-form__submit {
-	position: absolute;
-	right: 0;
-	margin: 0;
-	top: 0;
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0;
-	padding: 7px 12px;
+    position: absolute;
+    right: 0;
+    margin: 0;
+    top: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding: 7px 12px;
 }
 
 .project {
-	background-color: white;
-	padding: 0 15px;
-	box-shadow: 0 0 10px 0 transparentize($dark, .8);
-	margin-top: 10px;
-	border: 1px solid $light-grey;
-	border-radius: 5px;
+    background-color: white;
+    padding: 0 15px;
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.8);
+    margin-top: 10px;
+    border: 1px solid $light-grey;
+    border-radius: 5px;
 }
 
 .project__date--modal {
-	margin-left: auto;
+    margin-left: auto;
 }
 
 .detailed-project .project__description {
-	text-align: left;
+    text-align: left;
 }
 
 .skill {
-	border: 1px solid $dark;
-	border-radius: 2px;
-	padding: 5px;
-	color: $dark;
-	display: inline-block;
-	margin: 2px;
-	cursor: pointer;
-	transition: all .4s ease-in-out;
+    border: 1px solid $dark;
+    border-radius: 2px;
+    padding: 5px;
+    color: $dark;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    font-weight: 400;
 }
 
 .skill:hover {
-	background-color: $dark;
-	box-shadow: 0 0 10px 0 transparentize($dark, .6);
-	color: white;
+    background-color: $dark;
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
+    color: white;
 }
 
 .skill.searched {
-	background-color: darken($dark, 2%);
-	color: white;
+    background-color: darken($dark, 2%);
+    color: white;
 }
 
-@each $color, $colors in $colors {
-	.skill--#{$color} {
-		border: 1px solid map-get($colors, main);
-		color: map-get($colors, main);
-	}
+.skill:not(.js-searchable-skill):hover {
+    box-shadow: none;
+}
 
-	.skill--#{$color}:hover {
-		background-color: map-get($colors, hover);
-	}
+@each $colour, $colours in $colour-schemes {
+    .skill--#{$colour} {
+        border: 1px solid map-get($colours, main);
+        color: map-get($colours, main);
+    }
 
-	.skill--#{$color}.searched {
-		background-color: map-get($colors, dark);
-	}
+    .skill--#{$colour}:hover {
+        background-color: map-get($colours, hover);
+    }
+
+    .skill--#{$colour}.searched,
+    .skill--#{$colour}:not(.js-searchable-skill):hover {
+        background-color: map-get($colours, dark);
+    }
 }
 
 .project__links {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 .project__link {
-	position: relative;
-	color: $dark;
-	display: inline-block;
-	margin-right: 10px;
+    position: relative;
+    color: $dark;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .project__link:after {
-	content: "";
-	margin: 0 4px;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 2px;
-	background: $grey;
+    content: "\00a0";
+    margin: 0 4px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $grey;
 }
 
 .project__link:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .project__link:last-child:after {
-	content: none;
+    content: none;
 }
 
 .project__link:hover {
-	color: black;
+    color: black;
 }
 
-@each $color, $colors in $colors {
-	.project__link--#{$color} {
-		color: map-get($colors, main);
-	}
+@each $colour, $colours in $colour-schemes {
+    .project__link--#{$colour} {
+        color: map-get($colours, main);
+    }
 
-	.project__link--#{$color}:hover {
-		color: map-get($colors, hover);
-	}
+    .project__link--#{$colour}:hover {
+        color: map-get($colours, hover);
+    }
 }
 
 .project__read-more {
-	padding: 5px;
-	border-radius: 30px 0 0 30px;
-	margin-top: 0;
-	position: relative;
-	border: none;
-	margin-bottom: 10px;
-	margin-right: 28px;
+    padding: 5px;
+    border-radius: 30px 0 0 30px;
+    margin-top: 0;
+    position: relative;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 28px;
 }
 
 .project__read-more:after {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	font-family: FontAwesome;
-	font-size: 36px;
-	line-height: 32px;
-	color: white;
-	text-align: center;
-	content: '\f0a9';
-	background: $dark;
-	left: 100%;
-	border-radius: 0 30px 30px 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-family: FontAwesome;
+    font-size: 36px;
+    line-height: 32px;
+    color: white;
+    text-align: center;
+    content: "\f0a9";
+    background: $dark;
+    left: 100%;
+    border-radius: 0 30px 30px 0;
 }
 
 .project__read-more:hover::after {
-	background: darken($dark, 5%);
+    background: darken($dark, 5%);
 }
 
-@each $color, $colors in $colors {
+@each $colour, $colours in $colour-schemes {
+    .project__read-more--#{$colour}::after {
+        background: map-get($colours, main);
+    }
 
-	.project__read-more--#{$color}::after {
-		background: map-get($colors, main);
-	}
-
-	.project__read-more--#{$color}:hover::after {
-		background: map-get($colors, hover);
-	}
+    .project__read-more--#{$colour}:hover::after {
+        background: map-get($colours, hover);
+    }
 }
 
 .read-more__icon {
-	margin-left: 4px;
+    margin-left: 4px;
 }
 
 .pagination--projects.pagination--projects {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .expanded-slide-show {
-	z-index: -100;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 1px;
-	height: 1px;
-	background-color: $light;
-	opacity: 0;
-	transition: all 1s ease-in-out;
+    z-index: -100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 1px;
+    background-color: $light-colour;
+    opacity: 0;
+    transition: all 1s ease-in-out;
 }
 
 .expanded-slide-show__controls {
-	display: flex;
-	align-items: center;
-	position: absolute;
-	background-color: black;
-	color: white;
-	width: 100%;
-	bottom: 0;
-	padding: 0 15px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: black;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    padding: 0 15px;
 }
 
 .expanded-slide-show__bullets {
-	width: 33%;
+    width: 33%;
 }
 
 .expanded-image-slide-show__bullet {
-	margin: 5px;
+    margin: 5px;
 }
 
 .expanded-image-slide-show__bullet.active {
-	background: white;
+    background: white;
 }
 
 .expanded-slide-show__navs {
-	width: 33%;
-	text-align: left;
+    width: 33%;
+    text-align: left;
 }
 
 .expanded-slide-show__nav {
-	opacity: 0.8;
-	transition: all .3s ease-in-out;
-	height: 28px;
-	width: 28px;
-	cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
 }
 
 .expanded-slide-show__nav:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
 .expanded-slide-show.active {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 1;
-	z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 10000;
 }
 
 .expanded-slide-show.hiding {
-	z-index: 10000;
+    z-index: 10000;
 }
 
 .expanded-image-container {
-	width: calc(100% - 20px);
-	height: calc(100% - 55px);
-	position: absolute;
-	display: flex;
-	left: 10px;
-	top: 20px;
+    width: calc(100% - 20px);
+    height: calc(100% - 55px);
+    position: absolute;
+    display: flex;
+    left: 10px;
+    top: 20px;
 }
 
 .expanded-image {
-	max-width: 100%;
-	max-height: 100%;
-	margin: auto;
-	box-shadow: 0 0 10px 0 transparentize($dark, .7);
-	transition: all 1s ease-in-out;
-	opacity: 0;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    box-shadow: 0 0 10px 0 transparentize($dark, 0.7);
+    transition: all 1s ease-in-out;
+    opacity: 0;
 }
 
 .expanded-image.current {
-	opacity: 1;
+    opacity: 1;
 }
 
 .expanded-slide-show__close {
-	position: absolute;
-	right: 0;
-	height: 30px;
-	width: 30px;
-	padding: 0;
+    position: absolute;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    padding: 0;
 }
 
 .expanded-slide-show__counter {
-	margin: 0;
-	width: 33%;
-	text-align: right;
+    margin: 0;
+    width: 33%;
+    text-align: right;
 }
 
 .expanded-slide-show__counter span {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 /* For Tablets & Desktops */
-@media only screen and (min-width: $tablet) {
-	.search-form {
-		max-width: 439px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+@media only screen and (min-width: $tablet-width) {
+    .search-form {
+        max-width: 439px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-	.projects {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
+    .projects {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
-	.project {
-		width: calc(50% - 5px);
-	}
+    .project {
+        width: calc(50% - 5px);
+    }
 
-	.project:nth-child(odd) {
-		margin-right: 5px;
-	}
+    .project:nth-child(odd) {
+        margin-right: 5px;
+    }
 
-	.project:nth-child(even) {
-		margin-left: 5px;
-	}
+    .project:nth-child(even) {
+        margin-left: 5px;
+    }
 
-	.project:last-child:nth-child(odd) {
-		margin-right: 0;
-	}
+    .project:last-child:nth-child(odd) {
+        margin-right: 0;
+    }
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
+@media only screen and (min-width: $desktop-width) {
+    .search-form {
+        margin-bottom: 40px;
+    }
 
-	.search-form {
-		margin-bottom: 40px;
-	}
+    .search-form__submit {
+        padding: 10px 12px;
+    }
 
-	.search-form__submit {
-		padding: 10px 12px;
-	}
+    .pagination--projects.pagination--projects {
+        margin-top: 40px;
+    }
 
-	.pagination--projects.pagination--projects {
-		margin-top: 40px;
-	}
-
-	.project__read-more:after {
-		font-size: 40px;
-		line-height: 33px;
-	}
+    .project__read-more:after {
+        font-size: 40px;
+        line-height: 33px;
+    }
 }

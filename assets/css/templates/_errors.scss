@@ -1,14 +1,14 @@
 .jumbotron--500 {
-	background-image: url("/assets/images/500.jpg");
+    background-image: url("/assets/images/500.jpg?v=2");
 }
 
 .jumbotron--401,
 .jumbotron--403,
 .jumbotron--404 {
-	background-image: url("/assets/images/mistake.jpg");
+    background-image: url("/assets/images/mistake.jpg?v=2");
 }
 
 .error__img {
-	width: 75%;
-	max-width: 165px;
+    width: 75%;
+    max-width: 165px;
 }

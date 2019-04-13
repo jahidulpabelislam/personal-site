@@ -28,16 +28,18 @@
 				<h1>User Details</h1>
 				<hr>
 				<?php
-                    include $_SERVER['DOCUMENT_ROOT']. '/config.php';
-
+                include $_SERVER['DOCUMENT_ROOT']. '/config.php';
+				if (defined("DB_IP") && defined("DB_USERNAME") && defined("DB_PASSWORD") && defined("DB_NAME"))
+                {
 					$con = mysqli_connect(DB_IP, DB_USERNAME, DB_PASSWORD);
 					//gets login details for mysql
 					if(!$con)
 					{
                         if (defined("DEBUG") && DEBUG) {
-                            echo mysqli_connect_error();
+                        	echo "Error adding password for e-games: " . mysqli_connect_error();
                         }
-					    die('Could not connect.');
+                        error_log("Error adding password for e-games: " . mysqli_connect_error());
+                        echo 'A internal problem has occurred, please get in touch or try again later! <br/>';
 					}
 					mysqli_select_db($con, DB_NAME);
 					//gets database from mysql
@@ -54,6 +56,10 @@
 
 					echo "Your details have been added! <br/>";
 					//displays this text
+				else
+                {
+                    echo "A internal problem has occurred, please get in touch or try again later! <br/>";
+                }
 				?>
 			</div>
 

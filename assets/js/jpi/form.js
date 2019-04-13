@@ -1,150 +1,141 @@
-window.jpi = window.jpi || {};
-window.jpi.form = (function (jQuery) {
+;window.jpi = window.jpi || {};
+window.jpi.form = (function(jQuery, jpi) {
 
-	"use strict";
+    "use strict";
 
-	var global = {
-		submitButton: jQuery("#submit"),
+    var global = {
+        submitButton: jQuery("#submit"),
+        emailInput: jQuery("#email-input"),
+        messageInput: jQuery("#message-input"),
+        subjectInput: jQuery("#subject-input"),
+        emailFeedback: jQuery("#contact-form__email-feedback"),
+        messageFeedback: jQuery("#contact-form__message-feedback"),
+        formFeedback: jQuery("#contact-form__feedback"),
+    };
 
-		emailInput: jQuery("#email-input"),
-		messageInput: jQuery("#message-input"),
-		subjectInput: jQuery("#subject-input"),
+    var fn = {
 
-		emailFeedback: jQuery("#contact-form__email-feedback"),
-		messageFeedback: jQuery("#contact-form__message-feedback"),
-		formFeedback: jQuery("#contact-form__feedback")
-	};
+        // Show appropriate & relevant feedback to the user after an attempt of sending a message
+        renderFeedback: function(response) {
+            global.formFeedback.text(response.feedback).show("fast");
 
-	var fn = {
+            // Check if message was sent
+            if (response.ok) {
+                global.formFeedback.addClass("feedback--success");
+                jQuery("#email-input, #message-input, #subject-input").val("");
+            }
+            else {
+                if (response.feedback) {
+                    global.formFeedback.addClass("feedback--error");
+                }
 
-		//respond to the user with relevant feedback after attempt of sending a message
-		renderFeedback: function (result) {
+                if (response.messageFeedback) {
+                    global.messageFeedback.text(response.messageFeedback).show("fast");
+                }
 
-			global.formFeedback.show("fast").text(result.feedback);
+                if (response.emailAddressFeedback) {
+                    global.emailFeedback.text(response.emailAddressFeedback).show("fast");
+                }
+            }
 
-			//if message was sent
-			if (result.ok) {
-				global.formFeedback.addClass("feedback--success");
-				jQuery("#email-input, #message-input, #subject-input").val("");
-			}
-			else {
-				if (result.feedback) {
-					global.formFeedback.addClass("feedback--error");
-				}
+            global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
+        },
 
-				if (result.messageFeedback) {
-					global.messageFeedback.show("fast").text(result.messageFeedback);
-				}
+        // Render a error message whe AJAX has error
+        renderErrorMessage: function() {
+            global.formFeedback.text("Something went wrong, please try again later.")
+                  .addClass("feedback--error")
+                  .show("fast");
 
-				if (result.emailAddressFeedback) {
-					global.emailFeedback.show("fast").text(result.emailAddressFeedback);
-				}
-			}
+            global.submitButton.prop("disabled", false)
+                  .html(global.submitButton.attr("data-initial-text"));
+        },
 
-			global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
-		},
+        validateForm: function() {
+            global.submitButton.prop("disabled", true)
+                  .html(global.submitButton.attr("data-loading-text"));
 
-		//render a error message whe AJAX has error
-		renderErrorMessage: function () {
-			global.formFeedback.show("fast").text("Something went wrong, please try again later.").addClass("feedback--error");
-			global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
-		},
+            var isMessageValid = fn.validateMessage(global.messageInput.val(), true),
+                isEmailValid = fn.validateEmail(global.emailInput.val(), true);
 
-		//validates the whole form
-		validateForm: function () {
+            if (isEmailValid && isMessageValid) {
+                jpi.ajax.sendRequest({
+                    method: "POST",
+                    url: "/contact/form-submission.php",
+                    params: {
+                        emailAddress: global.emailInput.val(),
+                        subject: global.subjectInput.val(),
+                        message: global.messageInput.val(),
+                    },
+                    onSuccess: fn.renderFeedback,
+                    onError: fn.renderErrorMessage,
+                });
+            }
+            else {
+                global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
+            }
 
-			global.submitButton.prop('disabled', true).html(global.submitButton.data("loadingText"));
+            return false;
+        },
 
-			//validate each required user input
-			var messageValidation = fn.validateMessage(global.messageInput.val(), true),
-				emailValidation = fn.validateEmail(global.emailInput.val(), true);
+        validateEmail: function(email, isForm) {
+            global.formFeedback.hide("fast");
+            global.emailInput.removeClass("valid");
 
-			//if form is valid send a request with necessary data to XHR
-			if (emailValidation && messageValidation) {
-				jpi.ajax.sendRequest({
-					"method": "POST",
-					"url": "sendMessage.php",
-					"query": {
-						emailAddress: global.emailInput.val(),
-						message: global.messageInput.val(),
-						subject: global.subjectInput.val()
-					},
-					"load": fn.renderFeedback,
-					"error": fn.renderErrorMessage
-				});
-			}
-			else {
-				global.submitButton.prop('disabled', false).html(global.submitButton.data("initialText"));
-			}
+            var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
+                emailValidationTest = validEmailPattern.test(email);
 
-			return false;
-		},
+            if (email.trim() === "" && isForm) {
+                global.emailInput.addClass("invalid");
+                global.emailFeedback.text("Email Address must be provided and valid.").show("fast");
+            }
+            else if (!emailValidationTest && isForm) {
+                global.emailInput.addClass("invalid");
+                global.emailFeedback.text("Email Address must be valid.").show("fast");
+            }
+            else if (email.trim() !== "" && emailValidationTest) {
+                global.emailInput.removeClass("invalid").addClass("valid");
+                global.emailFeedback.hide("fast");
+                return true;
+            }
 
-		//validate the email address
-		validateEmail: function (email, isForm) {
-			global.formFeedback.hide("fast");
-			global.emailInput.removeClass("valid");
+            return false;
+        },
 
-			var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
-				result = validEmailPattern.test(email);
+        validateMessage: function(message, isForm) {
+            global.formFeedback.hide("fast");
+            global.messageInput.removeClass("valid");
 
-			//checks if email is empty
-			if (email.trim() === "" && isForm) {
-				global.emailInput.addClass("invalid");
-				global.emailFeedback.show("fast").text("Email Address must be provided and valid.");
-			}
-			//checks if email is valid, then give user message
-			else if (!result && isForm) {
-				global.emailInput.addClass("invalid");
-				global.emailFeedback.show("fast").text("Email Address must be valid.");
-			}
-			//else remove feedback message
-			else if (email.trim() !== "" && result) {
-				global.emailInput.removeClass("invalid");
-				global.emailInput.addClass("valid");
-				global.emailFeedback.hide("fast");
-				return true;
-			}
+            if (message.trim() === "" && isForm) {
+                global.messageInput.addClass("invalid");
+                global.messageFeedback.text("Message must be filled out.").show("fast");
+            }
+            else if (message.trim() !== "") {
+                global.messageInput.removeClass("invalid").addClass("valid");
+                global.messageFeedback.hide("fast");
+                return true;
+            }
 
-			return false;
-		},
+            return false;
+        },
 
-		//validate the message input
-		validateMessage: function (message, isForm) {
-			global.formFeedback.hide("fast");
-			global.messageInput.removeClass("valid");
+        initListeners: function() {
+            global.subjectInput.on("keyup", function() {
+                global.formFeedback.hide("fast");
+            });
+            global.emailInput.on("input", function() {
+                fn.validateEmail(this.value);
+            });
+            global.messageInput.on("input", function() {
+                fn.validateMessage(this.value);
+            });
 
-			//checks is message is empty
-			if (message.trim() === "" && isForm) {
-				//give user message
-				global.messageInput.addClass("invalid");
-				global.messageFeedback.show("fast").text("Message must be filled out.");
-				return false;
-			}
-			//else remove feedback messages
-			else if (message.trim() !== "") {
-				global.messageInput.removeClass("invalid");
-				global.messageInput.addClass("valid");
-				global.messageFeedback.hide("fast");
-				return true;
-			}
-		},
+            jQuery(".contact-form").on("submit", fn.validateForm);
+        },
+    };
 
-		initListeners: function () {
-			global.subjectInput.keyup(function () {
-				global.formFeedback.hide("fast");
-			});
-			global.emailInput.on("input", function () {
-				fn.validateEmail(this.value);
-			});
-			global.messageInput.on("input", function () {
-				fn.validateMessage(this.value);
-			});
+    jQuery(document).on("ready", fn.initListeners);
 
-			jQuery(".contact-form").on("submit", fn.validateForm);
-		}
-	};
+    return {};
 
-	jQuery(document).on("ready", fn.initListeners);
-
-}(jQuery));
+})(jQuery, jpi);

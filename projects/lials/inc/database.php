@@ -22,15 +22,26 @@ class pdodb
      */
     public function __construct()
     {
-        $dsn = "mysql:host=" . DB_IP . ";dbname=" . DB_NAME . ";charset-UTF-8";
-        $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-        try {
-            $this->db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
-        } catch (PDOException $failure) {
-            if (defined("DEBUG") && DEBUG) {
-                echo 'Connection failed: ' . $failure->getMessage();
-            }
-        }
+    	if (defined("DB_IP") && defined("DB_NAME") && defined("DB_USERNAME") && defined("DB_PASSWORD"))
+	    {
+		    $dsn = "mysql:host=" . DB_IP . ";dbname=" . DB_NAME . ";charset-UTF-8";
+		    $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+		    try {
+			    $this->db = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $option);
+		    } catch (PDOException $failure) {
+			    error_log("Database connection failed for Lials: " . $failure->getMessage());
+			    if (defined("DEBUG") && DEBUG) {
+				    echo "Database connection failed for lials: " . $failure->getMessage();
+			    }
+		    }
+	    }
+	    else
+	    {
+		    error_log("Database connection failed for Lials.");
+		    echo "A internal problem has occurred, please get in touch or try again later!";
+		    die();
+	    }
+     
     }
 
     /**
@@ -58,9 +69,13 @@ class pdodb
         } catch (PDOException $failure) {
             $results["meta"]["ok"] = false;
             $results["meta"]["feedback"] = "Problem with Server.";
-            $results["meta"]["exception"] = $failure;
-            $results["meta"]['bindings'] = $bindings;
-            $results["meta"]['query'] = $query;
+	        error_log("Database exception  for lials:" . $failure->getMessage());
+	        
+	        if (defined("DEBUG") && DEBUG) {
+		        $results["meta"]["exception"] = $failure->getMessage();
+		        $results["meta"]['bindings'] = $bindings;
+		        $results["meta"]['query'] = $query;
+	        }
         }
         return $results;
     }

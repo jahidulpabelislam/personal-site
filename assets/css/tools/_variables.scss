@@ -1,52 +1,53 @@
-$primary-color: #0375b4;
-$error: #e52525;
-$success: green;
-$light: #f5f5f5;
-$light-grey: #eee;
-$grey: gray;
-$dark: #333;
+$primary-colour: #0375b4;
 
-$email: #0f7c10;
-$github: #E52525;
-$linkedin: #007bb5;
-$facebook: #3b5998;
-$twitter: #55acee;
-$instagram-purple: #8a3ab9;
-$instagram-orange: #fbad50;
-$snapchat: #fffc00;
+$error-colour: #f74440;
+$success-colour: #00a000;
 
-$desktop: 1200px;
-$tablet: 768px;
+$light-colour: #f5f5f5;
+$light-grey: #eeeeee;
+$grey: #7b8676;
+$dark: #333333;
 
-$colors: (
-		blue:(
-				main: #0375b4,
-				hover: #035691,
-				dark: #03427d
-		),
-		red:(
-				main: #e52525,
-				hover: #c32424,
-				dark: #af2323
-		),
-		orange:(
-				main: #e1a02f,
-				hover: #d2922e,
-				dark: #c88c2e
-		),
-		lime-green: (
-				main: #b5c82f,
-				hover: #a6b930,
-				dark: #91a42f
-		),
-		green:(
-				main: #5cb85c,
-				hover: #54a754,
-				dark: #4b944b
-		),
-		purple: (
-				main: #80379b,
-				hover: #62357d,
-				dark: #4e3469
-		)
+$email-colour: #0f7c10;
+$github-colour: #e52525;
+$linkedin-colour: #007bb5;
+$facebook-colour: #3b5998;
+$twitter-colour: #55acee;
+$instagram-purple-colour: #8a3ab9;
+$snapchat-colour: #fffc00;
+
+$desktop-width: 1200px;
+$tablet-width: 768px;
+
+$colour-schemes: (
+    blue: (
+        main: #0375b4,
+        hover: #035691,
+        dark: #03427d,
+    ),
+    red: (
+        main: #e52525,
+        hover: #c32424,
+        dark: #af2323,
+    ),
+    orange: (
+        main: #e1a02f,
+        hover: #d2922e,
+        dark: #c88c2e,
+    ),
+    lime-green: (
+        main: #b5c82f,
+        hover: #a6b930,
+        dark: #91a42f,
+    ),
+    green: (
+        main: #5cb85c,
+        hover: #54a754,
+        dark: #4b944b,
+    ),
+    purple: (
+        main: #80379b,
+        hover: #62357d,
+        dark: #4e3469,
+    ),
 );

@@ -1,90 +1,90 @@
 /* For all devices */
 .footer {
-	background-color: $light;
-	color: $grey;
-	border-top: 1px solid $light-grey;
-	padding: 6px;
+    background-color: $light-colour;
+    color: $grey;
+    border-top: 1px solid $light-grey;
+    padding: 6px;
 }
 
 .footer__links,
 .footer__legal,
 .footer__version {
-	display: inline-block;
-	width: 100%;
+    display: inline-block;
+    width: 100%;
 }
 
 .footer__link:after {
-	content: "|";
-	color: $grey;
-	margin: 0 4px;
+    content: "|";
+    color: $grey;
+    margin: 0 4px;
 }
 
 .footer__link:last-child:after {
-	content: none;
+    content: none;
 }
 
 .footer__link {
-	position: relative;
-	color: $dark;
+    position: relative;
+    color: $dark;
 }
 
 .footer__link:before {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: 1px;
-	width: calc(100% - 12px);
-	border-bottom: transparent solid 1px;
-	transition: all .3s ease-in-out;
+    content: "\00a0";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: calc(100% - 12px);
+    border-bottom: transparent solid 1px;
+    transition: all 0.3s ease-in-out;
 }
 
 .footer__link:hover {
-	color: darken($dark, 10%);
+    color: darken($dark, 10%);
 }
 
 .footer__link:hover:before {
-	border-bottom-color: darken($dark, 10%);
+    border-bottom-color: darken($dark, 10%);
 }
 
 .footer__link:last-child:before {
-	width: 100%;
+    width: 100%;
 }
 
 .footer p {
-	margin: 5px auto;
+    margin: 5px auto;
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop) {
-	.footer {
-		padding: 10px;
-	}
+@media only screen and (min-width: $desktop-width) {
+    .footer {
+        padding: 10px;
+    }
 
-	.footer > .container {
-		display: flex;
-		align-items: center;
-	}
+    .footer > .container {
+        display: flex;
+        align-items: center;
+    }
 
-	.footer__links {
-		width: 33%;
-		text-align: left;
-		order: 1;
-	}
+    .footer__links {
+        width: 33%;
+        text-align: left;
+        order: 1;
+    }
 
-	.footer__legal {
-		width: 33%;
-		text-align: right;
-		order: 3;
-	}
+    .footer__legal {
+        width: 33%;
+        text-align: right;
+        order: 3;
+    }
 
-	.footer__version {
-		width: 33%;
-		text-align: center;
-		order: 2;
-	}
+    .footer__version {
+        width: 33%;
+        text-align: center;
+        order: 2;
+    }
 
-	.footer p {
-		margin: 10px 0;
-	}
+    .footer p {
+        margin: 10px 0;
+    }
 }

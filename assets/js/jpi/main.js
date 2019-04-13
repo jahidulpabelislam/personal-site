@@ -1,61 +1,105 @@
-window.jpi = window.jpi || {};
-window.jpi.main = (function (jQuery) {
+;window.jpi = window.jpi || {};
+window.jpi.main = (function(jQuery, jpi) {
 
-	"use strict";
+    "use strict";
 
-	var fn = {
+    var global = {
+        mapSelector: ".js-bognor-regis-map",
+    };
 
-		count: function (options) {
-			var counter = jQuery(this);
-			options = jQuery.extend({}, options || {}, counter.data('countToOptions') || {});
-			counter.countTo(options);
-		},
+    var fn = {
 
-		initCounters: function () {
-			var counters = jQuery('.counter');
+        initBognorRegisMap: function() {
+            var zoomLevel = 12,
+                bognorRegisLat = 50.7842,
+                bognorRegisLng = -0.674,
+                bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng),
+                config = {
+                    center: bognorRegisLocation,
+                    zoom: zoomLevel,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    scaleControl: false,
+                    streetViewControl: false,
+                    rotateControl: false,
+                    fullscreenControl: false,
+                    styles: jpi.config.googleMapStyles,
+                },
+                map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
 
-			if (counters.length > 0) {
-				jQuery('.counter').waypoint(function () {
-					jQuery('.counter').each(fn.count);
-				}, {offset: '100%'});
-			}
-		},
+            new google.maps.Marker({
+                position: bognorRegisLocation,
+                map: map,
+            });
 
-		jumpToContent: function () {
-			jQuery('html, body').animate({
-				scrollTop: jQuery("section").offset().top - jQuery(".nav").height()
-			}, 1000);
-		},
+            google.maps.event.addDomListener(window, "resize", function() {
+                map.setCenter(bognorRegisLocation);
+            });
+        },
 
-		toggleLabelContent: function () {
-			var selected = jQuery(this).children(".skills-interests__item-expand-content"); // Get the new label that was clicked
-			var selectedIcon = jQuery(this).children(".skills-interests__item-expand-icon");
+        initCounter: function(options) {
+            var counter = jQuery(this);
+            options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
+            counter.countTo(options);
+        },
 
-			// Reset all other label to closed
-			jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
-			jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+        initCounters: function() {
+            var counters = jQuery(".counter");
 
-			//Toggle the clicked label
-			selectedIcon.toggleClass("fa-plus");
-			selectedIcon.toggleClass("fa-minus");
-			selected.slideToggle();
+            if (counters.length) {
+                counters.waypoint(function() {
+                    counters.each(fn.initCounter);
+                }, {offset: "100%"});
+            }
+        },
 
-			jQuery(this).toggleClass("expanded-item");
-			jQuery('.js-expand-skill-interest').not(this).removeClass("expanded-item");
-		},
+        jumpToContent: function() {
+            jQuery("html, body").animate(
+                {
+                    scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height(),
+                },
+                1000
+            );
+        },
 
-		initListeners: function () {
-			jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
+        toggleLabelContent: function() {
+            var label = jQuery(this);
 
-			jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
-		},
+            // Get the new label elems that was clicked
+            var selected = label.children(".skills-interests__item-expand-content");
+            var selectedIcon = label.children(".skills-interests__item-expand-icon");
 
-		init: function () {
-			fn.initListeners();
-			fn.initCounters();
-		}
-	};
+            // Reset all other label to closed
+            jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
 
-	jQuery(document).on("ready", fn.init);
+            jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
-}(jQuery));
+            // Toggle the clicked label
+            selectedIcon.toggleClass("fa-plus");
+            selectedIcon.toggleClass("fa-minus");
+            selected.slideToggle();
+
+            label.toggleClass("expanded-item");
+            jQuery(".js-expand-skill-interest").not(label).removeClass("expanded-item");
+        },
+
+        initListeners: function() {
+            jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
+            jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
+
+            if (jQuery(global.mapSelector).length) {
+                google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
+            }
+        },
+
+        init: function() {
+            fn.initListeners();
+            fn.initCounters();
+        },
+    };
+
+    jQuery(document).on("ready", fn.init);
+
+    return {};
+
+})(jQuery, jpi);
