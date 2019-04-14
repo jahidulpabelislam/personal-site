@@ -1,8 +1,20 @@
-#Block user from viewing list of files in a directory
+DirectoryIndex index.php index.html
+
+# Block user from viewing list of files in a directory
 Options -Indexes
 IndexIgnore *
 
-#Stop users from viewing this folder/files
+# Custom error messages
+# Custom error message for a unauthorized page
+ErrorDocument 401 /error/401/
+# Custom error message for a forbidden page
+ErrorDocument 403 /error/403/
+# Custom error message for a page not found
+ErrorDocument 404 /error/404/
+# Custom error message for a internal server issue
+ErrorDocument 500 /error/500/
+
+# Stop users from viewing this folder/files
 <Files /error/>
     order allow,deny
     deny from all
@@ -28,7 +40,7 @@ IndexIgnore *
     deny from all
 </Files>
 
-#Stop users from viewing this file
+# Stop users from viewing this file
 <Files .htaccess>
     order allow,deny
     deny from all
@@ -54,17 +66,12 @@ IndexIgnore *
     deny from all
 </Files>
 
-DirectoryIndex index.php index.html
-
-#Custom error messages
-#Custom error message for a unauthorized page
-ErrorDocument 401 /error/401/
-#Custom error message for a forbidden page
-ErrorDocument 403 /error/403/
-#Custom error message for a page not found
-ErrorDocument 404 /error/404/
-#Custom error message for a internal server issue
-ErrorDocument 500 /error/500/
+RewriteEngine on
+RewriteRule ^about-me/?$ /about/ [R=301,NC,L]
+RewriteRule ^contact-me/?$ /contact/ [R=301,NC,L]
+RewriteRule ^portfolio/?$ /projects/ [R=301,NC,L]
+RewriteRule ^sitemap/?$ /site-map/ [R=301,NC,L]
+RewriteRule ^sitemap.xml?$ /site-map.xml [R=301,NC,L]
 
 <IfModule mod_headers.c>
     # Cache specified files for 31 days
