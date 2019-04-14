@@ -114,8 +114,8 @@ $site->echoConfig();
                                 <?php
                                 $speed = 2000;
 
-                                $personalProjectsNum = 22;
-                                $workProjectsNum = 26;
+                                $personalProjectsNum = 24;
+                                $workProjectsNum = 30;
                                 ?>
                                 <h3 class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $personalProjectsNum; ?>
