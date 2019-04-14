@@ -56,7 +56,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <div class="article__half">
                             <a href="mailto:me@jahidulpabelislam.com" class="social-link" target="_blank">
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" class="social-link__img social-link__img--email">
-                                <p class="social-link__text social-link__text--email"> me@jahidulpabelislam.com</p>
+                                <p class="social-link__text social-link__text--email">me@jahidulpabelislam.com</p>
                             </a>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
-                                <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
+                                <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
-                                <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
+                                <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                             </a>
                         </div>
                     </div>

@@ -61,7 +61,7 @@ $site->echoConfig();
                 <section class="article article--orange clearfix">
                     <div class="container">
                         <div class="workflow">
-                            <div class="workflow__item ">
+                            <div class="workflow__item">
                                 <h3 class="article__header">Design</h3>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
                                 <div class="workflow-item__description">

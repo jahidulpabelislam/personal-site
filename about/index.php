@@ -176,7 +176,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 echo $skillText;
 
                                 if ($skillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
                                 }
                                 echo "</li>";
@@ -214,7 +214,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 echo $skillText;
 
                                 if ($skillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
                                 }
                                 echo "</li>";
@@ -251,7 +251,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 echo $interestText;
 
                                 if ($interestDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$interestDesc}</div>";
                                 }
 

@@ -13,21 +13,21 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
                 <div class="social-link-container">
                     <a href="https://facebook.com/jahidulpabelislam/" class="social-link" target="_blank">
                         <img src="<?php $site->echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook">
-                        <p class="social-link__text social-link__text--facebook"> /jahidulpabelislam</p>
+                        <p class="social-link__text social-link__text--facebook">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://twitter.com/itsjahidulislam/" class="social-link" target="_blank">
                         <img src="<?php $site->echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter">
-                        <p class="social-link__text social-link__text--twitter"> @ItsJahidulIslam</p>
+                        <p class="social-link__text social-link__text--twitter">@ItsJahidulIslam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://instagram.com/jahidulpabelislam/" class="social-link" target="_blank">
                         <span class="social-link__img social-link__img--instagram"><i></i></span>
-                        <p class="social-link__text social-link__text--instagram"> @jahidulpabelislam</p>
+                        <p class="social-link__text social-link__text--instagram">@jahidulpabelislam</p>
                     </a>
                 </div>
 
@@ -41,14 +41,14 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
                         <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
-                        <p class="social-link__text social-link__text--linkedin"> /jahidulpabelislam</p>
+                        <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
                         <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
-                        <p class="social-link__text social-link__text--github"> /jahidulpabelislam</p>
+                        <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                     </a>
                 </div>
 
