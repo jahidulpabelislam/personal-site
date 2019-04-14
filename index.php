@@ -35,7 +35,7 @@ $site->echoConfig();
                             <p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
                             <p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
                             <p>
-                                Currently working as a Junior Web Developer at
+                                Currently working as a Software Developer at
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the
                                 <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.
                             </p>

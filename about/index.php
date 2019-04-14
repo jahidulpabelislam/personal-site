@@ -67,7 +67,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
                                     BrightMinded
                                 </a>
-                                 as a Junior Web Developer in June 2017.
+                                 as a Software Developer in June 2017.
                             </p>
                         </div>
                     </div>
@@ -271,7 +271,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                 [
                                     "date" => "2017 - Present",
                                     "icon" => "work",
-                                    "text" => "Junior Web Developer @
+                                    "text" => "Software Developer @
                                         <a href='https://www.brightminded.com/' title='Link to BrightMinded website.' class='link-styled link-styled--orange' target='_blank'>
                                             BrightMinded
                                         </a>",
