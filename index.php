@@ -111,13 +111,24 @@ $site->echoConfig();
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="22" data-speed="2000">22</h3>
+                                <?php
+                                $speed = 2000;
+
+                                $personalProjectsNum = 22;
+                                $workProjectsNum = 26;
+                                ?>
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
+                                    <?php echo $personalProjectsNum; ?>
+                                </h3>
                                 <p class="stats__text">
-                                    Personal Projects (+<span class="counter" data-to="26" data-speed="2000">26</span> work projects)
+                                    Personal Projects (+<span class="counter" data-to="<?php echo $workProjectsNum; ?>" data-speed="<?php echo $speed; ?>"><?php echo $workProjectsNum; ?></span> work projects)
                                 </p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="1630" data-speed="2000">1630</h3>
+                                <?php $totalCommits = 1630; ?>
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
+                                    <?php echo $totalCommits; ?>
+                                </h3>
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
@@ -139,7 +150,7 @@ $site->echoConfig();
                                 $yearsDiff = $diff->format("%y");
                                 date_default_timezone_set($orig);
                                 ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="2000">
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $yearsDiff; ?>
                                 </h3>
                                 <p class="stats__text">Years experience</p>
