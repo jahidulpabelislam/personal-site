@@ -1,11 +1,13 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
+$site = Site::get();
+
 $pageId = "links";
 
 $headTitle = "Social Media Links";
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
+$site->echoHTMLHead($headTitle, $headDesc, $pageId);
 ?>
 
         <main class="main-content social-links-page">
