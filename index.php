@@ -125,7 +125,7 @@ $site->echoConfig();
                                 </p>
                             </div>
                             <div class="stats__item">
-                                <?php $totalCommits = 1630; ?>
+                                <?php $totalCommits = 2270; ?>
                                 <h3 class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
                                 </h3>
