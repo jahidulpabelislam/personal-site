@@ -41,8 +41,8 @@ $site = Site::get();
                         <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
                         </a>
-                        <a href="https://www.instagram.com/jahidulcodes/" class="social-link" target="_blank">
-                            <span class="social-links__img social-link__img social-link__img--instagram "><i></i></span>
+                        <a href="https://www.instagram.com/jpi.dev/" class="social-link" target="_blank">
+                            <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
                         </a>
                     </div>
                 </section>

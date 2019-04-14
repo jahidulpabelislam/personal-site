@@ -103,9 +103,9 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                             <h3 class="article__header">Follow what I get up to</h3>
                         </div>
                         <div class="article__half">
-                            <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link">
+                            <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">
                                 <span class="social-link__img social-link__img--instagram"><i></i></span>
-                                <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
+                                <p class="social-link__text social-link__text--instagram">@jpi.dev</p>
                             </a>
                         </div>
                     </div>

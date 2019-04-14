@@ -53,9 +53,9 @@ Site::get()->echoHTMLHead($headTitle, $headDesc, $pageId);
                 </div>
 
                 <div class="social-link-container">
-                    <a href="https://instagram.com/jahidulcodes/" class="social-link" target="_blank">
+                    <a href="https://instagram.com/jpi.dev/" class="social-link" target="_blank">
                         <span class="social-link__img social-link__img--instagram"><i></i></span>
-                        <p class="social-link__text social-link__text--instagram"> @jahidulcodes</p>
+                        <p class="social-link__text social-link__text--instagram">@jpi.dev</p>
                     </a>
                 </div>
             </div>

@@ -71,8 +71,8 @@ $site = Site::get();
                             </a>
                         </li>
                         <li class="nav-link__item">
-                            <a href="https://www.instagram.com/jahidulcodes/" target="_blank" class="social-link">
-                                <span class="social-link__img social-link__img--instagram "><i></i></span>
+                            <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">
+                                <span class="social-link__img social-link__img--instagram"><i></i></span>
                             </a>
                         </li>
                     </ul>
