@@ -70,7 +70,7 @@ $site = Site::get();
                     $orig = date_default_timezone_get();
                     date_default_timezone_set("Europe/London");
                     ?>
-                    <p>&copy; Jahidul Pabel Islam 2010-<?php echo date("y"); ?> All Rights Reserved</p>
+                    <p>&copy; Jahidul Pabel Islam 2010 - <?php echo date("Y"); ?></p>
                     <?php date_default_timezone_set($orig); ?>
                 </div>
             </div>
