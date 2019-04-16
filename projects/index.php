@@ -81,7 +81,9 @@ $site->echoConfig();
                     <div class="modal__content">
                         <div class="project__header">
                             <h3 class="project__title project__title--inline"></h3>
-                            <time class="project__date project__date--inline project__date--modal">2018</time>
+                            <time class="project__date project__date--inline project__date--modal">
+                                <?php echo date("Y"); ?>
+                            </time>
                         </div>
                         <div class="project__skills"></div>
                         <div class="project__description"></div>

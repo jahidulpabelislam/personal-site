@@ -11,7 +11,7 @@
  * @version 1
  * @link https://github.com/jahidulpabelislam/portfolio/
  * @since Class available since Release: v4.1.0
- * @copyright 2010-2018 JPI
+ * @copyright 2010-2019 JPI
 */
 
 class Site {
