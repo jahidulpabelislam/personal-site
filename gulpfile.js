@@ -43,7 +43,7 @@ scriptNames.forEach(function(key) {
                    .pipe(gulp.dest("assets/js"));
     });
 });
-gulp.task("scripts", scriptTasks);
+gulp.task("scripts", gulp.parallel(scriptTasks));
 defaultTasks.push("scripts");
 
 // Minify Stylesheets
@@ -75,7 +75,7 @@ stylesheetNames.forEach(function(key) {
                    .pipe(gulp.dest("assets/css"));
     });
 });
-gulp.task("styles", stylesheetTasks);
+gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
 
 gulp.task("sass", function() {
@@ -95,7 +95,7 @@ const errorCallback = function(err) {
 };
 
 const runCommand = function(command, callback) {
-    exec(command, function(err, res, stdErr) {
+    return exec(command, function(err, res, stdErr) {
         // If found store in text file
         if (res && res.trim() !== "null") {
             callback(res.trim());
@@ -114,7 +114,7 @@ gulp.task("store-version", function() {
     let versionText = "";
 
     // Try to get current branch name
-    runCommand("git branch | grep \\* | cut -d ' ' -f2", function(branchName) {
+    return runCommand("git branch | grep \\* | cut -d ' ' -f2", function(branchName) {
         /*
          * If name found store in text file
          * If current branch if master we used use tags (As most likely this is in production environment)
@@ -126,7 +126,7 @@ gulp.task("store-version", function() {
         }
         else {
             // Try and get the latest tag on current branch
-            runCommand("git describe --abbrev=0 --tags", function(tagName) {
+            return runCommand("git describe --abbrev=0 --tags", function(tagName) {
                 // If found store in text file
                 if (tagName) {
                     versionText = `<a href="${githubBaseUrl}releases/tag/${tagName}/" class="link-styled" target="_blank">${tagName}</a>`;
@@ -142,4 +142,4 @@ gulp.task("store-version", function() {
     });
 });
 
-gulp.task("default", defaultTasks);
+gulp.task("default", gulp.parallel(defaultTasks));
