@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.footer = (function(jQuery) {
+window.jpi.footer = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -34,14 +34,14 @@ window.jpi.footer = (function(jQuery) {
          * created to combat against the css transition delays
          */
         delayExpand: function() {
-            var timer = setInterval(fn.expandContent, 100);
+            var timer = setInterval(fn.expandContent, 150);
             setTimeout(function() {
                 clearInterval(timer);
             }, 2500);
         },
 
         initListeners: function() {
-            jQuery(window).on("load orientationchange resize", fn.delayExpand);
+            jQuery(window).on("load orientationchange resize",  jpi.helpers.debounce(fn.delayExpand, 150));
         },
     };
 
@@ -51,4 +51,4 @@ window.jpi.footer = (function(jQuery) {
         expandContent: fn.expandContent,
     };
 
-})(jQuery);
+})(jQuery, jpi);

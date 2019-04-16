@@ -52,7 +52,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 left: "-" + position.left + "px",
             });
 
-            setTimeout(fn.resetTransition, 100, slidesContainer);
+            setTimeout(fn.resetTransition, 150, slidesContainer);
         },
 
         // Starts a slide show by slide show element id
@@ -167,7 +167,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 left: "-" + position.left + "px",
             });
 
-            setTimeout(fn.resetTransition, 100, slidesContainer);
+            setTimeout(fn.resetTransition, 150, slidesContainer);
 
             global.slideShows[slideShowId] = setInterval(function() {
                 fn.moveSlide(slideShowId, "next");
@@ -246,7 +246,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
                 setTimeout(function() {
                     fn.moveToSlide(slideShowId, slideContainer.first());
-                }, 100);
+                }, 150);
 
                 slideShowViewpoint[0].addEventListener("mousedown", fn.dragStart);
                 slideShowViewpoint[0].addEventListener("touchstart", fn.dragStart);
@@ -257,7 +257,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
 
         initListeners: function() {
-            jQuery(window).on("orientationchange resize", fn.fixSlides);
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
             jQuery("body").on("dragstart", ".slide-show__img", false);
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 

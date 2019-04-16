@@ -50,8 +50,8 @@ window.jpi.nav = (function(jQuery, jpi) {
 
         initListeners: function() {
             jQuery(document).on("click", fn.closeMobileNav);
-            jQuery(window).on("orientationchange resize", fn.initDesktopNav);
-            jQuery(window).on("scroll", fn.toggleNavBarColour);
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.initDesktopNav, 150));
+            jQuery(window).on("scroll", jpi.helpers.debounce(fn.toggleNavBarColour, 150));
             jQuery(global.mobileButtonElector).on("click", fn.toggleMobileMenu);
         },
 

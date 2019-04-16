@@ -57,7 +57,7 @@ window.jpi.cookieBanner = (function(jQuery, jpi) {
 
         init: function() {
             if (jQuery(global.container).length) {
-                jQuery(window).on("scroll orientationchange resize", fn.showOrHideBanner);
+                jQuery(window).on("scroll orientationchange resize", jpi.helpers.debounce(fn.showOrHideBanner, 150));
                 jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
                 fn.initDisplayOfBanner();
             }
