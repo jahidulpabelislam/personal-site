@@ -311,7 +311,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                                         </a>",
                                     "isActive" => false,
                                 ], [
-                                    "date" => "2010",
+                                    "date" => $site->getYearStarted(),
                                     "icon" => "coding",
                                     "text" => "Got Introduced to Developing/Coding",
                                     "isActive" => false,

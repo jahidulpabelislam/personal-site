@@ -22,6 +22,8 @@ class Site {
 
     const DEFAULT_ASSET_VERSION = "1";
 
+    const JPI_START_DATE = "04/10/2010";
+
     private static $instance = null;
 
     public function __construct() {
@@ -298,6 +300,21 @@ class Site {
      */
     public static function isDebug() {
         return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
+    }
+
+    public function getDateStarted() {
+        $dateStarted = self::JPI_START_DATE;
+        $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+
+        return $dateStartedDateObj;
+    }
+
+    public function getYearStarted() {
+        $dateStartedDate = self::getDateStarted();
+
+        $year = $dateStartedDate->format("Y");
+
+        return $year;
     }
 }
 

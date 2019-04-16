@@ -136,14 +136,9 @@ $site->echoConfig();
                                 $orig = date_default_timezone_get();
                                 date_default_timezone_set("Europe/London");
 
-                                // Generate DateTime from the date
-                                $dateStarted = "04/10/2010";
-                                $dateStartedDate = DateTime::createFromFormat("d/m/Y", $dateStarted);
-
-                                // Today's DateTime
-                                $today = new DateTime();
-
                                 // Work out the time difference from both dates
+                                $today = new DateTime();
+                                $dateStartedDate = $site->getDateStarted();
                                 $diff = $today->diff($dateStartedDate, true);
 
                                 // Get the number of years different
