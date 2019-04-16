@@ -12,13 +12,14 @@ window.jpi.home = (function(jQuery, jpi) {
         initSecondsCounter: function() {
             var secsElem = jQuery(".js-seconds-on-site");
             if (secsElem.length) {
+                var secondsInMilliseconds = 1000;
                 setTimeout(function() {
                     setInterval(function() {
                         var lastSec = secsElem.text();
                         lastSec = jpi.helpers.getInt(lastSec, 1);
                         secsElem.text(lastSec + 1);
-                    }, 1000);
-                }, 1000);
+                    }, secondsInMilliseconds);
+                }, secondsInMilliseconds);
             }
         },
 
