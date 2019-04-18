@@ -168,16 +168,16 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                             foreach ($techSkills as $skill) {
                                 $skillText = $skill["text"];
-                                $skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
+                                $hasSkillDesc = !empty($skill["desc"]);
 
-                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
 
                                 echo "<li class='skills-interests__item skills-interests__item--blue {$expandClass}'>";
                                 echo $skillText;
 
-                                if ($skillDesc) {
-                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
+                                if ($hasSkillDesc) {
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
                                 }
                                 echo "</li>";
                             }
@@ -206,16 +206,16 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                             foreach ($otherSkills as $skill) {
                                 $skillText = $skill["text"];
-                                $skillDesc = (isset($skill["desc"])) ? $skill["desc"] : false;
+                                $hasSkillDesc = !empty($skill["desc"]);
 
-                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
 
                                 echo "<li class='skills-interests__item skills-interests__item--purple {$expandClass}'>";
                                 echo $skillText;
 
-                                if ($skillDesc) {
-                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skillDesc}</div>";
+                                if ($hasSkillDesc) {
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
                                 }
                                 echo "</li>";
                             }
@@ -243,16 +243,16 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                             foreach ($interests as $interest) {
                                 $interestText = $interest["text"];
-                                $interestDesc = (isset($interest["desc"])) ? $interest["desc"] : false;
+                                $hasInterestDesc = !empty($interest["desc"]);
 
-                                $expandClass = ($skillDesc) ? "js-expand-skill-interest" : "";
+                                $expandClass = $hasInterestDesc ? "js-expand-skill-interest" : "";
 
                                 echo "<li class='skills-interests__item skills-interests__item--green {$expandClass}'>";
                                 echo $interestText;
 
-                                if ($interestDesc) {
-                                    echo "<span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$interestDesc}</div>";
+                                if ($hasInterestDesc) {
+                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo "<div class='skills-interests__item-expand-content'>{$interest["desc"]}</div>";
                                 }
 
                                 echo "</li>";

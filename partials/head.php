@@ -11,7 +11,7 @@ $site = Site::get();
     <head>
 
         <?php
-        $environment = !empty(getenv("APPLICATION_ENV")) ? getenv("APPLICATION_ENV") : "development";
+        $environment = getenv("APPLICATION_ENV") ?? "development";
 
         // Only want Google Analytic for live site
         if ($environment === "production") {

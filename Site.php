@@ -99,7 +99,7 @@ class Site {
         $desc = trim($desc);
         $pageId = trim($pageId);
 
-        $pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
         include_once(ROOT . "/partials/head.php");
     }
@@ -118,9 +118,9 @@ class Site {
         $pageId = trim($pageId);
         $navTint = trim($navTint);
 
-        $navTint = (in_array($navTint, self::VALID_NAV_TINTS)) ? $navTint : "dark";
+        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : "dark";
 
-        $pageId = (empty($pageId)) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
         include_once(ROOT . "/partials/header.php");
     }
@@ -263,7 +263,7 @@ class Site {
     public static function getWithAssetVersion($src, $ver = false, $root = false) {
         $ver = self::getAssetVersion($src, $ver, $root);
 
-         return "{$src}?v={$ver}";
+        return "{$src}?v={$ver}";
     }
 
     /**
