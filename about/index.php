@@ -1,7 +1,9 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
 $pageId = basename(__DIR__);
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
@@ -14,11 +16,11 @@ $pageData = [
     "headerDesc" => "Find Out About Me",
     "navTint" => "light",
 ];
-$site->addPageData($pageData);
+$pageRenderer->addPageData($pageData);
 
-$site->renderHTMLHead();
-$site->renderNav();
-$site->renderHeader();
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article article--halved article--about">
@@ -381,4 +383,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$site->renderFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

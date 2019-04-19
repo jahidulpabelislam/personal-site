@@ -1,8 +1,9 @@
 <?php
-
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
 $pageId = basename(__DIR__);
 
@@ -14,9 +15,9 @@ if (strlen(trim($search)) > 0) {
     $headTitle .= " with $search";
 }
 
-$page = $_GET["page"] ?? 1;
-if ($page > 1) {
-    $headTitle .= " - Page $page";
+$pageNum = $_GET["page"] ?? 1;
+if ($pageNum > 1) {
+    $headTitle .= " - Page {$pageNum}";
 }
 
 $pageData = [
@@ -26,13 +27,13 @@ $pageData = [
     "headerTitle" => "My Projects",
     "headerDesc" => "See My Skills in Action in My Previous Projects",
 ];
-$site->addPageData($pageData);
+$pageRenderer->addPageData($pageData);
 
 $site->echoConfig();
 
-$site->renderHTMLHead();
-$site->renderNav();
-$site->renderHeader();
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <section class="article">
@@ -53,7 +54,7 @@ $site->renderHeader();
                         <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
 
-                        <input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
+                        <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>">
                     </div>
                 </section>
 
@@ -155,4 +156,4 @@ $similarLinks = [
         "colour" => "green",
     ],
 ];
-$site->renderFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

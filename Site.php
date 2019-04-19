@@ -48,18 +48,6 @@ class Site implements SiteConstants {
         return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
     }
 
-    public function addToPageData($field, $value) {
-        $this->pageData[$field] = trim($value);
-    }
-
-    public function addPageData($fields) {
-        $this->pageData = array_merge($this->pageData, $fields);
-    }
-
-    public function getFromPageData($field, $defaultValue = "") {
-        return $this->pageData[$field] ?? $defaultValue;
-    }
-
     /**
      * Include the common config file for page/site
      */
@@ -68,60 +56,35 @@ class Site implements SiteConstants {
     }
 
     /**
-     * Include the common html head for page/site
+     * @param $url string The url to add slash to
+     * @return string The new url
      */
-    public function renderHTMLHead() {
-        $pageId = $this->getFromPageData("pageId");
-        $title = $this->pageData["headTitle"] ?? $this->pageData["title"] ?? "";
-        $desc = $this->pageData["headDesc"] ?? $this->pageData["desc"] ?? "";
+    public static function addTrailingSlash(string $url): string {
+        $url = rtrim($url, " /");
+        $url = "{$url}/";
 
-        include_once(ROOT . "/partials/head.php");
+        return $url;
     }
 
     /**
-     * Include the common html nav content for page/site
+     * @return string Generate and return the LIVE domain
      */
-    public function renderNav() {
-        $pageId = $this->getFromPageData("pageId");
+    public static function getLiveDomain(): string {
+        $liveDomain = self::LIVE_DOMAIN;
+        $liveDomain = self::addTrailingSlash($liveDomain);
 
-        $defaultTint = "dark";
-
-        $navTint = $this->getFromPageData("navTint", $defaultTint);
-        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : $defaultTint;
-
-        include_once(ROOT . "/partials/nav.php");
+        return $liveDomain;
     }
 
     /**
-     * Include the common html header content for page/site
+     * @return string Generate and return the local domain
      */
-    public function renderHeader() {
-        $pageId = $this->getFromPageData("pageId");
-        $title = $this->pageData["headerTitle"] ?? $this->pageData["title"] ?? "";
-        $desc = $this->pageData["headerDesc"] ?? $this->pageData["desc"] ?? "";
+    public static function getLocalDomain(): string {
+        $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+        $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
+        $localDomain = self::addTrailingSlash($localDomain);
 
-        include_once(ROOT . "/partials/header.php");
-    }
-
-    /**
-     * Include the common favicons content for page/site
-     */
-    public function renderFavicons() {
-        include_once(ROOT . "/partials/favicons.php");
-    }
-
-    /**
-     * Include the common footer content for page/site
-     */
-    public function renderFooter(array $similarLinks = []) {
-        include_once(ROOT . "/partials/footer.php");
-    }
-
-    /**
-     * Include the common cookie banner content for page/site
-     */
-    public function echoCookieBanner() {
-        include_once(ROOT . "/partials/cookie-banner.php");
+        return $localDomain;
     }
 
     /**
@@ -166,38 +129,6 @@ class Site implements SiteConstants {
         $url = self::getURL($url, $isFull, $isLive);
 
         echo $url;
-    }
-
-    /**
-     * @param $url string The url to add slash to
-     * @return string The new url
-     */
-    public static function addTrailingSlash(string $url): string {
-        $url = rtrim($url, " /");
-        $url = "{$url}/";
-
-        return $url;
-    }
-
-    /**
-     * @return string Generate and return the LIVE domain
-     */
-    public static function getLiveDomain(): string {
-        $liveDomain = self::LIVE_DOMAIN;
-        $liveDomain = self::addTrailingSlash($liveDomain);
-
-        return $liveDomain;
-    }
-
-    /**
-     * @return string Generate and return the local domain
-     */
-    public static function getLocalDomain(): string {
-        $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-        $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-        $localDomain = self::addTrailingSlash($localDomain);
-
-        return $localDomain;
     }
 
     /**

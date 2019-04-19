@@ -2,7 +2,9 @@
 if (!defined("ROOT")) {
     die();
 }
+
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 ?>
 
                 <?php
@@ -77,7 +79,7 @@ $site = Site::get();
         </footer>
 
         <?php
-        $site->echoCookieBanner();
+        $pageRenderer->renderCookieBanner();
 
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
         if ($site->isDebug()) {
@@ -106,6 +108,5 @@ $site = Site::get();
             <?php
         }
         ?>
-
     </body>
 </html>

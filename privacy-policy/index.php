@@ -1,7 +1,9 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
 $pageId = basename(__DIR__);
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
@@ -11,11 +13,11 @@ $pageData = [
     "title" => "Privacy Policy",
     "headDesc" => $headDesc,
 ];
-$site->addPageData($pageData);
+$pageRenderer->addPageData($pageData);
 
-$site->renderHTMLHead();
-$site->renderNav();
-$site->renderHeader();
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article">
@@ -83,4 +85,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->renderFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

@@ -2,14 +2,15 @@
 if (!defined("ROOT")) {
     die();
 }
+
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 ?>
 
 <!DOCTYPE html>
 <html lang="en-gb">
 
     <head>
-
         <?php
         $environment = getenv("APPLICATION_ENV") ?? "development";
 
@@ -102,7 +103,7 @@ $site = Site::get();
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
 
-        <?php $site->renderFavicons(); ?>
+        <?php $pageRenderer->renderFavicons(); ?>
     </head>
 
     <body>
