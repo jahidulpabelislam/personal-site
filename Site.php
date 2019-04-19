@@ -80,10 +80,6 @@ class Site implements SiteConstants {
 
     /**
      * Include the common html nav content for page/site
-     *
-     * @param $title string
-     * @param $pageId string
-     * @param string $navTint string
      */
     public function renderNav() {
         $pageId = $this->getFromPageData("pageId");
@@ -98,10 +94,6 @@ class Site implements SiteConstants {
 
     /**
      * Include the common html header content for page/site
-     *
-     * @param $pageId string
-     * @param $title string
-     * @param string $desc string
      */
     public function renderHeader() {
         $pageId = $this->getFromPageData("pageId");
