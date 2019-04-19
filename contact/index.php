@@ -5,16 +5,17 @@ $site = Site::get();
 
 $pageId = "contact";
 
-$headTitle = $headerTitle = "Contact Me";
+$title = "Contact Me";
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->renderHTMLHead($headTitle, $headDesc, $pageId);
+$site->renderHTMLHead($title, $headDesc, $pageId);
+
+$navTint = "light";
+$site->renderNav($title, $navTint, $pageId);
 
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
-$navTint = "light";
-
-$site->renderHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$site->renderHeader($title, $headerDesc, $pageId);
 ?>
 
                 <section class="article">

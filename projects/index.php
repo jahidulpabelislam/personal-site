@@ -21,6 +21,8 @@ if ($page > 1) {
 
 $site->renderHTMLHead($headTitle, $headDesc, $pageId);
 
+$site->renderNav("projects", "", $pageId);
+
 $headerTitle = "My Projects";
 $headerDesc = "See My Skills in Action in My Previous Projects";
 $site->renderHeader($headerTitle, $headerDesc, $pageId);

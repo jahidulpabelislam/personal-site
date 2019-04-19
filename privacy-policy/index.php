@@ -3,12 +3,12 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$headTitle = $headerTitle = "Privacy Policy";
+$title = "Privacy Policy";
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->renderHTMLHead($headTitle, $headDesc);
-
-$site->renderHeader($headerTitle);
+$site->renderHTMLHead($title, $headDesc);
+$site->renderNav($title);
+$site->renderHeader($title);
 ?>
 
                 <div class="article">

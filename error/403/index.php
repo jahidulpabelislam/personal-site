@@ -3,13 +3,15 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$headTitle = $headerTitle = "403";
+$title = "403";
 
 $headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($title, $headDesc);
+
+$site->renderNav($title);
 
 $headerDesc = "Forbidden Page";
-$site->renderHeader($headerTitle, $headerDesc);
+$site->renderHeader($title, $headerDesc);
 ?>
 
                 <div class="article article--halved">

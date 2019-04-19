@@ -9,6 +9,8 @@ $headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
 $site->renderHTMLHead($headTitle, $headDesc);
 
+$site->renderNav($title, "", $pageId);
+
 $headerTitle = "Jahidul Pabel Islam";
 $headerDesc = "Full Stack Web &amp; Software Developer";
 $site->renderHeader($headerTitle, $headerDesc, $pageId);

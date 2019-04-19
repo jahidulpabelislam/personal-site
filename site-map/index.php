@@ -3,12 +3,14 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$headTitle = $headerTitle = "Site Map";
+$title = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($title, $headDesc);
 
 $navTint = "light";
-$site->renderHeader($headerTitle, "", "", $navTint);
+$site->renderNav($title, $navTint);
+
+$site->renderHeader($title);
 ?>
 
                 <div class="article">

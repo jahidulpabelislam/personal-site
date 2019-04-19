@@ -105,20 +105,31 @@ class Site {
     }
 
     /**
+     * Include the common html nav content for page/site
+     *
+     * @param $title string
+     * @param $pageId string
+     * @param string $navTint string
+     */
+    public static function renderNav(string $title, string $navTint = "dark", string $pageId = "") {
+        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+
+        $navTint = trim($navTint);
+        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : "dark";
+
+        include_once(ROOT . "/partials/nav.php");
+    }
+
+    /**
      * Include the common html header content for page/site
      *
      * @param $pageId string
      * @param $title string
      * @param string $desc string
-     * @param string $navTint string
      */
-    public static function renderHeader(string $title, string $desc = "", string $pageId = "", string $navTint = "dark") {
+    public static function renderHeader(string $title, string $desc = "", string $pageId = "") {
         $title = trim($title);
         $desc = trim($desc);
-        $pageId = trim($pageId);
-        $navTint = trim($navTint);
-
-        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : "dark";
 
         $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
 
