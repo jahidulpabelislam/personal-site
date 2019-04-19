@@ -3,14 +3,21 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$title = "Site Map";
+$pageId = basename(__DIR__);
+
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($title, $headDesc);
 
-$navTint = "light";
-$site->renderNav($title, $navTint);
+$pageData = [
+    "pageId" => $pageId,
+    "title" => "Site Map",
+    "headDesc" => $headDesc,
+    "navTint" => "light",
+];
+$site->addPageData($pageData);
 
-$site->renderHeader($title);
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <div class="article">

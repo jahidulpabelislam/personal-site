@@ -3,16 +3,23 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$title = "500";
-
+$pageId = $title = basename(__DIR__);
+$pageDesc = "Internal Server Error";
 $headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($title, $headDesc);
 
-$navTint = "light";
-$site->renderNav($title, $navTint);
+$pageData = [
+    "pageId" => $pageId,
+    "headTitle" => "{$title} - {$pageDesc}",
+    "headDesc" => $headDesc,
+    "headerTitle" => $title,
+    "headerDesc" => $pageDesc,
+    "navTint" => "light",
+];
+$site->addPageData($pageData);
 
-$headerDesc = "Internal Server Error";
-$site->renderHeader($title, $headerDesc);
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <div class="article article--halved">

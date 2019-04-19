@@ -3,12 +3,19 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$title = "Privacy Policy";
+$pageId = basename(__DIR__);
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->renderHTMLHead($title, $headDesc);
-$site->renderNav($title);
-$site->renderHeader($title);
+$pageData = [
+    "pageId" => $pageId,
+    "title" => "Privacy Policy",
+    "headDesc" => $headDesc,
+];
+$site->addPageData($pageData);
+
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <div class="article">

@@ -1,21 +1,24 @@
 <?php
-
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$pageId = "about";
-
-$headTitle = "About";
+$pageId = basename(__DIR__);
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($headTitle, $headDesc);
 
-$navTint = "light";
-$site->renderNav($headTitle, $navTint, $pageId);
+$pageData = [
+    "pageId" => $pageId,
+    "headTitle" => "About",
+    "headDesc" => $headDesc,
+    "headerTitle" => "About Me",
+    "headerDesc" => "Find Out About Me",
+    "navTint" => "light",
+];
+$site->addPageData($pageData);
 
-$headerTitle = "About Me";
-$headerDesc = "Find Out About Me";
-$site->renderHeader($headerTitle, $headerDesc, $pageId);
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <div class="article article--halved article--about">

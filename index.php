@@ -3,19 +3,22 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$pageId = "home";
-
-$headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-$site->renderHTMLHead($headTitle, $headDesc);
 
-$site->renderNav($title, "", $pageId);
-
-$headerTitle = "Jahidul Pabel Islam";
-$headerDesc = "Full Stack Web &amp; Software Developer";
-$site->renderHeader($headerTitle, $headerDesc, $pageId);
+$pageData = [
+    "pageId" => "home",
+    "headTitle" => "Home",
+    "headDesc" => $headDesc,
+    "headerTitle" => "Jahidul Pabel Islam",
+    "headerDesc" => "Full Stack Web &amp; Software Developer",
+];
+$site->addPageData($pageData);
 
 $site->echoConfig();
+
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
                 <section>
                     <div class="article home__hello-wrapper">

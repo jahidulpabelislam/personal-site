@@ -3,11 +3,17 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$pageId = "links";
-
-$headTitle = "Social Media Links";
+$pageId = basename(__DIR__);
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->renderHTMLHead($headTitle, $headDesc, $pageId);
+
+$pageData = [
+    "pageId" => $pageId,
+    "headTitle" => "Social Media Links",
+    "headDesc" => $headDesc,
+];
+$site->addPageData($pageData);
+
+$site->renderHTMLHead();
 ?>
 
         <main class="main-content social-links-page">

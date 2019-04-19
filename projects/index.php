@@ -4,7 +4,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$pageId = "projects";
+$pageId = basename(__DIR__);
 
 $headTitle = "Projects";
 $headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
@@ -19,15 +19,20 @@ if ($page > 1) {
     $headTitle .= " - Page $page";
 }
 
-$site->renderHTMLHead($headTitle, $headDesc, $pageId);
-
-$site->renderNav("projects", "", $pageId);
-
-$headerTitle = "My Projects";
-$headerDesc = "See My Skills in Action in My Previous Projects";
-$site->renderHeader($headerTitle, $headerDesc, $pageId);
+$pageData = [
+    "pageId" => $pageId,
+    "headTitle" => $headTitle,
+    "headDesc" => $headDesc,
+    "headerTitle" => "My Projects",
+    "headerDesc" => "See My Skills in Action in My Previous Projects",
+];
+$site->addPageData($pageData);
 
 $site->echoConfig();
+
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <section class="article">

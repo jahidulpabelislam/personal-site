@@ -25,6 +25,7 @@ class Site {
     const JPI_START_DATE = "04/10/2010";
 
     private static $instance = null;
+    private $pageData = [];
 
     public function __construct() {
         if (!defined("ROOT")) {
@@ -53,31 +54,16 @@ class Site {
         return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
     }
 
-    /**
-     * Helper function to tidy up page id
-     * and remove any non alpha text
-     *
-     * @param $pageId string
-     * @return string
-     */
-    private static function formatPageId(string $pageId): string {
-        $pageIdFormatted = trim($pageId);
-        $pageIdFormatted = strtolower($pageIdFormatted);
-        $pageIdFormatted = preg_replace("/[^a-z0-9]+/", "-", $pageIdFormatted);
-
-        return $pageIdFormatted;
+    public function addToPageData($field, $value) {
+        $this->pageData[$field] = trim($value);
     }
 
-    /**
-     * Generate pageId using page Title
-     *
-     * @param $title string
-     * @return string
-     */
-    private static function generatePageIdFromTitle(string $title): string {
-        $pageId = self::formatPageId($title);
+    public function addPageData($fields) {
+        $this->pageData = array_merge($this->pageData, $fields);
+    }
 
-        return $pageId;
+    public function getFromPageData($field, $defaultValue = "") {
+        return $this->pageData[$field] ?? $defaultValue;
     }
 
     /**
@@ -89,17 +75,11 @@ class Site {
 
     /**
      * Include the common html head for page/site
-     *
-     * @param $pageId string
-     * @param $title string
-     * @param $desc string
      */
-    public static function renderHTMLHead(string $title, string $desc, string $pageId = "") {
-        $title = trim($title);
-        $desc = trim($desc);
-        $pageId = trim($pageId);
-
-        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+    public function renderHTMLHead() {
+        $pageId = $this->getFromPageData("pageId");
+        $title = $this->pageData["headTitle"] ?? $this->pageData["title"] ?? "";
+        $desc = $this->pageData["headDesc"] ?? $this->pageData["desc"] ?? "";
 
         include_once(ROOT . "/partials/head.php");
     }
@@ -111,11 +91,13 @@ class Site {
      * @param $pageId string
      * @param string $navTint string
      */
-    public static function renderNav(string $title, string $navTint = "dark", string $pageId = "") {
-        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+    public function renderNav() {
+        $pageId = $this->getFromPageData("pageId");
 
-        $navTint = trim($navTint);
-        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : "dark";
+        $defaultTint = "dark";
+
+        $navTint = $this->getFromPageData("navTint", $defaultTint);
+        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : $defaultTint;
 
         include_once(ROOT . "/partials/nav.php");
     }
@@ -127,11 +109,10 @@ class Site {
      * @param $title string
      * @param string $desc string
      */
-    public static function renderHeader(string $title, string $desc = "", string $pageId = "") {
-        $title = trim($title);
-        $desc = trim($desc);
-
-        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
+    public function renderHeader() {
+        $pageId = $this->getFromPageData("pageId");
+        $title = $this->pageData["headerTitle"] ?? $this->pageData["title"] ?? "";
+        $desc = $this->pageData["headerDesc"] ?? $this->pageData["desc"] ?? "";
 
         include_once(ROOT . "/partials/header.php");
     }
@@ -139,21 +120,21 @@ class Site {
     /**
      * Include the common favicons content for page/site
      */
-    public static function renderFavicons() {
+    public function renderFavicons() {
         include_once(ROOT . "/partials/favicons.php");
     }
 
     /**
      * Include the common footer content for page/site
      */
-    public static function renderFooter(array $similarLinks = []) {
+    public function renderFooter(array $similarLinks = []) {
         include_once(ROOT . "/partials/footer.php");
     }
 
     /**
      * Include the common cookie banner content for page/site
      */
-    public static function echoCookieBanner() {
+    public function echoCookieBanner() {
         include_once(ROOT . "/partials/cookie-banner.php");
     }
 

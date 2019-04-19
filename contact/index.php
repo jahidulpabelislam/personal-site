@@ -3,19 +3,22 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
 
 $site = Site::get();
 
-$pageId = "contact";
-
-$title = "Contact Me";
-
+$pageId = basename(__DIR__);
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
-$site->renderHTMLHead($title, $headDesc, $pageId);
-
-$navTint = "light";
-$site->renderNav($title, $navTint, $pageId);
-
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
-$site->renderHeader($title, $headerDesc, $pageId);
+
+$pageData = [
+    "pageId" => $pageId,
+    "title" => "Contact Me",
+    "headDesc" => $headDesc,
+    "headerDesc" => $headerDesc,
+    "navTint" => "light",
+];
+$site->addPageData($pageData);
+
+$site->renderHTMLHead();
+$site->renderNav();
+$site->renderHeader();
 ?>
 
                 <section class="article">
