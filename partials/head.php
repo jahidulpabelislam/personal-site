@@ -74,7 +74,7 @@ $site = Site::get();
 
         <?php
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
-        $filePath = rtrim(ROOT, " /") . "/" . ltrim($imageLocation, " /");
+        $filePath = ROOT . "/" . ltrim($imageLocation, " /");
         if (file_exists($filePath)) {
             $relativeImageURL = $site->getWithAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";

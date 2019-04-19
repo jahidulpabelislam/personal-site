@@ -50,7 +50,7 @@ class Site {
             return ROOT;
         }
 
-        return $_SERVER["DOCUMENT_ROOT"];
+        return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
     }
 
     /**
@@ -234,12 +234,8 @@ class Site {
      * @param bool $root string The root location of where the file should be if not the default
      * @return string The version number found
      */
-    public static function getAssetVersion(string $src, $ver = false, $root = false): string {
+    public static function getAssetVersion(string $src, $ver = false, $root = ROOT): string {
         if (!$ver) {
-            if (!$root) {
-                $root = self::getProjectRoot();
-            }
-
             $src = ltrim($src, " /");
             $file = self::addTrailingSlash($root) . $src;
 
@@ -256,7 +252,7 @@ class Site {
      * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
      * including a version number
      */
-    public static function getWithAssetVersion(string $src, $ver = false, $root = false): string {
+    public static function getWithAssetVersion(string $src, $ver = false, $root = ROOT): string {
         $ver = self::getAssetVersion($src, $ver, $root);
 
         return "{$src}?v={$ver}";
@@ -266,7 +262,7 @@ class Site {
      * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
      * Used to echo the full relative URL for the asset including a version number
      */
-    public static function echoWithAssetVersion(string $src, $ver = false, $root = false) {
+    public static function echoWithAssetVersion(string $src, $ver = false, $root = ROOT) {
         echo self::getWithAssetVersion($src, $ver, $root);
     }
 
@@ -298,14 +294,14 @@ class Site {
         return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
     }
 
-    public function getDateStarted(): DateTime {
+    public static function getDateStarted(): DateTime {
         $dateStarted = self::JPI_START_DATE;
         $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
 
         return $dateStartedDateObj;
     }
 
-    public function getYearStarted(): string {
+    public static function getYearStarted(): string {
         $dateStartedDate = self::getDateStarted();
         $year = $dateStartedDate->format("Y");
 
