@@ -19,11 +19,11 @@ if ($page > 1) {
     $headTitle .= " - Page $page";
 }
 
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
+$site->renderHTMLHead($headTitle, $headDesc, $pageId);
 
 $headerTitle = "My Projects";
 $headerDesc = "See My Skills in Action in My Previous Projects";
-$site->echoHeader($headerTitle, $headerDesc, $pageId);
+$site->renderHeader($headerTitle, $headerDesc, $pageId);
 
 $site->echoConfig();
 ?>
@@ -148,4 +148,4 @@ $similarLinks = [
         "colour" => "green",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

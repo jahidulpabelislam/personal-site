@@ -9,12 +9,12 @@ $headTitle = $headerTitle = "Contact Me";
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
+$site->renderHTMLHead($headTitle, $headDesc, $pageId);
 
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
 $navTint = "light";
 
-$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$site->renderHeader($headerTitle, $headerDesc, $pageId, $navTint);
 ?>
 
                 <section class="article">
@@ -125,4 +125,4 @@ $similarLinks = [
         "colour" => "orange",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

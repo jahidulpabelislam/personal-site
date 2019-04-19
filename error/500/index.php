@@ -6,11 +6,11 @@ $site = Site::get();
 $headTitle = $headerTitle = "500";
 
 $headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Internal Server Error";
 $navTint = "light";
-$site->echoHeader($headerTitle, $headerDesc, "", $navTint);
+$site->renderHeader($headerTitle, $headerDesc, "", $navTint);
 ?>
 
                 <div class="article article--halved">
@@ -41,4 +41,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

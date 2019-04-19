@@ -6,10 +6,10 @@ $site = Site::get();
 $headTitle = $headerTitle = "404";
 
 $headDesc = "Error: 404 - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Page Not Found";
-$site->echoHeader($headerTitle, $headerDesc);
+$site->renderHeader($headerTitle, $headerDesc);
 ?>
 
                 <div class="article article--halved">
@@ -38,4 +38,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

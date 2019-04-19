@@ -6,9 +6,9 @@ $site = Site::get();
 $headTitle = $headerTitle = "Privacy Policy";
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
-$site->echoHeader($headerTitle);
+$site->renderHeader($headerTitle);
 ?>
 
                 <div class="article">
@@ -76,4 +76,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

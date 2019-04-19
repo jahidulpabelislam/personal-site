@@ -94,7 +94,7 @@ class Site {
      * @param $title string
      * @param $desc string
      */
-    public static function echoHTMLHead(string $title, string $desc, string $pageId = "") {
+    public static function renderHTMLHead(string $title, string $desc, string $pageId = "") {
         $title = trim($title);
         $desc = trim($desc);
         $pageId = trim($pageId);
@@ -112,7 +112,7 @@ class Site {
      * @param string $desc string
      * @param string $navTint string
      */
-    public static function echoHeader(string $title, string $desc = "", string $pageId = "", string $navTint = "dark") {
+    public static function renderHeader(string $title, string $desc = "", string $pageId = "", string $navTint = "dark") {
         $title = trim($title);
         $desc = trim($desc);
         $pageId = trim($pageId);
@@ -128,14 +128,14 @@ class Site {
     /**
      * Include the common favicons content for page/site
      */
-    public static function echoFavicons() {
+    public static function renderFavicons() {
         include_once(ROOT . "/partials/favicons.php");
     }
 
     /**
      * Include the common footer content for page/site
      */
-    public static function echoFooter(array $similarLinks = []) {
+    public static function renderFooter(array $similarLinks = []) {
         include_once(ROOT . "/partials/footer.php");
     }
 
@@ -231,7 +231,7 @@ class Site {
      *
      * @param $src string The relative path to a asset
      * @param bool $ver string A version number to use
-     * @param bool $root string The root location of where the file should be if not the default
+     * @param $root string The root location of where the file should be if not the default
      * @return string The version number found
      */
     public static function getAssetVersion(string $src, $ver = false, $root = ROOT): string {

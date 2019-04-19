@@ -5,10 +5,10 @@ $site = Site::get();
 
 $headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
 $navTint = "light";
-$site->echoHeader($headerTitle, "", "", $navTint);
+$site->renderHeader($headerTitle, "", "", $navTint);
 ?>
 
                 <div class="article">
@@ -73,4 +73,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

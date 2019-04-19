@@ -6,10 +6,10 @@ $site = Site::get();
 $headTitle = $headerTitle = "403";
 
 $headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
 $headerDesc = "Forbidden Page";
-$site->echoHeader($headerTitle, $headerDesc);
+$site->renderHeader($headerTitle, $headerDesc);
 ?>
 
                 <div class="article article--halved">
@@ -37,4 +37,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);

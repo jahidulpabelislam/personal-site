@@ -9,13 +9,13 @@ $pageId = "about";
 $headTitle = "About";
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->echoHTMLHead($headTitle, $headDesc);
+$site->renderHTMLHead($headTitle, $headDesc);
 
 $headerTitle = "About Me";
 $headerDesc = "Find Out About Me";
 $navTint = "light";
 
-$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$site->renderHeader($headerTitle, $headerDesc, $pageId, $navTint);
 ?>
 
                 <div class="article article--halved article--about">
@@ -378,4 +378,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$site->echoFooter($similarLinks);
+$site->renderFooter($similarLinks);
