@@ -32,7 +32,7 @@ class Site {
         }
     }
 
-    public static function get() {
+    public static function get(): Site {
         if (self::$instance === null) {
             self::$instance = new self();
         }
@@ -45,7 +45,7 @@ class Site {
      *
      * @return string
      */
-    private static function getProjectRoot() {
+    private static function getProjectRoot(): string {
         if (defined("ROOT")) {
             return ROOT;
         }
@@ -57,10 +57,10 @@ class Site {
      * Helper function to tidy up page id
      * and remove any non alpha text
      *
-     * @param $pageId
-     * @return string|string[]|null
+     * @param $pageId string
+     * @return string
      */
-    private static function formatPageId($pageId) {
+    private static function formatPageId(string $pageId): string {
         $pageIdFormatted = trim($pageId);
         $pageIdFormatted = strtolower($pageIdFormatted);
         $pageIdFormatted = preg_replace("/[^a-z0-9]+/", "-", $pageIdFormatted);
@@ -74,7 +74,7 @@ class Site {
      * @param $title string
      * @return string
      */
-    private static function generatePageIdFromTitle($title) {
+    private static function generatePageIdFromTitle(string $title): string {
         $pageId = self::formatPageId($title);
 
         return $pageId;
@@ -94,7 +94,7 @@ class Site {
      * @param $title string
      * @param $desc string
      */
-    public static function echoHTMLHead($title, $desc, $pageId = "") {
+    public static function echoHTMLHead(string $title, string $desc, string $pageId = "") {
         $title = trim($title);
         $desc = trim($desc);
         $pageId = trim($pageId);
@@ -112,7 +112,7 @@ class Site {
      * @param string $desc string
      * @param string $navTint string
      */
-    public static function echoHeader($title, $desc = "", $pageId = "", $navTint = "dark") {
+    public static function echoHeader(string $title, string $desc = "", string $pageId = "", string $navTint = "dark") {
         $title = trim($title);
         $desc = trim($desc);
         $pageId = trim($pageId);
@@ -135,7 +135,7 @@ class Site {
     /**
      * Include the common footer content for page/site
      */
-    public static function echoFooter($similarLinks = []) {
+    public static function echoFooter(array $similarLinks = []) {
         include_once(ROOT . "/partials/footer.php");
     }
 
@@ -155,7 +155,7 @@ class Site {
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public static function getURL($url = "", $isFull = false, $isLive = false) {
+    public static function getURL(string $url = "", bool $isFull = false, bool $isLive = false): string {
         $url = trim($url);
 
         if (!empty($url)) {
@@ -167,13 +167,9 @@ class Site {
 
         $url .= self::isDebug() ? "?debug" : "";
 
-        if ($isFull && $isLive) {
-            $liveDomain = self::getLiveDomain();
-            $url = rtrim($liveDomain, "/") . $url;
-        }
-        else if ($isFull) {
-            $localDomain = self::getLocalDomain();
-            $url = rtrim($localDomain, "/") . $url;
+        if ($isFull) {
+            $domain = $isLive ? self::getLiveDomain() : self::getLocalDomain();
+            $url = rtrim($domain, "/") . $url;
         }
 
         return $url;
@@ -188,7 +184,7 @@ class Site {
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public static function echoURL($url = "", $isFull = false, $isLive = false) {
+    public static function echoURL(string $url = "", bool $isFull = false, bool $isLive = false) {
         $url = self::getURL($url, $isFull, $isLive);
 
         echo $url;
@@ -198,7 +194,7 @@ class Site {
      * @param $url string The url to add slash to
      * @return string The new url
      */
-    public static function addTrailingSlash($url) {
+    public static function addTrailingSlash(string $url): string {
         $url = rtrim($url, " /");
         $url = "{$url}/";
 
@@ -208,7 +204,7 @@ class Site {
     /**
      * @return string Generate and return the LIVE domain
      */
-    public static function getLiveDomain() {
+    public static function getLiveDomain(): string {
         $liveDomain = self::LIVE_DOMAIN;
         $liveDomain = self::addTrailingSlash($liveDomain);
 
@@ -218,7 +214,7 @@ class Site {
     /**
      * @return string Generate and return the local domain
      */
-    public static function getLocalDomain() {
+    public static function getLocalDomain(): string {
         $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
         $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
         $localDomain = self::addTrailingSlash($localDomain);
@@ -238,7 +234,7 @@ class Site {
      * @param bool $root string The root location of where the file should be if not the default
      * @return string The version number found
      */
-    public static function getAssetVersion(string $src, $ver = false, $root = false) {
+    public static function getAssetVersion(string $src, $ver = false, $root = false): string {
         if (!$ver) {
             if (!$root) {
                 $root = self::getProjectRoot();
@@ -260,7 +256,7 @@ class Site {
      * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
      * including a version number
      */
-    public static function getWithAssetVersion($src, $ver = false, $root = false) {
+    public static function getWithAssetVersion(string $src, $ver = false, $root = false): string {
         $ver = self::getAssetVersion($src, $ver, $root);
 
         return "{$src}?v={$ver}";
@@ -270,7 +266,7 @@ class Site {
      * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
      * Used to echo the full relative URL for the asset including a version number
      */
-    public static function echoWithAssetVersion($src, $ver = false, $root = false) {
+    public static function echoWithAssetVersion(string $src, $ver = false, $root = false) {
         echo self::getWithAssetVersion($src, $ver, $root);
     }
 
@@ -289,7 +285,7 @@ class Site {
      *
      * @param string $filepath string The relative url of image
      */
-    public static function echoProjectImageURL($filepath = "") {
+    public static function echoProjectImageURL(string $filepath = "") {
         $root = rtrim(JPI_API_ENDPOINT, " /");
         $imageURL = "{$root}{$filepath}";
         self::echoWithAssetVersion($imageURL);
@@ -298,20 +294,19 @@ class Site {
     /**
      * @return bool Whether or not the debug was set by user on page view
      */
-    public static function isDebug() {
+    public static function isDebug(): bool {
         return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
     }
 
-    public function getDateStarted() {
+    public function getDateStarted(): DateTime {
         $dateStarted = self::JPI_START_DATE;
         $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
 
         return $dateStartedDateObj;
     }
 
-    public function getYearStarted() {
+    public function getYearStarted(): string {
         $dateStartedDate = self::getDateStarted();
-
         $year = $dateStartedDate->format("Y");
 
         return $year;
