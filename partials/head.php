@@ -34,29 +34,16 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $localDomain = $localURL = $site->getLocalDomain();
-        $liveDomain = $liveURl = $site->getLiveDomain();
+        $liveDomain = $liveURL = $site->getLiveDomain();
 
         if ($pageId !== "home") {
-            $liveURl .= "{$pageId}/";
+            $liveURL .= "{$pageId}/";
             $localURL .= "{$pageId}/";
         }
 
-        $indexedPages = [
-            "home",
-            "projects",
-            "contact",
-            "about",
-            "links",
-            "privacy-policy",
-            "site-map",
-        ];
+        $pageRenderer->addToPageData("liveURL", $liveURL);
 
-        if ($site->isProduction() && in_array($pageId, $indexedPages)) {
-            echo "<link rel='canonical' href='{$liveURl}' />" . PHP_EOL;
-        }
-        else {
-            echo "<meta name='robots' content='noindex,nofollow' />" . PHP_EOL;
-        }
+        $pageRenderer->renderCanonicalURLs();
         ?>
 
         <meta charset="utf-8" />
@@ -86,6 +73,8 @@ $pageRenderer = PageRenderer::get();
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="<?php echo $title; ?>" />
 
+        <?php $pageRenderer->renderFavicons(); ?>
+
         <!-- Custom stylesheet for site -->
         <?php if ($site->isDebug()) {
             ?>
@@ -100,8 +89,6 @@ $pageRenderer = PageRenderer::get();
         ?>
 
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css">
-
-        <?php $pageRenderer->renderFavicons(); ?>
     </head>
 
     <body>

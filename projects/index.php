@@ -5,20 +5,45 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$pageId = basename(__DIR__);
-
-$headTitle = "Projects";
-$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$site->echoConfig();
 
 $search = $_GET["search"] ?? "";
+$pageNum = $_GET["page"] ?? 1;
+
+$requestFields = [
+    "search" => $search,
+    "page" => $pageNum,
+];
+
+$url = JPI_API_ENDPOINT . "/v" . JPI_API_VERSION . "/projects/";
+$requestFieldsString = "?" . http_build_query($requestFields, "", '&');
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url . $requestFieldsString);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+$res = json_decode($response, true);
+
+$hasPreviousPage = $res["meta"]["has_previous_page"] ?? false;
+$hasNextPage = $res["meta"]["has_next_page"] ?? false;
+
+$headTitle = "Projects";
+
 if (strlen(trim($search)) > 0) {
     $headTitle .= " with $search";
 }
 
-$pageNum = $_GET["page"] ?? 1;
 if ($pageNum > 1) {
     $headTitle .= " - Page {$pageNum}";
 }
+
+$pageId = basename(__DIR__);
+$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "pageId" => $pageId,
@@ -26,14 +51,18 @@ $pageData = [
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
     "headerDesc" => "See My Skills in Action in My Previous Projects",
+    "pagination" => [
+        "page" => $res["meta"]["page"],
+        "has_previous_page" => $hasPreviousPage,
+        "has_next_page" => $hasNextPage,
+    ],
 ];
 $pageRenderer->addPageData($pageData);
-
-$site->echoConfig();
 
 $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
+
 ?>
 
                 <section class="article">
