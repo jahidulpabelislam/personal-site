@@ -19,7 +19,6 @@ include_once "SiteConstants.php";
 class Site implements SiteConstants {
 
     private static $instance = null;
-    private $pageData = [];
 
     public function __construct() {
         if (!defined("ROOT")) {
