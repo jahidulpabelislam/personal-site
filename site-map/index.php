@@ -5,12 +5,10 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$pageId = basename(__DIR__);
-
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => $pageId,
+    "pageId" => basename(__DIR__),
     "title" => "Site Map",
     "headDesc" => $headDesc,
     "navTint" => "light",

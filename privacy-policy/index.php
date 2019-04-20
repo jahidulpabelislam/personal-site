@@ -5,11 +5,10 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$pageId = basename(__DIR__);
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => $pageId,
+    "pageId" => basename(__DIR__),
     "title" => "Privacy Policy",
     "headDesc" => $headDesc,
 ];

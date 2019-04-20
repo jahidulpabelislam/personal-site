@@ -31,7 +31,6 @@ $hasPreviousPage = $res["meta"]["has_previous_page"] ?? false;
 $hasNextPage = $res["meta"]["has_next_page"] ?? false;
 
 $headTitle = "Projects";
-
 if (strlen(trim($search)) > 0) {
     $headTitle .= " with $search";
 }
@@ -40,11 +39,10 @@ if ($pageNum > 1) {
     $headTitle .= " - Page {$pageNum}";
 }
 
-$pageId = basename(__DIR__);
 $headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => $pageId,
+    "pageId" => basename(__DIR__),
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
