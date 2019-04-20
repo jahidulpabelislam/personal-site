@@ -18,12 +18,16 @@ include_once "SiteConstants.php";
 
 class Site implements SiteConstants {
 
+    private $environment = "production";
+
     private static $instance = null;
 
     public function __construct() {
         if (!defined("ROOT")) {
             define("ROOT", self::getProjectRoot());
         }
+
+        $this->environment = getenv("APPLICATION_ENV") ?? "production";
     }
 
     public static function get(): Site {
@@ -45,6 +49,10 @@ class Site implements SiteConstants {
         }
 
         return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
+    }
+
+    public function isProduction(): bool {
+        return $this->environment === "production";
     }
 
     /**

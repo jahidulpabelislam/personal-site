@@ -12,12 +12,8 @@ $pageRenderer = PageRenderer::get();
 
     <head>
         <?php
-        $environment = getenv("APPLICATION_ENV") ?? "production";
-
-        $isProduction = $environment === "production";
-
         // Only want Google Analytic for live site
-        if ($isProduction) {
+        if ($site->isProduction()) {
             ?>
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
@@ -55,7 +51,7 @@ $pageRenderer = PageRenderer::get();
             "site-map",
         ];
 
-        if ($isProduction && in_array($pageId, $indexedPages)) {
+        if ($site->isProduction() && in_array($pageId, $indexedPages)) {
             echo "<link rel='canonical' href='{$liveURl}' />" . PHP_EOL;
         }
         else {
