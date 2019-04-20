@@ -7,20 +7,18 @@ $pageRenderer = PageRenderer::get();
 
 $site->echoConfig();
 
+$projectsURL = $site->getAPIEndpoint("/projects/");
+
 $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
-
-$requestFields = [
+$requestParams = [
     "search" => $search,
     "page" => $pageNum,
 ];
-
-$url = JPI_API_ENDPOINT . "/v" . JPI_API_VERSION . "/projects/";
-$requestFieldsString = "?" . http_build_query($requestFields, "", '&');
+$requestParamsString = "?" . http_build_query($requestParams, "", "&");
 
 $ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url . $requestFieldsString);
+curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
 

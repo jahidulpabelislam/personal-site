@@ -183,13 +183,27 @@ class Site implements SiteConstants {
     }
 
     /**
-     * Generate the API endpoint and echo
+     * Generate and return the API endpoint
      */
-    public static function echoAPIEndpoint() {
+    public static function getAPIEndpoint($entity = "") {
         $endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
         $endpoint .= "v" . JPI_API_VERSION;
         $endpoint = self::addTrailingSlash($endpoint);
-        echo $endpoint;
+
+        $entity = trim($entity);
+        if (!empty($entity)) {
+            $endpoint .= trim($entity, "/");
+            $endpoint = self::addTrailingSlash($endpoint);
+        }
+
+        return $endpoint;
+    }
+
+    /**
+     * Generate and echo the API endpoint
+     */
+    public static function echoAPIEndpoint($entity = "") {
+        echo self::getAPIEndpoint($entity);
     }
 
     /**
