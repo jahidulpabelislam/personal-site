@@ -7,28 +7,9 @@ $pageRenderer = PageRenderer::get();
 
 $site->echoConfig();
 
-$projectsURL = $site->getAPIEndpoint("/projects/");
-
 $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
-$requestParams = [
-    "search" => $search,
-    "page" => $pageNum,
-];
-$requestParamsString = "?" . http_build_query($requestParams, "", "&");
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-$res = json_decode($response, true);
-
-$hasPreviousPage = $res["meta"]["has_previous_page"] ?? false;
-$hasNextPage = $res["meta"]["has_next_page"] ?? false;
 
 $headTitle = "Projects";
 if (strlen(trim($search)) > 0) {
@@ -47,12 +28,37 @@ $pageData = [
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
     "headerDesc" => "See My Skills in Action in My Previous Projects",
-    "pagination" => [
+];
+
+if ($site->isProduction()) {
+    $projectsURL = $site->getAPIEndpoint("/projects/");
+
+    $requestParams = [
+        "search" => $search,
+        "page" => $pageNum,
+    ];
+    $requestParamsString = "?" . http_build_query($requestParams, "", "&");
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $res = json_decode($response, true);
+
+    $hasPreviousPage = $res["meta"]["has_previous_page"] ?? false;
+    $hasNextPage = $res["meta"]["has_next_page"] ?? false;
+
+    $pageData["pagination"] = [
         "page" => $res["meta"]["page"],
         "has_previous_page" => $hasPreviousPage,
         "has_next_page" => $hasNextPage,
-    ],
-];
+    ];
+}
+
 $pageRenderer->addPageData($pageData);
 
 $pageRenderer->renderHTMLHead();
