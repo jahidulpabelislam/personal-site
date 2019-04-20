@@ -10,7 +10,6 @@ $site->echoConfig();
 $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
 
-
 $headTitle = "Projects";
 if (strlen(trim($search)) > 0) {
     $headTitle .= " with $search";
@@ -33,11 +32,19 @@ $pageData = [
 if ($site->isProduction()) {
     $projectsURL = $site->getAPIEndpoint("/projects/");
 
-    $requestParams = [
-        "search" => $search,
-        "page" => $pageNum,
-    ];
-    $requestParamsString = "?" . http_build_query($requestParams, "", "&");
+    $requestParams = [];
+    if (strlen(trim($search)) > 0) {
+        $requestParams["search"] = $search;
+    }
+
+    if ($pageNum > 1) {
+        $requestParams["page"] = $pageNum;
+    }
+
+    $requestParamsString = "";
+    if (!empty($requestParams)) {
+        $requestParamsString = "?" . http_build_query($requestParams, "", "&");
+    }
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
