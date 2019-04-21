@@ -7,16 +7,23 @@ $pageRenderer = PageRenderer::get();
 
 $site->echoConfig();
 
+$apiRequestParams = [];
+
 $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
 
 $headTitle = "Projects";
-if (strlen(trim($search)) > 0) {
-    $headTitle .= " with $search";
+
+$search = trim($search);
+if (strlen($search) > 0) {
+    $headTitle .= " with {$search}";
+    $apiRequestParams["search"] = $search;
 }
 
+$pageNum = (int)$pageNum;
 if ($pageNum > 1) {
     $headTitle .= " - Page {$pageNum}";
+    $apiRequestParams["page"] = $pageNum;
 }
 
 $headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
@@ -32,18 +39,9 @@ $pageData = [
 if ($site->isProduction()) {
     $projectsURL = $site->getAPIEndpoint("/projects/");
 
-    $requestParams = [];
-    if (strlen(trim($search)) > 0) {
-        $requestParams["search"] = $search;
-    }
-
-    if ($pageNum > 1) {
-        $requestParams["page"] = $pageNum;
-    }
-
     $requestParamsString = "";
-    if (!empty($requestParams)) {
-        $requestParamsString = "?" . http_build_query($requestParams, "", "&");
+    if (!empty($apiRequestParams)) {
+        $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
     }
 
     $ch = curl_init();
@@ -56,13 +54,12 @@ if ($site->isProduction()) {
 
     $res = json_decode($response, true);
 
-    $hasPreviousPage = $res["meta"]["has_previous_page"] ?? false;
-    $hasNextPage = $res["meta"]["has_next_page"] ?? false;
+    $resMeta = $res["meta"] ?? [];
 
     $pageData["pagination"] = [
-        "page" => $res["meta"]["page"],
-        "has_previous_page" => $hasPreviousPage,
-        "has_next_page" => $hasNextPage,
+        "page" => $resMeta["page"] ?? 1,
+        "has_previous_page" => $resMeta["has_previous_page"] ?? false,
+        "has_next_page" => $resMeta["has_next_page"] ?? false,
     ];
 }
 
@@ -71,7 +68,6 @@ $pageRenderer->addPageData($pageData);
 $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
-
 ?>
 
                 <section class="article">
