@@ -14,7 +14,7 @@
  * @copyright 2010-2019 JPI
 */
 
-include_once "SiteConstants.php";
+include_once("SiteConstants.php");
 
 class Site implements SiteConstants {
 
@@ -125,9 +125,7 @@ class Site implements SiteConstants {
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-        $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-
-        return $url;
+        return $this->genURLWithDomain($relativeURL, $isFull, $isLive);
     }
 
     /**
@@ -178,9 +176,7 @@ class Site implements SiteConstants {
      * @param bool $isLive bool Whether the url should be a full live url
      */
     public function echoURL(string $url = "", bool $isFull = false, bool $isLive = false) {
-        $url = $this->getURL($url, $isFull, $isLive);
-
-        echo $url;
+        echo $this->getURL($url, $isFull, $isLive);
     }
 
     /**
