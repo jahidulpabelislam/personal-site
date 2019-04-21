@@ -16,6 +16,8 @@ $indexedPages = [
 ];
 
 if ($site->isProduction() && in_array($pageId, $indexedPages)) {
+    $liveURL = $site->getRequestedLiveURL();
+
     if (!empty($pagination)) {
         $search = $_GET["search"] ?? "";
         $search = trim($search);

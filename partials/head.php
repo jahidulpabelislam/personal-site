@@ -32,12 +32,7 @@ $pageRenderer = PageRenderer::get();
 
         <title><?php echo $title; ?></title>
 
-        <?php
-        $liveURL = $site->getRequestedLiveURL();
-        $pageRenderer->addToPageData("liveURL", $liveURL);
-
-        $pageRenderer->renderCanonicalURLs();
-        ?>
+        <?php $pageRenderer->renderCanonicalURLs(); ?>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,8 +43,7 @@ $pageRenderer = PageRenderer::get();
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $title; ?>" />
 
-        <?php $localURL = $site->getRequestedLocalURL(); ?>
-        <meta property="og:url" content="<?php echo $localURL; ?>" />
+        <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
         <meta property="og:description" content="<?php echo $desc; ?>" />
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 
