@@ -65,6 +65,7 @@ $site->echoHTMLHead($headTitle, $headDesc, $pageId);
 
         <!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
         <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+        <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
         <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
     </body>
 </html>
