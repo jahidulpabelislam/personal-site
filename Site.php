@@ -20,10 +20,15 @@ class Site implements SiteConstants {
 
     private $environment = "production";
 
+    private $isDebug;
+
     private $liveDomain;
     private $liveURL;
     private $localDomain;
     private $localURL;
+
+    private $dateStarted;
+    private $yearStarted;
 
     private static $instance = null;
 
@@ -161,7 +166,7 @@ class Site implements SiteConstants {
      */
     public function getURL(string $relativeURL = "", bool $isFull = false, bool $isLive = false): string {
         $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-        $url .= self::isDebug() ? "?debug" : "";
+        $url .= $this->isDebug() ? "?debug" : "";
 
         return $url;
     }
@@ -261,22 +266,34 @@ class Site implements SiteConstants {
     /**
      * @return bool Whether or not the debug was set by user on page view
      */
-    public static function isDebug(): bool {
-        return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
+    public function isDebug(): bool {
+        if (!$this->isDebug) {
+            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
+        }
+
+        return $this->isDebug;
     }
 
-    public static function getDateStarted(): DateTime {
-        $dateStarted = self::JPI_START_DATE;
-        $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+    public function getDateStarted(): DateTime {
+        if (!$this->dateStarted) {
+            $dateStarted = self::JPI_START_DATE;
+            $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
 
-        return $dateStartedDateObj;
+            $this->dateStarted = $dateStartedDateObj;
+        }
+
+        return $this->dateStarted;
     }
 
-    public static function getYearStarted(): string {
-        $dateStartedDate = self::getDateStarted();
-        $year = $dateStartedDate->format("Y");
+    public function getYearStarted(): string {
+        if (!$this->yearStarted) {
+            $dateStartedDate = $this->getDateStarted();
+            $year = $dateStartedDate->format("Y");
 
-        return $year;
+            $this->yearStarted = $year;
+        }
+
+        return $this->yearStarted;
     }
 }
 
