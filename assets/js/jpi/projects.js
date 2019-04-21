@@ -12,6 +12,9 @@ window.jpi.projects = (function(jQuery, jpi) {
         url: new URL(window.location),
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
+
+        regexes: {},
+        navColourRegex: null,
     };
 
     var fn = {
@@ -28,6 +31,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img, .pagination").text("").hide("fast");
             jpi.footer.expandContent();
+        },
+
+        getRegex: function(regex) {
+            if (!global.regexes[regex]) {
+                global.regexes[regex] = new RegExp("{{" + regex + "}}", "g");
+            }
+
+            return global.regexes[regex];
         },
 
         addSkills: function(project, divID) {
@@ -103,18 +114,19 @@ window.jpi.projects = (function(jQuery, jpi) {
                     for (var data in project.images[i]) {
                         if (project.images[i].hasOwnProperty(data)) {
                             if (typeof data === "string") {
-                                var reg = new RegExp("{{" + data + "}}", "g");
-                                slideTemplate = slideTemplate.replace(reg, project.images[i][data]);
-                                bulletTemplate = bulletTemplate.replace(reg, project.images[i][data]);
+                                var regex = fn.getRegex(data);
+                                slideTemplate = slideTemplate.replace(regex, project.images[i][data]);
+                                bulletTemplate = bulletTemplate.replace(regex, project.images[i][data]);
                             }
                         }
                     }
-                    var colourReg = new RegExp("{{colour}}", "g");
-                    slideTemplate = slideTemplate.replace(colourReg, project.colour);
-                    bulletTemplate = bulletTemplate.replace(colourReg, project.colour);
 
-                    var idReg = new RegExp("{{slide-show-id}}", "g");
-                    bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
+                    var colourRegex = fn.getRegex("colour");
+                    slideTemplate = slideTemplate.replace(colourRegex, project.colour);
+                    bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
+
+                    var idRegex = fn.getRegex("slide-show-id");
+                    bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
 
                     slidesContainer.append(slideTemplate);
                     slideShowBullets.append(bulletTemplate);
@@ -149,12 +161,14 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             fn.addProjectImages(project, "#detailed-project__slide-show");
 
-            var regx = new RegExp("slide-show__nav--\\w*", "g");
+            if (!global.navColourRegex) {
+                global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
+            }
 
             jQuery(".detailed-project .slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
                 var classList = slideShowNav.attr("class");
-                classList = classList.replace(regx, "slide-show__nav--" + project.colour);
+                classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
                 slideShowNav.attr("class", classList);
             });
         },
@@ -188,8 +202,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                 for (var data in project) {
                     if (project.hasOwnProperty(data)) {
                         if (typeof data === "string") {
-                            var reg = new RegExp("{{" + data + "}}", "g");
-                            template = template.replace(reg, project[data]);
+                            var regex = fn.getRegex(data);
+                            template = template.replace(regex, project[data]);
                         }
                     }
                 }

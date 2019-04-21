@@ -9,6 +9,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
     var global = {
         milliSecsPerSlide: 5000,
         slideShows: {},
+        slideColourRegex: null,
     };
 
     var fn = {
@@ -95,13 +96,16 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             fn.resetTransition(slidesContainer);
 
             if (slideShowId === "#slide-show--home") {
-                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour"),
-                    regx = new RegExp("slide-show__nav--\\w*", "g");
+                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
+
+                if (!global.navColourRegex) {
+                    global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
+                }
 
                 jQuery(slideShowId + " .slide-show__nav").each(function() {
                     var slideShowNav = jQuery(this);
                     var classList = slideShowNav.attr("class");
-                    classList = classList.replace(regx, "slide-show__nav--" + colour);
+                    classList = classList.replace(global.navColourRegex, "slide-show__nav--" + colour);
                     slideShowNav.attr("class", classList);
                 });
             }
