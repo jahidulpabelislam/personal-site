@@ -80,7 +80,6 @@ class PageRenderer {
     public function renderCanonicalURLs() {
         $pageId = $this->getFromPageData("pageId");
         $pagination = $this->getFromPageData("pagination", []);
-        $liveURL = $this->getFromPageData("liveURL");
 
         include_once(ROOT . "/partials/canonical-urls.php");
     }
