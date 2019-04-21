@@ -95,6 +95,30 @@ class Site implements SiteConstants {
     }
 
     /**
+     * @return string Generate and return the LIVE URL of requested page
+     */
+    public static function getRequestedURL(bool $isLive = false, bool $isFull = true): string {
+        $domain = "/";
+        if ($isFull) {
+            if ($isLive) {
+                $domain = self::getLiveDomain();
+            }
+            else {
+                $domain = self::getLocalDomain();
+            }
+        }
+
+        $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        $relativeURL = !empty($relativeURL) ? trim($relativeURL) : "";
+
+        $url = $domain . ltrim($relativeURL, "/");
+
+        $url = self::addTrailingSlash($url);
+
+        return $url;
+    }
+
+    /**
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *

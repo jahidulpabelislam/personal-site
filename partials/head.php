@@ -33,14 +33,7 @@ $pageRenderer = PageRenderer::get();
         <title><?php echo $title; ?></title>
 
         <?php
-        $localDomain = $localURL = $site->getLocalDomain();
-        $liveDomain = $liveURL = $site->getLiveDomain();
-
-        if ($pageId !== "home") {
-            $liveURL .= "{$pageId}/";
-            $localURL .= "{$pageId}/";
-        }
-
+        $liveURL = $site->getRequestedURL(true);
         $pageRenderer->addToPageData("liveURL", $liveURL);
 
         $pageRenderer->renderCanonicalURLs();
@@ -54,6 +47,8 @@ $pageRenderer = PageRenderer::get();
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $title; ?>" />
+
+        <?php $localURL = $site->getRequestedURL(false); ?>
         <meta property="og:url" content="<?php echo $localURL; ?>" />
         <meta property="og:description" content="<?php echo $desc; ?>" />
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
@@ -62,6 +57,7 @@ $pageRenderer = PageRenderer::get();
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
         $filePath = ROOT . "/" . ltrim($imageLocation, " /");
         if (file_exists($filePath)) {
+            $localDomain = $site->getLocalDomain();
             $relativeImageURL = $site->getWithAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>

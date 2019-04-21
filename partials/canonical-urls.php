@@ -21,12 +21,15 @@ if ($site->isProduction() && in_array($pageId, $indexedPages)) {
         $search = trim($search);
         $page = $pagination["page"] ?? 1;
 
+        $url = $site->getLiveDomain();
+        $url .= "{$pageId}/";
+
         if (strlen($search) > 0) {
-            $liveURL .= $search . "/";
+            $url .= $search . "/";
         }
 
         if ($pagination["has_previous_page"]) {
-            $prevURL = $liveURL;
+            $prevURL = $url;
 
             if ($page > 2) {
                 $prevURL .= ($page - 1) . "/";
@@ -36,12 +39,8 @@ if ($site->isProduction() && in_array($pageId, $indexedPages)) {
         }
 
         if ($pagination["has_next_page"]) {
-            $nextURL = $liveURL . ($page + 1) . "/";
+            $nextURL = $url . ($page + 1) . "/";
             echo "<link rel='next' href='{$nextURL}' />" . PHP_EOL;
-        }
-
-        if ($page > 1) {
-            $liveURL .= "{$page}/";
         }
     }
     echo "<link rel='canonical' href='{$liveURL}' />" . PHP_EOL;
