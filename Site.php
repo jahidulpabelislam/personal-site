@@ -67,6 +67,7 @@ class Site implements SiteConstants {
         include_once(ROOT . "/config.php");
     }
 
+
     /**
      * @param $url string The url to add slash to
      * @return string The new url
@@ -78,8 +79,18 @@ class Site implements SiteConstants {
         return $url;
     }
 
+    private function genURLWithDomain($domain, $relativeURL) {
+        $domain = rtrim($domain, " /");
+        $relativeURL = ltrim($relativeURL, " /");
+
+        $fullURL = $domain . "/" . $relativeURL;
+        $fullURL = self::addTrailingSlash($fullURL);
+
+        return $fullURL;
+    }
+
     /**
-     * @return string Generate and return the LIVE domain
+     * @return string Generate and return the live domain
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
@@ -104,7 +115,7 @@ class Site implements SiteConstants {
     }
 
     /**
-     * @return string Generate and return the URL of requested page
+     * @return string Generate and return the URL of current requested page/URL
      */
     public function getRequestedURL(bool $isLive = false, bool $isFull = true): string {
         $domain = "/";
@@ -113,32 +124,29 @@ class Site implements SiteConstants {
         }
 
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-        $relativeURL = !empty($relativeURL) ? trim($relativeURL) : "";
 
-        $url = $domain . ltrim($relativeURL, "/");
-
-        $url = self::addTrailingSlash($url);
+        $url = $this->genURLWithDomain($domain, $relativeURL);
 
         return $url;
     }
 
     /**
-     * @return string Generate and return the LIVE URL of requested page
+     * @return string Generate and return the live URL of the current requested page/URL
      */
-    public function getRequestedLiveURL(bool $isFull = true): string {
+    public function getRequestedLiveURL(): string {
         if (!$this->liveURL) {
-            $this->liveURL = $this->getRequestedURL(true, $isFull);
+            $this->liveURL = $this->getRequestedURL(true);
         }
 
         return $this->liveURL;
     }
 
     /**
-     * @return string Generate and return the Local URL of requested page
+     * @return string Generate and return the local URL of the current requested page/URL
      */
-    public function getRequestedLocalURL(bool $isFull = true): string {
+    public function getRequestedLocalURL(): string {
         if (!$this->localURL) {
-            $this->localURL = $this->getRequestedURL(false, $isFull);
+            $this->localURL = $this->getRequestedURL(false);
         }
 
         return $this->localURL;
@@ -153,23 +161,15 @@ class Site implements SiteConstants {
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public function getURL(string $url = "", bool $isFull = false, bool $isLive = false): string {
+    public function getURL(string $relativeURL = "", bool $isFull = false, bool $isLive = false): string {
         $domain = "/";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
         }
 
-        $url = trim($url);
-        if (!empty($url)) {
-            $url = "/" . trim($url, "/") . "/";
-        }
-        else {
-            $url = "/";
-        }
+        $url = $this->genURLWithDomain($domain, $relativeURL);
 
         $url .= self::isDebug() ? "?debug" : "";
-
-        $url = rtrim($domain, "/") . $url;
 
         return $url;
     }
