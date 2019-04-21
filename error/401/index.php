@@ -5,16 +5,16 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$pageId = $title = basename(__DIR__);
-$pageDesc = "Unauthorized";
-$headDesc = "Error: 401 - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$error = basename(__DIR__);
+$errorDesc = "Unauthorized";
+$headDesc = "Error: {$error} - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => $pageId,
-    "headTitle" => "{$title} - {$pageDesc}",
+    "pageId" => $error,
+    "headTitle" => "{$error} - {$errorDesc}",
     "headDesc" => $headDesc,
-    "headerTitle" => $title,
-    "headerDesc" => $pageDesc,
+    "headerTitle" => $error,
+    "headerDesc" => $errorDesc,
 ];
 $pageRenderer->addPageData($pageData);
 
