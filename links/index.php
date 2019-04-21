@@ -63,9 +63,23 @@ $site->echoHTMLHead($headTitle, $headDesc, $pageId);
             </div>
         </main>
 
-        <!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
+        <?php
+        // Either output a compiled js file for the page & libraries js files, or include individual files if debug is specified
+        if ($site->isDebug()) {
+            ?>
+            <!-- All individual js files for site as debug is specified -->
+            <?php // Files necessary for StickyFooter js code ?>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
+            <?php
+        }
+        else {
+            ?>
+            <!-- Compiled page & libraries js files -->
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
+            <?php
+        }
+        ?>
     </body>
 </html>
