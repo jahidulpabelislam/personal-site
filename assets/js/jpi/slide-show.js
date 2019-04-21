@@ -261,6 +261,10 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
 
         initListeners: function() {
+            if (!jQuery(".slide-show").length) {
+                return;
+            }
+
             jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
             jQuery("body").on("dragstart", ".slide-show__img", false);
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
