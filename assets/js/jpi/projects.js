@@ -113,7 +113,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     slideTemplate = slideTemplate.replace(colourReg, project.colour);
                     bulletTemplate = bulletTemplate.replace(colourReg, project.colour);
 
-                    var idReg = new RegExp("{{Slide-Show-ID}}", "g");
+                    var idReg = new RegExp("{{slide-show-id}}", "g");
                     bulletTemplate = bulletTemplate.replace(idReg, slideShowId);
 
                     slidesContainer.append(slideTemplate);
