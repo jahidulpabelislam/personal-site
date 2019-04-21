@@ -79,7 +79,12 @@ class Site implements SiteConstants {
         return $url;
     }
 
-    private function genURLWithDomain($domain, $relativeURL) {
+    private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
+        $domain = "/";
+        if ($isFull) {
+            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+        }
+
         $domain = rtrim($domain, " /");
         $relativeURL = ltrim($relativeURL, " /");
 
@@ -117,15 +122,10 @@ class Site implements SiteConstants {
     /**
      * @return string Generate and return the URL of current requested page/URL
      */
-    public function getRequestedURL(bool $isLive = false, bool $isFull = true): string {
-        $domain = "/";
-        if ($isFull) {
-            $domain = $isLive ? self::getLiveDomain() : self::getLocalDomain();
-        }
-
+    public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-        $url = $this->genURLWithDomain($domain, $relativeURL);
+        $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
 
         return $url;
     }
@@ -135,7 +135,7 @@ class Site implements SiteConstants {
      */
     public function getRequestedLiveURL(): string {
         if (!$this->liveURL) {
-            $this->liveURL = $this->getRequestedURL(true);
+            $this->liveURL = $this->getRequestedURL(true, true);
         }
 
         return $this->liveURL;
@@ -146,7 +146,7 @@ class Site implements SiteConstants {
      */
     public function getRequestedLocalURL(): string {
         if (!$this->localURL) {
-            $this->localURL = $this->getRequestedURL(false);
+            $this->localURL = $this->getRequestedURL(true, false);
         }
 
         return $this->localURL;
@@ -156,19 +156,13 @@ class Site implements SiteConstants {
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $url string The relative url part/s to use to generate url from
+     * @param string $relativeURL string The relative url part/s to use to generate url from
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
     public function getURL(string $relativeURL = "", bool $isFull = false, bool $isLive = false): string {
-        $domain = "/";
-        if ($isFull) {
-            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
-        }
-
-        $url = $this->genURLWithDomain($domain, $relativeURL);
-
+        $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
         $url .= self::isDebug() ? "?debug" : "";
 
         return $url;
