@@ -40,7 +40,7 @@ if ($site->isProduction()) {
     $projectsURL = $site->getAPIEndpoint("/projects/");
 
     $requestParamsString = "";
-    if (!empty($apiRequestParams)) {
+    if (count($apiRequestParams) > 0) {
         $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
     }
 

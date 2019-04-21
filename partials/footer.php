@@ -8,7 +8,7 @@ $pageRenderer = PageRenderer::get();
 ?>
 
                 <?php
-                if (!empty($similarLinks)) {
+                if (count($similarLinks) > 1) {
                     echo "<div class='article article--halved article--similar-links'>";
                     echo "<div class='container'>";
 
