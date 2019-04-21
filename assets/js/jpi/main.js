@@ -62,30 +62,30 @@ window.jpi.main = (function(jQuery, jpi) {
             );
         },
 
-        toggleLabelContent: function() {
-            var label = jQuery(this);
+        toggleSkillInterestContent: function() {
+            var item = jQuery(this);
 
-            // Get the new label elems that was clicked
-            var selected = label.children(".skills-interests__item-expand-content");
-            var selectedIcon = label.children(".skills-interests__item-expand-icon");
+            // Get the new item elems that was clicked
+            var selected = item.children(".skills-interests__item-expand-content");
+            var selectedIcon = item.children(".skills-interests__item-expand-icon");
 
-            // Reset all other label to closed
+            // Reset all other item to closed
             jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
 
             jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
-            // Toggle the clicked label
+            // Toggle the clicked item
             selectedIcon.toggleClass("fa-plus");
             selectedIcon.toggleClass("fa-minus");
             selected.slideToggle();
 
-            label.toggleClass("expanded-item");
-            jQuery(".js-expand-skill-interest").not(label).removeClass("expanded-item");
+            item.toggleClass("expanded-item");
+            jQuery(".js-expand-skill-interest").not(item).removeClass("expanded-item");
         },
 
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
-            jQuery(".js-expand-skill-interest").on("click", fn.toggleLabelContent);
+            jQuery(".js-expand-skill-interest").on("click", fn.toggleSkillInterestContent);
 
             if (jQuery(global.mapSelector).length) {
                 google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
