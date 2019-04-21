@@ -20,6 +20,11 @@ class Site implements SiteConstants {
 
     private $environment = "production";
 
+    private $liveDomain;
+    private $liveURL;
+    private $localDomain;
+    private $localURL;
+
     private static $instance = null;
 
     public function __construct() {
@@ -76,36 +81,35 @@ class Site implements SiteConstants {
     /**
      * @return string Generate and return the LIVE domain
      */
-    public static function getLiveDomain(): string {
-        $liveDomain = self::LIVE_DOMAIN;
-        $liveDomain = self::addTrailingSlash($liveDomain);
+    public function getLiveDomain(): string {
+        if (!$this->liveDomain) {
+            $liveDomain = self::LIVE_DOMAIN;
+            $this->liveDomain = self::addTrailingSlash($liveDomain);
+        }
 
-        return $liveDomain;
+        return $this->liveDomain;
     }
 
     /**
      * @return string Generate and return the local domain
      */
-    public static function getLocalDomain(): string {
-        $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-        $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-        $localDomain = self::addTrailingSlash($localDomain);
+    public function getLocalDomain(): string {
+        if (!$this->localDomain) {
+            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+            $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
+            $this->localDomain = self::addTrailingSlash($localDomain);
+        }
 
-        return $localDomain;
+        return $this->localDomain;
     }
 
     /**
-     * @return string Generate and return the LIVE URL of requested page
+     * @return string Generate and return the URL of requested page
      */
-    public static function getRequestedURL(bool $isLive = false, bool $isFull = true): string {
+    public function getRequestedURL(bool $isLive = false, bool $isFull = true): string {
         $domain = "/";
         if ($isFull) {
-            if ($isLive) {
-                $domain = self::getLiveDomain();
-            }
-            else {
-                $domain = self::getLocalDomain();
-            }
+            $domain = $isLive ? self::getLiveDomain() : self::getLocalDomain();
         }
 
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -119,6 +123,28 @@ class Site implements SiteConstants {
     }
 
     /**
+     * @return string Generate and return the LIVE URL of requested page
+     */
+    public function getRequestedLiveURL(bool $isFull = true): string {
+        if (!$this->liveURL) {
+            $this->liveURL = $this->getRequestedURL(true, $isFull);
+        }
+
+        return $this->liveURL;
+    }
+
+    /**
+     * @return string Generate and return the Local URL of requested page
+     */
+    public function getRequestedLocalURL(bool $isFull = true): string {
+        if (!$this->localURL) {
+            $this->localURL = $this->getRequestedURL(false, $isFull);
+        }
+
+        return $this->localURL;
+    }
+
+    /**
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
@@ -127,9 +153,13 @@ class Site implements SiteConstants {
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public static function getURL(string $url = "", bool $isFull = false, bool $isLive = false): string {
-        $url = trim($url);
+    public function getURL(string $url = "", bool $isFull = false, bool $isLive = false): string {
+        $domain = "/";
+        if ($isFull) {
+            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+        }
 
+        $url = trim($url);
         if (!empty($url)) {
             $url = "/" . trim($url, "/") . "/";
         }
@@ -139,10 +169,7 @@ class Site implements SiteConstants {
 
         $url .= self::isDebug() ? "?debug" : "";
 
-        if ($isFull) {
-            $domain = $isLive ? self::getLiveDomain() : self::getLocalDomain();
-            $url = rtrim($domain, "/") . $url;
-        }
+        $url = rtrim($domain, "/") . $url;
 
         return $url;
     }
@@ -156,8 +183,8 @@ class Site implements SiteConstants {
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public static function echoURL(string $url = "", bool $isFull = false, bool $isLive = false) {
-        $url = self::getURL($url, $isFull, $isLive);
+    public function echoURL(string $url = "", bool $isFull = false, bool $isLive = false) {
+        $url = $this->getURL($url, $isFull, $isLive);
 
         echo $url;
     }
