@@ -44,27 +44,32 @@ window.jpi.projects = (function(jQuery, jpi) {
         addSkills: function(project, divID) {
             var skills = project.skills.split(","),
                 skillsContainer = jQuery(divID + " .project__skills")[0],
-                search = jQuery(".search-form__input").val(),
-                searches = search.split(" ");
+                search = jQuery(".search-form__input").val().trim(),
+                lowerCasedSearch = search.toLowerCase(),
+                searches = lowerCasedSearch.split(" ");
 
             for (var i = 0; i < skills.length; i++) {
-                var skill = skills[i];
-                if (skill.trim() !== "") {
-                    var skillElem = jpi.helpers.createElement(skillsContainer, "a", {
-                        innerHTML: skill,
-                        class: "skill skill--" + project.colour,
-                        href: "/projects/" + skill + "/",
-                    });
+                var skill = skills[i].trim();
 
+                if (skill !== "") {
+                    var lowerCasedSkill = skill.toLowerCase();
+
+                    var isInSearch = false;
                     for (var j = 0; j < searches.length; j++) {
-                        if (searches[j].trim() !== "" && skill.toLowerCase().includes(searches[j].toLowerCase())) {
-                            skillElem.className += " searched";
+                        if (searches[j].trim() !== "" && lowerCasedSkill.includes(searches[j])) {
+                            isInSearch = true;
+                            break;
                         }
                     }
 
-                    if (search.trim() === "" || skill.toLowerCase() !== search.toLowerCase()) {
-                        skillElem.className += " js-searchable-skill";
-                    }
+                    var classes = "skill skill--" + project.colour;
+                    classes += isInSearch ? " searched" : " js-searchable-skill";
+
+                    jpi.helpers.createElement(skillsContainer, "a", {
+                        innerHTML: skill,
+                        class: classes,
+                        href: "/projects/" + skill + "/",
+                    });
                 }
             }
         },
