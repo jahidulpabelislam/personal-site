@@ -75,7 +75,7 @@ window.jpi.helpers = (function() {
 
         checkCookieValue: function(key, valueToCheck) {
             var cookie = fn.getCookie(key);
-            return cookie && cookie != "" && cookie == valueToCheck;
+            return cookie && cookie == valueToCheck;
         },
 
         setCookie: function(key, value, expirationDays) {
