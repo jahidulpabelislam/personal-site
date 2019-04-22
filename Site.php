@@ -85,12 +85,12 @@ class Site implements SiteConstants {
     }
 
     private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
-        $domain = "/";
+        $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+            $domain = rtrim($domain, "/");
         }
 
-        $domain = rtrim($domain, " /");
         $relativeURL = ltrim($relativeURL, " /");
 
         $fullURL = $domain . "/" . $relativeURL;
