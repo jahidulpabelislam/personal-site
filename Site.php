@@ -72,6 +72,16 @@ class Site implements SiteConstants {
         include_once(ROOT . "/config.php");
     }
 
+    /**
+     * @return bool Whether or not the debug was set by user on page view
+     */
+    public function isDebug(): bool {
+        if ($this->isDebug === null) {
+            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
+        }
+
+        return $this->isDebug;
+    }
 
     /**
      * @param $url string The url to add slash to
@@ -82,21 +92,6 @@ class Site implements SiteConstants {
         $url = "{$url}/";
 
         return $url;
-    }
-
-    private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
-        $domain = "";
-        if ($isFull) {
-            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
-            $domain = rtrim($domain, "/");
-        }
-
-        $relativeURL = ltrim($relativeURL, " /");
-
-        $fullURL = $domain . "/" . $relativeURL;
-        $fullURL = self::addTrailingSlash($fullURL);
-
-        return $fullURL;
     }
 
     /**
@@ -122,6 +117,21 @@ class Site implements SiteConstants {
         }
 
         return $this->localDomain;
+    }
+
+    private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
+        $domain = "";
+        if ($isFull) {
+            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+            $domain = rtrim($domain, "/");
+        }
+
+        $relativeURL = ltrim($relativeURL, " /");
+
+        $fullURL = $domain . "/" . $relativeURL;
+        $fullURL = self::addTrailingSlash($fullURL);
+
+        return $fullURL;
     }
 
     /**
@@ -261,17 +271,6 @@ class Site implements SiteConstants {
         $root = rtrim(JPI_API_ENDPOINT, " /");
         $imageURL = "{$root}{$filepath}";
         self::echoWithAssetVersion($imageURL);
-    }
-
-    /**
-     * @return bool Whether or not the debug was set by user on page view
-     */
-    public function isDebug(): bool {
-        if ($this->isDebug === null) {
-            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
-        }
-
-        return $this->isDebug;
     }
 
     public function getDateStarted(): DateTime {

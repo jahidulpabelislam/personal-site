@@ -60,6 +60,23 @@ class PageRenderer {
     }
 
     /**
+     * Include the common canonical urls meta elements for page/site
+     */
+    public function renderCanonicalURLs() {
+        $pagination = $this->getFromPageData("pagination", []);
+        $currentURL = $this->getFromPageData("currentURL");
+
+        include_once(ROOT . "/partials/canonical-urls.php");
+    }
+
+    /**
+     * Include the common favicons content for page/site
+     */
+    public function renderFavicons() {
+        include_once(ROOT . "/partials/favicons.php");
+    }
+
+    /**
      * Include the common html nav content for page/site
      */
     public function renderNav() {
@@ -83,23 +100,6 @@ class PageRenderer {
         $desc = $this->pageData["headerDesc"] ?? $this->pageData["desc"] ?? "";
 
         include_once(ROOT . "/partials/header.php");
-    }
-
-    /**
-     * Include the common favicons content for page/site
-     */
-    public function renderFavicons() {
-        include_once(ROOT . "/partials/favicons.php");
-    }
-
-    /**
-     * Include the common canonical urls meta elements for page/site
-     */
-    public function renderCanonicalURLs() {
-        $pagination = $this->getFromPageData("pagination", []);
-        $currentURL = $this->getFromPageData("currentURL");
-
-        include_once(ROOT . "/partials/canonical-urls.php");
     }
 
     /**
