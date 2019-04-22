@@ -20,7 +20,7 @@ class Site implements SiteConstants {
 
     private $environment = "production";
 
-    private $isDebug;
+    private $isDebug = null;
 
     private $liveDomain;
     private $liveURL;
@@ -267,7 +267,7 @@ class Site implements SiteConstants {
      * @return bool Whether or not the debug was set by user on page view
      */
     public function isDebug(): bool {
-        if (!$this->isDebug) {
+        if ($this->isDebug === null) {
             $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
         }
 
