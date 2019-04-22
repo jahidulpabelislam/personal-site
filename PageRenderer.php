@@ -39,7 +39,11 @@ class PageRenderer {
     }
 
     public function addToPageData($field, $value) {
-        $this->pageData[$field] = trim($value);
+        if (is_string($value)) {
+            $value = trim($value);
+        }
+
+        $this->pageData[$field] = $value;
     }
 
     public function addPageData($fields) {
