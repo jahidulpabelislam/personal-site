@@ -10,7 +10,6 @@ $pageDesc = "Forbidden Page";
 $headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => $error,
     "headTitle" => "{$error} - {$errorDesc}",
     "headDesc" => $headDesc,
     "headerTitle" => $error,

@@ -8,7 +8,6 @@ $pageRenderer = PageRenderer::get();
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => basename(__DIR__),
     "title" => "Privacy Policy",
     "headDesc" => $headDesc,
 ];

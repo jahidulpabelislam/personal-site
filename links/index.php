@@ -8,7 +8,6 @@ $pageRenderer = PageRenderer::get();
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => basename(__DIR__),
     "headTitle" => "Social Media Links",
     "headDesc" => $headDesc,
 ];

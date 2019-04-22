@@ -8,7 +8,6 @@ $pageRenderer = PageRenderer::get();
 $headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => basename(__DIR__),
     "headTitle" => "About",
     "headDesc" => $headDesc,
     "headerTitle" => "About Me",

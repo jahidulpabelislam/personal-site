@@ -9,6 +9,15 @@ class PageRenderer {
 
     public function __construct() {
         $this->site = Site::get();
+
+        $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
+        if ($filePath === ROOT) {
+            $pageId = "home";
+        } else {
+            $pageId = basename($filePath);
+        }
+
+        $this->addToPageData("pageId", $pageId);
     }
 
     public static function get(): PageRenderer {

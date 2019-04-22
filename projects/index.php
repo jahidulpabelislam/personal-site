@@ -29,7 +29,6 @@ if ($pageNum > 1) {
 $headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
-    "pageId" => basename(__DIR__),
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
