@@ -26,7 +26,6 @@ $site = Site::get();
                         $links = [
                             [
                                 "title" => "Home",
-                                "url" => "",
                             ], [
                                 "title" => "Projects",
                                 "url" => "/projects/",
@@ -42,7 +41,7 @@ $site = Site::get();
                         foreach ($links as $link) {
                             $linkTitle = $link["title"];
 
-                            $url = $link["url"];
+                            $url = $link["url"] ?? "";
                             $url = strtolower($url);
                             $url = $site->getURL($url);
 
