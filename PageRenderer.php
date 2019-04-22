@@ -9,23 +9,7 @@ class PageRenderer {
 
     public function __construct() {
         $this->site = Site::get();
-
-        $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
-        if ($filePath === ROOT) {
-            $pageId = "home";
-            $currentURL = $this->site->getURL("/", false);
-        }
-        else {
-            $pageId = basename($filePath);
-            $currentURL = $this->site->getURL(dirname($_SERVER["SCRIPT_NAME"]), false);
-        }
-
-        $globalPageData =[
-            "pageId" => $pageId,
-            "currentURL" => $currentURL,
-        ];
-
-        $this->addPageData($globalPageData);
+        $this->addGlobalPageData();
     }
 
     public static function get(): PageRenderer {
@@ -34,6 +18,24 @@ class PageRenderer {
         }
 
         return self::$instance;
+    }
+
+    private function addGlobalPageData() {
+        $pageId = "home";
+        $url = "/";
+
+        $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
+        if ($filePath !== ROOT) {
+            $pageId = basename($filePath);
+            $url = dirname($_SERVER["SCRIPT_NAME"]);
+        }
+
+        $globalPageData =[
+            "pageId" => $pageId,
+            "currentURL" => $this->site->getURL($url, false),
+        ];
+
+        $this->addPageData($globalPageData);
     }
 
     public function addToPageData($field, $value) {
