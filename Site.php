@@ -50,8 +50,6 @@ class Site implements SiteConstants {
 
     /**
      * Return this projects root directory
-     *
-     * @return string
      */
     private static function getProjectRoot(): string {
         if (defined("ROOT")) {
@@ -119,7 +117,7 @@ class Site implements SiteConstants {
         return $this->localDomain;
     }
 
-    private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
+    private function genURLWithDomain(string $relativeURL, bool $isFull = false, bool $isLive = false): string {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
@@ -206,12 +204,12 @@ class Site implements SiteConstants {
      * @param $root string The root location of where the file should be if not the default
      * @return string The version number found
      */
-    public static function getAssetVersion(string $src, $ver = false, $root = ROOT): string {
+    public static function getAssetVersion(string $src, $ver = false, string $root = ROOT): string {
         if (!$ver) {
+            $ver = self::DEFAULT_ASSET_VERSION;
+
             $src = ltrim($src, " /");
             $file = self::addTrailingSlash($root) . $src;
-
-            $ver = self::DEFAULT_ASSET_VERSION;
             if (file_exists($file)) {
                 $ver = date("mdYHi", filemtime($file));
             }
@@ -224,7 +222,7 @@ class Site implements SiteConstants {
      * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
      * including a version number
      */
-    public static function getWithAssetVersion(string $src, $ver = false, $root = ROOT): string {
+    public static function getWithAssetVersion(string $src, $ver = false, string $root = ROOT): string {
         $ver = self::getAssetVersion($src, $ver, $root);
 
         return "{$src}?v={$ver}";
@@ -234,14 +232,14 @@ class Site implements SiteConstants {
      * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
      * Used to echo the full relative URL for the asset including a version number
      */
-    public static function echoWithAssetVersion(string $src, $ver = false, $root = ROOT) {
+    public static function echoWithAssetVersion(string $src, $ver = false, string $root = ROOT) {
         echo self::getWithAssetVersion($src, $ver, $root);
     }
 
     /**
      * Generate and return the API endpoint
      */
-    public static function getAPIEndpoint($entity = "") {
+    public static function getAPIEndpoint(string $entity = ""): string {
         $endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
         $endpoint .= "v" . JPI_API_VERSION;
         $endpoint = self::addTrailingSlash($endpoint);
@@ -258,7 +256,7 @@ class Site implements SiteConstants {
     /**
      * Generate and echo the API endpoint
      */
-    public static function echoAPIEndpoint($entity = "") {
+    public static function echoAPIEndpoint(string $entity = "") {
         echo self::getAPIEndpoint($entity);
     }
 
