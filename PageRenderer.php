@@ -13,11 +13,19 @@ class PageRenderer {
         $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
         if ($filePath === ROOT) {
             $pageId = "home";
-        } else {
+            $currentURL = $this->site->getURL("/", false);
+        }
+        else {
             $pageId = basename($filePath);
+            $currentURL = $this->site->getURL(dirname($_SERVER["SCRIPT_NAME"]), false);
         }
 
-        $this->addToPageData("pageId", $pageId);
+        $globalPageData =[
+            "pageId" => $pageId,
+            "currentURL" => $currentURL,
+        ];
+
+        $this->addPageData($globalPageData);
     }
 
     public static function get(): PageRenderer {
@@ -56,6 +64,7 @@ class PageRenderer {
      */
     public function renderNav() {
         $pageId = $this->getFromPageData("pageId");
+        $currentURL = $this->getFromPageData("currentURL");
 
         $defaultTint = "dark";
 
@@ -87,8 +96,8 @@ class PageRenderer {
      * Include the common canonical urls meta elements for page/site
      */
     public function renderCanonicalURLs() {
-        $pageId = $this->getFromPageData("pageId");
         $pagination = $this->getFromPageData("pagination", []);
+        $currentURL = $this->getFromPageData("currentURL");
 
         include_once(ROOT . "/partials/canonical-urls.php");
     }

@@ -5,17 +5,17 @@ if (!defined("ROOT")) {
 
 $site = Site::get();
 
-$indexedPages = [
-    "home",
-    "projects",
-    "contact",
-    "about",
-    "links",
-    "privacy-policy",
-    "site-map",
+$indexedURLs = [
+    "/",
+    "/projects/",
+    "/contact/",
+    "/about/",
+    "/links/",
+    "/privacy-policy/",
+    "/site-map/",
 ];
 
-if ($site->isProduction() && in_array($pageId, $indexedPages)) {
+if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
     $liveURL = $site->getRequestedLiveURL();
 
     if (!empty($pagination)) {
@@ -23,8 +23,7 @@ if ($site->isProduction() && in_array($pageId, $indexedPages)) {
         $search = trim($search);
         $page = $pagination["page"] ?? 1;
 
-        $url = $site->getLiveDomain();
-        $url .= "{$pageId}/";
+        $url = $site->getURL($currentURL, false, true, true);
 
         if (strlen($search) > 0) {
             $url .= $search . "/";
