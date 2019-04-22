@@ -164,9 +164,9 @@ class Site implements SiteConstants {
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public function getURL(string $relativeURL = "", bool $isFull = false, bool $isLive = false): string {
+    public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-        $url .= $this->isDebug() ? "?debug" : "";
+        $url .= ($addDebug && $this->isDebug()) ? "?debug" : "";
 
         return $url;
     }
@@ -180,8 +180,8 @@ class Site implements SiteConstants {
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public function echoURL(string $url = "", bool $isFull = false, bool $isLive = false) {
-        echo $this->getURL($url, $isFull, $isLive);
+    public function echoURL(string $url = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
+        echo $this->getURL($url, $addDebug, $isFull, $isLive);
     }
 
     /**
