@@ -14,15 +14,21 @@
  * @copyright 2010-2019 JPI
 */
 
-class Site {
+include_once("SiteConstants.php");
 
-    const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+class Site implements SiteConstants {
 
-    const VALID_NAV_TINTS = ["dark", "light"];
+    private $environment = "production";
 
-    const DEFAULT_ASSET_VERSION = "1";
+    private $isDebug = null;
 
-    const JPI_START_DATE = "04/10/2010";
+    private $liveDomain;
+    private $liveURL;
+    private $localDomain;
+    private $localURL;
+
+    private $dateStarted;
+    private $yearStarted;
 
     private static $instance = null;
 
@@ -30,9 +36,11 @@ class Site {
         if (!defined("ROOT")) {
             define("ROOT", self::getProjectRoot());
         }
+
+        $this->environment = getenv("APPLICATION_ENV") ?? "production";
     }
 
-    public static function get() {
+    public static function get(): Site {
         if (self::$instance === null) {
             self::$instance = new self();
         }
@@ -45,39 +53,16 @@ class Site {
      *
      * @return string
      */
-    private static function getProjectRoot() {
+    private static function getProjectRoot(): string {
         if (defined("ROOT")) {
             return ROOT;
         }
 
-        return $_SERVER["DOCUMENT_ROOT"];
+        return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
     }
 
-    /**
-     * Helper function to tidy up page id
-     * and remove any non alpha text
-     *
-     * @param $pageId
-     * @return string|string[]|null
-     */
-    private static function formatPageId($pageId) {
-        $pageIdFormatted = trim($pageId);
-        $pageIdFormatted = strtolower($pageIdFormatted);
-        $pageIdFormatted = preg_replace("/[^a-z0-9]+/", "-", $pageIdFormatted);
-
-        return $pageIdFormatted;
-    }
-
-    /**
-     * Generate pageId using page Title
-     *
-     * @param $title string
-     * @return string
-     */
-    private static function generatePageIdFromTitle($title) {
-        $pageId = self::formatPageId($title);
-
-        return $pageId;
+    public function isProduction(): bool {
+        return $this->environment === "production";
     }
 
     /**
@@ -88,93 +73,110 @@ class Site {
     }
 
     /**
-     * Include the common html head for page/site
-     *
-     * @param $pageId string
-     * @param $title string
-     * @param $desc string
+     * @return bool Whether or not the debug was set by user on page view
      */
-    public static function echoHTMLHead($title, $desc, $pageId = "") {
-        $title = trim($title);
-        $desc = trim($desc);
-        $pageId = trim($pageId);
+    public function isDebug(): bool {
+        if ($this->isDebug === null) {
+            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
+        }
 
-        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
-
-        include_once(ROOT . "/partials/head.php");
+        return $this->isDebug;
     }
 
     /**
-     * Include the common html header content for page/site
-     *
-     * @param $pageId string
-     * @param $title string
-     * @param string $desc string
-     * @param string $navTint string
+     * @param $url string The url to add slash to
+     * @return string The new url
      */
-    public static function echoHeader($title, $desc = "", $pageId = "", $navTint = "dark") {
-        $title = trim($title);
-        $desc = trim($desc);
-        $pageId = trim($pageId);
-        $navTint = trim($navTint);
+    public static function addTrailingSlash(string $url): string {
+        $url = rtrim($url, " /");
+        $url = "{$url}/";
 
-        $navTint = in_array($navTint, self::VALID_NAV_TINTS) ? $navTint : "dark";
-
-        $pageId = empty($pageId) ? self::generatePageIdFromTitle($title) : self::formatPageId($pageId);
-
-        include_once(ROOT . "/partials/header.php");
+        return $url;
     }
 
     /**
-     * Include the common favicons content for page/site
+     * @return string Generate and return the live domain
      */
-    public static function echoFavicons() {
-        include_once(ROOT . "/partials/favicons.php");
+    public function getLiveDomain(): string {
+        if (!$this->liveDomain) {
+            $liveDomain = self::LIVE_DOMAIN;
+            $this->liveDomain = self::addTrailingSlash($liveDomain);
+        }
+
+        return $this->liveDomain;
     }
 
     /**
-     * Include the common footer content for page/site
+     * @return string Generate and return the local domain
      */
-    public static function echoFooter($similarLinks = []) {
-        include_once(ROOT . "/partials/footer.php");
+    public function getLocalDomain(): string {
+        if (!$this->localDomain) {
+            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+            $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
+            $this->localDomain = self::addTrailingSlash($localDomain);
+        }
+
+        return $this->localDomain;
+    }
+
+    private function genURLWithDomain($relativeURL, $isFull = false, $isLive = false) {
+        $domain = "";
+        if ($isFull) {
+            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+            $domain = rtrim($domain, "/");
+        }
+
+        $relativeURL = ltrim($relativeURL, " /");
+
+        $fullURL = $domain . "/" . $relativeURL;
+        $fullURL = self::addTrailingSlash($fullURL);
+
+        return $fullURL;
     }
 
     /**
-     * Include the common cookie banner content for page/site
+     * @return string Generate and return the URL of current requested page/URL
      */
-    public static function echoCookieBanner() {
-        include_once(ROOT . "/partials/cookie-banner.php");
+    public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
+        $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+        return $this->genURLWithDomain($relativeURL, $isFull, $isLive);
+    }
+
+    /**
+     * @return string Generate and return the live URL of the current requested page/URL
+     */
+    public function getRequestedLiveURL(): string {
+        if (!$this->liveURL) {
+            $this->liveURL = $this->getRequestedURL(true, true);
+        }
+
+        return $this->liveURL;
+    }
+
+    /**
+     * @return string Generate and return the local URL of the current requested page/URL
+     */
+    public function getRequestedLocalURL(): string {
+        if (!$this->localURL) {
+            $this->localURL = $this->getRequestedURL(true, false);
+        }
+
+        return $this->localURL;
     }
 
     /**
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $url string The relative url part/s to use to generate url from
+     * @param string $relativeURL string The relative url part/s to use to generate url from
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public static function getURL($url = "", $isFull = false, $isLive = false) {
-        $url = trim($url);
-
-        if (!empty($url)) {
-            $url = "/" . trim($url, "/") . "/";
-        }
-        else {
-            $url = "/";
-        }
-
-        $url .= self::isDebug() ? "?debug" : "";
-
-        if ($isFull && $isLive) {
-            $liveDomain = self::getLiveDomain();
-            $url = rtrim($liveDomain, "/") . $url;
-        }
-        else if ($isFull) {
-            $localDomain = self::getLocalDomain();
-            $url = rtrim($localDomain, "/") . $url;
-        }
+    public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
+        $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
+        $url .= ($addDebug && $this->isDebug()) ? "?debug" : "";
 
         return $url;
     }
@@ -188,42 +190,8 @@ class Site {
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public static function echoURL($url = "", $isFull = false, $isLive = false) {
-        $url = self::getURL($url, $isFull, $isLive);
-
-        echo $url;
-    }
-
-    /**
-     * @param $url string The url to add slash to
-     * @return string The new url
-     */
-    public static function addTrailingSlash($url) {
-        $url = rtrim($url, " /");
-        $url = "{$url}/";
-
-        return $url;
-    }
-
-    /**
-     * @return string Generate and return the LIVE domain
-     */
-    public static function getLiveDomain() {
-        $liveDomain = self::LIVE_DOMAIN;
-        $liveDomain = self::addTrailingSlash($liveDomain);
-
-        return $liveDomain;
-    }
-
-    /**
-     * @return string Generate and return the local domain
-     */
-    public static function getLocalDomain() {
-        $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
-        $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-        $localDomain = self::addTrailingSlash($localDomain);
-
-        return $localDomain;
+    public function echoURL(string $url = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
+        echo $this->getURL($url, $addDebug, $isFull, $isLive);
     }
 
     /**
@@ -235,15 +203,11 @@ class Site {
      *
      * @param $src string The relative path to a asset
      * @param bool $ver string A version number to use
-     * @param bool $root string The root location of where the file should be if not the default
+     * @param $root string The root location of where the file should be if not the default
      * @return string The version number found
      */
-    public static function getAssetVersion(string $src, $ver = false, $root = false) {
+    public static function getAssetVersion(string $src, $ver = false, $root = ROOT): string {
         if (!$ver) {
-            if (!$root) {
-                $root = self::getProjectRoot();
-            }
-
             $src = ltrim($src, " /");
             $file = self::addTrailingSlash($root) . $src;
 
@@ -260,7 +224,7 @@ class Site {
      * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
      * including a version number
      */
-    public static function getWithAssetVersion($src, $ver = false, $root = false) {
+    public static function getWithAssetVersion(string $src, $ver = false, $root = ROOT): string {
         $ver = self::getAssetVersion($src, $ver, $root);
 
         return "{$src}?v={$ver}";
@@ -270,18 +234,32 @@ class Site {
      * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
      * Used to echo the full relative URL for the asset including a version number
      */
-    public static function echoWithAssetVersion($src, $ver = false, $root = false) {
+    public static function echoWithAssetVersion(string $src, $ver = false, $root = ROOT) {
         echo self::getWithAssetVersion($src, $ver, $root);
     }
 
     /**
-     * Generate the API endpoint and echo
+     * Generate and return the API endpoint
      */
-    public static function echoAPIEndpoint() {
+    public static function getAPIEndpoint($entity = "") {
         $endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
         $endpoint .= "v" . JPI_API_VERSION;
         $endpoint = self::addTrailingSlash($endpoint);
-        echo $endpoint;
+
+        $entity = trim($entity);
+        if (!empty($entity)) {
+            $endpoint .= trim($entity, "/");
+            $endpoint = self::addTrailingSlash($endpoint);
+        }
+
+        return $endpoint;
+    }
+
+    /**
+     * Generate and echo the API endpoint
+     */
+    public static function echoAPIEndpoint($entity = "") {
+        echo self::getAPIEndpoint($entity);
     }
 
     /**
@@ -289,32 +267,32 @@ class Site {
      *
      * @param string $filepath string The relative url of image
      */
-    public static function echoProjectImageURL($filepath = "") {
+    public static function echoProjectImageURL(string $filepath = "") {
         $root = rtrim(JPI_API_ENDPOINT, " /");
         $imageURL = "{$root}{$filepath}";
         self::echoWithAssetVersion($imageURL);
     }
 
-    /**
-     * @return bool Whether or not the debug was set by user on page view
-     */
-    public static function isDebug() {
-        return (isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0"));
+    public function getDateStarted(): DateTime {
+        if (!$this->dateStarted) {
+            $dateStarted = self::JPI_START_DATE;
+            $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+
+            $this->dateStarted = $dateStartedDateObj;
+        }
+
+        return $this->dateStarted;
     }
 
-    public function getDateStarted() {
-        $dateStarted = self::JPI_START_DATE;
-        $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+    public function getYearStarted(): string {
+        if (!$this->yearStarted) {
+            $dateStartedDate = $this->getDateStarted();
+            $year = $dateStartedDate->format("Y");
 
-        return $dateStartedDateObj;
-    }
+            $this->yearStarted = $year;
+        }
 
-    public function getYearStarted() {
-        $dateStartedDate = self::getDateStarted();
-
-        $year = $dateStartedDate->format("Y");
-
-        return $year;
+        return $this->yearStarted;
     }
 }
 

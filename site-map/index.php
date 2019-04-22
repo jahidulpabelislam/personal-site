@@ -1,14 +1,22 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$headTitle = $headerTitle = "Site Map";
 $headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
 
-$navTint = "light";
-$site->echoHeader($headerTitle, "", "", $navTint);
+$pageData = [
+    "title" => "Site Map",
+    "headDesc" => $headDesc,
+    "navTint" => "light",
+];
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article">
@@ -73,4 +81,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

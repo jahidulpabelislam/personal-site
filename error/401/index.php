@@ -1,15 +1,25 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$headTitle = $headerTitle = "401";
+$error = basename(__DIR__);
+$errorDesc = "Unauthorized";
+$headDesc = "Error: {$error} - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$headDesc = "Error: 401 - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$pageData = [
+    "headTitle" => "{$error} - {$errorDesc}",
+    "headDesc" => $headDesc,
+    "headerTitle" => $error,
+    "headerDesc" => $errorDesc,
+];
+$pageRenderer->addPageData($pageData);
 
-$headerDesc = "Unauthorized";
-$site->echoHeader($headerTitle, $headerDesc);
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article article--halved">
@@ -37,4 +47,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

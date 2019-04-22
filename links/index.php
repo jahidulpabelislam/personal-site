@@ -1,13 +1,19 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$pageId = "links";
-
-$headTitle = "Social Media Links";
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
+
+$pageData = [
+    "headTitle" => "Social Media Links",
+    "headDesc" => $headDesc,
+];
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
 ?>
 
         <main class="main-content social-links-page">

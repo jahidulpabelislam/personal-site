@@ -1,20 +1,24 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
-
-$pageId = "contact";
-
-$headTitle = $headerTitle = "Contact Me";
+$pageRenderer = PageRenderer::get();
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
-
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
-$navTint = "light";
 
-$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$pageData = [
+    "title" => "Contact Me",
+    "headDesc" => $headDesc,
+    "headerDesc" => $headerDesc,
+    "navTint" => "light",
+];
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <section class="article">
@@ -125,4 +129,4 @@ $similarLinks = [
         "colour" => "orange",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

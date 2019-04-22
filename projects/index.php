@@ -1,31 +1,72 @@
 <?php
-
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
-
-$pageId = "projects";
-
-$headTitle = "Projects";
-$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
-$search = $_GET["search"] ?? "";
-if (strlen(trim($search)) > 0) {
-    $headTitle .= " with $search";
-}
-
-$page = $_GET["page"] ?? 1;
-if ($page > 1) {
-    $headTitle .= " - Page $page";
-}
-
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
-
-$headerTitle = "My Projects";
-$headerDesc = "See My Skills in Action in My Previous Projects";
-$site->echoHeader($headerTitle, $headerDesc, $pageId);
+$pageRenderer = PageRenderer::get();
 
 $site->echoConfig();
+
+$apiRequestParams = [];
+
+$search = $_GET["search"] ?? "";
+$pageNum = $_GET["page"] ?? 1;
+
+$headTitle = "Projects";
+
+$search = trim($search);
+if (strlen($search) > 0) {
+    $headTitle .= " with {$search}";
+    $apiRequestParams["search"] = $search;
+}
+
+$pageNum = (int)$pageNum;
+if ($pageNum > 1) {
+    $headTitle .= " - Page {$pageNum}";
+    $apiRequestParams["page"] = $pageNum;
+}
+
+$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+
+$pageData = [
+    "headTitle" => $headTitle,
+    "headDesc" => $headDesc,
+    "headerTitle" => "My Projects",
+    "headerDesc" => "See My Skills in Action in My Previous Projects",
+];
+
+if ($site->isProduction()) {
+    $projectsURL = $site->getAPIEndpoint("/projects/");
+
+    $requestParamsString = "";
+    if (count($apiRequestParams) > 0) {
+        $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
+    }
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $res = json_decode($response, true);
+
+    $resMeta = $res["meta"] ?? [];
+
+    $pageData["pagination"] = [
+        "page" => $resMeta["page"] ?? 1,
+        "has_previous_page" => $resMeta["has_previous_page"] ?? false,
+        "has_next_page" => $resMeta["has_next_page"] ?? false,
+    ];
+}
+
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <section class="article">
@@ -46,7 +87,7 @@ $site->echoConfig();
                         <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
 
-                        <input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
+                        <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>">
                     </div>
                 </section>
 
@@ -148,4 +189,4 @@ $similarLinks = [
         "colour" => "green",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

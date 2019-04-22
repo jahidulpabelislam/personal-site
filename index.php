@@ -1,19 +1,24 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$pageId = "home";
-
-$headTitle = "Home";
 $headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
 
-$headerTitle = "Jahidul Pabel Islam";
-$headerDesc = "Full Stack Web &amp; Software Developer";
-$site->echoHeader($headerTitle, $headerDesc, $pageId);
+$pageData = [
+    "headDesc" => $headDesc,
+    "headerTitle" => "Jahidul Pabel Islam",
+    "headerDesc" => "Full Stack Web &amp; Software Developer",
+];
+$pageRenderer->addPageData($pageData);
 
 $site->echoConfig();
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
                 <section>
                     <div class="article home__hello-wrapper">
@@ -198,4 +203,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);
