@@ -38,7 +38,7 @@ class PageRenderer {
         $this->addPageData($globalPageData);
     }
 
-    public function addToPageData($field, $value) {
+    public function addToPageData(string $field, $value) {
         if (is_string($value)) {
             $value = trim($value);
         }
@@ -46,11 +46,11 @@ class PageRenderer {
         $this->pageData[$field] = $value;
     }
 
-    public function addPageData($fields) {
+    public function addPageData(array $fields) {
         $this->pageData = array_merge($this->pageData, $fields);
     }
 
-    public function getFromPageData($field, $defaultValue = "") {
+    public function getFromPageData(string $field, $defaultValue = "") {
         return $this->pageData[$field] ?? $defaultValue;
     }
 
