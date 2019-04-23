@@ -6,7 +6,7 @@ $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
 $error = basename(__DIR__);
-$pageDesc = "Forbidden Page";
+$errorDesc = "Forbidden Page";
 $headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
