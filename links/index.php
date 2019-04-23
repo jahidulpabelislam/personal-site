@@ -48,7 +48,7 @@ $pageRenderer->renderHTMLHead();
 
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                         <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>

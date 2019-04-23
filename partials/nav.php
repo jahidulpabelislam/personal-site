@@ -61,7 +61,7 @@ $site = Site::get();
                     <ul class="nav__social-links">
                         <li class="nav-link__item">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" class="social-link">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                             </a>
                         </li>
                         <li class="nav-link__item">

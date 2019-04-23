@@ -78,11 +78,11 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my Linkedin</h3>
+                            <h3 class="article__header">View my LinkedIn</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>

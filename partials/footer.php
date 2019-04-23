@@ -38,7 +38,7 @@ $pageRenderer = PageRenderer::get();
                     <div class="container">
                         <h5 class="social-links__header">Follow Me Here!</h5>
                         <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
                         </a>
                         <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
