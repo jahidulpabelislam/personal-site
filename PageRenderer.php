@@ -1,4 +1,19 @@
 <?php
+/*
+ * A helper class to use throughout the site.
+ * To aid in including common partials for all pages.
+ * And handles any page data associated with the page and passed to where needed
+ *
+ * Developed so it can be used in multiple sites.
+ *
+ * PHP version 7
+ *
+ * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
+ * @version 1
+ * @link https://github.com/jahidulpabelislam/portfolio/
+ * @since Class available since Release: v4.2.0
+ * @copyright 2010-2019 JPI
+*/
 
 class PageRenderer {
 
