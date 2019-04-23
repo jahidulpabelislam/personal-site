@@ -19,6 +19,18 @@ $site->echoConfig();
 $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
+
+$orig = date_default_timezone_get();
+date_default_timezone_set("Europe/London");
+
+// Work out the time difference from both dates
+$today = new DateTime();
+$dateStartedDate = $site->getDateStarted();
+$diff = $today->diff($dateStartedDate, true);
+
+// Get the number of years different
+$yearsSinceStarted = $diff->format("%y");
+date_default_timezone_set($orig);
 ?>
                 <section>
                     <div class="article home__hello-wrapper">
@@ -55,7 +67,7 @@ $pageRenderer->renderHeader();
                         <div class="container">
                             <p>
                                 Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a>
-                                 I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> and
+                                 I have done over the last <?php echo $yearsSinceStarted; ?> years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> and
                                 <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide feedback.
                             </p>
                             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
@@ -144,21 +156,8 @@ $pageRenderer->renderHeader();
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <?php
-                                $orig = date_default_timezone_get();
-                                date_default_timezone_set("Europe/London");
-
-                                // Work out the time difference from both dates
-                                $today = new DateTime();
-                                $dateStartedDate = $site->getDateStarted();
-                                $diff = $today->diff($dateStartedDate, true);
-
-                                // Get the number of years different
-                                $yearsDiff = $diff->format("%y");
-                                date_default_timezone_set($orig);
-                                ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsDiff; ?>" data-speed="<?php echo $speed; ?>">
-                                    <?php echo $yearsDiff; ?>
+                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
+                                    <?php echo $yearsSinceStarted; ?>
                                 </h3>
                                 <p class="stats__text">Years experience</p>
                             </div>
