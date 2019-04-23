@@ -1,15 +1,25 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$headTitle = $headerTitle = "403";
+$error = basename(__DIR__);
+$errorDesc = "Forbidden Page";
+$headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$headDesc = "Error: 403 - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$pageData = [
+    "headTitle" => "{$error} - {$errorDesc}",
+    "headDesc" => $headDesc,
+    "headerTitle" => $error,
+    "headerDesc" => $errorDesc,
+];
+$pageRenderer->addPageData($pageData);
 
-$headerDesc = "Forbidden Page";
-$site->echoHeader($headerTitle, $headerDesc);
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article article--halved">
@@ -18,7 +28,7 @@ $site->echoHeader($headerTitle, $headerDesc);
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img">
                         </div>
                         <div class="article__half">
-                            <p>The access to the requested page is strictly forbidden.</p>
+                            <p>Access to the requested page is strictly forbidden.</p>
                         </div>
                     </div>
                 </div>
@@ -37,4 +47,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

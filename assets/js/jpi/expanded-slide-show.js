@@ -7,7 +7,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        expandedImageDivContainer: jQuery(".expanded-slide-show"),
+        expandedImageDivContainer: null,
         currentSlide: 0,
         slides: {},
     };
@@ -109,6 +109,11 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
         },
 
         initListeners: function() {
+            global.expandedImageDivContainer = jQuery(".expanded-slide-show");
+            if (!global.expandedImageDivContainer.length) {
+                return;
+            }
+
             jQuery("body").on("click", ".js-expanded-image-bullet", function(e) {
                 var slideId = jQuery(e.target).attr("data-slide-id");
                 slideId = jpi.helpers.getInt(slideId);

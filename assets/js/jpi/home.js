@@ -7,24 +7,37 @@ window.jpi.home = (function(jQuery, jpi) {
 
     "use strict";
 
+    var global = {
+        regexes: {},
+    };
+
     var fn = {
 
         initSecondsCounter: function() {
             var secsElem = jQuery(".js-seconds-on-site");
             if (secsElem.length) {
+                var secondsInMilliseconds = 1000;
                 setTimeout(function() {
                     setInterval(function() {
                         var lastSec = secsElem.text();
                         lastSec = jpi.helpers.getInt(lastSec, 1);
                         secsElem.text(lastSec + 1);
-                    }, 1000);
-                }, 1000);
+                    }, secondsInMilliseconds);
+                }, secondsInMilliseconds);
             }
         },
 
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img").hide("fast");
+        },
+
+        getRegex: function(regex) {
+            if (!global.regexes[regex]) {
+                global.regexes[regex] = new RegExp("{{" + regex + "}}", "g");
+            }
+
+            return global.regexes[regex];
         },
 
         renderProject: function(project) {
@@ -34,16 +47,16 @@ window.jpi.home = (function(jQuery, jpi) {
             for (var data in project) {
                 if (project.hasOwnProperty(data)) {
                     if (typeof data === "string") {
-                        var reg = new RegExp("{{" + data + "}}", "g");
-                        slideTemplate = slideTemplate.replace(reg, project[data]);
-                        bulletTemplate = bulletTemplate.replace(reg, project[data]);
+                        var regex = fn.getRegex(data);
+                        slideTemplate = slideTemplate.replace(regex, project[data]);
+                        bulletTemplate = bulletTemplate.replace(regex, project[data]);
                     }
                 }
             }
 
             if (project.images && project.images.length && project.images[0]) {
-                var imageReg = new RegExp("{{file}}", "g");
-                slideTemplate = slideTemplate.replace(imageReg, project.images[0].file);
+                var imageRegex = fn.getRegex("file");
+                slideTemplate = slideTemplate.replace(imageRegex, project.images[0].file);
             }
 
             jQuery(".slide-show__slides-container").append(slideTemplate);

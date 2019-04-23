@@ -1,41 +1,90 @@
 <?php
-
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
-
-$pageId = "projects";
-
-$headTitle = "Projects";
-$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
-$search = $_GET["search"] ?? "";
-if (strlen(trim($search)) > 0) {
-    $headTitle .= " with $search";
-}
-
-$page = $_GET["page"] ?? 1;
-if ($page > 1) {
-    $headTitle .= " - Page $page";
-}
-
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
-
-$headerTitle = "My Projects";
-$headerDesc = "See My Skills in Action in My Previous Projects";
-$site->echoHeader($headerTitle, $headerDesc, $pageId);
+$pageRenderer = PageRenderer::get();
 
 $site->echoConfig();
+
+$apiRequestParams = [];
+
+$search = $_GET["search"] ?? "";
+$pageNum = $_GET["page"] ?? 1;
+
+$headTitle = "Projects";
+
+$search = trim($search);
+if (strlen($search) > 0) {
+    $headTitle .= " with {$search}";
+    $apiRequestParams["search"] = $search;
+}
+
+$pageNum = (int)$pageNum;
+if ($pageNum > 1) {
+    $headTitle .= " - Page {$pageNum}";
+    $apiRequestParams["page"] = $pageNum;
+}
+
+$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+
+$pageData = [
+    "headTitle" => $headTitle,
+    "headDesc" => $headDesc,
+    "headerTitle" => "My Projects",
+    "headerDesc" => "See My Skills in Action in My Previous Projects",
+];
+
+if ($site->isProduction()) {
+    $projectsURL = $site->getAPIEndpoint("/projects/");
+
+    $requestParamsString = "";
+    if (count($apiRequestParams) > 0) {
+        $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
+    }
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+    curl_setopt(
+        $ch, CURLOPT_HTTPHEADER, [
+               'Accept: application/json',
+           ]
+    );
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+    $response = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    $resMeta = $response["meta"] ?? [];
+
+    $pageData["pagination"] = [
+        "page" => $resMeta["page"] ?? 1,
+        "has_previous_page" => $resMeta["has_previous_page"] ?? false,
+        "has_next_page" => $resMeta["has_next_page"] ?? false,
+    ];
+}
+
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <section class="article">
                     <div class="container">
 
-                        <h2 class="faux-heading">These are some of the pieces of work I have completed during my time as a developer.</h2>
+                        <p>These are some pieces of work I have completed throughout the years as a developer.</p>
+                        <p>
+                            Please use the input below to find any projects you want to have a look at.<br/>
+                            For example it can be filtered by names of technologies, frameworks or projects.
+                        </p>
 
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>
-                            <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>">
+                            <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>" id="search"/>
                             <button class="btn btn--blue search-form__submit" type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -46,7 +95,7 @@ $site->echoConfig();
                         <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
 
-                        <input type="hidden" class="js-projects-page" value="<?php echo $page; ?>">
+                        <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>">
                     </div>
                 </section>
 
@@ -81,7 +130,9 @@ $site->echoConfig();
                     <div class="modal__content">
                         <div class="project__header">
                             <h3 class="project__title project__title--inline"></h3>
-                            <time class="project__date project__date--inline project__date--modal">2018</time>
+                            <time class="project__date project__date--inline project__date--modal">
+                                <?php echo date("Y"); ?>
+                            </time>
                         </div>
                         <div class="project__skills"></div>
                         <div class="project__description"></div>
@@ -123,7 +174,7 @@ $site->echoConfig();
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{Slide-Show-ID}}" data-slide-id="slide-{{id}}"></label>
+                    <label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}"></label>
                 </script>
 
                 <script>
@@ -146,4 +197,4 @@ $similarLinks = [
         "colour" => "green",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

@@ -2,17 +2,19 @@
 if (!defined("ROOT")) {
     die();
 }
+
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 ?>
 
                 <?php
-                if (!empty($similarLinks)) {
+                if (count($similarLinks) > 1) {
                     echo "<div class='article article--halved article--similar-links'>";
                     echo "<div class='container'>";
 
                     foreach ($similarLinks as $link) {
                         $pageTitle = $link["title"];
-                        $buttonText = !empty($link["text"]) ? $link["text"] : $title ;
+                        $buttonText = $link["text"] ?? $title ;
 
                         $url = $link["url"];
                         $url = $site->getURL($url);
@@ -36,7 +38,7 @@ $site = Site::get();
                     <div class="container">
                         <h5 class="social-links__header">Follow Me Here!</h5>
                         <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
                         </a>
                         <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
@@ -70,14 +72,14 @@ $site = Site::get();
                     $orig = date_default_timezone_get();
                     date_default_timezone_set("Europe/London");
                     ?>
-                    <p>&copy; Jahidul Pabel Islam 2010-<?php echo date("y"); ?> All Rights Reserved</p>
+                    <p>&copy; Jahidul Pabel Islam <?php echo $site->getYearStarted() . " - " . date("Y"); ?></p>
                     <?php date_default_timezone_set($orig); ?>
                 </div>
             </div>
         </footer>
 
         <?php
-        $site->echoCookieBanner();
+        $pageRenderer->renderCookieBanner();
 
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
         if ($site->isDebug()) {
@@ -106,6 +108,5 @@ $site = Site::get();
             <?php
         }
         ?>
-
     </body>
 </html>

@@ -1,16 +1,26 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$headTitle = $headerTitle = "500";
+$error = basename(__DIR__);
+$errorDesc = "Internal Server Error";
+$headDesc = "Error: {$error} - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$headDesc = "Error: 500 - Internal Server Error message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc);
+$pageData = [
+    "headTitle" => "{$error} - {$errorDesc}",
+    "headDesc" => $headDesc,
+    "headerTitle" => $error,
+    "headerDesc" => $errorDesc,
+    "navTint" => "light",
+];
+$pageRenderer->addPageData($pageData);
 
-$headerDesc = "Internal Server Error";
-$navTint = "light";
-$site->echoHeader($headerTitle, $headerDesc, "", $navTint);
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article article--halved">
@@ -20,9 +30,9 @@ $site->echoHeader($headerTitle, $headerDesc, "", $navTint);
                         </div>
 
                         <div class="article__half">
-                            <p>The server couldn't follow your request and can not displayed content.</p>
-                            <p>Either refresh the page or try again later.</p>
-                            <p>If not it's not you, nor me, its the sysadmin guy (ME!)!</p>
+                            <p>The server couldn't follow your request so can't display the content.</p>
+                            <p>You can either try refreshing the page or try again later.</p>
+                            <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>
                         </div>
                     </div>
                 </div>
@@ -41,4 +51,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

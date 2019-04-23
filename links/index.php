@@ -1,13 +1,19 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$pageId = "links";
-
-$headTitle = "Social Media Links";
 $headDesc = "Social Media Links for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
+
+$pageData = [
+    "headTitle" => "Social Media Links",
+    "headDesc" => $headDesc,
+];
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
 ?>
 
         <main class="main-content social-links-page">
@@ -42,7 +48,7 @@ $site->echoHTMLHead($headTitle, $headDesc, $pageId);
 
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                         <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>
@@ -63,8 +69,23 @@ $site->echoHTMLHead($headTitle, $headDesc, $pageId);
             </div>
         </main>
 
-        <!-- jQuery <?php //Necessary for StickyFooter js code ?> -->
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
+        <?php
+        // Either output a compiled js file for the page & libraries js files, or include individual files if debug is specified
+        if ($site->isDebug()) {
+            ?>
+            <!-- All individual js files for site as debug is specified -->
+            <?php // Files necessary for StickyFooter js code ?>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
+            <?php
+        }
+        else {
+            ?>
+            <!-- Compiled page & libraries js files -->
+            <script src="<?php $site->echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
+            <?php
+        }
+        ?>
     </body>
 </html>

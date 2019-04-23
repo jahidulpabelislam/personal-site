@@ -75,7 +75,7 @@ window.jpi.helpers = (function() {
 
         checkCookieValue: function(key, valueToCheck) {
             var cookie = fn.getCookie(key);
-            return cookie && cookie != "" && cookie == valueToCheck;
+            return cookie && cookie == valueToCheck;
         },
 
         setCookie: function(key, value, expirationDays) {
@@ -83,6 +83,31 @@ window.jpi.helpers = (function() {
             expiryDate.setTime(expiryDate.getTime() + expirationDays * 24 * 60 * 60 * 1000);
             var expires = "expires=" + expiryDate.toUTCString();
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
+        },
+
+        /*
+         * http://davidwalsh.name/javascript-debounce-function
+         */
+        debounce: function(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this,
+                    args = arguments;
+
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) {
+                        func.apply(context, args);
+                    }
+                };
+
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) {
+                    func.apply(context, args);
+                }
+            };
         },
     };
 
@@ -93,6 +118,7 @@ window.jpi.helpers = (function() {
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,
         setCookie: fn.setCookie,
+        debounce: fn.debounce,
     };
 
 })();

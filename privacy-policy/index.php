@@ -1,14 +1,21 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
+$pageRenderer = PageRenderer::get();
 
-$headTitle = $headerTitle = "Privacy Policy";
 $headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$site->echoHTMLHead($headTitle, $headDesc);
+$pageData = [
+    "title" => "Privacy Policy",
+    "headDesc" => $headDesc,
+];
+$pageRenderer->addPageData($pageData);
 
-$site->echoHeader($headerTitle);
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <div class="article">
@@ -54,7 +61,7 @@ $site->echoHeader($headerTitle);
                                 <td class="table__col">Used to make sure the banner isn't shown if clicked 'OK'.</td>
                             </tr>
                         </table>
-                        <p>The cookies used and the Google Analytics data stored will be anonymized and cannot be used to identify individual people.</p>
+                        <p>The cookies used and the Google Analytics data stored will be anonymized and can't be used to identify individual people.</p>
                         <p>
                             To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at
                             <a href="http://www.allaboutcookies.org/" class="link-styled" target="_blank">allaboutcookies</a>
@@ -76,4 +83,4 @@ $similarLinks = [
         "colour" => "blue",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

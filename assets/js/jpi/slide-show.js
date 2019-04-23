@@ -9,6 +9,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
     var global = {
         milliSecsPerSlide: 5000,
         slideShows: {},
+        slideColourRegex: null,
     };
 
     var fn = {
@@ -52,7 +53,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 left: "-" + position.left + "px",
             });
 
-            setTimeout(fn.resetTransition, 100, slidesContainer);
+            setTimeout(fn.resetTransition, 150, slidesContainer);
         },
 
         // Starts a slide show by slide show element id
@@ -95,13 +96,16 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             fn.resetTransition(slidesContainer);
 
             if (slideShowId === "#slide-show--home") {
-                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour"),
-                    regx = new RegExp("slide-show__nav--\\w*", "g");
+                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
+
+                if (!global.navColourRegex) {
+                    global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
+                }
 
                 jQuery(slideShowId + " .slide-show__nav").each(function() {
                     var slideShowNav = jQuery(this);
                     var classList = slideShowNav.attr("class");
-                    classList = classList.replace(regx, "slide-show__nav--" + colour);
+                    classList = classList.replace(global.navColourRegex, "slide-show__nav--" + colour);
                     slideShowNav.attr("class", classList);
                 });
             }
@@ -167,7 +171,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 left: "-" + position.left + "px",
             });
 
-            setTimeout(fn.resetTransition, 100, slidesContainer);
+            setTimeout(fn.resetTransition, 150, slidesContainer);
 
             global.slideShows[slideShowId] = setInterval(function() {
                 fn.moveSlide(slideShowId, "next");
@@ -203,10 +207,10 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 dragEnd = function(e) {
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
-                    if (start - end > 15) {
+                    if ((start - end) > 15) {
                         fn.moveSlide(slideShowId, "next");
                     }
-                    else if (start - end < -15) {
+                    else if ((start - end) < -15) {
                         fn.moveSlide(slideShowId, "previous");
                     }
                     else {
@@ -246,7 +250,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
                 setTimeout(function() {
                     fn.moveToSlide(slideShowId, slideContainer.first());
-                }, 100);
+                }, 150);
 
                 slideShowViewpoint[0].addEventListener("mousedown", fn.dragStart);
                 slideShowViewpoint[0].addEventListener("touchstart", fn.dragStart);
@@ -257,7 +261,11 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
 
         initListeners: function() {
-            jQuery(window).on("orientationchange resize", fn.fixSlides);
+            if (!jQuery(".slide-show").length) {
+                return;
+            }
+
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
             jQuery("body").on("dragstart", ".slide-show__img", false);
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 

@@ -1,26 +1,30 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 
 $site = Site::get();
-
-$pageId = "contact";
-
-$headTitle = $headerTitle = "Contact Me";
+$pageRenderer = PageRenderer::get();
 
 $headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
-
-$site->echoHTMLHead($headTitle, $headDesc, $pageId);
-
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
-$navTint = "light";
 
-$site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
+$pageData = [
+    "title" => "Contact Me",
+    "headDesc" => $headDesc,
+    "headerDesc" => $headerDesc,
+    "navTint" => "light",
+];
+$pageRenderer->addPageData($pageData);
+
+$pageRenderer->renderHTMLHead();
+$pageRenderer->renderNav();
+$pageRenderer->renderHeader();
 ?>
 
                 <section class="article">
                     <div class="container">
                         <h3 class="article__header">Form</h3>
-                        <p>Use this contact form to give me a message quickly.</p>
+                        <p>Use this contact form to quickly send me a message.</p>
                         <p><span class="required">*</span> indicates a required field</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
@@ -64,19 +68,21 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
 
                 <section class="article article--lime-green">
                     <div class="container">
-                        <h3 class="article__header article__header--no-padding">Stay up to date with me</h3>
-                        <p><i class="fa fa-3x fa-arrow-circle-down"></i></p>
+                        <h3 class="article__header">Stay up to date with me</h3>
+                        <div>
+                            <i class="fa fa-3x fa-arrow-circle-down"></i>
+                        </div>
                     </div>
                 </section>
 
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my Linkedin profile</h3>
+                            <h3 class="article__header">View my LinkedIn</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on Linkedin /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -86,7 +92,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View & follow code for projects</h3>
+                            <h3 class="article__header">See & follow my code</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
@@ -100,7 +106,7 @@ $site->echoHeader($headerTitle, $headerDesc, $pageId, $navTint);
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">Follow what I get up to</h3>
+                            <h3 class="article__header">See what I get up to</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">
@@ -125,4 +131,4 @@ $similarLinks = [
         "colour" => "orange",
     ],
 ];
-$site->echoFooter($similarLinks);
+$pageRenderer->renderFooter($similarLinks);

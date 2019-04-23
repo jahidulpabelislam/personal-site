@@ -1401,7 +1401,7 @@ label {
 .project__date {
   margin-bottom: 10px; }
 
-.project__title--inline {
+.project__title.project__title--inline {
   margin: 0;
   text-align: left; }
 

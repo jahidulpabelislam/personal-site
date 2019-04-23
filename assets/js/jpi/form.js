@@ -4,13 +4,13 @@ window.jpi.form = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        submitButton: jQuery("#submit"),
-        emailInput: jQuery("#email-input"),
-        messageInput: jQuery("#message-input"),
-        subjectInput: jQuery("#subject-input"),
-        emailFeedback: jQuery("#contact-form__email-feedback"),
-        messageFeedback: jQuery("#contact-form__message-feedback"),
-        formFeedback: jQuery("#contact-form__feedback"),
+        submitButton: null,
+        emailInput: null,
+        messageInput: null,
+        subjectInput: null,
+        emailFeedback: null,
+        messageFeedback: null,
+        formFeedback: null,
     };
 
     var fn = {
@@ -132,9 +132,25 @@ window.jpi.form = (function(jQuery, jpi) {
 
             jQuery(".contact-form").on("submit", fn.validateForm);
         },
+
+        init: function() {
+            if (!jQuery(".contact-form").length) {
+                return;
+            }
+
+            global.submitButton = jQuery("#submit");
+            global.emailInput = jQuery("#email-input");
+            global.messageInput = jQuery("#message-input");
+            global.subjectInput = jQuery("#subject-input");
+            global.emailFeedback = jQuery("#contact-form__email-feedback");
+            global.messageFeedback = jQuery("#contact-form__message-feedback");
+            global.formFeedback = jQuery("#contact-form__feedback");
+
+            fn.initListeners();
+        },
     };
 
-    jQuery(document).on("ready", fn.initListeners);
+    jQuery(document).on("ready", fn.init);
 
     return {};
 
