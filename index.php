@@ -37,8 +37,8 @@ $pageRenderer->renderHeader();
 
                     <div class="article">
                         <div class="container">
-                            <p>My drive and passion lives in developing various types of software anything from websites to apps.</p>
-                            <p>Always looking into new languages and frameworks that are upcoming to learn how ongoing projects can be improved while expanding my knowledge.</p>
+                            <p>Most of my drive and passion lives in developing all kinds of software anything from websites to apps.</p>
+                            <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>
                             <p>
                                 Currently working as a Software Developer at
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the
@@ -55,10 +55,10 @@ $pageRenderer->renderHeader();
                         <div class="container">
                             <p>
                                 Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a>
-                                 I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a>, and
-                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide any feedback.
+                                 I have done over the last 6 years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> and
+                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide feedback.
                             </p>
-                            <p>So, have a look at my ever-evolving portfolio, as i'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
+                            <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
                         </div>
                     </div>
                 </section>
@@ -70,24 +70,31 @@ $pageRenderer->renderHeader();
                                 <h3 class="article__header">Design</h3>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
                                 <div class="workflow-item__description">
-                                    <p>My work starts after receiving finished designs on PSD's or flat image files.</p>
-                                    <p>At this stage I then begin turning designs into pixel perfect sites/apps.</p>
+                                    <p>
+                                        My work starts after the designer hands over finished designs.<br />
+                                        I mainly work from PSD's or flat image files designs.<br />
+                                        This is the stage I then begin turning designs into pixel perfect sites/apps.
+                                    </p>
                                 </div>
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Responsive</h3>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone">
                                 <div class="workflow-item__description">
-                                    <p>Any site or application I build I will always built the system to be usable on many different sized devices.</p>
-                                    <p>By approaching styling in a mobile first point of view.</p>
+                                    <p>
+                                        Any site or app I build I will always focus on making it usable on multiple different sized devices.<br />
+                                        By approaching styling from a mobile first point of view.
+                                    </p>
                                 </div>
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Code</h3>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code">
                                 <div class="workflow-item__description">
-                                    <p>I tend to build systems fully bespoke.</p>
-                                    <p>But if the requirements specify I will use various frameworks or libraries to fulfill the required system.</p>
+                                    <p>
+                                        I tend to build custom and bespoke systems.<br />
+                                        But if the project requires I can use various frameworks or libraries to fulfill the necessary product.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +102,7 @@ $pageRenderer->renderHeader();
                 </section>
 
                 <section class="article projects">
-                    <h3 class="article__header">My Latest Projects</h3>
+                    <h3 class="article__header">Latest Projects</h3>
 
                     <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
 
@@ -109,7 +116,7 @@ $pageRenderer->renderHeader();
                     </div>
                     <p class="feedback feedback--error"></p>
 
-                    <a href="<?php $site->echoURL("projects"); ?>" class="btn">View All My Work</a>
+                    <a href="<?php $site->echoURL("projects"); ?>" class="btn">View More Work</a>
                 </section>
 
                 <section class="article article--green">

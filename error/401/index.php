@@ -28,7 +28,7 @@ $pageRenderer->renderHeader();
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img">
                         </div>
                         <div class="article--halved">
-                            <p>The page you are trying to view needs authorization. You either supplied the wrong credentials or your browser doesn't understand how to supply credentials.</p>
+                            <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
                         </div>
                     </div>
                 </div>

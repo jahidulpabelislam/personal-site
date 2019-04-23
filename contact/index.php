@@ -24,7 +24,7 @@ $pageRenderer->renderHeader();
                 <section class="article">
                     <div class="container">
                         <h3 class="article__header">Form</h3>
-                        <p>Use this contact form to give me a message quickly.</p>
+                        <p>Use this contact form to quickly send me a message.</p>
                         <p><span class="required">*</span> indicates a required field</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
@@ -68,15 +68,17 @@ $pageRenderer->renderHeader();
 
                 <section class="article article--lime-green">
                     <div class="container">
-                        <h3 class="article__header article__header--no-padding">Stay up to date with me</h3>
-                        <p><i class="fa fa-3x fa-arrow-circle-down"></i></p>
+                        <h3 class="article__header">Stay up to date with me</h3>
+                        <div>
+                            <i class="fa fa-3x fa-arrow-circle-down"></i>
+                        </div>
                     </div>
                 </section>
 
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my Linkedin profile</h3>
+                            <h3 class="article__header">View my Linkedin</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
@@ -90,7 +92,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View & follow code for projects</h3>
+                            <h3 class="article__header">See & follow my code</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
@@ -104,7 +106,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">Follow what I get up to</h3>
+                            <h3 class="article__header">See what I get up to</h3>
                         </div>
                         <div class="article__half">
                             <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">

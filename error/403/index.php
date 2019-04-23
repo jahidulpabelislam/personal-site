@@ -28,7 +28,7 @@ $pageRenderer->renderHeader();
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img">
                         </div>
                         <div class="article__half">
-                            <p>The access to the requested page is strictly forbidden.</p>
+                            <p>Access to the requested page is strictly forbidden.</p>
                         </div>
                     </div>
                 </div>

@@ -30,9 +30,9 @@ $pageRenderer->renderHeader();
                         </div>
 
                         <div class="article__half">
-                            <p>The server couldn't follow your request and can not displayed content.</p>
-                            <p>Either refresh the page or try again later.</p>
-                            <p>If not it's not you, nor me, its the sysadmin guy (ME!)!</p>
+                            <p>The server couldn't follow your request so can't display the content.</p>
+                            <p>You can either try refreshing the page or try again later.</p>
+                            <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>
                         </div>
                     </div>
                 </div>

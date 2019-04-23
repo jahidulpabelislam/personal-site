@@ -76,7 +76,11 @@ $pageRenderer->renderHeader();
                 <section class="article">
                     <div class="container">
 
-                        <h2 class="faux-heading">These are some of the pieces of work I have completed during my time as a developer.</h2>
+                        <p>These are some pieces of work I have completed throughout the years as a developer.</p>
+                        <p>
+                            Please use the input below to find any projects you want to have a look at.<br/>
+                            For example it can be filtered by names of technologies, frameworks or projects.
+                        </p>
 
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>

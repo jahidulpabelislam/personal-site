@@ -61,7 +61,7 @@ $pageRenderer->renderHeader();
                                 <td class="table__col">Used to make sure the banner isn't shown if clicked 'OK'.</td>
                             </tr>
                         </table>
-                        <p>The cookies used and the Google Analytics data stored will be anonymized and cannot be used to identify individual people.</p>
+                        <p>The cookies used and the Google Analytics data stored will be anonymized and can't be used to identify individual people.</p>
                         <p>
                             To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at
                             <a href="http://www.allaboutcookies.org/" class="link-styled" target="_blank">allaboutcookies</a>
