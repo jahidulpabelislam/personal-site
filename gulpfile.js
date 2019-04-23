@@ -90,7 +90,7 @@ gulp.task("sass", function() {
 });
 // Watch Files For Changes
 gulp.task("watch", function() {
-    gulp.watch("assets/css/**/*.scss", ["sass"]);
+    gulp.watch("assets/css/**/*.scss", gulp.parallel("sass"));
 });
 
 const errorCallback = function(err) {
