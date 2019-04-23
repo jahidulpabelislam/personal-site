@@ -54,12 +54,10 @@ if ($site->isProduction()) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
 
-    $response = curl_exec($ch);
+    $response = json_decode(curl_exec($ch), true);
     curl_close($ch);
 
-    $res = json_decode($response, true);
-
-    $resMeta = $res["meta"] ?? [];
+    $resMeta = $response["meta"] ?? [];
 
     $pageData["pagination"] = [
         "page" => $resMeta["page"] ?? 1,
