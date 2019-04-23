@@ -207,10 +207,10 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 dragEnd = function(e) {
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
-                    if (start - end > 15) {
+                    if ((start - end) > 15) {
                         fn.moveSlide(slideShowId, "next");
                     }
-                    else if (start - end < -15) {
+                    else if ((start - end) < -15) {
                         fn.moveSlide(slideShowId, "previous");
                     }
                     else {
