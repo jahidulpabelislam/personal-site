@@ -66,10 +66,17 @@ window.jpi.home = (function(jQuery, jpi) {
                 jQuery("#slide-" + project.id + " .slide-show__img").remove();
             }
 
-            var projectLinks = jQuery("#slide-" + project.id + " .project-info__links")[0];
+            var linksContainer = jQuery("#slide-" + project.id + " .project-info__links");
+
+            if (!project.link && !project.github) {
+                linksContainer.remove();
+                return;
+            }
+
+            linksContainer = linksContainer[0];
 
             if (project.link) {
-                jpi.helpers.createElement(projectLinks, "a", {
+                jpi.helpers.createElement(linksContainer, "a", {
                     href: project.link,
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                     class: "btn btn--clear",
@@ -77,12 +84,16 @@ window.jpi.home = (function(jQuery, jpi) {
                 });
             }
 
-            jpi.helpers.createElement(projectLinks, "a", {
-                href: project.github,
-                innerHTML: "<i class='fa fa-github fa-2x'></i>",
-                class: "btn btn--clear",
-                target: "_blank",
-            });
+            if (project.github) {
+                jpi.helpers.createElement(linksContainer, "a", {
+                    href: project.github,
+                    innerHTML: "<i class='fa fa-github fa-2x'></i>",
+                    class: "btn btn--clear",
+                    target: "_blank",
+                });
+            }
+
+
         },
 
         // Sets up events when projects is received

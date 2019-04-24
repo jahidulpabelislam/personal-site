@@ -75,7 +75,14 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         addLinks: function(project, divID) {
-            var linksContainer = jQuery(divID + " .project__links")[0];
+            var linksContainer = jQuery(divID + " .project__links");
+
+            if (!project.link && !project.download && !project.github) {
+                linksContainer.remove();
+                return;
+            }
+
+            linksContainer = linksContainer[0];
 
             if (project.link) {
                 jpi.helpers.createElement(linksContainer, "a", {
@@ -97,13 +104,15 @@ window.jpi.projects = (function(jQuery, jpi) {
                 });
             }
 
-            jpi.helpers.createElement(linksContainer, "a", {
-                href: project.github,
-                title: "Link to " + project.name + "  Code On GitHub",
-                target: "_blank",
-                innerHTML: "<i class='fa fa-github fa-2x'></i>",
-                class: "project__link project__link--" + project.colour,
-            });
+            if (project.github) {
+                jpi.helpers.createElement(linksContainer, "a", {
+                    href: project.github,
+                    title: "Link to " + project.name + "  Code On GitHub",
+                    target: "_blank",
+                    innerHTML: "<i class='fa fa-github fa-2x'></i>",
+                    class: "project__link project__link--" + project.colour,
+                });
+            }
         },
 
         addProjectImages: function(project, slideShowId) {
