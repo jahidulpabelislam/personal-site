@@ -5,7 +5,7 @@
 .social-link-container {
     margin: 5px;
     padding: 15px;
-    display: inline-block;
+    display: block;
 }
 
 .social-link-container--snapchat {
@@ -63,6 +63,13 @@
 
 .social-link:hover .social-link__text--snapchat {
     color: $snapchat-colour;
+}
+
+/* Only for Desktops */
+@media only screen and (min-width: 400px) {
+    .social-link-container {
+        display: inline-block;
+    }
 }
 
 /* Only for Desktops */
