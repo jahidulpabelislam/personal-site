@@ -165,7 +165,9 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
 
             jQuery(".detailed-project .project__title").text(project.name);
-            jQuery(".detailed-project .project__date").text(project.date);
+
+            var projectDateString = new Date(project.date).toLocaleDateString();
+            jQuery(".detailed-project .project__date").text(projectDateString);
 
             fn.addSkills(project, ".detailed-project");
 
@@ -213,14 +215,19 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!document.getElementById("project--" + project.id)) {
                 var template = jQuery("#tmpl-project-template").text();
 
-                for (var data in project) {
-                    if (project.hasOwnProperty(data)) {
-                        if (typeof data === "string") {
-                            var regex = fn.getRegex(data);
-                            template = template.replace(regex, project[data]);
+                for (var field in project) {
+                    if (project.hasOwnProperty(field) && typeof field === "string") {
+                        var regex = fn.getRegex(field);
+
+                        var data = project[field];
+                        if (field === "date") {
+                            data = new Date(data).toLocaleDateString();
                         }
+
+                        template = template.replace(regex, data);
                     }
                 }
+
                 jQuery(".projects").append(template);
 
                 fn.addSkills(project, "#project--" + project.id);

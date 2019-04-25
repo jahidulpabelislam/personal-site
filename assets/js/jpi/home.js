@@ -44,13 +44,17 @@ window.jpi.home = (function(jQuery, jpi) {
             var slideTemplate = jQuery("#tmpl-slide-template").text();
             var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-            for (var data in project) {
-                if (project.hasOwnProperty(data)) {
-                    if (typeof data === "string") {
-                        var regex = fn.getRegex(data);
-                        slideTemplate = slideTemplate.replace(regex, project[data]);
-                        bulletTemplate = bulletTemplate.replace(regex, project[data]);
+            for (var field in project) {
+                if (project.hasOwnProperty(field) && typeof field === "string") {
+                    var regex = fn.getRegex(field);
+
+                    var data = project[field];
+                    if (field === "date") {
+                        data = new Date(data).toLocaleDateString();
                     }
+
+                    slideTemplate = slideTemplate.replace(regex, data);
+                    bulletTemplate = bulletTemplate.replace(regex, data);
                 }
             }
 
