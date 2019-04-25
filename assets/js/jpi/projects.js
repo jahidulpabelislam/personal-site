@@ -13,7 +13,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
 
-        regexes: {},
+        templateRegexes: {},
         navColourRegex: null,
     };
 
@@ -33,12 +33,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             jpi.footer.expandContent();
         },
 
-        getRegex: function(regex) {
-            if (!global.regexes[regex]) {
-                global.regexes[regex] = new RegExp("{{" + regex + "}}", "g");
+        getTemplateRegex: function(regex) {
+            if (!global.templateRegexes[regex]) {
+                global.templateRegexes[regex] = new RegExp("{{" + regex + "}}", "g");
             }
 
-            return global.regexes[regex];
+            return global.templateRegexes[regex];
         },
 
         addSkills: function(project, divID) {
@@ -125,21 +125,20 @@ window.jpi.projects = (function(jQuery, jpi) {
                     var slideTemplate = jQuery("#tmpl-slide-template").text();
                     var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-                    for (var data in project.images[i]) {
-                        if (project.images[i].hasOwnProperty(data)) {
-                            if (typeof data === "string") {
-                                var regex = fn.getRegex(data);
-                                slideTemplate = slideTemplate.replace(regex, project.images[i][data]);
-                                bulletTemplate = bulletTemplate.replace(regex, project.images[i][data]);
-                            }
+                    for (var field in project.images[i]) {
+                        if (project.images[i].hasOwnProperty(field) && typeof field === "string") {
+                            var regex = fn.getTemplateRegex(field);
+                            var data = project.images[i][field];
+                            slideTemplate = slideTemplate.replace(regex, data);
+                            bulletTemplate = bulletTemplate.replace(regex, data);
                         }
                     }
 
-                    var colourRegex = fn.getRegex("colour");
+                    var colourRegex = fn.getTemplateRegex("colour");
                     slideTemplate = slideTemplate.replace(colourRegex, project.colour);
                     bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
 
-                    var idRegex = fn.getRegex("slide-show-id");
+                    var idRegex = fn.getTemplateRegex("slide-show-id");
                     bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
 
                     slidesContainer.append(slideTemplate);
@@ -196,16 +195,15 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
-                document.body.style.overflow = "auto";
+                jQuery("body").css({overflow: "auto"});
 
                 var viewpoint = jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
-                jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
-
+                // Reset slide show
+                jQuery("#detailed-project__slide-show .slide-show__slides-container").css({left: "0px"});
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-
                 jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
@@ -219,7 +217,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 for (var field in project) {
                     if (project.hasOwnProperty(field) && typeof field === "string") {
-                        var regex = fn.getRegex(field);
+                        var regex = fn.getTemplateRegex(field);
 
                         var data = project[field];
                         if (field === "date") {
@@ -229,7 +227,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                         template = template.replace(regex, data);
                     }
                 }
-
                 jQuery(".projects").append(template);
 
                 fn.addSkills(project, "#project--" + project.id);

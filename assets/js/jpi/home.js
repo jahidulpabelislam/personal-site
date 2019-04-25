@@ -8,7 +8,7 @@ window.jpi.home = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        regexes: {},
+        templateRegexes: {},
     };
 
     var fn = {
@@ -32,12 +32,12 @@ window.jpi.home = (function(jQuery, jpi) {
             jQuery(".projects__loading-img").hide("fast");
         },
 
-        getRegex: function(regex) {
-            if (!global.regexes[regex]) {
-                global.regexes[regex] = new RegExp("{{" + regex + "}}", "g");
+        getTemplateRegex: function(regex) {
+            if (!global.templateRegexes[regex]) {
+                global.templateRegexes[regex] = new RegExp("{{" + regex + "}}", "g");
             }
 
-            return global.regexes[regex];
+            return global.templateRegexes[regex];
         },
 
         renderProject: function(project) {
@@ -46,7 +46,7 @@ window.jpi.home = (function(jQuery, jpi) {
 
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
-                    var regex = fn.getRegex(field);
+                    var regex = fn.getTemplateRegex(field);
 
                     var data = project[field];
                     if (field === "date") {
@@ -59,7 +59,7 @@ window.jpi.home = (function(jQuery, jpi) {
             }
 
             if (project.images && project.images.length && project.images[0]) {
-                var imageRegex = fn.getRegex("file");
+                var imageRegex = fn.getTemplateRegex("file");
                 slideTemplate = slideTemplate.replace(imageRegex, project.images[0].file);
             }
 
@@ -96,8 +96,6 @@ window.jpi.home = (function(jQuery, jpi) {
                     target: "_blank",
                 });
             }
-
-
         },
 
         // Sets up events when projects is received
