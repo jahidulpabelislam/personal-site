@@ -48,8 +48,10 @@ window.jpi.helpers = (function() {
         getInt: function(value, defaultInt) {
             var int = defaultInt;
 
-            if (!isNaN(value)) {
-                int = parseInt(value, 10);
+            var parsedInt = parseInt(value, 10);
+
+            if (!isNaN(parsedInt)) {
+                int = parsedInt;
             }
 
             return int;

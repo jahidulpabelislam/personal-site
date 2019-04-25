@@ -196,11 +196,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
                 dragMove = function(e) {
                     var diff = start - (e.changedTouches ? e.changedTouches[0].clientX : e.clientX),
-                        left = parseInt(slidesContainerLeft, 10);
-
-                    if (!left) {
-                        left = 0;
-                    }
+                        left = jpi.helpers.getInt(slidesContainerLeft, 10);
 
                     slidesContainer.css({
                         transitionDuration: "0s",
