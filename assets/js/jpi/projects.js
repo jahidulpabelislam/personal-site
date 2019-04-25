@@ -154,24 +154,26 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         openProjectsExpandModal: function() {
             var projectDataString = jQuery(this).attr("data-project-data"),
-                project = JSON.parse(projectDataString);
-
-            jQuery(".detailed-project").addClass("open").show();
-            document.body.style.overflow = "hidden";
+                project = JSON.parse(projectDataString),
+                modal = jQuery(".detailed-project");
 
             // Stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-            jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
+            modal.addClass("open").show();
 
-            jQuery(".detailed-project .project__title").text(project.name);
+            jQuery("body").css({overflow: "hidden"});
+
+            modal.find(".project__links, .project__skills, .slide-show__slides-container, .js-slide-show-bullets").text("");
+
+            modal.find(".project__title").text(project.name);
 
             var projectDateString = new Date(project.date).toLocaleDateString();
-            jQuery(".detailed-project .project__date").text(projectDateString);
+            modal.find(".project__date").text(projectDateString);
 
             fn.addSkills(project, ".detailed-project");
 
-            jQuery(".detailed-project .project__description").html(project.long_description);
+            modal.find(".project__description").html(project.long_description);
 
             fn.addLinks(project, ".detailed-project");
 
@@ -181,7 +183,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
             }
 
-            jQuery(".detailed-project .slide-show__nav").each(function() {
+            modal.find(".slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
                 var classList = slideShowNav.attr("class");
                 classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
