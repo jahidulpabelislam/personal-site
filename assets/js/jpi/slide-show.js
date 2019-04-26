@@ -128,7 +128,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Moves to next or previous slide
         moveSlide: function(slideShowId, direction) {
-            var oldSlide = jQuery(slideShowId + " .active"),
+            var oldSlide = jQuery(slideShowId + " .slide-show__slide.active"),
                 nextSlide;
 
             if (direction === "next") {

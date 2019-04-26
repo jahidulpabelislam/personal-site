@@ -69,7 +69,7 @@
     transition: all 2s ease-in-out;
 }
 
-#slide-show--home .active .slide-show__img {
+#slide-show--home .slide-show__slide.active .slide-show__img {
     opacity: 1;
 }
 
@@ -81,15 +81,14 @@
     transition: all 2s ease-in-out;
     opacity: 0;
 }
+.slide-show__slide.active .slide-show__info {
+    opacity: 1;
+}
 
 @each $colour, $colours in $colour-schemes {
     .slide-show__info--#{$colour} {
         background-color: map-get($colours, main);
     }
-}
-
-.active .slide-show__info {
-    opacity: 1;
 }
 
 .project-info__links .btn {
@@ -158,7 +157,7 @@
         padding: 10px;
     }
 
-    .active .slide-show__info {
+    .slide-show__slide.active .slide-show__info {
         transform: translateY(0);
     }
 

@@ -23,7 +23,7 @@
   font-style: normal;
   font-weight: 400;
   src: local("Cabin"), local("Cabin-Regular"), url(https://fonts.gstatic.com/s/cabin/v12/u-4x0qWljRw-Pd8w__0.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 /*
  Google Oswald Font
@@ -58,7 +58,7 @@
   font-style: normal;
   font-weight: 400;
   src: local("Oswald Regular"), local("Oswald-Regular"), url(https://fonts.gstatic.com/s/oswald/v16/TK3iWkUHHAIjg752GT8G.woff2) format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -1792,7 +1792,7 @@ label {
   opacity: 0;
   transition: all 2s ease-in-out; }
 
-#slide-show--home .active .slide-show__img {
+#slide-show--home .slide-show__slide.active .slide-show__img {
   opacity: 1; }
 
 .slide-show__info {
@@ -1802,6 +1802,9 @@ label {
   cursor: initial;
   transition: all 2s ease-in-out;
   opacity: 0; }
+
+.slide-show__slide.active .slide-show__info {
+  opacity: 1; }
 
 .slide-show__info--blue {
   background-color: #0375b4; }
@@ -1820,9 +1823,6 @@ label {
 
 .slide-show__info--purple {
   background-color: #80379b; }
-
-.active .slide-show__info {
-  opacity: 1; }
 
 .project-info__links .btn {
   transition: all 0.3s ease-in-out;
@@ -1871,7 +1871,7 @@ label {
     border-radius: 5px;
     transform: translateY(100%);
     padding: 10px; }
-  .active .slide-show__info {
+  .slide-show__slide.active .slide-show__info {
     transform: translateY(0); }
   .project-info__desc {
     display: none; } }
