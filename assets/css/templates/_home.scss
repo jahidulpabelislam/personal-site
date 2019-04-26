@@ -65,7 +65,7 @@
 }
 
 #slide-show--home .slide-show__img {
-    opacity: 0;
+    opacity: 0.4;
     transition: all 2s ease-in-out;
 }
 
@@ -79,7 +79,7 @@
     padding: 10px 35px;
     cursor: initial;
     transition: all 2s ease-in-out;
-    opacity: 0;
+    opacity: 0.4;
 }
 .slide-show__slide.active .slide-show__info {
     opacity: 1;
@@ -97,7 +97,7 @@
 }
 
 #slide-show--home .slide-show__img:hover {
-    transform: scale(1);
+    transform: none;
 }
 
 #slide-show--home .project__date,
