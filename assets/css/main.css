@@ -1813,7 +1813,7 @@ label {
   cursor: initial; }
 
 #slide-show--home .slide-show__img {
-  opacity: 0.4;
+  opacity: 0.15;
   transition: all 2s ease-in-out; }
 
 #slide-show--home .slide-show__slide.active .slide-show__img {
@@ -1825,7 +1825,7 @@ label {
   padding: 10px 35px;
   cursor: initial;
   transition: all 2s ease-in-out;
-  opacity: 0.4; }
+  opacity: 0.15; }
 
 .slide-show__slide.active .slide-show__info {
   opacity: 1; }
