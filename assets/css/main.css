@@ -1879,6 +1879,9 @@ label {
   .home__hello {
     font-size: 34px;
     line-height: 36px; }
+  .main-hello {
+    font-size: 46px;
+    line-height: 50px; }
   .home-hello__img {
     width: 50%;
     max-width: 200px; }
@@ -1913,6 +1916,9 @@ label {
   .home__hello {
     font-size: 38px;
     line-height: 40px; }
+  .main-hello {
+    font-size: 50px;
+    line-height: 54px; }
   .home-hello__img {
     width: 25%;
     max-width: 220px; }
