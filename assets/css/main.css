@@ -1674,25 +1674,49 @@ label {
   background-color: #0375b4;
   border: 1px solid #035691; }
 
+.skills-interests__item--blue.js-expand-skill-interest:hover {
+  background-color: #035691;
+  border: 1px solid #03427d; }
+
 .skills-interests__item--red {
   background-color: #e52525;
   border: 1px solid #c32424; }
+
+.skills-interests__item--red.js-expand-skill-interest:hover {
+  background-color: #c32424;
+  border: 1px solid #af2323; }
 
 .skills-interests__item--orange {
   background-color: #e1a02f;
   border: 1px solid #d2922e; }
 
+.skills-interests__item--orange.js-expand-skill-interest:hover {
+  background-color: #d2922e;
+  border: 1px solid #c88c2e; }
+
 .skills-interests__item--lime-green {
   background-color: #b5c82f;
   border: 1px solid #a6b930; }
+
+.skills-interests__item--lime-green.js-expand-skill-interest:hover {
+  background-color: #a6b930;
+  border: 1px solid #91a42f; }
 
 .skills-interests__item--green {
   background-color: #5cb85c;
   border: 1px solid #54a754; }
 
+.skills-interests__item--green.js-expand-skill-interest:hover {
+  background-color: #54a754;
+  border: 1px solid #4b944b; }
+
 .skills-interests__item--purple {
   background-color: #80379b;
   border: 1px solid #62357d; }
+
+.skills-interests__item--purple.js-expand-skill-interest:hover {
+  background-color: #62357d;
+  border: 1px solid #4e3469; }
 
 .js-expand-skill-interest {
   cursor: pointer; }
