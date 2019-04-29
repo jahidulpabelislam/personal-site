@@ -241,19 +241,19 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Sets up a slide show
         setUp: function(slideShowId) {
             var slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
-                slideContainer = jQuery(slideShowId + " .slide-show__slide");
+                slides = jQuery(slideShowId + " .slide-show__slide");
 
             jQuery(slideShowId).addClass("hasSlideShow").show();
 
             fn.widenSlideShow(slideShowViewpoint);
 
-            if (slideContainer.length > 1) {
-                slideContainer.css("width", slideShowViewpoint.innerWidth() + "px");
+            if (slides.length > 1) {
+                slides.css("width", slideShowViewpoint.innerWidth() + "px");
 
                 jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").show();
 
                 setTimeout(function() {
-                    fn.moveToSlide(slideShowId, slideContainer.first());
+                    fn.moveToSlide(slideShowId, slides.first());
                 }, 150);
 
                 slideShowViewpoint[0].addEventListener("mousedown", fn.dragStart);
