@@ -33,18 +33,20 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Adjusts all slides in slide show to fit
         repositionSlides: function(slideShowId) {
-            var slidesContainer = jQuery("#" + slideShowId + " .slide-show__slides-container"),
-                viewpoint = jQuery("#" + slideShowId + " .slide-show__viewpoint"),
-                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide.active");
+            slideShowId = "#" + slideShowId;
+
+            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
+                viewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
+                currentSlide = jQuery(slideShowId + " .slide-show__slide.active");
 
             if (!currentSlide.length) {
-                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide").first();
+                currentSlide = jQuery(slideShowId + " .slide-show__slide").first();
             }
 
             fn.widenSlideShow(viewpoint);
 
             slidesContainer.children().css({
-                width: jQuery("#" + slideShowId).innerWidth() + "px",
+                width: jQuery(slideShowId).innerWidth() + "px",
             });
             var position = currentSlide.position();
 
@@ -58,9 +60,11 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Starts a slide show by slide show element id
         startSlideShow: function(slideShowId) {
-            if (jQuery("#" + slideShowId + " .slide-show__slides-container").children().length > 1) {
-                global.slideShows["#" + slideShowId] = setInterval(function() {
-                    fn.moveSlide("#" + slideShowId, "next");
+            slideShowId = "#" + slideShowId;
+
+            if (jQuery(slideShowId + " .slide-show__slides-container").children().length > 1) {
+                global.slideShows[slideShowId] = setInterval(function() {
+                    fn.moveSlide(slideShowId, "next");
                 }, global.milliSecsPerSlide);
             }
         },
