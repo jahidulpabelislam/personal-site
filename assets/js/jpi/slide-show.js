@@ -77,7 +77,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Loops through all slide shows
         loopThroughSlideShows: function(afterLoopedFunc) {
             var i,
-                slideShows = jQuery(".hasSlideShow");
+                slideShows = jQuery(".js-has-slide-show");
 
             for (i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc(slideShows[i].id);
@@ -243,8 +243,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
                 slides = jQuery(slideShowId + " .slide-show__slide");
 
-            jQuery(slideShowId).addClass("hasSlideShow").show();
-
+            jQuery(slideShowId).addClass("js-has-slide-show").show();
             fn.widenSlideShow(slideShowViewpoint);
 
             if (slides.length > 1) {

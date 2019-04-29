@@ -204,7 +204,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 // Reset slide show
                 jQuery("#detailed-project__slide-show .slide-show__slides-container").css({left: "0px"});
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-                jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
+                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
