@@ -79,6 +79,7 @@
 
     .skill--#{$colour}.searched,
     .skill--#{$colour}:not(.js-searchable-skill):hover {
+        border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
     }
 }

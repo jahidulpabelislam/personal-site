@@ -2086,6 +2086,7 @@ label {
 
 .skill--blue.searched,
 .skill--blue:not(.js-searchable-skill):hover {
+  border-color: #0360a0;
   background-color: #0360a0; }
 
 .skill--red {
@@ -2097,6 +2098,7 @@ label {
 
 .skill--red.searched,
 .skill--red:not(.js-searchable-skill):hover {
+  border-color: #e62525;
   background-color: #e62525; }
 
 .skill--orange {
@@ -2108,6 +2110,7 @@ label {
 
 .skill--orange.searched,
 .skill--orange:not(.js-searchable-skill):hover {
+  border-color: #e97500;
   background-color: #e97500; }
 
 .skill--lime-green {
@@ -2119,6 +2122,7 @@ label {
 
 .skill--lime-green.searched,
 .skill--lime-green:not(.js-searchable-skill):hover {
+  border-color: #a6b930;
   background-color: #a6b930; }
 
 .skill--green {
@@ -2130,6 +2134,7 @@ label {
 
 .skill--green.searched,
 .skill--green:not(.js-searchable-skill):hover {
+  border-color: #56aa56;
   background-color: #56aa56; }
 
 .skill--purple {
@@ -2141,6 +2146,7 @@ label {
 
 .skill--purple.searched,
 .skill--purple:not(.js-searchable-skill):hover {
+  border-color: #6c3687;
   background-color: #6c3687; }
 
 .project__links {
