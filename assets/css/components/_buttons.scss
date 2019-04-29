@@ -16,6 +16,7 @@ button,
     border-radius: 2px;
     color: white;
     background-color: $dark;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .btn:hover,
