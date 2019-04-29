@@ -69,7 +69,7 @@
 
 @each $colour, $colours in $colour-schemes {
     .skill--#{$colour} {
-        border: 1px solid map-get($colours, main);
+        border-color: map-get($colours, main);
         color: map-get($colours, main);
     }
 
