@@ -78,12 +78,12 @@
 @each $colour, $colours in $colour-schemes {
     .skills-interests__item--#{$colour} {
         background-color: map-get($colours, main);
-        border: 1px solid map-get($colours, hover);
+        border-color: map-get($colours, hover);
     }
 
     .skills-interests__item--#{$colour}.js-expand-skill-interest:hover {
         background-color: map-get($colours, hover);
-        border: 1px solid map-get($colours, main);
+        border-color: map-get($colours, main);
     }
 }
 
