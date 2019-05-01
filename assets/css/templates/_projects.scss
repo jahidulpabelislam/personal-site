@@ -75,6 +75,7 @@
 
     .skill--#{$colour}:hover {
         background-color: map-get($colours, hover);
+        border-color: map-get($colours, hover);
     }
 
     .skill--#{$colour}.searched,
