@@ -49,7 +49,7 @@
 }
 
 .social-link:hover .social-link__img--snapchat {
-    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     cursor: pointer;
     filter: grayscale(0);
 }

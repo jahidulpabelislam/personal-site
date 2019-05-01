@@ -26,7 +26,7 @@
 .about__images-of-me .image-of-me {
     width: 100%;
     transition: all 0.4s ease-in-out;
-    box-shadow: 0 0 10px 0 transparentize($dark, 0.6);
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
 .image-of-me--grown {
@@ -60,13 +60,13 @@
 }
 
 .skills-interests__item {
-    border: 1px solid darken($dark, 15%);
+    border: 1px solid darken($dark-colour, 15%);
     border-radius: 5px;
     padding: 5px;
     display: inline-block;
     margin: 2px;
     transition: all 0.4s ease-in-out;
-    background-color: $dark;
+    background-color: $dark-colour;
     color: white;
     cursor: auto;
 }

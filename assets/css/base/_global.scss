@@ -3,13 +3,13 @@
 */
 
 .link-styled {
-    color: $dark;
+    color: $dark-colour;
     border-bottom: transparent solid 1px;
 }
 
 .link-styled:hover {
-    color: darken($dark, 10%);
-    border-bottom-color: darken($dark, 10%);
+    color: darken($dark-colour, 10%);
+    border-bottom-color: darken($dark-colour, 10%);
 }
 
 @each $colour, $colours in $colour-schemes {

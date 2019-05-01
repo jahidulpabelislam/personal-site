@@ -7,7 +7,7 @@
 }
 
 .jumbotron__overlay {
-    background: transparentize($dark, 0.85);
+    background: transparentize($dark-colour, 0.85);
     display: flex;
     height: 100%;
 }

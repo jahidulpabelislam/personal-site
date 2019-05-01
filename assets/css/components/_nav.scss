@@ -13,12 +13,12 @@
 }
 
 .nav--dark {
-    background-color: transparentize($dark, 0.8);
+    background-color: transparentize($dark-colour, 0.8);
 }
 
 .nav.scrolled,
 .nav.opened {
-    box-shadow: 0 0 10px 0 $dark;
+    box-shadow: 0 0 10px 0 $dark-colour;
     background-color: white;
 }
 
@@ -42,8 +42,8 @@
 
 .scrolled .nav__logo,
 .opened .nav__logo {
-    background: $dark;
-    border-color: $dark;
+    background: $dark-colour;
+    border-color: $dark-colour;
 }
 
 .nav__logo.current,
@@ -81,7 +81,7 @@
 }
 
 .scrolled .menu-bar {
-    background-color: $dark;
+    background-color: $dark-colour;
 }
 
 .opened .nav__mobile-toggle {
@@ -146,7 +146,7 @@
 
 .scrolled .nav-item__link,
 .opened .nav-item__link {
-    color: $dark;
+    color: $dark-colour;
 }
 
 .nav-item__link:focus,
@@ -172,7 +172,7 @@
 
 .nav.scrolled .nav__social-links .social-link__img,
 .nav.opened .nav__social-links .social-link__img {
-    background: $dark;
+    background: $dark-colour;
 }
 
 .nav__social-links .social-link:hover .social-link__img {

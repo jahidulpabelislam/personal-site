@@ -10,7 +10,7 @@
 }
 
 .slide-show__viewpoint:hover {
-    box-shadow: 0 0 10px 0 transparentize($dark, 0.7);
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.7);
     cursor: pointer;
 }
 
@@ -45,14 +45,14 @@
     transition: all 0.3s ease-in-out;
     position: absolute;
     top: calc(50% - 15px);
-    background: $dark;
-    box-shadow: 0 0 20px 0 transparentize($dark, 0.7);
+    background: $dark-colour;
+    box-shadow: 0 0 20px 0 transparentize($dark-colour, 0.7);
 }
 
 .slide-show__nav:hover {
     opacity: 1;
     cursor: pointer;
-    box-shadow: 0 0 20px 0 $dark;
+    box-shadow: 0 0 20px 0 $dark-colour;
 }
 
 .slide-show__nav-previous {
@@ -83,7 +83,7 @@
 
 .slide-show__bullet.active {
     opacity: 1;
-    background-color: $dark;
+    background-color: $dark-colour;
 }
 
 @each $colour, $colours in $colour-schemes {

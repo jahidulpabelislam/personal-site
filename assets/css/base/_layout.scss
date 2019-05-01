@@ -28,7 +28,7 @@ body {
 .article {
     background-color: $light-colour;
     padding: 15px 0;
-    box-shadow: 0 0 10px 0 transparentize($dark, 0.8);
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
 .article:nth-child(even) {
@@ -96,11 +96,11 @@ img {
 
 .table {
     margin: 0 auto;
-    border-color: $dark;
+    border-color: $dark-colour;
 }
 
 .table__row {
-    border: 1px solid $dark;
+    border: 1px solid $dark-colour;
 }
 
 .table__col {
