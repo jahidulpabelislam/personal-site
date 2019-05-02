@@ -43,7 +43,8 @@
     position: absolute;
     width: 0;
     left: -10px;
-    border: 10px 10px 10px 0 solid $light-grey;
+    border: 1px solid $light-grey;
+    border-width: 10px 10px 10px 0;
     border-color: transparent $light-grey transparent transparent;
     top: 50%;
     margin-top: -10px;
