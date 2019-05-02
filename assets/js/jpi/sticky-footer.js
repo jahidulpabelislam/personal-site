@@ -4,7 +4,7 @@ window.jpi.footer = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        header: jQuery(".jumbotron"),
+        header: jQuery(".header"),
         mainContent: jQuery(".main-content"),
         footer: jQuery(".footer"),
     };

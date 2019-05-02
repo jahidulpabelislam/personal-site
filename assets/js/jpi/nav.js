@@ -38,7 +38,7 @@ window.jpi.nav = (function(jQuery, jpi) {
         toggleNavBarColour: function() {
             var navHeight = jQuery(global.mainSelector).height();
             var scrollPos = jQuery(window).scrollTop() + navHeight;
-            var headerHeight = jQuery(".jumbotron").height();
+            var headerHeight = jQuery(".header").height();
 
             if (scrollPos >= headerHeight) {
                 jQuery(global.mainSelector).addClass("scrolled");

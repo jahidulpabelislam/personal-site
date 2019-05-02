@@ -636,33 +636,33 @@ label {
     padding: 9px 14px; } }
 
 /* For all devices */
-.jumbotron {
+.header {
   height: 100vh;
   color: #ffffff;
   background: #0375b4 url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
   background-size: cover; }
 
-.jumbotron__overlay {
+.header__overlay {
   display: flex;
   height: 100%;
   background: rgba(51, 51, 51, 0.15); }
 
-.jumbotron__title {
+.header__title {
   text-shadow: 2px 2px 3px black;
   font-size: 50px;
   font-weight: bold;
   line-height: 52px; }
 
-.jumbotron__line-breaker {
+.header__line-breaker {
   margin: 30px 0 38px 0; }
 
-.jumbotron__desc {
+.header__desc {
   text-shadow: 2px 2px 3px black;
   font-size: 26px;
   font-weight: bold;
   line-height: 28px; }
 
-.jumbotron__scroll-to-content {
+.header__scroll-to-content {
   position: absolute;
   bottom: 24px;
   left: 50%;
@@ -674,22 +674,22 @@ label {
   cursor: pointer;
   animation: bounce 1.5s linear infinite; }
 
-.jumbotron__scroll-to-content:hover {
+.header__scroll-to-content:hover {
   opacity: 1;
   background: rgba(245, 245, 245, 0.1); }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: 768px) {
-  .jumbotron__scroll-to-content {
+  .header__scroll-to-content {
     width: 40px;
     height: 40px;
     margin-left: -20px; } }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
-  .jumbotron {
+  .header {
     background-attachment: fixed; }
-  .jumbotron__scroll-to-content {
+  .header__scroll-to-content {
     width: 50px;
     height: 50px;
     margin-left: -25px; } }
@@ -1595,7 +1595,7 @@ label {
     text-align: right; } }
 
 /* For all devices */
-.jumbotron--about {
+.header--about {
   background-image: url("/assets/images/marmaris.jpg?v=2"); }
 
 .article--about {
@@ -1724,7 +1724,7 @@ label {
     height: 250px; } }
 
 /* For all devices */
-.jumbotron--contact {
+.header--contact {
   background-image: url("/assets/images/contact.jpg?v=2"); }
 
 /* For Tablets & Desktops */
@@ -1745,7 +1745,7 @@ label {
     width: 100%; } }
 
 /* For all devices */
-.jumbotron--home {
+.header--home {
   background-image: url("/assets/images/working.jpg?v=2"); }
 
 .home__hello {
@@ -2006,7 +2006,7 @@ label {
     max-width: 200px; } }
 
 /* For all devices */
-.jumbotron--projects {
+.header--projects {
   background-image: url("/assets/images/projects.jpg?v=2"); }
 
 .search-form {
@@ -2393,12 +2393,12 @@ label {
     font-size: 40px;
     line-height: 33px; } }
 
-.jumbotron--500 {
+.header--500 {
   background-image: url("/assets/images/500.jpg?v=2"); }
 
-.jumbotron--401,
-.jumbotron--403,
-.jumbotron--404 {
+.header--401,
+.header--403,
+.header--404 {
   background-image: url("/assets/images/mistake.jpg?v=2"); }
 
 .error__img {
