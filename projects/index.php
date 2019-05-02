@@ -26,13 +26,13 @@ if ($pageNum > 1) {
     $apiRequestParams["page"] = $pageNum;
 }
 
-$headDesc = "Look at the Previous Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Look at the Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
-    "headerDesc" => "See My Skills in Action in My Previous Projects",
+    "headerDesc" => "See My Skills in Action in My Projects",
 ];
 
 if ($site->isProduction()) {
@@ -76,10 +76,10 @@ $pageRenderer->renderHeader();
                 <section class="article">
                     <div class="container">
 
-                        <p>These are some pieces of work I have completed throughout the years as a developer.</p>
+                        <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
                         <p>
-                            Please use the input below to find any projects you want to have a look at.<br/>
-                            For example it can be filtered by names of technologies, frameworks or projects.
+                            You can use the input below to find projects you want to have a look at.<br />
+                            For example you can use names of technologies, frameworks or projects.
                         </p>
 
                         <form class="search-form">

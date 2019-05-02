@@ -135,17 +135,19 @@ $pageRenderer->renderHeader();
                             <?php
                             $techSkills = [
                                 [
-                                    "text" => "HTML",
-                                    "desc" => "HTML5 & HTML4",
-                                ], [
-                                    "text" => "CSS",
-                                    "desc" => "CSS3, SCSS, Bootstrap3/4",
+                                    "text" => "PHP",
+                                    "desc" => "Wordpress, Laravel & PDO",
                                 ], [
                                     "text" => "JavaScript",
                                     "desc" => "Node.js (socket.io & Express), JQuery & AngularJS",
                                 ], [
-                                    "text" => "PHP",
-                                    "desc" => "PHP5, PHP7, Wordpress, Laravel & PDO",
+                                    "text" => "CSS",
+                                    "desc" => "CSS3, SCSS, Bootstrap3/4",
+                                ], [
+                                    "text" => "HTML",
+                                ], [
+                                    "text" => "Python",
+                                    "desc" => "flask & graphics.py",
                                 ], [
                                     "text" => "SQL",
                                     "desc" => "MySQL",
@@ -156,16 +158,11 @@ $pageRenderer->renderHeader();
                                     "text" => "Java",
                                     "desc" => "Java EE 7, JSF 2, AWT & Swing",
                                 ], [
-                                    "text" => "Python",
-                                    "desc" => "graphics.py",
-                                ], [
-                                    "text" => "Visual Basic",
-                                ], [
                                     "text" => "DVCS",
                                     "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)",
                                 ], [
                                     "text" => "Microsoft Office",
-                                    "desc" => "Excel to create College/Uni grading systems and financial record system, Word, Powerpoint (Moved some work to Google Sheets, Docs & Slides)",
+                                    "desc" => "Excel, Word & Powerpoint",
                                 ],
                             ];
 
@@ -198,10 +195,10 @@ $pageRenderer->renderHeader();
                             $otherSkills = [
                                 [
                                     "text" => "Team Player",
-                                    "desc" => "Being a good team player has been installed in me after playing with competitive Football teams",
+                                    "desc" => "Playing competitive football has meant being a good team player is installed in me",
                                 ], [
                                     "text" => "Communication",
-                                    "desc" => "Having experience in customer focused environments has taught me to have good written and spoken communication skills",
+                                    "desc" => "Written & spoken communication skills from experience in customer focused environments",
                                 ], [
                                     "text" => "Hard Worker",
                                 ],
@@ -282,7 +279,7 @@ $pageRenderer->renderHeader();
                                 ], [
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
-                                    "text" => "BSc (Hons) Web Technologies Student @
+                                    "text" => "Web Technologies Student @
                                         <a href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' class='link-styled link-styled--orange' target='_blank'>
                                             University of Portsmouth
                                         </a>",
@@ -308,7 +305,7 @@ $pageRenderer->renderHeader();
                                 ], [
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
-                                    "text" => "BTEC Extended Diploma in IT Student @
+                                    "text" => "IT Student @
                                         <a href='https://chichester.ac.uk/' title='Link to Chichester College website.' class='link-styled link-styled--orange' target='_blank'>
                                             Chichester College
                                         </a>",
@@ -316,12 +313,12 @@ $pageRenderer->renderHeader();
                                 ], [
                                     "date" => $site->getYearStarted(),
                                     "icon" => "coding",
-                                    "text" => "Got Introduced to Developing/Coding",
+                                    "text" => "Got introduced to coding",
                                     "isActive" => false,
                                 ], [
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
-                                    "text" => "Playing for a Competitive Football Team @
+                                    "text" => "Playing competitive football with
                                         <a href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' class='link-styled link-styled--orange' target='_blank'>
                                             Felpham Colts
                                         </a>",

@@ -24,7 +24,7 @@ $pageRenderer->renderHeader();
                 <section class="article">
                     <div class="container">
                         <h3 class="article__header">Form</h3>
-                        <p>Use this contact form to quickly send me a message.</p>
+                        <p>Use the form  below to quickly send me a message.</p>
                         <p><span class="required">*</span> indicates a required field</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
