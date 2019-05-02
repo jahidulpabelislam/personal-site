@@ -3,9 +3,9 @@
 }
 
 .social-link-container {
+    display: block;
     margin: 5px;
     padding: 15px;
-    display: block;
 }
 
 .social-link-container--snapchat {
@@ -44,8 +44,8 @@
     width: 100%;
     height: auto;
     border-radius: 15%;
-    transition: all 0.3s ease-in-out;
     filter: grayscale(100%);
+    transition: all 0.3s ease-in-out;
 }
 
 .social-link:hover .social-link__img--snapchat {
@@ -55,10 +55,10 @@
 }
 
 .social-link__text--snapchat {
-    color: white;
-    background-color: black;
     padding: 4px;
     border-radius: 6px;
+    background-color: black;
+    color: white;
 }
 
 .social-link:hover .social-link__text--snapchat {

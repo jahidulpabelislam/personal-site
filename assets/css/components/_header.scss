@@ -1,15 +1,15 @@
 /* For all devices */
 .jumbotron {
+    height: 100vh;
     color: #ffffff;
     background: $primary-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
-    height: 100vh;
 }
 
 .jumbotron__overlay {
-    background: transparentize($dark-colour, 0.85);
     display: flex;
     height: 100%;
+    background: transparentize($dark-colour, 0.85);
 }
 
 .jumbotron__title {
@@ -31,15 +31,15 @@
 }
 
 .jumbotron__scroll-to-content {
-    cursor: pointer;
     position: absolute;
     bottom: 24px;
     left: 50%;
-    margin-left: -18px;
     width: 36px;
     height: 36px;
+    margin-left: -18px;
     border-radius: 50%;
     opacity: 0.8;
+    cursor: pointer;
     animation: bounce 1.5s linear infinite;
 }
 
@@ -51,9 +51,9 @@
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .jumbotron__scroll-to-content {
-        margin-left: -20px;
         width: 40px;
         height: 40px;
+        margin-left: -20px;
     }
 }
 
@@ -64,9 +64,9 @@
     }
 
     .jumbotron__scroll-to-content {
-        margin-left: -25px;
         width: 50px;
         height: 50px;
+        margin-left: -25px;
     }
 }
 

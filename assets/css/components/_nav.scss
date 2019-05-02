@@ -1,10 +1,10 @@
 .nav {
-    z-index: 3;
-    margin: 0 -15px;
     position: fixed;
-    left: 0;
-    right: 0;
+    margin: 0 -15px;
     top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
     transition: all 0.7s ease-in-out;
 }
 
@@ -18,8 +18,8 @@
 
 .nav.scrolled,
 .nav.opened {
-    box-shadow: 0 0 10px 0 $dark-colour;
     background-color: white;
+    box-shadow: 0 0 10px 0 $dark-colour;
 }
 
 .nav__header {
@@ -28,14 +28,14 @@
 
 .nav__logo-container {
     display: inline-block;
-    padding: 4px 0;
     height: 46px;
+    padding: 4px 0;
 }
 
 .nav__logo {
     height: 100%;
-    border-radius: 50%;
     background: transparent;
+    border-radius: 50%;
     border: 1px solid transparent;
     opacity: 1;
 }
@@ -98,8 +98,8 @@
 
 .menu-bar--middle {
     margin-top: 4px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 
 .menu-bar--bottom {
@@ -138,8 +138,8 @@
 }
 
 .nav-item__link {
-    padding: 12px 12px;
     display: block;
+    padding: 12px 12px;
     color: white;
     text-align: center;
 }
@@ -164,8 +164,8 @@
 }
 
 .nav__social-links .social-link__img {
-    height: 36px;
     width: 36px;
+    height: 36px;
     margin: 10px 4px;
     background: transparent;
 }
@@ -208,12 +208,7 @@
         order: 3;
     }
 
-    .nav__social-links-container {
-        display: block;
-        order: 1;
-        flex: 1;
-    }
-
+    .nav__social-links-container,
     .nav__links-container--left {
         display: block;
         order: 1;
@@ -230,8 +225,8 @@
     }
 
     .nav__links {
-        border-top: none;
         float: right;
+        border-top: none;
     }
 
     .nav-link__item {
@@ -242,11 +237,8 @@
         border-bottom: solid transparent 2px;
     }
 
-    .nav-item__link:hover {
-        border-bottom-color: colour(blue, main);
-    }
-
-    .nav-item__link.active {
+    .nav-item__link:hover,
+    .nav-item__link.active  {
         border-bottom-color: colour(blue, main);
     }
 

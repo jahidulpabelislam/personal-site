@@ -11,11 +11,11 @@
 .pagination__item-link.pagination__item-link {
     display: inline-block;
     margin: 6px 4px;
-    cursor: pointer;
     padding: 6px 12px;
     background-color: $primary-colour;
     border: 1px solid darken($primary-colour, 5%);
     color: white;
+    cursor: pointer;
 }
 
 .pagination__item-link:hover {

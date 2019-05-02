@@ -1,7 +1,7 @@
 .project__header {
     display: flex;
-    align-items: center;
     padding: 20px 0 10px 0;
+    align-items: center;
 }
 
 .project__title {
@@ -25,7 +25,6 @@
 }
 
 .project__date--inline {
-    margin: 0;
-    margin-left: 24px;
+    margin: 0 0 0 24px;
     text-align: right;
 }
