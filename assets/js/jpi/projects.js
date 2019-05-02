@@ -13,7 +13,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
 
-        regexes: {},
+        templateRegexes: {},
         navColourRegex: null,
     };
 
@@ -33,12 +33,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             jpi.footer.expandContent();
         },
 
-        getRegex: function(regex) {
-            if (!global.regexes[regex]) {
-                global.regexes[regex] = new RegExp("{{" + regex + "}}", "g");
+        getTemplateRegex: function(regex) {
+            if (!global.templateRegexes[regex]) {
+                global.templateRegexes[regex] = new RegExp("{{" + regex + "}}", "g");
             }
 
-            return global.regexes[regex];
+            return global.templateRegexes[regex];
         },
 
         addSkills: function(project, divID) {
@@ -125,21 +125,20 @@ window.jpi.projects = (function(jQuery, jpi) {
                     var slideTemplate = jQuery("#tmpl-slide-template").text();
                     var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-                    for (var data in project.images[i]) {
-                        if (project.images[i].hasOwnProperty(data)) {
-                            if (typeof data === "string") {
-                                var regex = fn.getRegex(data);
-                                slideTemplate = slideTemplate.replace(regex, project.images[i][data]);
-                                bulletTemplate = bulletTemplate.replace(regex, project.images[i][data]);
-                            }
+                    for (var field in project.images[i]) {
+                        if (project.images[i].hasOwnProperty(field) && typeof field === "string") {
+                            var regex = fn.getTemplateRegex(field);
+                            var data = project.images[i][field];
+                            slideTemplate = slideTemplate.replace(regex, data);
+                            bulletTemplate = bulletTemplate.replace(regex, data);
                         }
                     }
 
-                    var colourRegex = fn.getRegex("colour");
+                    var colourRegex = fn.getTemplateRegex("colour");
                     slideTemplate = slideTemplate.replace(colourRegex, project.colour);
                     bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
 
-                    var idRegex = fn.getRegex("slide-show-id");
+                    var idRegex = fn.getTemplateRegex("slide-show-id");
                     bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
 
                     slidesContainer.append(slideTemplate);
@@ -154,22 +153,26 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         openProjectsExpandModal: function() {
             var projectDataString = jQuery(this).attr("data-project-data"),
-                project = JSON.parse(projectDataString);
-
-            jQuery(".detailed-project").addClass("open").show();
-            document.body.style.overflow = "hidden";
+                project = JSON.parse(projectDataString),
+                modal = jQuery(".detailed-project");
 
             // Stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
 
-            jQuery(".detailed-project .project__links, .detailed-project .project__skills, .detailed-project .slide-show__slides-container, .detailed-project .js-slide-show-bullets").text("");
+            modal.addClass("open").show();
 
-            jQuery(".detailed-project .project__title").text(project.name);
-            jQuery(".detailed-project .project__date").text(project.date);
+            jQuery("body").css({overflow: "hidden"});
+
+            modal.find(".project__links, .project__skills, .slide-show__slides-container, .js-slide-show-bullets").text("");
+
+            modal.find(".project__title").text(project.name);
+
+            var projectDateString = new Date(project.date).toLocaleDateString();
+            modal.find(".project__date").text(projectDateString);
 
             fn.addSkills(project, ".detailed-project");
 
-            jQuery(".detailed-project .project__description").html(project.long_description);
+            modal.find(".project__description").html(project.long_description);
 
             fn.addLinks(project, ".detailed-project");
 
@@ -179,7 +182,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
             }
 
-            jQuery(".detailed-project .slide-show__nav").each(function() {
+            modal.find(".slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
                 var classList = slideShowNav.attr("class");
                 classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
@@ -192,17 +195,16 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
-                document.body.style.overflow = "auto";
+                jQuery("body").css({overflow: "auto"});
 
                 var viewpoint = jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
-                jQuery("#detailed-project__slide-show .slide-show__slides-container").css("left", "0px");
-
+                // Reset slide show
+                jQuery("#detailed-project__slide-show .slide-show__slides-container").css({left: "0px"});
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-
-                jQuery("#detailed-project__slide-show").removeClass("hasSlideShow");
+                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
@@ -213,12 +215,16 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!document.getElementById("project--" + project.id)) {
                 var template = jQuery("#tmpl-project-template").text();
 
-                for (var data in project) {
-                    if (project.hasOwnProperty(data)) {
-                        if (typeof data === "string") {
-                            var regex = fn.getRegex(data);
-                            template = template.replace(regex, project[data]);
+                for (var field in project) {
+                    if (project.hasOwnProperty(field) && typeof field === "string") {
+                        var regex = fn.getTemplateRegex(field);
+
+                        var data = project[field];
+                        if (field === "date") {
+                            data = new Date(data).toLocaleDateString();
                         }
+
+                        template = template.replace(regex, data);
                     }
                 }
                 jQuery(".projects").append(template);

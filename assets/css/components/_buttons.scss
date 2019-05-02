@@ -3,24 +3,25 @@ button,
 [type="button"],
 [type="submit"] {
     border: 0;
-    background-color: transparent;
     cursor: pointer;
+    background-color: transparent;
     -webkit-appearance: none;
 }
 
 .btn {
-    font: inherit;
-    margin: 5px;
     width: auto;
+    margin: 5px;
     padding: 6px 12px;
-    border-radius: 2px;
+    background-color: $dark-colour;
     color: white;
-    background-color: $dark;
+    font: inherit;
+    border-radius: 2px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .btn:hover,
 .btn:focus {
-    background-color: darken($dark, 5%);
+    background-color: darken($dark-colour, 5%);
 }
 
 .btn:disabled {
@@ -56,11 +57,11 @@ button,
 }
 
 a.btn {
+    display: inline-block;
     margin: 5px;
-    transition: none;
     font-weight: 700;
     text-decoration: none;
-    display: inline-block;
+    transition: none;
 }
 
 /* Only for Desktops */

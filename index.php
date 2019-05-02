@@ -49,16 +49,16 @@ date_default_timezone_set($orig);
 
                     <div class="article">
                         <div class="container">
-                            <p>Most of my drive and passion lives in developing all kinds of software anything from websites to apps.</p>
+                            <p>Most of my drive and passion lives in developing all kinds of software from websites to applications.</p>
                             <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>
                             <p>
                                 Currently working as a Software Developer at
-                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after completing a degree at the
+                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after graduating from
                                 <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.
                             </p>
                             <p>
                                 Reside in
-                                <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the South Coast of England.
+                                <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the south coast of England.
                             </p>
                         </div>
                     </div>
@@ -67,8 +67,8 @@ date_default_timezone_set($orig);
                         <div class="container">
                             <p>
                                 Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a>
-                                 I have done over the last <?php echo $yearsSinceStarted; ?> years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> and
-                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to provide feedback.
+                                 I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> also
+                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to just provide feedback.
                             </p>
                             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
                         </div>
@@ -83,9 +83,9 @@ date_default_timezone_set($orig);
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
                                 <div class="workflow-item__description">
                                     <p>
-                                        My work starts after the designer hands over finished designs.<br />
+                                        My work only starts after the designer hands over finished designs.<br />
                                         I mainly work from PSD's or flat image files designs.<br />
-                                        This is the stage I then begin turning designs into pixel perfect sites/apps.
+                                        This is where I turn designs into pixel perfect sites/apps.
                                     </p>
                                 </div>
                             </div>
@@ -94,8 +94,8 @@ date_default_timezone_set($orig);
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone">
                                 <div class="workflow-item__description">
                                     <p>
-                                        Any site or app I build I will always focus on making it usable on multiple different sized devices.<br />
-                                        By approaching styling from a mobile first point of view.
+                                        Aim to make all sites/apps usable on many different sized devices.<br />
+                                        By approach the styling form a mobile first point of view
                                     </p>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ date_default_timezone_set($orig);
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code">
                                 <div class="workflow-item__description">
                                     <p>
-                                        I tend to build custom and bespoke systems.<br />
+                                        I tend to develop custom and bespoke systems.<br />
                                         But if the project requires I can use various frameworks or libraries to fulfill the necessary product.
                                     </p>
                                 </div>

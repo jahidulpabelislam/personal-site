@@ -1,5 +1,5 @@
 /* For all devices */
-.jumbotron--contact {
+.header--contact {
     background-image: url("/assets/images/contact.jpg?v=2");
 }
 
@@ -18,8 +18,8 @@
     }
 
     .contact-form > .input-group {
-        width: 49.7%;
         display: inline-block;
+        width: 49.7%;
         vertical-align: top;
     }
 

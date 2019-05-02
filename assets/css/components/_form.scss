@@ -5,15 +5,15 @@
 }
 
 .input {
-    font: inherit;
-    padding: 6px 12px;
-    margin: 5px auto;
     width: 100%;
+    margin: 5px auto;
+    padding: 6px 12px;
     border: solid #e0e0e0 1px;
     border-radius: 2px;
-    color: $dark;
-    outline: none;
     background: white;
+    color: $dark-colour;
+    font: inherit;
+    outline: none;
     transition: all 0.3s ease-in-out;
 }
 
@@ -56,30 +56,30 @@
 .styled-checkbox__pseudo:before {
     content: "\00a0";
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 22px;
     height: 22px;
-    position: absolute;
-    left: 0;
-    top: 0;
     background: white;
     border: 2px solid $grey;
     transition: all 0.3s ease-in-out;
 }
 
 .input:checked + .styled-checkbox__pseudo:before {
+    content: "\2714";
+    padding: 1px 2px;
     background-color: $primary-colour;
     border-color: $primary-colour;
-    content: "\2714";
+    color: white;
     font-size: 16px;
     line-height: 1;
-    color: white;
-    padding: 1px 2px;
 }
 
 label {
+    display: inline-block;
     margin: 5px 0 0 0;
     font-weight: 700;
-    display: inline-block;
 }
 
 .required,
@@ -89,10 +89,10 @@ label {
 }
 
 .feedback {
-    font-weight: 700;
-    margin: 0;
     display: none;
     width: 100%;
+    margin: 0;
+    font-weight: 700;
 }
 
 .feedback--success {

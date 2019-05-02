@@ -46,11 +46,9 @@ window.jpi.helpers = (function() {
         },
 
         getInt: function(value, defaultInt) {
-            var int = defaultInt;
+            var parsedInt = parseInt(value, 10);
 
-            if (!isNaN(value)) {
-                int = parseInt(value, 10);
-            }
+            var int = isNaN(parsedInt) ? defaultInt : parsedInt;
 
             return int;
         },

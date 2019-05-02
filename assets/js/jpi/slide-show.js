@@ -33,18 +33,20 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Adjusts all slides in slide show to fit
         repositionSlides: function(slideShowId) {
-            var slidesContainer = jQuery("#" + slideShowId + " .slide-show__slides-container"),
-                viewpoint = jQuery("#" + slideShowId + " .slide-show__viewpoint"),
-                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide.active");
+            slideShowId = "#" + slideShowId;
+
+            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
+                viewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
+                currentSlide = jQuery(slideShowId + " .slide-show__slide.active");
 
             if (!currentSlide.length) {
-                currentSlide = jQuery("#" + slideShowId + " .slide-show__slide").first();
+                currentSlide = jQuery(slideShowId + " .slide-show__slide").first();
             }
 
             fn.widenSlideShow(viewpoint);
 
             slidesContainer.children().css({
-                width: jQuery("#" + slideShowId).innerWidth() + "px",
+                width: jQuery(slideShowId).innerWidth() + "px",
             });
             var position = currentSlide.position();
 
@@ -58,9 +60,11 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Starts a slide show by slide show element id
         startSlideShow: function(slideShowId) {
-            if (jQuery("#" + slideShowId + " .slide-show__slides-container").children().length > 1) {
-                global.slideShows["#" + slideShowId] = setInterval(function() {
-                    fn.moveSlide("#" + slideShowId, "next");
+            slideShowId = "#" + slideShowId;
+
+            if (jQuery(slideShowId + " .slide-show__slides-container").children().length > 1) {
+                global.slideShows[slideShowId] = setInterval(function() {
+                    fn.moveSlide(slideShowId, "next");
                 }, global.milliSecsPerSlide);
             }
         },
@@ -73,7 +77,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Loops through all slide shows
         loopThroughSlideShows: function(afterLoopedFunc) {
             var i,
-                slideShows = jQuery(".hasSlideShow");
+                slideShows = jQuery(".js-has-slide-show");
 
             for (i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc(slideShows[i].id);
@@ -128,7 +132,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Moves to next or previous slide
         moveSlide: function(slideShowId, direction) {
-            var oldSlide = jQuery(slideShowId + " .active"),
+            var oldSlide = jQuery(slideShowId + " .slide-show__slide.active"),
                 nextSlide;
 
             if (direction === "next") {
@@ -196,11 +200,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
                 dragMove = function(e) {
                     var diff = start - (e.changedTouches ? e.changedTouches[0].clientX : e.clientX),
-                        left = parseInt(slidesContainerLeft, 10);
-
-                    if (!left) {
-                        left = 0;
-                    }
+                        left = jpi.helpers.getInt(slidesContainerLeft, 10);
 
                     slidesContainer.css({
                         transitionDuration: "0s",
@@ -241,19 +241,18 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Sets up a slide show
         setUp: function(slideShowId) {
             var slideShowViewpoint = jQuery(slideShowId + " .slide-show__viewpoint"),
-                slideContainer = jQuery(slideShowId + " .slide-show__slide");
+                slides = jQuery(slideShowId + " .slide-show__slide");
 
-            jQuery(slideShowId).addClass("hasSlideShow").show();
-
+            jQuery(slideShowId).addClass("js-has-slide-show").show();
             fn.widenSlideShow(slideShowViewpoint);
 
-            if (slideContainer.length > 1) {
-                slideContainer.css("width", slideShowViewpoint.innerWidth() + "px");
+            if (slides.length > 1) {
+                slides.css("width", slideShowViewpoint.innerWidth() + "px");
 
                 jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").show();
 
                 setTimeout(function() {
-                    fn.moveToSlide(slideShowId, slideContainer.first());
+                    fn.moveToSlide(slideShowId, slides.first());
                 }, 150);
 
                 slideShowViewpoint[0].addEventListener("mousedown", fn.dragStart);
