@@ -28,44 +28,40 @@ if ($pageNum > 1) {
 
 $headDesc = "Look at the Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
+$projectsURL = $site->getAPIEndpoint("/projects/");
+
+$requestParamsString = "";
+if (count($apiRequestParams) > 0) {
+    $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
+}
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+curl_setopt(
+    $ch, CURLOPT_HTTPHEADER, [
+           'Accept: application/json',
+       ]
+);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+$apiRes = json_decode(curl_exec($ch), true);
+curl_close($ch);
+
+$apiMeta = $apiRes["meta"] ?? [];
+
 $pageData = [
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
     "headerDesc" => "See My Skills in Action in My Projects",
+    "pagination" => [
+        "page" => $apiMeta["page"] ?? 1,
+        "has_previous_page" => $apiMeta["has_previous_page"] ?? false,
+        "has_next_page" => $apiMeta["has_next_page"] ?? false,
+    ],
 ];
-
-if ($site->isProduction()) {
-    $projectsURL = $site->getAPIEndpoint("/projects/");
-
-    $requestParamsString = "";
-    if (count($apiRequestParams) > 0) {
-        $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
-    }
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
-    curl_setopt(
-        $ch, CURLOPT_HTTPHEADER, [
-               'Accept: application/json',
-           ]
-    );
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
-
-    $response = json_decode(curl_exec($ch), true);
-    curl_close($ch);
-
-    $resMeta = $response["meta"] ?? [];
-
-    $pageData["pagination"] = [
-        "page" => $resMeta["page"] ?? 1,
-        "has_previous_page" => $resMeta["has_previous_page"] ?? false,
-        "has_next_page" => $resMeta["has_next_page"] ?? false,
-    ];
-}
-
 $pageRenderer->addPageData($pageData);
 
 $pageRenderer->renderHTMLHead();
