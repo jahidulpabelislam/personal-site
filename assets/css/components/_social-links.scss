@@ -7,7 +7,7 @@
 }
 
 .social-links__header {
-    margin: 10px 0 5px 0;
+    margin: 10px 0 5px;
     color: white;
     font-size: 35px;
     font-weight: bold;
@@ -50,7 +50,7 @@
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .social-links__header {
-        margin: 15px 0 10px 0;
+        margin: 15px 0 10px;
     }
 
     .social-links__img.social-links__img {
@@ -93,14 +93,14 @@
     }
 
     .social-links__header {
-        margin: 20px 0 25px 0;
+        margin: 20px 0 25px;
         font-size: 40px;
         line-height: 42px;
     }
 
     .social-links__img.social-links__img {
         height: 70px;
-        margin: 0 20px 25px 20px;
+        margin: 0 20px 25px;
     }
 
     .social-links__img.social-link__img--instagram {
