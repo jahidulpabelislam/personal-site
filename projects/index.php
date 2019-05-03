@@ -51,6 +51,12 @@ curl_close($ch);
 
 $apiMeta = $apiRes["meta"] ?? [];
 
+if (!isset($apiMeta["count"]) || $apiMeta["count"] === 0) {
+    http_response_code(404);
+    include(ROOT . "/error/404/index.php");
+    exit;
+}
+
 $pageData = [
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
