@@ -1,5 +1,7 @@
 # Portfolio
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/96618e67cccc406bae671770803b0603)](https://app.codacy.com/app/jahidulpabelislam/portfolio?utm_source=github.com&utm_medium=referral&utm_content=jahidulpabelislam/portfolio&utm_campaign=Badge_Grade_Dashboard)
+
 Portfolio I made for myself to showcase the projects I've developed over the years and provide information about myself as well as my contact details. This is where everything I learnt about web developing is put to use. It was also used to experiment with different technologies that I wasn't able to do for coursework.
 
 ## [v1](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1/)
