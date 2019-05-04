@@ -45,6 +45,8 @@ class PageRenderer {
             $url = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
+        $url = $this->site->turnPathToURL($url);
+
         $globalPageData = [
             "pageId" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
