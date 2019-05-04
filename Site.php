@@ -56,7 +56,7 @@ class Site implements SiteConstants {
             return ROOT;
         }
 
-        return rtrim($_SERVER["DOCUMENT_ROOT"], " /");
+        return rtrim(realpath($_SERVER["DOCUMENT_ROOT"]), " /");
     }
 
     public function isProduction(): bool {
