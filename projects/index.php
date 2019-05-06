@@ -135,7 +135,7 @@ $pageRenderer->renderHeader();
                 <div class="modal detailed-project">
                     <div class="modal__content">
                         <div class="project__header">
-                            <h3 class="project__title project__title--inline"></h3>
+                            <h4 class="project__title project__title--inline"></h4>
                             <time class="project__date project__date--inline project__date--modal">
                                 <?php echo date("Y"); ?>
                             </time>
@@ -160,7 +160,7 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-project-template">
                     <article id="project--{{id}}" class="project">
-                        <h3 class="article__header project__title">{{name}}</h3>
+                        <h4 class="article__header project__title">{{name}}</h4>
                         <time class="project__date">{{date}}</time>
                         <div class="project__skills"></div>
                         <div class="project__description">{{short_description}}</div>

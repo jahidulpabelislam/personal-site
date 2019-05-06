@@ -341,7 +341,7 @@ $pageRenderer->renderHeader();
                                 echo "<div class='timeline__item {$activeClass}'>";
 
                                 $date = $timelineItem["date"];
-                                echo "<h2 class='timeline-item__date'>{$date}</h2>";
+                                echo "<p class='timeline-item__date'>{$date}</p>";
 
                                 $iconName = $timelineItem["icon"];
                                 $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";

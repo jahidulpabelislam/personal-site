@@ -23,11 +23,10 @@ $pageRenderer->renderHeader();
 
                 <section class="article">
                     <div class="container">
-                        <h3 class="article__header">Form</h3>
                         <p>Use the form  below to quickly send me a message.</p>
-                        <p><span class="required">*</span> indicates a required field</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
+                            <p><span class="required">*</span> indicates a required field</p>
 
                             <div class="input-group">
                                 <label for="email-input">Your Email Address <span class="required">*</span></label>
@@ -78,7 +77,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my LinkedIn</h3>
+                            <h4 class="article__header">View my LinkedIn</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
@@ -92,7 +91,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">See & follow my code</h3>
+                            <h4 class="article__header">See & follow my code</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
@@ -106,7 +105,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">See what I get up to</h3>
+                            <h4 class="article__header">See what I get up to</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">

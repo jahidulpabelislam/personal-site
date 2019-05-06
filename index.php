@@ -35,7 +35,7 @@ date_default_timezone_set($orig);
                 <section>
                     <div class="article home__hello-wrapper">
                         <div class="container">
-                            <h2 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h2>
+                            <h3 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h3>
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating" />
                             <img src="<?php $site->echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo" />
                         </div>
@@ -79,7 +79,7 @@ date_default_timezone_set($orig);
                     <div class="container">
                         <div class="workflow">
                             <div class="workflow__item">
-                                <h3 class="article__header">Design</h3>
+                                <h4 class="article__header">Design</h4>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer" />
                                 <div class="workflow-item__description">
                                     <p>
@@ -90,7 +90,7 @@ date_default_timezone_set($orig);
                                 </div>
                             </div>
                             <div class="workflow__item">
-                                <h3 class="article__header">Responsive</h3>
+                                <h4 class="article__header">Responsive</h4>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
@@ -100,7 +100,7 @@ date_default_timezone_set($orig);
                                 </div>
                             </div>
                             <div class="workflow__item">
-                                <h3 class="article__header">Code</h3>
+                                <h4 class="article__header">Code</h4>
                                 <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code" />
                                 <div class="workflow-item__description">
                                     <p>
@@ -145,28 +145,28 @@ date_default_timezone_set($orig);
                                 $personalProjectsNum = 24;
                                 $workProjectsNum = 30;
                                 ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $personalProjectsNum; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">
                                     Personal Projects (+<span class="counter" data-to="<?php echo $workProjectsNum; ?>" data-speed="<?php echo $speed; ?>"><?php echo $workProjectsNum; ?></span> work projects)
                                 </p>
                             </div>
                             <div class="stats__item">
                                 <?php $totalCommits = 2270; ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $yearsSinceStarted; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats js-seconds-on-site">0</h3>
+                                <p class="article__header article__header--stats js-seconds-on-site">0</p>
                                 <p class="stats__text">Seconds on here</p>
                             </div>
                         </div>
@@ -179,7 +179,7 @@ date_default_timezone_set($orig);
                         <div class="slide-show__info-container">
                             <div class="slide-show__info slide-show__info--{{colour}}">
                                 <div class="project__header">
-                                    <h3 class="project__title project__title--inline">{{name}}</h3>
+                                    <h4 class="project__title project__title--inline">{{name}}</h4>
                                     <time class="project__date project__date--inline">{{date}}</time>
                                 </div>
                                 <div class="project-info__desc">{{short_description}}</div>
