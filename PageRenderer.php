@@ -39,7 +39,7 @@ class PageRenderer {
         $pageId = "home";
         $path = "/";
 
-        $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
+        $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== ROOT) {
             $pageId = basename($filePath);
             $path = dirname($_SERVER["SCRIPT_NAME"]);
