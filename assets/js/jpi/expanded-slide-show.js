@@ -76,7 +76,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 }
 
                 // Set up bullet navigation for slide
-                jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {
+                jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "button", {
                     "class": "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
                     "data-slide-id": i,
                 });

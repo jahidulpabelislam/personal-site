@@ -112,8 +112,12 @@ $pageRenderer->renderHeader();
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-next" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                            <button type="button" class="js-expanded-slide-show-previous">
+                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                            </button>
+                            <button type="button" class="js-expanded-slide-show-next">
+                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                            </button>
                         </div>
 
                         <div class="expanded-slide-show__bullets"></div>
@@ -142,8 +146,12 @@ $pageRenderer->renderHeader();
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous" />
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next" />
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                </button>
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -161,8 +169,12 @@ $pageRenderer->renderHeader();
                         <div id="slide-show--{{id}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous" />
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next" />
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                </button>
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -176,7 +188,8 @@ $pageRenderer->renderHeader();
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}"></label>
+                    <button type="button" class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}">
+                    </button>
                 </script>
 
                 <script>

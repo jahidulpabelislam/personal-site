@@ -121,8 +121,12 @@ date_default_timezone_set($orig);
                     <div id="slide-show--home" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous" />
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next" />
+                            <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                            </button>
+                            <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--home" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                            </button>
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>
@@ -186,7 +190,7 @@ date_default_timezone_set($orig);
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></label>
+                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></button>
                 </script>
 
                 <script>
