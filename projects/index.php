@@ -142,7 +142,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="project__skills"></div>
                         <div class="project__description"></div>
-                        <p class="project__links"></p>
+                        <div class="project__links"></div>
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
