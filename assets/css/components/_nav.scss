@@ -85,11 +85,11 @@
 }
 
 .opened .nav__mobile-toggle {
-    border-color: colour(red, main);
+    border-color: get-colour(red, main);
 }
 
 .opened .menu-bar {
-    background-color: colour(red, main);
+    background-color: get-colour(red, main);
 }
 
 .menu-bar--top {
@@ -151,11 +151,11 @@
 
 .nav-item__link:focus,
 .nav-item__link:hover {
-    color: colour(blue, main);
+    color: get-colour(blue, main);
 }
 
 .nav-item__link.active {
-    background-color: colour(blue, main);
+    background-color: get-colour(blue, main);
     color: white;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .nav__social-links .social-link:hover .social-link__img {
-    background: colour(blue, main);
+    background: get-colour(blue, main);
 }
 
 .nav__social-links .social-link__img--instagram {
@@ -239,7 +239,7 @@
 
     .nav-item__link:hover,
     .nav-item__link.active  {
-        border-bottom-color: colour(blue, main);
+        border-bottom-color: get-colour(blue, main);
     }
 
     .nav__social-links .social-link__img.social-link__img {
