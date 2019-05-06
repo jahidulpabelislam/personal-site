@@ -42,7 +42,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         addSkills: function(project, divID) {
-            var skills = project.skills.split(","),
+            var skills = project.skills,
                 skillsContainer = jQuery(divID + " .project__skills")[0],
                 search = jQuery(".search-form__input").val().trim(),
                 lowerCasedSearch = search.toLowerCase(),
