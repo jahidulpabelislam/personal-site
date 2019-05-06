@@ -87,7 +87,7 @@ $pageRenderer->renderHeader();
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>
                             <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>" id="search"/>
-                            <button class="btn btn--blue search-form__submit" type="submit">
+                            <button type="submit" class="btn btn--blue search-form__submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </form>
@@ -165,7 +165,7 @@ $pageRenderer->renderHeader();
                         <div class="project__skills"></div>
                         <div class="project__description">{{short_description}}</div>
                         <div class="project__links"></div>
-                        <button class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}">Read More</button>
+                        <button type="button" class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}">Read More</button>
                         <div id="slide-show--{{id}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
