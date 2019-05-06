@@ -30,7 +30,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img, .pagination").text("").hide("fast");
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         getTemplateRegex: function(regex) {
@@ -239,7 +239,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 );
             }
 
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         scrollToProjects: function() {
@@ -301,7 +301,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.addPagination(response.meta.total_count);
             }
 
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         getProjects: function() {

@@ -77,7 +77,6 @@ $pageRenderer->renderHTMLHead();
             <?php // Files necessary for StickyFooter js code ?>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
@@ -87,5 +86,14 @@ $pageRenderer->renderHTMLHead();
             <?php
         }
         ?>
+
+        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/StickyFooter.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
+
+        <script type="application/javascript">
+            jQuery(window).on("load", function() {
+                jpi.stickyFooter = new StickyFooter(".main-content");
+            });
+        </script>
+
     </body>
 </html>

@@ -14,7 +14,6 @@ let defaultTasks = [];
 // Concatenate & Minify JS
 const scripts = {
     "main": [
-        "assets/js/third-party/jquery.min.js",
         "assets/js/third-party/waypoint.min.js",
         "assets/js/third-party/jquery.countTo.js",
         "assets/js/jpi/expanded-slide-show.js",
@@ -24,7 +23,6 @@ const scripts = {
         "assets/js/jpi/projects.js",
         "assets/js/jpi/home.js",
         "assets/js/jpi/form.js",
-        "assets/js/jpi/sticky-footer.js",
         "assets/js/jpi/nav.js",
         "assets/js/jpi/cookie-banner.js",
         "assets/js/jpi/main.js",
@@ -32,7 +30,6 @@ const scripts = {
     "social-links" : [
         "assets/js/third-party/jquery.min.js",
         "assets/js/jpi/helpers.js",
-        "assets/js/jpi/sticky-footer.js",
     ],
 };
 
