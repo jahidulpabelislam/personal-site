@@ -36,8 +36,8 @@ date_default_timezone_set($orig);
                     <div class="article home__hello-wrapper">
                         <div class="container">
                             <h2 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h2>
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating" />
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo" />
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@ date_default_timezone_set($orig);
                         <div class="workflow">
                             <div class="workflow__item">
                                 <h3 class="article__header">Design</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer" />
                                 <div class="workflow-item__description">
                                     <p>
                                         My work only starts after the designer hands over finished designs.<br />
@@ -91,7 +91,7 @@ date_default_timezone_set($orig);
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Responsive</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />
@@ -101,7 +101,7 @@ date_default_timezone_set($orig);
                             </div>
                             <div class="workflow__item">
                                 <h3 class="article__header">Code</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code" />
                                 <div class="workflow-item__description">
                                     <p>
                                         I tend to develop custom and bespoke systems.<br />
@@ -121,8 +121,8 @@ date_default_timezone_set($orig);
                     <div id="slide-show--home" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next">
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous" />
+                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next" />
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>
@@ -171,7 +171,7 @@ date_default_timezone_set($orig);
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
-                        <img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}"); ?>" alt="Screen shot of {{name}} Project">
+                        <img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}"); ?>" alt="Screen shot of {{name}} Project" />
                         <div class="slide-show__info-container">
                             <div class="slide-show__info slide-show__info--{{colour}}">
                                 <div class="project__header">
