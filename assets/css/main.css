@@ -2337,7 +2337,8 @@ label {
 .skill:not(.js-searchable-skill):hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
-  color: white; }
+  color: white;
+  cursor: default; }
 
 .skill:not(.js-searchable-skill):hover {
   box-shadow: none; }
@@ -2528,17 +2529,17 @@ label {
 .project__link {
   display: inline-block;
   position: relative;
-  margin-right: 10px;
+  margin: 0 7px;
   color: #333333; }
 
 .project__link:after {
   content: "\00a0";
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 25%;
+  height: 50%;
   width: 2px;
-  margin: 0 4px;
-  background: #7b8676; }
+  margin: 0 7px;
+  background: rgba(123, 134, 118, 0.2); }
 
 .project__link:last-child {
   margin-right: 0; }
@@ -2628,9 +2629,10 @@ label {
   margin-bottom: 10px;
   padding: 5px;
   border: none;
-  border-radius: 30px 0 0 30px; }
+  border-radius: 30px 0 0 30px;
+  font-weight: 700; }
 
-.project__read-more:after {
+.project__read-more::after {
   content: "\f0a9";
   position: absolute;
   top: 0;
@@ -2649,100 +2651,76 @@ label {
   background-color: #262626; }
 
 .project__read-more--light-blue::after {
-  background-color: #54c6e2;
-  color: white; }
+  background-color: #54c6e2; }
 
 .project__read-more--light-blue:hover::after {
-  background-color: #53d1ec;
-  color: white; }
+  background-color: #53d1ec; }
 
 .project__read-more--dark-blue::after {
-  background-color: #0375b4;
-  color: white; }
+  background-color: #0375b4; }
 
 .project__read-more--dark-blue:hover::after {
-  background-color: #0382c3;
-  color: white; }
+  background-color: #0382c3; }
 
 .project__read-more--purple::after {
-  background-color: #82379d;
-  color: white; }
+  background-color: #82379d; }
 
 .project__read-more--purple:hover::after {
-  background-color: #9339af;
-  color: white; }
+  background-color: #9339af; }
 
 .project__read-more--pink::after {
-  background-color: #f47ab3;
-  color: white; }
+  background-color: #f47ab3; }
 
 .project__read-more--pink:hover::after {
-  background-color: #ff82bf;
-  color: white; }
+  background-color: #ff82bf; }
 
 .project__read-more--red::after {
-  background-color: #f12525;
-  color: white; }
+  background-color: #f12525; }
 
 .project__read-more--red:hover::after {
-  background-color: #ff2525;
-  color: white; }
+  background-color: #ff2525; }
 
 .project__read-more--orange::after {
-  background-color: #f69e00;
-  color: white; }
+  background-color: #f69e00; }
 
 .project__read-more--orange:hover::after {
-  background-color: #fba300;
-  color: white; }
+  background-color: #fba300; }
 
 .project__read-more--yellow::after {
-  background-color: #ffef38;
-  color: white; }
+  background-color: #ffef38; }
 
 .project__read-more--yellow:hover::after {
-  background-color: #fffd3c;
-  color: #333333; }
+  background-color: #fffd3c; }
 
 .project__read-more--light-green::after {
-  background-color: #3dc714;
-  color: white; }
+  background-color: #3dc714; }
 
 .project__read-more--light-green:hover::after {
-  background-color: #3bcf14;
-  color: white; }
+  background-color: #3bcf14; }
 
 .project__read-more--lime-green::after {
-  background-color: #b5cf16;
-  color: white; }
+  background-color: #b5cf16; }
 
 .project__read-more--lime-green:hover::after {
-  background-color: #bdd716;
-  color: white; }
+  background-color: #bdd716; }
 
 .project__read-more--dark-green::after {
-  background-color: #1aad5b;
-  color: white; }
+  background-color: #1aad5b; }
 
 .project__read-more--dark-green:hover::after {
-  background-color: #1bbe69;
-  color: white; }
+  background-color: #1bbe69; }
 
 .project__read-more--grey::after {
-  background-color: #7b8676;
-  color: white; }
+  background-color: #7b8676; }
 
 .project__read-more--grey:hover::after {
-  background-color: #889283;
-  color: white; }
+  background-color: #889283; }
 
 .project__read-more--black::after {
-  background-color: #333333;
-  color: white; }
+  background-color: #333333; }
 
 .project__read-more--black:hover::after {
-  background-color: #262626;
-  color: white; }
+  background-color: #262626; }
 
 .read-more__icon {
   margin-left: 4px; }
