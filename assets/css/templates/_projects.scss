@@ -53,13 +53,16 @@
 }
 
 .skill:hover {
+    border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
-.skill.searched {
-    background-color: get-colour(black, text, dark);
+.skill.searched,
+.skill:not(.js-searchable-skill):hover {
+    border-color: get-colour(black, dark);
+    background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
 }
 

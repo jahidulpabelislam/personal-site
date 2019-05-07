@@ -1836,6 +1836,10 @@ label {
   cursor: auto;
   transition: all 0.4s ease-in-out; }
 
+.skills-interests__item.js-expand-skill-interest:hover {
+  background-color: #262626;
+  border-color: #262626; }
+
 .skills-interests__item.skills-interests__item {
   margin: 2px; }
 
@@ -2324,12 +2328,15 @@ label {
   transition: all 0.4s ease-in-out; }
 
 .skill:hover {
+  border-color: #262626;
   background-color: #262626;
   color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.skill.searched {
-  background-color: dark;
+.skill.searched,
+.skill:not(.js-searchable-skill):hover {
+  border-color: #0d0d0d;
+  background-color: #0d0d0d;
   color: white; }
 
 .skill:not(.js-searchable-skill):hover {
