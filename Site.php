@@ -294,7 +294,7 @@ class Site implements SiteConstants {
     }
 
     public static function turnPathToURL(string $path): string {
-        if (strpos($path, ROOT) === 0) {
+        if (stripos($path, ROOT) === 0) {
             $path = substr($path, strlen(ROOT));
         }
 
