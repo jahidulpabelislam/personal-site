@@ -39,8 +39,8 @@
 }
 
 .cookie-banner__link:hover {
-    color: colour(green, hover);
-    border-bottom-color: colour(green, hover);
+    color: get-colour(green, hover);
+    border-bottom-color: get-colour(green, hover);
 }
 
 /* Only for Tablets & Desktops */

@@ -48,7 +48,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             global.expandedImageDivContainer.removeClass("active").addClass("hiding");
 
             setTimeout(function() {
-                document.body.style.overflow = "auto";
+                jQuery("body").css("overflow", "auto");
                 global.expandedImageDivContainer.removeClass("hiding");
             }, 990);
 
@@ -76,7 +76,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 }
 
                 // Set up bullet navigation for slide
-                jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "label", {
+                jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "button", {
                     "class": "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
                     "data-slide-id": i,
                 });
@@ -105,7 +105,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             // Display the expanded image div
             global.expandedImageDivContainer.addClass("active");
-            document.body.style.overflow = "hidden";
+            jQuery("body").css("overflow", "hidden");
         },
 
         initListeners: function() {

@@ -35,9 +35,9 @@ date_default_timezone_set($orig);
                 <section>
                     <div class="article home__hello-wrapper">
                         <div class="container">
-                            <h2 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h2>
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo">
+                            <h3 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h3>
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating" />
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo" />
                         </div>
                     </div>
 
@@ -79,8 +79,8 @@ date_default_timezone_set($orig);
                     <div class="container">
                         <div class="workflow">
                             <div class="workflow__item">
-                                <h3 class="article__header">Design</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer">
+                                <h4 class="article__header">Design</h4>
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer" />
                                 <div class="workflow-item__description">
                                     <p>
                                         My work only starts after the designer hands over finished designs.<br />
@@ -90,8 +90,8 @@ date_default_timezone_set($orig);
                                 </div>
                             </div>
                             <div class="workflow__item">
-                                <h3 class="article__header">Responsive</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone">
+                                <h4 class="article__header">Responsive</h4>
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />
@@ -100,8 +100,8 @@ date_default_timezone_set($orig);
                                 </div>
                             </div>
                             <div class="workflow__item">
-                                <h3 class="article__header">Code</h3>
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code">
+                                <h4 class="article__header">Code</h4>
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code" />
                                 <div class="workflow-item__description">
                                     <p>
                                         I tend to develop custom and bespoke systems.<br />
@@ -121,8 +121,12 @@ date_default_timezone_set($orig);
                     <div id="slide-show--home" class="slide-show">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
-                            <img class="slide-show__nav slide-show__nav-- slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--home" data-nav-direction="next">
+                            <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                            </button>
+                            <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--home" data-nav-direction="next">
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                            </button>
                         </div>
                         <div class="js-slide-show-bullets"></div>
                     </div>
@@ -131,7 +135,7 @@ date_default_timezone_set($orig);
                     <a href="<?php $site->echoURL("projects"); ?>" class="btn">View More Work</a>
                 </section>
 
-                <section class="article article--green">
+                <section class="article article--dark-green">
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">
@@ -141,28 +145,28 @@ date_default_timezone_set($orig);
                                 $personalProjectsNum = 24;
                                 $workProjectsNum = 30;
                                 ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $personalProjectsNum; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">
                                     Personal Projects (+<span class="counter" data-to="<?php echo $workProjectsNum; ?>" data-speed="<?php echo $speed; ?>"><?php echo $workProjectsNum; ?></span> work projects)
                                 </p>
                             </div>
                             <div class="stats__item">
                                 <?php $totalCommits = 2270; ?>
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">Commits</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $yearsSinceStarted; ?>
-                                </h3>
+                                </p>
                                 <p class="stats__text">Years experience</p>
                             </div>
                             <div class="stats__item">
-                                <h3 class="article__header article__header--stats js-seconds-on-site">0</h3>
+                                <p class="article__header article__header--stats js-seconds-on-site">0</p>
                                 <p class="stats__text">Seconds on here</p>
                             </div>
                         </div>
@@ -171,11 +175,11 @@ date_default_timezone_set($orig);
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
-                        <img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}"); ?>" alt="Screen shot of {{name}} Project">
+                        <img class="slide-show__img" src="<?php $site->echoProjectImageURL("{{file}}"); ?>" alt="Screen shot of {{name}} Project" />
                         <div class="slide-show__info-container">
                             <div class="slide-show__info slide-show__info--{{colour}}">
                                 <div class="project__header">
-                                    <h3 class="project__title project__title--inline">{{name}}</h3>
+                                    <h4 class="project__title project__title--inline">{{name}}</h4>
                                     <time class="project__date project__date--inline">{{date}}</time>
                                 </div>
                                 <div class="project-info__desc">{{short_description}}</div>
@@ -186,7 +190,7 @@ date_default_timezone_set($orig);
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></label>
+                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></button>
                 </script>
 
                 <script>

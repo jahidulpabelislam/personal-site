@@ -26,7 +26,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" class="error__img">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" class="error__img" />
                         </div>
 
                         <div class="article__half">
@@ -48,7 +48,7 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);

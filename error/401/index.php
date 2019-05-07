@@ -25,7 +25,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img" />
                         </div>
                         <div class="article--halved">
                             <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
@@ -44,7 +44,7 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);

@@ -114,7 +114,7 @@ window.jpi.home = (function(jQuery, jpi) {
                 jpi.slideShow.setUp("#slide-show--home");
             }
 
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         init: function() {

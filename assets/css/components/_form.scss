@@ -78,13 +78,13 @@
 
 label {
     display: inline-block;
-    margin: 5px 0 0 0;
+    margin: 5px 0 0;
     font-weight: 700;
 }
 
 .required,
 .notice {
-    color: colour(red, main);
+    color: get-colour(red, main);
     font-weight: 700;
 }
 

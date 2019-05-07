@@ -37,15 +37,17 @@ class PageRenderer {
 
     private function addGlobalPageData() {
         $pageId = "home";
-        $url = "/";
+        $path = "/";
 
-        $filePath = dirname($_SERVER["SCRIPT_FILENAME"]);
+        $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== ROOT) {
             $pageId = basename($filePath);
-            $url = dirname($_SERVER["SCRIPT_NAME"]);
+            $path = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
-        $globalPageData =[
+        $url = $this->site->turnPathToURL($path);
+
+        $globalPageData = [
             "pageId" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
         ];

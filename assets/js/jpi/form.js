@@ -51,33 +51,6 @@ window.jpi.form = (function(jQuery, jpi) {
                   .html(global.submitButton.attr("data-initial-text"));
         },
 
-        validateForm: function() {
-            global.submitButton.prop("disabled", true)
-                  .html(global.submitButton.attr("data-loading-text"));
-
-            var isMessageValid = fn.validateMessage(global.messageInput.val(), true),
-                isEmailValid = fn.validateEmail(global.emailInput.val(), true);
-
-            if (isEmailValid && isMessageValid) {
-                jpi.ajax.sendRequest({
-                    method: "POST",
-                    url: "/contact/form-submission.php",
-                    params: {
-                        emailAddress: global.emailInput.val(),
-                        subject: global.subjectInput.val(),
-                        message: global.messageInput.val(),
-                    },
-                    onSuccess: fn.renderFeedback,
-                    onError: fn.renderErrorMessage,
-                });
-            }
-            else {
-                global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
-            }
-
-            return false;
-        },
-
         validateEmail: function(email, isForm) {
             global.formFeedback.hide("fast");
             global.emailInput.removeClass("valid");
@@ -114,6 +87,33 @@ window.jpi.form = (function(jQuery, jpi) {
                 global.messageInput.removeClass("invalid").addClass("valid");
                 global.messageFeedback.hide("fast");
                 return true;
+            }
+
+            return false;
+        },
+
+        validateForm: function() {
+            global.submitButton.prop("disabled", true)
+                  .html(global.submitButton.attr("data-loading-text"));
+
+            var isEmailValid = fn.validateEmail(global.emailInput.val(), true),
+                isMessageValid = fn.validateMessage(global.messageInput.val(), true);
+
+            if (isEmailValid && isMessageValid) {
+                jpi.ajax.sendRequest({
+                    method: "POST",
+                    url: "/contact/form-submission.php",
+                    params: {
+                        emailAddress: global.emailInput.val(),
+                        subject: global.subjectInput.val(),
+                        message: global.messageInput.val(),
+                    },
+                    onSuccess: fn.renderFeedback,
+                    onError: fn.renderErrorMessage,
+                });
+            }
+            else {
+                global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
             }
 
             return false;

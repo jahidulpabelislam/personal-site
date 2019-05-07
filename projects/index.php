@@ -28,44 +28,46 @@ if ($pageNum > 1) {
 
 $headDesc = "Look at the Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
+$projectsURL = $site->getAPIEndpoint("/projects/");
+
+$requestParamsString = "";
+if (count($apiRequestParams) > 0) {
+    $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
+}
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+curl_setopt(
+    $ch, CURLOPT_HTTPHEADER, [
+           'Accept: application/json',
+       ]
+);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+
+$apiRes = json_decode(curl_exec($ch), true);
+curl_close($ch);
+
+$apiMeta = $apiRes["meta"] ?? [];
+
+if (!isset($apiMeta["count"]) || $apiMeta["count"] === 0) {
+    http_response_code(404);
+    include(ROOT . "/error/404/index.php");
+    exit;
+}
+
 $pageData = [
     "headTitle" => $headTitle,
     "headDesc" => $headDesc,
     "headerTitle" => "My Projects",
     "headerDesc" => "See My Skills in Action in My Projects",
+    "pagination" => [
+        "page" => $apiMeta["page"] ?? 1,
+        "has_previous_page" => $apiMeta["has_previous_page"] ?? false,
+        "has_next_page" => $apiMeta["has_next_page"] ?? false,
+    ],
 ];
-
-if ($site->isProduction()) {
-    $projectsURL = $site->getAPIEndpoint("/projects/");
-
-    $requestParamsString = "";
-    if (count($apiRequestParams) > 0) {
-        $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
-    }
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
-    curl_setopt(
-        $ch, CURLOPT_HTTPHEADER, [
-               'Accept: application/json',
-           ]
-    );
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
-
-    $response = json_decode(curl_exec($ch), true);
-    curl_close($ch);
-
-    $resMeta = $response["meta"] ?? [];
-
-    $pageData["pagination"] = [
-        "page" => $resMeta["page"] ?? 1,
-        "has_previous_page" => $resMeta["has_previous_page"] ?? false,
-        "has_next_page" => $resMeta["has_next_page"] ?? false,
-    ];
-}
-
 $pageRenderer->addPageData($pageData);
 
 $pageRenderer->renderHTMLHead();
@@ -85,7 +87,7 @@ $pageRenderer->renderHeader();
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>
                             <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>" id="search"/>
-                            <button class="btn btn--blue search-form__submit" type="submit">
+                            <button type="submit" class="btn btn--dark-blue search-form__submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </form>
@@ -101,17 +103,21 @@ $pageRenderer->renderHeader();
 
                 <div class="expanded-slide-show">
                     <div class="expanded-image-container">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-image-container">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide">
+                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image">
-                            <img class="expanded-slide-show__nav js-expanded-slide-show-next" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image">
+                            <button type="button" class="js-expanded-slide-show-previous">
+                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                            </button>
+                            <button type="button" class="js-expanded-slide-show-next">
+                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                            </button>
                         </div>
 
                         <div class="expanded-slide-show__bullets"></div>
@@ -129,19 +135,23 @@ $pageRenderer->renderHeader();
                 <div class="modal detailed-project">
                     <div class="modal__content">
                         <div class="project__header">
-                            <h3 class="project__title project__title--inline"></h3>
+                            <h4 class="project__title project__title--inline"></h4>
                             <time class="project__date project__date--inline project__date--modal">
                                 <?php echo date("Y"); ?>
                             </time>
                         </div>
                         <div class="project__skills"></div>
                         <div class="project__description"></div>
-                        <p class="project__links"></p>
+                        <div class="project__links"></div>
                         <div id="detailed-project__slide-show" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                </button>
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -150,17 +160,21 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-project-template">
                     <article id="project--{{id}}" class="project">
-                        <h3 class="article__header project__title">{{name}}</h3>
+                        <h4 class="article__header project__title">{{name}}</h4>
                         <time class="project__date">{{date}}</time>
                         <div class="project__skills"></div>
                         <div class="project__description">{{short_description}}</div>
                         <div class="project__links"></div>
-                        <button class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}">Read More</button>
+                        <button type="button" class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}">Read More</button>
                         <div id="slide-show--{{id}}" class="slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next js-move-slide" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                </button>
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
                         </div>
@@ -169,12 +183,13 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}">
-                        <img src="<?php $site->echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}">
+                        <img src="<?php $site->echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <label class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}"></label>
+                    <button type="button" class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}">
+                    </button>
                 </script>
 
                 <script>
@@ -194,7 +209,7 @@ $similarLinks = [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "green",
+        "colour" => "dark-green",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);

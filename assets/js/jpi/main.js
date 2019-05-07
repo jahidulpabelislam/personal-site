@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.main = (function(jQuery, jpi) {
+window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
     "use strict";
 
@@ -83,6 +83,12 @@ window.jpi.main = (function(jQuery, jpi) {
             jQuery(".js-expand-skill-interest").not(item).removeClass("expanded-item");
         },
 
+        resetFooter: function() {
+            if (jpi && jpi.stickyFooter) {
+                jpi.stickyFooter.repositionFooter();
+            }
+        },
+
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
             jQuery(".js-expand-skill-interest").on("click", fn.toggleSkillInterestContent);
@@ -95,11 +101,15 @@ window.jpi.main = (function(jQuery, jpi) {
         init: function() {
             fn.initListeners();
             fn.initCounters();
+
+            jpi.stickyFooter = new StickyFooter(".main-content");
         },
     };
 
     jQuery(document).on("ready", fn.init);
 
-    return {};
+    return {
+        resetFooter: fn.resetFooter,
+    };
 
-})(jQuery, jpi);
+})(jQuery, jpi, StickyFooter);

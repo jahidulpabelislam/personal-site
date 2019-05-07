@@ -13,7 +13,7 @@
     left: 30px;
     margin-left: -3px;
     border-radius: 50%;
-    background-color: colour(orange, main);
+    background-color: get-colour(orange, main);
 }
 
 .timeline__item {
@@ -103,9 +103,9 @@
 }
 
 .timeline__item--active .timeline-item__content::after {
-    color: colour(orange, main);
-    border-color: colour(orange, main);
-    box-shadow: 0 0 10px 0 colour(orange, main);
+    color: get-colour(orange, main);
+    border-color: get-colour(orange, main);
+    box-shadow: 0 0 10px 0 get-colour(orange, main);
 }
 
 .timeline-item__content p {

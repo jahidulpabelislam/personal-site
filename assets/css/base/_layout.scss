@@ -38,7 +38,7 @@ body {
 @each $colour, $colours in $colour-schemes {
     .article--#{$colour}.article--#{$colour} {
         background-color: map-get($colours, main);
-        color: white;
+        color: get-colour-variant($colours, text, white);
     }
 }
 

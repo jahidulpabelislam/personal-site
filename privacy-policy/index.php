@@ -20,7 +20,7 @@ $pageRenderer->renderHeader();
 
                 <div class="article">
                     <div class="container">
-                        <h2 class="article__header">Contact Form</h2>
+                        <h3 class="article__header">Contact Form</h3>
                         <p>The following applies to the contact form and your data submitted within the form:</p>
                         <ul>
                             <li>your data, WILL ONLY be kept in my email server</li>
@@ -32,12 +32,12 @@ $pageRenderer->renderHeader();
 
                 <div class="article">
                     <div class="container">
-                        <h2 class="article__header">Cookies</h2>
+                        <h3 class="article__header">Cookies</h3>
                         <p>This website uses cookies to collect information. Cookies are files stored on your device when you come on a website which is using them. The data stored can be a whole range of data, user login session data to shopping basket.</p>
                         <p>Cookies on this site is used to allow tracking user behaviour with the site, to use in analytics and improving the site.</p>
                         <p>By viewing the site, it will be assumed you agree to use cookies within this site.</p>
 
-                        <h3 class="article__sub-heading">Cookies used</h3>
+                        <h4 class="article__sub-heading">Cookies used</h4>
                         <p><strong>Google Analytics:</strong></p>
                         <table class="table">
                             <tr class="table__row table__row--header">
@@ -80,7 +80,7 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);

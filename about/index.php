@@ -25,8 +25,8 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <div class="article__half">
                             <div class="about__images-of-me">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child" />
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently" />
                             </div>
                         </div>
                         <div class="article__half">
@@ -61,7 +61,7 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <div class="article__half">
                             <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -80,7 +80,7 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <div class="article__half">
                             <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -99,7 +99,7 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <div class="article__half">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -119,7 +119,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages">
+                            <img src="<?php $site->echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
                         </div>
                         <div class="article__half">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
@@ -172,7 +172,7 @@ $pageRenderer->renderHeader();
 
                                 $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
 
-                                echo "<li class='skills-interests__item skills-interests__item--blue {$expandClass}'>";
+                                echo "<li class='skills-interests__item skills-interests__item--dark-blue {$expandClass}'>";
                                 echo $skillText;
 
                                 if ($hasSkillDesc) {
@@ -247,7 +247,7 @@ $pageRenderer->renderHeader();
 
                                 $expandClass = $hasInterestDesc ? "js-expand-skill-interest" : "";
 
-                                echo "<li class='skills-interests__item skills-interests__item--green {$expandClass}'>";
+                                echo "<li class='skills-interests__item skills-interests__item--dark-green {$expandClass}'>";
                                 echo $interestText;
 
                                 if ($hasInterestDesc) {
@@ -341,7 +341,7 @@ $pageRenderer->renderHeader();
                                 echo "<div class='timeline__item {$activeClass}'>";
 
                                 $date = $timelineItem["date"];
-                                echo "<h2 class='timeline-item__date'>{$date}</h2>";
+                                echo "<p class='timeline-item__date'>{$date}</p>";
 
                                 $iconName = $timelineItem["icon"];
                                 $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";

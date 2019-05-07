@@ -23,11 +23,10 @@ $pageRenderer->renderHeader();
 
                 <section class="article">
                     <div class="container">
-                        <h3 class="article__header">Form</h3>
                         <p>Use the form  below to quickly send me a message.</p>
-                        <p><span class="required">*</span> indicates a required field</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
+                            <p><span class="required">*</span> indicates a required field</p>
 
                             <div class="input-group">
                                 <label for="email-input">Your Email Address <span class="required">*</span></label>
@@ -47,7 +46,7 @@ $pageRenderer->renderHeader();
                             </div>
 
                             <p id="contact-form__feedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn--green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
+                            <button id="submit" type="submit" class="btn btn--dark-green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
                         </form>
                     </div>
                 </section>
@@ -59,7 +58,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <a href="mailto:me@jahidulpabelislam.com" class="social-link" target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" class="social-link__img social-link__img--email">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" class="social-link__img social-link__img--email" />
                                 <p class="social-link__text social-link__text--email">me@jahidulpabelislam.com</p>
                             </a>
                         </div>
@@ -78,11 +77,11 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">View my LinkedIn</h3>
+                            <h4 class="article__header">View my LinkedIn</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin" />
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -92,11 +91,11 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">See & follow my code</h3>
+                            <h4 class="article__header">See & follow my code</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                                <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github">
+                                <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github" />
                                 <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -106,7 +105,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h3 class="article__header">See what I get up to</h3>
+                            <h4 class="article__header">See what I get up to</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://www.instagram.com/jpi.dev/" target="_blank" class="social-link">
@@ -123,7 +122,7 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ], [
         "title" => "About",
         "url" => "about",

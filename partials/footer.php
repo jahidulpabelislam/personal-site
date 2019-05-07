@@ -7,49 +7,50 @@ $site = Site::get();
 $pageRenderer = PageRenderer::get();
 ?>
 
-                <?php
-                if (count($similarLinks) > 1) {
-                    echo "<div class='article article--halved article--similar-links'>";
-                    echo "<div class='container'>";
-
-                    foreach ($similarLinks as $link) {
-                        $pageTitle = $link["title"];
-                        $buttonText = $link["text"] ?? $title ;
-
-                        $url = $link["url"];
-                        $url = $site->getURL($url);
-
-                        $buttonClasses = "btn";
-                        $buttonColour = $link["colour"] ?? "";
-                        $buttonClasses .= !empty($buttonColour) ? " btn--{$buttonColour}" : "";
-
-                        echo "<div class='article__half'>";
-                        echo "<a href='{$url}' class='{$buttonClasses}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
-                        echo "</div>";
-                    }
-
-                    echo "</div>";
-                    echo "</div>";
-                }
-                ?>
-
-                <!-- End dynamic content -->
-                <section class="social-links">
-                    <div class="container">
-                        <h5 class="social-links__header">Follow Me Here!</h5>
-                        <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin">
-                        </a>
-                        <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                            <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github">
-                        </a>
-                        <a href="https://www.instagram.com/jpi.dev/" class="social-link" target="_blank">
-                            <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
-                        </a>
-                    </div>
-                </section>
             </div>
         </main>
+
+        <?php
+        if (count($similarLinks) > 1) {
+            echo "<div class='article article--halved article--similar-links'>";
+            echo "<div class='container'>";
+
+            foreach ($similarLinks as $link) {
+                $pageTitle = $link["title"];
+                $buttonText = $link["text"] ?? $title ;
+
+                $url = $link["url"];
+                $url = $site->getURL($url);
+
+                $buttonClasses = "btn";
+                $buttonColour = $link["colour"] ?? "";
+                $buttonClasses .= !empty($buttonColour) ? " btn--{$buttonColour}" : "";
+
+                echo "<div class='article__half'>";
+                echo "<a href='{$url}' class='{$buttonClasses}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
+                echo "</div>";
+            }
+
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
+
+        <!-- End dynamic content -->
+        <section class="social-links">
+            <div class="container">
+                <h5 class="social-links__header">Follow Me Here!</h5>
+                <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
+                    <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin" />
+                </a>
+                <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
+                    <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github" />
+                </a>
+                <a href="https://www.instagram.com/jpi.dev/" class="social-link" target="_blank">
+                    <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
+                </a>
+            </div>
+        </section>
 
         <!-- Footer for site -->
         <footer class="footer">
@@ -80,12 +81,16 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $pageRenderer->renderCookieBanner();
+        ?>
 
+        <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/StickyFooter.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
+
+        <?php
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
@@ -95,7 +100,6 @@ $pageRenderer = PageRenderer::get();
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/sticky-footer.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>

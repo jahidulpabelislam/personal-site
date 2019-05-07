@@ -30,7 +30,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img, .pagination").text("").hide("fast");
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         getTemplateRegex: function(regex) {
@@ -42,7 +42,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         addSkills: function(project, divID) {
-            var skills = project.skills.split(","),
+            var skills = project.skills,
                 skillsContainer = jQuery(divID + " .project__skills")[0],
                 search = jQuery(".search-form__input").val().trim(),
                 lowerCasedSearch = search.toLowerCase(),
@@ -212,7 +212,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Renders a single project
         renderProject: function(project) {
-            if (!document.getElementById("project--" + project.id)) {
+            if (!jQuery("#project--" + project.id).length) {
                 var template = jQuery("#tmpl-project-template").text();
 
                 for (var field in project) {
@@ -239,7 +239,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 );
             }
 
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         scrollToProjects: function() {
@@ -301,7 +301,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.addPagination(response.meta.total_count);
             }
 
-            jpi.footer.expandContent();
+            jpi.main.resetFooter();
         },
 
         getProjects: function() {
