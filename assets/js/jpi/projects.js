@@ -212,7 +212,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Renders a single project
         renderProject: function(project) {
-            if (!document.getElementById("project--" + project.id)) {
+            if (!jQuery("#project--" + project.id).length) {
                 var template = jQuery("#tmpl-project-template").text();
 
                 for (var field in project) {
