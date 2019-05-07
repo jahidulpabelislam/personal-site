@@ -88,6 +88,7 @@
 @each $colour, $colours in $colour-schemes {
     .slide-show__info--#{$colour} {
         background-color: map-get($colours, main);
+        color: get-colour-variant($colours, text, white);
     }
 }
 

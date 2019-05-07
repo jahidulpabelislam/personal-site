@@ -135,7 +135,7 @@ date_default_timezone_set($orig);
                     <a href="<?php $site->echoURL("projects"); ?>" class="btn">View More Work</a>
                 </section>
 
-                <section class="article article--green">
+                <section class="article article--dark-green">
                     <div class="container">
                         <div class="stats">
                             <div class="stats__item">

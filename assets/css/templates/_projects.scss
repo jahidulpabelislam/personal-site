@@ -76,12 +76,14 @@
     .skill--#{$colour}:hover {
         background-color: map-get($colours, hover);
         border-color: map-get($colours, hover);
+        color: get-colour-variant($colours, text, white);
     }
 
     .skill--#{$colour}.searched,
     .skill--#{$colour}:not(.js-searchable-skill):hover {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
+        color: get-colour-variant($colours, text, white);
     }
 }
 
@@ -160,11 +162,13 @@
 
 @each $colour, $colours in $colour-schemes {
     .project__read-more--#{$colour}::after {
-        background: map-get($colours, main);
+        background-color: map-get($colours, main);
+        color: white;
     }
 
     .project__read-more--#{$colour}:hover::after {
-        background: map-get($colours, hover);
+        background-color: map-get($colours, hover);
+        color: get-colour-variant($colours, text, white);
     }
 }
 

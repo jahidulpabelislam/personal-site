@@ -48,7 +48,7 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);

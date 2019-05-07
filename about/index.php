@@ -172,7 +172,7 @@ $pageRenderer->renderHeader();
 
                                 $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
 
-                                echo "<li class='skills-interests__item skills-interests__item--blue {$expandClass}'>";
+                                echo "<li class='skills-interests__item skills-interests__item--dark-blue {$expandClass}'>";
                                 echo $skillText;
 
                                 if ($hasSkillDesc) {
@@ -247,7 +247,7 @@ $pageRenderer->renderHeader();
 
                                 $expandClass = $hasInterestDesc ? "js-expand-skill-interest" : "";
 
-                                echo "<li class='skills-interests__item skills-interests__item--green {$expandClass}'>";
+                                echo "<li class='skills-interests__item skills-interests__item--dark-green {$expandClass}'>";
                                 echo $interestText;
 
                                 if ($hasInterestDesc) {

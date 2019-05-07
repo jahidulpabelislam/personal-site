@@ -103,7 +103,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
 
                 if (!global.navColourRegex) {
-                    global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
+                    global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
                 }
 
                 jQuery(slideShowId + " .slide-show__nav").each(function() {

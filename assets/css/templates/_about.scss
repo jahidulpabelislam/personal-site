@@ -79,6 +79,7 @@
     .skills-interests__item--#{$colour} {
         background-color: map-get($colours, main);
         border-color: map-get($colours, main);
+        color: get-colour-variant($colours, text, white);
     }
 
     .skills-interests__item--#{$colour}.js-expand-skill-interest:hover {

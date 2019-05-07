@@ -46,7 +46,7 @@ $pageRenderer->renderHeader();
                             </div>
 
                             <p id="contact-form__feedback" class="feedback"></p>
-                            <button id="submit" type="submit" class="btn btn--green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
+                            <button id="submit" type="submit" class="btn btn--dark-green" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
                         </form>
                     </div>
                 </section>
@@ -122,7 +122,7 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "blue",
+        "colour" => "dark-blue",
     ], [
         "title" => "About",
         "url" => "about",

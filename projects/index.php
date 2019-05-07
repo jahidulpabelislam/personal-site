@@ -87,7 +87,7 @@ $pageRenderer->renderHeader();
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>
                             <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>" id="search"/>
-                            <button type="submit" class="btn btn--blue search-form__submit">
+                            <button type="submit" class="btn btn--dark-blue search-form__submit">
                                 <i class="fa fa-search"></i>
                             </button>
                         </form>
@@ -209,7 +209,7 @@ $similarLinks = [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "green",
+        "colour" => "dark-green",
     ],
 ];
 $pageRenderer->renderFooter($similarLinks);
