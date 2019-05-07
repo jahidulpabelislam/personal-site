@@ -85,10 +85,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
         resetFooter: function() {
             if (jpi && jpi.stickyFooter) {
-                // Slight delay so Angular updates UI
-                setTimeout(function() {
-                    jpi.stickyFooter.repositionFooter();
-                }, 1);
+                jpi.stickyFooter.repositionFooter();
             }
         },
 
