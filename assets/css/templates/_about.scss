@@ -63,10 +63,10 @@
     display: inline-block;
     margin: 2px;
     padding: 5px;
-    border: 1px solid darken($dark-colour, 15%);
+    border: 1px solid get-colour(black, main);
     border-radius: 5px;
-    background-color: $dark-colour;
-    color: white;
+    background-color: get-colour(black, main);
+    color: get-colour(black, text, white);
     cursor: auto;
     transition: all 0.4s ease-in-out;
 }

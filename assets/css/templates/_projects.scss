@@ -44,23 +44,23 @@
     display: inline-block;
     margin: 2px;
     padding: 5px;
-    border: 1px solid $dark-colour;
+    border: 1px solid get-colour(black, main);
     border-radius: 2px;
-    color: $dark-colour;
+    color: get-colour(black, main);
     font-weight: 400;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
 
 .skill:hover {
-    background-color: $dark-colour;
-    color: white;
+    background-color: get-colour(black, hover);
+    color: get-colour(black, text, white);
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
 .skill.searched {
-    background-color: darken($dark-colour, 2%);
-    color: white;
+    background-color: get-colour(black, text, dark);
+    color: get-colour(black, text, white);
 }
 
 .skill:not(.js-searchable-skill):hover {
@@ -95,7 +95,7 @@
     display: inline-block;
     position: relative;
     margin-right: 10px;
-    color: $dark-colour;
+    color: get-colour(black, main);
 }
 
 .project__link:after {
@@ -117,7 +117,7 @@
 }
 
 .project__link:hover {
-    color: black;
+    color: get-colour(black, hover);
 }
 
 @each $colour, $colours in $colour-schemes {
@@ -146,18 +146,18 @@
     top: 0;
     bottom: 0;
     left: 100%;
-    background: $dark-colour;
+    background: get-colour(black, main);
     font-family: FontAwesome;
     font-size: 36px;
     line-height: 32px;
-    color: white;
+    color: get-colour(black, text, white);
     text-align: center;
     border-radius: 0 30px 30px 0;
     transition: background-color 0.2s ease-in-out;
 }
 
 .project__read-more:hover::after {
-    background: darken($dark-colour, 5%);
+    background-color: get-colour(black, hover);
 }
 
 @each $colour, $colours in $colour-schemes {
