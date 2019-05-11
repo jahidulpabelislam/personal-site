@@ -7,11 +7,12 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     "use strict";
 
-    // Grabs elements for later use
     var global = {
         url: new URL(window.location),
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
+
+        modalSlideShowSelector: "#detailed-project__slide-show",
 
         templateRegexes: {},
         navColourRegex: null,
@@ -178,7 +179,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             fn.addLinks(project, ".detailed-project");
 
-            fn.addProjectImages(project, "#detailed-project__slide-show");
+            fn.addProjectImages(project, global.modalSlideShowSelector);
 
             if (!global.navColourRegex) {
                 global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
@@ -199,14 +200,14 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 jQuery("body").css({overflow: "auto"});
 
-                var viewpoint = jQuery("#detailed-project__slide-show .slide-show__viewpoint")[0];
+                var viewpoint = jQuery(global. modalSlideShowSelector + " .slide-show__viewpoint")[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
                 // Reset slide show
-                jQuery("#detailed-project__slide-show .slide-show__slides-container").css({left: "0px"});
-                clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
+                jQuery(global.modalSlideShowSelector + " .slide-show__slides-container").css({left: "0px"});
+                clearInterval(jpi.slideShow.slideShows[global.modalSlideShowSelector]);
+                jQuery(global.modalSlideShowSelector).removeClass("js-has-slide-show");
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
