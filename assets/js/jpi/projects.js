@@ -12,7 +12,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
 
-        modalSlideShowSelector: "#detailed-project__slide-show",
+        modalSelector: ".detailed-project",
 
         templateRegexes: {},
         navColourRegex: null,
@@ -75,11 +75,13 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
-        addLinks: function(project, divID) {
-            var linksContainer = jQuery(divID + " .project__links");
+        addLinks: function(project, containerSelector) {
+            var linksContainer = jQuery(containerSelector + " .project__links");
 
             if (!project.link && !project.download && !project.github) {
-                linksContainer.remove();
+                if (containerSelector !== global.modalSelector) {
+                    linksContainer.remove();
+                }
                 return;
             }
 
@@ -116,8 +118,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
-        addProjectImages: function(project, slideShowId) {
+        addProjectImages: function(project, containerSelector) {
+            var slideShow = jQuery(containerSelector).find(".slide-show");
+            var slideShowId = "#" + slideShow.attr("id");
+
             if (!project.images || !project.images.length) {
+                if (containerSelector !== global.modalSelector) {
+                    jQuery(slideShowId).remove();
+                }
                 return;
             }
 
@@ -157,7 +165,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         openProjectsExpandModal: function() {
             var projectDataString = jQuery(this).attr("data-project-data"),
                 project = JSON.parse(projectDataString),
-                modal = jQuery(".detailed-project");
+                modal = jQuery(global.modalSelector);
 
             // Stops all the slide shows
             jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
@@ -172,14 +180,11 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             var projectDateString = new Date(project.date).toLocaleDateString();
             modal.find(".project__date").text(projectDateString);
-
-            fn.addSkills(project, ".detailed-project");
-
             modal.find(".project__description").html(project.long_description);
 
-            fn.addLinks(project, ".detailed-project");
-
-            fn.addProjectImages(project, global.modalSlideShowSelector);
+            fn.addSkills(project, global.modalSelector);
+            fn.addLinks(project, global.modalSelector);
+            fn.addProjectImages(project, global.modalSelector);
 
             if (!global.navColourRegex) {
                 global.navColourRegex = new RegExp("slide-show__nav--\\w*", "g");
@@ -194,20 +199,20 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         closeProjectsExpandModal: function(e) {
-            var modal = jQuery(".detailed-project");
+            var modal = jQuery(global.modalSelector);
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
                 jQuery("body").css({overflow: "auto"});
 
-                var viewpoint = jQuery(global. modalSlideShowSelector + " .slide-show__viewpoint")[0];
+                var viewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint")[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
                 // Reset slide show
-                jQuery(global.modalSlideShowSelector + " .slide-show__slides-container").css({left: "0px"});
-                clearInterval(jpi.slideShow.slideShows[global.modalSlideShowSelector]);
-                jQuery(global.modalSlideShowSelector).removeClass("js-has-slide-show");
+                jQuery(global.modalSelector + " .slide-show__slides-container").css({left: "0px"});
+                clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
+                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
@@ -215,7 +220,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Renders a single project
         renderProject: function(project) {
-            if (!jQuery("#project--" + project.id).length) {
+            var projectSelector = "#project--" + project.id;
+            if (!jQuery(projectSelector).length) {
                 var template = jQuery("#tmpl-project-template").text();
 
                 for (var field in project) {
@@ -232,11 +238,11 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
                 jQuery(".projects").append(template);
 
-                fn.addSkills(project, "#project--" + project.id);
-                fn.addLinks(project, "#project--" + project.id);
-                fn.addProjectImages(project, "#slide-show--" + project.id);
+                fn.addSkills(project, projectSelector);
+                fn.addLinks(project, projectSelector);
+                fn.addProjectImages(project, projectSelector);
 
-                jQuery("#project--" + project.id + " .js-open-modal").attr(
+                jQuery(projectSelector + " .js-open-modal").attr(
                     "data-project-data",
                     JSON.stringify(project)
                 );
@@ -399,7 +405,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
 
             jQuery("body").on("click", ".js-searchable-skill", function(e) {
-                jQuery(".detailed-project").trigger("click");
+                jQuery(global.modalSelector).trigger("click");
                 jQuery(".search-form__input").val(e.target.innerHTML);
                 fn.scrollToProjects();
                 fn.doSearch();
@@ -437,7 +443,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
 
             // Close the modal
-            jQuery(".detailed-project").on("click", fn.closeProjectsExpandModal);
+            jQuery(global.modalSelector).on("click", fn.closeProjectsExpandModal);
         },
 
         init: function() {
