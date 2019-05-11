@@ -204,7 +204,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             modal.addClass("open").show();
 
-            jQuery("body").css({overflow: "hidden"});
+            jQuery("body").css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .js-slide-show-bullets").text("");
 
@@ -235,14 +235,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
-                jQuery("body").css({overflow: "auto"});
+                jQuery("body").css("overflow", "auto");
 
                 var viewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint")[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
                 // Reset slide show
-                jQuery(global.modalSelector + " .slide-show__slides-container").css({left: "0px"});
+                jQuery(global.modalSelector + " .slide-show__slides-container").css("left", "0px");
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
                 jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 

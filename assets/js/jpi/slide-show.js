@@ -45,9 +45,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             fn.widenSlideShow(viewpoint);
 
-            slidesContainer.children().css({
-                width: jQuery(slideShowId).innerWidth() + "px",
-            });
+            slidesContainer.children().css(
+                "width", jQuery(slideShowId).innerWidth() + "px"
+            );
             var position = currentSlide.position();
 
             slidesContainer.css({
