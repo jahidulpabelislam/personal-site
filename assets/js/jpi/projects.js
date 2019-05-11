@@ -116,6 +116,10 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         addProjectImages: function(project, slideShowId) {
+            if (!project.images || !project.images.length) {
+                return;
+            }
+
             var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
                 slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
 
@@ -146,9 +150,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
             }
 
-            if (project.images.length) {
-                jpi.slideShow.setUp(slideShowId);
-            }
+            jpi.slideShow.setUp(slideShowId);
         },
 
         openProjectsExpandModal: function() {
