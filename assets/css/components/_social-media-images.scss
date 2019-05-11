@@ -56,9 +56,6 @@
 .social-link__img--instagram {
     display: inline-block;
     position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 8.88px;
     background: black;
     vertical-align: middle;
 }
@@ -82,11 +79,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 29.44px;
-    height: 29.44px;
     margin: auto;
-    border: 2.72px solid white;
-    border-radius: 8.33px;
 }
 
 .social-link__img--instagram i::before {
@@ -96,23 +89,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    width: 15.22px;
-    height: 15.22px;
     margin: auto;
-    border: 2.72px solid white;
-    border-radius: 7.61px;
 }
 
 .social-link__img--instagram i::after {
     content: "\00a0";
     position: absolute;
-    top: 2.38px;
-    right: 2.38px;
-    width: 3.55px;
-    height: 3.55px;
     background: white;
-    border-radius: 1.77px;
 }
+
+@include insta-logo(".social-link__img--instagram", 40);
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
@@ -120,30 +106,5 @@
         height: 50px;
     }
 
-    .social-link__img--instagram {
-        width: 50px;
-        border-radius: 11.11px;
-    }
-
-    .social-link__img--instagram i {
-        width: 36.81px;
-        height: 36.81px;
-        border: 3.4px solid white;
-        border-radius: 10.42px;
-    }
-
-    .social-link__img--instagram i::before {
-        width: 19.03px;
-        height: 19.03px;
-        border: 3.4px solid white;
-        border-radius: 9.51px;
-    }
-
-    .social-link__img--instagram i::after {
-        top: 2.99px;
-        right: 2.99px;
-        width: 4.44px;
-        height: 4.44px;
-        border-radius: 2.22px;
-    }
+    @include insta-logo(".social-link__img--instagram", 50);
 }
