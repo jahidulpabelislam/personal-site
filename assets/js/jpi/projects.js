@@ -16,6 +16,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         templateRegexes: {},
         navColourRegex: null,
+
+        projects: {},
     };
 
     var fn = {
@@ -186,18 +188,15 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.addLinks(project, projectSelector);
                 fn.addProjectImages(project, projectSelector);
 
-                jQuery(projectSelector + " .js-open-modal").attr(
-                    "data-project-data",
-                    JSON.stringify(project)
-                );
+                global.projects[project.id] = project;
             }
 
             jpi.main.resetFooter();
         },
 
         openProjectsExpandModal: function() {
-            var projectDataString = jQuery(this).attr("data-project-data"),
-                project = JSON.parse(projectDataString),
+            var projectId = jQuery(this).attr("data-project-id"),
+                project = global.projects[projectId],
                 modal = jQuery(global.modalSelector);
 
             // Stops all the slide shows
