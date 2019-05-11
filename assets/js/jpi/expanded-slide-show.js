@@ -52,7 +52,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 global.expandedImageDivContainer.removeClass("hiding");
             }, 990);
 
-            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
+            jpi.slideShow.startSlideShows();
 
             jQuery(".expanded-slide-show__bullets").text("");
         },
@@ -60,7 +60,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
         // Sets up slide show when image is clicked on
         setUp: function(e) {
             // Stops all the slide shows
-            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+            jpi.slideShow.stopSlideShows();
 
             // Get all slides in slide show
             var slideShowId = jQuery(e.target).attr("data-slide-show-id");

@@ -200,10 +200,9 @@ window.jpi.projects = (function(jQuery, jpi) {
                 modal = jQuery(global.modalSelector);
 
             // Stops all the slide shows
-            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+            jpi.slideShow.stopSlideShows();
 
             modal.addClass("open").show();
-
             jQuery("body").css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .js-slide-show-bullets").text("");
@@ -246,7 +245,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
                 jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 
-                jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
+                jpi.slideShow.startSlideShows();
             }
         },
 
@@ -309,7 +308,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 };
 
             // Stops all the slide shows
-            jpi.slideShow.loopThroughSlideShows(jpi.slideShow.stopSlideShow);
+            jpi.slideShow.stopSlideShows();
 
             // Send request to get projects for page and search
             jpi.ajax.sendRequest({
