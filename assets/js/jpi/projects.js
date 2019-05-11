@@ -162,6 +162,39 @@ window.jpi.projects = (function(jQuery, jpi) {
             jpi.slideShow.setUp(slideShowId);
         },
 
+        // Renders a single project
+        renderProject: function(project) {
+            var projectSelector = "#project--" + project.id;
+            if (!jQuery(projectSelector).length) {
+                var template = jQuery("#tmpl-project-template").text();
+
+                for (var field in project) {
+                    if (project.hasOwnProperty(field) && typeof field === "string") {
+                        var regex = fn.getTemplateRegex(field);
+
+                        var data = project[field];
+                        if (field === "date") {
+                            data = new Date(data).toLocaleDateString();
+                        }
+
+                        template = template.replace(regex, data);
+                    }
+                }
+                jQuery(".projects").append(template);
+
+                fn.addSkills(project, projectSelector);
+                fn.addLinks(project, projectSelector);
+                fn.addProjectImages(project, projectSelector);
+
+                jQuery(projectSelector + " .js-open-modal").attr(
+                    "data-project-data",
+                    JSON.stringify(project)
+                );
+            }
+
+            jpi.main.resetFooter();
+        },
+
         openProjectsExpandModal: function() {
             var projectDataString = jQuery(this).attr("data-project-data"),
                 project = JSON.parse(projectDataString),
@@ -216,51 +249,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 jpi.slideShow.loopThroughSlideShows(jpi.slideShow.startSlideShow);
             }
-        },
-
-        // Renders a single project
-        renderProject: function(project) {
-            var projectSelector = "#project--" + project.id;
-            if (!jQuery(projectSelector).length) {
-                var template = jQuery("#tmpl-project-template").text();
-
-                for (var field in project) {
-                    if (project.hasOwnProperty(field) && typeof field === "string") {
-                        var regex = fn.getTemplateRegex(field);
-
-                        var data = project[field];
-                        if (field === "date") {
-                            data = new Date(data).toLocaleDateString();
-                        }
-
-                        template = template.replace(regex, data);
-                    }
-                }
-                jQuery(".projects").append(template);
-
-                fn.addSkills(project, projectSelector);
-                fn.addLinks(project, projectSelector);
-                fn.addProjectImages(project, projectSelector);
-
-                jQuery(projectSelector + " .js-open-modal").attr(
-                    "data-project-data",
-                    JSON.stringify(project)
-                );
-            }
-
-            jpi.main.resetFooter();
-        },
-
-        scrollToProjects: function() {
-            var projectsPos = jQuery(".projects").offset().top,
-                navHeight = jQuery(".nav").height();
-
-            jQuery("html, body").animate(
-                {
-                    scrollTop: projectsPos - navHeight - 20,
-                },
-                2000
-            );
         },
 
         // Adds pagination buttons/elements to the page
@@ -394,6 +382,18 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             fn.getProjects();
             return false;
+        },
+
+        scrollToProjects: function() {
+            var projectsPos = jQuery(".projects").offset().top,
+                navHeight = jQuery(".nav").height();
+
+            jQuery("html, body").animate(
+                {
+                    scrollTop: projectsPos - navHeight - 20,
+                },
+                2000
+            );
         },
 
         // Set up page
