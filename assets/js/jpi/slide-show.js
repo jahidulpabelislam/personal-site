@@ -45,9 +45,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             fn.widenSlideShow(viewpoint);
 
-            slidesContainer.children().css({
-                width: jQuery(slideShowId).innerWidth() + "px",
-            });
+            slidesContainer.children().css(
+                "width", jQuery(slideShowId).innerWidth() + "px"
+            );
             var position = currentSlide.position();
 
             slidesContainer.css({
@@ -263,6 +263,14 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             }
         },
 
+        stopSlideShows: function() {
+            fn.loopThroughSlideShows(fn.stopSlideShow);
+        },
+
+        startSlideShows: function() {
+            fn.loopThroughSlideShows(fn.startSlideShow);
+        },
+
         initListeners: function() {
             if (!jQuery(".slide-show").length) {
                 return;
@@ -287,9 +295,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
     return {
         setUp: fn.setUp,
         dragStart: fn.dragStart,
-        loopThroughSlideShows: fn.loopThroughSlideShows,
-        stopSlideShow: fn.stopSlideShow,
-        startSlideShow: fn.startSlideShow,
+        stopSlideShows: fn.stopSlideShows,
+        startSlideShows: fn.startSlideShows,
         slideShows: global.slideShows,
     };
 

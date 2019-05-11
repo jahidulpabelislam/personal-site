@@ -20,32 +20,7 @@
     margin: 15px 3px;
 }
 
-.social-links__img.social-link__img--instagram {
-    width: 50px;
-    border-radius: 11.11px;
-}
-
-.social-links__img.social-link__img--instagram i {
-    width: 36.81px;
-    height: 36.81px;
-    border: 3.4px solid white;
-    border-radius: 10.42px;
-}
-
-.social-links__img.social-link__img--instagram i::before {
-    width: 19.03px;
-    height: 19.03px;
-    border: 3.4px solid white;
-    border-radius: 9.51px;
-}
-
-.social-links__img.social-link__img--instagram i::after {
-    top: 2.99px;
-    right: 2.99px;
-    width: 4.44px;
-    height: 4.44px;
-    border-radius: 2.22px;
-}
+@include insta-logo(".social-links__img.social-link__img--instagram", 50);
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
@@ -58,32 +33,7 @@
         margin: 20px 3px;
     }
 
-    .social-links__img.social-link__img--instagram {
-        width: 60px;
-        border-radius: 13.33px;
-    }
-
-    .social-links__img.social-link__img--instagram i {
-        width: 44.16px;
-        height: 44.16px;
-        border: 4.08px solid white;
-        border-radius: 12.5px;
-    }
-
-    .social-links__img.social-link__img--instagram i::before {
-        width: 22.83px;
-        height: 22.83px;
-        border: 4.08px solid white;
-        border-radius: 11.41px;
-    }
-
-    .social-links__img.social-link__img--instagram i::after {
-        top: 3.58px;
-        right: 3.58px;
-        width: 5.33px;
-        height: 5.33px;
-        border-radius: 2.66px;
-    }
+    @include insta-logo(".social-links__img.social-link__img--instagram", 60);
 }
 
 /* Only for Desktops */
@@ -103,30 +53,5 @@
         margin: 0 20px 25px;
     }
 
-    .social-links__img.social-link__img--instagram {
-        width: 70px;
-        border-radius: 15.55px;
-    }
-
-    .social-links__img.social-link__img--instagram i {
-        width: 51.52px;
-        height: 51.52px;
-        border: 4.76px solid white;
-        border-radius: 14.58px;
-    }
-
-    .social-links__img.social-link__img--instagram i::before {
-        width: 26.63px;
-        height: 26.63px;
-        border: 4.76px solid white;
-        border-radius: 13.31px;
-    }
-
-    .social-links__img.social-link__img--instagram i::after {
-        top: 4.18px;
-        right: 4.18px;
-        width: 6.22px;
-        height: 6.22px;
-        border-radius: 3.11px;
-    }
+    @include insta-logo(".social-links__img.social-link__img--instagram", 70);
 }
