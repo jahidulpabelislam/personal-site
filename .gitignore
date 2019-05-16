@@ -58,3 +58,5 @@ config.php
 logs/*
 
 version.txt
+
+counters.json
