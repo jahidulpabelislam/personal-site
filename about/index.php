@@ -361,7 +361,7 @@ $pageRenderer->renderHeader();
                 <script>
                     window.jpi = window.jpi || {};
                     window.jpi.config = window.jpi.config || {};
-                    window.jpi.config.googleMapStyles =  <?php echo file_get_contents(ROOT . "/assets/map-styling.json"); ?>;
+                    window.jpi.config.googleMapStyles = <?php echo file_get_contents(ROOT . "/assets/map-styling.json"); ?>;
                 </script>
 
 <?php

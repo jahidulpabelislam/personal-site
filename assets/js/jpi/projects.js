@@ -112,7 +112,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (project.github) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.github,
-                    title: "Link to " + project.name + "  Code On GitHub",
+                    title: "Link to " + project.name + " Code On GitHub",
                     target: "_blank",
                     innerHTML: "<i class='fa fa-github fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,

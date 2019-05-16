@@ -23,7 +23,7 @@ $pageRenderer->renderHeader();
 
                 <section class="article">
                     <div class="container">
-                        <p>Use the form  below to quickly send me a message.</p>
+                        <p>Use the form below to quickly send me a message.</p>
 
                         <form class="contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
                             <p><span class="required">*</span> indicates a required field</p>
