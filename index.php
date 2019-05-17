@@ -142,8 +142,11 @@ date_default_timezone_set($orig);
                                 <?php
                                 $speed = 2000;
 
-                                $countersContent = file_get_contents(ROOT . "/assets/counters.json");
-                                $counters = json_decode($countersContent, true);
+                                $counterFilePath = ROOT . "/assets/counters.json";
+                                if (file_exists($counterFilePath)) {
+                                    $countersContent = file_get_contents($counterFilePath);
+                                    $counters = json_decode($countersContent, true);
+                                }
 
                                 $personalProjectsNum = $counters["personalProjects"] ?? 25;
                                 $workProjectsNum = $counters["workProjects"] ?? 30;
