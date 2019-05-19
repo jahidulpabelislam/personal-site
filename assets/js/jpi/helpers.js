@@ -11,7 +11,7 @@ window.jpi.helpers = (function() {
         /*
          * Used to check if a input field is empty
          * add invalid class if empty and return false
-         * or remove invalid class if  not empty and return true
+         * or remove invalid class if not empty and return true
          */
         checkInputField: function(input) {
             if (input.value.trim() === "") {

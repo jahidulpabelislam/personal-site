@@ -142,8 +142,14 @@ date_default_timezone_set($orig);
                                 <?php
                                 $speed = 2000;
 
-                                $personalProjectsNum = 24;
-                                $workProjectsNum = 30;
+                                $counterFilePath = ROOT . "/assets/counters.json";
+                                if (file_exists($counterFilePath)) {
+                                    $countersContent = file_get_contents($counterFilePath);
+                                    $counters = json_decode($countersContent, true);
+                                }
+
+                                $personalProjectsNum = $counters["personalProjects"] ?? 25;
+                                $workProjectsNum = $counters["workProjects"] ?? 30;
                                 ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $personalProjectsNum; ?>
@@ -153,7 +159,7 @@ date_default_timezone_set($orig);
                                 </p>
                             </div>
                             <div class="stats__item">
-                                <?php $totalCommits = 2270; ?>
+                                <?php $totalCommits = $counters["totalCommits"] ?? 8000; ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
                                 </p>
