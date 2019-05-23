@@ -87,7 +87,7 @@ $pageRenderer->renderHTMLHead();
         }
         ?>
 
-        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/StickyFooter.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
 
         <script type="application/javascript">
             jQuery(window).on("load", function() {
