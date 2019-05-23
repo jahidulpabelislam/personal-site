@@ -77,8 +77,9 @@ window.jpi.helpers = (function() {
         },
 
         setCookie: function(key, value, expirationDays) {
+            var oneDayInMilliSecs = 24 * 60 * 60 * 1000;
             var expiryDate = new Date();
-            expiryDate.setTime(expiryDate.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+            expiryDate.setTime(expiryDate.getTime() + (expirationDays * oneDayInMilliSecs));
             var expires = "expires=" + expiryDate.toUTCString();
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
         },
