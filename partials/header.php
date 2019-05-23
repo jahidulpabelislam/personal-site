@@ -13,7 +13,7 @@ $site = Site::get();
                     <h1 class="header__title"><?php echo $title ?></h1>
                     <hr class="header__line-breaker" />
                     <h2 class="header__desc"><?php echo $desc ?></h2>
-                    <img src="<?php $site->echoWithAssetVersion("/assets/images/down-arrow.svg"); ?>" class="js-scroll-to-content header__scroll-to-content" alt="Arrow point down" aria-label="Jump to content" />
+                    <img src="<?php $site::echoWithAssetVersion("/assets/images/down-arrow.svg"); ?>" class="js-scroll-to-content header__scroll-to-content" alt="Arrow point down" aria-label="Jump to content" />
                 </div>
             </div>
         </header>

@@ -52,7 +52,7 @@ $pageRenderer = PageRenderer::get();
         $filePath = ROOT . "/" . ltrim($imageLocation, " /");
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
-            $relativeImageURL = $site->getWithAssetVersion($imageLocation);
+            $relativeImageURL = $site::getWithAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>
             <meta property="og:image" content="<?php echo $imageURL; ?>" />
@@ -68,12 +68,12 @@ $pageRenderer = PageRenderer::get();
         <!-- Custom stylesheet for site -->
         <?php if ($site->isDebug()) {
             ?>
-            <link href="<?php $site->echoWithAssetVersion("/assets/css/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+            <link href="<?php $site::echoWithAssetVersion("/assets/css/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php
         }
         else {
             ?>
-            <link href="<?php $site->echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+            <link href="<?php $site::echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php
         };
         ?>

@@ -20,7 +20,7 @@ class PageRenderer {
     public $site;
     private $pageData = [];
 
-    private static $instance = null;
+    private static $instance;
 
     public function __construct() {
         $this->site = Site::get();
@@ -28,7 +28,7 @@ class PageRenderer {
     }
 
     public static function get(): PageRenderer {
-        if (self::$instance === null) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
 
@@ -45,7 +45,7 @@ class PageRenderer {
             $path = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
-        $url = $this->site->turnPathToURL($path);
+        $url = $this->site::turnPathToURL($path);
 
         $globalPageData = [
             "pageId" => $pageId,
