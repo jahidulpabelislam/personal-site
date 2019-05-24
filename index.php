@@ -148,8 +148,8 @@ date_default_timezone_set($origTimezone);
                                     $counters = json_decode($countersContent, true);
                                 }
 
-                                $personalProjectsNum = $counters["personalProjects"] ?? 25;
-                                $workProjectsNum = $counters["workProjects"] ?? 30;
+                                $personalProjectsNum = $counters["personal_projects"] ?? 26;
+                                $workProjectsNum = $counters["work_projects"] ?? 30;
                                 ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $personalProjectsNum; ?>
@@ -159,7 +159,7 @@ date_default_timezone_set($origTimezone);
                                 </p>
                             </div>
                             <div class="stats__item">
-                                <?php $totalCommits = $counters["totalCommits"] ?? 8000; ?>
+                                <?php $totalCommits = $counters["total_commits"] ?? 8500; ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
                                 </p>
