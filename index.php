@@ -159,7 +159,7 @@ date_default_timezone_set($origTimezone);
                                 </p>
                             </div>
                             <div class="stats__item">
-                                <?php $totalCommits = $counters["total_commits"] ?? 8500; ?>
+                                <?php $totalCommits = $counters["commits"] ?? 8500; ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalCommits; ?>
                                 </p>
