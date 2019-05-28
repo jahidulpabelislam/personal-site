@@ -20,14 +20,14 @@ $pageRenderer->renderHTMLHead();
             <div class="container">
                 <div class="social-link-container">
                     <a href="https://facebook.com/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" class="social-link__img social-link__img--facebook" />
                         <p class="social-link__text social-link__text--facebook">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://twitter.com/itsjahidulislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" class="social-link__img social-link__img--twitter" />
                         <p class="social-link__text social-link__text--twitter">@ItsJahidulIslam</p>
                     </a>
                 </div>
@@ -48,14 +48,14 @@ $pageRenderer->renderHTMLHead();
 
                 <div class="social-link-container">
                     <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-link__img social-link__img--linkedin" />
                         <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-link__img social-link__img--github" />
                         <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                     </a>
                 </div>
@@ -75,19 +75,19 @@ $pageRenderer->renderHTMLHead();
             ?>
             <!-- All individual js files for site as debug is specified -->
             <?php // Files necessary for StickyFooter js code ?>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
             ?>
             <!-- Compiled page & libraries js files -->
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
         ?>
 
-        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/StickyFooter.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
 
         <script type="application/javascript">
             jQuery(window).on("load", function() {

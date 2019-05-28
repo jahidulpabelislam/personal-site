@@ -14,27 +14,27 @@ let defaultTasks = [];
 // Concatenate & Minify JS
 const scripts = {
     "main": [
-        "assets/js/third-party/waypoint.min.js",
-        "assets/js/third-party/jquery.countTo.js",
-        "assets/js/jpi/expanded-slide-show.js",
-        "assets/js/jpi/slide-show.js",
-        "assets/js/jpi/helpers.js",
-        "assets/js/jpi/ajax.js",
-        "assets/js/jpi/projects.js",
-        "assets/js/jpi/home.js",
-        "assets/js/jpi/form.js",
-        "assets/js/jpi/nav.js",
-        "assets/js/jpi/cookie-banner.js",
-        "assets/js/jpi/main.js",
+        "./assets/js/third-party/waypoint.min.js",
+        "./assets/js/third-party/jquery.countTo.js",
+        "./assets/js/jpi/expanded-slide-show.js",
+        "./assets/js/jpi/slide-show.js",
+        "./assets/js/jpi/helpers.js",
+        "./assets/js/jpi/ajax.js",
+        "./assets/js/jpi/projects.js",
+        "./assets/js/jpi/home.js",
+        "./assets/js/jpi/form.js",
+        "./assets/js/jpi/nav.js",
+        "./assets/js/jpi/cookie-banner.js",
+        "./assets/js/jpi/main.js",
     ],
     "social-links" : [
-        "assets/js/third-party/jquery.min.js",
-        "assets/js/jpi/helpers.js",
+        "./assets/js/third-party/jquery.min.js",
+        "./assets/js/jpi/helpers.js",
     ],
 };
+const scriptNames = Object.keys(scripts);
 
 let scriptTasks = [];
-const scriptNames = Object.keys(scripts);
 scriptNames.forEach(function(key) {
     const scriptTask = "scripts-" + key;
     scriptTasks.push(scriptTask);
@@ -42,7 +42,7 @@ scriptNames.forEach(function(key) {
         return gulp.src(scripts[key])
                    .pipe(concat(key + ".min.js"))
                    .pipe(uglify())
-                   .pipe(gulp.dest("assets/js"));
+                   .pipe(gulp.dest("./assets/js/"));
     });
 });
 gulp.task("scripts", gulp.parallel(scriptTasks));
@@ -51,12 +51,12 @@ defaultTasks.push("scripts");
 // Minify Stylesheets
 const stylesheets = {
     main: [
-        "assets/css/main.css",
+        "./assets/css/main.css",
     ],
 };
+const stylesheetNames = Object.keys(stylesheets);
 
 let stylesheetTasks = [];
-const stylesheetNames = Object.keys(stylesheets);
 stylesheetNames.forEach(function(key) {
     const stylesheetTask = "styles-" + key;
     stylesheetTasks.push(stylesheetTask);
@@ -74,20 +74,20 @@ stylesheetNames.forEach(function(key) {
                            compatibility: "ie8",
                        })
                    )
-                   .pipe(gulp.dest("assets/css"));
+                   .pipe(gulp.dest("./assets/css/"));
     });
 });
 gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
 
 gulp.task("sass", function() {
-    return gulp.src("assets/css/main.scss")
+    return gulp.src("./assets/css/main.scss")
                .pipe(sass().on("error", sass.logError))
-               .pipe(gulp.dest("assets/css"));
+               .pipe(gulp.dest("./assets/css/"));
 });
 // Watch Files For Changes
 gulp.task("watch", function() {
-    gulp.watch("assets/css/**/*.scss", gulp.parallel("sass"));
+    gulp.watch("./assets/css/**/*.scss", gulp.parallel("sass"));
 });
 
 const errorCallback = function(err) {
@@ -111,8 +111,8 @@ const runCommand = function(command, callback) {
 
 defaultTasks.push("store-version");
 gulp.task("store-version", function() {
-    const githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio/";
-    const fileName = "assets/version.txt";
+    const githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio";
+    const fileName = "./assets/version.txt";
     let versionText = "";
 
     // Try to get current branch name
@@ -123,7 +123,7 @@ gulp.task("store-version", function() {
          * Else it is one of dev branches so display branch name
          */
         if (branchName && branchName !== "master") {
-            versionText = `<a href="${githubBaseUrl}tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
+            versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
             fs.writeFile(fileName, versionText, errorCallback);
         }
         else {
@@ -131,11 +131,11 @@ gulp.task("store-version", function() {
             return runCommand("git describe --abbrev=0 --tags", function(tagName) {
                 // If found store in text file
                 if (tagName) {
-                    versionText = `<a href="${githubBaseUrl}releases/tag/${tagName}/" class="link-styled" target="_blank">${tagName}</a>`;
+                    versionText = `<a href="${githubBaseUrl}/releases/tag/${tagName}/" class="link-styled" target="_blank">${tagName}</a>`;
                 }
                 // Else drop back to branch name if exists else remove version value from file
                 else if (branchName) {
-                    versionText = `<a href="${githubBaseUrl}tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
+                    versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
                 }
 
                 fs.writeFile(fileName, versionText, errorCallback);

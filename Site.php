@@ -18,9 +18,9 @@ include_once("SiteConstants.php");
 
 class Site implements SiteConstants {
 
-    private $environment = "production";
+    private $environment;
 
-    private $isDebug = null;
+    private $isDebug;
 
     private $liveDomain;
     private $liveURL;
@@ -30,7 +30,7 @@ class Site implements SiteConstants {
     private $dateStarted;
     private $yearStarted;
 
-    private static $instance = null;
+    private static $instance;
 
     public function __construct() {
         if (!defined("ROOT")) {
@@ -75,7 +75,7 @@ class Site implements SiteConstants {
      */
     public function isDebug(): bool {
         if ($this->isDebug === null) {
-            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] == "false" || $_GET["debug"] == "0");
+            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
         }
 
         return $this->isDebug;
@@ -109,7 +109,7 @@ class Site implements SiteConstants {
      */
     public function getLocalDomain(): string {
         if (!$this->localDomain) {
-            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
             $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
             $this->localDomain = self::addTrailingSlash($localDomain);
         }
@@ -168,6 +168,7 @@ class Site implements SiteConstants {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param string $relativeURL string The relative url part/s to use to generate url from
+     * @param bool $addDebug bool Whether the url should include the debug flag if currently added
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      * @return string
@@ -185,6 +186,7 @@ class Site implements SiteConstants {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param string $url string The relative url part/s to use to generate url from
+     * @param bool $addDebug bool Whether the url should include the debug flag if currently added
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */

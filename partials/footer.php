@@ -41,10 +41,10 @@ $pageRenderer = PageRenderer::get();
             <div class="container">
                 <h5 class="social-links__header">Follow Me Here!</h5>
                 <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                    <img src="<?php $site->echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin" />
+                    <img src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin" />
                 </a>
                 <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                    <img src="<?php $site->echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github" />
+                    <img src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github" />
                 </a>
                 <a href="https://www.instagram.com/jpi.dev/" class="social-link" target="_blank">
                     <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
@@ -70,11 +70,11 @@ $pageRenderer = PageRenderer::get();
 
                 <div class="footer__legal">
                     <?php
-                    $orig = date_default_timezone_get();
+                    $origTimezone = date_default_timezone_get();
                     date_default_timezone_set("Europe/London");
                     ?>
                     <p>&copy; Jahidul Pabel Islam <?php echo $site->getYearStarted() . " - " . date("Y"); ?></p>
-                    <?php date_default_timezone_set($orig); ?>
+                    <?php date_default_timezone_set($origTimezone); ?>
                 </div>
             </div>
         </footer>
@@ -83,7 +83,7 @@ $pageRenderer = PageRenderer::get();
         $pageRenderer->renderCookieBanner();
         ?>
 
-        <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
+        <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
 
         <?php
@@ -91,24 +91,24 @@ $pageRenderer = PageRenderer::get();
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
             ?>
             <!-- Compiled project & libraries js files -->
-            <script src="<?php $site->echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
         ?>

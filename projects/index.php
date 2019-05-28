@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$site->echoConfig();
+$site::echoConfig();
 
 $apiRequestParams = [];
 
@@ -28,7 +28,7 @@ if ($pageNum > 1) {
 
 $headDesc = "Look at the Projects of Jahidul Pabel Islam has developed, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
-$projectsURL = $site->getAPIEndpoint("/projects/");
+$projectsURL = $site::getAPIEndpoint("/projects/");
 
 $requestParamsString = "";
 if (count($apiRequestParams) > 0) {
@@ -103,20 +103,20 @@ $pageRenderer->renderHeader();
 
                 <div class="expanded-slide-show">
                     <div class="expanded-image-container">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-image-container">
-                        <img src="<?php $site->echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide" />
+                        <img src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
                             <button type="button" class="js-expanded-slide-show-previous">
-                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                <img class="expanded-slide-show__nav" src="<?php $site::echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
                             </button>
                             <button type="button" class="js-expanded-slide-show-next">
-                                <img class="expanded-slide-show__nav" src="<?php $site->echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                <img class="expanded-slide-show__nav" src="<?php $site::echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                             </button>
                         </div>
 
@@ -147,10 +147,10 @@ $pageRenderer->renderHeader();
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php $site::echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
                                 </button>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php $site::echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                                 </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
@@ -170,10 +170,10 @@ $pageRenderer->renderHeader();
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous" src="<?php $site->echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous" src="<?php $site::echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
                                 </button>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next" src="<?php $site->echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next" src="<?php $site::echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                                 </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
@@ -183,7 +183,7 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{id}}">
-                        <img src="<?php $site->echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
+                        <img src="<?php $site::echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
                     </div>
                 </script>
 
@@ -195,7 +195,7 @@ $pageRenderer->renderHeader();
                 <script>
                     window.jpi = window.jpi || {};
                     window.jpi.config = window.jpi.config || {};
-                    window.jpi.config.jpiAPIEndpoint = "<?php $site->echoAPIEndpoint(); ?>";
+                    window.jpi.config.jpiAPIEndpoint = "<?php $site::echoAPIEndpoint(); ?>";
                 </script>
 
 <?php

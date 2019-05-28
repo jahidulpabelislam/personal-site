@@ -121,9 +121,9 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             });
 
             jQuery("body").on("click", ".js-expandable-image", fn.setUp);
-            jQuery(".expanded-slide-show__close").click(fn.close);
-            jQuery(".js-expanded-slide-show-next").click(fn.next);
-            jQuery(".js-expanded-slide-show-previous").click(fn.previous);
+            jQuery(".expanded-slide-show__close").on("click", fn.close);
+            jQuery(".js-expanded-slide-show-next").on("click", fn.next);
+            jQuery(".js-expanded-slide-show-previous").on("click", fn.previous);
         },
     };
 

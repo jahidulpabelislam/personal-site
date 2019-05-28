@@ -92,7 +92,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (project.link) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.link,
-                    title: "Link to " + project.name + " Site",
+                    title: "Link to " + project.name,
                     target: "_blank",
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
@@ -102,7 +102,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (project.download) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.download,
-                    title: "Link to Download " + project.name,
+                    title: "Link to download " + project.name,
                     target: "_blank",
                     innerHTML: "<i class='fa fa-download fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
@@ -112,7 +112,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (project.github) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.github,
-                    title: "Link to " + project.name + " Code On GitHub",
+                    title: "Link to " + project.name + " code on GitHub",
                     target: "_blank",
                     innerHTML: "<i class='fa fa-github fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
