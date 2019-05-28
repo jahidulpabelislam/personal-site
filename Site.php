@@ -109,7 +109,7 @@ class Site implements SiteConstants {
      */
     public function getLocalDomain(): string {
         if (!$this->localDomain) {
-            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") ? "https" : "http";
+            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
             $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
             $this->localDomain = self::addTrailingSlash($localDomain);
         }
