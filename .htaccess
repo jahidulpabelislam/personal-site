@@ -61,11 +61,6 @@ ErrorDocument 500 /error/500/
     deny from all
 </Files>
 
-<Files robots.txt>
-    order allow,deny
-    deny from all
-</Files>
-
 RewriteEngine on
 RewriteRule ^about-me/?$ /about/ [R=301,NC,L]
 RewriteRule ^contact-me/?$ /contact/ [R=301,NC,L]
