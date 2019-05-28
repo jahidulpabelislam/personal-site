@@ -267,9 +267,9 @@ img {
     margin: 0; } }
 
 /*
-  Any base css for all pages.
-  Plus any css for components/templates that will only have 1 line of code if separated.
-*/
+ * Any base css for all pages.
+ * Plus any css for components/templates that will only have 1 line of code if separated.
+ */
 /* For all devices */
 body {
   font: 400 14px "Cabin", sans-serif;
