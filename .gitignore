@@ -55,7 +55,7 @@ npm-debug.log*
 
 config.php
 
-logs/*
+logs/*.log
 
 version.txt
 

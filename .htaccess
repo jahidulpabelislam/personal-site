@@ -4,7 +4,7 @@ DirectoryIndex index.php index.html
 Options -Indexes
 IndexIgnore *
 
-# Custom error messages
+# Custom error pages
 # Custom error message for a unauthorized page
 ErrorDocument 401 /error/401/
 # Custom error message for a forbidden page
@@ -14,17 +14,7 @@ ErrorDocument 404 /error/404/
 # Custom error message for a internal server issue
 ErrorDocument 500 /error/500/
 
-# Stop users from viewing this folder/files
-<Files /error/>
-    order allow,deny
-    deny from all
-</Files>
-
-<Files /logs/>
-    order allow,deny
-    deny from all
-</Files>
-
+# Stop users from viewing these folders/files
 <Files /node_modules/>
     order allow,deny
     deny from all
@@ -40,7 +30,6 @@ ErrorDocument 500 /error/500/
     deny from all
 </Files>
 
-# Stop users from viewing this file
 <Files .htaccess>
     order allow,deny
     deny from all
