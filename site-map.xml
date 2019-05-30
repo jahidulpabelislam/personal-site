@@ -109,7 +109,7 @@
         <!--The last modification date of page-->
         <lastmod>2019-04-23</lastmod>
         <!--How often the page is changed-->
-        <changefreq>montly</changefreq>
+        <changefreq>monthly</changefreq>
         <!--How important the page is to the site-->
         <priority>0.7</priority>
     </url>
