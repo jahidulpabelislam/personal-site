@@ -69,12 +69,7 @@ $pageRenderer = PageRenderer::get();
                 </div>
 
                 <div class="footer__legal">
-                    <?php
-                    $origTimezone = date_default_timezone_get();
-                    date_default_timezone_set("Europe/London");
-                    ?>
                     <p>&copy; Jahidul Pabel Islam <?php echo $site->getYearStarted() . " - " . date("Y"); ?></p>
-                    <?php date_default_timezone_set($origTimezone); ?>
                 </div>
             </div>
         </footer>

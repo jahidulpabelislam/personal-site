@@ -275,8 +275,13 @@ class Site implements SiteConstants {
 
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
+            $origTimezone = date_default_timezone_get();
+            date_default_timezone_set("Europe/London");
+
             $dateStarted = self::JPI_START_DATE;
             $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+
+            date_default_timezone_set($origTimezone);
 
             $this->dateStarted = $dateStartedDateObj;
         }
