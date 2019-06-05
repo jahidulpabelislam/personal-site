@@ -304,6 +304,32 @@ class Site implements SiteConstants {
 
         return $url;
     }
+
+    public function getTimeDifference($fromDate, $toDate, string $format): string {
+        $origTimezone = date_default_timezone_get();
+        date_default_timezone_set("Europe/London");
+
+        if (is_string($fromDate)) {
+            $fromDate = DateTime::createFromFormat("d/m/Y", $fromDate);
+        }
+
+        if (!$toDate) {
+            $toDate = new DateTime();
+        }
+
+        if (!is_a($fromDate, "DateTime") && !is_a($toDate, "DateTime")) {
+            return "";
+        }
+
+        // Work out the time difference from both dates
+        $diff = $fromDate->diff($toDate, true);
+
+        // Get the value of the difference formatted
+        $timeDiff = $diff->format($format);
+        date_default_timezone_set($origTimezone);
+
+        return $timeDiff;
+    }
 }
 
 Site::get();

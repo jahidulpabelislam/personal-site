@@ -33,25 +33,15 @@ $pageRenderer->renderHeader();
                             <p>My name is Jahidul Pabel Islam.</p>
 
                             <?php
-                            $origTimezone = date_default_timezone_get();
-                            date_default_timezone_set("Europe/London");
-
-                            // Generate DateTime from my date of birth
                             $dob = "22/02/1996";
-                            $dobDate = DateTime::createFromFormat("d/m/Y", $dob);
 
-                            // Today's DateTime
-                            $today = new DateTime();
+                            // Work out my age by the time difference from DOB to today
+                            $age = $site->getTimeDifference($dob, null, "%y");
 
-                            // Work out the time difference from both dates
-                            $diff = $today->diff($dobDate, true);
-
-                            // Get the number of years different
-                            $yearsDiff = $diff->format("%y");
                             date_default_timezone_set($origTimezone);
                             ?>
 
-                            <p>I'm <?php echo $yearsDiff; ?> years old.</p>
+                            <p>I'm <?php echo $age; ?> years old.</p>
                             <p>A Full Stack Web and Software Developer.</p>
                         </div>
                     </div>

@@ -20,18 +20,10 @@ $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
 
-$origTimezone = date_default_timezone_get();
-date_default_timezone_set("Europe/London");
-
-// Work out the time difference from both dates
-$today = new DateTime();
-$dateStartedDate = $site->getDateStarted();
-$diff = $today->diff($dateStartedDate, true);
-
-// Get the number of years different
-$yearsSinceStarted = $diff->format("%y");
-date_default_timezone_set($origTimezone);
+// Work out the time since I started to today
+$yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y");
 ?>
+
                 <section>
                     <div class="article home__hello-wrapper">
                         <div class="container">
