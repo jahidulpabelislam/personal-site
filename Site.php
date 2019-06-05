@@ -276,7 +276,7 @@ class Site implements SiteConstants {
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
             $origTimezone = date_default_timezone_get();
-            date_default_timezone_set("Europe/London");
+            date_default_timezone_set(self::DATE_TIMEZONE);
 
             $dateStarted = self::JPI_START_DATE;
             $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
@@ -312,7 +312,7 @@ class Site implements SiteConstants {
 
     public function getTimeDifference($fromDate, $toDate, string $format): string {
         $origTimezone = date_default_timezone_get();
-        date_default_timezone_set("Europe/London");
+        date_default_timezone_set(self::DATE_TIMEZONE);
 
         if (is_string($fromDate)) {
             $fromDate = DateTime::createFromFormat("d/m/Y", $fromDate);
