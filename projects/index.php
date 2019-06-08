@@ -140,10 +140,12 @@ $pageRenderer->renderHeader();
                                 <?php echo date("Y"); ?>
                             </time>
                         </div>
+
                         <div class="project__skills"></div>
-                        <div class="project__description"></div>
                         <div class="project__links"></div>
-                        <div id="detailed-project__slide-show" class="slide-show">
+                        <div class="project__description"></div>
+
+                        <div id="detailed-project__slide-show" class="project__slide-show slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
@@ -160,15 +162,17 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-project-template">
                     <article id="project--{{id}}" class="project">
+
                         <div class="project__header">
                             <h4 class="article__header project__title">{{name}}</h4>
                             <time class="project__date">{{date}}</time>
                         </div>
+
                         <div class="project__skills"></div>
+
                         <div class="project__description">{{short_description}}</div>
-                        <div class="project__links"></div>
-                        <button type="button" class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}" data-project-id="{{id}}">Read More</button>
-                        <div id="slide-show--{{id}}" class="slide-show">
+
+                        <div id="slide-show--{{id}}" class="project__slide-show slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
@@ -179,6 +183,13 @@ $pageRenderer->renderHeader();
                                 </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
+                        </div>
+
+                        <div class="project__footer">
+                            <div class="project__links"></div>
+                            <button type="button" class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}" data-project-id="{{id}}">
+                                Read More
+                            </button>
                         </div>
                     </article>
                 </script>
