@@ -137,7 +137,7 @@ $pageRenderer->renderHeader();
                 <div class="modal detailed-project">
                     <div class="modal__content">
                         <div class="project__header">
-                            <h4 class="project__title"></h4>
+                            <h4 class="article__header project__title"></h4>
                             <time class="project__date">
                                 <?php echo date("Y"); ?>
                             </time>
