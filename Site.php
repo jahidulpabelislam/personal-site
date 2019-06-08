@@ -327,7 +327,7 @@ class Site implements SiteConstants {
         }
 
         // Work out the time difference from both dates
-        $diff = $fromDate->diff($toDate, true);
+        $diff = $fromDate->diff($toDate);
 
         // Get the value of the difference formatted
         $timeDiff = $diff->format($format);
