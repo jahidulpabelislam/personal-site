@@ -38,7 +38,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         getTemplateRegex: function(regex) {
             if (!global.templateRegexes[regex]) {
-                global.templateRegexes[regex] = new RegExp("{{" + regex + "}}", "g");
+                global.templateRegexes[regex] = new RegExp("\{{2} {0,1}" + regex + " {0,1}\\}{2}", "g");
             }
 
             return global.templateRegexes[regex];
