@@ -2355,180 +2355,204 @@ label {
   color: #54c6e2; }
 
 .skill--light-blue:hover {
-  background-color: #53d1ec;
   border-color: #53d1ec;
-  color: white; }
+  background-color: #53d1ec;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(84, 198, 226, 0.4); }
 
 .skill--light-blue.searched,
 .skill--light-blue:not(.js-searchable-skill):hover {
   border-color: #52c2dd;
   background-color: #52c2dd;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--dark-blue {
   border-color: #0375b4;
   color: #0375b4; }
 
 .skill--dark-blue:hover {
-  background-color: #0382c3;
   border-color: #0382c3;
-  color: white; }
+  background-color: #0382c3;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(3, 117, 180, 0.4); }
 
 .skill--dark-blue.searched,
 .skill--dark-blue:not(.js-searchable-skill):hover {
   border-color: #0360a0;
   background-color: #0360a0;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--purple {
   border-color: #82379d;
   color: #82379d; }
 
 .skill--purple:hover {
-  background-color: #9339af;
   border-color: #9339af;
-  color: white; }
+  background-color: #9339af;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(130, 55, 157, 0.4); }
 
 .skill--purple.searched,
 .skill--purple:not(.js-searchable-skill):hover {
   border-color: #6c3687;
   background-color: #6c3687;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--pink {
   border-color: #f47ab3;
   color: #f47ab3; }
 
 .skill--pink:hover {
-  background-color: #ff82bf;
   border-color: #ff82bf;
-  color: white; }
+  background-color: #ff82bf;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(244, 122, 179, 0.4); }
 
 .skill--pink.searched,
 .skill--pink:not(.js-searchable-skill):hover {
   border-color: #ff739b;
   background-color: #ff739b;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--red {
   border-color: #f12525;
   color: #f12525; }
 
 .skill--red:hover {
-  background-color: #ff2525;
   border-color: #ff2525;
-  color: white; }
+  background-color: #ff2525;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(241, 37, 37, 0.4); }
 
 .skill--red.searched,
 .skill--red:not(.js-searchable-skill):hover {
   border-color: #e62525;
   background-color: #e62525;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--orange {
   border-color: #f69e00;
   color: #f69e00; }
 
 .skill--orange:hover {
-  background-color: #fba300;
   border-color: #fba300;
-  color: white; }
+  background-color: #fba300;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(246, 158, 0, 0.4); }
 
 .skill--orange.searched,
 .skill--orange:not(.js-searchable-skill):hover {
   border-color: #f77f00;
   background-color: #f77f00;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--yellow {
   border-color: #ffef38;
   color: #ffef38; }
 
 .skill--yellow:hover {
-  background-color: #fffd3c;
   border-color: #fffd3c;
-  color: #333333; }
+  background-color: #fffd3c;
+  color: #333333;
+  box-shadow: 0 0 10px 0 rgba(255, 239, 56, 0.4); }
 
 .skill--yellow.searched,
 .skill--yellow:not(.js-searchable-skill):hover {
   border-color: #f8e43b;
   background-color: #f8e43b;
-  color: #333333; }
+  color: #333333;
+  box-shadow: none; }
 
 .skill--light-green {
   border-color: #3dc714;
   color: #3dc714; }
 
 .skill--light-green:hover {
-  background-color: #3bcf14;
   border-color: #3bcf14;
-  color: white; }
+  background-color: #3bcf14;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(61, 199, 20, 0.4); }
 
 .skill--light-green.searched,
 .skill--light-green:not(.js-searchable-skill):hover {
   border-color: #33bb12;
   background-color: #33bb12;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--lime-green {
   border-color: #b5cf16;
   color: #b5cf16; }
 
 .skill--lime-green:hover {
-  background-color: #bdd716;
   border-color: #bdd716;
-  color: white; }
+  background-color: #bdd716;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(181, 207, 22, 0.4); }
 
 .skill--lime-green.searched,
 .skill--lime-green:not(.js-searchable-skill):hover {
   border-color: #b4c72f;
   background-color: #b4c72f;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--dark-green {
   border-color: #1aad5b;
   color: #1aad5b; }
 
 .skill--dark-green:hover {
-  background-color: #1bbe69;
   border-color: #1bbe69;
-  color: white; }
+  background-color: #1bbe69;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(26, 173, 91, 0.4); }
 
 .skill--dark-green.searched,
 .skill--dark-green:not(.js-searchable-skill):hover {
   border-color: #1ba553;
   background-color: #1ba553;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--grey {
   border-color: #7b8676;
   color: #7b8676; }
 
 .skill--grey:hover {
-  background-color: #889283;
   border-color: #889283;
-  color: white; }
+  background-color: #889283;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(123, 134, 118, 0.4); }
 
 .skill--grey.searched,
 .skill--grey:not(.js-searchable-skill):hover {
   border-color: #626b5e;
   background-color: #626b5e;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .skill--black {
   border-color: #333333;
   color: #333333; }
 
 .skill--black:hover {
-  background-color: #262626;
   border-color: #262626;
-  color: white; }
+  background-color: #262626;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .skill--black.searched,
 .skill--black:not(.js-searchable-skill):hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
-  color: white; }
+  color: white;
+  box-shadow: none; }
 
 .project__links {
   margin: 10px 0; }

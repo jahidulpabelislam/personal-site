@@ -56,7 +56,7 @@
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
+    box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
 .skill.searched,
@@ -78,9 +78,10 @@
     }
 
     .skill--#{$colour}:hover {
-        background-color: map-get($colours, hover);
         border-color: map-get($colours, hover);
+        background-color: map-get($colours, hover);
         color: get-colour-variant($colours, text, white);
+        box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
     .skill--#{$colour}.searched,
@@ -88,6 +89,7 @@
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);
+        box-shadow: none;
     }
 }
 
