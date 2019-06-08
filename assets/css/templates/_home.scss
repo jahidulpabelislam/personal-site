@@ -101,10 +101,14 @@
     transform: none;
 }
 
-#slide-show--home .project__date,
-#slide-show--home .project__title {
+#slide-show--home .project__title,
+#slide-show--home .project__date {
     width: 100%;
     white-space: nowrap;
+}
+
+#slide-show--home .project__date {
+    margin-left: 36px;
 }
 
 .counter {

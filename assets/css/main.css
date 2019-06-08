@@ -1574,18 +1574,12 @@ label {
   line-height: 24px;
   font-weight: 700; }
 
-.project__title.project__title {
-  margin-top: 20px; }
-
-.project__date {
-  margin-bottom: 10px; }
-
-.project__title.project__title--inline {
+.project__title {
   margin: 0;
   text-align: left; }
 
-.project__date--inline {
-  margin: 0 0 0 24px;
+.project__date {
+  margin: 0 0 0 auto;
   text-align: right; }
 
 .cookie-banner {
@@ -2125,10 +2119,13 @@ label {
 #slide-show--home .slide-show__img:hover {
   transform: none; }
 
-#slide-show--home .project__date,
-#slide-show--home .project__title {
+#slide-show--home .project__title,
+#slide-show--home .project__date {
   width: 100%;
   white-space: nowrap; }
+
+#slide-show--home .project__date {
+  margin-left: 36px; }
 
 .counter {
   font-weight: 700; }
@@ -2316,9 +2313,6 @@ label {
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2); }
-
-.project__date--modal {
-  margin-left: auto; }
 
 .detailed-project .project__description {
   text-align: left; }

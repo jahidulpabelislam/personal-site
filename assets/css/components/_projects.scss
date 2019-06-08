@@ -11,20 +11,12 @@
     font-weight: 700;
 }
 
-.project__title.project__title {
-    margin-top: 20px;
-}
-
-.project__date {
-    margin-bottom: 10px;
-}
-
-.project__title.project__title--inline {
+.project__title {
     margin: 0;
     text-align: left;
 }
 
-.project__date--inline {
-    margin: 0 0 0 24px;
+.project__date {
+    margin: 0 0 0 auto;
     text-align: right;
 }
