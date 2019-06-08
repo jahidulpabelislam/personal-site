@@ -37,8 +37,6 @@ $pageRenderer->renderHeader();
 
                             // Work out my age by the time difference from DOB to today
                             $age = $site->getTimeDifference($dob, null, "%y");
-
-                            date_default_timezone_set($origTimezone);
                             ?>
 
                             <p>I'm <?php echo $age; ?> years old.</p>
