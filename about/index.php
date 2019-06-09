@@ -53,12 +53,29 @@ $pageRenderer->renderHeader();
                             </a>
                         </div>
                         <div class="article__half">
+                            <?php
+                            $workStartDate = "28/06/2017";
+                            $workDurationString = "";
+                            $yearsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%y");
+                            if ($yearsSinceStarted) {
+                                $workDurationString .= "{$yearsSinceStarted} ";
+                                $workDurationString .= $yearsSinceStarted === 1 ? "year" : "years";
+                            }
+                            $monthsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%m");
+                            if ($monthsSinceStarted) {
+                                if ($yearsSinceStarted) {
+                                    $workDurationString .= " and";
+                                }
+                                $workDurationString .= " $monthsSinceStarted ";
+                                $workDurationString .= $monthsSinceStarted === 1 ? "month" : "months";
+                            }
+                            ?>
                             <p>
-                                Joined
+                                Been working as a Software Developer at
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
                                     BrightMinded
                                 </a>
-                                 as a Software Developer in June 2017.
+                                 for the past <?php echo trim($workDurationString); ?>.
                             </p>
                         </div>
                     </div>
