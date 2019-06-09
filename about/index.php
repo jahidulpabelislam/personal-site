@@ -90,11 +90,11 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <p>
-                                Graduated from
+                                Graduated in July 2017 from
                                 <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">
                                     University of Portsmouth
                                 </a>
-                                 with First Class Honours in BSc (Hons) Web Technologies in July 2017.
+                                 with a 1st Class Honours degree in BSc Web Technologies.
                             </p>
                         </div>
                     </div>
