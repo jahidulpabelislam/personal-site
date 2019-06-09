@@ -45,7 +45,7 @@ window.jpi.home = (function(jQuery, jpi) {
             var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
             for (var field in project) {
-                if (project.hasOwnProperty(field) && typeof field === "string") {
+                if (typeof field === "string" && project.hasOwnProperty(field)) {
                     var regex = fn.getTemplateRegex(field);
 
                     var data = project[field];

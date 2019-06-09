@@ -54,26 +54,28 @@ window.jpi.projects = (function(jQuery, jpi) {
             for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i].trim();
 
-                if (skill !== "") {
-                    var lowerCasedSkill = skill.toLowerCase();
-
-                    var isInSearch = false;
-                    for (var j = 0; j < searches.length; j++) {
-                        if (searches[j].trim() !== "" && lowerCasedSkill.includes(searches[j])) {
-                            isInSearch = true;
-                            break;
-                        }
-                    }
-
-                    var classes = "skill skill--" + project.colour;
-                    classes += isInSearch ? " searched" : " js-searchable-skill";
-
-                    jpi.helpers.createElement(skillsContainer, "a", {
-                        innerHTML: skill,
-                        class: classes,
-                        href: "/projects/" + skill + "/",
-                    });
+                if (skill === "") {
+                    continue;
                 }
+
+                var lowerCasedSkill = skill.toLowerCase();
+
+                var isInSearch = false;
+                for (var j = 0; j < searches.length; j++) {
+                    if (searches[j].trim() !== "" && lowerCasedSkill.includes(searches[j])) {
+                        isInSearch = true;
+                        break;
+                    }
+                }
+
+                var classes = "skill skill--" + project.colour;
+                classes += isInSearch ? " searched" : " js-searchable-skill";
+
+                jpi.helpers.createElement(skillsContainer, "a", {
+                    innerHTML: skill,
+                    class: classes,
+                    href: "/projects/" + skill + "/",
+                });
             }
         },
 
@@ -136,29 +138,31 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             // Loop through each row of data in rows
             for (var i = 0; i < project.images.length; i++) {
-                if (project.images.hasOwnProperty(i)) {
-                    var slideTemplate = jQuery("#tmpl-slide-template").text();
-                    var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
-
-                    for (var field in project.images[i]) {
-                        if (project.images[i].hasOwnProperty(field) && typeof field === "string") {
-                            var regex = fn.getTemplateRegex(field);
-                            var data = project.images[i][field];
-                            slideTemplate = slideTemplate.replace(regex, data);
-                            bulletTemplate = bulletTemplate.replace(regex, data);
-                        }
-                    }
-
-                    var colourRegex = fn.getTemplateRegex("colour");
-                    slideTemplate = slideTemplate.replace(colourRegex, project.colour);
-                    bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
-
-                    var idRegex = fn.getTemplateRegex("slide-show-id");
-                    bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
-
-                    slidesContainer.append(slideTemplate);
-                    slideShowBullets.append(bulletTemplate);
+                if (!project.images.hasOwnProperty(i)) {
+                    continue;
                 }
+
+                var slideTemplate = jQuery("#tmpl-slide-template").text();
+                var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+
+                for (var field in project.images[i]) {
+                    if (typeof field === "string" && project.images[i].hasOwnProperty(field)) {
+                        var regex = fn.getTemplateRegex(field);
+                        var data = project.images[i][field];
+                        slideTemplate = slideTemplate.replace(regex, data);
+                        bulletTemplate = bulletTemplate.replace(regex, data);
+                    }
+                }
+
+                var colourRegex = fn.getTemplateRegex("colour");
+                slideTemplate = slideTemplate.replace(colourRegex, project.colour);
+                bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
+
+                var idRegex = fn.getTemplateRegex("slide-show-id");
+                bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
+
+                slidesContainer.append(slideTemplate);
+                slideShowBullets.append(bulletTemplate);
             }
 
             jpi.slideShow.setUp(slideShowId);
@@ -167,29 +171,32 @@ window.jpi.projects = (function(jQuery, jpi) {
         // Renders a single project
         renderProject: function(project) {
             var projectSelector = "#project--" + project.id;
-            if (!jQuery(projectSelector).length) {
-                var template = jQuery("#tmpl-project-template").text();
 
-                for (var field in project) {
-                    if (project.hasOwnProperty(field) && typeof field === "string") {
-                        var regex = fn.getTemplateRegex(field);
-
-                        var data = project[field];
-                        if (field === "date") {
-                            data = new Date(data).toLocaleDateString();
-                        }
-
-                        template = template.replace(regex, data);
-                    }
-                }
-                jQuery(".projects").append(template);
-
-                fn.addSkills(project, projectSelector);
-                fn.addLinks(project, projectSelector);
-                fn.addProjectImages(project, projectSelector);
-
-                global.projects[project.id] = project;
+            if (jQuery(projectSelector).length) {
+                return;
             }
+
+            var template = jQuery("#tmpl-project-template").text();
+
+            for (var field in project) {
+                if (project.hasOwnProperty(field) && typeof field === "string") {
+                    var regex = fn.getTemplateRegex(field);
+
+                    var data = project[field];
+                    if (field === "date") {
+                        data = new Date(data).toLocaleDateString();
+                    }
+
+                    template = template.replace(regex, data);
+                }
+            }
+            jQuery(".projects").append(template);
+
+            fn.addSkills(project, projectSelector);
+            fn.addLinks(project, projectSelector);
+            fn.addProjectImages(project, projectSelector);
+
+            global.projects[project.id] = project;
 
             jpi.main.resetFooter();
         },
