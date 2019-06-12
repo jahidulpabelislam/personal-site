@@ -8,11 +8,11 @@
  *
  * PHP version 7
  *
- * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
- * @version 1.0.0
- * @link https://github.com/jahidulpabelislam/portfolio/
+ * @version 1.1.1
  * @since Class available since Release: v4.2.0
+ * @link https://github.com/jahidulpabelislam/portfolio/
  * @copyright 2010-2019 JPI
+ * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
 */
 
 class PageRenderer {
