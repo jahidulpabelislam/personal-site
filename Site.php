@@ -30,6 +30,8 @@ class Site implements SiteConstants {
     private $dateStarted;
     private $yearStarted;
 
+    private $nowDateTime;
+
     private static $instance;
 
     public function __construct() {
@@ -310,6 +312,19 @@ class Site implements SiteConstants {
         return $url;
     }
 
+    public function getNowDateTime() {
+        if (!$this->nowDateTime) {
+            $origTimezone = date_default_timezone_get();
+            date_default_timezone_set(self::DATE_TIMEZONE);
+
+            $this->nowDateTime = new DateTime();
+
+            date_default_timezone_set($origTimezone);
+        }
+
+        return $this->nowDateTime;
+    }
+
     public function getTimeDifference($fromDate, $toDate, string $format): string {
         $origTimezone = date_default_timezone_get();
         date_default_timezone_set(self::DATE_TIMEZONE);
@@ -319,7 +334,7 @@ class Site implements SiteConstants {
         }
 
         if (!$toDate) {
-            $toDate = new DateTime();
+            $toDate = $this->getNowDateTime();
         }
 
         if (!is_a($fromDate, "DateTime") && !is_a($toDate, "DateTime")) {
