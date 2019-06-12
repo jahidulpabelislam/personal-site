@@ -157,7 +157,7 @@ class Site implements SiteConstants {
      */
     public function getRequestedLocalURL(): string {
         if (!$this->localURL) {
-            $this->localURL = $this->getRequestedURL(true, false);
+            $this->localURL = $this->getRequestedURL(true);
         }
 
         return $this->localURL;
