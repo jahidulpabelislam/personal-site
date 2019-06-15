@@ -54,20 +54,24 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <?php
+                            $durationAtWorkStr = "";
+
                             $workStartDate = "28/06/2017";
-                            $workDurationString = "";
+
                             $yearsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%y");
                             if ($yearsSinceStarted) {
-                                $workDurationString .= "{$yearsSinceStarted} ";
-                                $workDurationString .= $yearsSinceStarted === 1 ? "year" : "years";
+                                $durationAtWorkStr .= "{$yearsSinceStarted} ";
+                                $durationAtWorkStr .= $yearsSinceStarted === 1 ? "year" : "years";
                             }
+
                             $monthsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%m");
                             if ($monthsSinceStarted) {
                                 if ($yearsSinceStarted) {
-                                    $workDurationString .= " and";
+                                    $durationAtWorkStr .= " and";
                                 }
-                                $workDurationString .= " $monthsSinceStarted ";
-                                $workDurationString .= $monthsSinceStarted === 1 ? "month" : "months";
+
+                                $durationAtWorkStr .= " {$monthsSinceStarted} ";
+                                $durationAtWorkStr .= $monthsSinceStarted === 1 ? "month" : "months";
                             }
                             ?>
                             <p>
@@ -75,7 +79,7 @@ $pageRenderer->renderHeader();
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
                                     BrightMinded
                                 </a>
-                                 for the past <?php echo trim($workDurationString); ?>.
+                                for the past <?php echo trim($durationAtWorkStr); ?>.
                             </p>
                         </div>
                     </div>
