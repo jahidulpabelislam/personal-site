@@ -9,9 +9,8 @@
  *
  * @version 1.2.1
  * @since Class available since Release: v4.1.0
- * @link https://github.com/jahidulpabelislam/portfolio/
- * @copyright 2010-2019 JPI
  * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
+ * @copyright 2010-2019 JPI
  */
 
 include_once("SiteConstants.php");
