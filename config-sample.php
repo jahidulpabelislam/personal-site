@@ -1,8 +1,8 @@
 <?php
-/*
+/**
  * Sets Constants for Connection to the Database
  * @author Jahidul Pabel Islam
-*/
+ */
 
 // The API endpoint for my portfolio
 if (!defined("JPI_API_ENDPOINT")) {

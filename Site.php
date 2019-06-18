@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.
  *
@@ -12,7 +12,7 @@
  * @link https://github.com/jahidulpabelislam/portfolio/
  * @copyright 2010-2019 JPI
  * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
-*/
+ */
 
 include_once("SiteConstants.php");
 
