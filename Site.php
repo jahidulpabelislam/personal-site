@@ -5,7 +5,7 @@
  *
  * Developed so it can be used in multiple sites.
  *
- * PHP version 7
+ * PHP version 7.1+
  *
  * @version 1.3.0
  * @since Class available since Release: v4.1.0
