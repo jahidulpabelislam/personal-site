@@ -53,3 +53,8 @@ What started off [version 4](https://github.com/jahidulpabelislam/portfolio/tree
 At the end of 2018 I wanted to separate the API & CMS away from the main Portfolio project and create projects for these 2 instead. This was done to separate the 3 as these have 3 different logic and usage, as well as enabling more maintainability for the future.
 
 There was also a sub-aim which was to refactor the new version with more consistent standards throughout (for HTML, JS & CSS/SCSS) so better overall code.
+
+## Related Projects
+
+-   [Projects API](https://github.com/jahidulpabelislam/portfolio-api/)
+-   [Projects CMS](https://github.com/jahidulpabelislam/portfolio-cms/)
