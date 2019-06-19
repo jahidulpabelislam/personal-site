@@ -33,25 +33,13 @@ $pageRenderer->renderHeader();
                             <p>My name is Jahidul Pabel Islam.</p>
 
                             <?php
-                            $origTimezone = date_default_timezone_get();
-                            date_default_timezone_set("Europe/London");
-
-                            // Generate DateTime from my date of birth
                             $dob = "22/02/1996";
-                            $dobDate = DateTime::createFromFormat("d/m/Y", $dob);
 
-                            // Today's DateTime
-                            $today = new DateTime();
-
-                            // Work out the time difference from both dates
-                            $diff = $today->diff($dobDate, true);
-
-                            // Get the number of years different
-                            $yearsDiff = $diff->format("%y");
-                            date_default_timezone_set($origTimezone);
+                            // Work out my age by the time difference from DOB to today
+                            $age = $site->getTimeDifference($dob, null, "%y");
                             ?>
 
-                            <p>I'm <?php echo $yearsDiff; ?> years old.</p>
+                            <p>I'm <?php echo $age; ?> years old.</p>
                             <p>A Full Stack Web and Software Developer.</p>
                         </div>
                     </div>
@@ -65,12 +53,33 @@ $pageRenderer->renderHeader();
                             </a>
                         </div>
                         <div class="article__half">
+                            <?php
+                            $durationAtWorkStr = "";
+
+                            $workStartDate = "28/06/2017";
+
+                            $yearsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%y");
+                            if ($yearsSinceStarted) {
+                                $durationAtWorkStr .= "{$yearsSinceStarted} ";
+                                $durationAtWorkStr .= $yearsSinceStarted === 1 ? "year" : "years";
+                            }
+
+                            $monthsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%m");
+                            if ($monthsSinceStarted) {
+                                if ($yearsSinceStarted) {
+                                    $durationAtWorkStr .= " and";
+                                }
+
+                                $durationAtWorkStr .= " {$monthsSinceStarted} ";
+                                $durationAtWorkStr .= $monthsSinceStarted === 1 ? "month" : "months";
+                            }
+                            ?>
                             <p>
-                                Joined
+                                Been working as a Software Developer at
                                 <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
                                     BrightMinded
                                 </a>
-                                 as a Software Developer in June 2017.
+                                for the past <?php echo trim($durationAtWorkStr); ?>.
                             </p>
                         </div>
                     </div>
@@ -85,11 +94,11 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <p>
-                                Graduated from
+                                Graduated in July 2017 from
                                 <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">
                                     University of Portsmouth
                                 </a>
-                                 with First Class Honours in BSc (Hons) Web Technologies in July 2017.
+                                 with a 1st Class Honours degree in BSc Web Technologies.
                             </p>
                         </div>
                     </div>

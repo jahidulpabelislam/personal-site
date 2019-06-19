@@ -69,12 +69,7 @@ $pageRenderer = PageRenderer::get();
                 </div>
 
                 <div class="footer__legal">
-                    <?php
-                    $origTimezone = date_default_timezone_get();
-                    date_default_timezone_set("Europe/London");
-                    ?>
                     <p>&copy; Jahidul Pabel Islam <?php echo $site->getYearStarted() . " - " . date("Y"); ?></p>
-                    <?php date_default_timezone_set($origTimezone); ?>
                 </div>
             </div>
         </footer>
@@ -84,7 +79,7 @@ $pageRenderer = PageRenderer::get();
         ?>
 
         <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.0.0/src/sticky-footer.min.js" type="application/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.1.2/src/sticky-footer.min.js" type="application/javascript"></script>
 
         <?php
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified

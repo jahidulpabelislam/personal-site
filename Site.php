@@ -1,18 +1,17 @@
 <?php
-/*
+/**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.
  *
  * Developed so it can be used in multiple sites.
  *
- * PHP version 7
+ * PHP version 7.1+
  *
- * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
- * @version 1.1.0
- * @link https://github.com/jahidulpabelislam/portfolio/
+ * @version 1.3.0
  * @since Class available since Release: v4.1.0
+ * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
  * @copyright 2010-2019 JPI
-*/
+ */
 
 include_once("SiteConstants.php");
 
@@ -29,6 +28,8 @@ class Site implements SiteConstants {
 
     private $dateStarted;
     private $yearStarted;
+
+    private $nowDateTime;
 
     private static $instance;
 
@@ -157,7 +158,7 @@ class Site implements SiteConstants {
      */
     public function getRequestedLocalURL(): string {
         if (!$this->localURL) {
-            $this->localURL = $this->getRequestedURL(true, false);
+            $this->localURL = $this->getRequestedURL(true);
         }
 
         return $this->localURL;
@@ -275,8 +276,13 @@ class Site implements SiteConstants {
 
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
+            $origTimezone = date_default_timezone_get();
+            date_default_timezone_set(self::DATE_TIMEZONE);
+
             $dateStarted = self::JPI_START_DATE;
             $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+
+            date_default_timezone_set($origTimezone);
 
             $this->dateStarted = $dateStartedDateObj;
         }
@@ -303,6 +309,45 @@ class Site implements SiteConstants {
         $url = str_replace("\\", "/", $path);
 
         return $url;
+    }
+
+    public function getNowDateTime() {
+        if (!$this->nowDateTime) {
+            $origTimezone = date_default_timezone_get();
+            date_default_timezone_set(self::DATE_TIMEZONE);
+
+            $this->nowDateTime = new DateTime();
+
+            date_default_timezone_set($origTimezone);
+        }
+
+        return $this->nowDateTime;
+    }
+
+    public function getTimeDifference($fromDate, $toDate, string $format): string {
+        $origTimezone = date_default_timezone_get();
+        date_default_timezone_set(self::DATE_TIMEZONE);
+
+        if (is_string($fromDate)) {
+            $fromDate = DateTime::createFromFormat("d/m/Y", $fromDate);
+        }
+
+        if (!$toDate) {
+            $toDate = $this->getNowDateTime();
+        }
+
+        if (!is_a($fromDate, "DateTime") && !is_a($toDate, "DateTime")) {
+            return "";
+        }
+
+        // Work out the time difference from both dates
+        $diff = $fromDate->diff($toDate);
+
+        // Get the value of the difference formatted
+        $timeDiff = $diff->format($format);
+        date_default_timezone_set($origTimezone);
+
+        return $timeDiff;
     }
 }
 

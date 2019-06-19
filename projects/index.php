@@ -51,7 +51,8 @@ curl_close($ch);
 
 $apiMeta = $apiRes["meta"] ?? [];
 
-if (!isset($apiMeta["count"]) || $apiMeta["count"] === 0) {
+$projectsCount = $apiMeta["count"] ?? count($apiRes["rows"] ?? []);
+if ($projectsCount === 0) {
     http_response_code(404);
     include(ROOT . "/error/404/index.php");
     exit;
@@ -135,15 +136,17 @@ $pageRenderer->renderHeader();
                 <div class="modal detailed-project">
                     <div class="modal__content">
                         <div class="project__header">
-                            <h4 class="project__title project__title--inline"></h4>
-                            <time class="project__date project__date--inline project__date--modal">
+                            <h4 class="article__header project__title"></h4>
+                            <time class="project__date">
                                 <?php echo date("Y"); ?>
                             </time>
                         </div>
+
                         <div class="project__skills"></div>
-                        <div class="project__description"></div>
                         <div class="project__links"></div>
-                        <div id="detailed-project__slide-show" class="slide-show">
+                        <div class="project__description"></div>
+
+                        <div id="detailed-project__slide-show" class="project__slide-show slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
@@ -159,36 +162,47 @@ $pageRenderer->renderHeader();
                 </div>
 
                 <script type="text/template" id="tmpl-project-template">
-                    <article id="project--{{id}}" class="project">
-                        <h4 class="article__header project__title">{{name}}</h4>
-                        <time class="project__date">{{date}}</time>
+                    <article id="project--{{ id }}" class="project">
+
+                        <div class="project__header">
+                            <h4 class="article__header project__title">{{ name }}</h4>
+                            <time class="project__date">{{ date }}</time>
+                        </div>
+
                         <div class="project__skills"></div>
-                        <div class="project__description">{{short_description}}</div>
-                        <div class="project__links"></div>
-                        <button type="button" class="btn btn--{{colour}} js-open-modal project__read-more project__read-more--{{colour}}" data-project-id="{{id}}">Read More</button>
-                        <div id="slide-show--{{id}}" class="slide-show">
-                            <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{id}}">
+
+                        <div class="project__description">{{ short_description }}</div>
+
+                        <div id="slide-show--{{ id }}" class="project__slide-show slide-show">
+                            <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ id }}">
                                 <div class="slide-show__slides-container"></div>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-previous" src="<?php $site::echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{ id }}" data-nav-direction="previous">
+                                    <img class="slide-show__nav slide-show__nav--{{ colour }} slide-show__nav-previous" src="<?php $site::echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
                                 </button>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{id}}" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--{{colour}} slide-show__nav-next" src="<?php $site::echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{ id }}" data-nav-direction="next">
+                                    <img class="slide-show__nav slide-show__nav--{{ colour }} slide-show__nav-next" src="<?php $site::echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                                 </button>
                             </div>
                             <div class="js-slide-show-bullets"></div>
+                        </div>
+
+                        <div class="project__footer">
+                            <div class="project__links"></div>
+                            <button type="button" class="btn btn--{{ colour }} js-open-modal project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
+                                Read More
+                            </button>
                         </div>
                     </article>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide" id="slide-{{id}}">
-                        <img src="<?php $site::echoProjectImageURL("{{file}}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
+                    <div class="slide-show__slide" id="slide-{{ id }}">
+                        <img src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
                     </div>
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <button type="button" class="slide-show__bullet slide-show__bullet--{{colour}} js-slide-show-bullet" data-slide-show-id="{{slide-show-id}}" data-slide-id="slide-{{id}}">
+                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }} js-slide-show-bullet" data-slide-show-id="{{ slide-show-id }}" data-slide-id="slide-{{ id }}">
                     </button>
                 </script>
 

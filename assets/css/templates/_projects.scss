@@ -25,19 +25,15 @@
 
 .project {
     margin-top: 10px;
-    padding: 0 15px;
+    padding: 15px;
     border: 1px solid $light-grey;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
-.project__date--modal {
-    margin-left: auto;
-}
-
-.detailed-project .project__description {
-    text-align: left;
+.project__skills {
+    margin: 15px 0;
 }
 
 .skill {
@@ -56,7 +52,7 @@
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
+    box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
 .skill.searched,
@@ -78,9 +74,10 @@
     }
 
     .skill--#{$colour}:hover {
-        background-color: map-get($colours, hover);
         border-color: map-get($colours, hover);
+        background-color: map-get($colours, hover);
         color: get-colour-variant($colours, text, white);
+        box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
     .skill--#{$colour}.searched,
@@ -88,11 +85,22 @@
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);
+        box-shadow: none;
     }
 }
 
-.project__links {
-    margin: 10px 0;
+.project__description {
+    margin: 15px 0;
+}
+
+.project__slide-show {
+    margin: 15px -15px;
+}
+
+.project__footer {
+    display: flex;
+    margin: 15px 0 0;
+    justify-content: space-between;
 }
 
 .project__link {
@@ -100,6 +108,16 @@
     position: relative;
     margin: 0 7px;
     color: get-colour(black, main);
+}
+.project__link:first-child {
+     margin-left: 0;
+}
+.project__link:last-child {
+    margin-right: 0;
+}
+
+.project__link:hover {
+    color: get-colour(black, hover);
 }
 
 .project__link:after {
@@ -111,17 +129,8 @@
     margin: 0 7px;
     background: transparentize($grey, 0.8);
 }
-
-.project__link:last-child {
-    margin-right: 0;
-}
-
 .project__link:last-child:after {
     content: none;
-}
-
-.project__link:hover {
-    color: get-colour(black, hover);
 }
 
 @each $colour, $colours in $colour-schemes {
@@ -136,9 +145,7 @@
 
 .project__read-more {
     position: relative;
-    margin-top: 0;
-    margin-right: 28px;
-    margin-bottom: 10px;
+    margin: 0 28px 0 auto;
     padding: 5px;
     border: none;
     border-radius: 30px 0 0 30px;
@@ -181,6 +188,14 @@
 
 .pagination--projects.pagination--projects {
     margin-top: 20px;
+}
+
+.detailed-project .project__links {
+    margin: 15px 0;
+}
+
+.detailed-project .project__description {
+    text-align: left;
 }
 
 .expanded-slide-show {

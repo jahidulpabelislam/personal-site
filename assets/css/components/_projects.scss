@@ -1,30 +1,18 @@
 .project__header {
     display: flex;
-    padding: 20px 0 10px;
+    margin: 10px 0;
     align-items: center;
 }
 
 .project__title {
-    margin-bottom: 4px;
+    margin: 0;
+    text-align: left;
     font-size: 22px;
     line-height: 24px;
     font-weight: 700;
 }
 
-.project__title.project__title {
-    margin-top: 20px;
-}
-
 .project__date {
-    margin-bottom: 10px;
-}
-
-.project__title.project__title--inline {
-    margin: 0;
-    text-align: left;
-}
-
-.project__date--inline {
-    margin: 0 0 0 24px;
+    margin: 0 0 0 auto;
     text-align: right;
 }

@@ -20,18 +20,10 @@ $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
 
-$origTimezone = date_default_timezone_get();
-date_default_timezone_set("Europe/London");
-
-// Work out the time difference from both dates
-$today = new DateTime();
-$dateStartedDate = $site->getDateStarted();
-$diff = $today->diff($dateStartedDate, true);
-
-// Get the number of years different
-$yearsSinceStarted = $diff->format("%y");
-date_default_timezone_set($origTimezone);
+// Work out the time since I started to today
+$yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y");
 ?>
+
                 <section>
                     <div class="article home__hello-wrapper">
                         <div class="container">
@@ -180,15 +172,15 @@ date_default_timezone_set($origTimezone);
                 </section>
 
                 <script type="text/template" id="tmpl-slide-template">
-                    <div class="slide-show__slide" id="slide-{{id}}" data-slide-colour="{{colour}}">
-                        <img class="slide-show__img" src="<?php $site::echoProjectImageURL("{{file}}"); ?>" alt="Screen shot of {{name}} Project" />
+                    <div class="slide-show__slide" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
+                        <img class="slide-show__img" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of {{ name }} Project" />
                         <div class="slide-show__info-container">
-                            <div class="slide-show__info slide-show__info--{{colour}}">
+                            <div class="slide-show__info slide-show__info--{{ colour }}">
                                 <div class="project__header">
-                                    <h4 class="project__title project__title--inline">{{name}}</h4>
-                                    <time class="project__date project__date--inline">{{date}}</time>
+                                    <h4 class="project__title">{{ name }}</h4>
+                                    <time class="project__date">{{ date }}</time>
                                 </div>
-                                <div class="project-info__desc">{{short_description}}</div>
+                                <div class="project-info__desc">{{ short_description }}</div>
                                 <div class="project-info__links"></div>
                             </div>
                         </div>
@@ -196,7 +188,7 @@ date_default_timezone_set($origTimezone);
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{colour}}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{id}}"></button>
+                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ id }}"></button>
                 </script>
 
                 <script>

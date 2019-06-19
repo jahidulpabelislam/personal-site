@@ -39,6 +39,7 @@ window.jpi.ajax = (function() {
         encodePayload: function(params) {
             var name,
                 payload = [];
+
             for (name in params) {
                 if (params.hasOwnProperty(name)) {
                     payload.push(name + "=" + encodeURIComponent(params[name]));

@@ -135,20 +135,20 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var oldSlide = jQuery(slideShowId + " .slide-show__slide.active"),
                 nextSlide;
 
-            if (direction === "next") {
-                if (oldSlide.next().length) {
-                    nextSlide = oldSlide.next();
-                }
-                else {
-                    nextSlide = oldSlide.parent().children().first();
-                }
-            }
-            else {
+            if (direction === "previous") {
                 if (oldSlide.prev().length) {
                     nextSlide = oldSlide.prev();
                 }
                 else {
                     nextSlide = oldSlide.parent().children().last();
+                }
+            }
+            else {
+                if (oldSlide.next().length) {
+                    nextSlide = oldSlide.next();
+                }
+                else {
+                    nextSlide = oldSlide.parent().children().first();
                 }
             }
 
