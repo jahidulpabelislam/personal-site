@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Contact Or Find Contact Information for Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
 
 $pageData = [
@@ -91,7 +91,7 @@ $pageRenderer->renderHeader();
                 <section class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <h4 class="article__header">See & follow my code</h4>
+                            <h4 class="article__header">See &amp; follow my code</h4>
                         </div>
                         <div class="article__half">
                             <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">

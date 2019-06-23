@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
+$headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
 
 $pageData = [
     "headDesc" => $headDesc,
@@ -83,7 +83,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </div>
                             <div class="workflow__item">
                                 <h4 class="article__header">Responsive</h4>
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet & mobile phone" />
+                                <img src="<?php $site::echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />

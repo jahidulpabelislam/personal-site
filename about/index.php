@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
@@ -145,33 +145,33 @@ $pageRenderer->renderHeader();
                             $techSkills = [
                                 [
                                     "text" => "PHP",
-                                    "desc" => "Wordpress, Laravel & PDO",
+                                    "desc" => "Wordpress, Laravel &amp; PDO",
                                 ], [
                                     "text" => "JavaScript",
-                                    "desc" => "Node.js (socket.io & Express), JQuery & AngularJS",
+                                    "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
                                 ], [
                                     "text" => "CSS",
-                                    "desc" => "CSS3, SCSS, Bootstrap3/4",
+                                    "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
                                 ], [
                                     "text" => "HTML",
                                 ], [
                                     "text" => "Python",
-                                    "desc" => "flask & graphics.py",
+                                    "desc" => "flask &amp; graphics.py",
                                 ], [
                                     "text" => "SQL",
                                     "desc" => "MySQL",
                                 ], [
                                     "text" => "NoSQL",
-                                    "desc" => "Amazon DynamoDB & MongoDB",
+                                    "desc" => "Amazon DynamoDB &amp; MongoDB",
                                 ], [
                                     "text" => "Java",
-                                    "desc" => "Java EE 7, JSF 2, AWT & Swing",
+                                    "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
                                 ], [
                                     "text" => "DVCS",
-                                    "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)",
+                                    "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
                                 ], [
                                     "text" => "Microsoft Office",
-                                    "desc" => "Excel, Word & Powerpoint",
+                                    "desc" => "Excel, Word &amp; Powerpoint",
                                 ],
                             ];
 
@@ -207,7 +207,7 @@ $pageRenderer->renderHeader();
                                     "desc" => "Playing competitive football has meant being a good team player is installed in me",
                                 ], [
                                     "text" => "Communication",
-                                    "desc" => "Written & spoken communication skills from experience in customer focused environments",
+                                    "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
                                 ], [
                                     "text" => "Hard Worker",
                                 ],

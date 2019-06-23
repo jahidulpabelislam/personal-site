@@ -7,7 +7,7 @@ $pageRenderer = PageRenderer::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Unauthorized";
-$headDesc = "Error: {$error} - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Error: {$error} - Unauthorized message on the portfolio of Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "{$error} - {$errorDesc}",
