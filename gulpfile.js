@@ -1,13 +1,13 @@
-const gulp = require("gulp");
+const gulp = require("gulp"),
 
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
-const cleanCss = require("gulp-clean-css");
-const autoprefixer = require("gulp-autoprefixer");
-const sass = require("gulp-sass");
+    concat = require("gulp-concat"),
+    uglify = require("gulp-uglify"),
+    cleanCss = require("gulp-clean-css"),
+    autoprefixer = require("gulp-autoprefixer"),
+    sass = require("gulp-sass"),
 
-const fs = require("fs");
-const exec = require("child_process").exec;
+    fs = require("fs"),
+    exec = require("child_process").exec;
 
 let defaultTasks = [];
 
@@ -117,7 +117,7 @@ gulp.task("store-version", function() {
 
     // Try to get current branch name
     return runCommand("git branch | grep \\* | cut --complement -d ' ' -f1", function(branchName) {
-        /*
+        /**
          * We only use branch name as the 'version' if current branch is a dev branch (i.e. not master and not a detached tag state)
          * Else if production, find and get the current running tag to use as the current 'version'
          */

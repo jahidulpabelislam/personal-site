@@ -1,4 +1,4 @@
-;/*
+;/**
  * Used to expand a projects slide show
  */
 window.jpi = window.jpi || {};
@@ -14,32 +14,36 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
     var fn = {
 
-        // Changes the current slide to new slide
-        changeElement: function(nextSlideId) {
-            jQuery(".expanded-image-slide-show__bullet").removeClass("active");
-
-            if (nextSlideId >= global.slides.length) {
-                nextSlideId = 0;
-            }
-            else if (nextSlideId < 0) {
-                nextSlideId = global.slides.length - 1;
-            }
-            global.currentSlide = nextSlideId;
-
-            var expandedImage = jQuery(".expanded-image.current"),
-                expandedImage2 = jQuery(".expanded-image:not(.current)");
-
-            expandedImage2.attr("src", global.slides[global.currentSlide].src).addClass("current");
-            expandedImage.removeClass("current");
+        displaySlide: function(expandedImage) {
+            expandedImage.attr("src", global.slides[global.currentSlide].src);
 
             jQuery(".js-expanded-slide-show-current-count").text(global.currentSlide + 1);
             jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
         },
 
+        // Changes the current slide to new slide
+        changeElement: function(nextSlideIndex) {
+            if (nextSlideIndex >= global.slides.length) {
+                nextSlideIndex = 0;
+            }
+            else if (nextSlideIndex < 0) {
+                nextSlideIndex = global.slides.length - 1;
+            }
+            global.currentSlide = nextSlideIndex;
+
+            jQuery(".expanded-image-slide-show__bullet").removeClass("active");
+
+            var expandedImage = jQuery(".expanded-image.current"),
+                expandedImage2 = jQuery(".expanded-image:not(.current)");
+
+            fn.displaySlide(expandedImage2);
+
+            expandedImage2.addClass("current");
+            expandedImage.removeClass("current");
+        },
         next: function() {
             fn.changeElement(global.currentSlide + 1);
         },
-
         previous: function() {
             fn.changeElement(global.currentSlide - 1);
         },
@@ -82,8 +86,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 });
             }
 
-            // Display the current slide number and slide show length
-            jQuery(".js-expanded-slide-show-current-count").text(global.currentSlide + 1);
+            // Display the slide show length
             jQuery(".js-expanded-slide-show-total-count").text(slidesCount);
 
             // Check there are more than one slide show image to slide through
@@ -96,12 +99,9 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 jQuery(".expanded-slide-show__nav, .expanded-image-slide-show__bullet").hide();
             }
 
+            fn.displaySlide(jQuery(".expanded-image.current"));
+
             jQuery(".detailed-project").removeClass("open").hide();
-
-            jQuery(".expanded-image.current").attr("src", e.target.src).show();
-
-            // Makes current slides bullet navigation display as active
-            jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
 
             // Display the expanded image div
             global.expandedImageDivContainer.addClass("active");
@@ -121,9 +121,9 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             });
 
             jQuery("body").on("click", ".js-expandable-image", fn.setUp);
-            jQuery(".expanded-slide-show__close").on("click", fn.close);
             jQuery(".js-expanded-slide-show-next").on("click", fn.next);
             jQuery(".js-expanded-slide-show-previous").on("click", fn.previous);
+            jQuery(".expanded-slide-show__close").on("click", fn.close);
         },
     };
 

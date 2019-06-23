@@ -1,4 +1,4 @@
-;/*
+;/**
  * Holds any helpers functions for whole project
  */
 window.jpi = window.jpi || {};
@@ -8,7 +8,7 @@ window.jpi.helpers = (function() {
 
     var fn = {
 
-        /*
+        /**
          * Used to check if a input field is empty
          * add invalid class if empty and return false
          * or remove invalid class if not empty and return true
@@ -84,7 +84,7 @@ window.jpi.helpers = (function() {
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
         },
 
-        /*
+        /**
          * http://davidwalsh.name/javascript-debounce-function
          */
         debounce: function(func, wait, immediate) {
@@ -119,5 +119,4 @@ window.jpi.helpers = (function() {
         setCookie: fn.setCookie,
         debounce: fn.debounce,
     };
-
 })();

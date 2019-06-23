@@ -1,4 +1,4 @@
-;/*
+;/**
  * Holds all the functions needed for the projects page
  * e.g. display projects
  */

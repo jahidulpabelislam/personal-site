@@ -1,4 +1,4 @@
-;/*
+;/**
  * Holds all functions needed for a project slide show
  */
 window.jpi = window.jpi || {};
@@ -23,10 +23,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         widenSlideShow: function(slideShowViewpoint) {
             var slideContainer = slideShowViewpoint.children().first();
 
-            var width =
-                slideShowViewpoint.innerWidth() *
-                slideContainer
-                    .children().length;
+            var width = slideShowViewpoint.innerWidth() * slideContainer.children().length;
 
             slideContainer.css("width", width + "px");
         },
@@ -76,10 +73,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Loops through all slide shows
         loopThroughSlideShows: function(afterLoopedFunc) {
-            var i,
-                slideShows = jQuery(".js-has-slide-show");
+            var slideShows = jQuery(".js-has-slide-show");
 
-            for (i = 0; i < slideShows.length; i++) {
+            for (var i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc(slideShows[i].id);
             }
         },
