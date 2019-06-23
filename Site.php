@@ -299,7 +299,7 @@ class Site implements SiteConstants {
         return $url;
     }
 
-    public function getNowDateTime() {
+    public function getNowDateTime(): DateTime {
         if (!$this->nowDateTime) {
             $origTimezone = date_default_timezone_get();
             date_default_timezone_set(self::DATE_TIMEZONE);
