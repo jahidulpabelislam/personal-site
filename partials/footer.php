@@ -11,7 +11,7 @@ $pageRenderer = PageRenderer::get();
         </main>
 
         <?php
-        if (count($similarLinks) > 1) {
+        if (count($similarLinks)) {
             echo "<div class='article article--halved article--similar-links'>";
             echo "<div class='container'>";
 
