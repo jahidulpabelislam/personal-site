@@ -23,6 +23,7 @@ class Site implements SiteConstants {
 
     private $liveDomain;
     private $liveURL;
+
     private $localDomain;
     private $localURL;
 
@@ -42,16 +43,13 @@ class Site implements SiteConstants {
     }
 
     public static function get(): Site {
-        if (self::$instance === null) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
 
         return self::$instance;
     }
 
-    /**
-     * Return this projects root directory
-     */
     private static function getProjectRoot(): string {
         if (defined("ROOT")) {
             return ROOT;
@@ -74,7 +72,7 @@ class Site implements SiteConstants {
     /**
      * @return bool Whether or not the debug was set by user on page view
      */
-    public function isDebug(): bool {
+    public function getIsDebug(): bool {
         if ($this->isDebug === null) {
             $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
         }
@@ -82,15 +80,10 @@ class Site implements SiteConstants {
         return $this->isDebug;
     }
 
-    /**
-     * @param $url string The url to add slash to
-     * @return string The new url
-     */
     public static function addTrailingSlash(string $url): string {
         $url = rtrim($url, " /");
-        $url = "{$url}/";
 
-        return $url;
+        return "{$url}/";
     }
 
     /**
@@ -98,8 +91,7 @@ class Site implements SiteConstants {
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
-            $liveDomain = self::LIVE_DOMAIN;
-            $this->liveDomain = self::addTrailingSlash($liveDomain);
+            $this->liveDomain = self::addTrailingSlash(self::LIVE_DOMAIN);
         }
 
         return $this->liveDomain;
@@ -176,7 +168,7 @@ class Site implements SiteConstants {
      */
     public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-        $url .= ($addDebug && $this->isDebug()) ? "?debug" : "";
+        $url .= ($addDebug && $this->getIsDebug()) ? "?debug" : "";
 
         return $url;
     }
@@ -280,11 +272,9 @@ class Site implements SiteConstants {
             date_default_timezone_set(self::DATE_TIMEZONE);
 
             $dateStarted = self::JPI_START_DATE;
-            $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+            $this->dateStarted = DateTime::createFromFormat("d/m/Y", $dateStarted);
 
             date_default_timezone_set($origTimezone);
-
-            $this->dateStarted = $dateStartedDateObj;
         }
 
         return $this->dateStarted;
@@ -293,9 +283,7 @@ class Site implements SiteConstants {
     public function getYearStarted(): string {
         if (!$this->yearStarted) {
             $dateStartedDate = $this->getDateStarted();
-            $year = $dateStartedDate->format("Y");
-
-            $this->yearStarted = $year;
+            $this->yearStarted = $dateStartedDate->format("Y");
         }
 
         return $this->yearStarted;

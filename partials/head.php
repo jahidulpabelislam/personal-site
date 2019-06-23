@@ -66,7 +66,7 @@ $pageRenderer = PageRenderer::get();
         <?php $pageRenderer->renderFavicons(); ?>
 
         <!-- Custom stylesheet for site -->
-        <?php if ($site->isDebug()) {
+        <?php if ($site->getIsDebug()) {
             ?>
             <link href="<?php $site::echoWithAssetVersion("/assets/css/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php
