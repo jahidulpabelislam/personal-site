@@ -45,8 +45,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             slidesContainer.children().css(
                 "width", jQuery(slideShowId).innerWidth() + "px"
             );
-            var position = currentSlide.position();
 
+            var position = currentSlide.position();
             slidesContainer.css({
                 transitionDuration: "0s",
                 left: "-" + position.left + "px",
@@ -61,7 +61,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             if (jQuery(slideShowId + " .slide-show__slides-container").children().length > 1) {
                 global.slideShows[slideShowId] = setInterval(function() {
-                    fn.moveSlide(slideShowId, "next");
+                    fn.moveSlide(slideShowId);
                 }, global.milliSecsPerSlide);
             }
         },
@@ -122,7 +122,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             jQuery(slideShowId + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
 
             global.slideShows[slideShowId] = setInterval(function() {
-                fn.moveSlide(slideShowId, "next");
+                fn.moveSlide(slideShowId);
             }, global.milliSecsPerSlide);
         },
 
@@ -174,7 +174,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             setTimeout(fn.resetTransition, 150, slidesContainer);
 
             global.slideShows[slideShowId] = setInterval(function() {
-                fn.moveSlide(slideShowId, "next");
+                fn.moveSlide(slideShowId);
             }, global.milliSecsPerSlide);
         },
 
@@ -208,7 +208,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
                     if ((start - end) > 15) {
-                        fn.moveSlide(slideShowId, "next");
+                        fn.moveSlide(slideShowId);
                     }
                     else if ((start - end) < -15) {
                         fn.moveSlide(slideShowId, "previous");
@@ -262,7 +262,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         stopSlideShows: function() {
             fn.loopThroughSlideShows(fn.stopSlideShow);
         },
-
         startSlideShows: function() {
             fn.loopThroughSlideShows(fn.startSlideShow);
         },
