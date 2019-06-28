@@ -19,7 +19,7 @@ class Site implements SiteConstants {
 
     private $environment;
 
-    private $isDebug;
+    private $_isDebug;
 
     private $liveDomain;
     private $liveURL;
@@ -72,12 +72,12 @@ class Site implements SiteConstants {
     /**
      * @return bool Whether or not the debug was set by user on page view
      */
-    public function getIsDebug(): bool {
-        if ($this->isDebug === null) {
-            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
+    public function isDebug(): bool {
+        if ($this->_isDebug === null) {
+            $this->_isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
         }
 
-        return $this->isDebug;
+        return $this->_isDebug;
     }
 
     public static function addTrailingSlash(string $url): string {
@@ -168,7 +168,7 @@ class Site implements SiteConstants {
      */
     public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-        $url .= ($addDebug && $this->getIsDebug()) ? "?debug" : "";
+        $url .= ($addDebug && $this->isDebug()) ? "?debug" : "";
 
         return $url;
     }

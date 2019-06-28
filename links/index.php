@@ -71,7 +71,7 @@ $pageRenderer->renderHTMLHead();
 
         <?php
         // Either output a compiled js file for the page & libraries js files, or include individual files if debug is specified
-        if ($site->getIsDebug()) {
+        if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
             <?php // Files necessary for StickyFooter js code ?>
