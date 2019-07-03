@@ -25,8 +25,8 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <div class="article__half">
                             <div class="about__images-of-me">
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child" />
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently" />
+                                <img class="image-of-me image-of-me--baby" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
+                                <img class="image-of-me image-of-me--grown" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
                             </div>
                         </div>
                         <div class="article__half">
@@ -76,7 +76,7 @@ $pageRenderer->renderHeader();
                             ?>
                             <p>
                                 Been working as a Software Developer at
-                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
+                                <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
                                     BrightMinded
                                 </a>
                                 for the past <?php echo trim($durationAtWorkStr); ?>.
@@ -95,7 +95,7 @@ $pageRenderer->renderHeader();
                         <div class="article__half">
                             <p>
                                 Graduated in July 2017 from
-                                <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">
+                                <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
                                     University of Portsmouth
                                 </a>
                                  with a 1st Class Honours degree in BSc Web Technologies.
@@ -113,7 +113,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <p>
-                                Based in <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." class="link-styled link-styled--red" target="_blank">
+                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
                                     Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">
                                     West Sussex</a>, South East Coast of England.
                             </p>
@@ -185,7 +185,7 @@ $pageRenderer->renderHeader();
                                 echo $skillText;
 
                                 if ($hasSkillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
                                 }
                                 echo "</li>";
@@ -223,7 +223,7 @@ $pageRenderer->renderHeader();
                                 echo $skillText;
 
                                 if ($hasSkillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
                                 }
                                 echo "</li>";
@@ -260,7 +260,7 @@ $pageRenderer->renderHeader();
                                 echo $interestText;
 
                                 if ($hasInterestDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
+                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
                                     echo "<div class='skills-interests__item-expand-content'>{$interest["desc"]}</div>";
                                 }
 
@@ -281,7 +281,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2017 - Present",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a href='https://www.brightminded.com/' title='Link to BrightMinded website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.brightminded.com/' title='Link to BrightMinded website.' target='_blank'>
                                             BrightMinded
                                         </a>",
                                     "isActive" => true,
@@ -289,7 +289,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank'>
                                             University of Portsmouth
                                         </a>",
                                     "isActive" => false,
@@ -297,7 +297,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
-                                        <a href='https://uk.webuy.com/' title='Link to CeX website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank'>
                                             CeX
                                         </a>
                                          as a Sales Assistant",
@@ -306,7 +306,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
-                                        <a href='https://www.kfc.co.uk/' title='Link to KFC website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank'>
                                             KFC
                                         </a>
                                          as a Team Member",
@@ -315,7 +315,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
-                                        <a href='https://chichester.ac.uk/' title='Link to Chichester College website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank'>
                                             Chichester College
                                         </a>",
                                     "isActive" => false,
@@ -328,7 +328,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
-                                        <a href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank'>
                                             Felpham Colts
                                         </a>",
                                     "isActive" => false,

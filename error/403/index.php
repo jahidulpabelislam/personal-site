@@ -25,7 +25,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img" />
+                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
                         </div>
                         <div class="article__half">
                             <p>Access to the requested page is strictly forbidden.</p>

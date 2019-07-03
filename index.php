@@ -28,8 +28,8 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                     <div class="article home__hello-wrapper">
                         <div class="container">
                             <h3 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h3>
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" class="home-hello__img" alt="Jahidul Pabel Islam Graduating" />
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" class="home-hello__img home-hello__logo" alt="Jahidul Pabel Islam's Logo" />
+                            <img class="home-hello__img" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="Jahidul Pabel Islam Graduating" />
+                            <img class="home-hello__img home-hello__logo" src="<?php $site::echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" alt="Jahidul Pabel Islam's Logo" />
                         </div>
                     </div>
 
@@ -45,12 +45,12 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>
                             <p>
                                 Currently working as a Software Developer at
-                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled" target="_blank">BrightMinded</a> after graduating from
+                                <a class="link-styled" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">BrightMinded</a> after graduating from
                                 <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank">University of Portsmouth</a>.
                             </p>
                             <p>
                                 Reside in
-                                <a href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." class="link-styled" target="_blank">West Sussex</a>, down in the south coast of England.
+                                <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank">West Sussex</a>, down in the south coast of England.
                             </p>
                         </div>
                     </div>
@@ -58,9 +58,9 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                     <div class="article">
                         <div class="container">
                             <p>
-                                Here you will be able to look at all the <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">work</a>
-                                 I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a href="<?php $site->echoURL("about"); ?>" class="link-styled">learn about me</a> also
-                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">contact me</a> for any enquiries or to just provide feedback.
+                                Here you will be able to look at all the <a class="link-styled" href="<?php $site->echoURL("projects"); ?>">work</a>
+                                 I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link-styled" href="<?php $site->echoURL("about"); ?>">learn about me</a> also
+                                <a class="link-styled" href="<?php $site->echoURL("contact"); ?>">contact me</a> for any enquiries or to just provide feedback.
                             </p>
                             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
                         </div>
@@ -72,7 +72,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                         <div class="workflow">
                             <div class="workflow__item">
                                 <h4 class="article__header">Design</h4>
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/design-icon.png"); ?>" class="workflow-item__image" alt="A image of a paintbrush on a desktop computer" />
+                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/design-icon.png"); ?>" alt="A image of a paintbrush on a desktop computer" />
                                 <div class="workflow-item__description">
                                     <p>
                                         My work only starts after the designer hands over finished designs.<br />
@@ -83,7 +83,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </div>
                             <div class="workflow__item">
                                 <h4 class="article__header">Responsive</h4>
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" class="workflow-item__image" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
+                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />
@@ -93,7 +93,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </div>
                             <div class="workflow__item">
                                 <h4 class="article__header">Code</h4>
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/code-icon.png"); ?>" class="workflow-item__image" alt="A image showing code" />
+                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/code-icon.png"); ?>" alt="A image showing code" />
                                 <div class="workflow-item__description">
                                     <p>
                                         I tend to develop custom and bespoke systems.<br />
@@ -110,7 +110,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
 
                     <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
 
-                    <div id="slide-show--home" class="slide-show">
+                    <div class="slide-show" id="slide-show--home">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
@@ -124,7 +124,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                     </div>
                     <p class="feedback feedback--error"></p>
 
-                    <a href="<?php $site->echoURL("projects"); ?>" class="btn">View More Work</a>
+                    <a class="btn" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
                 </section>
 
                 <section class="article article--dark-green">

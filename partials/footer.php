@@ -27,7 +27,7 @@ $pageRenderer = PageRenderer::get();
                 $buttonClasses .= !empty($buttonColour) ? " btn--{$buttonColour}" : "";
 
                 echo "<div class='article__half'>";
-                echo "<a href='{$url}' class='{$buttonClasses}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
+                echo "<a class='{$buttonClasses}' href='{$url}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
                 echo "</div>";
             }
 
@@ -40,13 +40,13 @@ $pageRenderer = PageRenderer::get();
         <section class="social-links">
             <div class="container">
                 <h5 class="social-links__header">Follow Me Here!</h5>
-                <a href="https://uk.linkedin.com/in/jahidulpabelislam/" class="social-link" target="_blank">
-                    <img src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" class="social-links__img social-link__img social-link__img--linkedin" />
+                <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank">
+                    <img class="social-links__img social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                 </a>
-                <a href="https://github.com/jahidulpabelislam/" class="social-link" target="_blank">
-                    <img src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" class="social-links__img social-link__img social-link__img--github" />
+                <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank">
+                    <img class="social-links__img social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                 </a>
-                <a href="https://www.instagram.com/jpi.dev/" class="social-link" target="_blank">
+                <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank">
                     <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
                 </a>
             </div>
@@ -61,10 +61,10 @@ $pageRenderer = PageRenderer::get();
 
                 <div class="footer__links">
                     <p>
-                        <a href="<?php $site->echoURL("site-map"); ?>" class="footer__link">Site Map</a>
-                        <a href="<?php $site->echoURL("privacy-policy"); ?>" class="footer__link">Privacy Policy</a>
-                        <a href="https://validator.w3.org/check/?uri=referer" class="footer__link" target="_blank">Valid HTML</a>
-                        <a href="https://jigsaw.w3.org/css-validator/check/referer/" class="footer__link" target="_blank">Valid CSS</a>
+                        <a class="footer__link" href="<?php $site->echoURL("site-map"); ?>">Site Map</a>
+                        <a class="footer__link" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
+                        <a class="footer__link" href="https://validator.w3.org/check/?uri=referer" target="_blank">Valid HTML</a>
+                        <a class="footer__link" href="https://jigsaw.w3.org/css-validator/check/referer/" target="_blank">Valid CSS</a>
                     </p>
                 </div>
 

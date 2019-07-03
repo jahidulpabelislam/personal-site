@@ -87,7 +87,7 @@ $pageRenderer->renderHeader();
 
                         <form class="search-form">
                             <label for="search" class="screen-reader-text">Search for projects.</label>
-                            <input type="text" class="input search-form__input" placeholder="Search for projects..." value="<?php echo $search; ?>" id="search"/>
+                            <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
                             <button type="submit" class="btn btn--dark-blue search-form__submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -98,17 +98,17 @@ $pageRenderer->renderHeader();
                         <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
 
-                        <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>">
+                        <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>" />
                     </div>
                 </section>
 
                 <div class="expanded-slide-show">
                     <div class="expanded-image-container">
-                        <img src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image current" alt="Expanded Image of slide" />
+                        <img class="expanded-image current" src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-image-container">
-                        <img src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" class="expanded-image" alt="Expanded Image of slide" />
+                        <img class="expanded-image" src="<?php $site::echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__controls">
@@ -146,7 +146,7 @@ $pageRenderer->renderHeader();
                         <div class="project__links"></div>
                         <div class="project__description"></div>
 
-                        <div id="detailed-project__slide-show" class="project__slide-show slide-show">
+                        <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
@@ -162,7 +162,7 @@ $pageRenderer->renderHeader();
                 </div>
 
                 <script type="text/template" id="tmpl-project-template">
-                    <article id="project--{{ id }}" class="project">
+                    <article class="project" id="project--{{ id }}">
 
                         <div class="project__header">
                             <h4 class="article__header project__title">{{ name }}</h4>
@@ -173,7 +173,7 @@ $pageRenderer->renderHeader();
 
                         <div class="project__description">{{ short_description }}</div>
 
-                        <div id="slide-show--{{ id }}" class="project__slide-show slide-show">
+                        <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ id }}">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{ id }}" data-nav-direction="previous">
@@ -197,7 +197,7 @@ $pageRenderer->renderHeader();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{ id }}">
-                        <img src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" class="slide-show__img js-expandable-image" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
+                        <img class="slide-show__img js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show--{{project_id}}" data-slide-colour="{{colour}}" />
                     </div>
                 </script>
 

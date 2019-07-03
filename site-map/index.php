@@ -23,45 +23,45 @@ $pageRenderer->renderHeader();
                     <div class="container">
                         <ul class="site-map__list">
                             <li>
-                                <a href="<?php $site->echoURL(); ?>" class="link-styled">Home</a>
+                                <a class="link-styled" href="<?php $site->echoURL(); ?>">Home</a>
                             </li>
                             <li>
-                                <a href="<?php $site->echoURL("projects"); ?>" class="link-styled">Projects</a>
+                                <a class="link-styled" href="<?php $site->echoURL("projects"); ?>">Projects</a>
                                 <ul>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/mind-map"); ?>" class="link-styled">Mind Map</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/mind-map"); ?>">Mind Map</a>
                                     </li>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/bubbles-bargain-world"); ?>" class="link-styled">BubblesBargainWorld</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/bubbles-bargain-world"); ?>">BubblesBargainWorld</a>
                                     </li>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/lials"); ?>" class="link-styled">Lials</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/lials"); ?>">Lials</a>
                                     </li>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/muesli"); ?>" class="link-styled">Muesli</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/muesli"); ?>">Muesli</a>
                                     </li>
                                     <li>
-                                        <a href="/projects/izibalo-android/frame.html" class="link-styled">Izibalo - Android</a>
+                                        <a class="link-styled" href="/projects/izibalo-android/frame.html">Izibalo - Android</a>
                                     </li>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/e-games"); ?>" class="link-styled">e-games</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/e-games"); ?>">e-games</a>
                                     </li>
                                     <li>
-                                        <a href="<?php $site->echoURL("projects/sportsite-universal"); ?>" class="link-styled">Sportsite Universal</a>
+                                        <a class="link-styled" href="<?php $site->echoURL("projects/sportsite-universal"); ?>">Sportsite Universal</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="<?php $site->echoURL("contact"); ?>" class="link-styled">Contact</a>
+                                <a class="link-styled" href="<?php $site->echoURL("contact"); ?>">Contact</a>
                             </li>
                             <li>
-                                <a href="<?php $site->echoURL("about"); ?>" class="link-styled">About</a>
+                                <a class="link-styled" href="<?php $site->echoURL("about"); ?>">About</a>
                             </li>
                             <li>
-                                <a href="<?php $site->echoURL("privacy-policy"); ?>" class="link-styled">Privacy Policy</a>
+                                <a class="link-styled" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="<?php $site->echoURL("links"); ?>" class="link-styled">Links</a>
+                                <a class="link-styled" href="<?php $site->echoURL("links"); ?>">Links</a>
                             </li>
                         </ul>
                     </div>
