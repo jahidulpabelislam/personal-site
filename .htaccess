@@ -83,6 +83,7 @@ RewriteRule ^sitemap.xml?$ /site-map.xml [R=301,NC,L]
         AddOutputFilterByType DEFLATE text/html text/plain text/xml
         AddOutputFilterByType DEFLATE text/css
         AddOutputFilterByType DEFLATE application/javascript
+        AddOutputFilterByType DEFLATE application/json
         AddOutputFilterByType DEFLATE application/rss+xml
         AddOutputFilterByType DEFLATE application/xml
     </IfModule>
