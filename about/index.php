@@ -48,7 +48,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
+                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
                             </a>
                         </div>
@@ -76,7 +76,7 @@ $pageRenderer->renderHeader();
                             ?>
                             <p>
                                 Been working as a Software Developer at
-                                <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
+                                <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                     BrightMinded
                                 </a>
                                 for the past <?php echo trim($durationAtWorkStr); ?>.
@@ -88,14 +88,14 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
+                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
                                 Graduated in July 2017 from
-                                <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
+                                <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                     University of Portsmouth
                                 </a>
                                  with a 1st Class Honours degree in BSc Web Technologies.
@@ -107,14 +107,14 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
+                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
-                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
-                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">
+                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                                     West Sussex</a>, South East Coast of England.
                             </p>
                         </div>
@@ -281,7 +281,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2017 - Present",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a class='link-styled link-styled--orange' href='https://www.brightminded.com/' title='Link to BrightMinded website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
                                     "isActive" => true,
@@ -289,7 +289,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a class='link-styled link-styled--orange' href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
                                     "isActive" => false,
@@ -297,7 +297,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
-                                        <a class='link-styled link-styled--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                             CeX
                                         </a>
                                          as a Sales Assistant",
@@ -306,7 +306,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
-                                        <a class='link-styled link-styled--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                             KFC
                                         </a>
                                          as a Team Member",
@@ -315,7 +315,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
-                                        <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
                                     "isActive" => false,
@@ -328,7 +328,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
-                                        <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
                                     "isActive" => false,

@@ -86,6 +86,7 @@ window.jpi.home = (function(jQuery, jpi) {
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
+                    rel: "noopener noreferrer",
                 });
             }
 
@@ -95,6 +96,7 @@ window.jpi.home = (function(jQuery, jpi) {
                     innerHTML: "<i class='fa fa-github fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
+                    rel: "noopener noreferrer",
                 });
             }
         },

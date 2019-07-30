@@ -60,17 +60,17 @@ $site = Site::get();
                 <div class="nav__social-links-container">
                     <ul class="nav__social-links">
                         <li class="nav-link__item">
-                            <a  class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank">
+                            <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <img class="social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                             </a>
                         </li>
                         <li class="nav-link__item">
-                            <a  class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank">
+                            <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <img class="social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                             </a>
                         </li>
                         <li class="nav-link__item">
-                            <a  class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank">
+                            <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
                                 <span class="social-link__img social-link__img--instagram"><i></i></span>
                             </a>
                         </li>

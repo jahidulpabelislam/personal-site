@@ -80,7 +80,7 @@ $pageRenderer->renderHeader();
                             <h4 class="article__header">View my LinkedIn</h4>
                         </div>
                         <div class="article__half">
-                            <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank">
+                            <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <img class="social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
@@ -94,7 +94,7 @@ $pageRenderer->renderHeader();
                             <h4 class="article__header">See &amp; follow my code</h4>
                         </div>
                         <div class="article__half">
-                            <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank">
+                            <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <img class="social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                             </a>
@@ -108,7 +108,7 @@ $pageRenderer->renderHeader();
                             <h4 class="article__header">See what I get up to</h4>
                         </div>
                         <div class="article__half">
-                            <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank">
+                            <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
                                 <span class="social-link__img social-link__img--instagram"><i></i></span>
                                 <p class="social-link__text social-link__text--instagram">@jpi.dev</p>
                             </a>

@@ -122,7 +122,7 @@ gulp.task("store-version", function() {
          * Else if production, find and get the current running tag to use as the current 'version'
          */
         if (branchName && branchName !== "master" && !branchName.startsWith("(HEAD detached at v")) {
-            versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
+            versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${branchName}</a>`;
             return fs.writeFile(fileName, versionText, errorCallback);
         }
 
@@ -130,11 +130,11 @@ gulp.task("store-version", function() {
         return runCommand("git describe --abbrev=0 --tags", function(tagName) {
             // If found store in text file
             if (tagName) {
-                versionText = `<a href="${githubBaseUrl}/releases/tag/${tagName}/" class="link-styled" target="_blank">${tagName}</a>`;
+                versionText = `<a href="${githubBaseUrl}/releases/tag/${tagName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${tagName}</a>`;
             }
             // Else drop back to branch name if exists else remove version value from file
             else if (branchName) {
-                versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank">${branchName}</a>`;
+                versionText = `<a href="${githubBaseUrl}/tree/${branchName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${branchName}</a>`;
             }
 
             fs.writeFile(fileName, versionText, errorCallback);

@@ -40,13 +40,13 @@ $pageRenderer = PageRenderer::get();
         <section class="social-links">
             <div class="container">
                 <h5 class="social-links__header">Follow Me Here!</h5>
-                <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank">
+                <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                     <img class="social-links__img social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                 </a>
-                <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank">
+                <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                     <img class="social-links__img social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                 </a>
-                <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank">
+                <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
                     <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
                 </a>
             </div>
@@ -63,8 +63,8 @@ $pageRenderer = PageRenderer::get();
                     <p>
                         <a class="footer__link" href="<?php $site->echoURL("site-map"); ?>">Site Map</a>
                         <a class="footer__link" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
-                        <a class="footer__link" href="https://validator.w3.org/check/?uri=referer" target="_blank">Valid HTML</a>
-                        <a class="footer__link" href="https://jigsaw.w3.org/css-validator/check/referer/" target="_blank">Valid CSS</a>
+                        <a class="footer__link" href="https://validator.w3.org/check/?uri=referer" target="_blank" rel="noopener noreferrer">Valid HTML</a>
+                        <a class="footer__link" href="https://jigsaw.w3.org/css-validator/check/referer/" target="_blank" rel="noopener noreferrer">Valid CSS</a>
                     </p>
                 </div>
 
