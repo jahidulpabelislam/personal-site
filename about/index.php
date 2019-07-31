@@ -19,6 +19,25 @@ $pageRenderer->addPageData($pageData);
 $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
+
+function renderSkillsOrInterests(array $items, string $colour)
+{
+    foreach ($items as $item) {
+        $hasDesc = !empty($item["desc"]);
+
+        $expandClass = $hasDesc ? "js-expand-skill-interest" : "";
+
+        echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
+        echo $item["text"];
+
+        if ($hasDesc) {
+            echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
+            echo "<div class='skills-interests__item-expand-content'>{$item["desc"]}</div>";
+        }
+
+        echo "</li>";
+    }
+}
 ?>
 
                 <div class="article article--halved article--about">
@@ -175,21 +194,7 @@ $pageRenderer->renderHeader();
                                 ],
                             ];
 
-                            foreach ($techSkills as $skill) {
-                                $skillText = $skill["text"];
-                                $hasSkillDesc = !empty($skill["desc"]);
-
-                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--dark-blue {$expandClass}'>";
-                                echo $skillText;
-
-                                if ($hasSkillDesc) {
-                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
-                                }
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($skills, "dark-blue");
                             ?>
                         </ul>
                     </div>
@@ -213,21 +218,7 @@ $pageRenderer->renderHeader();
                                 ],
                             ];
 
-                            foreach ($otherSkills as $skill) {
-                                $skillText = $skill["text"];
-                                $hasSkillDesc = !empty($skill["desc"]);
-
-                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--purple {$expandClass}'>";
-                                echo $skillText;
-
-                                if ($hasSkillDesc) {
-                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
-                                }
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($skills, "purple");
                             ?>
                         </ul>
                     </div>
@@ -250,22 +241,7 @@ $pageRenderer->renderHeader();
                                 ["text" => "Trading"],
                             ];
 
-                            foreach ($interests as $interest) {
-                                $interestText = $interest["text"];
-                                $hasInterestDesc = !empty($interest["desc"]);
-
-                                $expandClass = $hasInterestDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--dark-green {$expandClass}'>";
-                                echo $interestText;
-
-                                if ($hasInterestDesc) {
-                                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$interest["desc"]}</div>";
-                                }
-
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($interests, "dark-green");
                             ?>
                         </ul>
                     </div>
