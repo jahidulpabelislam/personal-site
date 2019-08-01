@@ -174,23 +174,23 @@ window.jpi.projects = (function(jQuery, jpi) {
         // Renders a single project
         renderProject: function(project) {
             var projectSelector = "#project--" + project.id;
-
             if (jQuery(projectSelector).length) {
                 return;
             }
 
-            var template = jQuery("#tmpl-project-template").text();
+            global.projects[project.id] = project;
 
+            var template = jQuery("#tmpl-project-template").text();
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
                     var regex = fn.getTemplateRegex(field);
 
-                    var data = project[field];
+                    var value = project[field];
                     if (field === "date") {
-                        data = new Date(data).toLocaleDateString();
+                        value = new Date(value).toLocaleDateString();
                     }
 
-                    template = template.replace(regex, data);
+                    template = template.replace(regex, value);
                 }
             }
             jQuery(".projects").append(template);
@@ -198,8 +198,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.addSkills(project, projectSelector);
             fn.addLinks(project, projectSelector);
             fn.addProjectImages(project, projectSelector);
-
-            global.projects[project.id] = project;
 
             jpi.main.resetFooter();
         },
