@@ -19,10 +19,11 @@ class Site implements SiteConstants {
 
     private $environment;
 
-    private $isDebug;
+    private $_isDebug;
 
     private $liveDomain;
     private $liveURL;
+
     private $localDomain;
     private $localURL;
 
@@ -42,16 +43,13 @@ class Site implements SiteConstants {
     }
 
     public static function get(): Site {
-        if (self::$instance === null) {
+        if (!self::$instance) {
             self::$instance = new self();
         }
 
         return self::$instance;
     }
 
-    /**
-     * Return this projects root directory
-     */
     private static function getProjectRoot(): string {
         if (defined("ROOT")) {
             return ROOT;
@@ -75,21 +73,29 @@ class Site implements SiteConstants {
      * @return bool Whether or not the debug was set by user on page view
      */
     public function isDebug(): bool {
-        if ($this->isDebug === null) {
-            $this->isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
+        if ($this->_isDebug === null) {
+            $this->_isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
         }
 
-        return $this->isDebug;
+        return $this->_isDebug;
     }
 
-    /**
-     * @param $url string The url to add slash to
-     * @return string The new url
-     */
     public static function addTrailingSlash(string $url): string {
         $url = rtrim($url, " /");
-        $url = "{$url}/";
 
+        // If the last bit includes a full stop, assume its a file...
+        // so don't add trailing slash
+        $withoutProtocol = str_replace(["https://", "http://"], "", $url);
+        $splitPaths = explode("/", $withoutProtocol);
+        $count = count($splitPaths);
+        if ($count > 1) {
+            $lastPath = $splitPaths[$count - 1] ?? null;
+            if ($lastPath && strpos($lastPath, ".")) {
+                return $url;
+            }
+        }
+
+        $url = "{$url}/";
         return $url;
     }
 
@@ -98,8 +104,7 @@ class Site implements SiteConstants {
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
-            $liveDomain = self::LIVE_DOMAIN;
-            $this->liveDomain = self::addTrailingSlash($liveDomain);
+            $this->liveDomain = self::addTrailingSlash(self::LIVE_DOMAIN);
         }
 
         return $this->liveDomain;
@@ -138,6 +143,18 @@ class Site implements SiteConstants {
      */
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+        $indexes = [
+            "index.php",
+            "index.html",
+        ];
+        foreach ($indexes as $index) {
+            $indexLength = strlen($index);
+            if (substr($relativeURL, -$indexLength) === $index) {
+                $relativeURL = substr($relativeURL, 0, -$indexLength);
+                break;
+            }
+        }
 
         return $this->genURLWithDomain($relativeURL, $isFull, $isLive);
     }
@@ -280,11 +297,9 @@ class Site implements SiteConstants {
             date_default_timezone_set(self::DATE_TIMEZONE);
 
             $dateStarted = self::JPI_START_DATE;
-            $dateStartedDateObj = DateTime::createFromFormat("d/m/Y", $dateStarted);
+            $this->dateStarted = DateTime::createFromFormat("d/m/Y", $dateStarted);
 
             date_default_timezone_set($origTimezone);
-
-            $this->dateStarted = $dateStartedDateObj;
         }
 
         return $this->dateStarted;
@@ -293,9 +308,7 @@ class Site implements SiteConstants {
     public function getYearStarted(): string {
         if (!$this->yearStarted) {
             $dateStartedDate = $this->getDateStarted();
-            $year = $dateStartedDate->format("Y");
-
-            $this->yearStarted = $year;
+            $this->yearStarted = $dateStartedDate->format("Y");
         }
 
         return $this->yearStarted;
@@ -311,7 +324,7 @@ class Site implements SiteConstants {
         return $url;
     }
 
-    public function getNowDateTime() {
+    public function getNowDateTime(): DateTime {
         if (!$this->nowDateTime) {
             $origTimezone = date_default_timezone_get();
             date_default_timezone_set(self::DATE_TIMEZONE);

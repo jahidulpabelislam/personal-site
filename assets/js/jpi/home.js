@@ -16,14 +16,15 @@ window.jpi.home = (function(jQuery, jpi) {
         initSecondsCounter: function() {
             var secsElem = jQuery(".js-seconds-on-site");
             if (secsElem.length) {
-                var secondsInMilliseconds = 1000;
+                var secsInMilliseconds = 1000;
+
                 setTimeout(function() {
                     setInterval(function() {
                         var lastSec = secsElem.text();
                         lastSec = jpi.helpers.getInt(lastSec, 1);
                         secsElem.text(lastSec + 1);
-                    }, secondsInMilliseconds);
-                }, secondsInMilliseconds);
+                    }, secsInMilliseconds);
+                }, secsInMilliseconds);
             }
         },
 
@@ -85,6 +86,7 @@ window.jpi.home = (function(jQuery, jpi) {
                     innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
+                    rel: "noopener noreferrer",
                 });
             }
 
@@ -94,6 +96,7 @@ window.jpi.home = (function(jQuery, jpi) {
                     innerHTML: "<i class='fa fa-github fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
+                    rel: "noopener noreferrer",
                 });
             }
         },

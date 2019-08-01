@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Privacy policy on the portfolio of Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "title" => "Privacy Policy",
@@ -64,7 +64,7 @@ $pageRenderer->renderHeader();
                         <p>The cookies used and the Google Analytics data stored will be anonymised and can't be used to identify individual people.</p>
                         <p>
                             To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at
-                            <a href="http://www.allaboutcookies.org/" class="link-styled" target="_blank">allaboutcookies</a>
+                            <a class="link-styled" href="http://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">allaboutcookies</a>
                         </p>
                     </div>
                 </div>

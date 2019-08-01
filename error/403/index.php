@@ -7,7 +7,7 @@ $pageRenderer = PageRenderer::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Forbidden Page";
-$headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "{$error} - {$errorDesc}",
@@ -25,7 +25,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" class="error__img" />
+                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
                         </div>
                         <div class="article__half">
                             <p>Access to the requested page is strictly forbidden.</p>

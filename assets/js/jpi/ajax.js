@@ -32,15 +32,14 @@ window.jpi.ajax = (function() {
             }
         },
 
-        /*
+        /**
          * Given a payload that is an object (containing name/value pairs), this function
          * converts that array into a URLEncoded string.
          */
         encodePayload: function(params) {
-            var name,
-                payload = [];
+            var payload = [];
 
-            for (name in params) {
+            for (var name in params) {
                 if (params.hasOwnProperty(name)) {
                     payload.push(name + "=" + encodeURIComponent(params[name]));
                 }
@@ -55,14 +54,15 @@ window.jpi.ajax = (function() {
 
         /**
          * Function for sending XHR requests
+         *
+         * @param request object of params necessary needed to do a http request
          * {
-         *     "method": "HTTP METHOD",
-         *     "url": "URL to load",
-         *     "params": {"object of payload"},
+         *     "method": HTTP METHOD (string),
+         *     "url": URL to load (string),
+         *     "params": object of payload,
          *     "onSuccess": function to run when XHR request is successful
          *     "onError": function to run when there's an error
          * }
-         ** @param request object of params necessary needed to do a http request
          */
         sendRequest: function(request) {
             var xhr = new XMLHttpRequest();
@@ -111,5 +111,4 @@ window.jpi.ajax = (function() {
         renderRowsOrFeedback: fn.renderRowsOrFeedback,
         sendRequest: fn.sendRequest,
     };
-
 })();

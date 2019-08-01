@@ -7,7 +7,7 @@ $pageRenderer = PageRenderer::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Page Not Found";
-$headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $directory = __DIR__;
 $url = $site::turnPathToURL($directory);
@@ -29,7 +29,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" class="error__img" />
+                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
                         </div>
                         <div class="article__half">
                             <p>The requested page can not be found.</p>

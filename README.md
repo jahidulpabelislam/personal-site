@@ -7,19 +7,19 @@ Portfolio I made for myself to showcase the projects I've developed over the yea
 
 ## [v1](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1/)
 
-I initially made [version 1](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1/) in April 2015 to revise for a test for a unit during my degree on basic HTML & CSS.
+I initially made [version 1](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1/) in April 2015 to revise for a test for a unit during my degree on basic HTML &amp; CSS.
 
 ## [v2](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v2/)
 
-In the summer of 2016 I decided to put the portfolio online, but I thought it needed major updates first. So I went and updated the site with new content & features I have learnt in the past year also with some experiments. Therefore this was the start of [version 2](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v2/).
+In the summer of 2016 I decided to put the portfolio online, but I thought it needed major updates first. So I went and updated the site with new content &amp; features I have learnt in the past year also with some experiments. Therefore this was the start of [version 2](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v2/).
 
 ##### Work done in release:
 
--   An CMS page where projects have CRUD capabilities via an API & database
--   The projects & homepage display projects via API (Including a projects search)
+-   An CMS page where projects have CRUD capabilities via an API &amp; database
+-   The projects &amp; homepage display projects via API (Including a projects search)
 -   3 custom built slide shows for display project images
 -   New styling (integrated Bootstrap3, with some custom CSS3)
--   New content (Contact form, XML site map & custom error pages)
+-   New content (Contact form, XML site map &amp; custom error pages)
 -   Custom sticky footer
 
 ## [v3](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v3/)
@@ -28,10 +28,10 @@ In early 2017 I was coming to the end of my degree, I wanted to use my portfolio
 
 ##### Work done in release:
 
--   Update styling (use SCSS and add animate.css & wow.js)
+-   Update styling (use SCSS and add animate.css &amp; wow.js)
 -   AngularJS for the CMS
--   More accessible & valid code
--   More feedback on user events & system errors
+-   More accessible &amp; valid code
+-   More feedback on user events &amp; system errors
 
 ## [v4](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v4/)
 
@@ -39,20 +39,20 @@ What started off [version 4](https://github.com/jahidulpabelislam/portfolio/tree
 
 ##### Work done in release:
 
--   All custom styling (remove Bootstrap3, animate.css & wow.js)
--   Major update of content & add new content
--   More secure API, CMS & older projects
+-   All custom styling (remove Bootstrap3, animate.css &amp; wow.js)
+-   Major update of content &amp; add new content
+-   More secure API, CMS &amp; older projects
 -   Update API URI structure
--   Add CMS page & projects page rooting
+-   Add CMS page &amp; projects page rooting
 -   SEO
--   General tidy up (code, file, folder structures & minify asset files)
--   Use BEM & use element classes not ID's
+-   General tidy up (code, file, folder structures &amp; minify asset files)
+-   Use BEM &amp; use element classes not ID's
 
 ### [v4.1.0](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v4.1.0/)
 
-At the end of 2018 I wanted to separate the API & CMS away from the main Portfolio project and create projects for these 2 instead. This was done to separate the 3 as these have 3 different logic and usage, as well as enabling more maintainability for the future.
+At the end of 2018 I wanted to separate the API &amp; CMS away from the main Portfolio project and create projects for these 2 instead. This was done to separate the 3 as these have 3 different logic and usage, as well as enabling more maintainability for the future.
 
-There was also a sub-aim which was to refactor the new version with more consistent standards throughout (for HTML, JS & CSS/SCSS) so better overall code.
+There was also a sub-aim which was to refactor the new version with more consistent standards throughout (for HTML, JS &amp; CSS/SCSS) so better overall code.
 
 ## Related Projects
 

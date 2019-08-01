@@ -51,14 +51,16 @@ window.jpi.form = (function(jQuery, jpi) {
                   .html(global.submitButton.attr("data-initial-text"));
         },
 
-        validateEmail: function(email, isForm) {
+        validateEmail: function(isForm) {
+            var emailAddress = global.emailInput.val();
+
             global.formFeedback.hide("fast");
             global.emailInput.removeClass("valid");
 
             var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
-                emailValidationTest = validEmailPattern.test(email);
+                emailValidationTest = validEmailPattern.test(emailAddress);
 
-            if (email.trim() === "" && isForm) {
+            if (emailAddress.trim() === "" && isForm) {
                 global.emailInput.addClass("invalid");
                 global.emailFeedback.text("Email Address must be provided and valid.").show("fast");
             }
@@ -66,7 +68,7 @@ window.jpi.form = (function(jQuery, jpi) {
                 global.emailInput.addClass("invalid");
                 global.emailFeedback.text("Email Address must be valid.").show("fast");
             }
-            else if (email.trim() !== "" && emailValidationTest) {
+            else if (emailAddress.trim() !== "" && emailValidationTest) {
                 global.emailInput.removeClass("invalid").addClass("valid");
                 global.emailFeedback.hide("fast");
                 return true;
@@ -75,7 +77,9 @@ window.jpi.form = (function(jQuery, jpi) {
             return false;
         },
 
-        validateMessage: function(message, isForm) {
+        validateMessage: function(isForm) {
+            var message = global.messageInput.val();
+
             global.formFeedback.hide("fast");
             global.messageInput.removeClass("valid");
 
@@ -96,8 +100,8 @@ window.jpi.form = (function(jQuery, jpi) {
             global.submitButton.prop("disabled", true)
                   .html(global.submitButton.attr("data-loading-text"));
 
-            var isEmailValid = fn.validateEmail(global.emailInput.val(), true),
-                isMessageValid = fn.validateMessage(global.messageInput.val(), true);
+            var isEmailValid = fn.validateEmail(true),
+                isMessageValid = fn.validateMessage(true);
 
             if (isEmailValid && isMessageValid) {
                 jpi.ajax.sendRequest({
@@ -124,10 +128,10 @@ window.jpi.form = (function(jQuery, jpi) {
                 global.formFeedback.hide("fast");
             });
             global.emailInput.on("input", function() {
-                fn.validateEmail(this.value);
+                fn.validateEmail();
             });
             global.messageInput.on("input", function() {
-                fn.validateMessage(this.value);
+                fn.validateMessage();
             });
 
             jQuery(".contact-form").on("submit", fn.validateForm);

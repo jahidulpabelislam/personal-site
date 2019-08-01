@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web & Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
@@ -19,14 +19,33 @@ $pageRenderer->addPageData($pageData);
 $pageRenderer->renderHTMLHead();
 $pageRenderer->renderNav();
 $pageRenderer->renderHeader();
+
+function renderSkillsOrInterests(array $items, string $colour)
+{
+    foreach ($items as $item) {
+        $hasDesc = !empty($item["desc"]);
+
+        $expandClass = $hasDesc ? "js-expand-skill-interest" : "";
+
+        echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
+        echo $item["text"];
+
+        if ($hasDesc) {
+            echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
+            echo "<div class='skills-interests__item-expand-content'>{$item["desc"]}</div>";
+        }
+
+        echo "</li>";
+    }
+}
 ?>
 
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
                             <div class="about__images-of-me">
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" class="image-of-me image-of-me--baby" alt="Image of Jahidul Pabel Islam as a Child" />
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" class="image-of-me image-of-me--grown" alt="Image of Jahidul Pabel Islam currently" />
+                                <img class="image-of-me image-of-me--baby" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
+                                <img class="image-of-me image-of-me--grown" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
                             </div>
                         </div>
                         <div class="article__half">
@@ -48,7 +67,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank">
+                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
                             </a>
                         </div>
@@ -76,7 +95,7 @@ $pageRenderer->renderHeader();
                             ?>
                             <p>
                                 Been working as a Software Developer at
-                                <a href="https://www.brightminded.com/" title="Link to BrightMinded website." class="link-styled link-styled--lime-green" target="_blank">
+                                <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                     BrightMinded
                                 </a>
                                 for the past <?php echo trim($durationAtWorkStr); ?>.
@@ -88,14 +107,14 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank">
+                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
                                 Graduated in July 2017 from
-                                <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." class="link-styled link-styled--purple" target="_blank">
+                                <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                     University of Portsmouth
                                 </a>
                                  with a 1st Class Honours degree in BSc Web Technologies.
@@ -107,14 +126,14 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank">
+                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
-                                Based in <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." class="link-styled link-styled--red" target="_blank">
-                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank">
+                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                                     West Sussex</a>, South East Coast of England.
                             </p>
                         </div>
@@ -145,51 +164,37 @@ $pageRenderer->renderHeader();
                             $techSkills = [
                                 [
                                     "text" => "PHP",
-                                    "desc" => "Wordpress, Laravel & PDO",
+                                    "desc" => "Wordpress, Laravel &amp; PDO",
                                 ], [
                                     "text" => "JavaScript",
-                                    "desc" => "Node.js (socket.io & Express), JQuery & AngularJS",
+                                    "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
                                 ], [
                                     "text" => "CSS",
-                                    "desc" => "CSS3, SCSS, Bootstrap3/4",
+                                    "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
                                 ], [
                                     "text" => "HTML",
                                 ], [
                                     "text" => "Python",
-                                    "desc" => "flask & graphics.py",
+                                    "desc" => "flask &amp; graphics.py",
                                 ], [
                                     "text" => "SQL",
                                     "desc" => "MySQL",
                                 ], [
                                     "text" => "NoSQL",
-                                    "desc" => "Amazon DynamoDB & MongoDB",
+                                    "desc" => "Amazon DynamoDB &amp; MongoDB",
                                 ], [
                                     "text" => "Java",
-                                    "desc" => "Java EE 7, JSF 2, AWT & Swing",
+                                    "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
                                 ], [
                                     "text" => "DVCS",
-                                    "desc" => "Git (GitHub & GitLab) & Mercurial (Bitbucket)",
+                                    "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
                                 ], [
                                     "text" => "Microsoft Office",
-                                    "desc" => "Excel, Word & Powerpoint",
+                                    "desc" => "Excel, Word &amp; Powerpoint",
                                 ],
                             ];
 
-                            foreach ($techSkills as $skill) {
-                                $skillText = $skill["text"];
-                                $hasSkillDesc = !empty($skill["desc"]);
-
-                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--dark-blue {$expandClass}'>";
-                                echo $skillText;
-
-                                if ($hasSkillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
-                                }
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($skills, "dark-blue");
                             ?>
                         </ul>
                     </div>
@@ -207,27 +212,13 @@ $pageRenderer->renderHeader();
                                     "desc" => "Playing competitive football has meant being a good team player is installed in me",
                                 ], [
                                     "text" => "Communication",
-                                    "desc" => "Written & spoken communication skills from experience in customer focused environments",
+                                    "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
                                 ], [
                                     "text" => "Hard Worker",
                                 ],
                             ];
 
-                            foreach ($otherSkills as $skill) {
-                                $skillText = $skill["text"];
-                                $hasSkillDesc = !empty($skill["desc"]);
-
-                                $expandClass = $hasSkillDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--purple {$expandClass}'>";
-                                echo $skillText;
-
-                                if ($hasSkillDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$skill["desc"]}</div>";
-                                }
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($skills, "purple");
                             ?>
                         </ul>
                     </div>
@@ -250,22 +241,7 @@ $pageRenderer->renderHeader();
                                 ["text" => "Trading"],
                             ];
 
-                            foreach ($interests as $interest) {
-                                $interestText = $interest["text"];
-                                $hasInterestDesc = !empty($interest["desc"]);
-
-                                $expandClass = $hasInterestDesc ? "js-expand-skill-interest" : "";
-
-                                echo "<li class='skills-interests__item skills-interests__item--dark-green {$expandClass}'>";
-                                echo $interestText;
-
-                                if ($hasInterestDesc) {
-                                    echo " <span class='fa fa-plus skills-interests__item-expand-icon'></span>";
-                                    echo "<div class='skills-interests__item-expand-content'>{$interest["desc"]}</div>";
-                                }
-
-                                echo "</li>";
-                            }
+                            renderSkillsOrInterests($interests, "dark-green");
                             ?>
                         </ul>
                     </div>
@@ -281,7 +257,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2017 - Present",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a href='https://www.brightminded.com/' title='Link to BrightMinded website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
                                     "isActive" => true,
@@ -289,7 +265,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
                                     "isActive" => false,
@@ -297,7 +273,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
-                                        <a href='https://uk.webuy.com/' title='Link to CeX website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                             CeX
                                         </a>
                                          as a Sales Assistant",
@@ -306,7 +282,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
-                                        <a href='https://www.kfc.co.uk/' title='Link to KFC website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                             KFC
                                         </a>
                                          as a Team Member",
@@ -315,7 +291,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
-                                        <a href='https://chichester.ac.uk/' title='Link to Chichester College website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
                                     "isActive" => false,
@@ -328,7 +304,7 @@ $pageRenderer->renderHeader();
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
-                                        <a href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' class='link-styled link-styled--orange' target='_blank'>
+                                        <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
                                     "isActive" => false,

@@ -1,4 +1,4 @@
-;/*
+;/**
  * Holds all functions needed for a project slide show
  */
 window.jpi = window.jpi || {};
@@ -23,10 +23,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         widenSlideShow: function(slideShowViewpoint) {
             var slideContainer = slideShowViewpoint.children().first();
 
-            var width =
-                slideShowViewpoint.innerWidth() *
-                slideContainer
-                    .children().length;
+            var width = slideShowViewpoint.innerWidth() * slideContainer.children().length;
 
             slideContainer.css("width", width + "px");
         },
@@ -48,8 +45,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             slidesContainer.children().css(
                 "width", jQuery(slideShowId).innerWidth() + "px"
             );
-            var position = currentSlide.position();
 
+            var position = currentSlide.position();
             slidesContainer.css({
                 transitionDuration: "0s",
                 left: "-" + position.left + "px",
@@ -64,7 +61,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             if (jQuery(slideShowId + " .slide-show__slides-container").children().length > 1) {
                 global.slideShows[slideShowId] = setInterval(function() {
-                    fn.moveSlide(slideShowId, "next");
+                    fn.moveSlide(slideShowId);
                 }, global.milliSecsPerSlide);
             }
         },
@@ -76,10 +73,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Loops through all slide shows
         loopThroughSlideShows: function(afterLoopedFunc) {
-            var i,
-                slideShows = jQuery(".js-has-slide-show");
+            var slideShows = jQuery(".js-has-slide-show");
 
-            for (i = 0; i < slideShows.length; i++) {
+            for (var i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc(slideShows[i].id);
             }
         },
@@ -126,7 +122,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             jQuery(slideShowId + " .slide-show__bullet[data-slide-id=" + newSlideID + "]").addClass("active");
 
             global.slideShows[slideShowId] = setInterval(function() {
-                fn.moveSlide(slideShowId, "next");
+                fn.moveSlide(slideShowId);
             }, global.milliSecsPerSlide);
         },
 
@@ -178,7 +174,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             setTimeout(fn.resetTransition, 150, slidesContainer);
 
             global.slideShows[slideShowId] = setInterval(function() {
-                fn.moveSlide(slideShowId, "next");
+                fn.moveSlide(slideShowId);
             }, global.milliSecsPerSlide);
         },
 
@@ -212,7 +208,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                     var end = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
                     if ((start - end) > 15) {
-                        fn.moveSlide(slideShowId, "next");
+                        fn.moveSlide(slideShowId);
                     }
                     else if ((start - end) < -15) {
                         fn.moveSlide(slideShowId, "previous");
@@ -266,7 +262,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         stopSlideShows: function() {
             fn.loopThroughSlideShows(fn.stopSlideShow);
         },
-
         startSlideShows: function() {
             fn.loopThroughSlideShows(fn.startSlideShow);
         },

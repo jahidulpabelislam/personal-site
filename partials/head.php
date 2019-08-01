@@ -24,9 +24,9 @@ $pageRenderer = PageRenderer::get();
 
         <!-- All meta data for page -->
         <?php
-        $title = "{$title} | Jahidul Pabel Islam - Full Stack Web & Software Developer";
+        $title = "{$title} | Jahidul Pabel Islam - Full Stack Web &amp; Software Developer";
         if ($pageId === "home") {
-            $title = "Full Stack Web & Software Developer, Jahidul Pabel Islam's Portfolio";
+            $title = "Full Stack Web &amp; Software Developer, Jahidul Pabel Islam's Portfolio";
         }
         ?>
 
