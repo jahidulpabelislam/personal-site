@@ -131,6 +131,19 @@ class Site implements SiteConstants {
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
+        // If the end of the URL includes any of `index`es remove this
+        $indexes = [
+            "index.php",
+            "index.html",
+        ];
+        foreach ($indexes as $index) {
+            $indexLength = strlen($index);
+            if (substr($relativeURL, -$indexLength) === $index) {
+                $relativeURL = substr($relativeURL, 0, -$indexLength);
+                break;
+            }
+        }
+
         return $this->genURLWithDomain($relativeURL, $isFull, $isLive);
     }
 
