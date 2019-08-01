@@ -83,7 +83,20 @@ class Site implements SiteConstants {
     public static function addTrailingSlash(string $url): string {
         $url = rtrim($url, " /");
 
-        return "{$url}/";
+        // If the last bit includes a full stop, assume its a file...
+        // so don't add trailing slash
+        $withoutProtocol = str_replace(["https://", "http://"], "", $url);
+        $splitPaths = explode("/", $withoutProtocol);
+        $count = count($splitPaths);
+        if ($count > 1) {
+            $lastPath = $splitPaths[$count - 1] ?? null;
+            if ($lastPath && strpos($lastPath, ".")) {
+                return $url;
+            }
+        }
+
+        $url = "{$url}/";
+        return $url;
     }
 
     /**
@@ -131,7 +144,6 @@ class Site implements SiteConstants {
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-        // If the end of the URL includes any of `index`es remove this
         $indexes = [
             "index.php",
             "index.html",
