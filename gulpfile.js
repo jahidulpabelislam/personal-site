@@ -54,8 +54,8 @@ defaultTasks.push("scripts");
 // Minify Stylesheets
 const stylesheets = {
     main: [
-        "./assets/css/font-awesome.min.css",
-        "./assets/css/main.css",
+        "./assets/css/third-party/font-awesome.min.css",
+        "./assets/css/jpi/main.css",
     ],
 };
 const stylesheetNames = Object.keys(stylesheets);
@@ -85,13 +85,13 @@ gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
 
 gulp.task("sass", function() {
-    return gulp.src("./assets/css/main.scss")
+    return gulp.src("./assets/css/jpi/main.scss")
                .pipe(sass().on("error", sass.logError))
-               .pipe(gulp.dest("./assets/css/"));
+               .pipe(gulp.dest("./assets/css/jpi/"));
 });
 // Watch Files For Changes
 gulp.task("watch", function() {
-    gulp.watch("./assets/css/**/*.scss", gulp.parallel("sass"));
+    gulp.watch("./assets/css/jpi/**/*.scss", gulp.parallel("sass"));
 });
 
 const errorCallback = function(err) {
