@@ -82,7 +82,9 @@ RewriteRule ^sitemap.xml?$ /site-map.xml [R=301,NC,L]
 
 <IfModule mod_deflate.c>
     <IfModule mod_filter.c>
-        AddOutputFilterByType DEFLATE text/html text/plain text/xml
+        AddOutputFilterByType DEFLATE text/plain
+        AddOutputFilterByType DEFLATE text/html
+        AddOutputFilterByType DEFLATE text/xml
         AddOutputFilterByType DEFLATE text/css
         AddOutputFilterByType DEFLATE application/javascript
         AddOutputFilterByType DEFLATE application/json
