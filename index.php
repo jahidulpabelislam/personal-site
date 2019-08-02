@@ -45,7 +45,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>
                             <p>
                                 Currently working as a Software Developer at
-                                <a class="link-styled" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">BrightMinded</a> after graduating from
+                                <a class="link-styled" href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">BrightMinded</a> after graduating from
                                 <a class="link-styled" href="http://www.port.ac.uk" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">University of Portsmouth</a>.
                             </p>
                             <p>

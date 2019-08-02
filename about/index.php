@@ -67,7 +67,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
+                            <a href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
                             </a>
                         </div>
@@ -95,7 +95,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                             ?>
                             <p>
                                 Been working as a Software Developer at
-                                <a class="link-styled link-styled--lime-green" href="https://www.brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
+                                <a class="link-styled link-styled--lime-green" href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
                                     BrightMinded
                                 </a>
                                 for the past <?php echo trim($durationAtWorkStr); ?>.
@@ -107,14 +107,14 @@ function renderSkillsOrInterests(array $items, string $colour)
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
                                 Graduated in July 2017 from
-                                <a class="link-styled link-styled--purple" href="http://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
+                                <a class="link-styled link-styled--purple" href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                     University of Portsmouth
                                 </a>
                                  with a 1st Class Honours degree in BSc Web Technologies.
@@ -257,7 +257,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                     "date" => "2017 - Present",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a class='link-styled link-styled--orange' href='https://www.brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link-styled link-styled--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
                                     "isActive" => true,
@@ -265,7 +265,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a class='link-styled link-styled--orange' href='http://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link-styled link-styled--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
                                     "isActive" => false,
