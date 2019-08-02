@@ -74,20 +74,17 @@ $pageRenderer = PageRenderer::get();
             </div>
         </footer>
 
-        <?php
-        $pageRenderer->renderCookieBanner();
-        ?>
-
-        <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-        <script src="https://cdn.jsdelivr.net/gh/jahidulpabelislam/sticky-footer.js@1.1.2/src/sticky-footer.min.js" type="application/javascript"></script>
+        <?php $pageRenderer->renderCookieBanner(); ?>
 
         <?php
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
