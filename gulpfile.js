@@ -54,6 +54,7 @@ defaultTasks.push("scripts");
 // Minify Stylesheets
 const stylesheets = {
     main: [
+        "./assets/css/font-awesome.min.css",
         "./assets/css/main.css",
     ],
 };

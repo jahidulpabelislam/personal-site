@@ -68,6 +68,7 @@ $pageRenderer = PageRenderer::get();
         <!-- Custom stylesheet for site -->
         <?php if ($site->isDebug()) {
             ?>
+            <link href="<?php $site::echoWithAssetVersion("/assets/css/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <link href="<?php $site::echoWithAssetVersion("/assets/css/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php
         }
@@ -77,8 +78,6 @@ $pageRenderer = PageRenderer::get();
             <?php
         }
         ?>
-
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" title="style" media="all" type="text/css" />
     </head>
 
     <body>
