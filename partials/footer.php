@@ -81,10 +81,10 @@ $pageRenderer = PageRenderer::get();
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/waypoint.min.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/waypoint.min.js", "1.6.2"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js", "1.2.0"); ?>" type="text/javascript"></script>
+            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
             <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
