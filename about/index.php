@@ -193,8 +193,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                     "desc" => "Excel, Word &amp; Powerpoint",
                                 ],
                             ];
-
-                            renderSkillsOrInterests($skills, "dark-blue");
+                            renderSkillsOrInterests($techSkills, "dark-blue");
                             ?>
                         </ul>
                     </div>
@@ -217,8 +216,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                     "text" => "Hard Worker",
                                 ],
                             ];
-
-                            renderSkillsOrInterests($skills, "purple");
+                            renderSkillsOrInterests($otherSkills, "purple");
                             ?>
                         </ul>
                     </div>
@@ -240,7 +238,6 @@ function renderSkillsOrInterests(array $items, string $colour)
                                 ["text" => "Gaming"],
                                 ["text" => "Trading"],
                             ];
-
                             renderSkillsOrInterests($interests, "dark-green");
                             ?>
                         </ul>
