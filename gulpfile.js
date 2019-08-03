@@ -54,7 +54,6 @@ defaultTasks.push("scripts");
 // Minify Stylesheets
 const stylesheets = {
     main: [
-        "./assets/css/third-party/font-awesome.min.css",
         "./assets/css/jpi/main.css",
     ],
 };

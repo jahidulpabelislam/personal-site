@@ -65,10 +65,11 @@ $pageRenderer = PageRenderer::get();
 
         <?php $pageRenderer->renderFavicons(); ?>
 
+        <link href="<?php $site::echoWithAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+
         <!-- Custom stylesheet for site -->
         <?php if ($site->isDebug()) {
             ?>
-            <link href="<?php $site::echoWithAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <link href="<?php $site::echoWithAssetVersion("/assets/css/jpi/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php
         }
