@@ -62,9 +62,10 @@
     border: 4px solid $grey;
     border-radius: 50%;
     background-color: white;
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     font-size: 14px;
-    line-height: 22px;
+    line-height: 20px;
+    font-weight: 900;
     color: $grey;
     text-align: center;
     z-index: 1;
@@ -79,7 +80,7 @@
 }
 
 .timeline-item__content--baby::after {
-    content: "\f1a1";
+    content: "\f77c";
 }
 
 .timeline-item__content--work::after {
@@ -95,7 +96,7 @@
 }
 
 .timeline-item__content--food::after {
-    content: "\f0f5";
+    content: "\f2e7";
 }
 
 .timeline-item__content--film::after {
@@ -141,8 +142,8 @@
         height: 34px;
         left: 17px;
         border-bottom-width: 4px;
-        line-height: 28px;
         font-size: 18px;
+        line-height: 26px;
     }
 
     .timeline__item:nth-child(even) .timeline-item__content::before {

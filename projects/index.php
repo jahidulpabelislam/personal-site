@@ -94,7 +94,7 @@ $pageRenderer->renderHeader();
                         </form>
 
                         <p class="feedback feedback--error"></p>
-                        <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
+                        <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
                         <div class="projects js-all-projects"></div>
                         <ul class="pagination pagination--projects"></ul>
 

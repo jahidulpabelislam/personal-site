@@ -97,7 +97,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     title: "Link to " + project.name,
                     target: "_blank",
                     rel: "noopener noreferrer",
-                    innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
+                    innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
                 });
             }
@@ -108,7 +108,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     title: "Link to download " + project.name,
                     target: "_blank",
                     rel: "noopener noreferrer",
-                    innerHTML: "<i class='fa fa-download fa-2x'></i>",
+                    innerHTML: "<i class='fas fa-download fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
                 });
             }
@@ -119,7 +119,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     title: "Link to " + project.name + " code on GitHub",
                     target: "_blank",
                     rel: "noopener noreferrer",
-                    innerHTML: "<i class='fa fa-github fa-2x'></i>",
+                    innerHTML: "<i class='fab fa-github fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
                 });
             }

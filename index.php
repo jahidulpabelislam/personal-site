@@ -108,7 +108,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                 <section class="article projects">
                     <h3 class="article__header">Latest Projects</h3>
 
-                    <i class="projects__loading-img fa fa-spinner fa-spin fa-3x"></i>
+                    <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
 
                     <div class="slide-show" id="slide-show--home">
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">

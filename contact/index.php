@@ -46,7 +46,7 @@ $pageRenderer->renderHeader();
                             </div>
 
                             <p class="feedback" id="contact-form__feedback"></p>
-                            <button type="submit" class="btn btn--dark-green" id="submit" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
+                            <button type="submit" class="btn btn--dark-green" id="submit" data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending" data-initial-text="Send">Send</button>
                         </form>
                     </div>
                 </section>

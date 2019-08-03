@@ -83,7 +83,7 @@ window.jpi.home = (function(jQuery, jpi) {
             if (project.link) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.link,
-                    innerHTML: "<i class='fa fa-external-link fa-2x'></i>",
+                    innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
                     rel: "noopener noreferrer",
@@ -93,7 +93,7 @@ window.jpi.home = (function(jQuery, jpi) {
             if (project.github) {
                 jpi.helpers.createElement(linksContainer, "a", {
                     href: project.github,
-                    innerHTML: "<i class='fa fa-github fa-2x'></i>",
+                    innerHTML: "<i class='fab fa-github fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
                     rel: "noopener noreferrer",
