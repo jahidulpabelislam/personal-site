@@ -242,7 +242,7 @@ class Site implements SiteConstants {
      * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
      * including a version number
      */
-    public static function getWithAssetVersion(string $src, $ver = false, string $root = ROOT): string {
+    public static function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
         $ver = self::getAssetVersion($src, $ver, $root);
 
         return "{$src}?v={$ver}";
@@ -253,7 +253,7 @@ class Site implements SiteConstants {
      * Used to echo the full relative URL for the asset including a version number
      */
     public static function echoWithAssetVersion(string $src, $ver = false, string $root = ROOT) {
-        echo self::getWithAssetVersion($src, $ver, $root);
+        echo self::addAssetVersion($src, $ver, $root);
     }
 
     /**
@@ -349,7 +349,7 @@ class Site implements SiteConstants {
             $toDate = $this->getNowDateTime();
         }
 
-        if (!is_a($fromDate, "DateTime") && !is_a($toDate, "DateTime")) {
+        if (!$fromDate instanceof \DateTime && !$toDate instanceof \DateTime) {
             return "";
         }
 

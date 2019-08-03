@@ -52,7 +52,7 @@ $pageRenderer = PageRenderer::get();
         $filePath = ROOT . "/" . ltrim($imageLocation, " /");
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
-            $relativeImageURL = $site::getWithAssetVersion($imageLocation);
+            $relativeImageURL = $site::addAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>
             <meta property="og:image" content="<?php echo $imageURL; ?>" />
