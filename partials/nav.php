@@ -42,7 +42,6 @@ $site = Site::get();
                             $linkTitle = $link["title"];
 
                             $url = $link["url"] ?? "/";
-                            $url = strtolower($url);
                             $fullURL = $site->getURL($url);
 
                             $classes = "nav-item__link";

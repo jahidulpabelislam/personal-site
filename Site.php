@@ -96,6 +96,7 @@ class Site implements SiteConstants {
         }
 
         $url = "{$url}/";
+
         return $url;
     }
 
@@ -132,7 +133,7 @@ class Site implements SiteConstants {
 
         $relativeURL = ltrim($relativeURL, " /");
 
-        $fullURL = $domain . "/" . $relativeURL;
+        $fullURL = self::addTrailingSlash($domain) . $relativeURL;
         $fullURL = self::addTrailingSlash($fullURL);
 
         return $fullURL;
