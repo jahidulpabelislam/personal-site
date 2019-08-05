@@ -49,6 +49,8 @@ class PageRenderer {
         $globalPageData = [
             "pageId" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
+            "jsGlobals" => [],
+            "jsScripts" => [],
         ];
 
         $this->addPageData($globalPageData);
@@ -60,6 +62,22 @@ class PageRenderer {
         }
 
         $this->pageData[$field] = $value;
+    }
+
+    public function addToJSGlobals(string $field, $value) {
+        if (is_string($value)) {
+            $value = trim($value);
+        }
+
+        $this->pageData['jsGlobals'][$field] = $value;
+    }
+
+    public function addJSScript(string $script) {
+        if (is_string($script)) {
+            $value = trim($script);
+        }
+
+        $this->pageData['jsScripts'][] = $script;
     }
 
     public function addPageData(array $fields) {
@@ -136,6 +154,37 @@ class PageRenderer {
      */
     public function renderCookieBanner() {
         include_once(ROOT . "/partials/cookie-banner.php");
+    }
+
+    /**
+     * Include the common cookie banner content for page/site
+     */
+    public function renderJSGlobals() {
+        $jsGlobalsArr = $this->getFromPageData("jsGlobals", []);
+
+        if (empty($jsGlobalsArr)) {
+            return;
+        }
+
+        $jsGlobals = json_encode($jsGlobalsArr);
+        echo "
+            <script>
+                window.jpi = window.jpi || {};
+                window.jpi.config = {$jsGlobals};
+            </script>";
+    }
+
+    public function renderJSScripts() {
+        $scripts = $this->getFromPageData("jsScripts", []);
+
+        if (empty($scripts)) {
+            return;
+        }
+
+        foreach ($scripts as $script) {
+            $script = $this->site::addAssetVersion($script);
+            echo "<script src='{$script}' type='text/javascript'></script>";
+        }
     }
 }
 

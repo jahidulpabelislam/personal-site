@@ -74,7 +74,11 @@ $pageRenderer = PageRenderer::get();
             </div>
         </footer>
 
-        <?php $pageRenderer->renderCookieBanner(); ?>
+        <?php
+        $pageRenderer->renderCookieBanner();
+        $pageRenderer->renderJSScripts();
+        $pageRenderer->renderJSGlobals();
+        ?>
 
         <?php
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
