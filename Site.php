@@ -88,7 +88,7 @@ class Site implements SiteConstants {
         $withoutProtocol = str_replace(["https://", "http://"], "", $url);
         $splitPaths = explode("/", $withoutProtocol);
         $count = count($splitPaths);
-        if ($count > 1) {
+        if ($count > 1 && !is_dir($url)) {
             $lastPath = $splitPaths[$count - 1] ?? null;
             if ($lastPath && strpos($lastPath, ".")) {
                 return $url;
