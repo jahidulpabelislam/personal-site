@@ -76,8 +76,9 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $pageRenderer->renderCookieBanner();
-        $pageRenderer->renderJSScripts();
+
         $pageRenderer->renderJSGlobals();
+        $pageRenderer->renderJSScripts();
         ?>
 
         <?php
