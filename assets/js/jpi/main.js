@@ -23,7 +23,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
                     streetViewControl: false,
                     rotateControl: false,
                     fullscreenControl: false,
-                    styles: jpi.config.googleMapStyles,
+                    styles: JSON.parse(jpi.config.googleMapStyles),
                 },
                 map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
 
