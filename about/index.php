@@ -338,9 +338,8 @@ function renderSkillsOrInterests(array $items, string $colour)
                     </div>
                 </section>
 
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg"></script>
-
 <?php
+$pageRenderer->addJSScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
 $pageRenderer->addToJSGlobals("googleMapStyles", file_get_contents(ROOT . "/assets/map-styling.json"));
 
 $similarLinks = [

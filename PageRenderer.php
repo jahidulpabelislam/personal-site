@@ -50,6 +50,7 @@ class PageRenderer {
             "pageId" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
             "jsGlobals" => [],
+            "jsScripts" => [],
         ];
 
         $this->addPageData($globalPageData);
@@ -69,6 +70,14 @@ class PageRenderer {
         }
 
         $this->pageData['jsGlobals'][$field] = $value;
+    }
+
+    public function addJSScript(string $script) {
+        if (is_string($script)) {
+            $value = trim($script);
+        }
+
+        $this->pageData['jsScripts'][] = $script;
     }
 
     public function addPageData(array $fields) {
@@ -163,6 +172,19 @@ class PageRenderer {
                 window.jpi = window.jpi || {};
                 window.jpi.config = {$jsGlobals};
             </script>";
+    }
+
+    public function renderJSScripts() {
+        $scripts = $this->getFromPageData("jsScripts", []);
+
+        if (empty($scripts)) {
+            return;
+        }
+
+        foreach ($scripts as $script) {
+            $script = $this->site::addAssetVersion($script);
+            echo "<script src='{$script}' type='text/javascript'></script>";
+        }
     }
 }
 
