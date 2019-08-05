@@ -206,13 +206,9 @@ $pageRenderer->renderHeader();
                     </button>
                 </script>
 
-                <script>
-                    window.jpi = window.jpi || {};
-                    window.jpi.config = window.jpi.config || {};
-                    window.jpi.config.jpiAPIEndpoint = "<?php $site::echoAPIEndpoint(); ?>";
-                </script>
-
 <?php
+$pageRenderer->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+
 $similarLinks = [
     [
         "title" => "Contact",

@@ -191,13 +191,9 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                     <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ id }}"></button>
                 </script>
 
-                <script>
-                    window.jpi = window.jpi || {};
-                    window.jpi.config = window.jpi.config || {};
-                    window.jpi.config.jpiAPIEndpoint = "<?php $site::echoAPIEndpoint(); ?>";
-                </script>
-
 <?php
+$pageRenderer->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+
 $similarLinks = [
     [
         "title" => "Projects",
