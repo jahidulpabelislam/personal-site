@@ -1,6 +1,6 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/Site.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/PageRenderer.php");
 
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
