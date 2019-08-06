@@ -182,6 +182,9 @@ class PageRenderer {
         }
 
         foreach ($scripts as $script) {
+            // Commented out as it fails for Google Maps as it already has params.
+            // TODO: But add this back in when figured out nice way to append to current params
+            // $script = $this->site::addAssetVersion($script);
             echo "<script src='{$script}' type='text/javascript'></script>";
         }
     }
