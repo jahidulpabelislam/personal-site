@@ -182,7 +182,6 @@ class PageRenderer {
         }
 
         foreach ($scripts as $script) {
-            $script = $this->site::addAssetVersion($script);
             echo "<script src='{$script}' type='text/javascript'></script>";
         }
     }
