@@ -10,7 +10,7 @@ window.jpi.projects = (function(jQuery, jpi) {
     var global = {
         url: new URL(window.location),
         titleStart: "Projects",
-        titleEnd: " | Jahidul Pabel Islam - Full Stack Web & Software Developer",
+        titleEnd: " | Jahidul Pabel Islam - Full Stack Developer",
 
         modalSelector: ".detailed-project",
 

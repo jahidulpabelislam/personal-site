@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Site Map for Jahidul Pabel Islam's Portfolio, a Web and Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Site map for Jahidul Pabel Islam's Portfolio, a Web &amp; Software Developer based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Site Map",

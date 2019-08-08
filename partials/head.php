@@ -20,16 +20,14 @@ $pageRenderer = PageRenderer::get();
             <script type="text/javascript">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","UA-70803146-2");</script>
             <?php
         }
-        ?>
 
-        <!-- All meta data for page -->
-        <?php
-        $title = "{$title} | Jahidul Pabel Islam - Full Stack Web &amp; Software Developer";
+        $title = "{$title} | Jahidul Pabel Islam - Full Stack Developer";
         if ($pageId === "home") {
-            $title = "Full Stack Web &amp; Software Developer, Jahidul Pabel Islam's Portfolio";
+            $title = "Jahidul Pabel Islam's Portfolio - Full Stack Developer";
         }
         ?>
 
+        <!-- All meta data for page -->
         <title><?php echo $title; ?></title>
 
         <?php $pageRenderer->renderCanonicalURLs(); ?>
@@ -42,9 +40,8 @@ $pageRenderer = PageRenderer::get();
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $title; ?>" />
-
-        <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
         <meta property="og:description" content="<?php echo $desc; ?>" />
+        <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 
         <?php
@@ -68,7 +65,8 @@ $pageRenderer = PageRenderer::get();
         <link href="<?php $site::echoWithAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
 
         <!-- Custom stylesheet for site -->
-        <?php if ($site->isDebug()) {
+        <?php
+        if ($site->isDebug()) {
             ?>
             <link href="<?php $site::echoWithAssetVersion("/assets/css/jpi/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
             <?php

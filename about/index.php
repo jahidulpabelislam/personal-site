@@ -5,7 +5,7 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Some Information About Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
@@ -59,7 +59,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                             ?>
 
                             <p>I'm <?php echo $age; ?> years old.</p>
-                            <p>A Full Stack Web and Software Developer.</p>
+                            <p>A Full Stack Developer.</p>
                         </div>
                     </div>
                 </div>
@@ -126,13 +126,13 @@ function renderSkillsOrInterests(array $items, string $colour)
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                                 <img src="<?php $site::echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
                         <div class="article__half">
                             <p>
-                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                                     Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                                     West Sussex</a>, South East Coast of England.
                             </p>

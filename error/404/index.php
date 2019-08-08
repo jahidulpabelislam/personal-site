@@ -7,7 +7,7 @@ $pageRenderer = PageRenderer::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Page Not Found";
-$headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down by the South Coast of England.";
+$headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $directory = __DIR__;
 $url = $site::turnPathToURL($directory);

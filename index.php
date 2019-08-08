@@ -5,12 +5,12 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Portfolio for Jahidul Pabel Islam, a Full Stack Web &amp; Software Developer in Bognor Regis, West Sussex Down in the South Coast of England.";
+$headDesc = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
     "headDesc" => $headDesc,
     "headerTitle" => "Jahidul Pabel Islam",
-    "headerDesc" => "Full Stack Web &amp; Software Developer",
+    "headerDesc" => "Full Stack Developer",
 ];
 $pageRenderer->addPageData($pageData);
 
@@ -50,7 +50,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </p>
                             <p>
                                 Reside in
-                                <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to Map of Bognor Regis." target="_blank" rel="noopener noreferrer">West Sussex</a>, down in the south coast of England.
+                                <a class="link-styled" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">West Sussex</a>, down in the south coast of England.
                             </p>
                         </div>
                     </div>
