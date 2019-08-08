@@ -27,29 +27,6 @@ $pageRenderer->renderHeader();
                             </li>
                             <li>
                                 <a class="link-styled" href="<?php $site->echoURL("projects"); ?>">Projects</a>
-                                <ul>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/mind-map"); ?>">Mind Map</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/bubbles-bargain-world"); ?>">BubblesBargainWorld</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/lials"); ?>">Lials</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/muesli"); ?>">Muesli</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="/projects/izibalo-android/frame.html">Izibalo - Android</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/e-games"); ?>">e-games</a>
-                                    </li>
-                                    <li>
-                                        <a class="link-styled" href="<?php $site->echoURL("projects/sportsite-universal"); ?>">Sportsite Universal</a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a class="link-styled" href="<?php $site->echoURL("contact"); ?>">Contact</a>
