@@ -132,7 +132,7 @@ include '../inc/header.php';
         allowfullscreen></iframe>
 
     <!-- Script to validate contact form -->
-    <script type="text/javascript" src="/lib/formValidator.js"></script>
+    <script type="text/javascript" src="lib/formValidator.js"></script>
 
     <!-- End dynamic content -->
 

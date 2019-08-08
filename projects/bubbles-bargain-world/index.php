@@ -25,7 +25,7 @@ include "inc/header.php";
     </div>
 
     <!-- Script to make slideShow work -->
-    <script type="text/javascript" src="/lib/slideShow.js"></script>
+    <script type="text/javascript" src="lib/slideShow.js"></script>
 
     <p>Welcome to Bubblesbargainworld.co.uk, one of the England's South Coast's leading retailer with a relentless drive
         to exceed expectations. We dedicate to provide you the best shopping experience at great discount prices.</p>
