@@ -66,23 +66,14 @@ $pageRenderer = PageRenderer::get();
 
         <!-- Custom stylesheet for site -->
         <?php
-        if ($site->isDebug()) {
-            ?>
-            <style>
-                <?php echo file_get_contents(ROOT . "/assets/css/jpi/above-the-fold.css"); ?>
-            </style>
-            <noscript><link href="<?php $site::echoWithAssetVersion("/assets/css/jpi/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
-            <?php
-        }
-        else {
-            ?>
-            <style>
-                <?php echo file_get_contents(ROOT . "/assets/css/above-the-fold.min.css"); ?>
-            </style>
-            <noscript><link href="<?php $site::echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
-            <?php
-        }
+        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $site->isDebug() ? "css" : "min.css";
         ?>
+        <style>
+            <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
+        </style>
+        <noscript><link href="<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
+
     </head>
 
     <body>
