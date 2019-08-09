@@ -62,7 +62,7 @@ $pageRenderer = PageRenderer::get();
 
         <?php $pageRenderer->renderFavicons(); ?>
 
-        <link href="<?php $site::echoWithAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+        <link href="<?php $site::echoWithAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0"); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
 
         <!-- Custom stylesheet for site -->
         <?php
@@ -72,7 +72,7 @@ $pageRenderer = PageRenderer::get();
         <style>
             <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
-        <noscript><link href="<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
+        <noscript><link href="<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
 
     </head>
 
