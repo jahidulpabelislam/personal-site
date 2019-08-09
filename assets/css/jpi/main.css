@@ -762,6 +762,26 @@ label {
   background: #0375b4 url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
   background-size: cover; }
 
+.header--401,
+.header--403,
+.header--404 {
+  background-image: url("/assets/images/mistake.jpg?v=2"); }
+
+.header--500 {
+  background-image: url("/assets/images/500.jpg?v=2"); }
+
+.header--about {
+  background-image: url("/assets/images/marmaris.jpg?v=2"); }
+
+.header--contact {
+  background-image: url("/assets/images/contact.jpg?v=2"); }
+
+.header--home {
+  background-image: url("/assets/images/working.jpg?v=2"); }
+
+.header--projects {
+  background-image: url("/assets/images/projects.jpg?v=2"); }
+
 .header__overlay {
   display: flex;
   height: 100%;
@@ -1776,9 +1796,6 @@ label {
     text-align: right; } }
 
 /* For all devices */
-.header--about {
-  background-image: url("/assets/images/marmaris.jpg?v=2"); }
-
 .article--about {
   font-weight: 700; }
 
@@ -1968,10 +1985,6 @@ label {
   .map {
     height: 250px; } }
 
-/* For all devices */
-.header--contact {
-  background-image: url("/assets/images/contact.jpg?v=2"); }
-
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   .contact-form {
@@ -1990,9 +2003,6 @@ label {
     width: 100%; } }
 
 /* For all devices */
-.header--home {
-  background-image: url("/assets/images/working.jpg?v=2"); }
-
 .home__hello {
   margin: 10px 0; }
 
@@ -2211,6 +2221,7 @@ label {
   .project-info__desc {
     display: block; } }
 
+/* For all devices */
 .social-links-page {
   margin-bottom: 0; }
 
@@ -2284,9 +2295,6 @@ label {
     max-width: 200px; } }
 
 /* For all devices */
-.header--projects {
-  background-image: url("/assets/images/projects.jpg?v=2"); }
-
 .search-form {
   position: relative;
   margin-bottom: 20px; }
@@ -2888,18 +2896,11 @@ label {
     font-size: 40px;
     line-height: 33px; } }
 
-.header--500 {
-  background-image: url("/assets/images/500.jpg?v=2"); }
-
-.header--401,
-.header--403,
-.header--404 {
-  background-image: url("/assets/images/mistake.jpg?v=2"); }
-
 .error__img {
   width: 75%;
   max-width: 165px; }
 
+/* For all devices */
 .site-map__list {
   width: 100%;
   text-align: left;

@@ -68,12 +68,18 @@ $pageRenderer = PageRenderer::get();
         <?php
         if ($site->isDebug()) {
             ?>
-            <link href="<?php $site::echoWithAssetVersion("/assets/css/jpi/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+            <style>
+                <?php echo file_get_contents(ROOT . "/assets/css/jpi/above-the-fold.css"); ?>
+            </style>
+            <noscript><link href="<?php $site::echoWithAssetVersion("/assets/css/jpi/main.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
             <?php
         }
         else {
             ?>
-            <link href="<?php $site::echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" />
+            <style>
+                <?php echo file_get_contents(ROOT . "/assets/css/above-the-fold.min.css"); ?>
+            </style>
+            <noscript><link href="<?php $site::echoWithAssetVersion("/assets/css/main.min.css"); ?>" rel="stylesheet" title="style" media="all" type="text/css" /></noscript>
             <?php
         }
         ?>

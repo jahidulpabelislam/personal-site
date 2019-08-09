@@ -5,6 +5,26 @@
     background: $primary-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
 }
+.header--401,
+.header--403,
+.header--404 {
+    background-image: url("/assets/images/mistake.jpg?v=2");
+}
+.header--500 {
+    background-image: url("/assets/images/500.jpg?v=2");
+}
+.header--about {
+    background-image: url("/assets/images/marmaris.jpg?v=2");
+}
+.header--contact {
+    background-image: url("/assets/images/contact.jpg?v=2");
+}
+.header--home {
+    background-image: url("/assets/images/working.jpg?v=2");
+}
+.header--projects {
+    background-image: url("/assets/images/projects.jpg?v=2");
+}
 
 .header__overlay {
     display: flex;

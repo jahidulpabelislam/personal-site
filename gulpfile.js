@@ -53,7 +53,10 @@ defaultTasks.push("scripts");
 
 // Minify Stylesheets
 const stylesheets = {
-    main: [
+    "above-the-fold": [
+        "./assets/css/jpi/above-the-fold.css",
+    ],
+    "main": [
         "./assets/css/jpi/main.css",
     ],
 };
@@ -83,11 +86,22 @@ stylesheetNames.forEach(function(key) {
 gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
 
-gulp.task("sass", function() {
-    return gulp.src("./assets/css/jpi/main.scss")
-               .pipe(sass().on("error", sass.logError))
-               .pipe(gulp.dest("./assets/css/jpi/"));
+const scssTasks = [];
+const sassFiles = [
+    "./assets/css/jpi/above-the-fold.scss",
+    "./assets/css/jpi/main.scss",
+];
+sassFiles.forEach(function(scssFile, i) {
+    const scssTask = "scss-" + i;
+    scssTasks.push(scssTask);
+    gulp.task(scssTask, function() {
+        return gulp.src(scssFile)
+                   .pipe(sass().on("error", sass.logError))
+                   .pipe(gulp.dest("./assets/css/jpi/"));
+    });
 });
+gulp.task("sass", gulp.parallel(scssTasks));
+
 // Watch Files For Changes
 gulp.task("watch", function() {
     gulp.watch("./assets/css/jpi/**/*.scss", gulp.parallel("sass"));
