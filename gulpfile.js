@@ -2,37 +2,42 @@ const gulp = require("gulp"),
 
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
+
     cleanCss = require("gulp-clean-css"),
-    autoprefixer = require("gulp-autoprefixer"),
+    autoPrefix = require("gulp-autoprefixer"),
     sass = require("gulp-sass"),
 
     fs = require("fs"),
     exec = require("child_process").exec;
+
+const assetsDir = "./assets";
+const jsDir = `${assetsDir}/js`;
+const cssDir = `${assetsDir}/css`;
 
 let defaultTasks = [];
 
 // Concatenate & Minify JS
 const scripts = {
     "main": [
-        "./assets/js/third-party/jquery.min.js",
-        "./assets/js/third-party/waypoint.min.js",
-        "./assets/js/third-party/jquery.countTo.js",
-        "./assets/js/third-party/sticky-footer.min.js",
-        "./assets/js/jpi/expanded-slide-show.js",
-        "./assets/js/jpi/slide-show.js",
-        "./assets/js/jpi/helpers.js",
-        "./assets/js/jpi/ajax.js",
-        "./assets/js/jpi/projects.js",
-        "./assets/js/jpi/home.js",
-        "./assets/js/jpi/form.js",
-        "./assets/js/jpi/nav.js",
-        "./assets/js/jpi/cookie-banner.js",
-        "./assets/js/jpi/main.js",
+        `${jsDir}/third-party/jquery.min.js`,
+        `${jsDir}/third-party/waypoint.min.js`,
+        `${jsDir}/third-party/jquery.countTo.js`,
+        `${jsDir}/third-party/sticky-footer.min.js`,
+        `${jsDir}/jpi/expanded-slide-show.js`,
+        `${jsDir}/jpi/slide-show.js`,
+        `${jsDir}/jpi/helpers.js`,
+        `${jsDir}/jpi/ajax.js`,
+        `${jsDir}/jpi/projects.js`,
+        `${jsDir}/jpi/home.js`,
+        `${jsDir}/jpi/form.js`,
+        `${jsDir}/jpi/nav.js`,
+        `${jsDir}/jpi/cookie-banner.js`,
+        `${jsDir}/jpi/main.js`,
     ],
     "social-links" : [
-        "./assets/js/third-party/jquery.min.js",
-        "./assets/js/third-party/sticky-footer.min.js",
-        "./assets/js/jpi/helpers.js",
+        `${jsDir}/third-party/jquery.min.js`,
+        `${jsDir}/third-party/sticky-footer.min.js`,
+        `${jsDir}/jpi/helpers.js`,
     ],
 };
 const scriptNames = Object.keys(scripts);
@@ -45,7 +50,7 @@ scriptNames.forEach(function(key) {
         return gulp.src(scripts[key])
                    .pipe(concat(key + ".min.js"))
                    .pipe(uglify())
-                   .pipe(gulp.dest("./assets/js/"));
+                   .pipe(gulp.dest(jsDir));
     });
 });
 gulp.task("scripts", gulp.parallel(scriptTasks));
@@ -54,10 +59,10 @@ defaultTasks.push("scripts");
 // Minify Stylesheets
 const stylesheets = {
     "above-the-fold": [
-        "./assets/css/jpi/above-the-fold.css",
+        `${cssDir}/jpi/above-the-fold.css`,
     ],
     "main": [
-        "./assets/css/jpi/main.css",
+        `${cssDir}/jpi/main.css`,
     ],
 };
 const stylesheetNames = Object.keys(stylesheets);
@@ -70,7 +75,7 @@ stylesheetNames.forEach(function(key) {
         return gulp.src(stylesheets[key])
                    .pipe(concat(key + ".min.css"))
                    .pipe(
-                       autoprefixer({
+                       autoPrefix({
                            browsers: ["> 0.1%", "ie 8-11"],
                            remove: false,
                        })
@@ -80,7 +85,7 @@ stylesheetNames.forEach(function(key) {
                            compatibility: "ie8",
                        })
                    )
-                   .pipe(gulp.dest("./assets/css/"));
+                   .pipe(gulp.dest(cssDir));
     });
 });
 gulp.task("styles", gulp.parallel(stylesheetTasks));
@@ -88,8 +93,8 @@ defaultTasks.push("styles");
 
 const scssTasks = [];
 const sassFiles = [
-    "./assets/css/jpi/above-the-fold.scss",
-    "./assets/css/jpi/main.scss",
+    `${cssDir}/jpi/above-the-fold.scss`,
+    `${cssDir}/jpi/main.scss`,
 ];
 sassFiles.forEach(function(scssFile, i) {
     const scssTask = "scss-" + i;
@@ -97,14 +102,14 @@ sassFiles.forEach(function(scssFile, i) {
     gulp.task(scssTask, function() {
         return gulp.src(scssFile)
                    .pipe(sass().on("error", sass.logError))
-                   .pipe(gulp.dest("./assets/css/jpi/"));
+                   .pipe(gulp.dest(`${cssDir}/jpi/`));
     });
 });
 gulp.task("sass", gulp.parallel(scssTasks));
 
 // Watch Files For Changes
 gulp.task("watch", function() {
-    gulp.watch("./assets/css/jpi/**/*.scss", gulp.parallel("sass"));
+    gulp.watch(`${cssDir}/jpi/**/*.scss`, gulp.parallel("sass"));
 });
 
 const errorCallback = function(err) {
@@ -129,7 +134,7 @@ const runCommand = function(command, callback) {
 defaultTasks.push("store-version");
 gulp.task("store-version", function() {
     const githubBaseUrl = "https://github.com/jahidulpabelislam/portfolio";
-    const fileName = "./assets/version.txt";
+    const fileName = `${assetsDir}/version.txt`;
     let versionText = "";
 
     // Try to get current branch name
