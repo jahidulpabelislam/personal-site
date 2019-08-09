@@ -56,6 +56,28 @@ scriptNames.forEach(function(key) {
 gulp.task("scripts", gulp.parallel(scriptTasks));
 defaultTasks.push("scripts");
 
+const scssTasks = [];
+const sassFiles = [
+    `${cssDir}/jpi/above-the-fold.scss`,
+    `${cssDir}/jpi/main.scss`,
+];
+sassFiles.forEach(function(scssFile, i) {
+    const scssTask = "scss-" + i;
+    scssTasks.push(scssTask);
+    gulp.task(scssTask, function() {
+        return gulp.src(scssFile)
+                   .pipe(sass().on("error", sass.logError))
+                   .pipe(gulp.dest(`${cssDir}/jpi/`));
+    });
+});
+defaultTasks.push("sass");
+gulp.task("sass", gulp.parallel(scssTasks));
+
+// Watch Files For Changes
+gulp.task("watch", function() {
+    gulp.watch(`${cssDir}/jpi/**/*.scss`, gulp.parallel("sass"));
+});
+
 // Minify Stylesheets
 const stylesheets = {
     "above-the-fold": [
@@ -90,27 +112,6 @@ stylesheetNames.forEach(function(key) {
 });
 gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
-
-const scssTasks = [];
-const sassFiles = [
-    `${cssDir}/jpi/above-the-fold.scss`,
-    `${cssDir}/jpi/main.scss`,
-];
-sassFiles.forEach(function(scssFile, i) {
-    const scssTask = "scss-" + i;
-    scssTasks.push(scssTask);
-    gulp.task(scssTask, function() {
-        return gulp.src(scssFile)
-                   .pipe(sass().on("error", sass.logError))
-                   .pipe(gulp.dest(`${cssDir}/jpi/`));
-    });
-});
-gulp.task("sass", gulp.parallel(scssTasks));
-
-// Watch Files For Changes
-gulp.task("watch", function() {
-    gulp.watch(`${cssDir}/jpi/**/*.scss`, gulp.parallel("sass"));
-});
 
 const errorCallback = function(err) {
     if (err) {
@@ -164,4 +165,4 @@ gulp.task("store-version", function() {
     });
 });
 
-gulp.task("default", gulp.parallel(defaultTasks));
+gulp.task("default", gulp.series(defaultTasks));
