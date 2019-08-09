@@ -2,7 +2,7 @@
  * Holds any helpers functions for whole project
  */
 window.jpi = window.jpi || {};
-window.jpi.helpers = (function() {
+window.jpi.helpers = (function(jQuery) {
 
     "use strict";
 
@@ -84,6 +84,20 @@ window.jpi.helpers = (function() {
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
         },
 
+        loadCSSFile: function(src) {
+            var links = jQuery("head link");
+            var lastLink = links[links.length - 1];
+
+            var newLink = jQuery("<link>", {
+                rel: "stylesheet",
+                type: "text/css",
+                media: "all",
+                title: "style",
+                href: src,
+            });
+            newLink.insertAfter(lastLink);
+        },
+
         /**
          * http://davidwalsh.name/javascript-debounce-function
          */
@@ -117,6 +131,7 @@ window.jpi.helpers = (function() {
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,
         setCookie: fn.setCookie,
+        loadCSSFile: fn.loadCSSFile,
         debounce: fn.debounce,
     };
-})();
+})(jQuery);

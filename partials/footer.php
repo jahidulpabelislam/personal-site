@@ -108,6 +108,15 @@ $pageRenderer = PageRenderer::get();
             <script src="<?php $site::echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
+
+        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $site->isDebug() ? "css" : "min.css";
         ?>
+
+        <script type="text/javascript">
+            jQuery(document).on("ready", function() {
+                jpi.helpers.loadCSSFile("<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>");
+            });
+        </script>
     </body>
 </html>
