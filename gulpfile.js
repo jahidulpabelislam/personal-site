@@ -44,11 +44,11 @@ const scriptNames = Object.keys(scripts);
 
 let scriptTasks = [];
 scriptNames.forEach(function(key) {
-    const scriptTask = "scripts-" + key;
+    const scriptTask = `scripts-${key}`;
     scriptTasks.push(scriptTask);
     gulp.task(scriptTask, function() {
         return gulp.src(scripts[key])
-                   .pipe(concat(key + ".min.js"))
+                   .pipe(concat(`${key}.min.js`))
                    .pipe(uglify())
                    .pipe(gulp.dest(jsDir));
     });
@@ -69,26 +69,15 @@ gulp.task("watch", function() {
 });
 
 // Minify Stylesheets
-const stylesheets = {
-    "above-the-fold": [
-        `${cssDir}/jpi/above-the-fold.css`,
-    ],
-    "main": [
-        `${cssDir}/jpi/main.css`,
-    ],
-    "links": [
-        `${cssDir}/jpi/links.css`,
-    ],
-};
-const stylesheetNames = Object.keys(stylesheets);
+const stylesheets = ["above-the-fold", "main", "links"];
 
 let stylesheetTasks = [];
-stylesheetNames.forEach(function(key) {
-    const stylesheetTask = "styles-" + key;
+stylesheets.forEach(function(stylesheet) {
+    const stylesheetTask = `styles-${stylesheet}`;
     stylesheetTasks.push(stylesheetTask);
     gulp.task(stylesheetTask, function() {
-        return gulp.src(stylesheets[key])
-                   .pipe(concat(key + ".min.css"))
+        return gulp.src(`${cssDir}/jpi/${stylesheet}.css`)
+                   .pipe(concat(`${stylesheet}.min.css`))
                    .pipe(autoPrefix({
                        browsers: ["> 0.1%", "ie 8-11"],
                        remove: false,
