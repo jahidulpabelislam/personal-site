@@ -56,22 +56,12 @@ scriptNames.forEach(function(key) {
 gulp.task("scripts", gulp.parallel(scriptTasks));
 defaultTasks.push("scripts");
 
-const scssTasks = [];
-const sassFiles = [
-    `${cssDir}/jpi/above-the-fold.scss`,
-    `${cssDir}/jpi/main.scss`,
-];
-sassFiles.forEach(function(scssFile, i) {
-    const scssTask = "scss-" + i;
-    scssTasks.push(scssTask);
-    gulp.task(scssTask, function() {
-        return gulp.src(scssFile)
-                   .pipe(sass().on("error", sass.logError))
-                   .pipe(gulp.dest(`${cssDir}/jpi/`));
-    });
+gulp.task("sass", function() {
+    return gulp.src([`${cssDir}/jpi/*.scss`])
+               .pipe(sass().on("error", sass.logError))
+               .pipe(gulp.dest(`${cssDir}/jpi/`));
 });
 defaultTasks.push("sass");
-gulp.task("sass", gulp.parallel(scssTasks));
 
 // Watch Files For Changes
 gulp.task("watch", function() {
@@ -86,6 +76,9 @@ const stylesheets = {
     "main": [
         `${cssDir}/jpi/main.css`,
     ],
+    "links": [
+        `${cssDir}/jpi/links.css`,
+    ],
 };
 const stylesheetNames = Object.keys(stylesheets);
 
@@ -96,17 +89,13 @@ stylesheetNames.forEach(function(key) {
     gulp.task(stylesheetTask, function() {
         return gulp.src(stylesheets[key])
                    .pipe(concat(key + ".min.css"))
-                   .pipe(
-                       autoPrefix({
-                           browsers: ["> 0.1%", "ie 8-11"],
-                           remove: false,
-                       })
-                   )
-                   .pipe(
-                       cleanCss({
-                           compatibility: "ie8",
-                       })
-                   )
+                   .pipe(autoPrefix({
+                       browsers: ["> 0.1%", "ie 8-11"],
+                       remove: false,
+                   }))
+                   .pipe(cleanCss({
+                       compatibility: "ie8",
+                   }))
                    .pipe(gulp.dest(cssDir));
     });
 });
