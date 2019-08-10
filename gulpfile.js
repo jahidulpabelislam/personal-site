@@ -60,6 +60,7 @@ const scssTasks = [];
 const sassFiles = [
     `${cssDir}/jpi/above-the-fold.scss`,
     `${cssDir}/jpi/main.scss`,
+    `${cssDir}/jpi/links.scss`,
 ];
 sassFiles.forEach(function(scssFile, i) {
     const scssTask = "scss-" + i;
@@ -85,6 +86,9 @@ const stylesheets = {
     ],
     "main": [
         `${cssDir}/jpi/main.css`,
+    ],
+    "links": [
+        `${cssDir}/jpi/links.css`,
     ],
 };
 const stylesheetNames = Object.keys(stylesheets);
