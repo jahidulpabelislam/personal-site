@@ -85,9 +85,6 @@ window.jpi.helpers = (function(jQuery) {
         },
 
         loadCSSFile: function(src) {
-            var links = jQuery("head link");
-            var lastLink = links[links.length - 1];
-
             var newLink = jQuery("<link>", {
                 rel: "stylesheet",
                 type: "text/css",
@@ -95,7 +92,7 @@ window.jpi.helpers = (function(jQuery) {
                 title: "style",
                 href: src,
             });
-            newLink.insertAfter(lastLink);
+            newLink.appendTo("head");
         },
 
         /**
