@@ -37,6 +37,8 @@ $pageRenderer = PageRenderer::get();
         <meta name="author" content="Jahidul Pabel Islam" />
         <meta name="description" content="<?php echo $desc; ?>" />
 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $title; ?>" />
