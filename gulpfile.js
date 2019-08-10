@@ -34,7 +34,7 @@ const scripts = {
         `${jsDir}/jpi/cookie-banner.js`,
         `${jsDir}/jpi/main.js`,
     ],
-    "social-links" : [
+    "social-links": [
         `${jsDir}/third-party/jquery.min.js`,
         `${jsDir}/third-party/sticky-footer.min.js`,
         `${jsDir}/jpi/helpers.js`,
