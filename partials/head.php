@@ -8,7 +8,7 @@ $pageRenderer = PageRenderer::get();
 ?>
 
 <!DOCTYPE html>
-<html lang="en-gb">
+<html lang="en-GB">
 
     <head>
         <?php
