@@ -72,7 +72,7 @@ $pageRenderer = PageRenderer::get();
         <style>
             <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
-        <noscript><link href="<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
+        <noscript><link href="<?php echo $pageRenderer->getStylesheetForPage() ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
 
     </head>
 

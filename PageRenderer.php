@@ -188,6 +188,16 @@ class PageRenderer {
             echo "<script src='{$script}' type='text/javascript'></script>";
         }
     }
+
+    public function getStylesheetForPage(): string {
+        $cssDir = $this->site->isDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $this->site->isDebug() ? "css" : "min.css";
+
+        $cssSrc = "{$cssDir}/main.{$cssExtension}";
+        $cssSrc = $this->site::addAssetVersion($cssSrc);
+
+        return $cssSrc;
+    }
 }
 
 PageRenderer::get();

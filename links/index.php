@@ -86,14 +86,11 @@ $pageRenderer->renderHTMLHead();
             <script src="<?php $site::echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
-
-        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->isDebug() ? "css" : "min.css";
         ?>
 
         <script type="application/javascript">
             jQuery(window).on("load", function() {
-                jpi.helpers.loadCSSFile("<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>");
+                jpi.helpers.loadCSSFile("<?php echo $pageRenderer->getStylesheetForPage(); ?>");
                 jpi.stickyFooter = new StickyFooter(".main-content");
             });
         </script>
