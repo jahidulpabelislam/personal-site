@@ -32,7 +32,7 @@ $pageRenderer = PageRenderer::get();
 
         <?php $pageRenderer->renderCanonicalURLs(); ?>
 
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Jahidul Pabel Islam" />
         <meta name="description" content="<?php echo $desc; ?>" />
