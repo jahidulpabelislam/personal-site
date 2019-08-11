@@ -190,14 +190,19 @@ class PageRenderer {
     }
 
     public function getStylesheetsForPage(): array {
-        $stylesheets = [
-            $this->site::addAssetVersion("/assets/css/third-party/font-awesome.min.css"),
+        $stylesheets = [];
+
+        $pagesUsingFA = [
+            "home", "projects", "about", "contact",
         ];
+
+        $pageId = $this->getFromPageData("pageId");
+        if (in_array($pageId, $pagesUsingFA)) {
+            $stylesheets[] = $this->site::addAssetVersion("/assets/css/third-party/font-awesome.min.css");
+        }
 
         $cssDir = $this->site->isDebug() ? "assets/css/jpi" : "assets/css";
         $cssExtension = $this->site->isDebug() ? "css" : "min.css";
-
-        $pageId = $this->getFromPageData("pageId");
 
         $cssSrc = "/{$cssDir}/main.{$cssExtension}";
         if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
