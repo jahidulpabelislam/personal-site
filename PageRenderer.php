@@ -190,20 +190,24 @@ class PageRenderer {
     }
 
     public function getStylesheetsForPage(): array {
+        $pageId = $this->getFromPageData("pageId");
+
         $stylesheets = [];
 
+        // Only some pages use Font Awesome, so only add if it uses it
         $pagesUsingFA = [
             "home", "projects", "about", "contact",
         ];
-
-        $pageId = $this->getFromPageData("pageId");
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = $this->site::addAssetVersion("/assets/css/third-party/font-awesome.min.css");
+            $fontAwesomeSrc = "/assets/css/third-party/font-awesome.min.css";
+            $stylesheets[] = $this->site::addAssetVersion($fontAwesomeSrc);
         }
 
         $cssDir = $this->site->isDebug() ? "assets/css/jpi" : "assets/css";
         $cssExtension = $this->site->isDebug() ? "css" : "min.css";
 
+        // Some pages (like `Links`) may use its own css file
+        // so figure out if one exists to use, else use the main one
         $cssSrc = "/{$cssDir}/main.{$cssExtension}";
         if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
             $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
