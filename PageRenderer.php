@@ -51,6 +51,7 @@ class PageRenderer {
             "currentURL" => $this->site->getURL($url, false),
             "jsGlobals" => [],
             "jsScripts" => [],
+            "stylesheets" => $this->getStylesheetsForPage($pageId),
         ];
 
         $this->addPageData($globalPageData);
@@ -189,9 +190,7 @@ class PageRenderer {
         }
     }
 
-    public function getStylesheetsForPage(): array {
-        $pageId = $this->getFromPageData("pageId");
-
+    public function getStylesheetsForPage(string $pageId): array {
         $stylesheets = [];
 
         // Only some pages use Font Awesome, so only add if it uses it

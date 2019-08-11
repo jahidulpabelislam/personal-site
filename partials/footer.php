@@ -116,7 +116,7 @@ $pageRenderer = PageRenderer::get();
         <script type="text/javascript">
             jQuery(document).on("ready", function() {
                 <?php
-                $stylesheets = $pageRenderer->getStylesheetsForPage();
+                $stylesheets = $pageRenderer->getFromPageData("stylesheets");
                 foreach ($stylesheets as $stylesheet) {
                     ?>
                     jpi.helpers.loadCSSFile("<?php echo $stylesheet; ?>");

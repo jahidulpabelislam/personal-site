@@ -73,7 +73,7 @@ $pageRenderer = PageRenderer::get();
             <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
-        $stylesheets = $pageRenderer->getStylesheetsForPage();
+        $stylesheets = $pageRenderer->getFromPageData("stylesheets");
         foreach ($stylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
