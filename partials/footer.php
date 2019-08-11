@@ -115,7 +115,14 @@ $pageRenderer = PageRenderer::get();
 
         <script type="text/javascript">
             jQuery(document).on("ready", function() {
-                jpi.helpers.loadCSSFile("<?php $site::echoWithAssetVersion("{$cssDir}/main.{$cssExtension}"); ?>");
+                <?php
+                $stylesheets = $pageRenderer->getStylesheetsForPage();
+                foreach ($stylesheets as $stylesheet) {
+                    ?>
+                    jpi.helpers.loadCSSFile("<?php echo $stylesheet; ?>");
+                    <?php
+                }
+                ?>
             });
         </script>
     </body>

@@ -90,7 +90,15 @@ $pageRenderer->renderHTMLHead();
 
         <script type="application/javascript">
             jQuery(window).on("load", function() {
-                jpi.helpers.loadCSSFile("<?php echo $pageRenderer->getStylesheetForPage(); ?>");
+                <?php
+                $stylesheets = $pageRenderer->getStylesheetsForPage();
+                foreach ($stylesheets as $stylesheet) {
+                    ?>
+                    jpi.helpers.loadCSSFile("<?php echo $stylesheet; ?>");
+                    <?php
+                }
+                ?>
+
                 jpi.stickyFooter = new StickyFooter(".main-content");
             });
         </script>

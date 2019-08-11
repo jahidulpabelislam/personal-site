@@ -189,7 +189,11 @@ class PageRenderer {
         }
     }
 
-    public function getStylesheetForPage(): string {
+    public function getStylesheetsForPage(): array {
+        $stylesheets = [
+            $this->site::addAssetVersion("/assets/css/third-party/font-awesome.min.css"),
+        ];
+
         $cssDir = $this->site->isDebug() ? "assets/css/jpi" : "assets/css";
         $cssExtension = $this->site->isDebug() ? "css" : "min.css";
 
@@ -199,9 +203,9 @@ class PageRenderer {
         if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
             $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
         }
-        $cssSrc = $this->site::addAssetVersion($cssSrc);
+        $stylesheets[] = $this->site::addAssetVersion($cssSrc);
 
-        return $cssSrc;
+        return $stylesheets;
     }
 }
 
