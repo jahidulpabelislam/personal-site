@@ -106,7 +106,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         },
     };
 
-    jQuery(document).on("ready", fn.init);
+    jQuery(window).on("jpi-css-loaded", fn.init);
 
     return {
         resetFooter: fn.resetFooter,

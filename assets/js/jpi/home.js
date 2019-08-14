@@ -137,7 +137,7 @@ window.jpi.home = (function(jQuery, jpi) {
         },
     };
 
-    jQuery(document).on("ready", fn.init);
+    jQuery(window).on("jpi-css-loaded", fn.init);
 
     return {};
 

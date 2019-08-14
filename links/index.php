@@ -92,12 +92,8 @@ $pageRenderer->renderHTMLHead();
             jQuery(window).on("load", function() {
                 <?php
                 $stylesheets = $pageRenderer->getFromPageData("stylesheets");
-                foreach ($stylesheets as $stylesheet) {
-                    ?>
-                    jpi.helpers.loadCSSFile("<?php echo $stylesheet; ?>");
-                    <?php
-                }
                 ?>
+                jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
 
                 jpi.stickyFooter = new StickyFooter(".main-content");
             });
