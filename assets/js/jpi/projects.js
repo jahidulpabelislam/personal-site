@@ -96,7 +96,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     href: project.link,
                     title: "Link to " + project.name,
                     target: "_blank",
-                    rel: "noopener noreferrer",
+                    rel: "noopener",
                     innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "project__link project__link--" + project.colour,
                 });

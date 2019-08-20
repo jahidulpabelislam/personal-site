@@ -86,7 +86,7 @@ window.jpi.home = (function(jQuery, jpi) {
                     innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "btn btn--clear",
                     target: "_blank",
-                    rel: "noopener noreferrer",
+                    rel: "noopener",
                 });
             }
 
