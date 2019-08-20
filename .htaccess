@@ -60,9 +60,13 @@ RewriteRule ^sitemap.xml?$ /site-map.xml [R=301,NC,L]
 
 # Add caching for resources
 <IfModule mod_headers.c>
-    # Cache specified files for 1 year
+    # Cache specified static files for 1 year
     <FilesMatch "\.(ico|jpg|jpeg|png|gif|css|svg|js)$">
         Header set Cache-Control "max-age=31556952, public"
+    </FilesMatch>
+    # Cache specified files for 1 week
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "max-age=604800, public"
     </FilesMatch>
 </IfModule>
 
