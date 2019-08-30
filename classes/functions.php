@@ -14,16 +14,6 @@ function getProjectRoot(): string {
 	return removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
 }
 
-function turnPathToURL(string $path): string {
-	if (stripos($path, ROOT) === 0) {
-		$path = substr($path, strlen(ROOT));
-	}
-
-	$url = str_replace("\\", "/", $path);
-
-	return $url;
-}
-
 function addTrailingSlash(string $url): string {
 	$url = removeTrailingSlash($url);
 
@@ -42,6 +32,40 @@ function addTrailingSlash(string $url): string {
 	return "{$url}/";
 }
 
+function formatURL(string $domain, string $relativeURL): string {
+	$indexes = [
+		"index.php",
+		"index.html",
+	];
+	foreach ($indexes as $index) {
+		$indexLength = strlen($index);
+		if (substr($relativeURL, -$indexLength) === $index) {
+			$relativeURL = substr($relativeURL, 0, -$indexLength);
+			break;
+		}
+	}
+
+	$domain = addTrailingSlash($domain);
+
+	// Remove the leading slash as domain will have the slash
+	$relativeURL = ltrim($relativeURL, " /");
+	$fullURL = addTrailingSlash($domain . $relativeURL);
+
+	return $fullURL;
+}
+
+function turnPathToURL(string $path): string {
+	if (stripos($path, ROOT) === 0) {
+		$path = substr($path, strlen(ROOT));
+	}
+
+	$url = str_replace("\\", "/", $path);
+
+	$url = formatURL("", $url);
+
+	return $url;
+}
+
 function getDomain(): string {
 	$protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
 	$domain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
@@ -55,20 +79,7 @@ function getDomain(): string {
  */
 function getRequestedURL(): string {
 	$relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-
-	$indexes = [
-		"index.php",
-		"index.html",
-	];
-	foreach ($indexes as $index) {
-		$indexLength = strlen($index);
-		if (substr($relativeURL, -$indexLength) === $index) {
-			$relativeURL = substr($relativeURL, 0, -$indexLength);
-			break;
-		}
-	}
-
-	$relativeURL = addTrailingSlash($relativeURL);
+	$relativeURL = formatURL("", $relativeURL);
 
 	return $relativeURL;
 }
@@ -90,11 +101,7 @@ function getIsDebug(): bool {
  * @return string
  */
 function getURL(string $url = "", bool $addDebug = true): string {
-	// Make sure there is a leading slash
-	$url = ltrim($url, " /");
-	$url = "/{$url}";
-
-	$url = addTrailingSlash($url);
+	$url = formatURL("", $url);
 
 	$url .= ($addDebug && getIsDebug()) ? "?debug" : "";
 
