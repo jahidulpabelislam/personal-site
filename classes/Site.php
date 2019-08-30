@@ -30,15 +30,9 @@ class Site implements SiteConstants {
     private $dateStarted;
     private $yearStarted;
 
-    private $nowDateTime;
-
     private static $instance;
 
     public function __construct() {
-        if (!defined("ROOT")) {
-            define("ROOT", self::getProjectRoot());
-        }
-
         $this->environment = getenv("APPLICATION_ENV") ?? "production";
     }
 
@@ -48,14 +42,6 @@ class Site implements SiteConstants {
         }
 
         return self::$instance;
-    }
-
-    private static function getProjectRoot(): string {
-        if (defined("ROOT")) {
-            return ROOT;
-        }
-
-        return rtrim(realpath($_SERVER["DOCUMENT_ROOT"]), " /");
     }
 
     public function isProduction(): bool {
@@ -74,30 +60,10 @@ class Site implements SiteConstants {
      */
     public function isDebug(): bool {
         if ($this->_isDebug === null) {
-            $this->_isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
+            $this->_isDebug = isDebug();
         }
 
         return $this->_isDebug;
-    }
-
-    public static function addTrailingSlash(string $url): string {
-        $url = rtrim($url, " /");
-
-        // If the last bit includes a full stop, assume its a file...
-        // so don't add trailing slash
-        $withoutProtocol = str_replace(["https://", "http://"], "", $url);
-        $splitPaths = explode("/", $withoutProtocol);
-        $count = count($splitPaths);
-        if ($count > 1 && !is_dir($url)) {
-            $lastPath = $splitPaths[$count - 1] ?? null;
-            if ($lastPath && strpos($lastPath, ".")) {
-                return $url;
-            }
-        }
-
-        $url = "{$url}/";
-
-        return $url;
     }
 
     /**
@@ -105,7 +71,7 @@ class Site implements SiteConstants {
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
-            $this->liveDomain = self::addTrailingSlash(self::LIVE_DOMAIN);
+            $this->liveDomain = addTrailingSlash(self::LIVE_DOMAIN);
         }
 
         return $this->liveDomain;
@@ -116,25 +82,22 @@ class Site implements SiteConstants {
      */
     public function getLocalDomain(): string {
         if (!$this->localDomain) {
-            $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
-            $localDomain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-            $this->localDomain = self::addTrailingSlash($localDomain);
+            $this->localDomain = getDomain();
         }
 
         return $this->localDomain;
     }
 
-    private function genURLWithDomain(string $relativeURL, bool $isFull = false, bool $isLive = false): string {
+    private function getFullURL(string $relativeURL, $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
             $domain = rtrim($domain, "/");
         }
 
-        $relativeURL = ltrim($relativeURL, " /");
+		$relativeURL = getURL($relativeURL, $addDebug);
 
-        $fullURL = self::addTrailingSlash($domain) . $relativeURL;
-        $fullURL = self::addTrailingSlash($fullURL);
+        $fullURL = "{$domain}{$relativeURL}";
 
         return $fullURL;
     }
@@ -143,21 +106,10 @@ class Site implements SiteConstants {
      * @return string Generate and return the URL of current requested page/URL
      */
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
-        $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+        $relativeURL = getRequestedURL();
+        $relativeURL = $this->getFullURL($relativeURL, false, $isFull, $isLive);
 
-        $indexes = [
-            "index.php",
-            "index.html",
-        ];
-        foreach ($indexes as $index) {
-            $indexLength = strlen($index);
-            if (substr($relativeURL, -$indexLength) === $index) {
-                $relativeURL = substr($relativeURL, 0, -$indexLength);
-                break;
-            }
-        }
-
-        return $this->genURLWithDomain($relativeURL, $isFull, $isLive);
+        return $relativeURL;
     }
 
     /**
@@ -193,15 +145,14 @@ class Site implements SiteConstants {
      * @return string
      */
     public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
-        $url = $this->genURLWithDomain($relativeURL, $isFull, $isLive);
-        $url .= ($addDebug && $this->isDebug()) ? "?debug" : "";
+        $url = $this->getFullURL($relativeURL, $addDebug, $isFull, $isLive);
 
         return $url;
     }
 
     /**
      * Generates and echos a url
-     * Used getURL to generate the url, then echoes what is returned
+     * Uses getURL to generate the url, then echoes what is returned
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param string $url string The relative url part/s to use to generate url from
@@ -214,61 +165,17 @@ class Site implements SiteConstants {
     }
 
     /**
-     * Get a version number of a asset file.
-     *
-     * The number to use can be passed as a param.
-     * Else it tries to get the last modified date string from file.
-     * And if that fails it fall backs to global default version number
-     *
-     * @param $src string The relative path to a asset
-     * @param bool $ver string A version number to use
-     * @param $root string The root location of where the file should be if not the default
-     * @return string The version number found
-     */
-    public static function getAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-        if (!$ver) {
-            $ver = self::DEFAULT_ASSET_VERSION;
-
-            $src = ltrim($src, " /");
-            $file = self::addTrailingSlash($root) . $src;
-            if (file_exists($file)) {
-                $ver = date("mdYHi", filemtime($file));
-            }
-        }
-
-        return $ver;
-    }
-
-    /**
-     * Wrapper around Site::getAssetVersion() to generate the full relative URL for the asset
-     * including a version number
-     */
-    public static function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-        $ver = self::getAssetVersion($src, $ver, $root);
-
-        return "{$src}?v={$ver}";
-    }
-
-    /**
-     * Wrapper around Site::getWithAssetVersion() & Site::getAssetVersion()
-     * Used to echo the full relative URL for the asset including a version number
-     */
-    public static function echoWithAssetVersion(string $src, $ver = false, string $root = ROOT) {
-        echo self::addAssetVersion($src, $ver, $root);
-    }
-
-    /**
      * Generate and return the API endpoint
      */
     public static function getAPIEndpoint(string $entity = ""): string {
-        $endpoint = self::addTrailingSlash(JPI_API_ENDPOINT);
+        $endpoint = addTrailingSlash(JPI_API_ENDPOINT);
         $endpoint .= "v" . JPI_API_VERSION;
-        $endpoint = self::addTrailingSlash($endpoint);
+        $endpoint = addTrailingSlash($endpoint);
 
         $entity = trim($entity);
         if (!empty($entity)) {
             $endpoint .= trim($entity, "/");
-            $endpoint = self::addTrailingSlash($endpoint);
+            $endpoint = addTrailingSlash($endpoint);
         }
 
         return $endpoint;
@@ -289,16 +196,15 @@ class Site implements SiteConstants {
     public static function echoProjectImageURL(string $filepath = "") {
         $root = rtrim(JPI_API_ENDPOINT, " /");
         $imageURL = "{$root}{$filepath}";
-        self::echoWithAssetVersion($imageURL);
+        echoWithAssetVersion($imageURL);
     }
 
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
             $origTimezone = date_default_timezone_get();
-            date_default_timezone_set(self::DATE_TIMEZONE);
+            date_default_timezone_set(JPI_DATE_TIMEZONE);
 
-            $dateStarted = self::JPI_START_DATE;
-            $this->dateStarted = DateTime::createFromFormat("d/m/Y", $dateStarted);
+            $this->dateStarted = DateTime::createFromFormat("d/m/Y", self::JPI_START_DATE);
 
             date_default_timezone_set($origTimezone);
         }
@@ -315,54 +221,6 @@ class Site implements SiteConstants {
         return $this->yearStarted;
     }
 
-    public static function turnPathToURL(string $path): string {
-        if (stripos($path, ROOT) === 0) {
-            $path = substr($path, strlen(ROOT));
-        }
-
-        $url = str_replace("\\", "/", $path);
-
-        return $url;
-    }
-
-    public function getNowDateTime(): DateTime {
-        if (!$this->nowDateTime) {
-            $origTimezone = date_default_timezone_get();
-            date_default_timezone_set(self::DATE_TIMEZONE);
-
-            $this->nowDateTime = new DateTime();
-
-            date_default_timezone_set($origTimezone);
-        }
-
-        return $this->nowDateTime;
-    }
-
-    public function getTimeDifference($fromDate, $toDate, string $format): string {
-        $origTimezone = date_default_timezone_get();
-        date_default_timezone_set(self::DATE_TIMEZONE);
-
-        if (is_string($fromDate)) {
-            $fromDate = DateTime::createFromFormat("d/m/Y", $fromDate);
-        }
-
-        if (!$toDate) {
-            $toDate = $this->getNowDateTime();
-        }
-
-        if (!$fromDate instanceof \DateTime && !$toDate instanceof \DateTime) {
-            return "";
-        }
-
-        // Work out the time difference from both dates
-        $diff = $fromDate->diff($toDate);
-
-        // Get the value of the difference formatted
-        $timeDiff = $diff->format($format);
-        date_default_timezone_set($origTimezone);
-
-        return $timeDiff;
-    }
 }
 
 Site::get();

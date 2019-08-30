@@ -17,7 +17,7 @@ $pageRenderer = PageRenderer::get();
 
             foreach ($similarLinks as $link) {
                 $pageTitle = $link["title"];
-                $buttonText = $link["text"] ?? $title ;
+                $buttonText = $link["text"] ?? $title;
 
                 $url = $link["url"];
                 $url = $site->getURL($url);
@@ -41,10 +41,10 @@ $pageRenderer = PageRenderer::get();
             <div class="container">
                 <h5 class="social-links__header">Follow Me Here!</h5>
                 <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                    <img class="social-links__img social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                    <img class="social-links__img social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                 </a>
                 <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                    <img class="social-links__img social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                    <img class="social-links__img social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                 </a>
                 <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
                     <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
@@ -86,26 +86,26 @@ $pageRenderer = PageRenderer::get();
         if ($site->isDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/waypoint.min.js", "1.6.2"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js", "1.2.0"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/waypoint.min.js", "1.6.2"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js", "1.2.0"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
             ?>
             <!-- Compiled project & libraries js files -->
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
 

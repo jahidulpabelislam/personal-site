@@ -1,6 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
@@ -10,7 +9,7 @@ $errorDesc = "Page Not Found";
 $headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $directory = __DIR__;
-$url = $site::turnPathToURL($directory);
+$url = turnPathToURL($directory);
 $pageData = [
     "pageId" => $error,
     "headTitle" => "{$error} - {$errorDesc}",
@@ -29,7 +28,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
                         </div>
                         <div class="article__half">
                             <p>The requested page can not be found.</p>

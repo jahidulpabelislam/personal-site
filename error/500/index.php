@@ -1,6 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
@@ -26,7 +25,7 @@ $pageRenderer->renderHeader();
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
+                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
                         </div>
 
                         <div class="article__half">

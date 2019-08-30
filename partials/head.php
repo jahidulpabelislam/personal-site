@@ -48,10 +48,10 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
-        $filePath = $site::addTrailingSlash(ROOT) . ltrim($imageLocation, " /");
+        $filePath = addTrailingSlash(ROOT) . ltrim($imageLocation, " /");
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
-            $relativeImageURL = $site::addAssetVersion($imageLocation);
+            $relativeImageURL = addAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>
             <meta property="og:image" content="<?php echo $imageURL; ?>" />

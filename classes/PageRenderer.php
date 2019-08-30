@@ -43,7 +43,7 @@ class PageRenderer {
             $pageId = basename($filePath);
 
             $path = dirname($_SERVER["SCRIPT_NAME"]);
-            $url = $this->site::turnPathToURL($path);
+            $url = turnPathToURL($path);
         }
 
         $globalPageData = [
@@ -168,11 +168,10 @@ class PageRenderer {
         }
 
         $jsGlobals = json_encode($jsGlobalsArr);
-        echo "
-            <script>
-                window.jpi = window.jpi || {};
-                window.jpi.config = {$jsGlobals};
-            </script>";
+        echo "<script>
+                  window.jpi = window.jpi || {};
+                  window.jpi.config = {$jsGlobals};
+              </script>";
     }
 
     public function renderJSScripts() {
@@ -185,7 +184,7 @@ class PageRenderer {
         foreach ($scripts as $script) {
             // Commented out as it fails for Google Maps as it already has params.
             // TODO: But add this back in when figured out nice way to append to current params
-            // $script = $this->site::addAssetVersion($script);
+            // $script = addAssetVersion($script);
             echo "<script src='{$script}' type='text/javascript'></script>";
         }
     }
@@ -198,8 +197,7 @@ class PageRenderer {
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $fontAwesomeSrc = "/assets/css/third-party/font-awesome.min.css";
-            $stylesheets[] = $this->site::addAssetVersion($fontAwesomeSrc);
+            $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css");
         }
 
         $cssDir = $this->site->isDebug() ? "assets/css/jpi" : "assets/css";
@@ -211,7 +209,7 @@ class PageRenderer {
         if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
             $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
         }
-        $stylesheets[] = $this->site::addAssetVersion($cssSrc);
+        $stylesheets[] = addAssetVersion($cssSrc);
 
         return $stylesheets;
     }
