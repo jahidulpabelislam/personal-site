@@ -1,11 +1,17 @@
 <?php
 
+function removeTrailingSlash(string $url): string {
+	$url = rtrim($url, " /");
+
+	return $url;
+}
+
 function getProjectRoot(): string {
 	if (defined("ROOT")) {
 		return ROOT;
 	}
 
-	return rtrim(realpath($_SERVER["DOCUMENT_ROOT"]), " /");
+	return removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
 }
 
 function turnPathToURL(string $path): string {
@@ -19,7 +25,7 @@ function turnPathToURL(string $path): string {
 }
 
 function addTrailingSlash(string $url): string {
-	$url = rtrim($url, " /");
+	$url = removeTrailingSlash($url);
 
 	// If the last bit includes a full stop, assume its a file...
 	// so don't add trailing slash

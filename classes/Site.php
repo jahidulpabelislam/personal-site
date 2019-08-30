@@ -92,7 +92,7 @@ class Site implements SiteConstants {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
-            $domain = rtrim($domain, "/");
+            $domain = removeTrailingSlash($domain);
         }
 
 		$relativeURL = getURL($relativeURL, $addDebug);
@@ -172,9 +172,9 @@ class Site implements SiteConstants {
         $endpoint .= "v" . JPI_API_VERSION;
         $endpoint = addTrailingSlash($endpoint);
 
-        $entity = trim($entity);
+        $entity = trim($entity, "/");
         if (!empty($entity)) {
-            $endpoint .= trim($entity, "/");
+            $endpoint .= $entity;
             $endpoint = addTrailingSlash($endpoint);
         }
 
@@ -194,7 +194,7 @@ class Site implements SiteConstants {
      * @param string $filepath string The relative url of image
      */
     public static function echoProjectImageURL(string $filepath = "") {
-        $root = rtrim(JPI_API_ENDPOINT, " /");
+        $root = removeTrailingSlash(JPI_API_ENDPOINT);
         $imageURL = "{$root}{$filepath}";
         echoWithAssetVersion($imageURL);
     }
