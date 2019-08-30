@@ -75,7 +75,7 @@ class PageRenderer {
 
     public function addJSScript(string $script) {
         if (is_string($script)) {
-            $value = trim($script);
+			$script = trim($script);
         }
 
         $this->pageData['jsScripts'][] = $script;
