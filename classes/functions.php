@@ -6,6 +6,12 @@ function removeTrailingSlash(string $url): string {
 	return $url;
 }
 
+function removeLeadingSlash(string $url): string {
+	$url = ltrim($url, " /");
+
+	return $url;
+}
+
 function getProjectRoot(): string {
 	if (defined("ROOT")) {
 		return ROOT;
@@ -48,7 +54,7 @@ function formatURL(string $domain, string $relativeURL): string {
 	$domain = addTrailingSlash($domain);
 
 	// Remove the leading slash as domain will have the slash
-	$relativeURL = ltrim($relativeURL, " /");
+	$relativeURL = removeLeadingSlash($relativeURL);
 	$fullURL = addTrailingSlash($domain . $relativeURL);
 
 	return $fullURL;
@@ -124,7 +130,7 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
 	if (!$ver) {
 		$ver = "1"; // Default
 
-		$src = ltrim($src, " /");
+		$src = removeLeadingSlash($src);
 		$file = addTrailingSlash($root) . $src;
 		if (file_exists($file)) {
 			$ver = date("mdYHi", filemtime($file));
