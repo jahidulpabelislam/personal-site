@@ -48,7 +48,7 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
-        $filePath = addTrailingSlash(ROOT) . ltrim($imageLocation, " /");
+        $filePath = addTrailingSlash(ROOT) . $imageLocation;
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
             $relativeImageURL = addAssetVersion($imageLocation);
