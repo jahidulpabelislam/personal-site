@@ -12,6 +12,12 @@ function removeLeadingSlash(string $url): string {
 	return $url;
 }
 
+function removeSlashes(string $url): string {
+	$url = trim($url, " /");
+
+	return $url;
+}
+
 function getProjectRoot(): string {
 	if (defined("ROOT")) {
 		return ROOT;

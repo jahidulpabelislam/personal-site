@@ -172,7 +172,7 @@ class Site implements SiteConstants {
         $endpoint .= "v" . JPI_API_VERSION;
         $endpoint = addTrailingSlash($endpoint);
 
-        $entity = trim($entity, "/");
+        $entity = removeSlashes($entity);
         if (!empty($entity)) {
             $endpoint .= $entity;
             $endpoint = addTrailingSlash($endpoint);
