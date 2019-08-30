@@ -83,7 +83,7 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
-        if ($site->isDebug()) {
+        if ($site->getIsDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
             <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
@@ -109,8 +109,8 @@ $pageRenderer = PageRenderer::get();
             <?php
         }
 
-        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->isDebug() ? "css" : "min.css";
+        $cssDir = $site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
 
         <script type="text/javascript">

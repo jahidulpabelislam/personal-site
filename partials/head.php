@@ -66,8 +66,8 @@ $pageRenderer = PageRenderer::get();
 
         <!-- Custom stylesheet for site -->
         <?php
-        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->isDebug() ? "css" : "min.css";
+        $cssDir = $site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
         <style>
             <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>

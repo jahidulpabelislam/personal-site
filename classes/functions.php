@@ -70,7 +70,7 @@ function getRequestedURL(): string {
 /**
  * @return bool Whether or not the debug was set by user on page view
  */
-function isDebug(): bool {
+function getIsDebug(): bool {
 	$isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
 
 	return $isDebug;
@@ -90,7 +90,7 @@ function getURL(string $url = "", bool $addDebug = true): string {
 
 	$url = addTrailingSlash($url);
 
-	$url .= ($addDebug && isDebug()) ? "?debug" : "";
+	$url .= ($addDebug && getIsDebug()) ? "?debug" : "";
 
 	return $url;
 }

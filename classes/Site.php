@@ -19,7 +19,7 @@ class Site implements SiteConstants {
 
     private $environment;
 
-    private $_isDebug;
+    private $isDebug;
 
     private $liveDomain;
     private $liveURL;
@@ -58,12 +58,12 @@ class Site implements SiteConstants {
     /**
      * @return bool Whether or not the debug was set by user on page view
      */
-    public function isDebug(): bool {
-        if ($this->_isDebug === null) {
-            $this->_isDebug = isDebug();
+    public function getIsDebug(): bool {
+        if ($this->isDebug === null) {
+            $this->isDebug = getIsDebug();
         }
 
-        return $this->_isDebug;
+        return $this->isDebug;
     }
 
     /**

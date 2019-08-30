@@ -200,8 +200,8 @@ class PageRenderer {
             $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css");
         }
 
-        $cssDir = $this->site->isDebug() ? "assets/css/jpi" : "assets/css";
-        $cssExtension = $this->site->isDebug() ? "css" : "min.css";
+        $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
+        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
         // Some pages (like `Links`) may use its own css file
         // so figure out if one exists to use, else use the main one
