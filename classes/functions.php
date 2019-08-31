@@ -106,14 +106,15 @@ function getIsDebug(): bool {
 }
 
 /**
- * Generate and return a url from passed url
+ * Generate and return a URL from passed URL
  *
- * @param string $url string The relative url part/s to use to generate url from
- * @param bool $addDebug bool Whether the url should include the debug flag if currently added
+ * @param string $domain string The domain to use to generate URL with
+ * @param string $url string The relative URL part/s to use to generate URL from
+ * @param bool $addDebug bool Whether the URL should include the debug flag if currently added
  * @return string
  */
-function getURL(string $url = "", bool $addDebug = true): string {
-	$url = formatURL("", $url);
+function getURL(string $domain, string $url, bool $addDebug = true): string {
+	$url = formatURL($domain, $url);
 
 	$url .= ($addDebug && getIsDebug()) ? "?debug" : "";
 

@@ -94,12 +94,9 @@ class Site {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
-            $domain = removeTrailingSlash($domain);
         }
 
-		$relativeURL = getURL($relativeURL, $addDebug);
-
-        $fullURL = "{$domain}{$relativeURL}";
+		$fullURL = getURL($domain, $relativeURL, $addDebug);
 
         return $fullURL;
     }
