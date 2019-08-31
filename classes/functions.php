@@ -1,19 +1,19 @@
 <?php
 
 function removeTrailingSlash(string $url): string {
-	$url = rtrim($url, " /");
+	$url = rtrim($url, "/");
 
 	return $url;
 }
 
 function removeLeadingSlash(string $url): string {
-	$url = ltrim($url, " /");
+	$url = ltrim($url, "/");
 
 	return $url;
 }
 
 function removeSlashes(string $url): string {
-	$url = trim($url, " /");
+	$url = trim($url, "/");
 
 	return $url;
 }

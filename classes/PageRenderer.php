@@ -58,26 +58,14 @@ class PageRenderer {
     }
 
     public function addToPageData(string $field, $value) {
-        if (is_string($value)) {
-            $value = trim($value);
-        }
-
         $this->pageData[$field] = $value;
     }
 
     public function addToJSGlobals(string $field, $value) {
-        if (is_string($value)) {
-            $value = trim($value);
-        }
-
         $this->pageData['jsGlobals'][$field] = $value;
     }
 
     public function addJSScript(string $script) {
-        if (is_string($script)) {
-			$script = trim($script);
-        }
-
         $this->pageData['jsScripts'][] = $script;
     }
 
