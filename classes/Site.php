@@ -15,9 +15,9 @@
 
 class Site {
 
-	public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
-	public const VALID_NAV_TINTS = ["dark", "light"];
-	public const JPI_START_DATE = "04/10/2010";
+    public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+    public const VALID_NAV_TINTS = ["dark", "light"];
+    public const JPI_START_DATE = "04/10/2010";
 
     private $environment;
 
@@ -90,13 +90,13 @@ class Site {
         return $this->localDomain;
     }
 
-    private function getFullURL(string $relativeURL, $addDebug = true, bool $isFull = false, bool $isLive = false): string {
+    private function getFullURL(string $relativeURL, bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
         }
 
-		$fullURL = getURL($domain, $relativeURL, $addDebug);
+        $fullURL = getURL($domain, $relativeURL, $addDebug);
 
         return $fullURL;
     }

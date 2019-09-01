@@ -21,8 +21,7 @@ $pageRenderer->renderHeader();
 
 $nowDateTime = getNowDateTime();
 
-function renderSkillsOrInterests(array $items, string $colour)
-{
+function renderSkillsOrInterests(array $items, string $colour) {
     foreach ($items as $item) {
         $hasDesc = !empty($item["desc"]);
 
@@ -330,7 +329,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                 $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";
                                 echo "<div class='timeline-item__content {$iconClass}'>";
 
-                                echo "<p>". $timelineItem["text"] . "</p>";
+                                echo "<p>" . $timelineItem["text"] . "</p>";
                                 echo "</div>";
                                 echo "</div>";
                             }

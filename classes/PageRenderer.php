@@ -24,7 +24,7 @@ class PageRenderer {
     public function __construct() {
         $this->site = Site::get();
 
-		$this->pageData = $this->getGlobalPageData();
+        $this->pageData = $this->getGlobalPageData();
     }
 
     public static function get(): PageRenderer {
@@ -70,13 +70,13 @@ class PageRenderer {
         return $this->pageData[$field] ?? $defaultValue;
     }
 
-	public function addToJSGlobals(string $field, $value) {
-		$this->pageData['jsGlobals'][$field] = $value;
-	}
+    public function addToJSGlobals(string $field, $value) {
+        $this->pageData['jsGlobals'][$field] = $value;
+    }
 
-	public function addJSScript(string $script) {
-		$this->pageData['jsScripts'][] = $script;
-	}
+    public function addJSScript(string $script) {
+        $this->pageData['jsScripts'][] = $script;
+    }
 
     /**
      * Include the common html head for page/site

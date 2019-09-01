@@ -4,7 +4,8 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 $site = Site::get();
 $pageRenderer = PageRenderer::get();
 
-$headDesc = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
+$headDesc =
+    "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
     "headDesc" => $headDesc,
@@ -131,6 +132,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                         <div class="stats">
                             <div class="stats__item">
                                 <?php
+
                                 $speed = 2000;
 
                                 $counterFilePath = ROOT . "/assets/counters.json";
