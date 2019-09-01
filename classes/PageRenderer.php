@@ -16,14 +16,15 @@
 
 class PageRenderer {
 
-    public $site;
+    private $site;
     private $pageData = [];
 
     private static $instance;
 
     public function __construct() {
         $this->site = Site::get();
-        $this->addGlobalPageData();
+
+		$this->pageData = $this->getGlobalPageData();
     }
 
     public static function get(): PageRenderer {
@@ -34,7 +35,7 @@ class PageRenderer {
         return self::$instance;
     }
 
-    private function addGlobalPageData() {
+    private function getGlobalPageData(): array {
         $pageId = "home";
         $url = "/";
 
@@ -54,28 +55,28 @@ class PageRenderer {
             "stylesheets" => $this->getStylesheetsForPage($pageId),
         ];
 
-        $this->addPageData($globalPageData);
+        return $globalPageData;
     }
 
     public function addToPageData(string $field, $value) {
         $this->pageData[$field] = $value;
     }
 
-    public function addToJSGlobals(string $field, $value) {
-        $this->pageData['jsGlobals'][$field] = $value;
-    }
-
-    public function addJSScript(string $script) {
-        $this->pageData['jsScripts'][] = $script;
-    }
-
-    public function addPageData(array $fields) {
-        $this->pageData = array_merge($this->pageData, $fields);
+    public function addPageData(array $newPageData) {
+        $this->pageData = array_merge($this->pageData, $newPageData);
     }
 
     public function getFromPageData(string $field, $defaultValue = "") {
         return $this->pageData[$field] ?? $defaultValue;
     }
+
+	public function addToJSGlobals(string $field, $value) {
+		$this->pageData['jsGlobals'][$field] = $value;
+	}
+
+	public function addJSScript(string $script) {
+		$this->pageData['jsScripts'][] = $script;
+	}
 
     /**
      * Include the common html head for page/site
