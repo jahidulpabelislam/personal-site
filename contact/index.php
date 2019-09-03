@@ -1,9 +1,8 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Contact or find contact information for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 $headerDesc = "Send Your Feedback &amp; Enquires My Way";
@@ -14,11 +13,11 @@ $pageData = [
     "headerDesc" => $headerDesc,
     "navTint" => "light",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <section class="article">
@@ -36,7 +35,7 @@ $pageRenderer->renderHeader();
 
                             <div class="input-group">
                                 <label for="subject-input">The Message Subject</label>
-                                <input type="text" class="input" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" tabindex="2"  />
+                                <input type="text" class="input" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" tabindex="2" />
                             </div>
 
                             <div class="input-group input-group--message">
@@ -58,7 +57,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <a class="social-link" href="mailto:me@jahidulpabelislam.com" target="_blank">
-                                <img class="social-link__img social-link__img--email" src="<?php $site::echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" />
+                                <img class="social-link__img social-link__img--email" src="<?php echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" />
                                 <p class="social-link__text social-link__text--email">me@jahidulpabelislam.com</p>
                             </a>
                         </div>
@@ -81,7 +80,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -95,7 +94,7 @@ $pageRenderer->renderHeader();
                         </div>
                         <div class="article__half">
                             <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -130,4 +129,4 @@ $similarLinks = [
         "colour" => "orange",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

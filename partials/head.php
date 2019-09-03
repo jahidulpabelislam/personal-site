@@ -4,7 +4,7 @@ if (!defined("ROOT")) {
 }
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ $pageRenderer = PageRenderer::get();
         <!-- All meta data for page -->
         <title><?php echo $title; ?></title>
 
-        <?php $pageRenderer->renderCanonicalURLs(); ?>
+        <?php $page->renderCanonicalURLs(); ?>
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,10 +48,10 @@ $pageRenderer = PageRenderer::get();
 
         <?php
         $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
-        $filePath = $site::addTrailingSlash(ROOT) . ltrim($imageLocation, " /");
+        $filePath = addTrailingSlash(ROOT) . $imageLocation;
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
-            $relativeImageURL = $site::addAssetVersion($imageLocation);
+            $relativeImageURL = addAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
             ?>
             <meta property="og:image" content="<?php echo $imageURL; ?>" />
@@ -62,18 +62,18 @@ $pageRenderer = PageRenderer::get();
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="<?php echo $title; ?>" />
 
-        <?php $pageRenderer->renderFavicons(); ?>
+        <?php $page->renderFavicons(); ?>
 
         <!-- Custom stylesheet for site -->
         <?php
-        $cssDir = $site->isDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->isDebug() ? "css" : "min.css";
+        $cssDir = $site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
         <style>
             <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
-        $stylesheets = $pageRenderer->getFromPageData("stylesheets");
+        $stylesheets = $page->stylesheets;
         foreach ($stylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>

@@ -1,9 +1,8 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Forbidden Page";
@@ -15,17 +14,17 @@ $pageData = [
     "headerTitle" => $error,
     "headerDesc" => $errorDesc,
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
+                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
                         </div>
                         <div class="article__half">
                             <p>Access to the requested page is strictly forbidden.</p>
@@ -47,4 +46,4 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

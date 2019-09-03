@@ -1,9 +1,8 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
@@ -14,14 +13,15 @@ $pageData = [
     "headerDesc" => "Find Out About Me",
     "navTint" => "light",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 
-function renderSkillsOrInterests(array $items, string $colour)
-{
+$nowDateTime = getNowDateTime();
+
+function renderSkillsOrInterests(array $items, string $colour) {
     foreach ($items as $item) {
         $hasDesc = !empty($item["desc"]);
 
@@ -44,8 +44,8 @@ function renderSkillsOrInterests(array $items, string $colour)
                     <div class="container">
                         <div class="article__half">
                             <div class="about__images-of-me">
-                                <img class="image-of-me image-of-me--baby" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
-                                <img class="image-of-me image-of-me--grown" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
+                                <img class="image-of-me image-of-me--baby" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
+                                <img class="image-of-me image-of-me--grown" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
                             </div>
                         </div>
                         <div class="article__half">
@@ -55,7 +55,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                             $dob = "22/02/1996";
 
                             // Work out my age by the time difference from DOB to today
-                            $age = $site->getTimeDifference($dob, null, "%y");
+                            $age = getTimeDifference($dob, $nowDateTime, "%y");
                             ?>
 
                             <p>I'm <?php echo $age; ?> years old.</p>
@@ -68,7 +68,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                     <div class="container">
                         <div class="article__half">
                             <a href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
+                                <img src="<?php echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -77,13 +77,13 @@ function renderSkillsOrInterests(array $items, string $colour)
 
                             $workStartDate = "28/06/2017";
 
-                            $yearsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%y");
+                            $yearsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%y");
                             if ($yearsSinceStarted) {
                                 $durationAtWorkStr .= "{$yearsSinceStarted} ";
                                 $durationAtWorkStr .= $yearsSinceStarted === 1 ? "year" : "years";
                             }
 
-                            $monthsSinceStarted = (int)$site->getTimeDifference($workStartDate, null, "%m");
+                            $monthsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%m");
                             if ($monthsSinceStarted) {
                                 if ($yearsSinceStarted) {
                                     $durationAtWorkStr .= " and";
@@ -108,7 +108,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                     <div class="container">
                         <div class="article__half">
                             <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
+                                <img src="<?php echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -127,7 +127,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                     <div class="container">
                         <div class="article__half">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php $site::echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
+                                <img src="<?php echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -147,7 +147,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <img src="<?php $site::echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
+                            <img src="<?php echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
                         </div>
                         <div class="article__half">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
@@ -329,7 +329,7 @@ function renderSkillsOrInterests(array $items, string $colour)
                                 $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";
                                 echo "<div class='timeline-item__content {$iconClass}'>";
 
-                                echo "<p>". $timelineItem["text"] . "</p>";
+                                echo "<p>" . $timelineItem["text"] . "</p>";
                                 echo "</div>";
                                 echo "</div>";
                             }
@@ -339,8 +339,8 @@ function renderSkillsOrInterests(array $items, string $colour)
                 </section>
 
 <?php
-$pageRenderer->addToJSGlobals("googleMapStyles", file_get_contents(ROOT . "/assets/map-styling.json"));
-$pageRenderer->addJSScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
+$page->addToJSGlobals("googleMapStyles", file_get_contents(ROOT . "/assets/map-styling.json"));
+$page->addJSScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
 
 $similarLinks = [
     [
@@ -355,4 +355,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

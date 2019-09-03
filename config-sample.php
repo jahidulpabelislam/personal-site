@@ -1,6 +1,7 @@
 <?php
 /**
  * Sets Constants for Connection to the Database
+ *
  * @author Jahidul Pabel Islam
  */
 

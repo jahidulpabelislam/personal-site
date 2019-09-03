@@ -1,9 +1,8 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
@@ -12,24 +11,24 @@ $pageData = [
     "headerTitle" => "Jahidul Pabel Islam",
     "headerDesc" => "Full Stack Developer",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
 $site::echoConfig();
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 
 // Work out the time since I started to today
-$yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y");
+$yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), "%y");
 ?>
 
                 <section>
                     <div class="article home__hello-wrapper">
                         <div class="container">
                             <h3 class="home__hello faux-heading"><span class="main-hello">Hello</span> there everyone!</h3>
-                            <img class="home-hello__img" src="<?php $site::echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="Jahidul Pabel Islam Graduating" />
-                            <img class="home-hello__img home-hello__logo" src="<?php $site::echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" alt="Jahidul Pabel Islam's Logo" />
+                            <img class="home-hello__img" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="Jahidul Pabel Islam Graduating" />
+                            <img class="home-hello__img home-hello__logo" src="<?php echoWithAssetVersion("/assets/images/logo-inverted.png"); ?>" alt="Jahidul Pabel Islam's Logo" />
                         </div>
                     </div>
 
@@ -72,7 +71,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                         <div class="workflow">
                             <div class="workflow__item">
                                 <h4 class="article__header">Design</h4>
-                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/design-icon.png"); ?>" alt="A image of a paintbrush on a desktop computer" />
+                                <img class="workflow-item__image" src="<?php echoWithAssetVersion("/assets/images/design-icon.png"); ?>" alt="A image of a paintbrush on a desktop computer" />
                                 <div class="workflow-item__description">
                                     <p>
                                         My work only starts after the designer hands over finished designs.<br />
@@ -83,7 +82,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </div>
                             <div class="workflow__item">
                                 <h4 class="article__header">Responsive</h4>
-                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
+                                <img class="workflow-item__image" src="<?php echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
                                 <div class="workflow-item__description">
                                     <p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />
@@ -93,7 +92,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                             </div>
                             <div class="workflow__item">
                                 <h4 class="article__header">Code</h4>
-                                <img class="workflow-item__image" src="<?php $site::echoWithAssetVersion("/assets/images/code-icon.png"); ?>" alt="A image showing code" />
+                                <img class="workflow-item__image" src="<?php echoWithAssetVersion("/assets/images/code-icon.png"); ?>" alt="A image showing code" />
                                 <div class="workflow-item__description">
                                     <p>
                                         I tend to develop custom and bespoke systems.<br />
@@ -114,10 +113,10 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php $site::echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
                             </button>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--home" data-nav-direction="next">
-                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php $site::echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                             </button>
                         </div>
                         <div class="js-slide-show-bullets"></div>
@@ -132,6 +131,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                         <div class="stats">
                             <div class="stats__item">
                                 <?php
+
                                 $speed = 2000;
 
                                 $counterFilePath = ROOT . "/assets/counters.json";
@@ -192,7 +192,7 @@ $yearsSinceStarted = $site->getTimeDifference($site::JPI_START_DATE, null, "%y")
                 </script>
 
 <?php
-$pageRenderer->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+$page->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
 
 $similarLinks = [
     [
@@ -207,4 +207,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

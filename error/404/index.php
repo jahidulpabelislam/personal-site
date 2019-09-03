@@ -1,35 +1,34 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Page Not Found";
 $headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $directory = __DIR__;
-$url = $site::turnPathToURL($directory);
+$url = turnPathToURL($directory);
 $pageData = [
-    "pageId" => $error,
+    "id" => $error,
     "headTitle" => "{$error} - {$errorDesc}",
     "headDesc" => $headDesc,
     "headerTitle" => $error,
     "headerDesc" => $errorDesc,
     "currentURL" => $site->getURL($url, false),
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <div class="article article--halved">
                     <div class="container">
                         <div class="article__half">
-                            <img class="error__img" src="<?php $site::echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
                         </div>
                         <div class="article__half">
                             <p>The requested page can not be found.</p>
@@ -52,4 +51,4 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

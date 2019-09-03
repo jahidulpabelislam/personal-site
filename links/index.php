@@ -1,9 +1,8 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/Site.php");
-include_once($_SERVER["DOCUMENT_ROOT"] . "/PageRenderer.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Social media links for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
@@ -11,23 +10,23 @@ $pageData = [
     "headTitle" => "Social Media Links",
     "headDesc" => $headDesc,
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
+$page->renderHTMLHead();
 ?>
 
         <main class="main-content social-links-page">
             <div class="container">
                 <div class="social-link-container">
                     <a class="social-link" href="https://facebook.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--facebook" src="<?php $site::echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--facebook" src="<?php echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" />
                         <p class="social-link__text social-link__text--facebook">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://twitter.com/itsjahidulislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--twitter" src="<?php $site::echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" />
+                        <img class="social-link__img social-link__img--twitter" src="<?php echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" />
                         <p class="social-link__text social-link__text--twitter">@ItsJahidulIslam</p>
                     </a>
                 </div>
@@ -48,14 +47,14 @@ $pageRenderer->renderHTMLHead();
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--linkedin" src="<?php $site::echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                         <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--github" src="<?php $site::echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                         <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                     </a>
                 </div>
@@ -71,19 +70,19 @@ $pageRenderer->renderHTMLHead();
 
         <?php
         // Either output a compiled js file for the page & libraries js files, or include individual files if debug is specified
-        if ($site->isDebug()) {
+        if ($site->getIsDebug()) {
             ?>
             <!-- All individual js files for site as debug is specified -->
             <?php // Files necessary for StickyFooter js code ?>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
             <?php
         }
         else {
             ?>
             <!-- Compiled page & libraries js files -->
-            <script src="<?php $site::echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
         ?>
@@ -91,7 +90,7 @@ $pageRenderer->renderHTMLHead();
         <script type="application/javascript">
             jQuery(window).on("load", function() {
                 <?php
-                $stylesheets = $pageRenderer->getFromPageData("stylesheets");
+                $stylesheets = $page->stylesheets;
                 ?>
                 jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
 
