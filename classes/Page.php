@@ -73,12 +73,12 @@ class Page {
         $this->data = array_merge($this->data, $newPageData);
     }
 
-    public function getFromPageData(string $field, $defaultValue = "") {
-        return $this->data[$field] ?? $defaultValue;
+    public function getFromPageData(string $field) {
+        return $this->data[$field] ?? null;
     }
 
-    public function addToJSGlobals(string $field, $value) {
-        $this->data["jsGlobals"][$field] = $value;
+    public function addToJSGlobals(string $key, $value) {
+        $this->data["jsGlobals"][$key] = $value;
     }
 
     public function addJSScript(string $script) {
@@ -96,7 +96,7 @@ class Page {
     }
 
     public function __get(string $field) {
-        $value = $this->getFromPageData($field, null);
+        $value = $this->getFromPageData($field);
 
         return $value;
     }
@@ -106,7 +106,7 @@ class Page {
     }
 
     public function __isset(string $field): bool {
-        $value = $this->getFromPageData($field, null);
+        $value = $this->getFromPageData($field);
         $isset = isset($value);
 
         return $isset;

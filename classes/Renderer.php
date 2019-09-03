@@ -94,7 +94,7 @@ class Renderer {
      * Include the common cookie banner content for page/site
      */
     public function renderJSGlobals() {
-        $jsGlobalsArr = $this->page->jsGlobals ?? [];
+        $jsGlobalsArr = $this->page->jsGlobals;
 
         if (empty($jsGlobalsArr)) {
             return;
@@ -108,7 +108,7 @@ class Renderer {
     }
 
     public function renderJSScripts() {
-        $scripts = $this->page->jsScripts ?? [];
+        $scripts = $this->page->jsScripts;
 
         if (empty($scripts)) {
             return;
