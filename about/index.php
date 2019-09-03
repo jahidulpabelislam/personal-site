@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
@@ -13,11 +13,11 @@ $pageData = [
     "headerDesc" => "Find Out About Me",
     "navTint" => "light",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 
 $nowDateTime = getNowDateTime();
 
@@ -339,8 +339,8 @@ function renderSkillsOrInterests(array $items, string $colour) {
                 </section>
 
 <?php
-$pageRenderer->addToJSGlobals("googleMapStyles", file_get_contents(ROOT . "/assets/map-styling.json"));
-$pageRenderer->addJSScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
+$page->addToJSGlobals("googleMapStyles", file_get_contents(ROOT . "/assets/map-styling.json"));
+$page->addJSScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
 
 $similarLinks = [
     [
@@ -355,4 +355,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

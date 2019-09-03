@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Internal Server Error";
@@ -15,11 +15,11 @@ $pageData = [
     "headerDesc" => $errorDesc,
     "navTint" => "light",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <div class="article article--halved">
@@ -50,4 +50,4 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

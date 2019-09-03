@@ -4,7 +4,7 @@ if (!defined("ROOT")) {
 }
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 ?>
 
             </div>
@@ -75,10 +75,10 @@ $pageRenderer = PageRenderer::get();
         </footer>
 
         <?php
-        $pageRenderer->renderCookieBanner();
+        $page->renderCookieBanner();
 
-        $pageRenderer->renderJSGlobals();
-        $pageRenderer->renderJSScripts();
+        $page->renderJSGlobals();
+        $page->renderJSScripts();
         ?>
 
         <?php
@@ -116,7 +116,7 @@ $pageRenderer = PageRenderer::get();
         <script type="text/javascript">
             jQuery(document).on("ready", function() {
                 <?php
-                $stylesheets = $pageRenderer->getFromPageData("stylesheets");
+                $stylesheets = $page->stylesheets;
                 ?>
                 jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
             });

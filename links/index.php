@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $headDesc = "Social media links for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
@@ -10,9 +10,9 @@ $pageData = [
     "headTitle" => "Social Media Links",
     "headDesc" => $headDesc,
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
+$page->renderHTMLHead();
 ?>
 
         <main class="main-content social-links-page">
@@ -90,7 +90,7 @@ $pageRenderer->renderHTMLHead();
         <script type="application/javascript">
             jQuery(window).on("load", function() {
                 <?php
-                $stylesheets = $pageRenderer->getFromPageData("stylesheets");
+                $stylesheets = $page->stylesheets;
                 ?>
                 jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
 

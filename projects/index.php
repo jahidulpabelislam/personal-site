@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $site::echoConfig();
 
@@ -68,11 +68,11 @@ $pageData = [
         "has_next_page" => $apiMeta["has_next_page"] ?? false,
     ],
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <section class="article">
@@ -206,7 +206,7 @@ $pageRenderer->renderHeader();
                 </script>
 
 <?php
-$pageRenderer->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+$page->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
 
 $similarLinks = [
     [
@@ -221,4 +221,4 @@ $similarLinks = [
         "colour" => "dark-green",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

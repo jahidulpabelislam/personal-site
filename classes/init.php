@@ -11,4 +11,5 @@ if (!defined("ROOT")) {
 }
 
 include_once("Site.php");
-include_once("PageRenderer.php");
+include_once("Page.php");
+include_once("Renderer.php");

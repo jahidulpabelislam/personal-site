@@ -2,23 +2,22 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
-$headDesc =
-    "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
+$headDesc = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
     "headDesc" => $headDesc,
     "headerTitle" => "Jahidul Pabel Islam",
     "headerDesc" => "Full Stack Developer",
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
 $site::echoConfig();
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 
 // Work out the time since I started to today
 $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), "%y");
@@ -193,7 +192,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                 </script>
 
 <?php
-$pageRenderer->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+$page->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
 
 $similarLinks = [
     [
@@ -208,4 +207,4 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);

@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/classes/init.php");
 
 $site = Site::get();
-$pageRenderer = PageRenderer::get();
+$page = Page::get();
 
 $error = basename(__DIR__);
 $errorDesc = "Page Not Found";
@@ -11,18 +11,18 @@ $headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidu
 $directory = __DIR__;
 $url = turnPathToURL($directory);
 $pageData = [
-    "pageId" => $error,
+    "id" => $error,
     "headTitle" => "{$error} - {$errorDesc}",
     "headDesc" => $headDesc,
     "headerTitle" => $error,
     "headerDesc" => $errorDesc,
     "currentURL" => $site->getURL($url, false),
 ];
-$pageRenderer->addPageData($pageData);
+$page->addPageData($pageData);
 
-$pageRenderer->renderHTMLHead();
-$pageRenderer->renderNav();
-$pageRenderer->renderHeader();
+$page->renderHTMLHead();
+$page->renderNav();
+$page->renderHeader();
 ?>
 
                 <div class="article article--halved">
@@ -51,4 +51,4 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$pageRenderer->renderFooter($similarLinks);
+$page->renderFooter($similarLinks);
