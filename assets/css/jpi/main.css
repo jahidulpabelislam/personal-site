@@ -252,8 +252,8 @@ strong {
   clip: rect(0, 0, 0, 0); }
 
 /*
-  Any css for many templates and/or components.
-*/
+ * Any css for many templates and/or components.
+ */
 .link-styled {
   color: #333333;
   border-bottom: transparent solid 1px; }
