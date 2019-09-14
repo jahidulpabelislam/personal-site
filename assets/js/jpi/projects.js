@@ -18,6 +18,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         navColourRegex: null,
 
         projects: {},
+
+        dateFormat: false,
     };
 
     var fn = {
@@ -50,6 +52,10 @@ window.jpi.projects = (function(jQuery, jpi) {
                 search = jQuery(".search-form__input").val().trim(),
                 lowerCasedSearch = search.toLowerCase(),
                 searches = lowerCasedSearch.split(" ");
+
+            if (!skillsContainer) {
+                return;
+            }
 
             for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i].trim();
@@ -195,7 +201,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                     var value = project[field];
                     if (field === "date") {
-                        value = new Date(value).toLocaleDateString();
+                        var date = new Date(value);
+                        value = global.dateFormat.format(date);
                     }
 
                     template = template.replace(regex, value);
@@ -462,6 +469,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         init: function() {
             if (jQuery(".js-all-projects").length) {
+                global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
                 fn.initListeners();
                 fn.getProjects();
             }
