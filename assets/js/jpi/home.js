@@ -9,6 +9,7 @@ window.jpi.home = (function(jQuery, jpi) {
 
     var global = {
         templateRegexes: {},
+        dateFormat: false,
     };
 
     var fn = {
@@ -49,13 +50,14 @@ window.jpi.home = (function(jQuery, jpi) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
                     var regex = fn.getTemplateRegex(field);
 
-                    var data = project[field];
+                    var value = project[field];
                     if (field === "date") {
-                        data = new Date(data).toLocaleDateString();
+                        var date = new Date(value);
+                        value = global.dateFormat.format(date);
                     }
 
-                    slideTemplate = slideTemplate.replace(regex, data);
-                    bulletTemplate = bulletTemplate.replace(regex, data);
+                    slideTemplate = slideTemplate.replace(regex, value);
+                    bulletTemplate = bulletTemplate.replace(regex, value);
                 }
             }
 
@@ -104,6 +106,8 @@ window.jpi.home = (function(jQuery, jpi) {
         // Sets up events when projects is received
         gotProjects: function(response) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
+
+            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
             // Send the data, the function to do if data is valid
             var dataValid = jpi.ajax.renderRowsOrFeedback(
