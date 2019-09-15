@@ -206,7 +206,7 @@ $page->renderHeader();
                 </script>
 
 <?php
-$page->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+$page->addToJSGlobals("jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [
     [
