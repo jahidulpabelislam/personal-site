@@ -192,7 +192,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                 </script>
 
 <?php
-$page->addToJSGlobals("jpiAPIEndpoint", $site::getAPIEndpoint());
+$page->addToJSGlobals("jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [
     [

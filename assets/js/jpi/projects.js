@@ -328,7 +328,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             // Send request to get projects for page and search
             jpi.ajax.sendRequest({
                 method: "GET",
-                url: jpi.config.jpiAPIEndpoint + "projects/",
+                url: jpi.config.jpiAPIEndpoint + "/projects/",
                 params: query,
                 onSuccess: fn.gotProjects,
                 onError: fn.renderError,
