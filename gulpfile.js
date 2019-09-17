@@ -63,10 +63,13 @@ gulp.task("sass", function() {
 });
 defaultTasks.push("sass");
 
-// Watch Files For Changes
-gulp.task("watch", function() {
+// Watch scss file changes to compile to css
+gulp.task("watch-scss", function() {
     gulp.watch(`${cssDir}/jpi/**/*.scss`, gulp.parallel("sass"));
 });
+
+// Watch files For changes
+gulp.task("watch", gulp.series("sass", "watch-scss"));
 
 // Minify Stylesheets
 const stylesheets = ["above-the-fold", "main", "links"];
