@@ -1,10 +1,13 @@
 const gulp = require("gulp"),
 
+    rename = require("gulp-rename"),
+
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
 
     cleanCss = require("gulp-clean-css"),
     autoPrefix = require("gulp-autoprefixer"),
+
     sass = require("gulp-sass"),
 
     fs = require("fs"),
@@ -69,27 +72,21 @@ gulp.task("watch-scss", function() {
 // Watch files For changes
 gulp.task("watch", gulp.series("sass", "watch-scss"));
 
-// Minify Stylesheets
-const stylesheets = ["above-the-fold", "main", "links"];
+// Minify stylesheets
+gulp.task("styles", function(callback) {
+    gulp.src([`${cssDir}/jpi/*.css`])
+        .pipe(rename({suffix: ".min"}))
+        .pipe(autoPrefix({
+            browsers: ["> 0.1%", "ie 8-11"],
+            remove: false,
+        }))
+        .pipe(cleanCss({
+            compatibility: "ie8",
+        }))
+        .pipe(gulp.dest(cssDir));
 
-let stylesheetTasks = [];
-stylesheets.forEach(function(stylesheet) {
-    const stylesheetTask = `styles-${stylesheet}`;
-    stylesheetTasks.push(stylesheetTask);
-    gulp.task(stylesheetTask, function() {
-        return gulp.src(`${cssDir}/jpi/${stylesheet}.css`)
-                   .pipe(concat(`${stylesheet}.min.css`))
-                   .pipe(autoPrefix({
-                       browsers: ["> 0.1%", "ie 8-11"],
-                       remove: false,
-                   }))
-                   .pipe(cleanCss({
-                       compatibility: "ie8",
-                   }))
-                   .pipe(gulp.dest(cssDir));
-    });
+    callback();
 });
-gulp.task("styles", gulp.parallel(stylesheetTasks));
 defaultTasks.push("styles");
 
 const errorCallback = function(err) {
