@@ -19,7 +19,8 @@ const cssDir = `${assetsDir}/css`;
 
 let defaultTasks = [];
 
-// Concatenate & Minify JS
+// Concatenate & minify JS
+defaultTasks.push("scripts");
 gulp.task("scripts", function(callback) {
     const scripts = {
         "main": [
@@ -50,19 +51,18 @@ gulp.task("scripts", function(callback) {
         gulp.src(scripts[key])
             .pipe(concat(`${key}.min.js`))
             .pipe(uglify())
-            .pipe(gulp.dest(jsDir));
+            .pipe(gulp.dest(`${jsDir}/`));
     });
 
     callback();
 });
-defaultTasks.push("scripts");
 
+defaultTasks.push("sass");
 gulp.task("sass", function() {
     return gulp.src([`${cssDir}/jpi/*.scss`])
                .pipe(sass().on("error", sass.logError))
                .pipe(gulp.dest(`${cssDir}/jpi/`));
 });
-defaultTasks.push("sass");
 
 // Watch scss file changes to compile to css
 gulp.task("watch-scss", function() {
@@ -73,7 +73,8 @@ gulp.task("watch-scss", function() {
 gulp.task("watch", gulp.series("sass", "watch-scss"));
 
 // Minify stylesheets
-gulp.task("styles", function(callback) {
+defaultTasks.push("stylesheets");
+gulp.task("stylesheets", function(callback) {
     gulp.src([`${cssDir}/jpi/*.css`])
         .pipe(rename({suffix: ".min"}))
         .pipe(autoPrefix({
@@ -83,11 +84,10 @@ gulp.task("styles", function(callback) {
         .pipe(cleanCss({
             compatibility: "ie8",
         }))
-        .pipe(gulp.dest(cssDir));
+        .pipe(gulp.dest(`${cssDir}/`));
 
     callback();
 });
-defaultTasks.push("styles");
 
 const errorCallback = function(err) {
     if (err) {
