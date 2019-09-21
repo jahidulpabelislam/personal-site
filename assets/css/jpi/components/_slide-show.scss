@@ -75,20 +75,25 @@
     border-radius: 50% 0 0 50%;
 }
 
+.slide-show__bullets {
+    margin: 15px auto;
+}
+
 .slide-show__bullet {
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin: 14px 5px;
+    width: 12px;
+    height: 12px;
+    margin: auto 8px;
     border-radius: 50%;
-    background-color: $grey;
-    opacity: 0.3;
+    background-color: darken($light-grey, 5);
+    vertical-align: middle;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
 
-.slide-show__bullet:hover {
-    opacity: 0.6;
+.slide-show__bullet:not(.active):hover {
+    background-color: darken($light-grey, 15);
+    transform: scale(1.05);
 }
 
 .slide-show__bullet.active {
@@ -99,6 +104,7 @@
 @each $colour, $colours in $colour-schemes {
     .slide-show__bullet--#{$colour}.active {
         background-color: map-get($colours, main);
+        transform: scale(1.2);
     }
 
     .slide-show__nav--#{$colour} {

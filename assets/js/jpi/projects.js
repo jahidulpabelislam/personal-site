@@ -143,7 +143,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
-                slideShowBullets = jQuery(slideShowId + " .js-slide-show-bullets");
+                slideShowBullets = jQuery(slideShowId + " .slide-show__bullets");
 
             // Loop through each row of data in rows
             for (var i = 0; i < project.images.length; i++) {
@@ -220,7 +220,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             modal.addClass("open").show();
             jQuery("body").css("overflow", "hidden");
 
-            modal.find(".project__links, .project__skills, .slide-show__slides-container, .js-slide-show-bullets").text("");
+            modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
             modal.find(".project__title").text(project.name);
 
