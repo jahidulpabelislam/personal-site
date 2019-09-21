@@ -155,7 +155,7 @@ $page->renderHeader();
                                     <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                                 </button>
                             </div>
-                            <div class="js-slide-show-bullets"></div>
+                            <div class="slide-show__bullets"></div>
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ $page->renderHeader();
                                     <img class="slide-show__nav slide-show__nav--{{ colour }} slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                                 </button>
                             </div>
-                            <div class="js-slide-show-bullets"></div>
+                            <div class="slide-show__bullets"></div>
                         </div>
 
                         <div class="project__footer">

@@ -119,7 +119,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                                 <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
                             </button>
                         </div>
-                        <div class="js-slide-show-bullets"></div>
+                        <div class="slide-show__bullets"></div>
                     </div>
                     <p class="feedback feedback--error"></p>
 

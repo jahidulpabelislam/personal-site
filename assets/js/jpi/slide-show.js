@@ -245,7 +245,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (slides.length > 1) {
                 slides.css("width", slideShowViewpoint.innerWidth() + "px");
 
-                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").show();
+                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .slide-show__bullets").show();
 
                 setTimeout(function() {
                     fn.moveToSlide(slideShowId, slides.first());
@@ -255,7 +255,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 slideShowViewpoint[0].addEventListener("touchstart", fn.dragStart);
             }
             else {
-                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .js-slide-show-bullets").hide();
+                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .slide-show__bullets").hide();
             }
         },
 
