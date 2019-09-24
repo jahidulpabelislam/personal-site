@@ -8,6 +8,12 @@ window.jpi.home = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
+        slidesElem: null,
+        bulletsElem: null,
+        loadingElem: null,
+        errorElem: null,
+        slideTemplate: "",
+        bulletTemplate: "",
         templateRegexes: {},
         dateFormat: false,
     };
@@ -30,8 +36,8 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         renderError: function(error) {
-            jQuery(".feedback--error").text(error).show("fast");
-            jQuery(".projects__loading-img").hide("fast");
+            global.errorElem.text(error).show("fast");
+            global.loadingElem.hide("fast");
         },
 
         getTemplateRegex: function(regex) {
@@ -43,8 +49,8 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         renderProject: function(project) {
-            var slideTemplate = jQuery("#tmpl-slide-template").text();
-            var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+            var slide = global.slideTemplate;
+            var bullet = global.bulletTemplate;
 
             for (var field in project) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
@@ -56,24 +62,26 @@ window.jpi.home = (function(jQuery, jpi) {
                         value = global.dateFormat.format(date);
                     }
 
-                    slideTemplate = slideTemplate.replace(regex, value);
-                    bulletTemplate = bulletTemplate.replace(regex, value);
+                    slide = slide.replace(regex, value);
+                    bullet = bullet.replace(regex, value);
                 }
             }
 
             if (project.images && project.images.length && project.images[0]) {
                 var imageRegex = fn.getTemplateRegex("file");
-                slideTemplate = slideTemplate.replace(imageRegex, project.images[0].file);
+                slide = slide.replace(imageRegex, project.images[0].file);
             }
 
-            jQuery(".slide-show__slides-container").append(slideTemplate);
-            jQuery(".slide-show__bullets").append(bulletTemplate);
+            global.slidesElem.append(slide);
+            global.bulletsElem.append(bullet);
+
+            var slideId = "#slide-" + project.id;
 
             if (!project.images || !project.images.length || !project.images[0]) {
-                jQuery("#slide-" + project.id + " .slide-show__img").remove();
+                jQuery(slideId + " .slide-show__img").remove();
             }
 
-            var linksContainer = jQuery("#slide-" + project.id + " .project-info__links");
+            var linksContainer = jQuery(slideId + " .project-info__links");
 
             if (!project.link && !project.github) {
                 linksContainer.remove();
@@ -105,7 +113,14 @@ window.jpi.home = (function(jQuery, jpi) {
 
         // Sets up events when projects is received
         gotProjects: function(response) {
-            jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
+            global.errorElem.text("").hide("fast");
+            global.loadingElem.hide("fast");
+
+            global.slideTemplate = jQuery("#tmpl-slide-template").text();
+            global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+
+            global.slidesElem = jQuery(".slide-show__slides-container");
+            global.bulletsElem = jQuery(".slide-show__bullets");
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
@@ -127,17 +142,22 @@ window.jpi.home = (function(jQuery, jpi) {
         init: function() {
             fn.initSecondsCounter();
 
-            if (jQuery("#slide-show--home").length) {
-                jQuery(".projects__loading-img").show("fast");
-
-                jpi.ajax.sendRequest({
-                    method: "GET",
-                    url: jpi.config.jpiAPIEndpoint + "/projects/",
-                    params: {limit: 3},
-                    onSuccess: fn.gotProjects,
-                    onError: fn.renderError,
-                });
+            if (!jQuery("#slide-show--home").length) {
+                return;
             }
+
+            global.loadingElem = jQuery(".projects__loading-img");
+            global.errorElem = jQuery(".feedback--error");
+
+            global.loadingElem.show("fast");
+
+            jpi.ajax.sendRequest({
+                method: "GET",
+                url: jpi.config.jpiAPIEndpoint + "/projects/",
+                params: {limit: 3},
+                onSuccess: fn.gotProjects,
+                onError: fn.renderError,
+            });
         },
     };
 

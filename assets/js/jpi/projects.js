@@ -8,11 +8,32 @@ window.jpi.projects = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        url: new URL(window.location),
+        url: null,
         titleStart: "Projects",
         titleEnd: " | Jahidul Pabel Islam - Full Stack Developer",
 
+        htmlElem: null,
+        body: null,
+
+        nav: null,
+
+        loading: null,
+        errorElem: null,
+        projectsElem: null,
+        pagination: null,
+
         modalSelector: ".detailed-project",
+        modal: null,
+
+        modalSlideShow: null,
+        modalSlideShowViewpoint: null,
+        modalSlides: null,
+
+        searchInput: null,
+        pageNum: 1,
+
+        slideTemplate: "",
+        bulletTemplate: "",
 
         templateRegexes: {},
         navColourRegex: null,
@@ -25,7 +46,7 @@ window.jpi.projects = (function(jQuery, jpi) {
     var fn = {
 
         getCurrentPageNum: function() {
-            var currentPageNum = jQuery(".js-projects-page").val();
+            var currentPageNum = global.pageNum;
             currentPageNum = jpi.helpers.getInt(currentPageNum, 1);
 
             return currentPageNum;
@@ -33,8 +54,9 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Prints out a error message provided
         renderError: function(error) {
-            jQuery(".feedback--error").text(error).show("fast");
-            jQuery(".projects__loading-img, .pagination").text("").hide("fast");
+            global.errorElem.text(error).show("slow");
+            global.pagination.text("").hide("slow");
+            global.loading.hide("slow");
             jpi.main.resetFooter();
         },
 
@@ -48,8 +70,10 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         addSkills: function(project, divID) {
             var skills = project.skills,
+
                 skillsContainer = jQuery(divID + " .project__skills")[0],
-                search = jQuery(".search-form__input").val().trim(),
+
+                search = global.searchInput.val().trim(),
                 lowerCasedSearch = search.toLowerCase(),
                 searches = lowerCasedSearch.split(" ");
 
@@ -151,27 +175,27 @@ window.jpi.projects = (function(jQuery, jpi) {
                     continue;
                 }
 
-                var slideTemplate = jQuery("#tmpl-slide-template").text();
-                var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+                var slide = global.slideTemplate;
+                var bullet = global.bulletTemplate;
 
                 for (var field in project.images[i]) {
                     if (typeof field === "string" && project.images[i].hasOwnProperty(field)) {
                         var regex = fn.getTemplateRegex(field);
                         var data = project.images[i][field];
-                        slideTemplate = slideTemplate.replace(regex, data);
-                        bulletTemplate = bulletTemplate.replace(regex, data);
+                        slide = slide.replace(regex, data);
+                        bullet = bullet.replace(regex, data);
                     }
                 }
 
                 var colourRegex = fn.getTemplateRegex("colour");
-                slideTemplate = slideTemplate.replace(colourRegex, project.colour);
-                bulletTemplate = bulletTemplate.replace(colourRegex, project.colour);
+                slide = slide.replace(colourRegex, project.colour);
+                bullet = bullet.replace(colourRegex, project.colour);
 
                 var idRegex = fn.getTemplateRegex("slide-show-id");
-                bulletTemplate = bulletTemplate.replace(idRegex, slideShowId);
+                bullet = bullet.replace(idRegex, slideShowId);
 
-                slidesContainer.append(slideTemplate);
-                slideShowBullets.append(bulletTemplate);
+                slidesContainer.append(slide);
+                slideShowBullets.append(bullet);
             }
 
             jpi.slideShow.setUp(slideShowId);
@@ -186,7 +210,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.projects[project.id] = project;
 
-            var template = jQuery("#tmpl-project-template").text();
+            var template = global.projectTemplate;
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
                     var regex = fn.getTemplateRegex(field);
@@ -200,7 +224,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     template = template.replace(regex, value);
                 }
             }
-            jQuery(".projects").append(template);
+            global.projectsElem.append(template);
 
             fn.addSkills(project, projectSelector);
             fn.addLinks(project, projectSelector);
@@ -212,13 +236,13 @@ window.jpi.projects = (function(jQuery, jpi) {
         openProjectsExpandModal: function() {
             var projectId = jQuery(this).attr("data-project-id"),
                 project = global.projects[projectId],
-                modal = jQuery(global.modalSelector);
+                modal = global.modal;
 
             // Stops all the slide shows
             jpi.slideShow.stopSlideShows();
 
             modal.addClass("open").show();
-            jQuery("body").css("overflow", "hidden");
+            body.css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
@@ -245,20 +269,20 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         closeProjectsExpandModal: function(e) {
-            var modal = jQuery(global.modalSelector);
+            var modal = global.modal;
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
-                jQuery("body").css("overflow", "auto");
+                body.css("overflow", "auto");
 
-                var viewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint")[0];
+                var viewpoint = global.modalSlideShowViewpoint[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
                 viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
                 // Reset slide show
-                jQuery(global.modalSelector + " .slide-show__slides-container").css("left", "0px");
+                global.modalSlides.css("left", "0px");
                 clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
+                global.modalSlideShow.removeClass("js-has-slide-show");
 
                 jpi.slideShow.startSlideShows();
             }
@@ -266,7 +290,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Adds pagination buttons/elements to the page
         addPagination: function(totalItems) {
-            var paginationElem = jQuery(".pagination");
+            var paginationElem = global.pagination;
 
             if (jpi.helpers.getInt(totalItems) > 10) {
                 var page = 1,
@@ -301,11 +325,15 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Sets up events when projects were received
         gotProjects: function(response) {
-            jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-            jQuery(".projects, .pagination").text("");
+            global.errorElem.text("").hide("slow");
+            global.loading.hide("slow");
+            global.projectsElem.text("");
+            global.pagination.text("");
 
             // Send the data, the function to do if data is valid
-            jpi.ajax.renderRowsOrFeedback(response, fn.renderProject, fn.renderError, "No Projects Found.");
+            jpi.ajax.renderRowsOrFeedback(
+                response, fn.renderProject, fn.renderError, "No Projects Found."
+            );
 
             if (response && response.meta && response.meta.total_count) {
                 fn.addPagination(response.meta.total_count);
@@ -316,7 +344,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         getProjects: function() {
             var page = fn.getCurrentPageNum(),
-                search = jQuery(".search-form__input").val(),
+                search = global.searchInput.val(),
                 query = {
                     page: page,
                     search: search,
@@ -337,7 +365,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         getNewURL: function(page) {
             var url = "/projects/",
-                searchValue = jQuery(".search-form__input").val();
+
+                searchValue = global.searchInput.val();
 
             if (searchValue.trim() !== "") {
                 url += searchValue + "/";
@@ -352,7 +381,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         getNewTitle: function(page) {
             var title = global.titleStart,
-                searchValue = jQuery(".search-form__input").val();
+                searchValue = global.searchInput.val();
 
             if (searchValue.trim() !== "") {
                 title += " with " + searchValue;
@@ -368,7 +397,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         storeLatestSearch: function() {
-            var searchValue = jQuery(".search-form__input").val(),
+            var searchValue = global.searchInput.val(),
                 page = fn.getCurrentPageNum(),
                 title = fn.getNewTitle(page),
                 url = fn.getNewURL(page),
@@ -389,7 +418,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Sends request when the user has done a search
         doSearch: function() {
-            jQuery(".js-projects-page").val(1);
+            global.pageNum = 1;
 
             fn.storeLatestSearch();
 
@@ -398,33 +427,34 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         scrollToProjects: function() {
-            var projectsPos = jQuery(".projects").offset().top,
-                navHeight = jQuery(".nav").height();
+            var projectsPos = global.projectsElem.offset().top,
+                navHeight = global.nav.height();
 
-            jQuery("html, body").animate(
-                {
-                    scrollTop: projectsPos - navHeight - 20,
-                },
-                2000
-            );
+            global.htmlElem.animate({
+                scrollTop: projectsPos - navHeight - 20,
+            }, 2000);
         },
 
         // Set up page
         initListeners: function() {
             jQuery(".search-form").on("submit", fn.doSearch);
 
-            jQuery("body").on("click", ".skill", function(e) {
+            global.projectsElem.on("click", ".js-open-modal", fn.openProjectsExpandModal);
+
+            global.modal.on("click", fn.closeProjectsExpandModal);
+
+            body.on("click", ".skill", function(e) {
                 e.preventDefault();
             });
 
-            jQuery("body").on("click", ".js-searchable-skill", function(e) {
-                jQuery(global.modalSelector).trigger("click");
-                jQuery(".search-form__input").val(e.target.innerHTML);
+            body.on("click", ".js-searchable-skill", function(e) {
+                global.modal.trigger("click");
+                global.searchInput.val(e.target.innerHTML);
                 fn.scrollToProjects();
                 fn.doSearch();
             });
 
-            jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
+            global.pagination.on("click", ".js-pagination-item", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -435,37 +465,59 @@ window.jpi.projects = (function(jQuery, jpi) {
                     page = 1;
                 }
 
-                jQuery(".js-projects-page").val(page);
+                global.pageNum = page;
 
                 fn.storeLatestSearch();
                 fn.getProjects();
             });
-
-            jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
             window.addEventListener("popstate", function(e) {
                 var page = e.state.page;
 
                 document.title = fn.getNewTitle(page);
 
-                jQuery(".js-projects-page").val(page);
-                jQuery(".search-form__input").val(e.state.search);
+                global.pageNum = page;
+                global.searchInput.val(e.state.search);
 
                 fn.scrollToProjects();
                 fn.getProjects();
             });
-
-            // Close the modal
-            jQuery(global.modalSelector).on("click", fn.closeProjectsExpandModal);
         },
 
         init: function() {
-            if (jQuery(".js-all-projects").length) {
-                global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
-
-                fn.initListeners();
-                fn.getProjects();
+            if (!jQuery(".js-all-projects").length) {
+                return
             }
+
+            global.url = new URL(window.location);
+
+            global.htmlElem = jQuery("html, body");
+            global.body = jQuery("body");
+
+            global.nav = jQuery(".nav");
+
+            global.loading = jQuery(".projects__loading-img");
+            global.errorElem = jQuery(".feedback--error");
+            global.searchInput = jQuery(".search-form__input");
+            global.projectsElem = jQuery(".projects");
+            global.pagination = jQuery(".pagination");
+
+            global.modal = jQuery(global.modalSelector);
+
+            global.modalSlideShow = jQuery(global.modalSelector + " .slide-show");
+            global.modalSlideShowViewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint");
+            global.modalSlides = jQuery(global.modalSelector + " .slide-show__slides-container");
+
+            global.pageNum = jQuery(".js-projects-page");
+
+            global.projectTemplate = jQuery("#tmpl-project-template").text();
+            global.slideTemplate = jQuery("#tmpl-slide-template").text();
+            global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+
+            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
+            fn.initListeners();
+            fn.getProjects();
         },
     };
 

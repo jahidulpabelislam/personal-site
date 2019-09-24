@@ -7,9 +7,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        milliSecsPerSlide: 5000,
         slideShows: {},
         slideColourRegex: null,
+        milliSecsPerSlide: 5000,
     };
 
     var fn = {
@@ -276,10 +276,10 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 
             jQuery("body").on("click", ".js-move-slide", function() {
-                var elem = jQuery(this);
+                var nav = jQuery(this);
                 fn.moveSlide(
-                    elem.attr("data-slide-show-id"),
-                    elem.attr("data-nav-direction")
+                    nav.attr("data-slide-show-id"),
+                    nav.attr("data-nav-direction")
                 );
             });
         },

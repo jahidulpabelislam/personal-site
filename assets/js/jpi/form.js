@@ -4,6 +4,7 @@ window.jpi.form = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
+        form: null,
         submitButton: null,
         emailInput: null,
         messageInput: null,
@@ -134,11 +135,12 @@ window.jpi.form = (function(jQuery, jpi) {
                 fn.validateMessage();
             });
 
-            jQuery(".contact-form").on("submit", fn.validateForm);
+            global.form.on("submit", fn.validateForm);
         },
 
         init: function() {
-            if (!jQuery(".contact-form").length) {
+            global.form = jQuery(".contact-form");
+            if (!global.form.length) {
                 return;
             }
 

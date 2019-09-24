@@ -4,7 +4,11 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
     "use strict";
 
     var global = {
-        mapSelector: ".js-bognor-regis-map",
+        body: null,
+        nav: null,
+        mainContentElem: null,
+        map: null,
+        skillsInterests: null,
     };
 
     var fn = {
@@ -25,7 +29,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
                     fullscreenControl: false,
                     styles: JSON.parse(jpi.config.googleMapStyles),
                 },
-                map = new google.maps.Map(jQuery(global.mapSelector)[0], config);
+                map = new google.maps.Map(global.map[0], config);
 
             new google.maps.Marker({
                 position: bognorRegisLocation,
@@ -37,29 +41,20 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             });
         },
 
-        initCounter: function(options) {
-            var counter = jQuery(this);
-            options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
-            counter.countTo(options);
-        },
-
         initCounters: function() {
             var counters = jQuery(".counter");
 
             if (counters.length) {
                 counters.waypoint(function() {
-                    counters.each(fn.initCounter);
+                    counters.countTo();
                 }, {offset: "100%"});
             }
         },
 
         jumpToContent: function() {
-            jQuery("html, body").animate(
-                {
-                    scrollTop: jQuery(".main-content").offset().top - jQuery(".nav").height(),
-                },
-                1000
-            );
+            global.body.animate({
+                scrollTop: global.mainContentElem.offset().top - global.nav.height(),
+            }, 1000);
         },
 
         toggleSkillInterestContent: function() {
@@ -70,9 +65,9 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             var selectedIcon = item.children(".skills-interests__item-expand-icon");
 
             // Reset all other item to closed
-            jQuery(".skills-interests__item-expand-content").not(selected).slideUp();
-
-            jQuery(".skills-interests__item-expand-icon").not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+            global.expandableContents.not(selected).slideUp();
+            global.expandableIcons.not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+            global.skillsInterests.not(item).removeClass("expanded-item");
 
             // Toggle the clicked item
             selectedIcon.toggleClass("fa-plus");
@@ -80,7 +75,6 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             selected.slideToggle();
 
             item.toggleClass("expanded-item");
-            jQuery(".js-expand-skill-interest").not(item).removeClass("expanded-item");
         },
 
         resetFooter: function() {
@@ -91,14 +85,24 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
-            jQuery(".js-expand-skill-interest").on("click", fn.toggleSkillInterestContent);
 
-            if (jQuery(global.mapSelector).length) {
+            global.skillsInterests = jQuery(".js-expand-skill-interest");
+            global.skillsInterests.on("click", fn.toggleSkillInterestContent);
+
+            global.map = jQuery(".js-bognor-regis-map");
+            if (global.map.length) {
                 google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
             }
         },
 
         init: function() {
+            global.body = jQuery("html, body");
+            global.nav = jQuery(".nav");
+            global.mainContentElem = jQuery(".main-content");
+
+            global.expandableContents = jQuery(".skills-interests__item-expand-content");
+            global.expandableIcons = jQuery(".skills-interests__item-expand-icon");
+
             fn.initListeners();
             fn.initCounters();
 
