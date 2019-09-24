@@ -18,7 +18,7 @@ window.jpi.form = (function(jQuery, jpi) {
 
         // Show appropriate & relevant feedback to the user after an attempt of sending a message
         renderFeedback: function(response) {
-            global.formFeedback.text(response.feedback).show("fast");
+            global.formFeedback.text(response.feedback).show(200);
 
             // Check if message was sent
             if (response.ok) {
@@ -31,11 +31,11 @@ window.jpi.form = (function(jQuery, jpi) {
                 }
 
                 if (response.messageFeedback) {
-                    global.messageFeedback.text(response.messageFeedback).show("fast");
+                    global.messageFeedback.text(response.messageFeedback).show(200);
                 }
 
                 if (response.emailAddressFeedback) {
-                    global.emailFeedback.text(response.emailAddressFeedback).show("fast");
+                    global.emailFeedback.text(response.emailAddressFeedback).show(200);
                 }
             }
 
@@ -46,7 +46,7 @@ window.jpi.form = (function(jQuery, jpi) {
         renderErrorMessage: function() {
             global.formFeedback.text("Something went wrong, please try again later.")
                   .addClass("feedback--error")
-                  .show("fast");
+                  .show(200);
 
             global.submitButton.prop("disabled", false)
                   .html(global.submitButton.attr("data-initial-text"));
@@ -55,7 +55,7 @@ window.jpi.form = (function(jQuery, jpi) {
         validateEmail: function(isForm) {
             var emailAddress = global.emailInput.val();
 
-            global.formFeedback.hide("fast");
+            global.formFeedback.hide(200);
             global.emailInput.removeClass("valid");
 
             var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
@@ -63,15 +63,15 @@ window.jpi.form = (function(jQuery, jpi) {
 
             if (emailAddress.trim() === "" && isForm) {
                 global.emailInput.addClass("invalid");
-                global.emailFeedback.text("Email Address must be provided and valid.").show("fast");
+                global.emailFeedback.text("Email Address must be provided and valid.").show(200);
             }
             else if (!emailValidationTest && isForm) {
                 global.emailInput.addClass("invalid");
-                global.emailFeedback.text("Email Address must be valid.").show("fast");
+                global.emailFeedback.text("Email Address must be valid.").show(200);
             }
             else if (emailAddress.trim() !== "" && emailValidationTest) {
                 global.emailInput.removeClass("invalid").addClass("valid");
-                global.emailFeedback.hide("fast");
+                global.emailFeedback.hide(200);
                 return true;
             }
 
@@ -81,16 +81,16 @@ window.jpi.form = (function(jQuery, jpi) {
         validateMessage: function(isForm) {
             var message = global.messageInput.val();
 
-            global.formFeedback.hide("fast");
+            global.formFeedback.hide(200);
             global.messageInput.removeClass("valid");
 
             if (message.trim() === "" && isForm) {
                 global.messageInput.addClass("invalid");
-                global.messageFeedback.text("Message must be filled out.").show("fast");
+                global.messageFeedback.text("Message must be filled out.").show(200);
             }
             else if (message.trim() !== "") {
                 global.messageInput.removeClass("invalid").addClass("valid");
-                global.messageFeedback.hide("fast");
+                global.messageFeedback.hide(200);
                 return true;
             }
 
@@ -126,7 +126,7 @@ window.jpi.form = (function(jQuery, jpi) {
 
         initListeners: function() {
             global.subjectInput.on("keyup", function() {
-                global.formFeedback.hide("fast");
+                global.formFeedback.hide(200);
             });
             global.emailInput.on("input", function() {
                 fn.validateEmail();

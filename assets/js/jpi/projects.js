@@ -54,9 +54,9 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Prints out a error message provided
         renderError: function(error) {
-            global.errorElem.text(error).show("slow");
-            global.pagination.text("").hide("slow");
-            global.loading.hide("slow");
+            global.errorElem.text(error).show(600);
+            global.pagination.text("").hide(600);
+            global.loading.hide(600);
             jpi.main.resetFooter();
         },
 
@@ -325,8 +325,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Sets up events when projects were received
         gotProjects: function(response) {
-            global.errorElem.text("").hide("slow");
-            global.loading.hide("slow");
+            global.errorElem.text("").hide(600);
+            global.loading.hide(600);
             global.projectsElem.text("");
             global.pagination.text("");
 

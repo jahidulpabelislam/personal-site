@@ -36,8 +36,8 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         renderError: function(error) {
-            global.errorElem.text(error).show("fast");
-            global.loadingElem.hide("fast");
+            global.errorElem.text(error).show(200);
+            global.loadingElem.hide(200);
         },
 
         getTemplateRegex: function(regex) {
@@ -113,8 +113,8 @@ window.jpi.home = (function(jQuery, jpi) {
 
         // Sets up events when projects is received
         gotProjects: function(response) {
-            global.errorElem.text("").hide("fast");
-            global.loadingElem.hide("fast");
+            global.errorElem.text("").hide(200);
+            global.loadingElem.hide(200);
 
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
@@ -149,7 +149,7 @@ window.jpi.home = (function(jQuery, jpi) {
             global.loadingElem = jQuery(".projects__loading-img");
             global.errorElem = jQuery(".feedback--error");
 
-            global.loadingElem.show("fast");
+            global.loadingElem.show(200);
 
             jpi.ajax.sendRequest({
                 method: "GET",
