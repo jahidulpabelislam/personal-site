@@ -131,7 +131,6 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                         <div class="stats">
                             <div class="stats__item">
                                 <?php
-
                                 $speed = 2000;
 
                                 $counterFilePath = ROOT . "/assets/counters.json";
@@ -140,14 +139,13 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                                     $counters = json_decode($countersContent, true);
                                 }
 
-                                $personalProjectsNum = $counters["personal_projects"] ?? 26;
-                                $workProjectsNum = $counters["work_projects"] ?? 30;
+                                $totalProjects = $counters["projects"];
                                 ?>
-                                <p class="article__header article__header--stats counter" data-to="<?php echo $personalProjectsNum; ?>" data-speed="<?php echo $speed; ?>">
-                                    <?php echo $personalProjectsNum; ?>
+                                <p class="article__header article__header--stats counter" data-to="<?php echo $totalProjects; ?>" data-speed="<?php echo $speed; ?>">
+                                    <?php echo $totalProjects; ?>
                                 </p>
                                 <p class="stats__text">
-                                    Personal Projects (+<span class="counter" data-to="<?php echo $workProjectsNum; ?>" data-speed="<?php echo $speed; ?>"><?php echo $workProjectsNum; ?></span> work projects)
+                                    Projects
                                 </p>
                             </div>
                             <div class="stats__item">
