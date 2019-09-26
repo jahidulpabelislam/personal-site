@@ -21,17 +21,20 @@ window.jpi.home = (function(jQuery, jpi) {
     var fn = {
 
         initSecondsCounter: function() {
-            var secsElem = jQuery(".js-seconds-on-site");
-            if (secsElem.length) {
+            var secsElems = jQuery(".js-seconds-on-site");
+            if (secsElems.length) {
                 var secsInMilliseconds = 1000;
 
-                setTimeout(function() {
-                    setInterval(function() {
-                        var lastSec = secsElem.text();
-                        lastSec = jpi.helpers.getInt(lastSec, 1);
-                        secsElem.text(lastSec + 1);
+                secsElems.each(function(i, secsElem) {
+                    secsElem = jQuery(secsElem);
+                    setTimeout(function() {
+                        setInterval(function() {
+                            var lastSec = secsElem.text();
+                            lastSec = jpi.helpers.getInt(lastSec, 1);
+                            secsElem.text(lastSec + 1);
+                        }, secsInMilliseconds);
                     }, secsInMilliseconds);
-                }, secsInMilliseconds);
+                });
             }
         },
 
