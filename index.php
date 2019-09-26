@@ -139,7 +139,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                                     $counters = json_decode($countersContent, true);
                                 }
 
-                                $totalProjects = $counters["projects"];
+                                $totalProjects = $counters["projects"] ?? 60;
                                 ?>
                                 <p class="article__header article__header--stats counter" data-to="<?php echo $totalProjects; ?>" data-speed="<?php echo $speed; ?>">
                                     <?php echo $totalProjects; ?>
