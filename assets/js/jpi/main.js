@@ -41,13 +41,26 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             });
         },
 
+        countTo: function() {
+            var counter = jQuery(this);
+            var options = jQuery.extend({}, counter.data("countToOptions") || {});
+            counter.countTo(options);
+        },
+
         initCounters: function() {
             var counters = jQuery(".counter");
 
             if (counters.length) {
-                counters.waypoint(function() {
-                    counters.countTo();
-                }, {offset: "100%"});
+                var waypointArgs = {offset: "66%"};
+                counters.each(function(i, elem) {
+                    var counter = jQuery(elem);
+
+                    // Make the initial display be the from value
+                    var start = counter.attr("data-from");
+                    counter.text(start || 0);
+
+                    counter.waypoint(fn.countTo, waypointArgs);
+                });
             }
         },
 
