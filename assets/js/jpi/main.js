@@ -48,18 +48,26 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         },
 
         initCounters: function() {
-            var counters = jQuery(".counter");
+            var counterGroups = jQuery(".js-counters");
 
-            if (counters.length) {
-                var waypointArgs = {offset: "66%"};
-                counters.each(function(i, elem) {
-                    var counter = jQuery(elem);
+            if (counterGroups.length) {
+                var waypointArgs = {offset: "50%"};
+                counterGroups.each(function(i, groupElem) {
+                    var group = jQuery(groupElem);
 
-                    // Make the initial display be the from value
-                    var start = counter.attr("data-from");
-                    counter.text(start || 0);
+                    var counters = group.find(".js-counter");
+                    counters.each(function(j, counterElem) {
+                        var counter = jQuery(counterElem);
+                        // Make the initial display be the from value
+                        var start = counter.attr("data-from");
+                        counter.text(start || 0);
+                    });
 
-                    counter.waypoint(fn.countTo, waypointArgs);
+                    group.waypoint(function() {
+                        var wpGroup = jQuery(this);
+                        var wpCounters = wpGroup.find(".js-counter");
+                        wpCounters.each(fn.countTo);
+                    }, waypointArgs);
                 });
             }
         },
