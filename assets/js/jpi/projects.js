@@ -328,6 +328,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 query = {
                     page: page,
                     search: search,
+                    limit: 6,
                 };
 
             // Stops all the slide shows

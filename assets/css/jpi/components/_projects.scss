@@ -5,15 +5,19 @@
 }
 
 .project__title {
+    width: 100%;
     margin: 0;
-    text-align: left;
+    font-family: "Oswald", sans-serif;
     font-size: 22px;
     line-height: 24px;
     font-weight: 700;
+    text-align: left;
 }
 
 .project__date {
     width: 100%;
     margin: 0 0 0 auto;
+    font-size: 14px;
     text-align: right;
+    color: lighten($dark-colour, 25);
 }
