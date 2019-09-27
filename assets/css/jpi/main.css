@@ -2825,6 +2825,48 @@ label {
 .project__read-more--black:hover::after {
   background-color: #262626; }
 
+.project__type {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left; }
+
+.project__type--light-blue {
+  color: #54c6e2; }
+
+.project__type--dark-blue {
+  color: #0375b4; }
+
+.project__type--purple {
+  color: #82379d; }
+
+.project__type--pink {
+  color: #f47ab3; }
+
+.project__type--red {
+  color: #f12525; }
+
+.project__type--orange {
+  color: #f69e00; }
+
+.project__type--yellow {
+  color: #ffef38; }
+
+.project__type--light-green {
+  color: #3dc714; }
+
+.project__type--lime-green {
+  color: #b5cf16; }
+
+.project__type--dark-green {
+  color: #1aad5b; }
+
+.project__type--grey {
+  color: #7b8676; }
+
+.project__type--black {
+  color: #333333; }
+
 .pagination--projects.pagination--projects {
   margin-top: 20px; }
 

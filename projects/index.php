@@ -163,6 +163,8 @@ $page->renderHeader();
                 <script type="text/template" id="tmpl-project-template">
                     <article class="project" id="project--{{ id }}">
 
+                        <p class="project__type project__type--{{ colour }}">{{ type }}</p>
+
                         <div class="project__header">
                             <h4 class="project__title">{{ name }}</h4>
                             <time class="project__date">{{ date }}</time>
@@ -182,6 +184,7 @@ $page->renderHeader();
                                 Read More
                             </button>
                         </div>
+
                     </article>
                 </script>
 
