@@ -248,7 +248,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             modal.find(".project__title").text(project.name);
 
-            var projectDateString = new Date(project.date).toLocaleDateString();
+            var projectDateString = global.dateFormat.format(new Date(project.date));
             modal.find(".project__date").text(projectDateString);
             modal.find(".project__description").html(project.long_description);
 
