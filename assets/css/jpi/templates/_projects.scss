@@ -183,6 +183,18 @@
     }
 }
 
+.project__type {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+}
+@each $colour, $colours in $colour-schemes {
+    .project__type--#{$colour} {
+        color: map-get($colours, main);
+    }
+}
+
 .pagination--projects.pagination--projects {
     margin-top: 20px;
 }
