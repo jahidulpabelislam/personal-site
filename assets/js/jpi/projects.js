@@ -242,7 +242,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             jpi.slideShow.stopSlideShows();
 
             modal.addClass("open").show();
-            body.css("overflow", "hidden");
+            global.body.css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
@@ -273,7 +273,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
                 modal.removeClass("open").hide();
 
-                body.css("overflow", "auto");
+                global.body.css("overflow", "auto");
 
                 var viewpoint = global.modalSlideShowViewpoint[0];
                 viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
@@ -443,11 +443,11 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal.on("click", fn.closeProjectsExpandModal);
 
-            body.on("click", ".skill", function(e) {
+            global.body.on("click", ".skill", function(e) {
                 e.preventDefault();
             });
 
-            body.on("click", ".js-searchable-skill", function(e) {
+            global.body.on("click", ".js-searchable-skill", function(e) {
                 global.modal.trigger("click");
                 global.searchInput.val(e.target.innerHTML);
                 fn.scrollToProjects();
