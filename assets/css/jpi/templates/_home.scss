@@ -70,6 +70,7 @@
 }
 
 .slide-show__info {
+    margin: 12px auto;
     padding: 10px 35px;
     background-color: get-colour(black, main);
     color: get-colour(black, text, white);
@@ -86,6 +87,10 @@
         background-color: map-get($colours, main);
         color: get-colour-variant($colours, text, white);
     }
+
+    .slide-show__info--#{$colour} .project__date {
+        color: get-colour-variant($colours, text, white);
+    }
 }
 
 .project-info__links .btn {
@@ -99,7 +104,6 @@
 
 #slide-show--home .project__title,
 #slide-show--home .project__date {
-    width: 100%;
     white-space: nowrap;
 }
 
@@ -157,6 +161,10 @@
         padding: 10px;
         background-color: transparentize($dark-colour, 0.2);
         border-radius: 5px;
+    }
+
+    .slide-show__info .project__date {
+        color: white;
     }
 
     .slide-show__slide.active .slide-show__info {
