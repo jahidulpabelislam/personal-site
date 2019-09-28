@@ -2343,7 +2343,7 @@ label {
 .project__skills {
   margin: 15px 0; }
 
-.skill {
+.project__skill {
   display: inline-block;
   margin: 2px;
   padding: 5px;
@@ -2354,221 +2354,221 @@ label {
   cursor: pointer;
   transition: all 0.4s ease-in-out; }
 
-.skill:hover {
+.project__skill:hover {
   border-color: #262626;
   background-color: #262626;
   color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.skill.searched,
-.skill:not(.js-searchable-skill):hover {
+.project__skill.searched,
+.project__skill:not(.js-searchable-skill):hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white;
   cursor: default; }
 
-.skill:not(.js-searchable-skill):hover {
+.project__skill:not(.js-searchable-skill):hover {
   box-shadow: none; }
 
-.skill--light-blue {
+.project__skill--light-blue {
   border-color: #54c6e2;
   color: #54c6e2; }
 
-.skill--light-blue:hover {
+.project__skill--light-blue:hover {
   border-color: #53d1ec;
   background-color: #53d1ec;
   color: white;
   box-shadow: 0 0 10px 0 rgba(84, 198, 226, 0.4); }
 
-.skill--light-blue.searched,
-.skill--light-blue:not(.js-searchable-skill):hover {
+.project__skill--light-blue.searched,
+.project__skill--light-blue:not(.js-searchable-skill):hover {
   border-color: #52c2dd;
   background-color: #52c2dd;
   color: white;
   box-shadow: none; }
 
-.skill--dark-blue {
+.project__skill--dark-blue {
   border-color: #0375b4;
   color: #0375b4; }
 
-.skill--dark-blue:hover {
+.project__skill--dark-blue:hover {
   border-color: #0382c3;
   background-color: #0382c3;
   color: white;
   box-shadow: 0 0 10px 0 rgba(3, 117, 180, 0.4); }
 
-.skill--dark-blue.searched,
-.skill--dark-blue:not(.js-searchable-skill):hover {
+.project__skill--dark-blue.searched,
+.project__skill--dark-blue:not(.js-searchable-skill):hover {
   border-color: #0360a0;
   background-color: #0360a0;
   color: white;
   box-shadow: none; }
 
-.skill--purple {
+.project__skill--purple {
   border-color: #82379d;
   color: #82379d; }
 
-.skill--purple:hover {
+.project__skill--purple:hover {
   border-color: #9339af;
   background-color: #9339af;
   color: white;
   box-shadow: 0 0 10px 0 rgba(130, 55, 157, 0.4); }
 
-.skill--purple.searched,
-.skill--purple:not(.js-searchable-skill):hover {
+.project__skill--purple.searched,
+.project__skill--purple:not(.js-searchable-skill):hover {
   border-color: #6c3687;
   background-color: #6c3687;
   color: white;
   box-shadow: none; }
 
-.skill--pink {
+.project__skill--pink {
   border-color: #f47ab3;
   color: #f47ab3; }
 
-.skill--pink:hover {
+.project__skill--pink:hover {
   border-color: #ff82bf;
   background-color: #ff82bf;
   color: white;
   box-shadow: 0 0 10px 0 rgba(244, 122, 179, 0.4); }
 
-.skill--pink.searched,
-.skill--pink:not(.js-searchable-skill):hover {
+.project__skill--pink.searched,
+.project__skill--pink:not(.js-searchable-skill):hover {
   border-color: #ff739b;
   background-color: #ff739b;
   color: white;
   box-shadow: none; }
 
-.skill--red {
+.project__skill--red {
   border-color: #f12525;
   color: #f12525; }
 
-.skill--red:hover {
+.project__skill--red:hover {
   border-color: #ff2525;
   background-color: #ff2525;
   color: white;
   box-shadow: 0 0 10px 0 rgba(241, 37, 37, 0.4); }
 
-.skill--red.searched,
-.skill--red:not(.js-searchable-skill):hover {
+.project__skill--red.searched,
+.project__skill--red:not(.js-searchable-skill):hover {
   border-color: #e62525;
   background-color: #e62525;
   color: white;
   box-shadow: none; }
 
-.skill--orange {
+.project__skill--orange {
   border-color: #f69e00;
   color: #f69e00; }
 
-.skill--orange:hover {
+.project__skill--orange:hover {
   border-color: #fba300;
   background-color: #fba300;
   color: white;
   box-shadow: 0 0 10px 0 rgba(246, 158, 0, 0.4); }
 
-.skill--orange.searched,
-.skill--orange:not(.js-searchable-skill):hover {
+.project__skill--orange.searched,
+.project__skill--orange:not(.js-searchable-skill):hover {
   border-color: #f77f00;
   background-color: #f77f00;
   color: white;
   box-shadow: none; }
 
-.skill--yellow {
+.project__skill--yellow {
   border-color: #ffef38;
   color: #ffef38; }
 
-.skill--yellow:hover {
+.project__skill--yellow:hover {
   border-color: #fffd3c;
   background-color: #fffd3c;
   color: #333333;
   box-shadow: 0 0 10px 0 rgba(255, 239, 56, 0.4); }
 
-.skill--yellow.searched,
-.skill--yellow:not(.js-searchable-skill):hover {
+.project__skill--yellow.searched,
+.project__skill--yellow:not(.js-searchable-skill):hover {
   border-color: #f8e43b;
   background-color: #f8e43b;
   color: #333333;
   box-shadow: none; }
 
-.skill--light-green {
+.project__skill--light-green {
   border-color: #3dc714;
   color: #3dc714; }
 
-.skill--light-green:hover {
+.project__skill--light-green:hover {
   border-color: #3bcf14;
   background-color: #3bcf14;
   color: white;
   box-shadow: 0 0 10px 0 rgba(61, 199, 20, 0.4); }
 
-.skill--light-green.searched,
-.skill--light-green:not(.js-searchable-skill):hover {
+.project__skill--light-green.searched,
+.project__skill--light-green:not(.js-searchable-skill):hover {
   border-color: #33bb12;
   background-color: #33bb12;
   color: white;
   box-shadow: none; }
 
-.skill--lime-green {
+.project__skill--lime-green {
   border-color: #b5cf16;
   color: #b5cf16; }
 
-.skill--lime-green:hover {
+.project__skill--lime-green:hover {
   border-color: #bdd716;
   background-color: #bdd716;
   color: white;
   box-shadow: 0 0 10px 0 rgba(181, 207, 22, 0.4); }
 
-.skill--lime-green.searched,
-.skill--lime-green:not(.js-searchable-skill):hover {
+.project__skill--lime-green.searched,
+.project__skill--lime-green:not(.js-searchable-skill):hover {
   border-color: #b4c72f;
   background-color: #b4c72f;
   color: white;
   box-shadow: none; }
 
-.skill--dark-green {
+.project__skill--dark-green {
   border-color: #1aad5b;
   color: #1aad5b; }
 
-.skill--dark-green:hover {
+.project__skill--dark-green:hover {
   border-color: #1bbe69;
   background-color: #1bbe69;
   color: white;
   box-shadow: 0 0 10px 0 rgba(26, 173, 91, 0.4); }
 
-.skill--dark-green.searched,
-.skill--dark-green:not(.js-searchable-skill):hover {
+.project__skill--dark-green.searched,
+.project__skill--dark-green:not(.js-searchable-skill):hover {
   border-color: #1ba553;
   background-color: #1ba553;
   color: white;
   box-shadow: none; }
 
-.skill--grey {
+.project__skill--grey {
   border-color: #7b8676;
   color: #7b8676; }
 
-.skill--grey:hover {
+.project__skill--grey:hover {
   border-color: #889283;
   background-color: #889283;
   color: white;
   box-shadow: 0 0 10px 0 rgba(123, 134, 118, 0.4); }
 
-.skill--grey.searched,
-.skill--grey:not(.js-searchable-skill):hover {
+.project__skill--grey.searched,
+.project__skill--grey:not(.js-searchable-skill):hover {
   border-color: #626b5e;
   background-color: #626b5e;
   color: white;
   box-shadow: none; }
 
-.skill--black {
+.project__skill--black {
   border-color: #333333;
   color: #333333; }
 
-.skill--black:hover {
+.project__skill--black:hover {
   border-color: #262626;
   background-color: #262626;
   color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.skill--black.searched,
-.skill--black:not(.js-searchable-skill):hover {
+.project__skill--black.searched,
+.project__skill--black:not(.js-searchable-skill):hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white;
@@ -2783,9 +2783,6 @@ label {
 .project__read-more--black:hover::after {
   background-color: #262626; }
 
-.read-more__icon {
-  margin-left: 4px; }
-
 .pagination--projects.pagination--projects {
   margin-top: 20px; }
 
@@ -2806,6 +2803,17 @@ label {
   opacity: 0;
   transition: all 1s ease-in-out; }
 
+.expanded-slide-show.active {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: 10000; }
+
+.expanded-slide-show.hiding {
+  z-index: 10000; }
+
 .expanded-slide-show__controls {
   display: flex;
   position: absolute;
@@ -2819,10 +2827,10 @@ label {
 .expanded-slide-show__bullets {
   width: 33%; }
 
-.expanded-image-slide-show__bullet {
+.expanded-slide-show__bullet {
   margin: 5px; }
 
-.expanded-image-slide-show__bullet.active {
+.expanded-slide-show__bullet.active {
   background: white; }
 
 .expanded-slide-show__navs {
@@ -2839,18 +2847,7 @@ label {
 .expanded-slide-show__nav:hover {
   opacity: 1; }
 
-.expanded-slide-show.active {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  z-index: 10000; }
-
-.expanded-slide-show.hiding {
-  z-index: 10000; }
-
-.expanded-image-container {
+.expanded-slide-show__image-container {
   display: flex;
   position: absolute;
   top: 20px;
@@ -2859,7 +2856,7 @@ label {
   height: calc(100% - 55px);
   align-items: center; }
 
-.expanded-image {
+.expanded-slide-show__image {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
@@ -2867,7 +2864,7 @@ label {
   opacity: 0;
   transition: all 1s ease-in-out; }
 
-.expanded-image.current {
+.expanded-slide-show__image.current {
   opacity: 1; }
 
 .expanded-slide-show__close {

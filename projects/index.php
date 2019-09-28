@@ -102,12 +102,12 @@ $page->renderHeader();
                 </section>
 
                 <div class="expanded-slide-show">
-                    <div class="expanded-image-container">
-                        <img class="expanded-image current" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+                    <div class="expanded-slide-show__image-container">
+                        <img class="expanded-slide-show__image current" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
-                    <div class="expanded-image-container">
-                        <img class="expanded-image" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+                    <div class="expanded-slide-show__image-container">
+                        <img class="expanded-slide-show__image" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__controls">

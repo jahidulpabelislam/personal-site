@@ -18,7 +18,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             expandedImage.attr("src", global.slides[global.currentSlide].src);
 
             jQuery(".js-expanded-slide-show-current-count").text(global.currentSlide + 1);
-            jQuery(".expanded-image-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
+            jQuery(".expanded-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
         },
 
         // Changes the current slide to new slide
@@ -31,10 +31,10 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             }
             global.currentSlide = nextSlideIndex;
 
-            jQuery(".expanded-image-slide-show__bullet").removeClass("active");
+            jQuery(".expanded-slide-show__bullet").removeClass("active");
 
-            var expandedImage = jQuery(".expanded-image.current"),
-                expandedImage2 = jQuery(".expanded-image:not(.current)");
+            var expandedImage = jQuery(".expanded-slide-show__image.current"),
+                expandedImage2 = jQuery(".expanded-slide-show__image:not(.current)");
 
             fn.displaySlide(expandedImage2);
 
@@ -81,7 +81,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
                 // Set up bullet navigation for slide
                 jpi.helpers.createElement(jQuery(".expanded-slide-show__bullets")[0], "button", {
-                    "class": "slide-show__bullet expanded-image-slide-show__bullet js-expanded-image-bullet",
+                    "class": "slide-show__bullet expanded-slide-show__bullet js-expanded-image-bullet",
                     "data-slide-id": i,
                 });
             }
@@ -92,14 +92,14 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             // Check there are more than one slide show image to slide through
             if (slidesCount > 1) {
                 // Sets up next and previous buttons
-                jQuery(".expanded-slide-show__nav, .expanded-image-slide-show__bullet").show();
+                jQuery(".expanded-slide-show__nav, .expanded-slide-show__bullet").show();
             }
             // Only one slide show image so stop next and previous buttons
             else {
-                jQuery(".expanded-slide-show__nav, .expanded-image-slide-show__bullet").hide();
+                jQuery(".expanded-slide-show__nav, .expanded-slide-show__bullet").hide();
             }
 
-            fn.displaySlide(jQuery(".expanded-image.current"));
+            fn.displaySlide(jQuery(".expanded-slide-show__image.current"));
 
             jQuery(".detailed-project").removeClass("open").hide();
 

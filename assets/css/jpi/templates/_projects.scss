@@ -32,7 +32,7 @@
     margin: 15px 0;
 }
 
-.skill {
+.project__skill {
     display: inline-block;
     margin: 2px;
     padding: 5px;
@@ -44,40 +44,40 @@
     transition: all 0.4s ease-in-out;
 }
 
-.skill:hover {
+.project__skill:hover {
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
     box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
-.skill.searched,
-.skill:not(.js-searchable-skill):hover {
+.project__skill.searched,
+.project__skill:not(.js-searchable-skill):hover {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
     cursor: default;
 }
 
-.skill:not(.js-searchable-skill):hover {
+.project__skill:not(.js-searchable-skill):hover {
     box-shadow: none;
 }
 
 @each $colour, $colours in $colour-schemes {
-    .skill--#{$colour} {
+    .project__skill--#{$colour} {
         border-color: map-get($colours, main);
         color: map-get($colours, main);
     }
 
-    .skill--#{$colour}:hover {
+    .project__skill--#{$colour}:hover {
         border-color: map-get($colours, hover);
         background-color: map-get($colours, hover);
         color: get-colour-variant($colours, text, white);
         box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
-    .skill--#{$colour}.searched,
-    .skill--#{$colour}:not(.js-searchable-skill):hover {
+    .project__skill--#{$colour}.searched,
+    .project__skill--#{$colour}:not(.js-searchable-skill):hover {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);
@@ -179,10 +179,6 @@
     }
 }
 
-.read-more__icon {
-    margin-left: 4px;
-}
-
 .pagination--projects.pagination--projects {
     margin-top: 20px;
 }
@@ -206,6 +202,17 @@
     opacity: 0;
     transition: all 1s ease-in-out;
 }
+.expanded-slide-show.active {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 10000;
+}
+.expanded-slide-show.hiding {
+    z-index: 10000;
+}
 
 .expanded-slide-show__controls {
     display: flex;
@@ -222,11 +229,10 @@
     width: 33%;
 }
 
-.expanded-image-slide-show__bullet {
+.expanded-slide-show__bullet {
     margin: 5px;
 }
-
-.expanded-image-slide-show__bullet.active {
+.expanded-slide-show__bullet.active {
     background: white;
 }
 
@@ -247,20 +253,7 @@
     opacity: 1;
 }
 
-.expanded-slide-show.active {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    z-index: 10000;
-}
-
-.expanded-slide-show.hiding {
-    z-index: 10000;
-}
-
-.expanded-image-container {
+.expanded-slide-show__image-container {
     display: flex;
     position: absolute;
     top: 20px;
@@ -270,7 +263,7 @@
     align-items: center;
 }
 
-.expanded-image {
+.expanded-slide-show__image {
     max-width: 100%;
     max-height: 100%;
     margin: auto;
@@ -278,8 +271,7 @@
     opacity: 0;
     transition: all 1s ease-in-out;
 }
-
-.expanded-image.current {
+.expanded-slide-show__image.current {
     opacity: 1;
 }
 

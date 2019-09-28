@@ -74,7 +74,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                var classes = "skill skill--" + project.colour;
+                var classes = "project__skill project__skill--" + project.colour;
                 classes += isInSearch ? " searched" : " js-searchable-skill";
 
                 jpi.helpers.createElement(skillsContainer, "a", {
@@ -421,7 +421,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         initListeners: function() {
             jQuery(".search-form").on("submit", fn.doSearch);
 
-            jQuery("body").on("click", ".skill", function(e) {
+            jQuery("body").on("click", ".project__skill", function(e) {
                 e.preventDefault();
             });
 
