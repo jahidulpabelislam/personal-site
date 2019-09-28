@@ -98,7 +98,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                var classes = "skill skill--" + project.colour;
+                var classes = "project__skill project__skill--" + project.colour;
                 classes += isInSearch ? " searched" : " js-searchable-skill";
 
                 jpi.helpers.createElement(skillsContainer, "a", {
@@ -443,7 +443,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal.on("click", fn.closeProjectsExpandModal);
 
-            global.body.on("click", ".skill", function(e) {
+            global.body.on("click", ".project__skill", function(e) {
                 e.preventDefault();
             });
 
