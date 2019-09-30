@@ -208,19 +208,18 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
+            if (project.date) {
+                var date = new Date(project.date);
+                project.date = global.dateFormat.format(date);
+            }
+
             global.projects[project.id] = project;
 
             var template = global.projectTemplate;
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
                     var regex = fn.getTemplateRegex(field);
-
                     var value = project[field];
-                    if (field === "date") {
-                        var date = new Date(value);
-                        value = global.dateFormat.format(date);
-                    }
-
                     template = template.replace(regex, value);
                 }
             }
@@ -247,9 +246,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
             modal.find(".project__title").text(project.name);
-
-            var projectDateString = global.dateFormat.format(new Date(project.date));
-            modal.find(".project__date").text(projectDateString);
+            modal.find(".project__date").text(project.date);
             modal.find(".project__description").html(project.long_description);
 
             fn.addSkills(project, global.modalSelector);
