@@ -23,6 +23,15 @@
     overflow: hidden;
 }
 
+.modal__heading {
+    font-family: "Oswald", sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .modal__content {
