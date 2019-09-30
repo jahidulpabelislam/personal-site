@@ -134,16 +134,19 @@ $page->renderHeader();
 
                 <div class="modal detailed-project">
                     <div class="modal__content">
-                        <div class="project__header">
-                            <h4 class="project__title"></h4>
+                        <h4 class="modal__heading"></h4>
+
+                        <div class="project__skills"></div>
+
+                        <div class="project__meta">
+                            <p class="project__type project__type--"></p>
                             <time class="project__date">
                                 <?php echo date("Y"); ?>
                             </time>
                         </div>
 
-                        <div class="project__skills"></div>
-                        <div class="project__links"></div>
                         <div class="project__description"></div>
+                        <div class="project__links"></div>
 
                         <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
@@ -157,6 +160,7 @@ $page->renderHeader();
                             </div>
                             <div class="slide-show__bullets"></div>
                         </div>
+
                     </div>
                 </div>
 

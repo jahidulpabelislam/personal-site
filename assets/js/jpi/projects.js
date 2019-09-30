@@ -245,9 +245,17 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
-            modal.find(".project__title").text(project.name);
+            modal.find(".modal__heading").text(project.name);
             modal.find(".project__date").text(project.date);
             modal.find(".project__description").html(project.long_description);
+
+            var projectTypeElem = modal.find(".project__type");
+
+            projectTypeElem.text(project.type);
+
+            var classList = projectTypeElem.attr("class");
+            classList = classList.replace(global.typeColourRegex, "project__type--" + project.colour);
+            projectTypeElem.attr("class", classList);
 
             fn.addSkills(project, global.modalSelector);
             fn.addLinks(project, global.modalSelector);
@@ -511,6 +519,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
             global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
+            global.typeColourRegex = new RegExp("project__type--[\\w-]*", "g");
 
             fn.initListeners();
             fn.getProjects();

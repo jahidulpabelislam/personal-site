@@ -1526,6 +1526,14 @@ label {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   overflow: hidden; }
 
+.modal__heading {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px; }
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   .modal__content {
@@ -1602,13 +1610,13 @@ label {
     width: calc(25% - 20px);
     margin: 0 10px; } }
 
-.project__header {
+.project__header,
+.project__meta {
   display: flex;
   margin: 0 0 10px 0;
   align-items: center; }
 
 .project__title {
-  width: 100%;
   margin: 0;
   font-family: "Oswald", sans-serif;
   font-size: 22px;
@@ -1617,11 +1625,15 @@ label {
   text-align: left; }
 
 .project__date {
-  width: 100%;
   margin: 0 0 0 auto;
   font-size: 14px;
   text-align: right;
   color: #737373; }
+
+.project__header .project__title,
+.project__header .project__date,
+.project__header .project__type {
+  width: 100%; }
 
 .cookie-banner {
   display: none;
