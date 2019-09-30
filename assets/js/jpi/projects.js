@@ -253,10 +253,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.addLinks(project, global.modalSelector);
             fn.addProjectImages(project, global.modalSelector);
 
-            if (!global.navColourRegex) {
-                global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-            }
-
             modal.find(".slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
                 var classList = slideShowNav.attr("class");
@@ -513,6 +509,8 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
+            global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
 
             fn.initListeners();
             fn.getProjects();

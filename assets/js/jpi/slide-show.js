@@ -98,10 +98,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (slideShowId === "#slide-show--home") {
                 var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
 
-                if (!global.navColourRegex) {
-                    global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-                }
-
                 jQuery(slideShowId + " .slide-show__nav").each(function() {
                     var slideShowNav = jQuery(this);
                     var classList = slideShowNav.attr("class");
@@ -270,6 +266,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (!jQuery(".slide-show").length) {
                 return;
             }
+
+            global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
 
             jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
             jQuery("body").on("dragstart", ".slide-show__img", false);
