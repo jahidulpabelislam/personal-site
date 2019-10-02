@@ -21,9 +21,9 @@
 
 .project {
     margin-top: 24px;
-    padding: 15px;
+    padding: 0 15px 15px;
     border: 1px solid $light-grey;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     background-color: white;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
@@ -90,11 +90,11 @@
 }
 
 .project__description {
-    margin: 15px 0;
+    text-align: left;
 }
 
 .project__slide-show {
-    margin: 15px -15px;
+    margin: 0 -15px 15px;
 }
 
 .project__footer {
@@ -184,7 +184,8 @@
 }
 
 .project__type {
-    margin: 0 0 8px 0;
+    width: 100%;
+    margin: 0;
     font-size: 14px;
     font-weight: 700;
     text-align: left;

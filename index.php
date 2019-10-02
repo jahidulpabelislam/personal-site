@@ -176,12 +176,12 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                         <img class="slide-show__img" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of {{ name }} Project" />
                         <div class="slide-show__info-container">
                             <div class="slide-show__info slide-show__info--{{ colour }}">
-                                <div class="project__header">
-                                    <h4 class="project__title">{{ name }}</h4>
-                                    <time class="project__date">{{ date }}</time>
+                                <div class="slide-info__header">
+                                    <h4 class="slide-info__title">{{ name }}</h4>
+                                    <time class="slide-info__date">{{ date }}</time>
                                 </div>
-                                <div class="project-info__desc">{{ short_description }}</div>
-                                <div class="project-info__links"></div>
+                                <div class="slide-info__desc">{{ short_description }}</div>
+                                <div class="slide-info__links"></div>
                             </div>
                         </div>
                     </div>

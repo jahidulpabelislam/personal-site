@@ -166,18 +166,17 @@ $page->renderHeader();
 
                 <script type="text/template" id="tmpl-project-template">
                     <article class="project" id="project--{{ id }}">
+                        <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
+                            <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ id }}">
+                                <div class="slide-show__slides-container"></div>
+                            </div>
+                        </div>
 
                         <p class="project__type project__type--{{ colour }}">{{ type }}</p>
 
                         <div class="project__header">
                             <h4 class="project__title">{{ name }}</h4>
                             <time class="project__date">{{ date }}</time>
-                        </div>
-
-                        <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
-                            <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ id }}">
-                                <div class="slide-show__slides-container"></div>
-                            </div>
                         </div>
 
                         <div class="project__description">{{ short_description }}</div>
