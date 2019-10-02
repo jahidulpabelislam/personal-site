@@ -67,15 +67,16 @@ function renderSkillsOrInterests(array $items, string $colour) {
                 <div class="article article--halved article--about">
                     <div class="container">
                         <div class="article__half">
-                            <a href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/brightminded.png"); ?>" alt="Logo of BrightMinded" />
+                            <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
+                                <img src="<?php echoWithAssetVersion("/assets/images/d3r-logo.svg"); ?>" alt="Logo of D3R" />
                             </a>
                         </div>
                         <div class="article__half">
                             <?php
                             $durationAtWorkStr = "";
 
-                            $workStartDate = "28/06/2017";
+                            $workStartDateStr = "23/09/2019";
+                            $workStartDate = DateTime::createFromFormat("d/m/Y", $workStartDateStr);
 
                             $yearsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%y");
                             if ($yearsSinceStarted) {
@@ -92,13 +93,14 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                 $durationAtWorkStr .= " {$monthsSinceStarted} ";
                                 $durationAtWorkStr .= $monthsSinceStarted === 1 ? "month" : "months";
                             }
+
+                            if ($durationAtWorkStr) {
+                                $durationAtWorkStr = " for the past " . trim($durationAtWorkStr);
+                            }
                             ?>
                             <p>
-                                Been working as a Software Developer at
-                                <a class="link-styled link-styled--lime-green" href="https://brightminded.com/" title="Link to BrightMinded website." target="_blank" rel="noopener noreferrer">
-                                    BrightMinded
-                                </a>
-                                for the past <?php echo trim($durationAtWorkStr); ?>.
+                                Been working as a Web Developer at
+                                <a class="link-styled link-styled--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr; ?>.
                             </p>
                         </div>
                     </div>
@@ -251,13 +253,20 @@ function renderSkillsOrInterests(array $items, string $colour) {
                             <?php
                             $timelineItems = [
                                 [
-                                    "date" => "2017 - Present",
+                                    "date" => "2019 - Present",
+                                    "icon" => "work",
+                                    "text" => "Web Developer @
+                                        <a class='link-styled link-styled--orange' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                                            D3R
+                                        </a>",
+                                    "isActive" => true,
+                                ], [
+                                    "date" => "2017 - 2019",
                                     "icon" => "work",
                                     "text" => "Software Developer @
                                         <a class='link-styled link-styled--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
-                                    "isActive" => true,
                                 ], [
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
@@ -265,7 +274,6 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                         <a class='link-styled link-styled--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
@@ -274,7 +282,6 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                             CeX
                                         </a>
                                          as a Sales Assistant",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "2014",
                                     "icon" => "food",
@@ -283,7 +290,6 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                             KFC
                                         </a>
                                          as a Team Member",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
@@ -291,12 +297,10 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                         <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
-                                    "isActive" => false,
                                 ], [
                                     "date" => $site->getYearStarted(),
                                     "icon" => "coding",
                                     "text" => "Got introduced to coding",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
@@ -304,22 +308,20 @@ function renderSkillsOrInterests(array $items, string $colour) {
                                         <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "1996 - 2007",
                                     "icon" => "childhood",
                                     "text" => "Life before getting introduced to technology",
-                                    "isActive" => false,
                                 ], [
                                     "date" => "1996",
                                     "icon" => "baby",
                                     "text" => "Born",
-                                    "isActive" => false,
                                 ],
                             ];
 
                             foreach ($timelineItems as $timelineItem) {
-                                $activeClass = $timelineItem["isActive"] ? "timeline__item--active" : "";
+                                $isActive = $timelineItem["isActive"] ?? false;
+                                $activeClass = $isActive ? "timeline__item--active" : "";
                                 echo "<div class='timeline__item {$activeClass}'>";
 
                                 $date = $timelineItem["date"];
