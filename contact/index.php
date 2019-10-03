@@ -80,7 +80,7 @@ $page->renderHeader();
                         </div>
                         <div class="article__half">
                             <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                             </a>
                         </div>
@@ -94,7 +94,7 @@ $page->renderHeader();
                         </div>
                         <div class="article__half">
                             <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                                 <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                             </a>
                         </div>

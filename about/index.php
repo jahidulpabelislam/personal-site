@@ -68,7 +68,7 @@ function renderSkillsOrInterests(array $items, string $colour) {
                     <div class="container">
                         <div class="article__half">
                             <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/d3r-logo.svg"); ?>" alt="Logo of D3R" />
+                                <img src="<?php echoWithAssetVersion("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
                             </a>
                         </div>
                         <div class="article__half">
@@ -110,7 +110,7 @@ function renderSkillsOrInterests(array $items, string $colour) {
                     <div class="container">
                         <div class="article__half">
                             <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/uop.png"); ?>" alt="Logo of University of Portsmouth" />
+                                <img src="<?php echoWithAssetVersion("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
                         <div class="article__half">

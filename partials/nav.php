@@ -17,7 +17,7 @@ $site = Site::get();
                         <span class="menu-bar menu-bar--bottom"></span>
                     </button>
                     <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
-                        <img class="nav__logo <?php if ($pageId === "home") {echo "current";} ?>" src="<?php echoWithAssetVersion("/assets/images/logo.png"); ?>" alt="Jahidul Pabel Islam Logo" />
+                        <img class="nav__logo <?php if ($pageId === "home") {echo "current";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
                     </a>
                 </div>
                 <div class="nav__links-container">
@@ -60,12 +60,12 @@ $site = Site::get();
                     <ul class="nav__social-links">
                         <li class="nav-link__item">
                             <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                             </a>
                         </li>
                         <li class="nav-link__item">
                             <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                             </a>
                         </li>
                         <li class="nav-link__item">

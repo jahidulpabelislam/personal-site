@@ -19,14 +19,14 @@ $page->renderHTMLHead();
             <div class="container">
                 <div class="social-link-container">
                     <a class="social-link" href="https://facebook.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--facebook" src="<?php echoWithAssetVersion("/assets/images/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--facebook" src="<?php echoWithAssetVersion("/assets/images/logos/facebook.svg"); ?>" alt="Add Me facebook.com/jahidulpabelislam" />
                         <p class="social-link__text social-link__text--facebook">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://twitter.com/itsjahidulislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--twitter" src="<?php echoWithAssetVersion("/assets/images/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" />
+                        <img class="social-link__img social-link__img--twitter" src="<?php echoWithAssetVersion("/assets/images/logos/twitter.png"); ?>" alt="Follow Me @ItsJahidulIslam" />
                         <p class="social-link__text social-link__text--twitter">@ItsJahidulIslam</p>
                     </a>
                 </div>
@@ -47,14 +47,14 @@ $page->renderHTMLHead();
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                         <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
                     </a>
                 </div>
 
                 <div class="social-link-container">
                     <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                        <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                         <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
                     </a>
                 </div>

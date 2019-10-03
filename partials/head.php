@@ -47,7 +47,7 @@ $page = Page::get();
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 
         <?php
-        $imageLocation = "assets/images/portfolio-{$pageId}-preview.png";
+        $imageLocation = "assets/images/social-cards/{$pageId}.png";
         $filePath = addTrailingSlash(ROOT) . $imageLocation;
         if (file_exists($filePath)) {
             $localDomain = $site->getLocalDomain();
