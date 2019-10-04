@@ -270,10 +270,13 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
 
             jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
-            jQuery("body").on("dragstart", ".slide-show__img", false);
-            jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 
-            jQuery("body").on("click", ".js-move-slide", function() {
+            var body = jQuery("body");
+
+            body.on("dragstart", ".slide-show__img", false);
+            body.on("click", ".js-slide-show-bullet", fn.changeToSlide);
+
+            body.on("click", ".js-move-slide", function() {
                 var nav = jQuery(this);
                 fn.moveSlide(
                     nav.attr("data-slide-show-id"),

@@ -2647,7 +2647,14 @@ label {
   box-shadow: none; }
 
 .project__description {
-  text-align: left; }
+  text-align: left;
+  margin-top: 15px; }
+
+.project__description > p:first-child {
+  margin-top: 0; }
+
+.project__description > p:last-child {
+  margin-bottom: 0; }
 
 .project__slide-show {
   margin: 0 -15px 15px; }
