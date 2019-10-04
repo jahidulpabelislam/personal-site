@@ -513,7 +513,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.modalSlideShowViewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint");
             global.modalSlides = jQuery(global.modalSelector + " .slide-show__slides-container");
 
-            global.pageNum = jQuery(".js-projects-page");
+            global.pageNum = jQuery(".js-projects-page").val();
 
             global.projectTemplate = jQuery("#tmpl-project-template").text();
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
