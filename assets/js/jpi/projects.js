@@ -332,7 +332,10 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             // Send the data, the function to do if data is valid
             jpi.ajax.renderRowsOrFeedback(
-                response, fn.renderProject, fn.renderError, "No Projects Found."
+                response,
+                fn.renderProject,
+                fn.renderError,
+                "No Projects Found."
             );
 
             if (response && response.meta && response.meta.total_count) {
@@ -472,12 +475,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
 
             window.addEventListener("popstate", function(e) {
-                var page = e.state.page;
+                var state = e.state || {};
+
+                var page = state.page || 1;
 
                 document.title = fn.getNewTitle(page);
 
                 global.pageNum = page;
-                global.searchInput.val(e.state.search);
+                global.searchInput.val(state.search || "");
 
                 fn.scrollToProjects();
                 fn.getProjects();
