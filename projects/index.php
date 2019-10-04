@@ -187,7 +187,6 @@ $page->renderHeader();
                                 Read More
                             </button>
                         </div>
-
                     </article>
                 </script>
 

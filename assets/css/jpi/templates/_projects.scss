@@ -91,6 +91,14 @@
 
 .project__description {
     text-align: left;
+    margin-top: 15px;
+}
+
+.project__description > p:first-child {
+    margin-top: 0;
+}
+.project__description > p:last-child {
+    margin-bottom: 0;
 }
 
 .project__slide-show {

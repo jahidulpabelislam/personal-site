@@ -31,6 +31,41 @@ window.jpi.projects = (function(jQuery, jpi) {
             return currentPageNum;
         },
 
+        bottomAlignProjectFooters: function() {
+            var projects = jQuery(".project");
+            var numOfProjects = projects.length;
+            if (!numOfProjects) {
+                return;
+            }
+
+            jQuery(".project .project__description").css("min-height", 0);
+
+            if (window.innerWidth < 768) {
+                return;
+            }
+
+            for (var i = numOfProjects - 1; i >= 0; i--) {
+                var project = jQuery(projects[i]);
+                var height = project.height();
+
+                var projectDesc = project.find(".project__description");
+
+                var otherElems = project.find("> *").not(projectDesc);
+                var totalAllHeight = 0;
+                otherElems.each(function(j, elem) {
+                    totalAllHeight += jQuery(elem).outerHeight(true);
+                });
+
+                // Expand the description element to fit remaing space
+                var maxHeight = projectDesc.outerHeight(true);
+                var innerHeight = projectDesc.height();
+                var padding = maxHeight - innerHeight;
+
+                var newHeight = height - totalAllHeight - padding;
+                projectDesc.css('min-height', newHeight);
+            }
+        },
+
         // Prints out a error message provided
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
@@ -325,6 +360,8 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             jpi.main.resetFooter();
+
+            fn.bottomAlignProjectFooters();
         },
 
         getProjects: function() {
@@ -425,6 +462,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Set up page
         initListeners: function() {
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.bottomAlignProjectFooters, 200));
+
             jQuery(".search-form").on("submit", fn.doSearch);
 
             jQuery("body").on("click", ".project__skill", function(e) {
