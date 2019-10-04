@@ -353,7 +353,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".projects, .pagination").text("");
 
             // Send the data, the function to do if data is valid
-            jpi.ajax.renderRowsOrFeedback(response, fn.renderProject, fn.renderError, "No Projects Found.");
+            jpi.ajax.renderRowsOrFeedback(
+                response,
+                fn.renderProject,
+                fn.renderError,
+                "No Projects Found."
+            );
 
             if (response && response.meta && response.meta.total_count) {
                 fn.addPagination(response.meta.total_count);
@@ -497,12 +502,13 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
             window.addEventListener("popstate", function(e) {
-                var page = e.state.page;
+                var state = e.state || {};
+                var page = state.page || 1;
 
                 document.title = fn.getNewTitle(page);
 
                 jQuery(".js-projects-page").val(page);
-                jQuery(".search-form__input").val(e.state.search);
+                jQuery(".search-form__input").val(state.search || "");
 
                 fn.scrollToProjects();
                 fn.getProjects();
