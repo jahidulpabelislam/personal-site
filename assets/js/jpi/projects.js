@@ -521,6 +521,13 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
+            var state = {
+                search: global.searchInput.val(),
+                page: fn.getCurrentPageNum(),
+            };
+
+            history.replaceState(state, document.title);
+
             fn.initListeners();
             fn.getProjects();
         },
