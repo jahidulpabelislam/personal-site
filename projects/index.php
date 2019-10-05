@@ -79,7 +79,7 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <section class="article">
+                <section class="article projects">
                     <div class="container">
 
                         <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
@@ -98,8 +98,8 @@ $page->renderHeader();
 
                         <p class="feedback feedback--error"></p>
                         <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
-                        <div class="projects js-all-projects"></div>
-                        <ul class="pagination pagination--projects"></ul>
+                        <div class="projects__items js-all-projects"></div>
+                        <ul class="pagination projects__pagination"></ul>
 
                         <input type="hidden" class="js-projects-page" value="<?php echo $pageNum; ?>" />
                     </div>
@@ -164,7 +164,6 @@ $page->renderHeader();
                             </div>
                             <div class="slide-show__bullets"></div>
                         </div>
-
                     </div>
                 </div>
 

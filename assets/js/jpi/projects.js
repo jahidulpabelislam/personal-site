@@ -526,7 +526,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
-            if (!jQuery(".js-all-projects").length) {
+            global.projectsElem = jQuery(".js-all-projects");
+            if (!global.projectsElem.length) {
                 return
             }
 
@@ -540,7 +541,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.loading = jQuery(".projects__loading-img");
             global.errorElem = jQuery(".feedback--error");
             global.searchInput = jQuery(".search-form__input");
-            global.projectsElem = jQuery(".projects");
             global.pagination = jQuery(".pagination");
 
             global.modal = jQuery(global.modalSelector);
