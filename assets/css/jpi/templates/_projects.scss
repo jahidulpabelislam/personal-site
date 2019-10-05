@@ -102,7 +102,7 @@
 }
 
 .project__slide-show {
-    margin: 0 -15px 15px;
+    margin: 0 -15px;
 }
 
 .project__footer {
@@ -193,7 +193,7 @@
 
 .project__type {
     width: 100%;
-    margin: 0;
+    margin: 15px 0 0;
     font-size: 14px;
     font-weight: 700;
     text-align: left;
@@ -212,8 +212,8 @@
     margin: 15px 0;
 }
 
-.detailed-project .project__description {
-    text-align: left;
+.detailed-project .project__type {
+    margin: 0;
 }
 
 .expanded-slide-show {
