@@ -13,18 +13,18 @@
     margin: 6px 4px;
     padding: 6px 12px;
     background-color: $primary-colour;
-    border: 1px solid darken($primary-colour, 5%);
+    border: 1px solid darken($primary-colour, 3);
     color: white;
     cursor: pointer;
 }
 
 .pagination__item-link:hover {
-    background-color: darken($primary-colour, 5%);
-    border-color: darken($primary-colour, 15%);
+    background-color: lighten($primary-colour, 5);
+    border-color: $primary-colour;
 }
 
 .pagination__item-link.active,
 .pagination__item-link.active:hover {
     background-color: $dark-colour;
-    border-color: darken($dark-colour, 2%);
+    border-color: darken($dark-colour, 3);
 }

@@ -1063,18 +1063,18 @@ label {
   margin: 6px 4px;
   padding: 6px 12px;
   background-color: #0375b4;
-  border: 1px solid #03659b;
+  border: 1px solid #036ba5;
   color: white;
   cursor: pointer; }
 
 .pagination__item-link:hover {
-  background-color: #03659b;
-  border-color: #024469; }
+  background-color: #0385cd;
+  border-color: #0375b4; }
 
 .pagination__item-link.active,
 .pagination__item-link.active:hover {
   background-color: #333333;
-  border-color: #2e2e2e; }
+  border-color: #2b2b2b; }
 
 .slide-show {
   display: none;
