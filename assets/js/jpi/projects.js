@@ -87,7 +87,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             var paginationElem = jQuery(".pagination");
 
             totalItems = jpi.helpers.getInt(totalItems);
-
             if (totalItems > global.perPage) {
                 var page = 1,
                     ul = paginationElem[0],
@@ -113,9 +112,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
 
                 paginationElem.show();
-            }
-            else {
-                paginationElem.hide();
             }
         },
 
@@ -290,7 +286,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         // Sets up events when projects were received
         gotProjects: function(response) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-            jQuery(".projects, .pagination").text("");
+            jQuery(".projects").text("");
+            jQuery(".pagination").text("").hide();
 
             // Send the data, the function to do if data is valid
             jpi.ajax.renderRowsOrFeedback(
