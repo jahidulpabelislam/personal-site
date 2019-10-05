@@ -275,7 +275,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     template = template.replace(regex, value);
                 }
             }
-            jQuery(".projects").append(template);
+            jQuery(".projects__items").append(template);
 
             fn.addProjectImages(project, projectSelector);
             fn.addSkills(project, projectSelector);
@@ -285,7 +285,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         // Sets up events when projects were received
         gotProjects: function(response) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-            jQuery(".projects").text("");
+            jQuery(".projects__items").text("");
             jQuery(".pagination").text("").hide();
 
             // Send the data, the function to do if data is valid
@@ -450,7 +450,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         scrollToProjects: function() {
-            var projectsPos = jQuery(".projects").offset().top,
+            var projectsPos = jQuery(".projects__items").offset().top,
                 navHeight = jQuery(".nav").height();
 
             jQuery("html, body").animate(
@@ -478,7 +478,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.doSearch();
             });
 
-            jQuery(".pagination--projects").on("click", ".js-pagination-item", function(e) {
+            jQuery(".projects__pagination").on("click", ".js-pagination-item", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -495,7 +495,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.getProjects();
             });
 
-            jQuery(".projects").on("click", ".js-open-modal", fn.openProjectsExpandModal);
+            jQuery(".projects__items").on("click", ".js-open-modal", fn.openProjectsExpandModal);
 
             window.addEventListener("popstate", function(e) {
                 var state = e.state || {};

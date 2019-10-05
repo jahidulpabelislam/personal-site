@@ -2908,7 +2908,7 @@ label {
 .project__type--black {
   color: #333333; }
 
-.pagination--projects.pagination--projects {
+.pagination.projects__pagination {
   margin-top: 20px; }
 
 .detailed-project .project__links {
@@ -3013,7 +3013,7 @@ label {
     max-width: 439px;
     margin-right: auto;
     margin-left: auto; }
-  .projects {
+  .projects__items {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; }
@@ -3049,7 +3049,7 @@ label {
   .project:nth-child(3n) {
     margin-right: 0;
     margin-left: 14px; }
-  .pagination--projects.pagination--projects {
+  .pagination.projects__pagination {
     margin-top: 40px; }
   .project__read-more:after {
     font-size: 40px;
