@@ -31,7 +31,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         searchInput: null,
         pageNum: 1,
-        perPage: 6,
 
         slideTemplate: "",
         bulletTemplate: "",
@@ -109,12 +108,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             var paginationElem = global.pagination;
 
             totalItems = jpi.helpers.getInt(totalItems);
-            if (totalItems > global.perPage) {
+            if (totalItems > jpi.config.projectsPerPage) {
                 var page = 1,
                     ul = paginationElem[0],
                     currentPage = fn.getCurrentPageNum();
 
-                for (var i = 0; i < totalItems; i += global.perPage, page++) {
+                for (var i = 0; i < totalItems; i += jpi.config.projectsPerPage, page++) {
                     var attributes = {class: "pagination__item"},
                         item = jpi.helpers.createElement(ul, "li", attributes),
                         url = fn.getNewURL(page);
@@ -328,7 +327,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 query = {
                     page: page,
                     search: search,
-                    limit: global.perPage,
+                    limit: jpi.config.projectsPerPage,
                 };
 
             // Stops all the slide shows

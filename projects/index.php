@@ -6,7 +6,11 @@ $page = Page::get();
 
 $site::echoConfig();
 
-$apiRequestParams = [];
+$projectsPerPage = 6;
+
+$apiRequestParams = [
+    "limit" => $projectsPerPage,
+];
 
 $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
@@ -202,6 +206,7 @@ $page->renderHeader();
                 </script>
 
 <?php
+$page->addToJSGlobals("projectsPerPage", $projectsPerPage);
 $page->addToJSGlobals("jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [

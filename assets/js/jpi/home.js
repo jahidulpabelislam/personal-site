@@ -157,7 +157,7 @@ window.jpi.home = (function(jQuery, jpi) {
             jpi.ajax.sendRequest({
                 method: "GET",
                 url: jpi.config.jpiAPIEndpoint + "/projects/",
-                params: {limit: 3},
+                params: {limit: jpi.config.projectsPerPage},
                 onSuccess: fn.gotProjects,
                 onError: fn.renderError,
             });
