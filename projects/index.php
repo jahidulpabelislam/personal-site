@@ -134,16 +134,19 @@ $page->renderHeader();
 
                 <div class="modal detailed-project">
                     <div class="modal__content">
-                        <div class="project__header">
-                            <h4 class="article__header project__title"></h4>
+                        <h4 class="modal__heading"></h4>
+
+                        <div class="project__skills"></div>
+
+                        <div class="project__meta">
+                            <p class="project__type project__type--"></p>
                             <time class="project__date">
                                 <?php echo date("Y"); ?>
                             </time>
                         </div>
 
-                        <div class="project__skills"></div>
-                        <div class="project__links"></div>
                         <div class="project__description"></div>
+                        <div class="project__links"></div>
 
                         <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
@@ -157,33 +160,26 @@ $page->renderHeader();
                             </div>
                             <div class="slide-show__bullets"></div>
                         </div>
+
                     </div>
                 </div>
 
                 <script type="text/template" id="tmpl-project-template">
                     <article class="project" id="project--{{ id }}">
-
-                        <div class="project__header">
-                            <h4 class="article__header project__title">{{ name }}</h4>
-                            <time class="project__date">{{ date }}</time>
-                        </div>
-
-                        <div class="project__skills"></div>
-
-                        <div class="project__description">{{ short_description }}</div>
-
                         <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
                             <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--{{ id }}">
                                 <div class="slide-show__slides-container"></div>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--{{ id }}" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--{{ colour }} slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
-                                </button>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--{{ id }}" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--{{ colour }} slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
-                                </button>
                             </div>
-                            <div class="slide-show__bullets"></div>
                         </div>
+
+                        <p class="project__type project__type--{{ colour }}">{{ type }}</p>
+
+                        <div class="project__header">
+                            <h4 class="project__title">{{ name }}</h4>
+                            <time class="project__date">{{ date }}</time>
+                        </div>
+
+                        <div class="project__description">{{ short_description }}</div>
 
                         <div class="project__footer">
                             <div class="project__links"></div>

@@ -52,6 +52,41 @@ window.jpi.projects = (function(jQuery, jpi) {
             return currentPageNum;
         },
 
+        bottomAlignProjectFooters: function() {
+            var projects = jQuery(".project");
+            var numOfProjects = projects.length;
+            if (!numOfProjects) {
+                return;
+            }
+
+            jQuery(".project .project__description").css("min-height", 0);
+
+            if (window.innerWidth < 768) {
+                return;
+            }
+
+            for (var i = 0; i < numOfProjects; i++) {
+                var project = jQuery(projects[i]);
+                var height = project.height();
+
+                var projectDesc = project.find(".project__description");
+
+                var otherElems = project.find("> *").not(projectDesc);
+                var totalAllHeight = 0;
+                otherElems.each(function(j, elem) {
+                    totalAllHeight += jQuery(elem).outerHeight(true);
+                });
+
+                // Expand the description element to fit remaing space
+                var maxHeight = projectDesc.outerHeight(true);
+                var innerHeight = projectDesc.height();
+                var padding = maxHeight - innerHeight;
+
+                var newHeight = height - totalAllHeight - padding;
+                projectDesc.css('min-height', newHeight);
+            }
+        },
+
         // Prints out a error message provided
         renderError: function(error) {
             global.errorElem.text(error).show(600);
@@ -208,29 +243,26 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
+            if (project.date) {
+                var date = new Date(project.date);
+                project.date = global.dateFormat.format(date);
+            }
+
             global.projects[project.id] = project;
 
             var template = global.projectTemplate;
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
                     var regex = fn.getTemplateRegex(field);
-
                     var value = project[field];
-                    if (field === "date") {
-                        var date = new Date(value);
-                        value = global.dateFormat.format(date);
-                    }
-
                     template = template.replace(regex, value);
                 }
             }
             global.projectsElem.append(template);
 
+            fn.addProjectImages(project, projectSelector);
             fn.addSkills(project, projectSelector);
             fn.addLinks(project, projectSelector);
-            fn.addProjectImages(project, projectSelector);
-
-            jpi.main.resetFooter();
         },
 
         openProjectsExpandModal: function() {
@@ -246,19 +278,21 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
-            modal.find(".project__title").text(project.name);
-
-            var projectDateString = global.dateFormat.format(new Date(project.date));
-            modal.find(".project__date").text(projectDateString);
+            modal.find(".modal__heading").text(project.name);
+            modal.find(".project__date").text(project.date);
             modal.find(".project__description").html(project.long_description);
+
+            var projectTypeElem = modal.find(".project__type");
+
+            projectTypeElem.text(project.type);
+
+            var classList = projectTypeElem.attr("class");
+            classList = classList.replace(global.typeColourRegex, "project__type--" + project.colour);
+            projectTypeElem.attr("class", classList);
 
             fn.addSkills(project, global.modalSelector);
             fn.addLinks(project, global.modalSelector);
             fn.addProjectImages(project, global.modalSelector);
-
-            if (!global.navColourRegex) {
-                global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-            }
 
             modal.find(".slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
@@ -342,6 +376,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.addPagination(response.meta.total_count);
             }
 
+            fn.bottomAlignProjectFooters();
             jpi.main.resetFooter();
         },
 
@@ -351,6 +386,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 query = {
                     page: page,
                     search: search,
+                    limit: 6,
                 };
 
             // Stops all the slide shows
@@ -440,6 +476,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Set up page
         initListeners: function() {
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.bottomAlignProjectFooters, 200));
+
             jQuery(".search-form").on("submit", fn.doSearch);
 
             global.projectsElem.on("click", ".js-open-modal", fn.openProjectsExpandModal);
@@ -520,6 +558,9 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
+            global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
+            global.typeColourRegex = new RegExp("project__type--[\\w-]*", "g");
 
             var state = {
                 search: global.searchInput.val(),

@@ -84,7 +84,7 @@ window.jpi.home = (function(jQuery, jpi) {
                 jQuery(slideId + " .slide-show__img").remove();
             }
 
-            var linksContainer = jQuery(slideId + " .project-info__links");
+            var linksContainer = jQuery(slideId + " .slide-info__links");
 
             if (!project.link && !project.github) {
                 linksContainer.remove();

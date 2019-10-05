@@ -98,10 +98,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (slideShowId === "#slide-show--home") {
                 var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
 
-                if (!global.navColourRegex) {
-                    global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-                }
-
                 jQuery(slideShowId + " .slide-show__nav").each(function() {
                     var slideShowNav = jQuery(this);
                     var classList = slideShowNav.attr("class");
@@ -271,11 +267,16 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 return;
             }
 
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
-            jQuery("body").on("dragstart", ".slide-show__img", false);
-            jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
+            global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
 
-            jQuery("body").on("click", ".js-move-slide", function() {
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
+
+            var body = jQuery("body");
+
+            body.on("dragstart", ".slide-show__img", false);
+            body.on("click", ".js-slide-show-bullet", fn.changeToSlide);
+
+            body.on("click", ".js-move-slide", function() {
                 var nav = jQuery(this);
                 fn.moveSlide(
                     nav.attr("data-slide-show-id"),

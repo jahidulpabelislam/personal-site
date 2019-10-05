@@ -1,19 +1,30 @@
-.project__header {
+.project__header,
+.project__meta {
     display: flex;
-    margin: 0 0 10px 0;
     align-items: center;
 }
 
+.project__header {
+    margin: 8px 0 0;
+}
+.project__meta {
+    margin: 0 0 15px;
+}
+
 .project__title {
+    width: 100%;
     margin: 0;
-    text-align: left;
+    font-family: "Oswald", sans-serif;
     font-size: 22px;
     line-height: 24px;
     font-weight: 700;
+    text-align: left;
 }
 
 .project__date {
     width: 100%;
     margin: 0 0 0 auto;
+    font-size: 14px;
     text-align: right;
+    color: lighten($dark-colour, 25);
 }
