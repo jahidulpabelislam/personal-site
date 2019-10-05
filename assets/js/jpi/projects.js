@@ -109,7 +109,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             var paginationElem = global.pagination;
 
             totalItems = jpi.helpers.getInt(totalItems);
-
             if (totalItems > global.perPage) {
                 var page = 1,
                     ul = paginationElem[0],
@@ -135,9 +134,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
 
                 paginationElem.show();
-            }
-            else {
-                paginationElem.hide();
             }
         },
 
@@ -308,7 +304,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.errorElem.text("").hide(600);
             global.loading.hide(600);
             global.projectsElem.text("");
-            global.pagination.text("");
+            global.pagination.text("").hide();
 
             // Send the data, the function to do if data is valid
             jpi.ajax.renderRowsOrFeedback(
