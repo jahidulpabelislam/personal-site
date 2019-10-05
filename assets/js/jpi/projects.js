@@ -44,7 +44,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            for (var i = numOfProjects - 1; i >= 0; i--) {
+            for (var i = 0; i < numOfProjects; i++) {
                 var project = jQuery(projects[i]);
                 var height = project.height();
 
@@ -244,11 +244,9 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
             jQuery(".projects").append(template);
 
+            fn.addProjectImages(project, projectSelector);
             fn.addSkills(project, projectSelector);
             fn.addLinks(project, projectSelector);
-            fn.addProjectImages(project, projectSelector);
-
-            jpi.main.resetFooter();
         },
 
         openProjectsExpandModal: function() {
@@ -364,9 +362,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.addPagination(response.meta.total_count);
             }
 
-            jpi.main.resetFooter();
-
             fn.bottomAlignProjectFooters();
+            jpi.main.resetFooter();
         },
 
         getProjects: function() {
