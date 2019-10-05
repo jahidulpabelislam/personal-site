@@ -13,7 +13,6 @@ window.jpi.projects = (function(jQuery, jpi) {
         titleEnd: " | Jahidul Pabel Islam - Full Stack Developer",
 
         modalSelector: ".detailed-project",
-        perPage: 6,
 
         templateRegexes: {},
         navColourRegex: null,
@@ -87,12 +86,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             var paginationElem = jQuery(".pagination");
 
             totalItems = jpi.helpers.getInt(totalItems);
-            if (totalItems > global.perPage) {
+            if (totalItems > jpi.config.projectsPerPage) {
                 var page = 1,
                     ul = paginationElem[0],
                     currentPage = fn.getCurrentPageNum();
 
-                for (var i = 0; i < totalItems; i += global.perPage, page++) {
+                for (var i = 0; i < totalItems; i += jpi.config.projectsPerPage, page++) {
                     var attributes = {class: "pagination__item"},
                         item = jpi.helpers.createElement(ul, "li", attributes),
                         url = fn.getNewURL(page);
@@ -311,7 +310,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 query = {
                     page: page,
                     search: search,
-                    limit: global.perPage,
+                    limit: jpi.config.projectsPerPage,
                 };
 
             // Stops all the slide shows
