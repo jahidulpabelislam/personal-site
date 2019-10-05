@@ -81,6 +81,41 @@ window.jpi.projects = (function(jQuery, jpi) {
             return global.templateRegexes[regex];
         },
 
+        // Adds pagination buttons/elements to the page
+        addPagination: function(totalItems) {
+            var paginationElem = jQuery(".pagination");
+
+            if (jpi.helpers.getInt(totalItems) > 10) {
+                var page = 1,
+                    ul = paginationElem[0],
+                    currentPage = fn.getCurrentPageNum();
+
+                for (var i = 0; i < totalItems; i += 10, page++) {
+                    var attributes = {class: "pagination__item"},
+                        item = jpi.helpers.createElement(ul, "li", attributes),
+                        url = fn.getNewURL(page);
+
+                    url += global.url.search;
+
+                    attributes = {
+                        "innerHTML": page,
+                        "class": "pagination__item-link js-pagination-item",
+                        "data-page": page,
+                        "href": url,
+                    };
+                    if (page === currentPage) {
+                        attributes.class = "pagination__item-link active";
+                    }
+                    jpi.helpers.createElement(item, "a", attributes);
+                }
+
+                paginationElem.show();
+            }
+            else {
+                paginationElem.hide();
+            }
+        },
+
         addSkills: function(project, divID) {
             var skills = project.skills,
                 skillsContainer = jQuery(divID + " .project__skills")[0],
@@ -249,6 +284,49 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.addLinks(project, projectSelector);
         },
 
+        // Sets up events when projects were received
+        gotProjects: function(response) {
+            jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
+            jQuery(".projects, .pagination").text("");
+
+            // Send the data, the function to do if data is valid
+            jpi.ajax.renderRowsOrFeedback(
+                response,
+                fn.renderProject,
+                fn.renderError,
+                "No Projects Found."
+            );
+
+            if (response && response.meta && response.meta.total_count) {
+                fn.addPagination(response.meta.total_count);
+            }
+
+            fn.bottomAlignProjectFooters();
+            jpi.main.resetFooter();
+        },
+
+        getProjects: function() {
+            var page = fn.getCurrentPageNum(),
+                search = jQuery(".search-form__input").val(),
+                query = {
+                    page: page,
+                    search: search,
+                    limit: 6,
+                };
+
+            // Stops all the slide shows
+            jpi.slideShow.stopSlideShows();
+
+            // Send request to get projects for page and search
+            jpi.ajax.sendRequest({
+                method: "GET",
+                url: jpi.config.jpiAPIEndpoint + "/projects/",
+                params: query,
+                onSuccess: fn.gotProjects,
+                onError: fn.renderError,
+            });
+        },
+
         openProjectsExpandModal: function() {
             var projectId = jQuery(this).attr("data-project-id"),
                 project = global.projects[projectId],
@@ -308,84 +386,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 jpi.slideShow.startSlideShows();
             }
-        },
-
-        // Adds pagination buttons/elements to the page
-        addPagination: function(totalItems) {
-            var paginationElem = jQuery(".pagination");
-
-            if (jpi.helpers.getInt(totalItems) > 10) {
-                var page = 1,
-                    ul = paginationElem[0],
-                    currentPage = fn.getCurrentPageNum();
-
-                for (var i = 0; i < totalItems; i += 10, page++) {
-                    var attributes = {class: "pagination__item"},
-                        item = jpi.helpers.createElement(ul, "li", attributes),
-                        url = fn.getNewURL(page);
-
-                    url += global.url.search;
-
-                    attributes = {
-                        "innerHTML": page,
-                        "class": "pagination__item-link js-pagination-item",
-                        "data-page": page,
-                        "href": url,
-                    };
-                    if (page === currentPage) {
-                        attributes.class = "pagination__item-link active";
-                    }
-                    jpi.helpers.createElement(item, "a", attributes);
-                }
-
-                paginationElem.show();
-            }
-            else {
-                paginationElem.hide();
-            }
-        },
-
-        // Sets up events when projects were received
-        gotProjects: function(response) {
-            jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-            jQuery(".projects, .pagination").text("");
-
-            // Send the data, the function to do if data is valid
-            jpi.ajax.renderRowsOrFeedback(
-                response,
-                fn.renderProject,
-                fn.renderError,
-                "No Projects Found."
-            );
-
-            if (response && response.meta && response.meta.total_count) {
-                fn.addPagination(response.meta.total_count);
-            }
-
-            fn.bottomAlignProjectFooters();
-            jpi.main.resetFooter();
-        },
-
-        getProjects: function() {
-            var page = fn.getCurrentPageNum(),
-                search = jQuery(".search-form__input").val(),
-                query = {
-                    page: page,
-                    search: search,
-                    limit: 6,
-                };
-
-            // Stops all the slide shows
-            jpi.slideShow.stopSlideShows();
-
-            // Send request to get projects for page and search
-            jpi.ajax.sendRequest({
-                method: "GET",
-                url: jpi.config.jpiAPIEndpoint + "/projects/",
-                params: query,
-                onSuccess: fn.gotProjects,
-                onError: fn.renderError,
-            });
         },
 
         getNewURL: function(page) {
