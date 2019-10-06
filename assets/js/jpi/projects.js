@@ -103,33 +103,38 @@ window.jpi.projects = (function(jQuery, jpi) {
             return global.templateRegexes[regex];
         },
 
+        createPaginationItem: function(page, currentPage, paginationsElem) {
+            var itemAttributes = {class: "pagination__item"};
+            var item = jpi.helpers.createElement(paginationsElem, "li", itemAttributes);
+
+            var url = fn.getNewURL(page);
+            url += global.url.search;
+
+            var linkAttributes = {
+                "innerHTML": page,
+                "class": "pagination__item-link js-pagination-item",
+                "data-page": page,
+                "href": url,
+            };
+            if (page === currentPage) {
+                linkAttributes.class = "pagination__item-link active";
+            }
+            return jpi.helpers.createElement(item, "a", linkAttributes);
+        },
+
         // Adds pagination buttons/elements to the page
-        addPagination: function(totalItems) {
-            var paginationElem = global.pagination;
+        addPagination: function(totalProjects) {
+            totalProjects = jpi.helpers.getInt(totalProjects);
+            if (totalProjects > jpi.config.projectsPerPage) {
+                var paginationElem = global.pagination;
 
-            totalItems = jpi.helpers.getInt(totalItems);
-            if (totalItems > jpi.config.projectsPerPage) {
-                var page = 1,
-                    ul = paginationElem[0],
-                    currentPage = fn.getCurrentPageNum();
+                var ul = paginationElem[0];
+                var currentPage = fn.getCurrentPageNum();
 
-                for (var i = 0; i < totalItems; i += jpi.config.projectsPerPage, page++) {
-                    var attributes = {class: "pagination__item"},
-                        item = jpi.helpers.createElement(ul, "li", attributes),
-                        url = fn.getNewURL(page);
+                var totalPages = Math.ceil(totalProjects / jpi.config.projectsPerPage);
 
-                    url += global.url.search;
-
-                    attributes = {
-                        "innerHTML": page,
-                        "class": "pagination__item-link js-pagination-item",
-                        "data-page": page,
-                        "href": url,
-                    };
-                    if (page === currentPage) {
-                        attributes.class = "pagination__item-link active";
-                    }
-                    jpi.helpers.createElement(item, "a", attributes);
+                for (var page = 1; page <= totalPages; page++) {
+                    fn.createPaginationItem(page, currentPage, ul);
                 }
 
                 paginationElem.show();
@@ -401,10 +406,9 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         getNewURL: function(page) {
-            var url = "/projects/",
+            var url = "/projects/";
 
-                searchValue = global.searchInput.val();
-
+            var searchValue = global.searchInput.val();
             if (searchValue.trim() !== "") {
                 url += searchValue + "/";
             }
