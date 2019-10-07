@@ -77,8 +77,8 @@ class Page {
         return $this->data[$field] ?? null;
     }
 
-    public function addToJSGlobals(string $key, $value) {
-        $this->data["jsGlobals"][$key] = $value;
+    public function addJSGlobal(string $global, string $key, $value) {
+        $this->data["jsGlobals"][$global][$key] = $value;
     }
 
     public function addJSScript(string $script) {

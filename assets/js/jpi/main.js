@@ -27,7 +27,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
                     streetViewControl: false,
                     rotateControl: false,
                     fullscreenControl: false,
-                    styles: JSON.parse(jpi.config.googleMapStyles),
+                    styles: jpi.config.googleMapStyles || {},
                 },
                 map = new google.maps.Map(global.map[0], config);
 
@@ -124,10 +124,10 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             global.expandableContents = jQuery(".skills-interests__item-expand-content");
             global.expandableIcons = jQuery(".skills-interests__item-expand-icon");
 
+            jpi.stickyFooter = new StickyFooter(".main-content");
+
             fn.initListeners();
             fn.initCounters();
-
-            jpi.stickyFooter = new StickyFooter(".main-content");
         },
     };
 

@@ -91,20 +91,26 @@ class Renderer {
     }
 
     /**
-     * Include the common cookie banner content for page/site
+     * Include any global JS variables under the JPI scope
      */
     public function renderJSGlobals() {
-        $jsGlobalsArr = $this->page->jsGlobals;
+        $jsGlobals = $this->page->jsGlobals;
 
-        if (empty($jsGlobalsArr)) {
+        if (empty($jsGlobals)) {
             return;
         }
 
-        $jsGlobals = json_encode($jsGlobalsArr);
-        echo "<script>
-                  window.jpi = window.jpi || {};
-                  window.jpi.config = {$jsGlobals};
-              </script>";
+        ?>
+        <script type="text/javascript">
+            window.jpi = window.jpi || {};
+            <?php
+            foreach ($jsGlobals as $globalName => $vars) {
+                $jsVars = json_encode($vars);
+                echo "window.jpi.{$globalName} = {$jsVars};";
+            }
+            ?>
+        </script>
+        <?php
     }
 
     public function renderJSScripts() {

@@ -205,8 +205,8 @@ $page->renderHeader();
                 </script>
 
 <?php
-$page->addToJSGlobals("projectsPerPage", $projectsPerPage);
-$page->addToJSGlobals("jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("config", "projectsPerPage", $projectsPerPage);
+$page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [
     [
