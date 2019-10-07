@@ -108,17 +108,11 @@ $page = Page::get();
             <script src="<?php echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
             <?php
         }
-
-        $cssDir = $site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
 
         <script type="text/javascript">
             jQuery(document).on("ready", function() {
-                <?php
-                $stylesheets = $page->stylesheets;
-                ?>
-                jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
+                jpi.helpers.loadCSSFiles(<?php echo json_encode($page->stylesheets); ?>);
             });
         </script>
     </body>

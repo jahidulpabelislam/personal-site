@@ -90,15 +90,15 @@ class Page {
 
             $renderer = new Renderer($this);
             if (method_exists($renderer, $method)) {
-                call_user_func_array([$renderer, $method], $arguments);
+                return call_user_func_array([$renderer, $method], $arguments);
             }
         }
+
+        throw new Exception("No method found for {$method}");
     }
 
     public function __get(string $field) {
-        $value = $this->getFromPageData($field);
-
-        return $value;
+        return $this->getFromPageData($field);
     }
 
     public function __set(string $field, $value) {
@@ -106,10 +106,12 @@ class Page {
     }
 
     public function __isset(string $field): bool {
-        $value = $this->getFromPageData($field);
-        $isset = isset($value);
+        if (array_key_exists($field, $this->data)) {
+            $value = $this->getFromPageData($field);
+            return isset($value);
+        }
 
-        return $isset;
+        return false;
     }
 
 }
