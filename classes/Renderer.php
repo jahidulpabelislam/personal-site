@@ -101,7 +101,7 @@ class Renderer {
         }
 
         ?>
-        <script type="text/javascript">
+        <script type="application/javascript">
             window.jpi = window.jpi || {};
             <?php
             foreach ($jsGlobals as $globalName => $vars) {
@@ -121,10 +121,7 @@ class Renderer {
         }
 
         foreach ($scripts as $script) {
-            // Commented out as it fails for Google Maps as it already has params.
-            // TODO: But add this back in when figured out nice way to append to current params
-            // $script = addAssetVersion($script);
-            echo "<script src='{$script}' type='text/javascript'></script>";
+            echo "<script src='{$script}' type='application/javascript'></script>";
         }
     }
 

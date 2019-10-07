@@ -81,8 +81,17 @@ class Page {
         $this->data["jsGlobals"][$global][$key] = $value;
     }
 
-    public function addJSScript(string $script) {
+    public function addJSScript($script, $ver = false) {
+        $script = addAssetVersion($script, $ver);
         $this->data["jsScripts"][] = $script;
+    }
+
+    public function addJSScripts(array $scripts) {
+        foreach ($scripts as $script) {
+            $file = $script["file"];
+            $ver = $script["ver"] ?? false;
+            $this->addJSScript($file, $ver);
+        }
     }
 
     public function __call($method, $arguments) {

@@ -75,42 +75,35 @@ $page = Page::get();
         </footer>
 
         <?php
+        // Either output a compiled js file for whole project & libraries js files, or include individual files if debug is specified
+        $scripts = [["file" => "/assets/js/main.min.js"]];
+        if ($site->getIsDebug()) {
+            $scripts = [
+                ["file" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                ["file" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
+                ["file" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
+                ["file" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                ["file" => "/assets/js/jpi/expanded-slide-show.js"],
+                ["file" => "/assets/js/jpi/slide-show.js"],
+                ["file" => "/assets/js/jpi/helpers.js"],
+                ["file" => "/assets/js/jpi/ajax.js"],
+                ["file" => "/assets/js/jpi/projects.js"],
+                ["file" => "/assets/js/jpi/home.js"],
+                ["file" => "/assets/js/jpi/form.js"],
+                ["file" => "/assets/js/jpi/nav.js"],
+                ["file" => "/assets/js/jpi/cookie-banner.js"],
+                ["file" => "/assets/js/jpi/main.js"],
+            ];
+        }
+        $page->addJSScripts($scripts);
+
         $page->renderCookieBanner();
 
         $page->renderJSGlobals();
         $page->renderJSScripts();
         ?>
 
-        <?php
-        // Either output a compiled js file for all project & libraries js files, or include individual files if debug is specified
-        if ($site->getIsDebug()) {
-            ?>
-            <!-- All individual js files for site as debug is specified -->
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/waypoint.min.js", "1.6.2"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.countTo.js", "1.2.0"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/expanded-slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/nav.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/cookie-banner.js"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/main.js"); ?>" type="text/javascript"></script>
-            <?php
-        }
-        else {
-            ?>
-            <!-- Compiled project & libraries js files -->
-            <script src="<?php echoWithAssetVersion("/assets/js/main.min.js"); ?>" type="text/javascript"></script>
-            <?php
-        }
-        ?>
-
-        <script type="text/javascript">
+        <script type="application/javascript">
             jQuery(document).on("ready", function() {
                 jpi.helpers.loadCSSFiles(<?php echo json_encode($page->stylesheets); ?>);
             });

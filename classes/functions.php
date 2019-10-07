@@ -154,7 +154,12 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
 function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
     $ver = getAssetVersion($src, $ver, $root);
 
-    return "{$src}?v={$ver}";
+    $query = parse_url($src, PHP_URL_QUERY);
+    if (empty($query)) {
+        return "{$src}?v={$ver}";
+    }
+
+    return "{$src}&v={$ver}";
 }
 
 /**

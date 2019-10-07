@@ -69,30 +69,22 @@ $page->renderHTMLHead();
         </main>
 
         <?php
-        // Either output a compiled js file for the page & libraries js files, or include individual files if debug is specified
+        // Either output a compiled js file for whole page & libraries js files, or include individual files if debug is specified
+        $scripts = [["file" => "/assets/js/social-links.min.js"]];
         if ($site->getIsDebug()) {
-            ?>
-            <!-- All individual js files for site as debug is specified -->
-            <?php // Files necessary for StickyFooter js code ?>
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/jquery.min.js", "1.11.3"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/third-party/sticky-footer.min.js", "1.1.2"); ?>" type="text/javascript"></script>
-            <script src="<?php echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
-            <?php
+            $scripts = [
+                ["file" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                ["file" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                ["file" => "/assets/js/jpi/helpers.js"],
+            ];
         }
-        else {
-            ?>
-            <!-- Compiled page & libraries js files -->
-            <script src="<?php echoWithAssetVersion("/assets/js/social-links.min.js"); ?>" type="text/javascript"></script>
-            <?php
-        }
+        $page->addJSScripts($scripts);
+        $page->renderJSScripts();
         ?>
 
         <script type="application/javascript">
             jQuery(window).on("load", function() {
-                <?php
-                $stylesheets = $page->stylesheets;
-                ?>
-                jpi.helpers.loadCSSFiles(<?php echo json_encode($stylesheets); ?>);
+                jpi.helpers.loadCSSFiles(<?php echo json_encode($page->stylesheets); ?>);
 
                 jpi.stickyFooter = new StickyFooter(".main-content");
             });
