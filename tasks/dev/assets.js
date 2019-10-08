@@ -15,9 +15,16 @@ const autoPrefix = require("gulp-autoprefixer");
 
 const sass = require("gulp-sass");
 
+const livereload = require('gulp-livereload');
+
 const { jsDir, cssDir } = require("../config");
 
 let defaultTasks = [];
+
+gulp.task("reload-listen", function(callback) {
+    livereload.listen();
+    callback();
+});
 
 // Concatenate & minify JS
 defaultTasks.push("scripts");
@@ -61,7 +68,8 @@ defaultTasks.push("sass");
 gulp.task("sass", function() {
     return gulp.src([`${cssDir}/jpi/*.scss`])
                .pipe(sass().on("error", sass.logError))
-               .pipe(gulp.dest(`${cssDir}/jpi/`));
+               .pipe(gulp.dest(`${cssDir}/jpi/`))
+               .pipe(livereload());
 });
 
 // Watch scss file changes to compile to css
@@ -70,7 +78,7 @@ gulp.task("watch-scss", function() {
 });
 
 // Watch files For changes
-gulp.task("watch", gulp.series("sass", "watch-scss"));
+gulp.task("watch", gulp.series(["reload-listen", "sass", "watch-scss"]));
 
 // Minify stylesheets
 defaultTasks.push("stylesheets");
