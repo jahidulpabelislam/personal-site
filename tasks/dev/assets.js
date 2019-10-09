@@ -26,6 +26,15 @@ gulp.task("reload-listen", function(callback) {
     callback();
 });
 
+gulp.task("watch-js", function(callback) {
+    gulp.watch(`${jsDir}/**/*.js`, function() {
+        return gulp.src(`${jsDir}/**/*.js`)
+                   .pipe(livereload());
+    });
+
+    callback();
+});
+
 // Concatenate & minify JS
 defaultTasks.push("scripts");
 gulp.task("scripts", function(callback) {
@@ -66,24 +75,25 @@ gulp.task("scripts", function(callback) {
 
 defaultTasks.push("sass");
 gulp.task("sass", function() {
-    return gulp.src([`${cssDir}/jpi/*.scss`])
+    return gulp.src(`${cssDir}/jpi/*.scss`)
                .pipe(sass().on("error", sass.logError))
                .pipe(gulp.dest(`${cssDir}/jpi/`))
                .pipe(livereload());
 });
 
 // Watch scss file changes to compile to css
-gulp.task("watch-scss", function() {
+gulp.task("watch-scss", function(callback) {
     gulp.watch(`${cssDir}/jpi/**/*.scss`, gulp.parallel("sass"));
+    callback();
 });
 
 // Watch files For changes
-gulp.task("watch", gulp.series(["reload-listen", "sass", "watch-scss"]));
+gulp.task("watch", gulp.series(["reload-listen", "sass", "watch-scss", "watch-js"]));
 
 // Minify stylesheets
 defaultTasks.push("stylesheets");
-gulp.task("stylesheets", function(callback) {
-    gulp.src([`${cssDir}/jpi/*.css`])
+gulp.task("stylesheets", function() {
+    return gulp.src(`${cssDir}/jpi/*.css`)
         .pipe(rename({suffix: ".min"}))
         .pipe(autoPrefix({
             browsers: ["> 0.1%", "ie 8-11"],
@@ -93,8 +103,6 @@ gulp.task("stylesheets", function(callback) {
             compatibility: "ie8",
         }))
         .pipe(gulp.dest(`${cssDir}/`));
-
-    callback();
 });
 
 gulp.task("default", gulp.series(defaultTasks));
