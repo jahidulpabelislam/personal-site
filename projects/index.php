@@ -83,17 +83,20 @@ $page->renderHeader();
                     <div class="container">
 
                         <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
-                        <p>
-                            You can use the input below to find projects you want to have a look at.<br />
-                            For example you can use names of technologies, frameworks or projects.
-                        </p>
 
                         <form class="search-form">
-                            <label for="search" class="screen-reader-text">Search for projects.</label>
-                            <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
-                            <button type="submit" class="btn btn--dark-blue search-form__submit">
-                                <i class="fa fa-search"></i>
-                            </button>
+                            <p>
+                                You can use the input below to find projects you want to have a look at.<br />
+                                For example you can use names of technologies, frameworks or projects.
+                            </p>
+
+                            <div class="search-form__inner">
+                                <label for="search" class="screen-reader-text">Search for projects.</label>
+                                <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
+                                <button type="submit" class="btn search-form__submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </form>
 
                         <p class="feedback feedback--error"></p>
