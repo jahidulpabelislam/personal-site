@@ -683,7 +683,7 @@ a.btn {
   transition: all 0.3s ease-in-out; }
 
 .input::placeholder {
-  color: #7b8676; }
+  color: #cdcdcd; }
 
 .input:focus {
   box-shadow: 0 0 8px #0375b4;
