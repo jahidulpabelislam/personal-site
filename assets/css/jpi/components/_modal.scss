@@ -1,15 +1,21 @@
 /* For all devices */
 .modal {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10000;
+    z-index: 100;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: transparentize($dark-colour, 0.4);
+    cursor: pointer;
+}
+
+.modal[hidden="hidden"] {
+    display: block;
+    visibility: hidden;
+    z-index: -1;
 }
 
 .modal__content {
@@ -21,6 +27,7 @@
     border-radius: 5px;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     overflow: hidden;
+    cursor: default;
 }
 
 .modal__heading {

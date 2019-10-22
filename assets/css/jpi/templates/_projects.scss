@@ -65,6 +65,7 @@
     font-weight: 400;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
+    transition-property: border-color, background-color, color, box-shadow;
 }
 
 .project__skill:hover {
@@ -237,15 +238,15 @@
 }
 
 .expanded-slide-show {
-    position: fixed;
     top: 50%;
     left: 50%;
     width: 1px;
     height: 1px;
-    background-color: $light-colour;
-    z-index: -100;
+    background: transparent;
     opacity: 0;
     transition: all 1s ease-in-out;
+    transition-property: background, top, left, height, width, opacity;
+    cursor: initial;
 }
 .expanded-slide-show.active {
     top: 0;
@@ -253,10 +254,11 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    z-index: 10000;
+    z-index: 100;
+    background: $light-colour;
 }
 .expanded-slide-show.hiding {
-    z-index: 10000;
+    z-index: 100;
 }
 
 .expanded-slide-show__controls {
@@ -339,6 +341,7 @@
     width: 30px;
     height: 30px;
     padding: 0;
+    z-index: 1;
 }
 
 .expanded-slide-show__counter {

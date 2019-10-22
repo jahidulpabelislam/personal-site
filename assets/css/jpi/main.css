@@ -181,6 +181,9 @@ body {
   line-height: 18px;
   color: #333333; }
 
+body.no-scroll {
+  overflow: hidden; }
+
 a {
   color: inherit;
   font-weight: 700;
@@ -202,6 +205,9 @@ blockquote {
 
 strong {
   font-weight: 700; }
+
+[hidden="hidden"] {
+  display: none; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 768px) {
@@ -851,7 +857,7 @@ label {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 3;
+  z-index: 10;
   transition: all 0.7s ease-in-out; }
 
 .nav--light {
@@ -1500,16 +1506,21 @@ label {
 
 /* For all devices */
 .modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10000;
+  z-index: 100;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: rgba(51, 51, 51, 0.6); }
+  background-color: rgba(51, 51, 51, 0.6);
+  cursor: pointer; }
+
+.modal[hidden="hidden"] {
+  display: block;
+  visibility: hidden;
+  z-index: -1; }
 
 .modal__content {
   max-width: 90%;
@@ -1519,7 +1530,8 @@ label {
   border: #7b8676 solid 1px;
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  overflow: hidden; }
+  overflow: hidden;
+  cursor: default; }
 
 .modal__heading {
   font-family: "Oswald", sans-serif;
@@ -1638,7 +1650,7 @@ label {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 4;
+  z-index: 10;
   background: rgba(51, 51, 51, 0.8); }
 
 .cookie-banner .container {
@@ -2439,7 +2451,8 @@ label {
   color: #333333;
   font-weight: 400;
   cursor: pointer;
-  transition: all 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  transition-property: border-color, background-color, color, box-shadow; }
 
 .project__skill:hover {
   border-color: #262626;
@@ -2931,15 +2944,15 @@ label {
   margin: 0; }
 
 .expanded-slide-show {
-  position: fixed;
   top: 50%;
   left: 50%;
   width: 1px;
   height: 1px;
-  background-color: #f5f5f5;
-  z-index: -100;
+  background: transparent;
   opacity: 0;
-  transition: all 1s ease-in-out; }
+  transition: all 1s ease-in-out;
+  transition-property: background, top, left, height, width, opacity;
+  cursor: initial; }
 
 .expanded-slide-show.active {
   top: 0;
@@ -2947,10 +2960,11 @@ label {
   width: 100%;
   height: 100%;
   opacity: 1;
-  z-index: 10000; }
+  z-index: 100;
+  background: #f5f5f5; }
 
 .expanded-slide-show.hiding {
-  z-index: 10000; }
+  z-index: 100; }
 
 .expanded-slide-show__controls {
   display: flex;
@@ -3023,7 +3037,8 @@ label {
   right: 0;
   width: 30px;
   height: 30px;
-  padding: 0; }
+  padding: 0;
+  z-index: 1; }
 
 .expanded-slide-show__counter {
   width: 33%;

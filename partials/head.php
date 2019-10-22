@@ -84,3 +84,4 @@ $page = Page::get();
     </head>
 
     <body>
+        <div class="page-container">

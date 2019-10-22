@@ -81,7 +81,6 @@ $page->renderHeader();
 
                 <section class="article projects">
                     <div class="container">
-
                         <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
 
                         <form class="search-form">
@@ -108,7 +107,9 @@ $page->renderHeader();
                     </div>
                 </section>
 
-                <div class="expanded-slide-show">
+                <div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
+                    <button type="button" class="btn btn--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
+
                     <div class="expanded-slide-show__image-container">
                         <img class="expanded-slide-show__image current" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
@@ -120,10 +121,10 @@ $page->renderHeader();
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
                             <button type="button" class="js-expanded-slide-show-previous">
-                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                             </button>
                             <button type="button" class="js-expanded-slide-show-next">
-                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                             </button>
                         </div>
 
@@ -135,13 +136,11 @@ $page->renderHeader();
                             <span class="js-expanded-slide-show-total-count"></span>
                         </p>
                     </div>
-
-                    <button type="button" class="btn btn--red expanded-slide-show__close">X</button>
                 </div>
 
-                <div class="modal detailed-project">
+                <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
                     <div class="modal__content">
-                        <h4 class="modal__heading"></h4>
+                        <h4 class="modal__heading" id="detailed-project-title"></h4>
 
                         <div class="project__skills"></div>
 
@@ -152,17 +151,17 @@ $page->renderHeader();
                             </time>
                         </div>
 
-                        <div class="project__description"></div>
+                        <div class="project__description" id="detailed-project-description"></div>
                         <div class="project__links"></div>
 
                         <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                                 </button>
                                 <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                                 </button>
                             </div>
                             <div class="slide-show__bullets"></div>

@@ -12,6 +12,10 @@ body {
     color: $dark-colour;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 a {
     color: inherit;
     font-weight: 700;
@@ -37,6 +41,10 @@ blockquote {
 
 strong {
     font-weight: 700;
+}
+
+[hidden="hidden"] {
+    display: none;
 }
 
 /* Only for Desktops */

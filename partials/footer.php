@@ -74,9 +74,14 @@ $page = Page::get();
             </div>
         </footer>
 
-        <?php
-        $page->renderCookieBanner();
+            <?php
+            $page->renderCookieBanner();
+            ?>
 
+        </div>
+        <!-- End of .page-container-->
+
+        <?php
         $page->renderJSGlobals();
         $page->renderJSScripts();
         ?>
@@ -94,6 +99,7 @@ $page = Page::get();
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/slide-show.js"); ?>" type="text/javascript"></script>
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/helpers.js"); ?>" type="text/javascript"></script>
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/ajax.js"); ?>" type="text/javascript"></script>
+            <script src="<?php echoWithAssetVersion("/assets/js/jpi/modal.js"); ?>" type="text/javascript"></script>
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/projects.js"); ?>" type="text/javascript"></script>
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/home.js"); ?>" type="text/javascript"></script>
             <script src="<?php echoWithAssetVersion("/assets/js/jpi/form.js"); ?>" type="text/javascript"></script>

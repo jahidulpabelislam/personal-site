@@ -340,16 +340,13 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
         },
 
-        openProjectsExpandModal: function() {
+        openProjectModal: function() {
             var projectId = jQuery(this).attr("data-project-id"),
                 project = global.projects[projectId],
                 modal = jQuery(global.modalSelector);
 
             // Stops all the slide shows
             jpi.slideShow.stopSlideShows();
-
-            modal.addClass("open").show();
-            jQuery("body").css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
@@ -379,26 +376,23 @@ window.jpi.projects = (function(jQuery, jpi) {
                 classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
                 slideShowNav.attr("class", classList);
             });
+
+            jpi.modal.open(modal);
+
+            jpi.slideShow.reposition("detailed-project__slide-show");
         },
 
-        closeProjectsExpandModal: function(e) {
-            var modal = jQuery(global.modalSelector);
-            if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
-                modal.removeClass("open").hide();
+        onProjectModalClose: function() {
+            var viewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint")[0];
+            viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
+            viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
-                jQuery("body").css("overflow", "auto");
+            // Reset slide show
+            jQuery(global.modalSelector + " .slide-show__slides-container").css("left", "0px");
+            clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
+            jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
 
-                var viewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint")[0];
-                viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
-                viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
-
-                // Reset slide show
-                jQuery(global.modalSelector + " .slide-show__slides-container").css("left", "0px");
-                clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-                jQuery("#detailed-project__slide-show").removeClass("js-has-slide-show");
-
-                jpi.slideShow.startSlideShows();
-            }
+            jpi.slideShow.startSlideShows();
         },
 
         getNewURL: function(page) {
@@ -482,7 +476,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".search-form").on("submit", fn.doSearch);
 
             jQuery("body").on("click", ".project__skill", function(e) {
-                jQuery(global.modalSelector).trigger("click");
+                jpi.modal.close();
                 e.preventDefault();
                 fn.scrollToProjects();
 
@@ -516,7 +510,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.getProjects();
             });
 
-            jQuery(".projects__items").on("click", ".js-open-modal", fn.openProjectsExpandModal);
+            jQuery(".projects__items").on("click", ".js-open-modal", fn.openProjectModal);
 
             window.addEventListener("popstate", function(e) {
                 var state = e.state || {};
@@ -531,8 +525,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.getProjects();
             });
 
-            // Close the modal
-            jQuery(global.modalSelector).on("click", fn.closeProjectsExpandModal);
+            jQuery(global.modalSelector).on("closed", fn.onProjectModalClose);
         },
 
         init: function() {

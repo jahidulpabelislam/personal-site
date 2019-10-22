@@ -27,6 +27,7 @@ const scripts = {
         `${jsDir}/jpi/slide-show.js`,
         `${jsDir}/jpi/helpers.js`,
         `${jsDir}/jpi/ajax.js`,
+        `${jsDir}/jpi/modal.js`,
         `${jsDir}/jpi/projects.js`,
         `${jsDir}/jpi/home.js`,
         `${jsDir}/jpi/form.js`,
