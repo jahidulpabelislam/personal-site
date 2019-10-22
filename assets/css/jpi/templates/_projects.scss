@@ -28,10 +28,12 @@
     color: transparent;
     transition: color .2s ease-in-out;
 }
-.search-form__submit:hover {
+.search-form__submit:hover,
+.search-form__submit:focus {
     background: transparent;
 }
 
+.search-form__submit:focus,
 .search-form__input:focus + .search-form__submit {
     color: $primary-colour;
 }
