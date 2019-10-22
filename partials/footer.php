@@ -74,6 +74,13 @@ $page = Page::get();
             </div>
         </footer>
 
+            <?php
+            $page->renderCookieBanner();
+            ?>
+
+        </div>
+        <!-- End of .page-container-->
+
         <?php
         // Either output a compiled js file for whole project & libraries js files, or include individual files if debug is specified
         $scripts = [["file" => "/assets/js/main.min.js"]];
@@ -87,6 +94,7 @@ $page = Page::get();
                 ["file" => "/assets/js/jpi/slide-show.js"],
                 ["file" => "/assets/js/jpi/helpers.js"],
                 ["file" => "/assets/js/jpi/ajax.js"],
+                ["file" => "/assets/js/jpi/modal.js"],
                 ["file" => "/assets/js/jpi/projects.js"],
                 ["file" => "/assets/js/jpi/home.js"],
                 ["file" => "/assets/js/jpi/form.js"],
@@ -96,8 +104,6 @@ $page = Page::get();
             ];
         }
         $page->addJSScripts($scripts);
-
-        $page->renderCookieBanner();
 
         $page->renderJSGlobals();
         $page->renderJSScripts();

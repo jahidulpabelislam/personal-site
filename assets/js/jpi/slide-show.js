@@ -294,6 +294,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         stopSlideShows: fn.stopSlideShows,
         startSlideShows: fn.startSlideShows,
         slideShows: global.slideShows,
+        reposition: fn.repositionSlides,
     };
 
 })(jQuery, jpi);

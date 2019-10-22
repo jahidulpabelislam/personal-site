@@ -348,16 +348,13 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
         },
 
-        openProjectsExpandModal: function() {
+        openProjectModal: function() {
             var projectId = jQuery(this).attr("data-project-id"),
                 project = global.projects[projectId],
                 modal = global.modal;
 
             // Stops all the slide shows
             jpi.slideShow.stopSlideShows();
-
-            modal.addClass("open").show();
-            global.body.css("overflow", "hidden");
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
@@ -383,26 +380,23 @@ window.jpi.projects = (function(jQuery, jpi) {
                 classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
                 slideShowNav.attr("class", classList);
             });
+
+            jpi.modal.open(modal);
+
+            jpi.slideShow.reposition("detailed-project__slide-show");
         },
 
-        closeProjectsExpandModal: function(e) {
-            var modal = global.modal;
-            if (!jQuery(e.target).closest(".modal__content").length && modal.hasClass("open")) {
-                modal.removeClass("open").hide();
+        onProjectModalClose: function() {
+            var viewpoint = global.modalSlideShowViewpoint[0];
+            viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
+            viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
 
-                global.body.css("overflow", "auto");
+            // Reset slide show
+            global.modalSlides.css("left", "0px");
+            clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
+            global.modalSlideShow.removeClass("js-has-slide-show");
 
-                var viewpoint = global.modalSlideShowViewpoint[0];
-                viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
-                viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
-
-                // Reset slide show
-                global.modalSlides.css("left", "0px");
-                clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-                global.modalSlideShow.removeClass("js-has-slide-show");
-
-                jpi.slideShow.startSlideShows();
-            }
+            jpi.slideShow.startSlideShows();
         },
 
         getNewURL: function(page) {
@@ -482,16 +476,16 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             jQuery(".search-form").on("submit", fn.doSearch);
 
-            global.projectsElem.on("click", ".js-open-modal", fn.openProjectsExpandModal);
+            global.projectsElem.on("click", ".js-open-modal", fn.openProjectModal);
 
-            global.modal.on("click", fn.closeProjectsExpandModal);
+            global.modal.on("closed", fn.onProjectModalClose);
 
             global.body.on("click", ".project__skill", function(e) {
                 e.preventDefault();
             });
 
             global.body.on("click", ".js-searchable-skill", function(e) {
-                global.modal.trigger("click");
+                jpi.modal.close();
                 global.searchInput.val(e.target.innerHTML);
                 fn.scrollToProjects();
                 fn.doSearch();

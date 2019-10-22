@@ -112,10 +112,10 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                         <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
                             <div class="slide-show__slides-container"></div>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
-                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Click to View Previous Image" />
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                             </button>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#slide-show--home" data-nav-direction="next">
-                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Click to View Next Image" />
+                                <img class="slide-show__nav slide-show__nav-- slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                             </button>
                         </div>
                         <div class="slide-show__bullets"></div>
