@@ -29,7 +29,7 @@ if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
             $url .= addTrailingSlash($search);
         }
 
-        if ($pagination["has_previous_page"]) {
+        if ($pagination["hasPreviousPage"]) {
             $prevURL = $url;
 
             if ($page > 2) {
@@ -39,7 +39,7 @@ if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
             echo "<link rel='prev' href='{$prevURL}' />" . PHP_EOL;
         }
 
-        if ($pagination["has_next_page"]) {
+        if ($pagination["hasNextPage"]) {
             $nextURL = $url . addTrailingSlash($page + 1);
             echo "<link rel='next' href='{$nextURL}' />" . PHP_EOL;
         }

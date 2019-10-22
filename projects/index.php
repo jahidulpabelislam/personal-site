@@ -68,8 +68,8 @@ $pageData = [
     "headerDesc" => "See My Skills in Action in My Projects",
     "pagination" => [
         "page" => $apiMeta["page"] ?? 1,
-        "has_previous_page" => $apiMeta["has_previous_page"] ?? false,
-        "has_next_page" => $apiMeta["has_next_page"] ?? false,
+        "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,
+        "hasNextPage" => $apiMeta["has_next_page"] ?? false,
     ],
 ];
 $page->addPageData($pageData);
