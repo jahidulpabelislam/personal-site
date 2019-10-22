@@ -29,18 +29,18 @@ $page->renderHeader();
 
                             <div class="input-group">
                                 <label for="email-input">Your Email Address <span class="required">*</span></label>
-                                <input type="email" class="input" id="email-input" name="email-input" placeholder="e.g. joe@example.com" tabindex="1" title="Email Address" required />
+                                <input type="email" class="input" id="email-input" name="email-input" placeholder="e.g. joe@example.com" title="Email Address" required />
                                 <p class="feedback feedback--error" id="contact-form__email-feedback"></p>
                             </div>
 
                             <div class="input-group">
                                 <label for="subject-input">The Message Subject</label>
-                                <input type="text" class="input" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" tabindex="2" />
+                                <input type="text" class="input" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" />
                             </div>
 
                             <div class="input-group input-group--message">
                                 <label for="message-input">Your Message <span class="required">*</span></label>
-                                <textarea class="input" id="message-input" name="message-input" placeholder="e.g. Your site could do with more colour." title="The Message" rows="10" tabindex="3" required></textarea>
+                                <textarea class="input" id="message-input" name="message-input" placeholder="e.g. Your site could do with more colour." title="The Message" rows="10" required></textarea>
                                 <p class="feedback feedback--error" id="contact-form__message-feedback"></p>
                             </div>
 
