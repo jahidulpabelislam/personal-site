@@ -115,7 +115,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     fn.createPaginationItem(page, currentPage, ul);
                 }
 
-                paginationElem.show();
+                paginationElem.css("display", "inline-block");
             }
         },
 

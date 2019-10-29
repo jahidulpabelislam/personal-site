@@ -2932,6 +2932,7 @@ label {
   color: #333333; }
 
 .pagination.projects__pagination {
+  display: none;
   margin-top: 20px;
   margin-bottom: 5px; }
 
