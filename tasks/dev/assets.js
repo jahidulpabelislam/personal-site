@@ -1,7 +1,4 @@
-const env = process.env.NODE_ENV || "production";
-if (env === "production") {
-    return;
-}
+
 
 const gulp = require("gulp");
 
