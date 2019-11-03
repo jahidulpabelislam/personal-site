@@ -97,14 +97,13 @@
 }
 
 .slide-show__bullet.active {
-    opacity: 1;
     background-color: get-colour(black, dark);
+    transform: scale(1.2);
 }
 
 @each $colour, $colours in $colour-schemes {
     .slide-show__bullet--#{$colour}.active {
         background-color: map-get($colours, main);
-        transform: scale(1.2);
     }
 
     .slide-show__nav--#{$colour} {
