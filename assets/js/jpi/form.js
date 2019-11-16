@@ -17,39 +17,42 @@ window.jpi.form = (function(jQuery, jpi) {
     var fn = {
 
         // Show appropriate & relevant feedback to the user after an attempt of sending a message
-        renderFeedback: function(response) {
-            global.formFeedback.text(response.feedback).show(200);
-
+        renderResponse: function(response) {
             // Check if message was sent
             if (response.ok) {
-                global.formFeedback.addClass("feedback--success");
+                if (response.feedback) {
+                    global.formFeedback.removeClass("feedback--error").addClass("feedback--success");
+                }
+
                 jQuery("#email-input, #message-input, #subject-input").val("");
             }
             else {
                 if (response.feedback) {
-                    global.formFeedback.addClass("feedback--error");
+                    global.formFeedback.removeClass("feedback--success").addClass("feedback--error");
                 }
-
                 if (response.messageFeedback) {
                     global.messageFeedback.text(response.messageFeedback).show(200);
                 }
-
                 if (response.emailAddressFeedback) {
                     global.emailFeedback.text(response.emailAddressFeedback).show(200);
                 }
             }
 
+            if (response.feedback) {
+                global.formFeedback.text(response.feedback).show(200);
+            }
+
             global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
         },
 
-        // Render a error message whe AJAX has error
+        // Render an error message when AJAX has errored
         renderErrorMessage: function() {
             global.formFeedback.text("Something went wrong, please try again later.")
-                  .addClass("feedback--error")
-                  .show(200);
+                               .removeClass("feedback--success")
+                               .addClass("feedback--error")
+                               .show(200);
 
-            global.submitButton.prop("disabled", false)
-                  .html(global.submitButton.attr("data-initial-text"));
+            global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
         },
 
         validateEmail: function(isForm) {
@@ -58,21 +61,26 @@ window.jpi.form = (function(jQuery, jpi) {
             global.formFeedback.hide(200);
             global.emailInput.removeClass("valid");
 
-            var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im,
-                emailValidationTest = validEmailPattern.test(emailAddress);
+            if (emailAddress.trim() === "") {
+                if (isForm) {
+                    global.emailInput.addClass("invalid");
+                    global.emailFeedback.text("Email address must be provided and valid.").show(200);
+                }
+                return false;
+            }
 
-            if (emailAddress.trim() === "" && isForm) {
-                global.emailInput.addClass("invalid");
-                global.emailFeedback.text("Email Address must be provided and valid.").show(200);
-            }
-            else if (!emailValidationTest && isForm) {
-                global.emailInput.addClass("invalid");
-                global.emailFeedback.text("Email Address must be valid.").show(200);
-            }
-            else if (emailAddress.trim() !== "" && emailValidationTest) {
+            var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im;
+            var emailValidationTest = validEmailPattern.test(emailAddress);
+
+            if (emailValidationTest) {
                 global.emailInput.removeClass("invalid").addClass("valid");
                 global.emailFeedback.hide(200);
                 return true;
+            }
+
+            if (isForm) {
+                global.emailInput.addClass("invalid");
+                global.emailFeedback.text("Email address must be valid.").show(200);
             }
 
             return false;
@@ -84,36 +92,36 @@ window.jpi.form = (function(jQuery, jpi) {
             global.formFeedback.hide(200);
             global.messageInput.removeClass("valid");
 
-            if (message.trim() === "" && isForm) {
-                global.messageInput.addClass("invalid");
-                global.messageFeedback.text("Message must be filled out.").show(200);
-            }
-            else if (message.trim() !== "") {
+            if (message.trim() !== "") {
                 global.messageInput.removeClass("invalid").addClass("valid");
                 global.messageFeedback.hide(200);
                 return true;
             }
 
+            if (isForm) {
+                global.messageInput.addClass("invalid");
+                global.messageFeedback.text("Message must be filled out.").show(200);
+            }
+
             return false;
         },
 
-        validateForm: function() {
-            global.submitButton.prop("disabled", true)
-                  .html(global.submitButton.attr("data-loading-text"));
+        submit: function() {
+            global.submitButton.prop("disabled", true).html(global.submitButton.attr("data-loading-text"));
 
-            var isEmailValid = fn.validateEmail(true),
-                isMessageValid = fn.validateMessage(true);
+            var isEmailValid = fn.validateEmail(true);
+            var isMessageValid = fn.validateMessage(true);
 
             if (isEmailValid && isMessageValid) {
-                jpi.ajax.sendRequest({
+                jpi.ajax.request({
                     method: "POST",
                     url: "/contact/form-submission.php",
-                    params: {
+                    data: {
                         emailAddress: global.emailInput.val(),
                         subject: global.subjectInput.val(),
                         message: global.messageInput.val(),
                     },
-                    onSuccess: fn.renderFeedback,
+                    onSuccess: fn.renderResponse,
                     onError: fn.renderErrorMessage,
                 });
             }
@@ -135,7 +143,7 @@ window.jpi.form = (function(jQuery, jpi) {
                 fn.validateMessage();
             });
 
-            global.form.on("submit", fn.validateForm);
+            global.form.on("submit", fn.submit);
         },
 
         init: function() {

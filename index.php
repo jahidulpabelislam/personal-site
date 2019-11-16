@@ -109,8 +109,8 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                     <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
 
                     <div class="slide-show" id="slide-show--home">
-                        <div class="slide-show__viewpoint" data-slide-show-id="#slide-show--home">
-                            <div class="slide-show__slides-container"></div>
+                        <div class="slide-show__viewpoint">
+                            <div class="slide-show__slides-container" data-slide-show-id="#slide-show--home"></div>
                             <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#slide-show--home" data-nav-direction="previous">
                                 <img class="slide-show__nav slide-show__nav-- slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                             </button>
@@ -188,7 +188,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#slide-show--home" data-slide-id="slide-{{ id }}"></button>
+                    <button type="button" class="slide-show__bullet js-slide-show-bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#slide-show--home" data-slide-id="#slide-{{ id }}"></button>
                 </script>
 
 <?php

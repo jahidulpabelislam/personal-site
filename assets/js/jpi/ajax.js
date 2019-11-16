@@ -5,43 +5,41 @@ window.jpi.ajax = (function() {
 
     var fn = {
 
-        // If there is feedback from Server give error message using the it otherwise output generic message
-        checkAndRenderFeedback: function(data, renderErrorFunc, genericMessage) {
+        // Display feedback from server if there is one otherwise output generic message
+        checkAndRenderError: function(data, errorRenderer, genericMessage) {
             var message = (data && data.meta && data.meta.feedback) ? data.meta.feedback : genericMessage;
             if (message) {
-                renderErrorFunc(message);
+                errorRenderer(message);
             }
         },
 
         // Loop through data to see if it exists and if it does run a function on each row
-        renderRowsOrFeedback: function(data, funcToRun, renderErrorFunc, genericMessage) {
+        renderRowsOrError: function(data, rowRenderer, errorRenderer, genericMessage) {
             // If data/rows exists, For each row run a function
             if (data && data.rows && data.rows.length) {
                 for (var i = 0; i < data.rows.length; i++) {
                     if (data.rows.hasOwnProperty(i)) {
-                        funcToRun(data.rows[i]);
+                        rowRenderer(data.rows[i]);
                     }
                 }
 
                 return true;
             }
+
             // Otherwise check feedback and show user and return false as data isn't there
-            else {
-                fn.checkAndRenderFeedback(data, renderErrorFunc, genericMessage);
-                return false;
-            }
+            fn.checkAndRenderError(data, errorRenderer, genericMessage);
+            return false;
         },
 
         /**
-         * Given a payload that is an object (containing name/value pairs), this function
-         * converts that array into a URLEncoded string.
+         * Convert the data/payload object (containing name/value pairs) into a URLEncoded string.
          */
-        encodePayload: function(params) {
+        encodePayload: function(data) {
             var payload = [];
 
-            for (var name in params) {
-                if (params.hasOwnProperty(name)) {
-                    payload.push(name + "=" + encodeURIComponent(params[name]));
+            for (var name in data) {
+                if (data.hasOwnProperty(name)) {
+                    payload.push(name + "=" + encodeURIComponent(data[name]));
                 }
             }
 
@@ -55,35 +53,38 @@ window.jpi.ajax = (function() {
         /**
          * Function for sending XHR requests
          *
-         * @param request object of params necessary needed to do a http request
+         * @param request Object of necessary data needed to do a HTTP request
          * {
-         *     "method": HTTP METHOD (string),
+         *     "method": HTTP Method (string),
          *     "url": URL to load (string),
-         *     "params": object of payload,
+         *     "data": object of payload,
          *     "onSuccess": function to run when XHR request is successful
          *     "onError": function to run when there's an error
          * }
          */
-        sendRequest: function(request) {
-            var xhr = new XMLHttpRequest();
-            var errorText = "Error Loading Content.";
+        request: function(request) {
+            request.method = request.method.toUpperCase();
 
-            // Checks if there is params to send to payload and checks its not sending a file
-            if (request.params && request.data !== "file") {
-                request.params = fn.encodePayload(request.params);
+            // Checks if there is data to send to payload and checks it's not sending a file
+            if (request.data && request.dataType !== "file") {
+                request.data = fn.encodePayload(request.data);
 
                 if (request.method !== "POST") {
-                    request.url += "?" + request.params;
+                    request.url += "?" + request.data;
+                    delete request.data;
                 }
             }
 
+            var xhr = new XMLHttpRequest();
             xhr.open(request.method, request.url, true);
 
             xhr.setRequestHeader("Accept", "application/json");
 
-            if (request.params && request.method === "POST" && request.data !== "file") {
+            if (request.method === "POST" && request.data && request.dataType !== "file") {
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             }
+
+            var errorText = "Error Loading Content.";
 
             xhr.addEventListener("load", function() {
                 if (this && this.responseText !== "") {
@@ -103,12 +104,12 @@ window.jpi.ajax = (function() {
                 request.onError(errorText);
             });
 
-            xhr.send(request.params);
+            xhr.send(request.data || "");
         },
     };
 
     return {
-        renderRowsOrFeedback: fn.renderRowsOrFeedback,
-        sendRequest: fn.sendRequest,
+        renderRowsOrError: fn.renderRowsOrError,
+        request: fn.request,
     };
 })();

@@ -37,6 +37,8 @@ window.jpi.modal = (function(jQuery) {
 
             global.activeModal.trigger("closed");
 
+            jpi.slideShow.resumeAll();
+
             global.activeModal = null;
             global.lastFocused = null;
             global.focusables = null;
@@ -58,6 +60,8 @@ window.jpi.modal = (function(jQuery) {
             if (global.activeModal) {
                 fn.triggerClose();
             }
+
+            jpi.slideShow.pauseAll();
 
             global.activeModal = jQuery(modal);
 

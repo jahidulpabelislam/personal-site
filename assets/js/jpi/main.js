@@ -14,22 +14,22 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
     var fn = {
 
         initBognorRegisMap: function() {
-            var zoomLevel = 12,
-                bognorRegisLat = 50.7842,
-                bognorRegisLng = -0.674,
-                bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng),
-                config = {
-                    center: bognorRegisLocation,
-                    zoom: zoomLevel,
-                    zoomControl: true,
-                    mapTypeControl: false,
-                    scaleControl: false,
-                    streetViewControl: false,
-                    rotateControl: false,
-                    fullscreenControl: false,
-                    styles: jpi.config.googleMapStyles || {},
-                },
-                map = new google.maps.Map(global.map[0], config);
+            var zoomLevel = 12;
+            var bognorRegisLat = 50.7842;
+            var bognorRegisLng = -0.674;
+            var bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng);
+            var config = {
+                center: bognorRegisLocation,
+                zoom: zoomLevel,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                styles: jpi.config.googleMapStyles || {},
+            };
+            var map = new google.maps.Map(global.map[0], config);
 
             new google.maps.Marker({
                 position: bognorRegisLocation,
@@ -72,7 +72,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             }
         },
 
-        jumpToContent: function() {
+        scrollToContent: function() {
             global.body.animate({
                 scrollTop: global.mainContentElem.offset().top - global.nav.height(),
             }, 1000);
@@ -102,7 +102,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         },
 
         initListeners: function() {
-            jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
+            jQuery(".js-scroll-to-content").on("click", fn.scrollToContent);
 
             global.skillsInterests = jQuery(".skills-interests__item--expandable");
             global.skillsInterests.on("click", fn.toggleSkillInterestContent);

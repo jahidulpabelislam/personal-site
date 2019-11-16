@@ -61,7 +61,9 @@ class Page {
         $globalPageData = [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
-            "jsGlobals" => [],
+            "jsGlobals" => [
+                "css" => ["tabletWidth" => 768],
+            ],
             "jsScripts" => [],
             "stylesheets" => $this->getStylesheetsForPage($pageId),
         ];

@@ -24,18 +24,14 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         modalSelector: ".detailed-project",
         modal: null,
-
-        modalSlideShow: null,
-        modalSlideShowViewpoint: null,
-        modalSlides: null,
+        modalSlidesContainer: null,
 
         searchInput: null,
-        pageNum: 1,
+        pageNumber: 1,
 
         slideTemplate: "",
         bulletTemplate: "",
 
-        templateRegexes: {},
         navColourRegex: null,
 
         projects: {},
@@ -45,13 +41,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     var fn = {
 
-        getCurrentPageNum: function() {
-            var currentPageNum = global.pageNum;
-            currentPageNum = jpi.helpers.getInt(currentPageNum, 1);
-
-            return currentPageNum;
-        },
-
         bottomAlignProjectFooters: function() {
             var projects = jQuery(".project");
             var numOfProjects = projects.length;
@@ -59,7 +48,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            jQuery(".project .project__description").css("min-height", 0);
+            jQuery(".project .project__description").css("min-height", "");
 
             if (window.innerWidth < 768) {
                 return;
@@ -69,25 +58,24 @@ window.jpi.projects = (function(jQuery, jpi) {
                 var project = jQuery(projects[i]);
                 var height = project.height();
 
-                var projectDesc = project.find(".project__description");
+                var projectDesc = project.children(".project__description");
 
-                var otherElems = project.find("> *").not(projectDesc);
+                var otherElems = project.children().not(projectDesc);
                 var totalAllHeight = 0;
                 otherElems.each(function(j, elem) {
                     totalAllHeight += jQuery(elem).outerHeight(true);
                 });
 
-                // Expand the description element to fit remaing space
+                // Expand the description element to fit remaining space
                 var maxHeight = projectDesc.outerHeight(true);
                 var innerHeight = projectDesc.height();
                 var padding = maxHeight - innerHeight;
 
                 var newHeight = height - totalAllHeight - padding;
-                projectDesc.css('min-height', newHeight);
+                projectDesc.css("min-height", newHeight);
             }
         },
 
-        // Prints out a error message provided
         renderError: function(error) {
             global.errorElem.text(error).show(600);
             global.pagination.text("").hide(600);
@@ -95,64 +83,50 @@ window.jpi.projects = (function(jQuery, jpi) {
             jpi.main.resetFooter();
         },
 
-        getTemplateRegex: function(regex) {
-            if (!global.templateRegexes[regex]) {
-                global.templateRegexes[regex] = new RegExp("\{{2} {0,1}" + regex + " {0,1}\\}{2}", "g");
-            }
-
-            return global.templateRegexes[regex];
-        },
-
-        createPaginationItem: function(page, currentPage, paginationsElem) {
-            var itemAttributes = {class: "pagination__item"};
-            var item = jpi.helpers.createElement(paginationsElem, "li", itemAttributes);
+        renderPaginationItem: function(page, containerElem, isCurrent) {
+            var item = jpi.helpers.createElement("li", containerElem, {class: "pagination__item"});
 
             var url = fn.getNewURL(page);
             url += global.url.search;
 
-            var linkAttributes = {
+            jpi.helpers.createElement("a", item, {
+                "class": "pagination__item-link " + (isCurrent ? "active": ""),
                 "innerHTML": page,
-                "class": "pagination__item-link js-pagination-item",
                 "data-page": page,
                 "href": url,
-            };
-            if (page === currentPage) {
-                linkAttributes.class = "pagination__item-link active";
-            }
-            return jpi.helpers.createElement(item, "a", linkAttributes);
+            });
         },
 
         // Adds pagination buttons/elements to the page
-        addPagination: function(totalProjects) {
+        renderPagination: function(totalProjects) {
             totalProjects = jpi.helpers.getInt(totalProjects);
             if (totalProjects > jpi.config.projectsPerPage) {
                 var paginationElem = global.pagination;
 
                 var ul = paginationElem[0];
-                var currentPage = fn.getCurrentPageNum();
+                var currentPage = global.pageNumber;
 
                 var totalPages = Math.ceil(totalProjects / jpi.config.projectsPerPage);
 
                 for (var page = 1; page <= totalPages; page++) {
-                    fn.createPaginationItem(page, currentPage, ul);
+                    var isCurrent = page === currentPage;
+                    fn.renderPaginationItem(page, ul, isCurrent);
                 }
 
-                paginationElem.show();
+                paginationElem.css("display", "inline-block");
             }
         },
 
-        addSkills: function(project, divID) {
-            var skills = project.skills,
+        renderProjectSkills: function(project, containerSelector) {
+            var skills = project.skills;
 
-                skillsContainer = jQuery(divID + " .project__skills")[0],
-
-                search = global.searchInput.val().trim(),
-                lowerCasedSearch = search.toLowerCase(),
-                searches = lowerCasedSearch.split(" ");
-
+            var skillsContainer = jQuery(containerSelector).find(".project__skills")[0];
             if (!skillsContainer) {
                 return;
             }
+
+            var search = global.searchInput.val().trim().toLowerCase();
+            var searches = search.split(" ");
 
             for (var i = 0; i < skills.length; i++) {
                 var skill = skills[i].trim();
@@ -176,7 +150,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     classes.push("searched");
                 }
 
-                jpi.helpers.createElement(skillsContainer, "a", {
+                jpi.helpers.createElement("a", skillsContainer, {
                     innerHTML: skill,
                     class: classes.join(" "),
                     href: "/projects/" + skill + "/",
@@ -184,8 +158,8 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
-        addLinks: function(project, containerSelector) {
-            var linksContainer = jQuery(containerSelector + " .project__links");
+        renderProjectLinks: function(project, containerSelector) {
+            var linksContainer = jQuery(containerSelector).find(".project__links");
 
             if (!project.link && !project.download && !project.github) {
                 if (containerSelector !== global.modalSelector) {
@@ -197,7 +171,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             linksContainer = linksContainer[0];
 
             if (project.link) {
-                jpi.helpers.createElement(linksContainer, "a", {
+                jpi.helpers.createElement("a", linksContainer, {
                     href: project.link,
                     title: "Link to " + project.name,
                     target: "_blank",
@@ -208,7 +182,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             if (project.download) {
-                jpi.helpers.createElement(linksContainer, "a", {
+                jpi.helpers.createElement("a", linksContainer, {
                     href: project.download,
                     title: "Link to download " + project.name,
                     target: "_blank",
@@ -219,7 +193,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             if (project.github) {
-                jpi.helpers.createElement(linksContainer, "a", {
+                jpi.helpers.createElement("a", linksContainer, {
                     href: project.github,
                     title: "Link to " + project.name + " code on GitHub",
                     target: "_blank",
@@ -230,21 +204,24 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
-        addProjectImages: function(project, containerSelector) {
+        renderProjectImages: function(project, containerSelector) {
             var slideShow = jQuery(containerSelector).find(".slide-show");
             var slideShowId = "#" + slideShow.attr("id");
 
             if (!project.images || !project.images.length) {
                 if (containerSelector !== global.modalSelector) {
-                    jQuery(slideShowId).remove();
+                    slideShow.remove();
                 }
                 return;
             }
 
-            var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container"),
-                slideShowBullets = jQuery(slideShowId + " .slide-show__bullets");
+            var slidesContainer = slideShow.find(".slide-show__slides-container");
+            var slideShowBullets = slideShow.find(".slide-show__bullets");
 
-            // Loop through each row of data in rows
+            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
+            var slideShowIdRegex = jpi.helpers.getTemplatingRegex("slide-show-id");
+
+            // Loop through each image in project
             for (var i = 0; i < project.images.length; i++) {
                 if (!project.images.hasOwnProperty(i)) {
                     continue;
@@ -255,28 +232,24 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 for (var field in project.images[i]) {
                     if (typeof field === "string" && project.images[i].hasOwnProperty(field)) {
-                        var regex = fn.getTemplateRegex(field);
+                        var regex = jpi.helpers.getTemplatingRegex(field);
                         var data = project.images[i][field];
                         slide = slide.replace(regex, data);
                         bullet = bullet.replace(regex, data);
                     }
                 }
 
-                var colourRegex = fn.getTemplateRegex("colour");
                 slide = slide.replace(colourRegex, project.colour);
-                bullet = bullet.replace(colourRegex, project.colour);
-
-                var idRegex = fn.getTemplateRegex("slide-show-id");
-                bullet = bullet.replace(idRegex, slideShowId);
-
                 slidesContainer.append(slide);
+
+                bullet = bullet.replace(colourRegex, project.colour);
+                bullet = bullet.replace(slideShowIdRegex, slideShowId);
                 slideShowBullets.append(bullet);
             }
 
-            jpi.slideShow.setUp(slideShowId);
+            jpi.slideShow.start(slideShowId);
         },
 
-        // Renders a single project
         renderProject: function(project) {
             var projectSelector = "#project--" + project.id;
             if (jQuery(projectSelector).length) {
@@ -293,27 +266,28 @@ window.jpi.projects = (function(jQuery, jpi) {
             var template = global.projectTemplate;
             for (var field in project) {
                 if (project.hasOwnProperty(field) && typeof field === "string") {
-                    var regex = fn.getTemplateRegex(field);
+                    var regex = jpi.helpers.getTemplatingRegex(field);
                     var value = project[field];
                     template = template.replace(regex, value);
                 }
             }
             global.projectsElem.append(template);
 
-            fn.addProjectImages(project, projectSelector);
-            fn.addSkills(project, projectSelector);
-            fn.addLinks(project, projectSelector);
+            fn.renderProjectImages(project, projectSelector);
+            fn.renderProjectLinks(project, projectSelector);
         },
 
         // Sets up events when projects were received
         gotProjects: function(response) {
+            jpi.slideShow.pauseAll();
+
             global.errorElem.text("").hide(600);
             global.loading.hide(600);
             global.projectsElem.text("");
             global.pagination.text("").hide();
 
             // Send the data, the function to do if data is valid
-            jpi.ajax.renderRowsOrFeedback(
+            jpi.ajax.renderRowsOrError(
                 response,
                 fn.renderProject,
                 fn.renderError,
@@ -321,7 +295,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             );
 
             if (response && response.meta && response.meta.total_count) {
-                fn.addPagination(response.meta.total_count);
+                fn.renderPagination(response.meta.total_count);
             }
 
             fn.bottomAlignProjectFooters();
@@ -329,34 +303,27 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         getProjects: function() {
-            var page = fn.getCurrentPageNum(),
-                search = global.searchInput.val(),
-                query = {
-                    page: page,
-                    search: search,
-                    limit: jpi.config.projectsPerPage,
-                };
+            var page = global.pageNumber;
+            var search = global.searchInput.val();
+            var query = {
+                page: page,
+                search: search,
+                limit: jpi.config.projectsPerPage,
+            };
 
-            // Stops all the slide shows
-            jpi.slideShow.stopSlideShows();
-
-            // Send request to get projects for page and search
-            jpi.ajax.sendRequest({
+            jpi.ajax.request({
                 method: "GET",
                 url: jpi.config.jpiAPIEndpoint + "/projects/",
-                params: query,
+                data: query,
                 onSuccess: fn.gotProjects,
                 onError: fn.renderError,
             });
         },
 
         openProjectModal: function() {
-            var projectId = jQuery(this).attr("data-project-id"),
-                project = global.projects[projectId],
-                modal = global.modal;
-
-            // Stops all the slide shows
-            jpi.slideShow.stopSlideShows();
+            var projectId = jQuery(this).attr("data-project-id");
+            var project = global.projects[projectId];
+            var modal = global.modal;
 
             modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
 
@@ -372,9 +339,9 @@ window.jpi.projects = (function(jQuery, jpi) {
             classList = classList.replace(global.typeColourRegex, "project__type--" + project.colour);
             projectTypeElem.attr("class", classList);
 
-            fn.addSkills(project, global.modalSelector);
-            fn.addLinks(project, global.modalSelector);
-            fn.addProjectImages(project, global.modalSelector);
+            fn.renderProjectSkills(project, global.modalSelector);
+            fn.renderProjectLinks(project, global.modalSelector);
+            fn.renderProjectImages(project, global.modalSelector);
 
             modal.find(".slide-show__nav").each(function() {
                 var slideShowNav = jQuery(this);
@@ -384,29 +351,23 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
 
             jpi.modal.open(modal);
-
-            jpi.slideShow.reposition("detailed-project__slide-show");
+            jpi.slideShow.start("#detailed-project__slide-show");
         },
 
         onProjectModalClose: function() {
-            var viewpoint = global.modalSlideShowViewpoint[0];
-            viewpoint.removeEventListener("mousedown", jpi.slideShow.dragStart);
-            viewpoint.removeEventListener("touchstart", jpi.slideShow.dragStart);
-
-            // Reset slide show
-            global.modalSlides.css("left", "0px");
-            clearInterval(jpi.slideShow.slideShows["#detailed-project__slide-show"]);
-            global.modalSlideShow.removeClass("js-has-slide-show");
-
-            jpi.slideShow.startSlideShows();
+            jpi.slideShow.stop("#detailed-project__slide-show");
+            global.modalSlidesContainer.css({
+                "width": "",
+                "left": "",
+            });
         },
 
         getNewURL: function(page) {
             var url = "/projects/";
 
-            var searchValue = global.searchInput.val();
-            if (searchValue.trim() !== "") {
-                url += searchValue + "/";
+            var search = global.searchInput.val();
+            if (search.trim() !== "") {
+                url += search + "/";
             }
 
             if (page > 1) {
@@ -417,11 +378,11 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         getNewTitle: function(page) {
-            var title = global.titleStart,
-                searchValue = global.searchInput.val();
+            var title = global.titleStart;
+            var search = global.searchInput.val();
 
-            if (searchValue.trim() !== "") {
-                title += " with " + searchValue;
+            if (search.trim() !== "") {
+                title += " with " + search;
             }
 
             if (page > 1) {
@@ -434,14 +395,14 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         storeLatestSearch: function() {
-            var searchValue = global.searchInput.val(),
-                page = fn.getCurrentPageNum(),
-                title = fn.getNewTitle(page),
-                url = fn.getNewURL(page),
-                state = {
-                    search: searchValue,
-                    page: page,
-                };
+            var search = global.searchInput.val();
+            var page = global.pageNumber;
+            var title = fn.getNewTitle(page);
+            var url = fn.getNewURL(page);
+            var state = {
+                search: search,
+                page: page,
+            };
 
             global.url.pathname = url;
             document.title = title;
@@ -455,24 +416,21 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Sends request when the user has done a search
         doSearch: function() {
-            global.pageNum = 1;
-
+            global.pageNumber = 1;
             fn.storeLatestSearch();
-
             fn.getProjects();
             return false;
         },
 
         scrollToProjects: function() {
-            var projectsPos = global.projectsElem.offset().top,
-                navHeight = global.nav.height();
+            var projectsPos = global.projectsElem.offset().top;
+            var navHeight = global.nav.height();
 
             global.htmlElem.animate({
                 scrollTop: projectsPos - navHeight - 20,
             }, 2000);
         },
 
-        // Set up page
         initListeners: function() {
             jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.bottomAlignProjectFooters, 200));
 
@@ -484,11 +442,10 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.body.on("click", ".project__skill", function(e) {
                 e.preventDefault();
-
                 jpi.modal.close();
                 fn.scrollToProjects();
 
-                if (e.target.innerHTML === global.searchInput.val() && global.pageNum === 1) {
+                if (e.target.innerHTML === global.searchInput.val() && global.pageNumber === 1) {
                     return;
                 }
 
@@ -496,31 +453,26 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.doSearch();
             });
 
-            global.pagination.on("click", ".js-pagination-item", function(e) {
+            global.pagination.on("click", ".pagination__item-link", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 
-                fn.scrollToProjects();
-
                 var page = jQuery(this).attr("data-page");
-                if (!page) {
-                    page = 1;
-                }
+                page = jpi.helpers.getInt(page, 1);
 
-                global.pageNum = page;
-
+                fn.scrollToProjects();
+                global.pageNumber = page;
                 fn.storeLatestSearch();
                 fn.getProjects();
             });
 
             window.addEventListener("popstate", function(e) {
                 var state = e.state || {};
-
                 var page = state.page || 1;
 
                 document.title = fn.getNewTitle(page);
 
-                global.pageNum = page;
+                global.pageNumber = jpi.helpers.getInt(page, 1);
                 global.searchInput.val(state.search || "");
 
                 fn.scrollToProjects();
@@ -547,12 +499,9 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.pagination = jQuery(".pagination");
 
             global.modal = jQuery(global.modalSelector);
+            global.modalSlidesContainer = global.modal.find(".slide-show__slides-container");
 
-            global.modalSlideShow = jQuery(global.modalSelector + " .slide-show");
-            global.modalSlideShowViewpoint = jQuery(global.modalSelector + " .slide-show__viewpoint");
-            global.modalSlides = jQuery(global.modalSelector + " .slide-show__slides-container");
-
-            global.pageNum = jQuery(".js-projects-page").val();
+            global.pageNumber = jpi.helpers.getInt(jQuery(".js-page").val(), 1);
 
             global.projectTemplate = jQuery("#tmpl-project-template").text();
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
@@ -560,12 +509,12 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
-            global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-            global.typeColourRegex = new RegExp("project__type--[\\w-]*", "g");
+            global.navColourRegex = /slide-show__nav--[\w-]*/g;
+            global.typeColourRegex = /project__type--[\w-]*/g;
 
             var state = {
                 search: global.searchInput.val(),
-                page: fn.getCurrentPageNum(),
+                page: global.pageNumber,
             };
 
             history.replaceState(state, document.title);

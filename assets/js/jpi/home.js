@@ -8,13 +8,12 @@ window.jpi.home = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
-        slidesElem: null,
+        slidesContainer: null,
         bulletsElem: null,
         loadingElem: null,
         errorElem: null,
         slideTemplate: "",
         bulletTemplate: "",
-        templateRegexes: {},
         dateFormat: false,
     };
 
@@ -43,21 +42,13 @@ window.jpi.home = (function(jQuery, jpi) {
             global.loadingElem.hide(200);
         },
 
-        getTemplateRegex: function(regex) {
-            if (!global.templateRegexes[regex]) {
-                global.templateRegexes[regex] = new RegExp("\{{2} {0,1}" + regex + " {0,1}\\}{2}", "g");
-            }
-
-            return global.templateRegexes[regex];
-        },
-
         renderProject: function(project) {
             var slide = global.slideTemplate;
             var bullet = global.bulletTemplate;
 
             for (var field in project) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
-                    var regex = fn.getTemplateRegex(field);
+                    var regex = jpi.helpers.getTemplatingRegex(field);
 
                     var value = project[field];
                     if (field === "date") {
@@ -71,20 +62,21 @@ window.jpi.home = (function(jQuery, jpi) {
             }
 
             if (project.images && project.images.length && project.images[0]) {
-                var imageRegex = fn.getTemplateRegex("file");
+                var imageRegex = jpi.helpers.getTemplatingRegex("file");
                 slide = slide.replace(imageRegex, project.images[0].file);
             }
 
-            global.slidesElem.append(slide);
+            global.slidesContainer.append(slide);
             global.bulletsElem.append(bullet);
 
             var slideId = "#slide-" + project.id;
+            var slideElem = jQuery(slideId);
 
             if (!project.images || !project.images.length || !project.images[0]) {
-                jQuery(slideId + " .slide-show__img").remove();
+                slideElem.find(".slide-show__img").remove();
             }
 
-            var linksContainer = jQuery(slideId + " .slide-info__links");
+            var linksContainer = slideElem.find(".slide-info__links");
 
             if (!project.link && !project.github) {
                 linksContainer.remove();
@@ -94,7 +86,7 @@ window.jpi.home = (function(jQuery, jpi) {
             linksContainer = linksContainer[0];
 
             if (project.link) {
-                jpi.helpers.createElement(linksContainer, "a", {
+                jpi.helpers.createElement("a", linksContainer, {
                     href: project.link,
                     innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "btn btn--clear",
@@ -104,7 +96,7 @@ window.jpi.home = (function(jQuery, jpi) {
             }
 
             if (project.github) {
-                jpi.helpers.createElement(linksContainer, "a", {
+                jpi.helpers.createElement("a", linksContainer, {
                     href: project.github,
                     innerHTML: "<i class='fab fa-github fa-2x'></i>",
                     class: "btn btn--clear",
@@ -122,13 +114,13 @@ window.jpi.home = (function(jQuery, jpi) {
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-            global.slidesElem = jQuery(".slide-show__slides-container");
+            global.slidesContainer = jQuery(".slide-show__slides-container");
             global.bulletsElem = jQuery(".slide-show__bullets");
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
             // Send the data, the function to do if data is valid
-            var dataValid = jpi.ajax.renderRowsOrFeedback(
+            var dataValid = jpi.ajax.renderRowsOrError(
                 response,
                 fn.renderProject,
                 fn.renderError,
@@ -136,7 +128,7 @@ window.jpi.home = (function(jQuery, jpi) {
             );
 
             if (dataValid) {
-                jpi.slideShow.setUp("#slide-show--home");
+                jpi.slideShow.start("#slide-show--home");
             }
 
             jpi.main.resetFooter();
@@ -154,10 +146,10 @@ window.jpi.home = (function(jQuery, jpi) {
 
             global.loadingElem.show(200);
 
-            jpi.ajax.sendRequest({
+            jpi.ajax.request({
                 method: "GET",
                 url: jpi.config.jpiAPIEndpoint + "/projects/",
-                params: {limit: jpi.config.projectsPerPage},
+                data: {limit: jpi.config.projectsPerPage},
                 onSuccess: fn.gotProjects,
                 onError: fn.renderError,
             });

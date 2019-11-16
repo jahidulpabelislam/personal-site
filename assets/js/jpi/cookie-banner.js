@@ -4,6 +4,8 @@ window.jpi.cookieBanner = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
+        window: null,
+        body: null,
         container: null,
         transitionSpeedSecs: 700,
         cookieKey: "cookie-banner-closed",
@@ -13,7 +15,7 @@ window.jpi.cookieBanner = (function(jQuery, jpi) {
 
     var fn = {
 
-        getHasClosedBannerBefore: function() {
+        getHasClosedBefore: function() {
             return jpi.helpers.checkCookieValue(global.cookieKey, global.cookieClickedValue);
         },
 
@@ -21,19 +23,19 @@ window.jpi.cookieBanner = (function(jQuery, jpi) {
             jpi.helpers.setCookie(global.cookieKey, global.cookieClickedValue, global.cookieExpirationDays);
         },
 
-        closeBanner: function() {
+        close: function() {
             global.container.fadeOut(global.transitionSpeedSecs, function() {
                 global.container.remove();
             });
             fn.setCookie();
         },
 
-        showOrHideBanner: function() {
+        showOrHide: function() {
             var container = global.container;
             if (container.length) {
                 var height = container.height();
-                var scrollPos = jQuery(window).scrollTop();
-                var lowestTop = jQuery("body").height() - (jQuery(window).height() + height);
+                var scrollPos = global.window.scrollTop();
+                var lowestTop = global.body.height() - (global.window.height() + height);
 
                 if (scrollPos < height || scrollPos > lowestTop) {
                     container.slideUp(global.transitionSpeedSecs);
@@ -44,23 +46,27 @@ window.jpi.cookieBanner = (function(jQuery, jpi) {
             }
         },
 
-        initDisplayOfBanner: function() {
-            var hasClosedBefore = fn.getHasClosedBannerBefore();
+        initDisplay: function() {
+            var hasClosedBefore = fn.getHasClosedBefore();
             if (hasClosedBefore) {
                 fn.setCookie();
                 global.container.remove();
             }
             else {
-                fn.showOrHideBanner();
+                fn.showOrHide();
             }
         },
 
         init: function() {
             global.container = jQuery(".cookie-banner");
             if (global.container.length) {
-                jQuery(window).on("scroll orientationchange resize", jpi.helpers.debounce(fn.showOrHideBanner, 150));
-                jQuery(".js-close-cookie-banner").on("click", fn.closeBanner);
-                fn.initDisplayOfBanner();
+                global.window = jQuery(window);
+                global.body = jQuery("body");
+
+                global.window.on("scroll orientationchange resize", jpi.helpers.debounce(fn.showOrHide, 150));
+                jQuery(".js-close-cookie-banner").on("click", fn.close);
+
+                fn.initDisplay();
             }
         },
     };

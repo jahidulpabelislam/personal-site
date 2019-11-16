@@ -4,38 +4,26 @@ window.jpi.nav = (function(jQuery, jpi) {
     "use strict";
 
     var global = {
+        window: null,
         nav: null,
         header: null,
         menuButton: null,
-        linksContainer: null,
-        window: null,
+        linksContainers: null,
     };
 
     var fn = {
 
         toggleMobileMenu: function() {
             global.nav.toggleClass("opened");
-            global.linksContainer.slideToggle();
+            global.linksContainers.slideToggle();
         },
 
-        initDesktopNav: function() {
-            if (global.window.width() > 768) {
-                global.linksContainer.show();
+        reset: function() {
+            if (window.innerWidth > jpi.css.tabletWidth) {
+                global.linksContainers.show();
             }
-        },
 
-        // Code to collapse mobile menu when user clicks anywhere off it.
-        closeMobileNav: function(e) {
-            if (
-                !jQuery(e.target).closest(".nav").length &&
-                global.nav.hasClass("opened") &&
-                global.menuButton.css("display") !== "none"
-            ) {
-                global.menuButton.trigger("click");
-            }
-        },
-
-        toggleNavBarColour: function() {
+            // Set the correct class on nav depending on current scroll position
             var navHeight = global.nav.height();
             var scrollPos = global.window.scrollTop() + navHeight;
             var headerHeight = global.header.height();
@@ -48,22 +36,33 @@ window.jpi.nav = (function(jQuery, jpi) {
             }
         },
 
+        // Code to collapse mobile menu when user clicks anywhere off it.
+        onNavClick: function(e) {
+            if (
+                global.nav.hasClass("opened") &&
+                !jQuery(e.target).closest(".nav").length &&
+                global.menuButton.css("display") !== "none"
+            ) {
+                global.menuButton.click();
+            }
+        },
+
         initListeners: function() {
-            jQuery(document).on("click", fn.closeMobileNav);
-            global.window.on("orientationchange resize", jpi.helpers.debounce(fn.initDesktopNav, 150));
-            global.window.on("scroll", jpi.helpers.debounce(fn.toggleNavBarColour, 150));
+            jQuery(document).on("click", fn.onNavClick);
+            global.window.on("scroll orientationchange resize", jpi.helpers.debounce(fn.reset, 150));
             global.menuButton.on("click", fn.toggleMobileMenu);
         },
 
         init: function() {
             global.window = jQuery(window);
+
             global.nav = jQuery(".nav");
-            global.header = jQuery(".header");
             global.menuButton = jQuery(".nav__mobile-toggle");
-            global.linksContainer = jQuery(".nav__links-container, .nav__social-links-container");
+            global.linksContainers = jQuery(".nav__links-container, .nav__social-links-container");
+            global.header = jQuery(".header");
 
             fn.initListeners();
-            fn.toggleNavBarColour();
+            fn.reset();
         },
     };
 

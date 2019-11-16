@@ -6,7 +6,19 @@ window.jpi.helpers = (function(jQuery) {
 
     "use strict";
 
+    var global = {
+        templatingRegexes: {},
+    };
+
     var fn = {
+
+        getTemplatingRegex: function(regex) {
+            if (!global.templatingRegexes[regex]) {
+                global.templatingRegexes[regex] = new RegExp("\{{2} ?" + regex + " ?\\}{2}", "g");
+            }
+
+            return global.templatingRegexes[regex];
+        },
 
         /**
          * Used to check if a input field is empty
@@ -15,21 +27,21 @@ window.jpi.helpers = (function(jQuery) {
          */
         checkInputField: function(input) {
             if (input.value.trim() === "") {
-                input.classList.add("invalid");
                 input.classList.remove("valid");
+                input.classList.add("invalid");
                 return false;
             }
-            else {
-                input.classList.remove("invalid");
-                input.classList.add("valid");
-                return true;
-            }
+
+            input.classList.remove("invalid");
+            input.classList.add("valid");
+            return true;
         },
 
         // Creates an element with attributes and appended to parent
-        createElement: function(parentElem, elementName, attributes) {
+        createElement: function(elementName, parentElement, attributes) {
             var newElem = document.createElement(elementName);
 
+            attributes = attributes || {};
             for (var attribute in attributes) {
                 if (attributes.hasOwnProperty(attribute)) {
                     if (attribute === "innerHTML") {
@@ -40,7 +52,7 @@ window.jpi.helpers = (function(jQuery) {
                     }
                 }
             }
-            parentElem.appendChild(newElem);
+            parentElement.appendChild(newElem);
 
             return newElem;
         },
@@ -136,6 +148,7 @@ window.jpi.helpers = (function(jQuery) {
     };
 
     return {
+        getTemplatingRegex: fn.getTemplatingRegex,
         checkInputField: fn.checkInputField,
         createElement: fn.createElement,
         getInt: fn.getInt,
