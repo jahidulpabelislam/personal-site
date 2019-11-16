@@ -473,13 +473,17 @@ window.jpi.projects = (function(jQuery, jpi) {
             jQuery(".search-form").on("submit", fn.doSearch);
 
             jQuery("body").on("click", ".project__skill", function(e) {
-                e.preventDefault();
-            });
-
-            jQuery("body").on("click", ".js-searchable-skill", function(e) {
                 jQuery(global.modalSelector).trigger("click");
-                jQuery(".search-form__input").val(e.target.innerHTML);
+                e.preventDefault();
                 fn.scrollToProjects();
+
+                var skill = e.target.innerHTML;
+
+                if (skill == jQuery(".search-form__input").val() && jQuery(".js-projects-page").val() == 1) {
+                    return;
+                }
+
+                jQuery(".search-form__input").val(skill);
                 fn.doSearch();
             });
 

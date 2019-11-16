@@ -2450,8 +2450,7 @@ label {
 .project__skill:not(.js-searchable-skill):hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
-  color: white;
-  cursor: default; }
+  color: white; }
 
 .project__skill:not(.js-searchable-skill):hover {
   box-shadow: none; }
