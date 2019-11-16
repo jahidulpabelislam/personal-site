@@ -21,22 +21,33 @@ $page->renderHeader();
 
 $nowDateTime = getNowDateTime();
 
-function renderSkillsOrInterests(array $items, string $colour) {
-    foreach ($items as $item) {
-        $hasDesc = !empty($item["desc"]);
+function renderSkillsOrInterests(string $heading, array $items, string $colour) {
+    ?>
+    <section class="article article--about">
+        <div class="container">
+            <h3 class="article__header"><?php echo $heading; ?></h3>
+            <ul class="about__skills-interests">
+            <?php
+            foreach ($items as $item) {
+                $hasDesc = !empty($item["desc"]);
 
-        $expandClass = $hasDesc ? "js-expand-skill-interest" : "";
+                $expandClass = $hasDesc ? "js-expand-skill-interest" : "";
 
-        echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
-        echo $item["text"];
+                echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
+                echo $item["text"];
 
-        if ($hasDesc) {
-            echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
-            echo "<div class='skills-interests__item-expand-content'>{$item["desc"]}</div>";
-        }
+                if ($hasDesc) {
+                    echo " <span class='skills-interests__item-expand-icon fa fa-plus '></span>";
+                    echo "<div class='skills-interests__item-expand-content'>{$item["desc"]}</div>";
+                }
 
-        echo "</li>";
-    }
+                echo "</li>";
+            }
+            ?>
+            </ul>
+        </div>
+    </section>
+    <?php
 }
 ?>
 
@@ -157,94 +168,69 @@ function renderSkillsOrInterests(array $items, string $colour) {
                     </div>
                 </div>
 
-                <section class="article article--about">
-                    <div class="container">
-                        <h3 class="article__header">Technical Skills</h3>
+                <?php
+                $techSkills = [
+                    [
+                        "text" => "PHP",
+                        "desc" => "Wordpress, Laravel &amp; PDO",
+                    ], [
+                        "text" => "JavaScript",
+                        "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
+                    ], [
+                        "text" => "CSS",
+                        "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
+                    ], [
+                        "text" => "HTML",
+                    ], [
+                        "text" => "Python",
+                        "desc" => "flask &amp; graphics.py",
+                    ], [
+                        "text" => "SQL",
+                        "desc" => "MySQL",
+                    ], [
+                        "text" => "NoSQL",
+                        "desc" => "Amazon DynamoDB &amp; MongoDB",
+                    ], [
+                        "text" => "Java",
+                        "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
+                    ], [
+                        "text" => "DVCS",
+                        "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
+                    ], [
+                        "text" => "Microsoft Office",
+                        "desc" => "Excel, Word &amp; Powerpoint",
+                    ],
+                ];
+                renderSkillsOrInterests("Technical Skills", $techSkills, "dark-blue");
+                ?>
 
-                        <ul class="about__skills-interests">
-                            <?php
-                            $techSkills = [
-                                [
-                                    "text" => "PHP",
-                                    "desc" => "Wordpress, Laravel &amp; PDO",
-                                ], [
-                                    "text" => "JavaScript",
-                                    "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
-                                ], [
-                                    "text" => "CSS",
-                                    "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
-                                ], [
-                                    "text" => "HTML",
-                                ], [
-                                    "text" => "Python",
-                                    "desc" => "flask &amp; graphics.py",
-                                ], [
-                                    "text" => "SQL",
-                                    "desc" => "MySQL",
-                                ], [
-                                    "text" => "NoSQL",
-                                    "desc" => "Amazon DynamoDB &amp; MongoDB",
-                                ], [
-                                    "text" => "Java",
-                                    "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
-                                ], [
-                                    "text" => "DVCS",
-                                    "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
-                                ], [
-                                    "text" => "Microsoft Office",
-                                    "desc" => "Excel, Word &amp; Powerpoint",
-                                ],
-                            ];
-                            renderSkillsOrInterests($techSkills, "dark-blue");
-                            ?>
-                        </ul>
-                    </div>
-                </section>
+                <?php
+                $otherSkills = [
+                    [
+                        "text" => "Team Player",
+                        "desc" => "Playing competitive football has meant being a good team player is installed in me",
+                    ], [
+                        "text" => "Communication",
+                        "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
+                    ], [
+                        "text" => "Hard Worker",
+                    ],
+                ];
+                renderSkillsOrInterests("Other Skills", $otherSkills, "purple");
+                ?>
 
-                <section class="article article--about">
-                    <div class="container">
-                        <h3 class="article__header">Other Skills</h3>
-
-                        <ul class="about__skills-interests">
-                            <?php
-                            $otherSkills = [
-                                [
-                                    "text" => "Team Player",
-                                    "desc" => "Playing competitive football has meant being a good team player is installed in me",
-                                ], [
-                                    "text" => "Communication",
-                                    "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
-                                ], [
-                                    "text" => "Hard Worker",
-                                ],
-                            ];
-                            renderSkillsOrInterests($otherSkills, "purple");
-                            ?>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="article article--about">
-                    <div class="container">
-                        <h3 class="article__header">Interests</h3>
-
-                        <ul class="about__skills-interests">
-
-                            <?php
-                            $interests = [
-                                ["text" => "Sports"],
-                                ["text" => "Music"],
-                                ["text" => "Photography"],
-                                ["text" => "Fashion"],
-                                ["text" => "Programming"],
-                                ["text" => "Gaming"],
-                                ["text" => "Trading"],
-                            ];
-                            renderSkillsOrInterests($interests, "dark-green");
-                            ?>
-                        </ul>
-                    </div>
-                </section>
+                <?php
+                $interests = [
+                    ["text" => "Sports"],
+                    ["text" => "Music"],
+                    ["text" => "Photography"],
+                    ["text" => "Fashion"],
+                    ["text" => "Programming"],
+                    ["text" => "Gaming"],
+                    ["text" => "Trading"],
+                ];
+                renderSkillsOrInterests("Interests", $interests, "dark-green");
+                ?>
 
                 <section class="article">
                     <div class="container">
