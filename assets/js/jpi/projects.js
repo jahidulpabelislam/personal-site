@@ -482,12 +482,15 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.body.on("click", ".project__skill", function(e) {
                 e.preventDefault();
-            });
 
-            global.body.on("click", ".js-searchable-skill", function(e) {
                 jpi.modal.close();
-                global.searchInput.val(e.target.innerHTML);
                 fn.scrollToProjects();
+
+                if (e.target.innerHTML === global.searchInput.val() && global.pageNum === 1) {
+                    return;
+                }
+
+                global.searchInput.val(e.target.innerHTML);
                 fn.doSearch();
             });
 
