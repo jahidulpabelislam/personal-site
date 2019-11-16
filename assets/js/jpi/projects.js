@@ -171,12 +171,14 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                var classes = "project__skill project__skill--" + project.colour;
-                classes += isInSearch ? " searched" : " js-searchable-skill";
+                var classes = ["project__skill", "project__skill--" + project.colour];
+                if (isInSearch) {
+                    classes.push("searched");
+                }
 
                 jpi.helpers.createElement(skillsContainer, "a", {
                     innerHTML: skill,
-                    class: classes,
+                    class: classes.join(" "),
                     href: "/projects/" + skill + "/",
                 });
             }

@@ -31,7 +31,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             foreach ($items as $item) {
                 $hasDesc = !empty($item["desc"]);
 
-                $expandClass = $hasDesc ? "js-expand-skill-interest" : "";
+                $expandClass = $hasDesc ? "skills-interests__item--expandable" : "";
 
                 echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
                 echo $item["text"];

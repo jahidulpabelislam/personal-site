@@ -76,13 +76,13 @@
 }
 
 .project__skill.searched,
-.project__skill:not(.js-searchable-skill):hover {
+.project__skill.searched:hover {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
 }
 
-.project__skill:not(.js-searchable-skill):hover {
+.project__skill.searched:hover {
     box-shadow: none;
 }
 
@@ -100,7 +100,7 @@
     }
 
     .project__skill--#{$colour}.searched,
-    .project__skill--#{$colour}:not(.js-searchable-skill):hover {
+    .project__skill--#{$colour}.searched:hover {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);

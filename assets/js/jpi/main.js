@@ -107,7 +107,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.jumpToContent);
 
-            global.skillsInterests = jQuery(".js-expand-skill-interest");
+            global.skillsInterests = jQuery(".skills-interests__item--expandable");
             global.skillsInterests.on("click", fn.toggleSkillInterestContent);
 
             global.map = jQuery(".js-bognor-regis-map");

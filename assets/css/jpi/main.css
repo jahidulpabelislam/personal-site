@@ -1896,7 +1896,7 @@ label {
   cursor: auto;
   transition: all 0.4s ease-in-out; }
 
-.skills-interests__item.js-expand-skill-interest:hover {
+.skills-interests__item.skills-interests__item--expandable:hover {
   background-color: #262626;
   border-color: #262626; }
 
@@ -1908,7 +1908,7 @@ label {
   border-color: #54c6e2;
   color: white; }
 
-.skills-interests__item--light-blue.js-expand-skill-interest:hover {
+.skills-interests__item--light-blue.skills-interests__item--expandable:hover {
   background-color: #53d1ec;
   border-color: #53d1ec; }
 
@@ -1917,7 +1917,7 @@ label {
   border-color: #0375b4;
   color: white; }
 
-.skills-interests__item--dark-blue.js-expand-skill-interest:hover {
+.skills-interests__item--dark-blue.skills-interests__item--expandable:hover {
   background-color: #0382c3;
   border-color: #0382c3; }
 
@@ -1926,7 +1926,7 @@ label {
   border-color: #82379d;
   color: white; }
 
-.skills-interests__item--purple.js-expand-skill-interest:hover {
+.skills-interests__item--purple.skills-interests__item--expandable:hover {
   background-color: #9339af;
   border-color: #9339af; }
 
@@ -1935,7 +1935,7 @@ label {
   border-color: #f47ab3;
   color: white; }
 
-.skills-interests__item--pink.js-expand-skill-interest:hover {
+.skills-interests__item--pink.skills-interests__item--expandable:hover {
   background-color: #ff82bf;
   border-color: #ff82bf; }
 
@@ -1944,7 +1944,7 @@ label {
   border-color: #f12525;
   color: white; }
 
-.skills-interests__item--red.js-expand-skill-interest:hover {
+.skills-interests__item--red.skills-interests__item--expandable:hover {
   background-color: #ff2525;
   border-color: #ff2525; }
 
@@ -1953,7 +1953,7 @@ label {
   border-color: #f69e00;
   color: white; }
 
-.skills-interests__item--orange.js-expand-skill-interest:hover {
+.skills-interests__item--orange.skills-interests__item--expandable:hover {
   background-color: #fba300;
   border-color: #fba300; }
 
@@ -1962,7 +1962,7 @@ label {
   border-color: #ffef38;
   color: #333333; }
 
-.skills-interests__item--yellow.js-expand-skill-interest:hover {
+.skills-interests__item--yellow.skills-interests__item--expandable:hover {
   background-color: #fffd3c;
   border-color: #fffd3c; }
 
@@ -1971,7 +1971,7 @@ label {
   border-color: #3dc714;
   color: white; }
 
-.skills-interests__item--light-green.js-expand-skill-interest:hover {
+.skills-interests__item--light-green.skills-interests__item--expandable:hover {
   background-color: #3bcf14;
   border-color: #3bcf14; }
 
@@ -1980,7 +1980,7 @@ label {
   border-color: #b5cf16;
   color: white; }
 
-.skills-interests__item--lime-green.js-expand-skill-interest:hover {
+.skills-interests__item--lime-green.skills-interests__item--expandable:hover {
   background-color: #bdd716;
   border-color: #bdd716; }
 
@@ -1989,7 +1989,7 @@ label {
   border-color: #1aad5b;
   color: white; }
 
-.skills-interests__item--dark-green.js-expand-skill-interest:hover {
+.skills-interests__item--dark-green.skills-interests__item--expandable:hover {
   background-color: #1bbe69;
   border-color: #1bbe69; }
 
@@ -1998,7 +1998,7 @@ label {
   border-color: #7b8676;
   color: white; }
 
-.skills-interests__item--grey.js-expand-skill-interest:hover {
+.skills-interests__item--grey.skills-interests__item--expandable:hover {
   background-color: #889283;
   border-color: #889283; }
 
@@ -2007,11 +2007,11 @@ label {
   border-color: #333333;
   color: white; }
 
-.skills-interests__item--black.js-expand-skill-interest:hover {
+.skills-interests__item--black.skills-interests__item--expandable:hover {
   background-color: #262626;
   border-color: #262626; }
 
-.js-expand-skill-interest {
+.skills-interests__item--expandable {
   cursor: pointer; }
 
 .expanded-item {
@@ -2457,12 +2457,12 @@ label {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .project__skill.searched,
-.project__skill:not(.js-searchable-skill):hover {
+.project__skill.searched:hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white; }
 
-.project__skill:not(.js-searchable-skill):hover {
+.project__skill.searched:hover {
   box-shadow: none; }
 
 .project__skill--light-blue {
@@ -2476,7 +2476,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(84, 198, 226, 0.4); }
 
 .project__skill--light-blue.searched,
-.project__skill--light-blue:not(.js-searchable-skill):hover {
+.project__skill--light-blue.searched:hover {
   border-color: #52c2dd;
   background-color: #52c2dd;
   color: white;
@@ -2493,7 +2493,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(3, 117, 180, 0.4); }
 
 .project__skill--dark-blue.searched,
-.project__skill--dark-blue:not(.js-searchable-skill):hover {
+.project__skill--dark-blue.searched:hover {
   border-color: #0360a0;
   background-color: #0360a0;
   color: white;
@@ -2510,7 +2510,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(130, 55, 157, 0.4); }
 
 .project__skill--purple.searched,
-.project__skill--purple:not(.js-searchable-skill):hover {
+.project__skill--purple.searched:hover {
   border-color: #6c3687;
   background-color: #6c3687;
   color: white;
@@ -2527,7 +2527,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(244, 122, 179, 0.4); }
 
 .project__skill--pink.searched,
-.project__skill--pink:not(.js-searchable-skill):hover {
+.project__skill--pink.searched:hover {
   border-color: #ff739b;
   background-color: #ff739b;
   color: white;
@@ -2544,7 +2544,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(241, 37, 37, 0.4); }
 
 .project__skill--red.searched,
-.project__skill--red:not(.js-searchable-skill):hover {
+.project__skill--red.searched:hover {
   border-color: #e62525;
   background-color: #e62525;
   color: white;
@@ -2561,7 +2561,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(246, 158, 0, 0.4); }
 
 .project__skill--orange.searched,
-.project__skill--orange:not(.js-searchable-skill):hover {
+.project__skill--orange.searched:hover {
   border-color: #f77f00;
   background-color: #f77f00;
   color: white;
@@ -2578,7 +2578,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(255, 239, 56, 0.4); }
 
 .project__skill--yellow.searched,
-.project__skill--yellow:not(.js-searchable-skill):hover {
+.project__skill--yellow.searched:hover {
   border-color: #f8e43b;
   background-color: #f8e43b;
   color: #333333;
@@ -2595,7 +2595,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(61, 199, 20, 0.4); }
 
 .project__skill--light-green.searched,
-.project__skill--light-green:not(.js-searchable-skill):hover {
+.project__skill--light-green.searched:hover {
   border-color: #33bb12;
   background-color: #33bb12;
   color: white;
@@ -2612,7 +2612,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(181, 207, 22, 0.4); }
 
 .project__skill--lime-green.searched,
-.project__skill--lime-green:not(.js-searchable-skill):hover {
+.project__skill--lime-green.searched:hover {
   border-color: #b4c72f;
   background-color: #b4c72f;
   color: white;
@@ -2629,7 +2629,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(26, 173, 91, 0.4); }
 
 .project__skill--dark-green.searched,
-.project__skill--dark-green:not(.js-searchable-skill):hover {
+.project__skill--dark-green.searched:hover {
   border-color: #1ba553;
   background-color: #1ba553;
   color: white;
@@ -2646,7 +2646,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(123, 134, 118, 0.4); }
 
 .project__skill--grey.searched,
-.project__skill--grey:not(.js-searchable-skill):hover {
+.project__skill--grey.searched:hover {
   border-color: #626b5e;
   background-color: #626b5e;
   color: white;
@@ -2663,7 +2663,7 @@ label {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .project__skill--black.searched,
-.project__skill--black:not(.js-searchable-skill):hover {
+.project__skill--black.searched:hover {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white;

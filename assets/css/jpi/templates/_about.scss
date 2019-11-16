@@ -67,7 +67,7 @@
     transition: all 0.4s ease-in-out;
 }
 
-.skills-interests__item.js-expand-skill-interest:hover {
+.skills-interests__item.skills-interests__item--expandable:hover {
     background-color: get-colour(black, hover);
     border-color: get-colour(black, hover);
 }
@@ -83,13 +83,13 @@
         color: get-colour-variant($colours, text, white);
     }
 
-    .skills-interests__item--#{$colour}.js-expand-skill-interest:hover {
+    .skills-interests__item--#{$colour}.skills-interests__item--expandable:hover {
         background-color: map-get($colours, hover);
         border-color: map-get($colours, hover);
     }
 }
 
-.js-expand-skill-interest {
+.skills-interests__item--expandable {
     cursor: pointer;
 }
 
