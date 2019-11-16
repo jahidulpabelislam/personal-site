@@ -277,10 +277,23 @@
 }
 
 .expanded-slide-show__bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
     margin: 5px;
+    border-radius: 50%;
+    background-color: darken($light-grey, 5);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
 }
 .expanded-slide-show__bullet.active {
     background: white;
+    transform: scale(1.2);
+}
+.expanded-slide-show__bullet:not(.active):hover {
+    background-color: darken($light-grey, 15);
+    transform: scale(1.05);
 }
 
 .expanded-slide-show__navs {
