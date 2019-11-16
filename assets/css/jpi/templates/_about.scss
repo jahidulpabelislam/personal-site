@@ -8,10 +8,6 @@
     max-width: 165px;
 }
 
-.image-of-me {
-    border-radius: 50%;
-}
-
 .about__images-of-me {
     position: relative;
     width: 75%;
@@ -23,6 +19,7 @@
     width: 100%;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     transition: all 0.4s ease-in-out;
+    border-radius: 50%;
 }
 
 .image-of-me--grown {
@@ -37,7 +34,6 @@
 .about__images-of-me:hover .image-of-me--baby {
     opacity: 0;
 }
-
 .about__images-of-me:hover .image-of-me--grown {
     opacity: 1;
 }
@@ -57,7 +53,6 @@
 
 .skills-interests__item {
     display: inline-block;
-    margin: 2px;
     padding: 5px;
     border: 1px solid get-colour(black, main);
     border-radius: 5px;
@@ -66,14 +61,16 @@
     cursor: auto;
     transition: all 0.4s ease-in-out;
 }
-
-.skills-interests__item.skills-interests__item--expandable:hover {
-    background-color: get-colour(black, hover);
-    border-color: get-colour(black, hover);
-}
-
 .skills-interests__item.skills-interests__item {
     margin: 2px;
+}
+
+.skills-interests__item--expandable {
+    cursor: pointer;
+}
+.skills-interests__item--expandable:hover {
+    background-color: get-colour(black, hover);
+    border-color: get-colour(black, hover);
 }
 
 @each $colour, $colours in $colour-schemes {
@@ -89,19 +86,11 @@
     }
 }
 
-.skills-interests__item--expandable {
-    cursor: pointer;
-}
-
-.expanded-item {
-    display: block;
-}
-
-.skills-interests__item-expand-icon {
+.skills-interests__expand-icon {
     vertical-align: middle;
 }
 
-.skills-interests__item-expand-content {
+.skills-interests__expand-content {
     display: none;
     font-weight: 400;
 }

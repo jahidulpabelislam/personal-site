@@ -82,20 +82,17 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             var item = jQuery(this);
 
             // Get the new item elems that was clicked
-            var selected = item.children(".skills-interests__item-expand-content");
-            var selectedIcon = item.children(".skills-interests__item-expand-icon");
+            var selected = item.children(".skills-interests__expand-content");
+            var selectedIcon = item.children(".skills-interests__expand-icon");
 
             // Reset all other item to closed
             global.expandableContents.not(selected).slideUp();
             global.expandableIcons.not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
-            global.skillsInterests.not(item).removeClass("expanded-item");
 
             // Toggle the clicked item
             selectedIcon.toggleClass("fa-plus");
             selectedIcon.toggleClass("fa-minus");
             selected.slideToggle();
-
-            item.toggleClass("expanded-item");
         },
 
         resetFooter: function() {
@@ -121,8 +118,8 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             global.nav = jQuery(".nav");
             global.mainContentElem = jQuery(".main-content");
 
-            global.expandableContents = jQuery(".skills-interests__item-expand-content");
-            global.expandableIcons = jQuery(".skills-interests__item-expand-icon");
+            global.expandableContents = jQuery(".skills-interests__expand-content");
+            global.expandableIcons = jQuery(".skills-interests__expand-icon");
 
             jpi.stickyFooter = new StickyFooter(".main-content");
 
