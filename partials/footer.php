@@ -7,50 +7,49 @@ $site = Site::get();
 $page = Page::get();
 ?>
 
+                <?php
+                if (count($similarLinks)) {
+                    echo "<div class='row row--split similar-links'>";
+                    echo "<div class='container'>";
+
+                    foreach ($similarLinks as $link) {
+                        $pageTitle = $link["title"];
+                        $buttonText = $link["text"] ?? $title;
+
+                        $url = $link["url"];
+                        $url = $site->getURL($url);
+
+                        $buttonClasses = "button";
+                        $buttonColour = $link["colour"] ?? "";
+                        $buttonClasses .= !empty($buttonColour) ? " button--{$buttonColour}" : "";
+
+                        echo "<div class='row__column'>";
+                        echo "<a class='{$buttonClasses}' href='{$url}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
+                        echo "</div>";
+                    }
+
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
+
+                <!-- End dynamic content -->
+                <section class="social-links">
+                    <div class="container">
+                        <h5 class="social-links__header">Follow Me Here!</h5>
+                        <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
+                            <img class="social-links__image social-link__image social-link__image--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                        </a>
+                        <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
+                            <img class="social-links__image social-link__image social-link__image--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                        </a>
+                        <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
+                            <span class="social-links__image social-link__image social-link__image--instagram"><i></i></span>
+                        </a>
+                    </div>
+                </section>
             </div>
         </main>
-
-        <?php
-        if (count($similarLinks)) {
-            echo "<div class='article article--halved article--similar-links'>";
-            echo "<div class='container'>";
-
-            foreach ($similarLinks as $link) {
-                $pageTitle = $link["title"];
-                $buttonText = $link["text"] ?? $title;
-
-                $url = $link["url"];
-                $url = $site->getURL($url);
-
-                $buttonClasses = "btn";
-                $buttonColour = $link["colour"] ?? "";
-                $buttonClasses .= !empty($buttonColour) ? " btn--{$buttonColour}" : "";
-
-                echo "<div class='article__half'>";
-                echo "<a class='{$buttonClasses}' href='{$url}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
-                echo "</div>";
-            }
-
-            echo "</div>";
-            echo "</div>";
-        }
-        ?>
-
-        <!-- End dynamic content -->
-        <section class="social-links">
-            <div class="container">
-                <h5 class="social-links__header">Follow Me Here!</h5>
-                <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                    <img class="social-links__img social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
-                </a>
-                <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                    <img class="social-links__img social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
-                </a>
-                <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
-                    <span class="social-links__img social-link__img social-link__img--instagram"><i></i></span>
-                </a>
-            </div>
-        </section>
 
         <!-- Footer for site -->
         <footer class="footer">

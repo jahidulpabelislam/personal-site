@@ -24,7 +24,7 @@ window.jpi.form = (function(jQuery, jpi) {
                     global.formFeedback.removeClass("feedback--error").addClass("feedback--success");
                 }
 
-                jQuery("#email-input, #message-input, #subject-input").val("");
+                jQuery(".contact-form__email, .contact-form__message, .contact-form__subject").val("");
             }
             else {
                 if (response.feedback) {
@@ -152,13 +152,13 @@ window.jpi.form = (function(jQuery, jpi) {
                 return;
             }
 
-            global.submitButton = jQuery("#submit");
-            global.emailInput = jQuery("#email-input");
-            global.messageInput = jQuery("#message-input");
-            global.subjectInput = jQuery("#subject-input");
-            global.emailFeedback = jQuery("#contact-form__email-feedback");
-            global.messageFeedback = jQuery("#contact-form__message-feedback");
-            global.formFeedback = jQuery("#contact-form__feedback");
+            global.submitButton = jQuery(".contact-form__submit");
+            global.emailInput = jQuery(".contact-form__email");
+            global.messageInput = jQuery(".contact-form__message");
+            global.subjectInput = jQuery(".contact-form__subject");
+            global.emailFeedback = jQuery(".contact-form__email-feedback");
+            global.messageFeedback = jQuery(".contact-form__message-feedback");
+            global.formFeedback = jQuery(".contact-form__feedback");
 
             fn.initListeners();
         },

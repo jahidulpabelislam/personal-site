@@ -6,6 +6,10 @@
     padding: 6px;
 }
 
+.footer p {
+    margin: 5px auto;
+}
+
 .footer__links,
 .footer__legal,
 .footer__version {
@@ -51,10 +55,6 @@
     width: 100%;
 }
 
-.footer p {
-    margin: 5px auto;
-}
-
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
     .footer {
@@ -64,6 +64,10 @@
     .footer > .container {
         display: flex;
         align-items: center;
+    }
+
+    .footer p {
+        margin: 10px 0;
     }
 
     .footer__links {
@@ -82,9 +86,5 @@
         width: 33%;
         text-align: center;
         order: 2;
-    }
-
-    .footer p {
-        margin: 10px 0;
     }
 }

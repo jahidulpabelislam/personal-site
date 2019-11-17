@@ -23,10 +23,10 @@ $nowDateTime = getNowDateTime();
 
 function renderSkillsOrInterests(string $heading, array $items, string $colour) {
     ?>
-    <section class="article article--about">
+    <section class="row about-row">
         <div class="container">
-            <h3 class="article__header"><?php echo $heading; ?></h3>
-            <ul class="about__skills-interests">
+            <h3 class="row__header"><?php echo $heading; ?></h3>
+            <ul class="skills-interests">
             <?php
             foreach ($items as $item) {
                 $hasDesc = !empty($item["desc"]);
@@ -51,15 +51,15 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 }
 ?>
 
-                <div class="article article--halved article--about">
+                <div class="row row--split about-row">
                     <div class="container">
-                        <div class="article__half">
-                            <div class="about__images-of-me">
-                                <img class="image-of-me image-of-me--baby" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
-                                <img class="image-of-me image-of-me--grown" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
+                        <div class="row__column">
+                            <div class="images-of-me">
+                                <img class="images-of-me__image images-of-me__image--baby" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
+                                <img class="images-of-me__image images-of-me__image--grown" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
                             </div>
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>My name is Jahidul Pabel Islam.</p>
 
                             <?php
@@ -75,14 +75,14 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                     </div>
                 </div>
 
-                <div class="article article--halved article--about">
+                <div class="row row--split about-row">
                     <div class="container">
-                        <div class="article__half">
+                        <div class="row__column">
                             <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
+                                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
                             </a>
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <?php
                             $durationAtWorkStr = "";
 
@@ -111,23 +111,23 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                             ?>
                             <p>
                                 Been working as a Web Developer at
-                                <a class="link-styled link-styled--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr; ?>.
+                                <a class="link link--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr; ?>.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="article article--halved article--about">
+                <div class="row row--split about-row">
                     <div class="container">
-                        <div class="article__half">
+                        <div class="row__column">
                             <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
+                                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
                             </a>
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>
                                 Graduated in July 2017 from
-                                <a class="link-styled link-styled--purple" href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
+                                <a class="link link--purple" href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
                                     University of Portsmouth
                                 </a>
                                  with a 1st Class Honours degree in BSc Web Technologies.
@@ -136,33 +136,33 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                     </div>
                 </div>
 
-                <div class="article article--halved article--about">
+                <div class="row row--split about-row">
                     <div class="container">
-                        <div class="article__half">
+                        <div class="row__column">
                             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                                <img src="<?php echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
+                                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
                             </a>
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>
-                                Based in <a class="link-styled link-styled--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                                    Bognor Regis</a>,<a class="link-styled link-styled--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
+                                Based in <a class="link link--red" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                                    Bognor Regis</a>,<a class="link link--red" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                                     West Sussex</a>, South East Coast of England.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="article article--map">
+                <div class="row row--full-width">
                     <div class="map js-bognor-regis-map"></div>
                 </div>
 
-                <div class="article article--halved article--about">
+                <div class="row row--split about-row">
                     <div class="container">
-                        <div class="article__half">
-                            <img src="<?php echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
+                        <div class="row__column">
+                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
                         </div>
                     </div>
@@ -232,9 +232,9 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 renderSkillsOrInterests("Interests", $interests, "dark-green");
                 ?>
 
-                <section class="article">
+                <section class="row">
                     <div class="container">
-                        <h3 class="article__header">What I've Been Up To</h3>
+                        <h3 class="row__header">What I've Been Up To</h3>
                         <div class="timeline">
                             <?php
                             $timelineItems = [
@@ -242,7 +242,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2019 - Present",
                                     "icon" => "work",
                                     "text" => "Web Developer @
-                                        <a class='link-styled link-styled--orange' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
                                             D3R
                                         </a>",
                                     "isActive" => true,
@@ -250,21 +250,21 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2017 - 2019",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a class='link-styled link-styled--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
                                 ], [
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a class='link-styled link-styled--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
                                 ], [
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
-                                        <a class='link-styled link-styled--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                             CeX
                                         </a>
                                          as a Sales Assistant",
@@ -272,7 +272,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
-                                        <a class='link-styled link-styled--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                             KFC
                                         </a>
                                          as a Team Member",
@@ -280,7 +280,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
-                                        <a class='link-styled link-styled--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
                                 ], [
@@ -291,7 +291,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
-                                        <a class='link-styled link-styled--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
                                 ], [
@@ -311,11 +311,11 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                 echo "<div class='timeline__item {$activeClass}'>";
 
                                 $date = $timelineItem["date"];
-                                echo "<p class='timeline-item__date'>{$date}</p>";
+                                echo "<p class='timeline__date'>{$date}</p>";
 
                                 $iconName = $timelineItem["icon"];
-                                $iconClass = !empty($iconName) ? "timeline-item__content--{$iconName}" : "";
-                                echo "<div class='timeline-item__content {$iconClass}'>";
+                                $iconClass = !empty($iconName) ? "timeline__content--{$iconName}" : "";
+                                echo "<div class='timeline__content {$iconClass}'>";
 
                                 echo "<p>" . $timelineItem["text"] . "</p>";
                                 echo "</div>";

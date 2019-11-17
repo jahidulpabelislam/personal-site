@@ -2,18 +2,17 @@
     margin: 0 -15px;
 }
 
-.slide-show__viewpoint {
+.slide-show__viewport {
     position: relative;
     overflow: hidden;
     transition: all 1s ease-in-out;
 }
-
-.slide-show__viewpoint:hover {
+.slide-show__viewport:hover {
     cursor: pointer;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.7);
 }
 
-.slide-show__slides-container {
+.slide-show__slides {
     display: flex;
     position: relative;
     width: 100%;
@@ -27,31 +26,29 @@
     margin: auto;
 }
 
-.slide-show__img {
+.slide-show__image {
     max-width: 100%;
     max-height: 350px;
     transition: all 1s ease-in-out;
 }
 
-.slide-show__img:hover {
+.slide-show__image:hover {
     transform: scale(1.1);
 }
 
-.slide-show__nav-button {
+.slide-show__nav {
     position: absolute;
     top: calc(50% - 15px);
     padding: 0;
 }
-
-.slide-show__nav--prev-button {
+.slide-show__nav[data-nav-direction="previous"] {
     left: 0;
 }
-
-.slide-show__nav--next-button {
+.slide-show__nav[data-nav-direction="next"] {
     right: 0;
 }
 
-.slide-show__nav {
+.slide-show__nav-image {
     width: 30px;
     height: 30px;
     opacity: 0.8;
@@ -60,17 +57,15 @@
     transition: all 0.3s ease-in-out;
 }
 
-.slide-show__nav:hover {
+.slide-show__nav:hover .slide-show__nav-image {
     opacity: 1;
     cursor: pointer;
     box-shadow: 0 0 20px 0 $dark-colour;
 }
-
-.slide-show__nav-previous {
+.slide-show__nav[data-nav-direction="previous"] .slide-show__nav-image {
     border-radius: 0 50% 50% 0;
 }
-
-.slide-show__nav-next {
+.slide-show__nav[data-nav-direction="next"] .slide-show__nav-image {
     border-radius: 50% 0 0 50%;
 }
 
@@ -89,15 +84,13 @@
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
-
-.slide-show__bullet:not(.active):hover {
-    background-color: darken($light-grey, 15);
-    transform: scale(1.05);
-}
-
 .slide-show__bullet.active {
     background-color: get-colour(black, dark);
     transform: scale(1.2);
+}
+.slide-show__bullet:not(.active):hover {
+    background-color: darken($light-grey, 15);
+    transform: scale(1.05);
 }
 
 @each $colour, $colours in $colour-schemes {
@@ -105,11 +98,11 @@
         background-color: map-get($colours, main);
     }
 
-    .slide-show__nav--#{$colour} {
+    .slide-show__nav-image--#{$colour} {
         background-color: map-get($colours, main);
     }
 
-    .slide-show__nav--#{$colour}:hover {
+    .slide-show__nav:hover .slide-show__nav-image--#{$colour} {
         box-shadow: 0 0 20px 0 map-get($colours, main);
     }
 }

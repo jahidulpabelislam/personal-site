@@ -22,13 +22,13 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <div class="article article--halved">
+                <div class="row row--split">
                     <div class="container">
-                        <div class="article__half">
-                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
+                        <div class="row__column">
+                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
                         </div>
 
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>The server couldn't follow your request so can't display the content.</p>
                             <p>You can either try refreshing the page or try again later.</p>
                             <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>

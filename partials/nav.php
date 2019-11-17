@@ -12,12 +12,12 @@ $site = Site::get();
                 <div class="nav__header">
                     <button type="button" class="nav__mobile-toggle">
                         <span class="screen-reader-text">Toggle navigation</span>
-                        <span class="menu-bar menu-bar--top"></span>
-                        <span class="menu-bar menu-bar--middle"></span>
-                        <span class="menu-bar menu-bar--bottom"></span>
+                        <span class="nav__menu-bar"></span>
+                        <span class="nav__menu-bar"></span>
+                        <span class="nav__menu-bar"></span>
                     </button>
                     <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
-                        <img class="nav__logo <?php if ($pageId === "home") {echo "current";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
+                        <img class="nav__logo <?php if ($pageId === "home") {echo "active";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
                     </a>
                 </div>
                 <div class="nav__links-container">
@@ -44,12 +44,12 @@ $site = Site::get();
                             $url = $link["url"] ?? "/";
                             $fullURL = $site->getURL($url);
 
-                            $classes = "nav-item__link";
+                            $classes = "nav__link";
                             if ($currentURL === $site->getURL($url, false)) {
                                 $classes .= " active";
                             }
 
-                            echo "<li class='nav-link__item'>";
+                            echo "<li class='nav__item'>";
                             echo "<a class='{$classes}' href='{$fullURL}' title='Link to {$linkTitle} Page'>{$linkTitle}</a>";
                             echo "</li>";
                         }
@@ -58,19 +58,19 @@ $site = Site::get();
                 </div>
                 <div class="nav__social-links-container">
                     <ul class="nav__social-links">
-                        <li class="nav-link__item">
+                        <li class="nav__item">
                             <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                                <img class="social-link__image social-link__image--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                             </a>
                         </li>
-                        <li class="nav-link__item">
+                        <li class="nav__item">
                             <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__img social-link__img--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                                <img class="social-link__image social-link__image--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                             </a>
                         </li>
-                        <li class="nav-link__item">
+                        <li class="nav__item">
                             <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
-                                <span class="social-link__img social-link__img--instagram"><i></i></span>
+                                <span class="social-link__image social-link__image--instagram"><i></i></span>
                             </a>
                         </li>
                     </ul>

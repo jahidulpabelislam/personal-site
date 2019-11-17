@@ -42,14 +42,14 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             global.currentSlide = newSlideIndex;
 
-            var expandedImageOld = jQuery(".expanded-slide-show__image.current");
-            var expandedImageNew = jQuery(".expanded-slide-show__image:not(.current)");
+            var expandedImageOld = jQuery(".expanded-slide-show__image.active");
+            var expandedImageNew = jQuery(".expanded-slide-show__image:not(.active)");
 
             jQuery(".expanded-slide-show__bullet").removeClass("active");
             fn.displaySlide(expandedImageNew);
 
-            expandedImageNew.addClass("current");
-            expandedImageOld.removeClass("current");
+            expandedImageNew.addClass("active");
+            expandedImageOld.removeClass("active");
         },
         next: function() {
             fn.changeSlide(global.currentSlide + 1);
@@ -104,7 +104,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             clearTimeout(global.timeout);
 
-            fn.displaySlide(jQuery(".expanded-slide-show__image.current"));
+            fn.displaySlide(jQuery(".expanded-slide-show__image.active"));
             jpi.modal.open(global.expandedImageDivContainer);
             global.expandedImageDivContainer.addClass("active");
         },

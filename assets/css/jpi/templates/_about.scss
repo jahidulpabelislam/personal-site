@@ -1,28 +1,23 @@
 /* For all devices */
-.article--about {
+.about-row {
     font-weight: 700;
 }
 
-.article--about img {
-    width: 75%;
-    max-width: 165px;
-}
-
-.about__images-of-me {
+.images-of-me {
     position: relative;
     width: 75%;
     max-width: 165px;
     margin: auto;
 }
 
-.about__images-of-me .image-of-me {
+.images-of-me__image.images-of-me__image {
     width: 100%;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     transition: all 0.4s ease-in-out;
     border-radius: 50%;
 }
 
-.image-of-me--grown {
+.images-of-me__image.images-of-me__image--grown {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -31,15 +26,11 @@
     max-height: 100%;
 }
 
-.about__images-of-me:hover .image-of-me--baby {
+.images-of-me:hover .images-of-me__image--baby {
     opacity: 0;
 }
-.about__images-of-me:hover .image-of-me--grown {
+.images-of-me:hover .images-of-me__image--grown {
     opacity: 1;
-}
-
-.article--map {
-    padding: 0;
 }
 
 .map {
@@ -47,7 +38,7 @@
     height: 200px;
 }
 
-.about__skills-interests.about__skills-interests {
+.skills-interests.skills-interests {
     padding-left: 0;
 }
 

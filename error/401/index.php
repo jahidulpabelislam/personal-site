@@ -21,12 +21,12 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <div class="article article--halved">
+                <div class="row row--split">
                     <div class="container">
-                        <div class="article__half">
-                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
+                        <div class="row__column">
+                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
                         </div>
-                        <div class="article--halved">
+                        <div class="row--split">
                             <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
                         </div>
                     </div>

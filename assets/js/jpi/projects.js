@@ -215,7 +215,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            var slidesContainer = slideShow.find(".slide-show__slides-container");
+            var slidesContainer = slideShow.find(".slide-show__slides");
             var slideShowBullets = slideShow.find(".slide-show__bullets");
 
             var colourRegex = jpi.helpers.getTemplatingRegex("colour");
@@ -325,7 +325,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             var project = global.projects[projectId];
             var modal = global.modal;
 
-            modal.find(".project__links, .project__skills, .slide-show__slides-container, .slide-show__bullets").text("");
+            modal.find(".project__links, .project__skills, .slide-show__slides, .slide-show__bullets").text("");
 
             modal.find(".modal__heading").text(project.name);
             modal.find(".project__date").text(project.date);
@@ -343,10 +343,10 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.renderProjectLinks(project, global.modalSelector);
             fn.renderProjectImages(project, global.modalSelector);
 
-            modal.find(".slide-show__nav").each(function() {
+            modal.find(".slide-show__nav-image").each(function() {
                 var slideShowNav = jQuery(this);
                 var classList = slideShowNav.attr("class");
-                classList = classList.replace(global.navColourRegex, "slide-show__nav--" + project.colour);
+                classList = classList.replace(global.navColourRegex, "slide-show__nav-image--" + project.colour);
                 slideShowNav.attr("class", classList);
             });
 
@@ -493,13 +493,13 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.nav = jQuery(".nav");
 
-            global.loading = jQuery(".projects__loading-img");
-            global.errorElem = jQuery(".feedback--error");
+            global.loading = jQuery(".projects__loading");
+            global.errorElem = jQuery(".projects__error");
             global.searchInput = jQuery(".search-form__input");
             global.pagination = jQuery(".pagination");
 
             global.modal = jQuery(global.modalSelector);
-            global.modalSlidesContainer = global.modal.find(".slide-show__slides-container");
+            global.modalSlidesContainer = global.modal.find(".slide-show__slides");
 
             global.pageNumber = jpi.helpers.getInt(jQuery(".js-page").val(), 1);
 
@@ -509,7 +509,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
-            global.navColourRegex = /slide-show__nav--[\w-]*/g;
+            global.navColourRegex = /slide-show__nav-image--[\w-]*/g;
             global.typeColourRegex = /project__type--[\w-]*/g;
 
             var state = {

@@ -1,75 +1,66 @@
 /* For all devices */
-.home__hello {
-    margin: 10px 0;
-}
-
-.home__hello-wrapper,
-.home__intro-wrapper {
+.home-hello,
+.home-intro {
     font-size: 18px;
     line-height: 20px;
     font-weight: 700;
     color: $primary-colour;
     text-shadow: 1px 1px 2px transparentize($grey, 0.4);
 }
-
-.home__hello-wrapper {
+.home-hello {
     position: relative;
     padding-bottom: 75px;
 }
-
-.home__intro-wrapper {
+.home-intro {
     padding-top: 75px;
 }
 
-.home-hello__img {
-    position: absolute;
-    transform: translateX(-50%);
-    width: 66%;
-    max-width: 150px;
-    box-shadow: 0 0 10px 0 $dark-colour;
-    border-radius: 50%;
+.home-hello__text {
+    margin: 10px 0;
 }
-
-.main-hello {
+.home-hello__hello {
     font-size: 28px;
     line-height: 30px;
 }
 
-.home-hello__logo {
+.home-hello__image {
     position: absolute;
     transform: translateX(-50%);
     width: 66%;
     max-width: 150px;
     border-radius: 50%;
+    box-shadow: 0 0 10px 0 $dark-colour;
+}
+
+.home-hello__logo {
     box-shadow: none;
     opacity: 0;
     transition: 1s opacity ease;
 }
-
 .home-hello__logo:hover {
     opacity: 1;
 }
 
-#slide-show--home {
+.latest-projects__slide-show {
     width: 100%;
     margin: 0;
 }
 
-#slide-show--home .slide-show__viewpoint:hover {
+.latest-projects .slide-show__viewport:hover {
     box-shadow: none;
     cursor: initial;
 }
 
-#slide-show--home .slide-show__img {
+.latest-project__image {
     opacity: 0.15;
     transition: all 2s ease-in-out;
 }
 
-#slide-show--home .slide-show__slide.active .slide-show__img {
+.latest-project.active .latest-project__image {
     opacity: 1;
 }
 
-.slide-show__info {
+.latest-project__info-content {
     margin: 0 auto;
     padding: 10px 35px;
     background-color: get-colour(black, main);
@@ -78,37 +69,37 @@
     opacity: 0.15;
     transition: all 2s ease-in-out;
 }
-.slide-show__slide.active .slide-show__info {
+.latest-project.active .latest-project__info-content {
     opacity: 1;
 }
 
 @each $colour, $colours in $colour-schemes {
-    .slide-show__info--#{$colour} {
+    .latest-project__info-content--#{$colour} {
         background-color: map-get($colours, main);
         color: get-colour-variant($colours, text, white);
     }
 
-    .slide-show__info--#{$colour} .slide-info__date {
+    .latest-project__info-content--#{$colour} .latest-project__date {
         color: get-colour-variant($colours, text, white);
     }
 }
 
-.project-info__links .btn {
+.latest-project__link {
     transition: all 0.3s ease-in-out;
     font-weight: 700;
 }
 
-#slide-show--home .slide-show__img:hover {
+.latest-project__image:hover {
     transform: none;
 }
 
-.slide-info__header {
+.latest-project__header {
     margin: 10px auto 15px;
     display: flex;
     align-items: center;
 }
 
-.slide-info__title {
+.latest-project__title {
     width: 100%;
     margin: 0;
     font-family: "Oswald", sans-serif;
@@ -119,7 +110,7 @@
     white-space: nowrap;
 }
 
-.slide-info__date {
+.latest-project__date {
     width: 100%;
     margin: 0 0 0 36px;
     font-size: 14px;
@@ -128,42 +119,42 @@
     color: lighten($dark-colour, 25);
 }
 
-.projects__loading-img {
+.latest-projects__loading {
     width: 100%;
 }
 
 /* Only for Tablets */
 @media only screen and (min-width: $tablet-width) and (max-width: $desktop-width) {
-    .home__hello-wrapper,
-    .home__intro-wrapper {
+    .home-hello,
+    .home-intro {
         font-size: 22px;
         line-height: 24px;
     }
 
-    .home__hello-wrapper {
+    .home-hello {
         padding-bottom: 100px;
     }
 
-    .home__intro-wrapper {
+    .home-intro {
         padding-top: 100px;
     }
 
-    .home__hello {
+    .home-hello__text {
         font-size: 34px;
         line-height: 36px;
     }
 
-    .main-hello {
+    .home-hello__hello {
         font-size: 46px;
         line-height: 50px;
     }
 
-    .home-hello__img {
+    .home-hello__image {
         width: 50%;
         max-width: 200px;
     }
 
-    .slide-show__info-container {
+    .latest-project__info {
         position: absolute;
         top: 0;
         width: 100%;
@@ -173,74 +164,74 @@
         justify-content: center;
     }
 
-    .slide-show__info {
+    .latest-project__info-content {
         transform: translateY(100%);
         padding: 10px;
         background-color: transparentize($dark-colour, 0.2);
         border-radius: 5px;
     }
 
-    .slide-info__date {
+    .latest-project__date {
         color: white;
     }
 
-    .slide-show__slide.active .slide-show__info {
+    .latest-project.active .latest-project__info-content {
         transform: translateY(0);
     }
 
-    .slide-info__desc {
+    .latest-project__desc {
         display: none;
     }
 }
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
-    .home__hello-wrapper,
-    .home__intro-wrapper {
+    .home-hello,
+    .home-intro {
         font-size: 26px;
         line-height: 30px;
     }
 
-    .home__hello-wrapper {
+    .home-hello {
         padding-bottom: 110px;
     }
 
-    .home__intro-wrapper {
+    .home-intro {
         padding-top: 110px;
     }
 
-    .home__hello {
+    .home-hello__text {
         font-size: 38px;
         line-height: 40px;
     }
 
-    .main-hello {
+    .home-hello__hello {
         font-size: 50px;
         line-height: 54px;
     }
 
-    .home-hello__img {
+    .home-hello__image {
         width: 25%;
         max-width: 220px;
     }
 
-    #slide-show--home .slide-show__slide {
+    .latest-project {
         display: flex;
     }
 
-    #slide-show--home .slide-show__img {
+    .latest-project__image {
         max-width: 50%;
         margin: auto;
     }
 
-    .slide-show__info-container {
+    .latest-project__info {
         position: relative;
         width: 50%;
         height: auto;
         margin: 0 auto;
     }
 
-    .slide-show__info {
+    .latest-project__info-content {
         display: flex;
         width: 100%;
         height: 100%;
@@ -251,11 +242,11 @@
         transition: all 3s ease-in-out;
     }
 
-    .slide-info__date {
+    .latest-project__date {
         margin-left: 25px;
     }
 
-    .slide-info__desc {
+    .latest-project__desc {
         display: block;
     }
 }

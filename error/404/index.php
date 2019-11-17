@@ -25,12 +25,12 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <div class="article article--halved">
+                <div class="row row--split">
                     <div class="container">
-                        <div class="article__half">
-                            <img class="error__img" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+                        <div class="row__column">
+                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
                         </div>
-                        <div class="article__half">
+                        <div class="row__column">
                             <p>The requested page can not be found.</p>
                             <p>Please consider going back to the previous page or try retyping the URL.</p>
                         </div>

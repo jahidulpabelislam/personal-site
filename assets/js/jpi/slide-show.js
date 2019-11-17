@@ -31,11 +31,11 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Widens slide show to fit all slides
         widenSlideShow: function(slideShowId) {
             var slideShow = jQuery(slideShowId);
-            var slideShowViewpoint = slideShow.find(".slide-show__viewpoint");
-            var slidesContainer = slideShowViewpoint.find(".slide-show__slides-container");
-            var slides = slidesContainer.find(".slide-show__slide");
+            var slideShowViewport = slideShow.find(".slide-show__viewport");
+            var slidesContainer = slideShow.find(".slide-show__slides");
+            var slides = slideShow.find(".slide-show__slide");
 
-            var slideWidth = slideShowViewpoint.innerWidth();
+            var slideWidth = slideShowViewport.innerWidth();
 
             slides.css("width", slideWidth + "px");
 
@@ -45,7 +45,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Moves current slide to correct position
         resetToCurrentSlide: function(slideShowId) {
             var slideShow = jQuery(slideShowId);
-            var slidesContainer = slideShow.find(".slide-show__slides-container");
+            var slidesContainer = slideShow.find(".slide-show__slides");
 
             var position = slideShow.find(".slide-show__slide.active").position();
             slidesContainer.css({
@@ -68,13 +68,13 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         moveToSlide: function(slideShowId, nextSlide) {
             var slideShow = jQuery(slideShowId);
-            if (slideShowId === "#slide-show--home") {
+            if (slideShowId === "#latest-projects") {
                 var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
 
-                slideShow.find(".slide-show__nav").each(function() {
+                slideShow.find(".slide-show__nav-image").each(function() {
                     var slideShowNav = jQuery(this);
                     var classList = slideShowNav.attr("class");
-                    classList = classList.replace(global.navColourRegex, "slide-show__nav--" + colour);
+                    classList = classList.replace(global.navColourRegex, "slide-show__nav-image--" + colour);
                     slideShowNav.attr("class", classList);
                 });
             }
@@ -84,7 +84,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             var position = nextSlide.position();
 
-            var slidesContainer = slideShow.find(".slide-show__slides-container");
+            var slidesContainer = slideShow.find(".slide-show__slides");
             slidesContainer.css("left", "-" + position.left + "px");
 
             var newSlideID = nextSlide.attr("id");
@@ -134,7 +134,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var slideShowId = jQuery(this).attr("data-slide-show-id");
             var slideShow = jQuery(slideShowId);
 
-            var slidesContainer = slideShow.find(".slide-show__slides-container");
+            var slidesContainer = slideShow.find(".slide-show__slides");
             var slidesContainerDom = slidesContainer[0];
             var slidesContainerLeft = slidesContainer.position().left;
 
@@ -190,7 +190,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var count = slides.length;
 
             if (count <= 0) {
-                slideShow.find(".slide-show__nav-button, .slide-show__bullets").hide();
+                slideShow.find(".slide-show__nav, .slide-show__bullets").hide();
                 return;
             }
 
@@ -200,7 +200,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (count > 1) {
                 slideShow.addClass("js-slide-show");
                 fn.widenSlideShow(slideShowId);
-                slideShow.find(".slide-show__nav-button, .slide-show__bullets").show();
+                slideShow.find(".slide-show__nav, .slide-show__bullets").show();
 
                 global.slideShows[slideShowId] = setInterval(function() {
                     fn.move(slideShowId, "next");
@@ -236,14 +236,14 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 return;
             }
 
-            global.navColourRegex = /slide-show__nav--[\w-]*/g;
+            global.navColourRegex = /slide-show__nav-image--[\w-]*/g;
 
             var body = jQuery("body");
-            body.on("dragstart", ".slide-show__img", false);
-            body.on("mousedown touchstart", ".js-slide-show .slide-show__slides-container", fn.onSlideDrag);
+            body.on("dragstart", ".slide-show__image", false);
+            body.on("mousedown touchstart", ".js-slide-show .slide-show__slides", fn.onSlideDrag);
             body.on("click", ".slide-show__bullet", fn.changeToSlide);
 
-            body.on("click", ".slide-show__nav-button", function() {
+            body.on("click", ".slide-show__nav", function() {
                 var nav = jQuery(this);
                 var slideShowId = nav.attr("data-slide-show-id");
                 fn.pause(slideShowId);

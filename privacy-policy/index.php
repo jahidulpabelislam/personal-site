@@ -17,9 +17,9 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <div class="article">
+                <div class="row">
                     <div class="container">
-                        <h3 class="article__header">Contact Form</h3>
+                        <h3 class="row__header">Contact Form</h3>
                         <p>The following applies to the contact form and your data submitted within the form:</p>
                         <ul>
                             <li>your data, WILL ONLY be kept in my email server</li>
@@ -29,14 +29,14 @@ $page->renderHeader();
                     </div>
                 </div>
 
-                <div class="article">
+                <div class="row">
                     <div class="container">
-                        <h3 class="article__header">Cookies</h3>
+                        <h3 class="row__header">Cookies</h3>
                         <p>This website uses cookies to collect information. Cookies are files stored on your device when you come on a website which is using them. The data stored can be a whole range of data, user login session data to shopping basket.</p>
                         <p>Cookies on this site is used to allow tracking user behaviour with the site, to use in analytics and improving the site.</p>
                         <p>By viewing the site, it will be assumed you agree to use cookies within this site.</p>
 
-                        <h4 class="article__sub-heading">Cookies used</h4>
+                        <h4 class="row__sub-heading">Cookies used</h4>
                         <p><strong>Google Analytics:</strong></p>
                         <table class="table">
                             <tr class="table__row table__row--header">
@@ -63,7 +63,7 @@ $page->renderHeader();
                         <p>The cookies used and the Google Analytics data stored will be anonymised and can't be used to identify individual people.</p>
                         <p>
                             To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at
-                            <a class="link-styled" href="http://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">allaboutcookies</a>
+                            <a class="link" href="http://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">allaboutcookies</a>
                         </p>
                     </div>
                 </div>

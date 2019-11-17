@@ -73,10 +73,10 @@ window.jpi.home = (function(jQuery, jpi) {
             var slideElem = jQuery(slideId);
 
             if (!project.images || !project.images.length || !project.images[0]) {
-                slideElem.find(".slide-show__img").remove();
+                slideElem.find(".slide-show__image").remove();
             }
 
-            var linksContainer = slideElem.find(".slide-info__links");
+            var linksContainer = slideElem.find(".latest-project__links");
 
             if (!project.link && !project.github) {
                 linksContainer.remove();
@@ -89,7 +89,7 @@ window.jpi.home = (function(jQuery, jpi) {
                 jpi.helpers.createElement("a", linksContainer, {
                     href: project.link,
                     innerHTML: "<i class='fas fa-link fa-2x'></i>",
-                    class: "btn btn--clear",
+                    class: "button button--clear latest-project__link",
                     target: "_blank",
                     rel: "noopener",
                 });
@@ -99,7 +99,7 @@ window.jpi.home = (function(jQuery, jpi) {
                 jpi.helpers.createElement("a", linksContainer, {
                     href: project.github,
                     innerHTML: "<i class='fab fa-github fa-2x'></i>",
-                    class: "btn btn--clear",
+                    class: "button button--clear latest-project__link",
                     target: "_blank",
                     rel: "noopener noreferrer",
                 });
@@ -114,7 +114,7 @@ window.jpi.home = (function(jQuery, jpi) {
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-            global.slidesContainer = jQuery(".slide-show__slides-container");
+            global.slidesContainer = jQuery(".slide-show__slides");
             global.bulletsElem = jQuery(".slide-show__bullets");
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
@@ -128,7 +128,7 @@ window.jpi.home = (function(jQuery, jpi) {
             );
 
             if (dataValid) {
-                jpi.slideShow.start("#slide-show--home");
+                jpi.slideShow.start("#latest-projects");
             }
 
             jpi.main.resetFooter();
@@ -137,12 +137,12 @@ window.jpi.home = (function(jQuery, jpi) {
         init: function() {
             fn.initSecondsCounter();
 
-            if (!jQuery("#slide-show--home").length) {
+            if (!jQuery(".latest-projects").length) {
                 return;
             }
 
-            global.loadingElem = jQuery(".projects__loading-img");
-            global.errorElem = jQuery(".feedback--error");
+            global.loadingElem = jQuery(".latest-projects__loading");
+            global.errorElem = jQuery(".latest-projects__error");
 
             global.loadingElem.show(200);
 

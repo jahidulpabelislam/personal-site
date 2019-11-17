@@ -1,5 +1,5 @@
 /* For all devices */
-.site-map__list {
+.site-map {
     width: 100%;
     text-align: left;
     color: $dark-colour;
@@ -7,7 +7,7 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
-    .site-map__list.site-map__list {
+    .site-map.site-map {
         width: 50%;
         margin-left: auto;
         margin-right: auto;
@@ -16,7 +16,7 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
-    .site-map__list.site-map__list {
+    .site-map.site-map {
         width: 25%;
     }
 }

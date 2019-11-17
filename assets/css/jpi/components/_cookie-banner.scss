@@ -11,7 +11,7 @@
     background: transparentize($dark-colour, 0.2);
 }
 
-.cookie-banner .container {
+.cookie-banner > .container {
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -28,11 +28,6 @@
     margin-left: 15px;
 }
 
-.cookie-banner__button {
-    padding: 4px 8px;
-    font-weight: 700;
-}
-
 .cookie-banner__link {
     color: white;
     border-bottom-color: white;
@@ -43,6 +38,11 @@
     border-bottom-color: get-colour(green, hover);
 }
 
+.cookie-banner__close {
+    padding: 4px 8px;
+    font-weight: 700;
+}
+
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .cookie-banner {
@@ -50,7 +50,7 @@
         line-height: 18px;
     }
 
-    .cookie-banner .container {
+    .cookie-banner > .container {
         padding: 0 60px;
     }
 
@@ -66,11 +66,11 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
-    .cookie-banner .container {
+    .cookie-banner > .container {
         padding: 0 120px;
     }
 
-    .cookie-banner__button {
+    .cookie-banner__close {
         padding: 5px 10px;
     }
 }

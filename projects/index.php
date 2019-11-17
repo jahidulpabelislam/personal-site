@@ -79,7 +79,7 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <section class="article projects">
+                <section class="row projects">
                     <div class="container">
                         <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
 
@@ -92,14 +92,14 @@ $page->renderHeader();
                             <div class="search-form__inner">
                                 <label for="search" class="screen-reader-text">Search for projects.</label>
                                 <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
-                                <button type="submit" class="btn search-form__submit">
+                                <button type="submit" class="button search-form__submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </form>
 
-                        <p class="feedback feedback--error"></p>
-                        <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
+                        <p class="feedback feedback--error projects__error"></p>
+                        <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>
                         <div class="projects__items"></div>
                         <ul class="pagination projects__pagination"></ul>
 
@@ -108,10 +108,10 @@ $page->renderHeader();
                 </section>
 
                 <div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
-                    <button type="button" class="btn btn--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
+                    <button type="button" class="button button--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
                     <div class="expanded-slide-show__image-container">
-                        <img class="expanded-slide-show__image current" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+                        <img class="expanded-slide-show__image active" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__image-container">
@@ -119,7 +119,7 @@ $page->renderHeader();
                     </div>
 
                     <div class="expanded-slide-show__controls">
-                        <div class="expanded-slide-show__navs">
+                        <div class="expanded-slide-show__navigations">
                             <button type="button" class="expanded-slide-show__previous">
                                 <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                             </button>
@@ -152,14 +152,14 @@ $page->renderHeader();
                         <div class="project__description" id="detailed-project-description"></div>
                         <div class="project__links"></div>
 
-                        <div class="project__slide-show slide-show" id="detailed-project__slide-show">
-                            <div class="slide-show__viewpoint">
-                                <div class="slide-show__slides-container js-expandable-image-group" data-slide-show-id="#detailed-project__slide-show"></div>
-                                <button type="button" class="slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
+                        <div class="slide-show project__slide-show" id="detailed-project__slide-show">
+                            <div class="slide-show__viewport">
+                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project__slide-show"></div>
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                    <img class="slide-show__nav-image slide-show__nav-image--" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                                 </button>
-                                <button type="button" class="slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                    <img class="slide-show__nav-image slide-show__nav-image--" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                                 </button>
                             </div>
                             <div class="slide-show__bullets"></div>
@@ -170,8 +170,8 @@ $page->renderHeader();
                 <script type="text/template" id="tmpl-project-template">
                     <article class="project" id="project--{{ id }}">
                         <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
-                            <div class="slide-show__viewpoint">
-                                <div class="slide-show__slides-container js-expandable-image-group" data-slide-show-id="#slide-show--{{ id }}"></div>
+                            <div class="slide-show__viewport">
+                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show--{{ id }}"></div>
                             </div>
                         </div>
 
@@ -186,7 +186,7 @@ $page->renderHeader();
 
                         <div class="project__footer">
                             <div class="project__links"></div>
-                            <button type="button" class="btn btn--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
+                            <button type="button" class="button button--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
                                 Read More
                             </button>
                         </div>
@@ -195,7 +195,7 @@ $page->renderHeader();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{ id }}">
-                        <img class="slide-show__img js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ project_id }}" data-slide-colour="{{ colour }}" />
+                        <img class="slide-show__image js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ project_id }}" data-slide-colour="{{ colour }}" />
                     </div>
                 </script>
 

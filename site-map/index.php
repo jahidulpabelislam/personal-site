@@ -18,26 +18,26 @@ $page->renderNav();
 $page->renderHeader();
 ?>
 
-                <div class="article">
+                <div class="row">
                     <div class="container">
-                        <ul class="site-map__list">
+                        <ul class="site-map">
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL(); ?>">Home</a>
+                                <a class="link" href="<?php $site->echoURL(); ?>">Home</a>
                             </li>
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL("projects"); ?>">Projects</a>
+                                <a class="link" href="<?php $site->echoURL("projects"); ?>">Projects</a>
                             </li>
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL("contact"); ?>">Contact</a>
+                                <a class="link" href="<?php $site->echoURL("contact"); ?>">Contact</a>
                             </li>
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL("about"); ?>">About</a>
+                                <a class="link" href="<?php $site->echoURL("about"); ?>">About</a>
                             </li>
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
+                                <a class="link" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
                             </li>
                             <li>
-                                <a class="link-styled" href="<?php $site->echoURL("links"); ?>">Links</a>
+                                <a class="link" href="<?php $site->echoURL("links"); ?>">Links</a>
                             </li>
                         </ul>
                     </div>

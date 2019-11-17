@@ -3,7 +3,7 @@
     margin-bottom: 10px;
 }
 
-.workflow-item__image {
+.workflow__image {
     width: 100%;
     max-width: 100px;
     height: auto;
@@ -12,7 +12,7 @@
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
-.workflow-item__description {
+.workflow__description {
     margin-top: 10px;
 }
 
@@ -30,7 +30,7 @@
         margin: 0 10px 10px;
     }
 
-    .workflow-item__image {
+    .workflow__image {
         max-width: 120px;
     }
 }
@@ -41,7 +41,7 @@
         width: calc(33% - 20px);
     }
 
-    .workflow-item__image {
+    .workflow__image {
         max-width: 150px;
     }
 }
