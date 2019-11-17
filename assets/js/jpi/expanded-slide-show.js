@@ -72,7 +72,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
         open: function(e) {
             // Get all slides in group
             var slidesGroup = jQuery(e.target).parents(".js-expandable-image-group");
-            global.slides = slidesGroup.find(".slide-show__img");
+            global.slides = slidesGroup.find(".js-expandable-image");
 
             var slidesCount = global.slides.length;
             global.totalElem.text(slidesCount);
@@ -91,7 +91,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
                     // Set up bullet navigation for slide
                     jpi.helpers.createElement("button", bulletsContainer[0], {
-                        "class": "expanded-slide-show__bullet js-expanded-image-bullet",
+                        "class": "expanded-slide-show__bullet",
                         "data-slide-id": i,
                     });
                 }
@@ -117,19 +117,19 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             global.body = jQuery("body");
             global.bulletsContainer = jQuery(".expanded-slide-show__bullets");
-            global.currentElem = jQuery(".js-expanded-slide-show-current-count");
-            global.totalElem = jQuery(".js-expanded-slide-show-total-count");
+            global.currentElem = jQuery(".expanded-slide-show__current-count");
+            global.totalElem = jQuery(".expanded-slide-show__total-count");
             global.nav = jQuery(".expanded-slide-show__nav");
 
-            global.body.on("click", ".js-expanded-image-bullet", function(e) {
+            global.body.on("click", ".expanded-slide-show__bullet", function(e) {
                 var slideId = jQuery(e.target).attr("data-slide-id");
                 slideId = jpi.helpers.getInt(slideId);
                 fn.changeSlide(slideId);
             });
 
             global.body.on("click", ".js-expandable-image", fn.open);
-            jQuery(".js-expanded-slide-show-next").on("click", fn.next);
-            jQuery(".js-expanded-slide-show-previous").on("click", fn.previous);
+            jQuery(".expanded-slide-show__next").on("click", fn.next);
+            jQuery(".expanded-slide-show__previous").on("click", fn.previous);
             jQuery(".expanded-slide-show__close").on("click", fn.close);
         },
     };

@@ -436,7 +436,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             jQuery(".search-form").on("submit", fn.doSearch);
 
-            global.projectsElem.on("click", ".js-open-modal", fn.openProjectModal);
+            global.projectsElem.on("click", ".project__read-more", fn.openProjectModal);
 
             global.modal.on("closed", fn.onProjectModalClose);
 
@@ -481,7 +481,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
-            global.projectsElem = jQuery(".js-all-projects");
+            global.projectsElem = jQuery(".projects__items");
             if (!global.projectsElem.length) {
                 return
             }

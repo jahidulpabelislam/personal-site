@@ -13,7 +13,7 @@ if (!defined("ROOT")) {
                     </p>
                 </div>
                 <div class="cookie-banner__actions">
-                    <button type="button" class="cookie-banner__button js-close-cookie-banner btn btn--dark-green">OK</button>
+                    <button type="button" class="btn btn--dark-green cookie-banner__button">OK</button>
                 </div>
             </div>
         </div>

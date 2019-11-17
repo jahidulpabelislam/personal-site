@@ -241,9 +241,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var body = jQuery("body");
             body.on("dragstart", ".slide-show__img", false);
             body.on("mousedown touchstart", ".js-slide-show .slide-show__slides-container", fn.onSlideDrag);
-            body.on("click", ".js-slide-show-bullet", fn.changeToSlide);
+            body.on("click", ".slide-show__bullet", fn.changeToSlide);
 
-            body.on("click", ".js-move-slide", function() {
+            body.on("click", ".slide-show__nav-button", function() {
                 var nav = jQuery(this);
                 var slideShowId = nav.attr("data-slide-show-id");
                 fn.pause(slideShowId);

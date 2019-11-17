@@ -100,7 +100,7 @@ $page->renderHeader();
 
                         <p class="feedback feedback--error"></p>
                         <i class="projects__loading-img fas fa-spinner fa-spin fa-3x"></i>
-                        <div class="projects__items js-all-projects"></div>
+                        <div class="projects__items"></div>
                         <ul class="pagination projects__pagination"></ul>
 
                         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
@@ -120,10 +120,10 @@ $page->renderHeader();
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
-                            <button type="button" class="js-expanded-slide-show-previous">
+                            <button type="button" class="expanded-slide-show__previous">
                                 <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                             </button>
-                            <button type="button" class="js-expanded-slide-show-next">
+                            <button type="button" class="expanded-slide-show__next">
                                 <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                             </button>
                         </div>
@@ -131,9 +131,7 @@ $page->renderHeader();
                         <div class="expanded-slide-show__bullets"></div>
 
                         <p class="expanded-slide-show__counter">
-                            <span class="js-expanded-slide-show-current-count"></span>
-                            <span>/</span>
-                            <span class="js-expanded-slide-show-total-count"></span>
+                            <span class="expanded-slide-show__current-count"></span>/<span class="expanded-slide-show__total-count"></span>
                         </p>
                     </div>
                 </div>
@@ -157,10 +155,10 @@ $page->renderHeader();
                         <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint">
                                 <div class="slide-show__slides-container js-expandable-image-group" data-slide-show-id="#detailed-project__slide-show"></div>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
+                                <button type="button" class="slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
                                     <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
                                 </button>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
+                                <button type="button" class="slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
                                     <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
                                 </button>
                             </div>
@@ -188,7 +186,7 @@ $page->renderHeader();
 
                         <div class="project__footer">
                             <div class="project__links"></div>
-                            <button type="button" class="btn btn--{{ colour }} js-open-modal project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
+                            <button type="button" class="btn btn--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
                                 Read More
                             </button>
                         </div>
@@ -202,7 +200,7 @@ $page->renderHeader();
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }} js-slide-show-bullet" data-slide-show-id="{{ slide-show-id }}" data-slide-id="#slide-{{ id }}">
+                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slide-show-id }}" data-slide-id="#slide-{{ id }}">
                     </button>
                 </script>
 
