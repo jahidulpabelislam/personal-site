@@ -70,7 +70,7 @@ $page = Page::get();
         $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
         <style>
-            <?php echo file_get_contents(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
+            <?php echoFile(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
         $stylesheets = $page->stylesheets;
