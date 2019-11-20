@@ -206,3 +206,14 @@ function getTimeDifference($fromDate, $toDate, string $format): string {
 
     return $timeDiff;
 }
+
+/**
+ * Echo out the contents of a file
+ *
+ * @param string $path
+ */
+function echoFile(string $path) {
+    if (file_exists($path)) {
+        echo file_get_contents($path);
+    }
+}
