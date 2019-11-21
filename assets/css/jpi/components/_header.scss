@@ -54,9 +54,8 @@
     position: absolute;
     bottom: 24px;
     left: 50%;
-    width: 36px;
-    height: 36px;
     margin-left: -18px;
+    padding: 0;
     border-radius: 50%;
     opacity: 0.8;
     cursor: pointer;
@@ -68,12 +67,20 @@
     background: transparentize($light-colour, 0.9);
 }
 
+.header__scroll-to-content svg {
+    width: 36px;
+    height: 36px;
+}
+
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .header__scroll-to-content {
+        margin-left: -20px;
+    }
+
+    .header__scroll-to-content svg {
         width: 40px;
         height: 40px;
-        margin-left: -20px;
     }
 }
 
@@ -84,9 +91,12 @@
     }
 
     .header__scroll-to-content {
-        width: 50px;
-        height: 50px;
         margin-left: -25px;
+    }
+
+    .header__scroll-to-content svg {
+        width: 50px;
+        height: 50px
     }
 }
 
@@ -97,7 +107,6 @@
     50% {
         bottom: 36px;
     }
-
     100% {
         bottom: 24px;
     }

@@ -13,7 +13,10 @@ $site = Site::get();
                     <h1 class="header__title"><?php echo $title ?></h1>
                     <hr class="header__line-breaker" />
                     <h2 class="header__desc"><?php echo $desc ?></h2>
-                    <img class="js-scroll-to-content header__scroll-to-content" src="<?php echoWithAssetVersion("/assets/images/down-arrow.svg"); ?>" alt="Arrow point down" aria-label="Jump to content" />
+                    <button class="header__scroll-to-content js-scroll-to-content">
+                        <span class="screen-reader-text">Scroll to main content</span>
+                        <?php echoFile(ROOT . "/assets/images/down-arrow.svg"); ?>
+                    </button>
                 </div>
             </div>
         </header>
