@@ -120,11 +120,13 @@ $page->renderHeader();
 
                     <div class="expanded-slide-show__controls">
                         <div class="expanded-slide-show__navs">
-                            <button type="button" class="js-expanded-slide-show-previous">
-                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/previous-white.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
+                            <button type="button" class="expanded-slide-show__nav" data-direction="previous">
+                                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                                <?php echoFile(ROOT . "/assets/images/previous.svg"); ?>
                             </button>
-                            <button type="button" class="js-expanded-slide-show-next">
-                                <img class="expanded-slide-show__nav" src="<?php echoWithAssetVersion("/assets/images/next-white.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
+                            <button type="button" class="expanded-slide-show__nav" data-direction="next">
+                                <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                                <?php echoFile(ROOT . "/assets/images/next.svg"); ?>
                             </button>
                         </div>
 
@@ -157,11 +159,13 @@ $page->renderHeader();
                         <div class="project__slide-show slide-show" id="detailed-project__slide-show">
                             <div class="slide-show__viewpoint" data-slide-show-id="#detailed-project__slide-show">
                                 <div class="slide-show__slides-container"></div>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--prev-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="previous">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-previous" src="<?php echoWithAssetVersion("/assets/images/previous.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-direction="previous">
+                                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                                    <?php echoFile(ROOT . "/assets/images/previous.svg"); ?>
                                 </button>
-                                <button type="button" class="js-move-slide slide-show__nav-button slide-show__nav--next-button" data-slide-show-id="#detailed-project__slide-show" data-nav-direction="next">
-                                    <img class="slide-show__nav slide-show__nav--blue slide-show__nav-next" src="<?php echoWithAssetVersion("/assets/images/next.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-direction="next">
+                                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                                    <?php echoFile(ROOT . "/assets/images/next.svg"); ?>
                                 </button>
                             </div>
                             <div class="slide-show__bullets"></div>

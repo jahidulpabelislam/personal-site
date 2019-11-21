@@ -38,41 +38,54 @@
     transform: scale(1.1);
 }
 
-.slide-show__nav-button {
+.slide-show__nav {
     position: absolute;
     top: calc(50% - 15px);
     padding: 0;
 }
 
-.slide-show__nav--prev-button {
+.slide-show__nav[data-direction="previous"] {
     left: 0;
 }
-
-.slide-show__nav--next-button {
+.slide-show__nav[data-direction="next"] {
     right: 0;
 }
 
-.slide-show__nav {
+.slide-show__nav svg {
     width: 30px;
     height: 30px;
     opacity: 0.8;
-    background: get-colour(black, main);
+    background: white;
     box-shadow: 0 0 20px 0 transparentize(get-colour(black, main), 0.7);
     transition: all 0.3s ease-in-out;
 }
 
-.slide-show__nav:hover {
+.slide-show__nav[data-direction="previous"] svg {
+    border-radius: 0 50% 50% 0;
+}
+.slide-show__nav[data-direction="next"] svg {
+    border-radius: 50% 0 0 50%;
+}
+
+.slide-show__nav:hover svg {
     opacity: 1;
     cursor: pointer;
     box-shadow: 0 0 20px 0 $dark-colour;
 }
 
-.slide-show__nav-previous {
-    border-radius: 0 50% 50% 0;
+.slide-show__nav svg path {
+    fill: get-colour(black, main);
+    transition: all 0.3s ease-in-out;
 }
 
-.slide-show__nav-next {
-    border-radius: 50% 0 0 50%;
+@each $colour, $colours in $colour-schemes {
+    .slide-show__nav[data-colour="#{$colour}"] svg path {
+        fill: map-get($colours, main);
+    }
+
+    .slide-show__nav[data-colour="#{$colour}"]:hover svg {
+        box-shadow: 0 0 20px 0 map-get($colours, main);
+    }
 }
 
 .slide-show__bullets {
@@ -104,13 +117,5 @@
 @each $colour, $colours in $colour-schemes {
     .slide-show__bullet--#{$colour}.active {
         background-color: map-get($colours, main);
-    }
-
-    .slide-show__nav--#{$colour} {
-        background-color: map-get($colours, main);
-    }
-
-    .slide-show__nav--#{$colour}:hover {
-        box-shadow: 0 0 20px 0 map-get($colours, main);
     }
 }

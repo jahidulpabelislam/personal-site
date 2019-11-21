@@ -120,9 +120,11 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 fn.changeElement(slideId);
             });
 
-            jQuery("body").on("click", ".js-expandable-image", fn.show);
-            jQuery(".js-expanded-slide-show-next").on("click", fn.next);
-            jQuery(".js-expanded-slide-show-previous").on("click", fn.previous);
+            jQuery("body").on("click", ".js-expandable-image", fn.open);
+            jQuery(".expanded-slide-show__nav").on("click", function() {
+                var direction = jQuery(this).attr("data-direction");
+                fn[direction]();
+            });
             jQuery(".expanded-slide-show__close").on("click", fn.close);
         },
     };

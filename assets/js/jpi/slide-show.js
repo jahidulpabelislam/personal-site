@@ -9,10 +9,16 @@ window.jpi.slideShow = (function(jQuery, jpi) {
     var global = {
         milliSecsPerSlide: 5000,
         slideShows: {},
-        slideColourRegex: null,
     };
 
     var fn = {
+
+        setNavColour: function(slideShow, slide) {
+            if (slideShow.attr("id") === "slide-show--home") {
+                var colour = slide.attr("data-slide-colour");
+                slideShow.find(".slide-show__nav").attr("data-colour", colour);
+            }
+        },
 
         // Resets the transition duration of a slide show to 2s
         resetTransition: function(slidesContainer) {
@@ -89,26 +95,15 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
 
         moveToSlide: function(slideShowId, nextSlide) {
+            var slideShow = jQuery(slideShowId);
+
             var slidesContainer = jQuery(slideShowId + " .slide-show__slides-container");
 
             clearInterval(global.slideShows[slideShowId]);
 
             fn.resetTransition(slidesContainer);
 
-            if (slideShowId === "#slide-show--home") {
-                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
-
-                if (!global.navColourRegex) {
-                    global.navColourRegex = new RegExp("slide-show__nav--[\\w-]*", "g");
-                }
-
-                jQuery(slideShowId + " .slide-show__nav").each(function() {
-                    var slideShowNav = jQuery(this);
-                    var classList = slideShowNav.attr("class");
-                    classList = classList.replace(global.navColourRegex, "slide-show__nav--" + colour);
-                    slideShowNav.attr("class", classList);
-                });
-            }
+            fn.setNavColour(slideShow, nextSlide);
 
             jQuery(slideShowId + " .active").removeClass("active");
 
@@ -245,7 +240,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             if (slides.length > 1) {
                 slides.css("width", slideShowViewpoint.innerWidth() + "px");
 
-                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .slide-show__bullets").show();
+                fn.setNavColour(jQuery(slideShowId), slides.first());
+
+                jQuery(slideShowId + " .slide-show__nav, " + slideShowId + " .slide-show__bullets").show();
 
                 setTimeout(function() {
                     fn.moveToSlide(slideShowId, slides.first());
@@ -255,7 +252,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 slideShowViewpoint[0].addEventListener("touchstart", fn.dragStart);
             }
             else {
-                jQuery(slideShowId + " .js-move-slide, " + slideShowId + " .slide-show__bullets").hide();
+                jQuery(slideShowId + " .slide-show__nav, " + slideShowId + " .slide-show__bullets").hide();
             }
         },
 
@@ -275,7 +272,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             jQuery("body").on("dragstart", ".slide-show__img", false);
             jQuery("body").on("click", ".js-slide-show-bullet", fn.changeToSlide);
 
-            jQuery("body").on("click", ".js-move-slide", function() {
+            jQuery("body").on("click", ".slide-show__nav", function() {
                 var elem = jQuery(this);
                 fn.moveSlide(
                     elem.attr("data-slide-show-id"),

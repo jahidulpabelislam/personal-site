@@ -302,8 +302,6 @@
 }
 
 .expanded-slide-show__nav {
-    width: 28px;
-    height: 28px;
     opacity: 0.8;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -311,6 +309,11 @@
 
 .expanded-slide-show__nav:hover {
     opacity: 1;
+}
+
+.expanded-slide-show__nav svg {
+    width: 28px;
+    height: 28px;
 }
 
 .expanded-slide-show__image-container {
