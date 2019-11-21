@@ -101,7 +101,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             foreach ($workflowItems as $workflowItem) {
                                 ?>
                                 <div class="workflow__item">
-                                    <h4 class="row__header"><?php echo $workflowItem["heading"]; ?></h4>
+                                    <h3 class="row__header"><?php echo $workflowItem["heading"]; ?></h3>
                                     <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
                                     <div class="workflow__description">
                                         <?php echo $workflowItem["description"]; ?>

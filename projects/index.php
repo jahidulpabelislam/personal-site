@@ -140,7 +140,7 @@ $page->renderHeader();
 
                 <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
                     <div class="modal__content">
-                        <h4 class="modal__heading" id="detailed-project-title"></h4>
+                        <h1 class="modal__heading" id="detailed-project-title"></h1>
 
                         <div class="project__skills"></div>
 
@@ -182,7 +182,7 @@ $page->renderHeader();
                         <p class="project__type project__type--{{ colour }}">{{ type }}</p>
 
                         <div class="project__header">
-                            <h4 class="project__title">{{ name }}</h4>
+                            <h3 class="project__title">{{ name }}</h3>
                             <time class="project__date">{{ date }}</time>
                         </div>
 

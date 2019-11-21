@@ -36,7 +36,7 @@ $page = Page::get();
                 <!-- End dynamic content -->
                 <section class="social-links">
                     <div class="container">
-                        <h5 class="social-links__header">Follow Me Here!</h5>
+                        <h1 class="social-links__header">Follow Me Here!</h1>
                         <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                             <img class="social-links__image social-link__image social-link__image--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
                         </a>
