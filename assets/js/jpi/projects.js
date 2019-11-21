@@ -32,8 +32,6 @@ window.jpi.projects = (function(jQuery, jpi) {
         slideTemplate: "",
         bulletTemplate: "",
 
-        navColourRegex: null,
-
         projects: {},
 
         dateFormat: false,
@@ -343,12 +341,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.renderProjectLinks(project, global.modalSelector);
             fn.renderProjectImages(project, global.modalSelector);
 
-            modal.find(".slide-show__nav-image").each(function() {
-                var slideShowNav = jQuery(this);
-                var classList = slideShowNav.attr("class");
-                classList = classList.replace(global.navColourRegex, "slide-show__nav-image--" + project.colour);
-                slideShowNav.attr("class", classList);
-            });
+            modal.find(".slide-show__nav").attr("data-colour", project.colour);
 
             jpi.modal.open(modal);
             jpi.slideShow.start("#detailed-project__slide-show");
@@ -509,7 +502,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
-            global.navColourRegex = /slide-show__nav-image--[\w-]*/g;
             global.typeColourRegex = /project__type--[\w-]*/g;
 
             var state = {

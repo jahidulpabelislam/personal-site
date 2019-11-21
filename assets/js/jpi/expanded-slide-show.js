@@ -128,8 +128,10 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             });
 
             global.body.on("click", ".js-expandable-image", fn.open);
-            jQuery(".expanded-slide-show__next").on("click", fn.next);
-            jQuery(".expanded-slide-show__previous").on("click", fn.previous);
+            global.nav.on("click", function() {
+                var direction = jQuery(this).attr("data-direction");
+                fn[direction]();
+            });
             jQuery(".expanded-slide-show__close").on("click", fn.close);
         },
     };

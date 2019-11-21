@@ -8,7 +8,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
     var global = {
         slideShows: {},
-        slideColourRegex: null,
         durationPerSlide: 5000, // Milliseconds
     };
 
@@ -20,6 +19,13 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             for (var i = 0; i < slideShows.length; i++) {
                 afterLoopedFunc("#" + slideShows[i].id);
+            }
+        },
+
+        setNavColour: function(slideShow, slide) {
+            if (slideShow.attr("id") === "latest-projects") {
+                var colour = slide.attr("data-slide-colour");
+                slideShow.find(".slide-show__nav").attr("data-colour", colour);
             }
         },
 
@@ -68,16 +74,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         moveToSlide: function(slideShowId, nextSlide) {
             var slideShow = jQuery(slideShowId);
-            if (slideShowId === "#latest-projects") {
-                var colour = nextSlide.filter(".slide-show__slide").attr("data-slide-colour");
-
-                slideShow.find(".slide-show__nav-image").each(function() {
-                    var slideShowNav = jQuery(this);
-                    var classList = slideShowNav.attr("class");
-                    classList = classList.replace(global.navColourRegex, "slide-show__nav-image--" + colour);
-                    slideShowNav.attr("class", classList);
-                });
-            }
+            fn.setNavColour(slideShow, nextSlide);
 
             slideShow.find(".active").removeClass("active");
             nextSlide.addClass("active");
@@ -194,8 +191,12 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 return;
             }
 
-            slides.first().addClass("active");
+            var firstSlide = slides.first();
+
+            firstSlide.addClass("active");
             slideShow.find(".slide-show__bullet").first().addClass("active");
+
+            fn.setNavColour(slideShow, firstSlide);
 
             if (count > 1) {
                 slideShow.addClass("js-slide-show");
@@ -236,8 +237,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 return;
             }
 
-            global.navColourRegex = /slide-show__nav-image--[\w-]*/g;
-
             var body = jQuery("body");
             body.on("dragstart", ".slide-show__image", false);
             body.on("mousedown touchstart", ".js-slide-show .slide-show__slides", fn.onSlideDrag);
@@ -247,7 +246,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 var nav = jQuery(this);
                 var slideShowId = nav.attr("data-slide-show-id");
                 fn.pause(slideShowId);
-                fn.move(slideShowId, nav.attr("data-nav-direction"));
+                fn.move(slideShowId, nav.attr("data-direction"));
                 fn.resume(slideShowId);
             });
 

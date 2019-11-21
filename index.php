@@ -111,11 +111,13 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                     <div class="slide-show latest-projects__slide-show" id="latest-projects">
                         <div class="slide-show__viewport">
                             <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
-                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-nav-direction="previous">
-                                <img class="slide-show__nav-image slide-show__nav-image--" src="<?php echoWithAssetVersion("/assets/images/previous-inverted.svg"); ?>" alt="Arrow pointing to the right" aria-label="Previous Image" />
+                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous" data-colour="">
+                                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                                <?php echoFile(ROOT . "/assets/images/previous.svg"); ?>
                             </button>
-                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-nav-direction="next">
-                                <img class="slide-show__nav-image slide-show__nav-image--" src="<?php echoWithAssetVersion("/assets/images/next-inverted.svg"); ?>" alt="Arrow pointing to the left" aria-label="Next Image" />
+                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next" data-colour="">
+                                <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                                <?php echoFile(ROOT . "/assets/images/next.svg"); ?>
                             </button>
                         </div>
                         <div class="slide-show__bullets"></div>
