@@ -21,24 +21,24 @@ $page->renderHeader();
                 <div class="row">
                     <div class="container">
                         <ul class="site-map">
-                            <li>
-                                <a class="link" href="<?php $site->echoURL(); ?>">Home</a>
-                            </li>
-                            <li>
-                                <a class="link" href="<?php $site->echoURL("projects"); ?>">Projects</a>
-                            </li>
-                            <li>
-                                <a class="link" href="<?php $site->echoURL("contact"); ?>">Contact</a>
-                            </li>
-                            <li>
-                                <a class="link" href="<?php $site->echoURL("about"); ?>">About</a>
-                            </li>
-                            <li>
-                                <a class="link" href="<?php $site->echoURL("privacy-policy"); ?>">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a class="link" href="<?php $site->echoURL("links"); ?>">Links</a>
-                            </li>
+                            <?php
+                            $pages = [
+                                "Home" => "/",
+                                "Projects" => "/projects",
+                                "Contact" => "/contact",
+                                "About" => "/about",
+                                "Privacy Policy" => "/privacy-policy",
+                                "Links" => "/links",
+                            ];
+
+                            foreach ($pages as $title => $url) {
+                                ?>
+                                <li>
+                                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title ?></a>
+                                </li>
+                                <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
