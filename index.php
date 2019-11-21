@@ -68,37 +68,48 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                 <section class="row row--orange">
                     <div class="container">
                         <div class="workflow">
-                            <div class="workflow__item">
-                                <h4 class="row__header">Design</h4>
-                                <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/design-icon.png"); ?>" alt="A image of a paintbrush on a desktop computer" />
-                                <div class="workflow__description">
-                                    <p>
+                            <?php
+                            $workflowItems = [
+                                [
+                                    "heading" => "Design",
+                                    "icon" => "design-icon.png",
+                                    "imageAlt" => "A image of a paintbrush on a desktop computer",
+                                    "description" => "<p>
                                         My work only starts after the designer hands over finished designs.<br />
                                         I mainly work from PSD's or flat image files designs.<br />
                                         This is where I turn designs into pixel perfect sites/apps.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="workflow__item">
-                                <h4 class="row__header">Responsive</h4>
-                                <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/responsive-icon.png"); ?>" alt="A image of various sized devices: Desktop computer, tablet &amp; mobile phone" />
-                                <div class="workflow__description">
-                                    <p>
+                                    </p>",
+                                ], [
+                                    "heading" => "Responsive",
+                                    "icon" => "responsive-icon.png",
+                                    "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
+                                    "description" => "<p>
                                         Aim to make all sites/apps usable on many different sized devices.<br />
                                         By approach the styling form a mobile first point of view
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="workflow__item">
-                                <h4 class="row__header">Code</h4>
-                                <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/code-icon.png"); ?>" alt="A image showing code" />
-                                <div class="workflow__description">
-                                    <p>
+                                    </p>",
+                                ], [
+                                    "heading" => "Code",
+                                    "icon" => "code-icon.png",
+                                    "imageAlt" => "A image showing code",
+                                    "description" => "<p>
                                         I tend to develop custom and bespoke systems.<br />
                                         But if the project requires I can use various frameworks or libraries to fulfill the necessary product.
-                                    </p>
+                                    </p>",
+                                ],
+                            ];
+
+                            foreach ($workflowItems as $workflowItem) {
+                                ?>
+                                <div class="workflow__item">
+                                    <h4 class="row__header"><?php echo $workflowItem["heading"]; ?></h4>
+                                    <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
+                                    <div class="workflow__description">
+                                        <?php echo $workflowItem["description"]; ?>
+                                    </div>
                                 </div>
-                            </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </section>
