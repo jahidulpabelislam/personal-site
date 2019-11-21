@@ -143,39 +143,41 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                     <div class="container">
                         <div class="stats js-counters">
                             <?php
-                            $speed = 1600;
+                            $baseSpeed = 1600;
 
-                            $counterFilePath = ROOT . "/assets/counters.json";
-                            if (file_exists($counterFilePath)) {
-                                $countersContent = file_get_contents($counterFilePath);
-                                $counters = json_decode($countersContent, true);
+                            $countsFilePath = ROOT . "/assets/counters.json";
+                            if (file_exists($countsFilePath)) {
+                                $countsContent = file_get_contents($countsFilePath);
+                                $counts = json_decode($countsContent, true);
                             }
 
-                            $totalProjects = $counters["projects"] ?? 60;
+                            $counterItems = [
+                                [
+                                    "text" => "Years experience",
+                                    "number" => $yearsSinceStarted,
+                                    "speed" => $baseSpeed,
+                                ], [
+                                    "text" => "Projects",
+                                    "number" => $counts["projects"] ?? 60,
+                                    "speed" => $baseSpeed + 600,
+                                ], [
+                                    "text" => "Commits",
+                                    "number" => $counts["commits"] ?? 8500,
+                                    "speed" => $baseSpeed + 1000,
+                                ],
+                            ];
+
+                            foreach ($counterItems as $counterItem) {
+                                ?>
+                                <div class="stats__item">
+                                    <p class="row__header stats__header js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
+                                        <?php echo $counterItem["number"]; ?>
+                                    </p>
+                                    <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
+                                </div>
+                                <?php
+                            }
                             ?>
-
-                            <div class="stats__item">
-                                <p class="row__header stats__header js-counter" data-to="<?php echo $yearsSinceStarted; ?>" data-speed="<?php echo $speed; ?>">
-                                    <?php echo $yearsSinceStarted; ?>
-                                </p>
-                                <p class="stats__text">Years experience</p>
-                            </div>
-
-                            <div class="stats__item">
-                                <p class="row__header stats__header js-counter" data-to="<?php echo $totalProjects; ?>" data-speed="<?php echo $speed + 600; ?>">
-                                    <?php echo $totalProjects; ?>
-                                </p>
-                                <p class="stats__text">
-                                    Projects
-                                </p>
-                            </div>
-                            <div class="stats__item">
-                                <?php $totalCommits = $counters["commits"] ?? 8500; ?>
-                                <p class="row__header stats__header js-counter" data-to="<?php echo $totalCommits; ?>" data-speed="<?php echo $speed + 1000; ?>">
-                                    <?php echo $totalCommits; ?>
-                                </p>
-                                <p class="stats__text">Commits</p>
-                            </div>
 
                             <div class="stats__item">
                                 <p class="row__header stats__header js-seconds-on-site">0</p>
