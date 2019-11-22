@@ -178,6 +178,14 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
+            // Make sure colour placeholders are replaced in content
+            var colourRegex = fn.getTemplateRegex("colour");
+            var fields = ["short_description", "long_description"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                project[field] = project[field].replace(colourRegex, project.colour);
+            }
+
             global.projects[project.id] = project;
 
             var template = jQuery("#tmpl-project-template").text();
