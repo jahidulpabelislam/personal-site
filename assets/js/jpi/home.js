@@ -46,6 +46,14 @@ window.jpi.home = (function(jQuery, jpi) {
             var slide = global.slideTemplate;
             var bullet = global.bulletTemplate;
 
+            // Make sure colour placeholders are replaced in content
+            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
+            var fields = ["short_description"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                project[field] = project[field].replace(colourRegex, project.colour);
+            }
+
             for (var field in project) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
                     var regex = jpi.helpers.getTemplatingRegex(field);

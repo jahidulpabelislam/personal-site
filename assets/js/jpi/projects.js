@@ -259,6 +259,14 @@ window.jpi.projects = (function(jQuery, jpi) {
                 project.date = global.dateFormat.format(date);
             }
 
+            // Make sure colour placeholders are replaced in content
+            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
+            var fields = ["short_description", "long_description"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                project[field] = project[field].replace(colourRegex, project.colour);
+            }
+
             global.projects[project.id] = project;
 
             var template = global.projectTemplate;
