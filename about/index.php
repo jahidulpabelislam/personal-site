@@ -25,7 +25,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     ?>
     <section class="row about-row">
         <div class="container">
-            <h3 class="row__header"><?php echo $heading; ?></h3>
+            <h3 class="row__heading"><?php echo $heading; ?></h3>
             <ul class="skills-interests">
             <?php
             foreach ($items as $item) {
@@ -234,7 +234,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 
                 <section class="row">
                     <div class="container">
-                        <h3 class="row__header">What I've Been Up To</h3>
+                        <h3 class="row__heading">What I've Been Up To</h3>
                         <div class="timeline">
                             <?php
                             $timelineItems = [

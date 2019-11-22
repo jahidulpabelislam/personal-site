@@ -53,7 +53,7 @@ $page->renderHeader();
                 <section class="row row--split">
                     <div class="container">
                         <div class="row__column">
-                            <h3 class="row__header">Drop me a old school email</h3>
+                            <h3 class="row__heading">Drop me a old school email</h3>
                         </div>
                         <div class="row__column">
                             <a class="social-link" href="mailto:me@jahidulpabelislam.com" target="_blank">
@@ -66,7 +66,7 @@ $page->renderHeader();
 
                 <section class="row row--lime-green">
                     <div class="container">
-                        <h3 class="row__header">Stay up to date with me</h3>
+                        <h3 class="row__heading">Stay up to date with me</h3>
                         <div>
                             <i class="fa fa-3x fa-arrow-circle-down"></i>
                         </div>
@@ -76,7 +76,7 @@ $page->renderHeader();
                 <section class="row row--split">
                     <div class="container">
                         <div class="row__column">
-                            <h4 class="row__header">View my LinkedIn</h4>
+                            <h4 class="row__heading">View my LinkedIn</h4>
                         </div>
                         <div class="row__column">
                             <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
@@ -90,7 +90,7 @@ $page->renderHeader();
                 <section class="row row--split">
                     <div class="container">
                         <div class="row__column">
-                            <h4 class="row__header">See &amp; follow my code</h4>
+                            <h4 class="row__heading">See &amp; follow my code</h4>
                         </div>
                         <div class="row__column">
                             <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
@@ -104,7 +104,7 @@ $page->renderHeader();
                 <section class="row row--split">
                     <div class="container">
                         <div class="row__column">
-                            <h4 class="row__header">See what I get up to</h4>
+                            <h4 class="row__heading">See what I get up to</h4>
                         </div>
                         <div class="row__column">
                             <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">

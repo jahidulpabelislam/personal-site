@@ -19,7 +19,7 @@ $page->renderHeader();
 
                 <div class="row">
                     <div class="container">
-                        <h3 class="row__header">Contact Form</h3>
+                        <h3 class="row__heading">Contact Form</h3>
                         <p>The following applies to the contact form and your data submitted within the form:</p>
                         <ul>
                             <li>your data, WILL ONLY be kept in my email server</li>
@@ -31,7 +31,7 @@ $page->renderHeader();
 
                 <div class="row">
                     <div class="container">
-                        <h3 class="row__header">Cookies</h3>
+                        <h3 class="row__heading">Cookies</h3>
                         <p>This website uses cookies to collect information. Cookies are files stored on your device when you come on a website which is using them. The data stored can be a whole range of data, user login session data to shopping basket.</p>
                         <p>Cookies on this site is used to allow tracking user behaviour with the site, to use in analytics and improving the site.</p>
                         <p>By viewing the site, it will be assumed you agree to use cookies within this site.</p>

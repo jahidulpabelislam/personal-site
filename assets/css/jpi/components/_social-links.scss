@@ -6,7 +6,7 @@
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
-.social-links__header {
+.social-links__heading {
     margin: 10px 0 5px;
     color: white;
     font-size: 35px;
@@ -24,7 +24,7 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
-    .social-links__header {
+    .social-links__heading {
         margin: 15px 0 10px;
     }
 
@@ -42,7 +42,7 @@
         background-attachment: fixed;
     }
 
-    .social-links__header {
+    .social-links__heading {
         margin: 20px 0 25px;
         font-size: 40px;
         line-height: 42px;

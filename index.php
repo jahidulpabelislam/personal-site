@@ -101,7 +101,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             foreach ($workflowItems as $workflowItem) {
                                 ?>
                                 <div class="workflow__item">
-                                    <h3 class="row__header"><?php echo $workflowItem["heading"]; ?></h3>
+                                    <h3 class="row__heading"><?php echo $workflowItem["heading"]; ?></h3>
                                     <img class="workflow__image" src="<?php echoWithAssetVersion("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
                                     <div class="workflow__description">
                                         <?php echo $workflowItem["description"]; ?>
@@ -115,7 +115,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                 </section>
 
                 <section class="row latest-projects">
-                    <h3 class="row__header">Latest Projects</h3>
+                    <h3 class="row__heading">Latest Projects</h3>
 
                     <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
 
@@ -170,7 +170,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             foreach ($counterItems as $counterItem) {
                                 ?>
                                 <div class="stats__item">
-                                    <p class="row__header stats__header js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
+                                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
                                         <?php echo $counterItem["number"]; ?>
                                     </p>
                                     <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
@@ -180,7 +180,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             ?>
 
                             <div class="stats__item">
-                                <p class="row__header stats__header js-seconds-on-site">0</p>
+                                <p class="row__heading stats__heading js-seconds-on-site">0</p>
                                 <p class="stats__text">Seconds on here</p>
                             </div>
                         </div>
