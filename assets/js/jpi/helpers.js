@@ -37,16 +37,15 @@ window.jpi.helpers = (function(jQuery) {
             return true;
         },
 
-        // Creates an element with attributes and appended to parent
         createElement: function(elementName, attributes) {
             return jQuery("<" + elementName + ">", attributes);
         },
 
         renderNewElement: function(elementName, parent, attributes) {
-            var newElem = fn.createElement(elementName, attributes);
-            parent.append(newElem);
+            var newElement = fn.createElement(elementName, attributes);
+            parent.append(newElement);
 
-            return newElem;
+            return newElement;
         },
 
         getInt: function(value, defaultInt) {
