@@ -461,6 +461,10 @@ window.jpi.projects = (function(jQuery, jpi) {
                 var page = jQuery(this).attr("data-page");
                 page = jpi.helpers.getInt(page, 1);
 
+                if (global.pageNumber === page) {
+                    return;
+                }
+
                 fn.scrollToProjects();
                 global.pageNumber = page;
                 fn.storeLatestSearch();

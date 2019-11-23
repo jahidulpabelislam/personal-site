@@ -1098,7 +1098,8 @@ label {
 .pagination__link.active:hover {
   background: #0375b4;
   border-color: #03659b;
-  color: white; }
+  color: white;
+  cursor: default; }
 
 .slide-show {
   margin: 0 -15px; }
