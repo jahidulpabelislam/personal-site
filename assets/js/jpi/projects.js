@@ -487,19 +487,22 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.doSearch();
             });
 
-            jQuery(".projects__pagination").on("click", ".js-pagination-item", function(e) {
+            jQuery(".projects__pagination").on("click", ".pagination__item-link", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-
-                fn.scrollToProjects();
 
                 var page = jQuery(this).attr("data-page");
                 if (!page) {
                     page = 1;
                 }
 
+                if (fn.getCurrentPageNum() == page) {
+                    return;
+                }
+
                 jQuery(".js-projects-page").val(page);
 
+                fn.scrollToProjects();
                 fn.storeLatestSearch();
                 fn.getProjects();
             });
