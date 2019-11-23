@@ -89,20 +89,24 @@ window.jpi.helpers = (function(jQuery) {
         },
 
         loadCSSFiles: function(srcs) {
-            var totalLoaded = 0;
             var totalSrcs = srcs.length;
+            if (!totalSrcs) {
+                return;
+            }
+
+            var head = jQuery("head");
+            var totalLoaded = 0;
 
             for (var i = 0; i < totalSrcs; i++) {
                 var src = srcs[i];
 
-                var newLink = jQuery("<link>", {
+                var newLink = fn.renderNewElement("link", head, {
                     rel: "stylesheet",
                     type: "text/css",
                     media: "all",
                     title: "style",
                     href: src,
                 });
-                newLink.appendTo("head");
 
                 newLink.on("load", function() {
                     totalLoaded++;
