@@ -249,7 +249,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         renderProject: function(project) {
-            var projectSelector = "#project--" + project.id;
+            var projectSelector = "#project-" + project.id;
             if (jQuery(projectSelector).length) {
                 return;
             }
@@ -352,11 +352,11 @@ window.jpi.projects = (function(jQuery, jpi) {
             modal.find(".slide-show__nav").attr("data-colour", project.colour);
 
             jpi.modal.open(modal);
-            jpi.slideShow.start("#detailed-project__slide-show");
+            jpi.slideShow.start("#detailed-project-slide-show");
         },
 
         onProjectModalClose: function() {
-            jpi.slideShow.stop("#detailed-project__slide-show");
+            jpi.slideShow.stop("#detailed-project-slide-show");
             global.modalSlidesContainer.css({
                 "width": "",
                 "left": "",

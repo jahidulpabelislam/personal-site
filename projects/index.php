@@ -154,14 +154,14 @@ $page->renderHeader();
                         <div class="project__description" id="detailed-project-description"></div>
                         <div class="project__links"></div>
 
-                        <div class="slide-show project__slide-show" id="detailed-project__slide-show">
+                        <div class="slide-show project__slide-show" id="detailed-project-slide-show">
                             <div class="slide-show__viewport">
-                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project__slide-show"></div>
-                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-direction="previous">
+                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="previous">
                                     <span class="screen-reader-text">Navigate to the previous slide/image.</span>
                                     <?php echoFile(ROOT . "/assets/images/previous.svg"); ?>
                                 </button>
-                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project__slide-show" data-direction="next">
+                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="next">
                                     <span class="screen-reader-text">Navigate to the next slide/image.</span>
                                     <?php echoFile(ROOT . "/assets/images/next.svg"); ?>
                                 </button>
@@ -172,10 +172,10 @@ $page->renderHeader();
                 </div>
 
                 <script type="text/template" id="tmpl-project-template">
-                    <article class="project" id="project--{{ id }}">
-                        <div class="project__slide-show slide-show" id="slide-show--{{ id }}">
+                    <article class="project" id="project-{{ id }}">
+                        <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
                             <div class="slide-show__viewport">
-                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show--{{ id }}"></div>
+                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show-{{ id }}"></div>
                             </div>
                         </div>
 
@@ -199,7 +199,7 @@ $page->renderHeader();
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide" id="slide-{{ id }}">
-                        <img class="slide-show__image js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show--{{ project_id }}" data-slide-colour="{{ colour }}" />
+                        <img class="slide-show__image js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
                     </div>
                 </script>
 
