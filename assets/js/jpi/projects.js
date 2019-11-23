@@ -88,7 +88,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             url += global.url.search;
 
             jpi.helpers.createElement("a", item, {
-                "class": "pagination__link " + (isCurrent ? "active": ""),
+                "class": "pagination__link" + (isCurrent ? " active": ""),
                 "innerHTML": page,
                 "data-page": page,
                 "href": url,
@@ -143,7 +143,10 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                var classes = ["project__skill", "project__skill--" + project.colour];
+                var classes = ["project__skill"];
+                if (project.colour) {
+                    classes.push("project__skill--" + project.colour);
+                }
                 if (isInSearch) {
                     classes.push("searched");
                 }
@@ -168,37 +171,34 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             linksContainer = linksContainer[0];
 
+            var defaultAttributes = {
+                target: "_blank",
+                rel: "noopener",
+                class: "project__link",
+            };
+            if (project.colour) {
+                defaultAttributes.class += " project__link--" + project.colour;
+            }
+
             if (project.link) {
-                jpi.helpers.createElement("a", linksContainer, {
-                    href: project.link,
-                    title: "Link to " + project.name,
-                    target: "_blank",
-                    rel: "noopener",
-                    innerHTML: "<i class='fas fa-link fa-2x'></i>",
-                    class: "project__link project__link--" + project.colour,
-                });
+                defaultAttributes.href = project.link;
+                defaultAttributes.title = "Link to " + project.name;
+                defaultAttributes.innerHTML = "<i class='fas fa-link fa-2x'></i>";
+                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.download) {
-                jpi.helpers.createElement("a", linksContainer, {
-                    href: project.download,
-                    title: "Link to download " + project.name,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    innerHTML: "<i class='fas fa-download fa-2x'></i>",
-                    class: "project__link project__link--" + project.colour,
-                });
+                defaultAttributes.href = project.download;
+                defaultAttributes.title = "Link to download " + project.name;
+                defaultAttributes.innerHTML = "<i class='fas fa-download fa-2x'></i>";
+                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.github) {
-                jpi.helpers.createElement("a", linksContainer, {
-                    href: project.github,
-                    title: "Link to " + project.name + " code on GitHub",
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    innerHTML: "<i class='fab fa-github fa-2x'></i>",
-                    class: "project__link project__link--" + project.colour,
-                });
+                defaultAttributes.href = project.github;
+                defaultAttributes.title = "Link to " + project.name + " code on GitHub";
+                defaultAttributes.innerHTML = "<i class='fab fa-github fa-2x'></i>";
+                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
             }
         },
 
