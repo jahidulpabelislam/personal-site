@@ -88,7 +88,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             url += global.url.search;
 
             jpi.helpers.createElement("a", item, {
-                "class": "pagination__item-link " + (isCurrent ? "active": ""),
+                "class": "pagination__link " + (isCurrent ? "active": ""),
                 "innerHTML": page,
                 "data-page": page,
                 "href": url,
@@ -454,7 +454,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.doSearch();
             });
 
-            global.pagination.on("click", ".pagination__item-link", function(e) {
+            global.pagination.on("click", ".pagination__link", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
 

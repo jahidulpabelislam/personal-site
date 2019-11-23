@@ -1080,7 +1080,7 @@ label {
   display: inline-block;
   margin: 1px 4px; }
 
-.pagination__item-link.pagination__item-link {
+.pagination__link.pagination__link {
   display: inline-block;
   min-height: 38px;
   min-width: 38px;
@@ -1091,11 +1091,11 @@ label {
   color: #333333;
   transition: all .25s ease-in-out; }
 
-.pagination__item-link:hover {
+.pagination__link:hover {
   color: #0375b4; }
 
-.pagination__item-link.active,
-.pagination__item-link.active:hover {
+.pagination__link.active,
+.pagination__link.active:hover {
   background: #0375b4;
   border-color: #03659b;
   color: white; }
