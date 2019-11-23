@@ -46,6 +46,11 @@ window.jpi.home = (function(jQuery, jpi) {
             var slideTemplate = jQuery("#tmpl-slide-template").text();
             var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
+            if (project.date) {
+                var date = new Date(project.date);
+                project.date = global.dateFormat.format(date);
+            }
+
             // Make sure colour placeholders are replaced in content
             var colourRegex = fn.getTemplateRegex("colour");
             var fields = ["short_description"];
@@ -57,13 +62,7 @@ window.jpi.home = (function(jQuery, jpi) {
             for (var field in project) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
                     var regex = fn.getTemplateRegex(field);
-
                     var value = project[field];
-                    if (field === "date") {
-                        var date = new Date(value);
-                        value = global.dateFormat.format(date);
-                    }
-
                     slideTemplate = slideTemplate.replace(regex, value);
                     bulletTemplate = bulletTemplate.replace(regex, value);
                 }
