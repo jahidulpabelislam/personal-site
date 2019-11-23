@@ -90,12 +90,10 @@ window.jpi.home = (function(jQuery, jpi) {
                 return;
             }
 
-            linksContainer = linksContainer[0];
-
             if (project.link) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
                     href: project.link,
-                    innerHTML: "<i class='fas fa-link fa-2x'></i>",
+                    html: "<i class='fas fa-link fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
                     rel: "noopener",
@@ -105,7 +103,7 @@ window.jpi.home = (function(jQuery, jpi) {
             if (project.github) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
                     href: project.github,
-                    innerHTML: "<i class='fab fa-github fa-2x'></i>",
+                    html: "<i class='fab fa-github fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
                     rel: "noopener noreferrer",

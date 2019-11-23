@@ -39,26 +39,12 @@ window.jpi.helpers = (function(jQuery) {
 
         // Creates an element with attributes and appended to parent
         createElement: function(elementName, attributes) {
-            var newElem = document.createElement(elementName);
-
-            attributes = attributes || {};
-            for (var attribute in attributes) {
-                if (attributes.hasOwnProperty(attribute)) {
-                    if (attribute === "innerHTML") {
-                        newElem[attribute] = attributes[attribute];
-                    }
-                    else {
-                        newElem.setAttribute(attribute, attributes[attribute]);
-                    }
-                }
-            }
-
-            return newElem;
+            return jQuery("<" + elementName + ">", attributes);
         },
 
-        renderNewElement: function(elementName, parentElement, attributes) {
+        renderNewElement: function(elementName, parent, attributes) {
             var newElem = fn.createElement(elementName, attributes);
-            parentElement.appendChild(newElem);
+            parent.append(newElem);
 
             return newElem;
         },

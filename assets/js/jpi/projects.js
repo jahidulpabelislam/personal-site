@@ -82,17 +82,17 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         renderPaginationItem: function(page, containerElem, isCurrent) {
-            var item = jpi.helpers.renderNewElement("li", containerElem, {class: "pagination__item"});
-
             var url = fn.getNewURL(page);
             url += global.url.search;
 
-            jpi.helpers.renderNewElement("a", item, {
+            var link = jpi.helpers.createElement("a", {
                 "class": "pagination__link" + (isCurrent ? " active": ""),
-                "innerHTML": page,
+                "text": page,
                 "data-page": page,
                 "href": url,
             });
+
+            jpi.helpers.renderNewElement("li", containerElem, {class: "pagination__item", html: link});
         },
 
         // Adds pagination buttons/elements to the page
@@ -101,14 +101,13 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (totalProjects > jpi.config.projectsPerPage) {
                 var paginationElem = global.pagination;
 
-                var ul = paginationElem[0];
                 var currentPage = global.pageNumber;
 
                 var totalPages = Math.ceil(totalProjects / jpi.config.projectsPerPage);
 
                 for (var page = 1; page <= totalPages; page++) {
                     var isCurrent = page === currentPage;
-                    fn.renderPaginationItem(page, ul, isCurrent);
+                    fn.renderPaginationItem(page, paginationElem, isCurrent);
                 }
 
                 paginationElem.css("display", "inline-block");
@@ -118,8 +117,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderProjectSkills: function(project, containerSelector) {
             var skills = project.skills;
 
-            var skillsContainer = jQuery(containerSelector).find(".project__skills")[0];
-            if (!skillsContainer) {
+            var skillsContainer = jQuery(containerSelector).find(".project__skills");
+            if (!skillsContainer.length) {
                 return;
             }
 
@@ -152,7 +151,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
 
                 jpi.helpers.renderNewElement("a", skillsContainer, {
-                    innerHTML: skill,
+                    text: skill,
                     class: classes.join(" "),
                     href: "/projects/" + skill + "/",
                 });
@@ -169,8 +168,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            linksContainer = linksContainer[0];
-
             var defaultAttributes = {
                 target: "_blank",
                 rel: "noopener",
@@ -183,21 +180,21 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (project.link) {
                 defaultAttributes.href = project.link;
                 defaultAttributes.title = "Link to " + project.name;
-                defaultAttributes.innerHTML = "<i class='fas fa-link fa-2x'></i>";
+                defaultAttributes.html = "<i class='fas fa-link fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.download) {
                 defaultAttributes.href = project.download;
                 defaultAttributes.title = "Link to download " + project.name;
-                defaultAttributes.innerHTML = "<i class='fas fa-download fa-2x'></i>";
+                defaultAttributes.html = "<i class='fas fa-download fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.github) {
                 defaultAttributes.href = project.github;
                 defaultAttributes.title = "Link to " + project.name + " code on GitHub";
-                defaultAttributes.innerHTML = "<i class='fab fa-github fa-2x'></i>";
+                defaultAttributes.html = "<i class='fab fa-github fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
         },
