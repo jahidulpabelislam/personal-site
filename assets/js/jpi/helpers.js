@@ -38,7 +38,7 @@ window.jpi.helpers = (function(jQuery) {
         },
 
         // Creates an element with attributes and appended to parent
-        createElement: function(elementName, parentElement, attributes) {
+        createElement: function(elementName, attributes) {
             var newElem = document.createElement(elementName);
 
             attributes = attributes || {};
@@ -52,6 +52,12 @@ window.jpi.helpers = (function(jQuery) {
                     }
                 }
             }
+
+            return newElem;
+        },
+
+        renderNewElement: function(elementName, parentElement, attributes) {
+            var newElem = fn.createElement(elementName, attributes);
             parentElement.appendChild(newElem);
 
             return newElem;
@@ -151,6 +157,7 @@ window.jpi.helpers = (function(jQuery) {
         getTemplatingRegex: fn.getTemplatingRegex,
         checkInputField: fn.checkInputField,
         createElement: fn.createElement,
+        renderNewElement: fn.renderNewElement,
         getInt: fn.getInt,
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,

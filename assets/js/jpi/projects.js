@@ -82,12 +82,12 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         renderPaginationItem: function(page, containerElem, isCurrent) {
-            var item = jpi.helpers.createElement("li", containerElem, {class: "pagination__item"});
+            var item = jpi.helpers.renderNewElement("li", containerElem, {class: "pagination__item"});
 
             var url = fn.getNewURL(page);
             url += global.url.search;
 
-            jpi.helpers.createElement("a", item, {
+            jpi.helpers.renderNewElement("a", item, {
                 "class": "pagination__link" + (isCurrent ? " active": ""),
                 "innerHTML": page,
                 "data-page": page,
@@ -151,7 +151,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     classes.push("searched");
                 }
 
-                jpi.helpers.createElement("a", skillsContainer, {
+                jpi.helpers.renderNewElement("a", skillsContainer, {
                     innerHTML: skill,
                     class: classes.join(" "),
                     href: "/projects/" + skill + "/",
@@ -184,21 +184,21 @@ window.jpi.projects = (function(jQuery, jpi) {
                 defaultAttributes.href = project.link;
                 defaultAttributes.title = "Link to " + project.name;
                 defaultAttributes.innerHTML = "<i class='fas fa-link fa-2x'></i>";
-                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
+                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.download) {
                 defaultAttributes.href = project.download;
                 defaultAttributes.title = "Link to download " + project.name;
                 defaultAttributes.innerHTML = "<i class='fas fa-download fa-2x'></i>";
-                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
+                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.github) {
                 defaultAttributes.href = project.github;
                 defaultAttributes.title = "Link to " + project.name + " code on GitHub";
                 defaultAttributes.innerHTML = "<i class='fab fa-github fa-2x'></i>";
-                jpi.helpers.createElement("a", linksContainer, defaultAttributes);
+                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
         },
 

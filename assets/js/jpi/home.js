@@ -93,7 +93,7 @@ window.jpi.home = (function(jQuery, jpi) {
             linksContainer = linksContainer[0];
 
             if (project.link) {
-                jpi.helpers.createElement("a", linksContainer, {
+                jpi.helpers.renderNewElement("a", linksContainer, {
                     href: project.link,
                     innerHTML: "<i class='fas fa-link fa-2x'></i>",
                     class: "button button--clear latest-project__link",
@@ -103,7 +103,7 @@ window.jpi.home = (function(jQuery, jpi) {
             }
 
             if (project.github) {
-                jpi.helpers.createElement("a", linksContainer, {
+                jpi.helpers.renderNewElement("a", linksContainer, {
                     href: project.github,
                     innerHTML: "<i class='fab fa-github fa-2x'></i>",
                     class: "button button--clear latest-project__link",

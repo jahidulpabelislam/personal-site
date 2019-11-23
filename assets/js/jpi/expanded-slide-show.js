@@ -90,7 +90,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                     }
 
                     // Set up bullet navigation for slide
-                    jpi.helpers.createElement("button", bulletsContainer[0], {
+                    jpi.helpers.renderNewElement("button", bulletsContainer[0], {
                         "class": "expanded-slide-show__bullet",
                         "data-slide-id": i,
                     });
