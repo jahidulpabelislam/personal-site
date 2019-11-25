@@ -105,7 +105,7 @@ const runCommand = function(command, callback) {
             return;
         }
         // Else log any errors
-        console.log(err, res, stdErr);
+        console.log("Store version error:", err, res, stdErr);
         callback(null);
     });
 };
@@ -116,29 +116,28 @@ gulp.task("store-version", function() {
     const fileName = `${assetsDir}/version.txt`;
     let versionText = "";
 
-    // Try to get current branch name
-    return runCommand("git branch | grep \\* | cut --complement -d ' ' -f1", function(branchName) {
-        /**
-         * We only use branch name as the 'version' if current branch is a dev branch (i.e. not master and not a detached tag state)
-         * Else if production, find and get the current running tag to use as the current 'version'
-         */
-        if (branchName && branchName !== "master" && !branchName.startsWith("(HEAD detached at v")) {
-            versionText = `<a href="${githubBaseURL}/tree/${branchName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${branchName}</a>`;
+    // If last commit is tagged use that
+    return runCommand("git describe --exact-match | cut --complement -d ' ' -f1", function (tag) {
+        if (tag) {
+            versionText = `<a href="${githubBaseURL}/releases/tag/${tag}/" class="link-styled" target="_blank" rel="noopener noreferrer">${tag}</a>`;
             return fs.writeFile(fileName, versionText, errorCallback);
         }
 
-        // Try and get the currently running tag
-        return runCommand("git describe --abbrev=0 --tags", function(tagName) {
-            // If found store in text file
-            if (tagName) {
-                versionText = `<a href="${githubBaseURL}/releases/tag/${tagName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${tagName}</a>`;
-            }
-            // Else drop back to branch name if exists else remove version value from file
-            else if (branchName) {
+        // Else try get and use current branch name
+        return runCommand("git branch | grep \\* | cut --complement -d ' ' -f1", function(branchName) {
+            // We use branch name as the 'version' if current branch is not a detached tag state
+            if (branchName && !branchName.startsWith("(HEAD detached at")) {
                 versionText = `<a href="${githubBaseURL}/tree/${branchName}/" class="link-styled" target="_blank" rel="noopener noreferrer">${branchName}</a>`;
+                return fs.writeFile(fileName, versionText, errorCallback);
             }
 
-            fs.writeFile(fileName, versionText, errorCallback);
+            // Try and get the last commit Id
+            return runCommand("git rev-parse HEAD", function(commitId) {
+                if (commitId) {
+                    versionText = `<a href="${githubBaseURL}/tree/${commitId}/" class="link-styled" target="_blank" rel="noopener noreferrer">${commitId}</a>`;
+                }
+                return fs.writeFile(fileName, versionText, errorCallback);
+            });
         });
     });
 });
