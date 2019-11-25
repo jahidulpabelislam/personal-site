@@ -24,6 +24,26 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     var fn = {
 
+        // Helper function to format Project data from the API to the necessary format for the Website
+        formatProjectData: function(project) {
+            if (project.date) {
+                var date = new Date(project.date);
+                project.date = global.dateFormat.format(date);
+            }
+
+            // Make sure colour placeholders are replaced in content
+            var colourRegex = fn.getTemplateRegex("colour");
+            var fields = ["short_description", "long_description"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if (project.hasOwnProperty(field)) {
+                    project[field] = project[field].replace(colourRegex, project.colour);
+                }
+            }
+
+            return project;
+        },
+
         getCurrentPageNum: function() {
             var currentPageNum = jQuery(".js-projects-page").val();
             currentPageNum = jpi.helpers.getInt(currentPageNum, 1);
@@ -257,18 +277,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            if (project.date) {
-                var date = new Date(project.date);
-                project.date = global.dateFormat.format(date);
-            }
-
-            // Make sure colour placeholders are replaced in content
-            var colourRegex = fn.getTemplateRegex("colour");
-            var fields = ["short_description", "long_description"];
-            for (var i = 0; i < fields.length; i++) {
-                var field = fields[i];
-                project[field] = project[field].replace(colourRegex, project.colour);
-            }
+            project = fn.formatProjectData(project);
 
             global.projects[project.id] = project;
 
@@ -527,8 +536,9 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
+            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
             if (jQuery(".js-all-projects").length) {
-                global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
                 global.typeColourRegex = new RegExp("project__type--[\\w-]*", "g");
 
                 fn.initListeners();
@@ -539,6 +549,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     jQuery(window).on("jpi-css-loaded", fn.init);
 
-    return {};
+    return {
+        formatProjectData: fn.formatProjectData,
+    };
 
 })(jQuery, jpi);

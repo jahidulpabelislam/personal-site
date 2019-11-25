@@ -9,7 +9,6 @@ window.jpi.home = (function(jQuery, jpi) {
 
     var global = {
         templateRegexes: {},
-        dateFormat: false,
     };
 
     var fn = {
@@ -46,18 +45,7 @@ window.jpi.home = (function(jQuery, jpi) {
             var slideTemplate = jQuery("#tmpl-slide-template").text();
             var bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-            if (project.date) {
-                var date = new Date(project.date);
-                project.date = global.dateFormat.format(date);
-            }
-
-            // Make sure colour placeholders are replaced in content
-            var colourRegex = fn.getTemplateRegex("colour");
-            var fields = ["short_description"];
-            for (var i = 0; i < fields.length; i++) {
-                var field = fields[i];
-                project[field] = project[field].replace(colourRegex, project.colour);
-            }
+            project = jpi.projects.formatProjectData(project);
 
             for (var field in project) {
                 if (typeof field === "string" && project.hasOwnProperty(field)) {
@@ -113,8 +101,6 @@ window.jpi.home = (function(jQuery, jpi) {
         // Sets up events when projects is received
         gotProjects: function(response) {
             jQuery(".feedback--error, .projects__loading-img").text("").hide("fast");
-
-            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
             // Send the data, the function to do if data is valid
             var dataValid = jpi.ajax.renderRowsOrFeedback(
