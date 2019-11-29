@@ -74,6 +74,26 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
+        // Helper function to format Project data from the API to the necessary format for the Website
+        formatProjectData: function(project) {
+            if (project.date) {
+                var date = new Date(project.date);
+                project.date = global.dateFormat.format(date);
+            }
+
+            // Make sure colour placeholders are replaced in content
+            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
+            var fields = ["short_description", "long_description"];
+            for (var i = 0; i < fields.length; i++) {
+                var field = fields[i];
+                if (project.hasOwnProperty(field)) {
+                    project[field] = project[field].replace(colourRegex, project.colour);
+                }
+            }
+
+            return project;
+        },
+
         renderError: function(error) {
             global.errorElem.text(error).show(600);
             global.pagination.text("").hide(600);
@@ -86,13 +106,16 @@ window.jpi.projects = (function(jQuery, jpi) {
             url += global.url.search;
 
             var link = jpi.helpers.createElement("a", {
-                "class": "pagination__link" + (isCurrent ? " active": ""),
+                "class": "pagination__link" + (isCurrent ? " active" : ""),
                 "text": page,
                 "data-page": page,
                 "href": url,
             });
 
-            jpi.helpers.renderNewElement("li", containerElem, {class: "pagination__item", html: link});
+            jpi.helpers.renderNewElement("li", containerElem, {
+                class: "pagination__item",
+                html: link,
+            });
         },
 
         // Adds pagination buttons/elements to the page
@@ -251,18 +274,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            if (project.date) {
-                var date = new Date(project.date);
-                project.date = global.dateFormat.format(date);
-            }
-
-            // Make sure colour placeholders are replaced in content
-            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
-            var fields = ["short_description", "long_description"];
-            for (var i = 0; i < fields.length; i++) {
-                var field = fields[i];
-                project[field] = project[field].replace(colourRegex, project.colour);
-            }
+            project = fn.formatProjectData(project);
 
             global.projects[project.id] = project;
 
@@ -306,11 +318,9 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         getProjects: function() {
-            var page = global.pageNumber;
-            var search = global.searchInput.val();
             var query = {
-                page: page,
-                search: search,
+                page: global.pageNumber,
+                search: global.searchInput.val(),
                 limit: jpi.config.projectsPerPage,
             };
 
@@ -439,15 +449,17 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.modal.on("closed", fn.onProjectModalClose);
 
             global.body.on("click", ".project__skill", function(e) {
-                e.preventDefault();
                 jpi.modal.close();
+                e.preventDefault();
                 fn.scrollToProjects();
 
-                if (e.target.innerHTML === global.searchInput.val() && global.pageNumber === 1) {
+                var skill = e.target.innerHTML;
+
+                if (skill === global.searchInput.val() && global.pageNumber === 1) {
                     return;
                 }
 
-                global.searchInput.val(e.target.innerHTML);
+                global.searchInput.val(skill);
                 fn.doSearch();
             });
 
@@ -462,8 +474,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                     return;
                 }
 
-                fn.scrollToProjects();
                 global.pageNumber = page;
+                fn.scrollToProjects();
                 fn.storeLatestSearch();
                 fn.getProjects();
             });
@@ -483,6 +495,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
+            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+
             global.projectsElem = jQuery(".projects__items");
             if (!global.projectsElem.length) {
                 return
@@ -509,8 +523,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.slideTemplate = jQuery("#tmpl-slide-template").text();
             global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
 
-            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
-
             global.typeColourRegex = /project__type--[\w-]*/g;
 
             var state = {
@@ -527,6 +539,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     jQuery(window).on("jpi-css-loaded", fn.init);
 
-    return {};
+    return {
+        formatProjectData: fn.formatProjectData,
+    };
 
 })(jQuery, jpi);
