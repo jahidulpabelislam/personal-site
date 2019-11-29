@@ -47,7 +47,7 @@ window.jpi.modal = (function(jQuery) {
         triggerClose: function() {
             var closeButton = global.activeModal.find(".js-modal-close");
             if (closeButton.length) {
-                closeButton.click();
+                closeButton.trigger("click");
                 return;
             }
 
@@ -92,8 +92,8 @@ window.jpi.modal = (function(jQuery) {
             // Only close if clicked outside of the modal content elem
             var clickedElem = jQuery(e.target);
             if (
-                clickedElem.children(".modal__content").length
-                && !clickedElem.closest(".modal__content").length
+                clickedElem.children(".modal__content").length &&
+                !clickedElem.closest(".modal__content").length
             ) {
                 fn.triggerClose();
             }
