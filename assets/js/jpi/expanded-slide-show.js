@@ -120,7 +120,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
                 fn.changeElement(slideId);
             });
 
-            jQuery("body").on("click", ".js-expandable-image", fn.open);
+            jQuery("body").on("click", ".js-expandable-image", fn.show);
             jQuery(".expanded-slide-show__nav").on("click", function() {
                 var direction = jQuery(this).attr("data-direction");
                 fn[direction]();
