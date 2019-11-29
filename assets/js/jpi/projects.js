@@ -365,8 +365,8 @@ window.jpi.projects = (function(jQuery, jpi) {
         onProjectModalClose: function() {
             jpi.slideShow.stop("#detailed-project-slide-show");
             global.modalSlidesContainer.css({
-                "width": "",
-                "left": "",
+                width: "",
+                left: "",
             });
         },
 
@@ -499,7 +499,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.projectsElem = jQuery(".projects__items");
             if (!global.projectsElem.length) {
-                return
+                return;
             }
 
             global.url = new URL(window.location);

@@ -124,7 +124,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Sets up events when the user wants to change slides with drag control
         onSlideDrag: function(startEvent) {
-            var getXPosition = function (e) {
+            var getXPosition = function(e) {
                 return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
             };
 

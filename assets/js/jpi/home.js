@@ -14,7 +14,6 @@ window.jpi.home = (function(jQuery, jpi) {
         errorElem: null,
         slideTemplate: "",
         bulletTemplate: "",
-        dateFormat: false,
     };
 
     var fn = {
@@ -110,8 +109,6 @@ window.jpi.home = (function(jQuery, jpi) {
 
             global.slidesContainer = jQuery(".slide-show__slides");
             global.bulletsElem = jQuery(".slide-show__bullets");
-
-            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
 
             // Send the data, the function to do if data is valid
             var dataValid = jpi.ajax.renderRowsOrError(

@@ -38,11 +38,11 @@ window.jpi.helpers = (function(jQuery) {
         },
 
         createElement: function(elementName, attributes) {
-            return jQuery("<" + elementName + ">", attributes);
+            return jQuery("<" + elementName + ">", attributes || {});
         },
 
         renderNewElement: function(elementName, parent, attributes) {
-            var newElement = fn.createElement(elementName, attributes);
+            var newElement = fn.createElement(elementName, attributes || {});
             parent.append(newElement);
 
             return newElement;

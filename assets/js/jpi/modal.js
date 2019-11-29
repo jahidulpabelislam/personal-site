@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.modal = (function(jQuery) {
+window.jpi.modal = (function(jQuery, jpi) {
 
     "use strict";
 
@@ -118,7 +118,7 @@ window.jpi.modal = (function(jQuery) {
         },
 
         onKeyDown: function(e) {
-            switch(e.keyCode || e.key) {
+            switch (e.keyCode || e.key) {
                 case 9:
                 case "Tab":
                     if (global.focusables.length <= 1) {
@@ -144,8 +144,10 @@ window.jpi.modal = (function(jQuery) {
             global.body = jQuery("body");
             global.page = jQuery(".page-container");
 
-            // Due to the way the modal's are rendered
-            // move all modal's after the page element for accessibility
+            /**
+             * Due to the way the modal's are rendered
+             * move all modal's after the page element for accessibility
+             */
             jQuery(global.selector).insertAfter(global.page);
 
             global.body.on("click", global.selector, fn.onModalClick);
@@ -159,6 +161,6 @@ window.jpi.modal = (function(jQuery) {
     return {
         open: fn.open,
         close: fn.close,
-    }
+    };
 
-})(jQuery);
+})(jQuery, jpi);
