@@ -1,5 +1,9 @@
 <?php
 
+function getEnvironment(): string {
+    return getenv("APPLICATION_ENV") ?? "production";
+}
+
 function removeTrailingSlash(string $url): string {
     $url = rtrim($url, "/");
 

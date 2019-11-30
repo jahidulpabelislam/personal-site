@@ -35,7 +35,7 @@ class Site {
     private static $instance;
 
     public function __construct() {
-        $this->environment = getenv("APPLICATION_ENV") ?? "production";
+        $this->environment = getEnvironment();
     }
 
     public static function get(): Site {
