@@ -26,14 +26,12 @@ window.jpi.helpers = (function(jQuery) {
          * or remove invalid class if not empty and return true
          */
         checkInputField: function(input) {
-            if (input.value.trim() === "") {
-                input.classList.remove("valid");
-                input.classList.add("invalid");
+            if (input.val().trim() === "") {
+                input.removeClass("valid").addClass("invalid");
                 return false;
             }
 
-            input.classList.remove("invalid");
-            input.classList.add("valid");
+            input.removeClass("invalid").addClass("valid");
             return true;
         },
 
