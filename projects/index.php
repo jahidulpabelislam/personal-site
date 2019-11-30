@@ -142,7 +142,7 @@ $page->renderHeader();
 
                 <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
                     <div class="modal__content">
-                        <button type="button" class="btn btn--white modal__close js-modal-close" aria-label="Close">X</button>
+                        <button type="button" class="btn modal__close js-modal-close" aria-label="Close">X</button>
 
                         <h4 class="modal__heading" id="detailed-project-title"></h4>
 
