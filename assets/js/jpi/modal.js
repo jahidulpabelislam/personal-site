@@ -136,6 +136,12 @@ window.jpi.modal = (function(jQuery) {
             }
         },
 
+        onClose: function() {
+            if (global.activeModal && global.activeModal.has(jQuery(this))) {
+                fn.close();
+            }
+        },
+
         init: function() {
             global.body = jQuery("body");
             global.page = jQuery(".page-container");
@@ -145,6 +151,7 @@ window.jpi.modal = (function(jQuery) {
             jQuery(global.selector).insertAfter(global.page);
 
             global.body.on("click", global.selector, fn.onModalClick);
+            global.body.on("click", ".js-modal-close", fn.onClose);
             global.body.on("keydown", global.selector, fn.onKeyDown);
         },
 

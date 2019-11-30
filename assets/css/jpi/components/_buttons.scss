@@ -43,9 +43,17 @@ button,
     }
 }
 
+.btn--white {
+    background-color: white;
+    color: $dark-colour;
+}
+.btn--white:hover,
+.btn--white:focus {
+    background-color: darken(white, 1%);
+}
+
 .btn--clear {
     background-color: transparent;
-    border-color: transparent;
     color: white;
 }
 
