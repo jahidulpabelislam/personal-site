@@ -58,7 +58,8 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             fn.changeSlide(global.currentSlide - 1);
         },
 
-        close: function() {
+        close: function(e) {
+            e.stopPropagation();
             global.expandedImageDivContainer.removeClass("active").addClass("hiding");
 
             global.timeout = setTimeout(function() {

@@ -583,9 +583,16 @@ button {
 .button--black:focus {
   background-color: #262626; }
 
+.button--white {
+  background-color: white;
+  color: #333333; }
+
+.button--white:hover,
+.button--white:focus {
+  background-color: #fcfcfc; }
+
 .button--clear {
   background-color: transparent;
-  border-color: transparent;
   color: white; }
 
 .button--clear:hover,
@@ -1538,6 +1545,7 @@ label {
   z-index: -1; }
 
 .modal__content {
+  position: relative;
   max-width: 90%;
   margin: 40px auto;
   padding: 15px;
@@ -1545,8 +1553,20 @@ label {
   border: #7b8676 solid 1px;
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
-  overflow: hidden;
   cursor: default; }
+
+.modal__close {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+  font-size: 26px;
+  padding: 12px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
 .modal__heading {
   font-family: "Oswald", sans-serif;
@@ -3027,10 +3047,13 @@ label {
 
 .expanded-slide-show__close {
   position: absolute;
+  top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
-  padding: 0;
+  margin: 0;
+  padding: 7px 10px;
+  min-width: 32px;
+  min-height: 32px;
+  font-size: 21px;
   z-index: 1; }
 
 .expanded-slide-show__counter {

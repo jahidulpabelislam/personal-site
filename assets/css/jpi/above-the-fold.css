@@ -477,9 +477,16 @@ button {
 .button--black:focus {
   background-color: #262626; }
 
+.button--white {
+  background-color: white;
+  color: #333333; }
+
+.button--white:hover,
+.button--white:focus {
+  background-color: #fcfcfc; }
+
 .button--clear {
   background-color: transparent;
-  border-color: transparent;
   color: white; }
 
 .button--clear:hover,

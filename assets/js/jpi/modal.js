@@ -49,7 +49,7 @@ window.jpi.modal = (function(jQuery, jpi) {
         triggerClose: function() {
             var closeButton = global.activeModal.find(".js-modal-close");
             if (closeButton.length) {
-                closeButton.click();
+                closeButton.trigger("click");
                 return;
             }
 
@@ -96,8 +96,8 @@ window.jpi.modal = (function(jQuery, jpi) {
             // Only close if clicked outside of the modal content elem
             var clickedElem = jQuery(e.target);
             if (
-                clickedElem.children(".modal__content").length
-                && !clickedElem.closest(".modal__content").length
+                clickedElem.children(".modal__content").length &&
+                !clickedElem.closest(".modal__content").length
             ) {
                 fn.triggerClose();
             }
@@ -140,6 +140,12 @@ window.jpi.modal = (function(jQuery, jpi) {
             }
         },
 
+        onClose: function() {
+            if (global.activeModal && global.activeModal.has(jQuery(this))) {
+                fn.close();
+            }
+        },
+
         init: function() {
             global.body = jQuery("body");
             global.page = jQuery(".page-container");
@@ -151,6 +157,7 @@ window.jpi.modal = (function(jQuery, jpi) {
             jQuery(global.selector).insertAfter(global.page);
 
             global.body.on("click", global.selector, fn.onModalClick);
+            global.body.on("click", ".js-modal-close", fn.onClose);
             global.body.on("keydown", global.selector, fn.onKeyDown);
         },
 
