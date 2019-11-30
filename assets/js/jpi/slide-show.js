@@ -203,6 +203,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 fn.widenSlideShow(slideShowId);
                 slideShow.find(".slide-show__nav, .slide-show__bullets").show();
 
+                slideShow.find(".slide-show__slides")[0].addEventListener("touchstart", fn.dragStart);
+
                 global.slideShows[slideShowId] = setInterval(function() {
                     fn.move(slideShowId, "next");
                 }, global.durationPerSlide);
@@ -239,7 +241,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             var body = jQuery("body");
             body.on("dragstart", ".slide-show__image", false);
-            body.on("mousedown touchstart", ".js-slide-show .slide-show__slides", fn.onSlideDrag);
+            // body.on("mousedown touchstart", ".js-slide-show .slide-show__slides", fn.onSlideDrag);
             body.on("click", ".slide-show__bullet", fn.changeToSlide);
 
             body.on("click", ".slide-show__nav", function() {
