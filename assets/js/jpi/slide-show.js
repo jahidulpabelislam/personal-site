@@ -203,7 +203,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 fn.widenSlideShow(slideShowId);
                 slideShow.find(".slide-show__nav, .slide-show__bullets").show();
 
-                slideShow.find(".slide-show__slides")[0].addEventListener("touchstart", fn.dragStart);
+                slideShow.find(".slide-show__slides")[0].addEventListener("touchstart", fn.onSlideDrag);
 
                 global.slideShows[slideShowId] = setInterval(function() {
                     fn.move(slideShowId, "next");
