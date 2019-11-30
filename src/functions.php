@@ -30,6 +30,14 @@ function getProjectRoot(): string {
     return removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
 }
 
+function getConfigPath(string $level = null): string {
+    if ($level && !in_array($level, ["global", "site", "production"])) {
+        return getProjectRoot() . "/src/config.{$level}.php";
+    }
+
+    return getProjectRoot() . "/src/config.php";
+}
+
 function addTrailingSlash(string $url): string {
     $url = removeTrailingSlash($url);
 

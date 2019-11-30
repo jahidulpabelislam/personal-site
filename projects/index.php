@@ -4,8 +4,6 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$site::echoConfig();
-
 $projectsPerPage = 6;
 
 $apiRequestParams = [

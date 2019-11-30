@@ -13,8 +13,6 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$site::echoConfig();
-
 $page->renderHTMLHead();
 $page->renderNav();
 $page->renderHeader();

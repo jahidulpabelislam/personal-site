@@ -53,7 +53,7 @@ projects/*.zip
 node_modules/*
 npm-debug.log*
 
-/config.php
+src/config.local.php
 
 logs/*.log
 

@@ -51,13 +51,6 @@ class Site {
     }
 
     /**
-     * Include the common config file for page/site
-     */
-    public static function echoConfig() {
-        include_once(ROOT . "/config.php");
-    }
-
-    /**
      * @return bool Whether or not the debug was set by user on page view
      */
     public function getIsDebug(): bool {
