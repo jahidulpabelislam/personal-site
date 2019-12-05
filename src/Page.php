@@ -29,7 +29,7 @@ class Page {
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css");
+            $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0");
         }
 
         $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
