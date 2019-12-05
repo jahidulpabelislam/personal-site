@@ -102,10 +102,10 @@ $page = Page::get();
                 ["file" => "/assets/js/jpi/main.js"],
             ];
         }
-        $page->addJSScripts($scripts);
+        $page->addScripts($scripts);
 
         $page->renderJSGlobals();
-        $page->renderJSScripts();
+        $page->renderScripts();
         ?>
 
         <script type="application/javascript">

@@ -75,7 +75,7 @@ class Page {
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
             ],
-            "jsScripts" => [],
+            "scripts" => [],
         ];
 
         return $globalPageData;
@@ -93,16 +93,16 @@ class Page {
         $this->data["jsGlobals"][$global][$key] = $value;
     }
 
-    public function addJSScript($script, $ver = false) {
+    public function addScript($script, $ver = false) {
         $script = addAssetVersion($script, $ver);
-        $this->data["jsScripts"][] = $script;
+        $this->data["scripts"][] = $script;
     }
 
-    public function addJSScripts(array $scripts) {
+    public function addScripts(array $scripts) {
         foreach ($scripts as $script) {
             $file = $script["file"];
             $ver = $script["ver"] ?? false;
-            $this->addJSScript($file, $ver);
+            $this->addScript($file, $ver);
         }
     }
 

@@ -113,8 +113,8 @@ class Renderer {
         <?php
     }
 
-    public function renderJSScripts() {
-        $scripts = $this->page->jsScripts;
+    public function renderScripts() {
+        $scripts = $this->page->scripts;
 
         if (empty($scripts)) {
             return;

@@ -79,8 +79,8 @@ $page->renderHTMLHead();
                 ["file" => "/assets/js/jpi/helpers.js"],
             ];
         }
-        $page->addJSScripts($scripts);
-        $page->renderJSScripts();
+        $page->addScripts($scripts);
+        $page->renderScripts();
         ?>
 
         <script type="application/javascript">
