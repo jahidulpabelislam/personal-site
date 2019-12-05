@@ -86,7 +86,7 @@ class Page {
     }
 
     public function addPageData(array $newPageData) {
-        $this->data = array_merge($this->data, $newPageData);
+        $this->data = array_replace_recursive($this->data, $newPageData);
     }
 
     public function getFromPageData(string $field) {
