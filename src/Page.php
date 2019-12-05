@@ -21,6 +21,25 @@ class Page {
         return self::$instance;
     }
 
+    /**
+     * Get the page specific stylesheet/css or the default
+     * @param $pageId string
+     * @return string
+     */
+    private function getPageStylesheet(string $pageId): string {
+        $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
+        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
+
+        // Some pages (like `Links`) may use its own css file
+        // so figure out if one exists to use, else use the main one
+        $cssSrc = "/{$cssDir}/main.{$cssExtension}";
+        if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
+            $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
+        }
+
+        return addAssetVersion($cssSrc);
+    }
+
     public function getStylesheetsForPage(string $pageId): array {
         $stylesheets = [];
 
@@ -32,16 +51,7 @@ class Page {
             $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0");
         }
 
-        $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
-        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
-
-        // Some pages (like `Links`) may use its own css file
-        // so figure out if one exists to use, else use the main one
-        $cssSrc = "/{$cssDir}/main.{$cssExtension}";
-        if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
-            $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
-        }
-        $stylesheets[] = addAssetVersion($cssSrc);
+        $stylesheets[] = $this->getPageStylesheet($pageId);
 
         return $stylesheets;
     }
@@ -61,11 +71,11 @@ class Page {
         $globalPageData = [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
+            "stylesheets" => $this->getStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
             ],
             "jsScripts" => [],
-            "stylesheets" => $this->getStylesheetsForPage($pageId),
         ];
 
         return $globalPageData;

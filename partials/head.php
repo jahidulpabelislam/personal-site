@@ -73,8 +73,7 @@ $page = Page::get();
             <?php echoFile(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
-        $stylesheets = $page->stylesheets;
-        foreach ($stylesheets as $stylesheet) {
+        foreach ($page->stylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
             <?php
