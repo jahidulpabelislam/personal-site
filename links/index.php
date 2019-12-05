@@ -67,6 +67,7 @@ $page->renderHTMLHead();
                 </div>
             </div>
         </main>
+        </div>
 
         <?php
         // Either output a compiled js file for whole page & libraries js files, or include individual files if debug is specified
