@@ -25,6 +25,33 @@ class Page {
         return self::$instance;
     }
 
+    public function __call($method, $arguments) {
+        if (strpos($method, "render") === 0) {
+            if (method_exists($this->renderer, $method)) {
+                return call_user_func_array([$this->renderer, $method], $arguments);
+            }
+        }
+
+        throw new Exception("No method found for {$method}");
+    }
+
+    public function __get(string $field) {
+        return $this->getFromPageData($field);
+    }
+
+    public function __set(string $field, $value) {
+        $this->data[$field] = $value;
+    }
+
+    public function __isset(string $field): bool {
+        if (array_key_exists($field, $this->data)) {
+            $value = $this->getFromPageData($field);
+            return isset($value);
+        }
+
+        return false;
+    }
+
     /**
      * Get the page specific stylesheet/css or the default
      * @param $pageId string
@@ -108,33 +135,6 @@ class Page {
             $ver = $script["ver"] ?? false;
             $this->addScript($file, $ver);
         }
-    }
-
-    public function __call($method, $arguments) {
-        if (strpos($method, "render") === 0) {
-            if (method_exists($this->renderer, $method)) {
-                return call_user_func_array([$this->renderer, $method], $arguments);
-            }
-        }
-
-        throw new Exception("No method found for {$method}");
-    }
-
-    public function __get(string $field) {
-        return $this->getFromPageData($field);
-    }
-
-    public function __set(string $field, $value) {
-        $this->data[$field] = $value;
-    }
-
-    public function __isset(string $field): bool {
-        if (array_key_exists($field, $this->data)) {
-            $value = $this->getFromPageData($field);
-            return isset($value);
-        }
-
-        return false;
     }
 
 }
