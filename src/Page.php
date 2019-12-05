@@ -5,12 +5,16 @@ class Page {
     private $site;
     private $data;
 
+    private $renderer;
+
     private static $instance;
 
     public function __construct() {
         $this->site = Site::get();
 
         $this->data = $this->getGlobalPageData();
+
+        $this->renderer = new Renderer($this);
     }
 
     public static function get(): Page {
@@ -108,10 +112,8 @@ class Page {
 
     public function __call($method, $arguments) {
         if (strpos($method, "render") === 0) {
-
-            $renderer = new Renderer($this);
-            if (method_exists($renderer, $method)) {
-                return call_user_func_array([$renderer, $method], $arguments);
+            if (method_exists($this->renderer, $method)) {
+                return call_user_func_array([$this->renderer, $method], $arguments);
             }
         }
 
