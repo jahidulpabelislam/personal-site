@@ -85,29 +85,29 @@ window.jpi.helpers = (function(jQuery) {
             document.cookie = key + "=" + value + ";" + expires + ";path=/";
         },
 
-        loadCSSFiles: function(srcs) {
-            var totalSrcs = srcs.length;
-            if (!totalSrcs) {
+        loadStylesheets: function(stylesheets) {
+            var count = stylesheets.length;
+            if (!count) {
                 return;
             }
 
             var head = jQuery("head");
             var totalLoaded = 0;
 
-            for (var i = 0; i < totalSrcs; i++) {
-                var src = srcs[i];
+            for (var i = 0; i < count; i++) {
+                var stylesheet = stylesheets[i];
 
                 var newLink = fn.renderNewElement("link", head, {
                     rel: "stylesheet",
                     type: "text/css",
                     media: "all",
                     title: "style",
-                    href: src,
+                    href: stylesheet,
                 });
 
                 newLink.on("load", function() {
                     totalLoaded++;
-                    if (totalLoaded === totalSrcs) {
+                    if (totalLoaded === count) {
                         jQuery(window).trigger("jpi-css-loaded");
                     }
                 });
@@ -149,7 +149,7 @@ window.jpi.helpers = (function(jQuery) {
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,
         setCookie: fn.setCookie,
-        loadCSSFiles: fn.loadCSSFiles,
+        loadStylesheets: fn.loadStylesheets,
         debounce: fn.debounce,
     };
 })(jQuery);

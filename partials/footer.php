@@ -110,7 +110,7 @@ $page = Page::get();
 
         <script type="application/javascript">
             jQuery(document).on("ready", function() {
-                jpi.helpers.loadCSSFiles(<?php echo json_encode($page->stylesheets); ?>);
+                jpi.helpers.loadStylesheets(<?php echo json_encode($page->stylesheets); ?>);
             });
         </script>
     </body>
