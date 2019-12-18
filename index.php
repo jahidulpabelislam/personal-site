@@ -187,7 +187,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
 
                 <script type="text/template" id="tmpl-slide-template">
                     <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
-                        <img class="slide-show__image latest-project__image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of {{ name }} Project" />
+                        <img class="slide-show__image latest-project__image" src="<?php $site::echoProjectImageURL("{{ images.0.file }}"); ?>" alt="Screen shot of {{ name }} Project" />
                         <div class="latest-project__info">
                             <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
                                 <div class="latest-project__header">

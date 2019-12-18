@@ -204,7 +204,7 @@ $page->renderHeader();
                 </script>
 
                 <script type="text/template" id="tmpl-slide-bullet-template">
-                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slide-show-id }}" data-slide-id="#slide-{{ id }}">
+                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
                     </button>
                 </script>
 

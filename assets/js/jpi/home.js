@@ -7,6 +7,8 @@ window.jpi.home = (function(jQuery, jpi) {
 
     "use strict";
 
+    var Template = jpi.Template;
+
     var global = {
         slidesContainer: null,
         bulletsElem: null,
@@ -42,27 +44,20 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         renderProject: function(project) {
-            var slide = global.slideTemplate;
-            var bullet = global.bulletTemplate;
-
             project = jpi.projects.formatProjectData(project);
 
+            var slideTemplate = new Template(global.slideTemplate);
+            var bulletTemplate = new Template(global.bulletTemplate);
             for (var field in project) {
-                if (typeof field === "string" && project.hasOwnProperty(field)) {
-                    var regex = jpi.helpers.getTemplatingRegex(field);
+                if (project.hasOwnProperty(field)) {
                     var value = project[field];
-                    slide = slide.replace(regex, value);
-                    bullet = bullet.replace(regex, value);
+                    slideTemplate.replace(field, value);
+                    bulletTemplate.replace(field, value);
                 }
             }
 
-            if (project.images && project.images.length && project.images[0]) {
-                var imageRegex = jpi.helpers.getTemplatingRegex("file");
-                slide = slide.replace(imageRegex, project.images[0].file);
-            }
-
-            global.slidesContainer.append(slide);
-            global.bulletsElem.append(bullet);
+            slideTemplate.renderIn(global.slidesContainer);
+            bulletTemplate.renderIn(global.bulletsElem);
 
             var slideId = "#slide-" + project.id;
             var slideElem = jQuery(slideId);

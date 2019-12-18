@@ -92,6 +92,7 @@ $page = Page::get();
                 ["file" => "/assets/js/jpi/expanded-slide-show.js"],
                 ["file" => "/assets/js/jpi/slide-show.js"],
                 ["file" => "/assets/js/jpi/helpers.js"],
+                ["file" => "/assets/js/jpi/templating.js"],
                 ["file" => "/assets/js/jpi/ajax.js"],
                 ["file" => "/assets/js/jpi/modal.js"],
                 ["file" => "/assets/js/jpi/projects.js"],

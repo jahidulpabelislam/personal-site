@@ -7,18 +7,9 @@ window.jpi.helpers = (function(jQuery) {
     "use strict";
 
     var global = {
-        templatingRegexes: {},
     };
 
     var fn = {
-
-        getTemplatingRegex: function(regex) {
-            if (!global.templatingRegexes[regex]) {
-                global.templatingRegexes[regex] = new RegExp("\{{2} ?" + regex + " ?\\}{2}", "g");
-            }
-
-            return global.templatingRegexes[regex];
-        },
 
         /**
          * Used to check if a input field is empty
@@ -141,7 +132,6 @@ window.jpi.helpers = (function(jQuery) {
     };
 
     return {
-        getTemplatingRegex: fn.getTemplatingRegex,
         checkInputField: fn.checkInputField,
         createElement: fn.createElement,
         renderNewElement: fn.renderNewElement,

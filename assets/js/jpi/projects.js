@@ -7,6 +7,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     "use strict";
 
+    var Template = jpi.Template;
+
     var global = {
         url: null,
         titleStart: "Projects",
@@ -82,12 +84,11 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             // Make sure colour placeholders are replaced in content
-            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
             var fields = ["short_description", "long_description"];
             for (var i = 0; i < fields.length; i++) {
                 var field = fields[i];
                 if (project.hasOwnProperty(field)) {
-                    project[field] = project[field].replace(colourRegex, project.colour);
+                    project[field] = (new Template(project[field])).replace("colour", project.colour);
                 }
             }
 
@@ -236,33 +237,31 @@ window.jpi.projects = (function(jQuery, jpi) {
             var slidesContainer = slideShow.find(".slide-show__slides");
             var slideShowBullets = slideShow.find(".slide-show__bullets");
 
-            var colourRegex = jpi.helpers.getTemplatingRegex("colour");
-            var slideShowIdRegex = jpi.helpers.getTemplatingRegex("slide-show-id");
-
             // Loop through each image in project
-            for (var i = 0; i < project.images.length; i++) {
-                if (!project.images.hasOwnProperty(i)) {
+            var images = project.images;
+            for (var i = 0; i < images.length; i++) {
+                if (!images.hasOwnProperty(i)) {
                     continue;
                 }
 
-                var slide = global.slideTemplate;
-                var bullet = global.bulletTemplate;
+                var slideTemplate = new Template(global.slideTemplate);
+                var bulletTemplate = new Template(global.bulletTemplate);
 
-                for (var field in project.images[i]) {
-                    if (typeof field === "string" && project.images[i].hasOwnProperty(field)) {
-                        var regex = jpi.helpers.getTemplatingRegex(field);
-                        var data = project.images[i][field];
-                        slide = slide.replace(regex, data);
-                        bullet = bullet.replace(regex, data);
+                var image = images[i];
+                for (var field in image) {
+                    if (image.hasOwnProperty(field)) {
+                        var value = image[field];
+                        slideTemplate.replace(field, value);
+                        bulletTemplate.replace(field, value);
                     }
                 }
 
-                slide = slide.replace(colourRegex, project.colour);
-                slidesContainer.append(slide);
+                slideTemplate.replace("colour", project.colour);
+                slideTemplate.renderIn(slidesContainer);
 
-                bullet = bullet.replace(colourRegex, project.colour);
-                bullet = bullet.replace(slideShowIdRegex, slideShowId);
-                slideShowBullets.append(bullet);
+                bulletTemplate.replace("colour", project.colour);
+                bulletTemplate.replace("slideShowId", slideShowId);
+                bulletTemplate.renderIn(slideShowBullets);
             }
 
             jpi.slideShow.start(slideShowId);
@@ -278,15 +277,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.projects[project.id] = project;
 
-            var template = global.projectTemplate;
-            for (var field in project) {
-                if (project.hasOwnProperty(field) && typeof field === "string") {
-                    var regex = jpi.helpers.getTemplatingRegex(field);
-                    var value = project[field];
-                    template = template.replace(regex, value);
-                }
-            }
-            global.projectsElem.append(template);
+            (new Template(global.projectTemplate, project)).renderIn(global.projectsElem);
 
             fn.renderProjectImages(project, projectSelector);
             fn.renderProjectLinks(project, projectSelector);
