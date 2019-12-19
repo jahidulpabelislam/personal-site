@@ -48,8 +48,7 @@ $page = Page::get();
 
         <?php
         $imageLocation = "assets/images/social-cards/{$pageId}.png";
-        $filePath = addTrailingSlash(ROOT) . $imageLocation;
-        if (file_exists($filePath)) {
+        if ((new File("/{$imageLocation}"))->exists()) {
             $localDomain = $site->getLocalDomain();
             $relativeImageURL = addAssetVersion($imageLocation);
             $imageURL = "{$localDomain}{$relativeImageURL}";
@@ -70,7 +69,7 @@ $page = Page::get();
         $cssExtension = $site->getIsDebug() ? "css" : "min.css";
         ?>
         <style>
-            <?php echoFile(ROOT . "{$cssDir}/above-the-fold.{$cssExtension}"); ?>
+            <?php renderFile("{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
         foreach ($page->stylesheets as $stylesheet) {

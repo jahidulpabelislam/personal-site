@@ -328,7 +328,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 
 <?php
 
-$page->addJSGlobal("config", "googleMapStyles", json_decode(file_get_contents(ROOT . "/assets/map-styling.json"), true));
+$page->addJSGlobal("config", "googleMapStyles", (new File("/assets/map-styling.json"))->getArray()());
 $page->addScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg", 1);
 
 $similarLinks = [

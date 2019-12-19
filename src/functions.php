@@ -150,9 +150,9 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
         $ver = "1"; // Default
 
         $src = removeLeadingSlash($src);
-        $file = addTrailingSlash($root) . $src;
-        if (file_exists($file)) {
-            $ver = date("mdYHi", filemtime($file));
+        $filepath = addTrailingSlash($root) . $src;
+        if ((new File($filepath, false))->exists()) {
+            $ver = date("mdYHi", filemtime($filepath));
         }
     }
 
@@ -229,8 +229,6 @@ function getTimeDifference($fromDate, $toDate, string $format): string {
  *
  * @param string $path
  */
-function echoFile(string $path) {
-    if (file_exists($path)) {
-        echo file_get_contents($path);
-    }
+function renderFile(string $path) {
+    (new File($path))->render();
 }

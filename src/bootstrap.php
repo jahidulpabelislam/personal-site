@@ -1,20 +1,17 @@
 <?php
 
 include_once("functions.php");
+include_once("File.php");
 
 // Include local config file (if found) for any local set up of constants takes precedence
 $localConfigPath = getConfigPath("local");
-if (file_exists($localConfigPath)) {
-    include_once($localConfigPath);
-}
+(new File($localConfigPath, false))->include();
 
 // Next include the config file for this deployment (if found)
 $environment = getEnvironment();
 if ($environment !== "production") {
     $environmentConfigPath = getConfigPath($environment);
-    if (file_exists($environmentConfigPath)) {
-        include_once($environmentConfigPath);
-    }
+    (new File($environmentConfigPath, false))->include();
 }
 
 include_once(getConfigPath());

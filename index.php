@@ -122,11 +122,11 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
                             <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous" data-colour="">
                                 <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                                <?php echoFile(ROOT . "/assets/images/previous.svg"); ?>
+                                <?php renderFile("/assets/images/previous.svg"); ?>
                             </button>
                             <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next" data-colour="">
                                 <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                                <?php echoFile(ROOT . "/assets/images/next.svg"); ?>
+                                <?php renderFile("/assets/images/next.svg"); ?>
                             </button>
                         </div>
                         <div class="slide-show__bullets"></div>
@@ -143,11 +143,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             <?php
                             $baseSpeed = 1600;
 
-                            $countsFilePath = ROOT . "/assets/counters.json";
-                            if (file_exists($countsFilePath)) {
-                                $countsContent = file_get_contents($countsFilePath);
-                                $counts = json_decode($countsContent, true);
-                            }
+                            $counts = (new File("/assets/counters.json"))->getArray()();
 
                             $counterItems = [
                                 [

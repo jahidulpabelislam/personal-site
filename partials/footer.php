@@ -55,7 +55,7 @@ $page = Page::get();
         <footer class="footer">
             <div class="container">
                 <div class="footer__version">
-                    <p><?php echoFile(ROOT . "/assets/version.txt"); ?></p>
+                    <p><?php renderFile("/assets/version.txt"); ?></p>
                 </div>
 
                 <div class="footer__links">

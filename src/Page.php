@@ -63,9 +63,9 @@ class Page {
 
         // Some pages (like `Links`) may use its own css file
         // so figure out if one exists to use, else use the main one
-        $cssSrc = "/{$cssDir}/main.{$cssExtension}";
-        if (file_exists(ROOT . "/{$cssDir}/{$pageId}.{$cssExtension}")) {
-            $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
+        $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
+        if (!(new File($cssSrc))->exists()) {
+            $cssSrc = "/{$cssDir}/main.{$cssExtension}";
         }
 
         return addAssetVersion($cssSrc);

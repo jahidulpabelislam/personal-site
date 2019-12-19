@@ -15,7 +15,7 @@ $site = Site::get();
                     <h2 class="header__desc"><?php echo $desc ?></h2>
                     <button class="header__scroll-to-content js-scroll-to-content">
                         <span class="screen-reader-text">Scroll to main content</span>
-                        <?php echoFile(ROOT . "/assets/images/down-arrow.svg"); ?>
+                        <?php renderFile("/assets/images/down-arrow.svg"); ?>
                     </button>
                 </div>
             </div>
