@@ -143,7 +143,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             <?php
                             $baseSpeed = 1600;
 
-                            $counts = (new File("/assets/counters.json"))->getArray()();
+                            $counts = (new File("/assets/counters.json"))->getArray();
 
                             $counterItems = [
                                 [
