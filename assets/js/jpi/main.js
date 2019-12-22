@@ -63,6 +63,21 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             }
         },
 
+        initSecondsCounter: function() {
+            var secsElem = jQuery(".js-seconds-on-site");
+            if (secsElem.length) {
+                var secsInMilliseconds = 1000;
+
+                setTimeout(function() {
+                    setInterval(function() {
+                        var lastSec = secsElem.text();
+                        lastSec = jpi.helpers.getInt(lastSec, 1);
+                        secsElem.text(lastSec + 1);
+                    }, secsInMilliseconds);
+                }, secsInMilliseconds);
+            }
+        },
+
         jumpToContent: function() {
             jQuery("html, body").animate(
                 {
@@ -110,6 +125,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
         init: function() {
             fn.initListeners();
+            fn.initSecondsCounter();
             fn.initCounters();
 
             jpi.stickyFooter = new StickyFooter(".main-content");

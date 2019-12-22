@@ -13,21 +13,6 @@ window.jpi.home = (function(jQuery, jpi) {
 
     var fn = {
 
-        initSecondsCounter: function() {
-            var secsElem = jQuery(".js-seconds-on-site");
-            if (secsElem.length) {
-                var secsInMilliseconds = 1000;
-
-                setTimeout(function() {
-                    setInterval(function() {
-                        var lastSec = secsElem.text();
-                        lastSec = jpi.helpers.getInt(lastSec, 1);
-                        secsElem.text(lastSec + 1);
-                    }, secsInMilliseconds);
-                }, secsInMilliseconds);
-            }
-        },
-
         renderError: function(error) {
             jQuery(".feedback--error").text(error).show("fast");
             jQuery(".projects__loading-img").hide("fast");
@@ -118,8 +103,6 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         init: function() {
-            fn.initSecondsCounter();
-
             if (jQuery("#slide-show--home").length) {
                 jQuery(".projects__loading-img").show("fast");
 
