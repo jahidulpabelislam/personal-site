@@ -37,9 +37,17 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             });
         },
 
+        counterFormatter: function(value, options) {
+            value = value.toFixed(options.decimals);
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return value;
+        },
+
         initCounter: function(options) {
             var counter = jQuery(this);
             options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
+            options.formatter = fn.counterFormatter;
+
             counter.countTo(options);
         },
 
