@@ -41,9 +41,15 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             });
         },
 
-        countTo: function() {
-            var counter = jQuery(this);
-            var options = jQuery.extend({}, counter.data("countToOptions") || {});
+        counterFormatter: function(value, options) {
+            options = options || {};
+            value = value.toFixed(options.decimals || 0);
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return value;
+        },
+
+        countTo: function(counter, options) {
+            options = jQuery.extend(options || {}, counter.data("countToOptions") || {});
             counter.countTo(options);
         },
 
@@ -51,6 +57,9 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             var counterGroups = jQuery(".js-counters");
 
             if (counterGroups.length) {
+                var countToOptions = {
+                    formatter: fn.counterFormatter,
+                };
                 var waypointArgs = {offset: "50%"};
                 counterGroups.each(function(i, groupElem) {
                     var group = jQuery(groupElem);
@@ -66,8 +75,31 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
                     group.waypoint(function() {
                         var wpGroup = jQuery(this);
                         var wpCounters = wpGroup.find(".js-counter");
-                        wpCounters.each(fn.countTo);
+                        wpCounters.each(function(i, counter) {
+                            fn.countTo(jQuery(counter), countToOptions);
+                        });
                     }, waypointArgs);
+                });
+            }
+        },
+
+        initSecondsCounter: function() {
+            var secsElems = jQuery(".js-seconds-on-site");
+            if (secsElems.length) {
+                var secsInMilliseconds = 1000;
+
+                secsElems.each(function(i, secsElem) {
+                    secsElem = jQuery(secsElem);
+                    setTimeout(function() {
+                        setInterval(function() {
+                            var lastSec = secsElem.attr("data-current-second");
+                            lastSec = jpi.helpers.getInt(lastSec, 0);
+                            var newSec = lastSec + 1;
+                            secsElem.attr("data-current-second", newSec);
+                            newSec = fn.counterFormatter(newSec);
+                            secsElem.text(newSec);
+                        }, secsInMilliseconds);
+                    }, secsInMilliseconds);
                 });
             }
         },
@@ -124,6 +156,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             jpi.stickyFooter = new StickyFooter(".main-content");
 
             fn.initListeners();
+            fn.initSecondsCounter();
             fn.initCounters();
         },
     };

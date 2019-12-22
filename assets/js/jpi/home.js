@@ -20,24 +20,6 @@ window.jpi.home = (function(jQuery, jpi) {
 
     var fn = {
 
-        initSecondsCounter: function() {
-            var secsElems = jQuery(".js-seconds-on-site");
-            if (secsElems.length) {
-                var secsInMilliseconds = 1000;
-
-                secsElems.each(function(i, secsElem) {
-                    secsElem = jQuery(secsElem);
-                    setTimeout(function() {
-                        setInterval(function() {
-                            var lastSec = secsElem.text();
-                            lastSec = jpi.helpers.getInt(lastSec, 1);
-                            secsElem.text(lastSec + 1);
-                        }, secsInMilliseconds);
-                    }, secsInMilliseconds);
-                });
-            }
-        },
-
         renderError: function(error) {
             global.errorElem.text(error).show(200);
             global.loadingElem.hide(200);
@@ -121,8 +103,6 @@ window.jpi.home = (function(jQuery, jpi) {
         },
 
         init: function() {
-            fn.initSecondsCounter();
-
             if (!jQuery(".latest-projects").length) {
                 return;
             }
