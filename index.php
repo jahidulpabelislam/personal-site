@@ -166,7 +166,7 @@ $yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), 
                             </div>
 
                             <div class="stats__item">
-                                <p class="article__header article__header--stats js-seconds-on-site">0</p>
+                                <p class="article__header article__header--stats js-seconds-on-site" data-current-second="0">0</p>
                                 <p class="stats__text">Seconds on here</p>
                             </div>
                         </div>

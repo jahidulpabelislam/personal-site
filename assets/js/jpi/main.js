@@ -38,7 +38,8 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         },
 
         counterFormatter: function(value, options) {
-            value = value.toFixed(options.decimals);
+            options = options || {};
+            value = value.toFixed(options.decimals || 0);
             value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             return value;
         },
@@ -70,9 +71,12 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
                 setTimeout(function() {
                     setInterval(function() {
-                        var lastSec = secsElem.text();
-                        lastSec = jpi.helpers.getInt(lastSec, 1);
-                        secsElem.text(lastSec + 1);
+                        var lastSec = secsElem.attr("data-current-second");
+                        lastSec = jpi.helpers.getInt(lastSec, 0);
+                        var newSec = lastSec + 1;
+                        secsElem.attr("data-current-second", newSec);
+                        newSec = fn.counterFormatter(newSec);
+                        secsElem.text(newSec);
                     }, secsInMilliseconds);
                 }, secsInMilliseconds);
             }
