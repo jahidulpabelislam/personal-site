@@ -16,7 +16,7 @@ class File {
 
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
-            $path = getProjectRoot() . $path;
+            $path = getProjectRoot() . addTrailingSlash($path);
         }
 
         $this->path = $path;
