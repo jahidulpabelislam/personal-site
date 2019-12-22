@@ -43,11 +43,8 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             return value;
         },
 
-        initCounter: function(options) {
-            var counter = jQuery(this);
-            options = jQuery.extend({}, options || {}, counter.data("countToOptions") || {});
-            options.formatter = fn.counterFormatter;
-
+        initCounter: function(counter, options) {
+            options = jQuery.extend(options || {}, counter.data("countToOptions") || {});
             counter.countTo(options);
         },
 
@@ -55,8 +52,13 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             var counters = jQuery(".counter");
 
             if (counters.length) {
+                var countToOptions = {
+                    formatter: fn.counterFormatter,
+                };
                 counters.waypoint(function() {
-                    counters.each(fn.initCounter);
+                    counters.each(function(i, counter) {
+                        fn.initCounter(jQuery(counter), countToOptions);
+                    });
                 }, {offset: "100%"});
             }
         },
