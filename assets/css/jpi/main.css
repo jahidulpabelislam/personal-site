@@ -1625,6 +1625,9 @@ label {
   width: 100%;
   margin-bottom: 14px; }
 
+.stats__item:last-child {
+  margin-bottom: 0; }
+
 .stats__heading {
   margin: 0; }
 
@@ -1641,8 +1644,6 @@ label {
     display: inline-block;
     width: calc(50% - 20px);
     margin: 0 10px 20px; }
-  .stats__item:last-child {
-    margin-bottom: 0; }
   .stats__item:nth-last-child(2):nth-child(odd) {
     margin-bottom: 0; } }
 
