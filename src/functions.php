@@ -137,7 +137,9 @@ function getIsDebug(): bool {
 function getURL(string $domain, string $url, bool $addDebug = true): string {
     $url = formatURL($domain, $url);
 
-    $url .= ($addDebug && getIsDebug()) ? "?debug" : "";
+    if ($addDebug && getIsDebug()) {
+        $url = addParamToURL($url, "debug", "");
+    }
 
     return $url;
 }
