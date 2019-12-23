@@ -157,7 +157,7 @@ function getURL(string $domain, string $url, bool $addDebug = true): string {
  * @return string The version number found
  */
 function getAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-    if (!$ver) {
+    if ($ver === false) {
         $ver = "1"; // Default
 
         $src = removeLeadingSlash($src);
@@ -176,6 +176,10 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
  */
 function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
     $ver = getAssetVersion($src, $ver, $root);
+
+    if (empty($ver)) {
+        return $src;
+    }
 
     return addParamToURL($src, "v", $ver);
 }
