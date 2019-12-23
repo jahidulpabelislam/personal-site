@@ -47,11 +47,10 @@ $page = Page::get();
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 
         <?php
-        $imagePath = "assets/images/social-cards/{$pageId}.png";
+        $imagePath = "/assets/images/social-cards/{$pageId}.png";
         if ((new File($imagePath))->exists()) {
-            $localDomain = $site->getLocalDomain();
             $relativeImageURL = addAssetVersion($imagePath);
-            $imageURL = "{$localDomain}{$relativeImageURL}";
+            $imageURL = $site->getURL($relativeImageURL, false, true);
             ?>
             <meta property="og:image" content="<?php echo $imageURL; ?>" />
             <?php
