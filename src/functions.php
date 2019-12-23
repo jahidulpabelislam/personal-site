@@ -90,6 +90,15 @@ function turnPathToURL(string $path): string {
     return $url;
 }
 
+function addParamToURL($url, $param, $value) {
+    $query = parse_url($url, PHP_URL_QUERY);
+    if (empty($query)) {
+        return "{$url}?{$param}={$value}";
+    }
+
+    return "{$url}&{$param}={$value}";
+}
+
 function getDomain(): string {
     $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
     $domain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
@@ -166,12 +175,7 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
 function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
     $ver = getAssetVersion($src, $ver, $root);
 
-    $query = parse_url($src, PHP_URL_QUERY);
-    if (empty($query)) {
-        return "{$src}?v={$ver}";
-    }
-
-    return "{$src}&v={$ver}";
+    return addParamToURL($src, "v", $ver);
 }
 
 /**
