@@ -125,8 +125,7 @@ class Page {
     }
 
     public function addScript($src, $version = false) {
-        $script = addAssetVersion($src, $version);
-        $this->data["scripts"][] = $script;
+        $this->data["scripts"][] = ["src" => $src, "version" => $version];
     }
 
     public function addScripts(array $scripts) {

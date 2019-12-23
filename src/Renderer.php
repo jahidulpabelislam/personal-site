@@ -121,7 +121,8 @@ class Renderer {
         }
 
         foreach ($scripts as $script) {
-            echo "<script src='{$script}' type='application/javascript'></script>";
+            $src = addAssetVersion($script["src"], $script["version"]);
+            echo "<script src='{$src}' type='application/javascript'></script>";
         }
     }
 
