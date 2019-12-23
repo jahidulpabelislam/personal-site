@@ -82,25 +82,25 @@ $page = Page::get();
 
         <?php
         // Either output a compiled js file for whole project & libraries js files, or include individual files if debug is specified
-        $scripts = [["file" => "/assets/js/main.min.js"]];
+        $scripts = [["src" => "/assets/js/main.min.js"]];
         if ($site->getIsDebug()) {
             $scripts = [
-                ["file" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                ["file" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
-                ["file" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
-                ["file" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
-                ["file" => "/assets/js/jpi/expanded-slide-show.js"],
-                ["file" => "/assets/js/jpi/slide-show.js"],
-                ["file" => "/assets/js/jpi/helpers.js"],
-                ["file" => "/assets/js/jpi/templating.js"],
-                ["file" => "/assets/js/jpi/ajax.js"],
-                ["file" => "/assets/js/jpi/modal.js"],
-                ["file" => "/assets/js/jpi/projects.js"],
-                ["file" => "/assets/js/jpi/home.js"],
-                ["file" => "/assets/js/jpi/form.js"],
-                ["file" => "/assets/js/jpi/nav.js"],
-                ["file" => "/assets/js/jpi/cookie-banner.js"],
-                ["file" => "/assets/js/jpi/main.js"],
+                ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                ["src" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
+                ["src" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
+                ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                ["src" => "/assets/js/jpi/expanded-slide-show.js"],
+                ["src" => "/assets/js/jpi/slide-show.js"],
+                ["src" => "/assets/js/jpi/helpers.js"],
+                ["src" => "/assets/js/jpi/templating.js"],
+                ["src" => "/assets/js/jpi/ajax.js"],
+                ["src" => "/assets/js/jpi/modal.js"],
+                ["src" => "/assets/js/jpi/projects.js"],
+                ["src" => "/assets/js/jpi/home.js"],
+                ["src" => "/assets/js/jpi/form.js"],
+                ["src" => "/assets/js/jpi/nav.js"],
+                ["src" => "/assets/js/jpi/cookie-banner.js"],
+                ["src" => "/assets/js/jpi/main.js"],
             ];
         }
         $page->addScripts($scripts);

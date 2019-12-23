@@ -71,12 +71,12 @@ $page->renderHTMLHead();
 
         <?php
         // Either output a compiled js file for whole page & libraries js files, or include individual files if debug is specified
-        $scripts = [["file" => "/assets/js/social-links.min.js"]];
+        $scripts = [["src" => "/assets/js/social-links.min.js"]];
         if ($site->getIsDebug()) {
             $scripts = [
-                ["file" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                ["file" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
-                ["file" => "/assets/js/jpi/helpers.js"],
+                ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                ["src" => "/assets/js/jpi/helpers.js"],
             ];
         }
         $page->addScripts($scripts);

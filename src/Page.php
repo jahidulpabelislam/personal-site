@@ -124,16 +124,16 @@ class Page {
         $this->data["jsGlobals"][$global][$key] = $value;
     }
 
-    public function addScript($script, $ver = false) {
-        $script = addAssetVersion($script, $ver);
+    public function addScript($src, $version = false) {
+        $script = addAssetVersion($src, $version);
         $this->data["scripts"][] = $script;
     }
 
     public function addScripts(array $scripts) {
         foreach ($scripts as $script) {
-            $file = $script["file"];
-            $ver = $script["ver"] ?? false;
-            $this->addScript($file, $ver);
+            $src = $script["src"];
+            $version = $script["ver"] ?? false;
+            $this->addScript($src, $version);
         }
     }
 
