@@ -50,8 +50,14 @@ ErrorDocument 500 /error/500/
     deny from all
 </Files>
 
-# Add redirects for similar URLS to actual page/URL
 RewriteEngine on
+
+# Only follow the following rewriterules after this block only if file and directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [S=7]
+
+# Add redirects for similar URLS to actual page/URL
 RewriteRule ^about-me/?$ /about/ [R=301,NC,L]
 RewriteRule ^contact-me/?$ /contact/ [R=301,NC,L]
 RewriteRule ^portfolio/?$ /projects/ [R=301,NC,L]
