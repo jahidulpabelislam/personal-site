@@ -324,8 +324,8 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
         },
 
-        openProjectModal: function() {
-            var projectId = jQuery(this).attr("data-project-id");
+        openProjectModal: function(e) {
+            var projectId = jQuery(e.target).attr("data-project-id");
             var project = global.projects[projectId];
             var modal = global.modal;
 
@@ -458,7 +458,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 e.preventDefault();
                 e.stopPropagation();
 
-                var page = jQuery(this).attr("data-page");
+                var page = jQuery(e.target).attr("data-page");
                 page = jpi.helpers.getInt(page, 1);
 
                 if (global.pageNumber === page) {

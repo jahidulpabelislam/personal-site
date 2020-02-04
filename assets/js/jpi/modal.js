@@ -140,8 +140,8 @@ window.jpi.modal = (function(jQuery, jpi) {
             }
         },
 
-        onClose: function() {
-            if (global.activeModal && global.activeModal.has(jQuery(this))) {
+        onClose: function(e) {
+            if (global.activeModal && global.activeModal.has(jQuery(e.target))) {
                 fn.close();
             }
         },

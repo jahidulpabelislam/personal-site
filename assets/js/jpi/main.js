@@ -110,8 +110,8 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             }, 1000);
         },
 
-        toggleSkillInterestContent: function() {
-            var item = jQuery(this);
+        toggleSkillInterestContent: function(e) {
+            var item = jQuery(e.target);
 
             // Get the new item elems that was clicked
             var selected = item.children(".skills-interests__expand-content");

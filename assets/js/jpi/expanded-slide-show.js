@@ -129,8 +129,8 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             });
 
             global.body.on("click", ".js-expandable-image", fn.open);
-            global.nav.on("click", function() {
-                var direction = jQuery(this).attr("data-direction");
+            global.nav.on("click", function(e) {
+                var direction = jQuery(e.currentTarget).attr("data-direction");
                 fn[direction]();
             });
             jQuery(".expanded-slide-show__close").on("click", fn.close);

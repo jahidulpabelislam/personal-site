@@ -111,8 +111,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
 
         // Function when bullet was clicked to change slide show to a particular slide
-        changeToSlide: function() {
-            var bulletElem = jQuery(this);
+        changeToSlide: function(e) {
+            var bulletElem = jQuery(e.target);
             var slideShowId = bulletElem.attr("data-slide-show-id");
             var clickedSlideId = bulletElem.attr("data-slide-id");
             var nextSlide = jQuery(slideShowId).find(clickedSlideId);
@@ -128,7 +128,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
             };
 
-            var slideShowId = jQuery(this).attr("data-slide-show-id");
+            var slideShowId = jQuery(startEvent.target).attr("data-slide-show-id");
             var slideShow = jQuery(slideShowId);
 
             var slidesContainer = slideShow.find(".slide-show__slides");
@@ -251,8 +251,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             body.on("dragstart", ".slide-show__image", false);
             body.on("click", ".slide-show__bullet", fn.changeToSlide);
 
-            body.on("click", ".slide-show__nav", function() {
-                var nav = jQuery(this);
+            body.on("click", ".slide-show__nav", function(e) {
+                var nav = jQuery(e.currentTarget);
                 var slideShowId = nav.attr("data-slide-show-id");
                 fn.pause(slideShowId);
                 fn.move(slideShowId, nav.attr("data-direction"));
