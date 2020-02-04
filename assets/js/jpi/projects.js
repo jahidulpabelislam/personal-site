@@ -50,7 +50,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             jQuery(".project .project__description").css("min-height", "");
 
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < jpi.css.tabletWidth) {
                 return;
             }
 
