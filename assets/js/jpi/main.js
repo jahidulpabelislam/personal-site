@@ -75,7 +75,7 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
                     group.waypoint(function() {
                         var wpGroup = jQuery(this);
                         var wpCounters = wpGroup.find(".js-counter");
-                        wpCounters.each(function(i, counter) {
+                        wpCounters.each(function(j, counter) {
                             fn.countTo(jQuery(counter), countToOptions);
                         });
                     }, waypointArgs);
