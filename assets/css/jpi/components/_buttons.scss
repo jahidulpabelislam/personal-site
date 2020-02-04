@@ -7,6 +7,10 @@ button {
     -webkit-appearance: none;
 }
 
+button > * {
+    pointer-events: none;
+}
+
 .button {
     width: auto;
     margin: 5px;

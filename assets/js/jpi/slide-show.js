@@ -252,7 +252,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             body.on("click", ".slide-show__bullet", fn.changeToSlide);
 
             body.on("click", ".slide-show__nav", function(e) {
-                var nav = jQuery(e.currentTarget);
+                var nav = jQuery(e.target);
                 var slideShowId = nav.attr("data-slide-show-id");
                 fn.pause(slideShowId);
                 fn.move(slideShowId, nav.attr("data-direction"));
