@@ -54,8 +54,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            for (var i = 0; i < numOfProjects; i++) {
-                var project = jQuery(projects[i]);
+            projects.each(function(i, projectElem) {
+                var project = jQuery(projectElem);
                 var height = project.height();
 
                 var projectDesc = project.children(".project__description");
@@ -73,7 +73,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 var newHeight = height - totalAllHeight - padding;
                 projectDesc.css("min-height", newHeight);
-            }
+            });
         },
 
         // Helper function to format Project data from the API to the necessary format for the Website

@@ -16,10 +16,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         // Loops through all slide shows
         loopThroughAll: function(afterLoopedFunc) {
             var slideShows = jQuery(".js-slide-show");
-
-            for (var i = 0; i < slideShows.length; i++) {
-                afterLoopedFunc("#" + slideShows[i].id);
-            }
+            slideShows.each(function(i, slideShow) {
+                afterLoopedFunc("#" + slideShow.id);
+            });
         },
 
         setNavColour: function(slideShow, slide) {
