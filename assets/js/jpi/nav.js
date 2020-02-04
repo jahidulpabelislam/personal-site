@@ -19,7 +19,7 @@ window.jpi.nav = (function(jQuery, jpi) {
         },
 
         reset: function() {
-            if (window.innerWidth > jpi.css.tabletWidth) {
+            if (window.innerWidth >= jpi.css.tabletWidth) {
                 global.linksContainers.show();
             }
 
