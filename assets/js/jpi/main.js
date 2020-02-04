@@ -54,28 +54,25 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
         },
 
         initCounters: function() {
-            var counterGroups = jQuery(".js-counters");
+            var groups = jQuery(".js-counters");
 
-            if (counterGroups.length) {
+            if (groups.length) {
+                // Make the initial display be the from value
+                jQuery(".js-counter").each(function(j, counterElem) {
+                    var counter = jQuery(counterElem);
+                    var start = counter.attr("data-from");
+                    counter.text(start || 0);
+                });
+
                 var countToOptions = {
                     formatter: fn.counterFormatter,
                 };
                 var waypointArgs = {offset: "50%"};
-                counterGroups.each(function(i, groupElem) {
-                    var group = jQuery(groupElem);
-
-                    var counters = group.find(".js-counter");
-                    counters.each(function(j, counterElem) {
-                        var counter = jQuery(counterElem);
-                        // Make the initial display be the from value
-                        var start = counter.attr("data-from");
-                        counter.text(start || 0);
-                    });
-
-                    group.waypoint(function() {
-                        var wpGroup = jQuery(this);
-                        var wpCounters = wpGroup.find(".js-counter");
-                        wpCounters.each(function(j, counter) {
+                groups.each(function(i, groupElem) {
+                    jQuery(groupElem).waypoint(function() {
+                        var group = jQuery(this);
+                        var counters = group.find(".js-counter");
+                        counters.each(function(j, counter) {
                             fn.countTo(jQuery(counter), countToOptions);
                         });
                     }, waypointArgs);
