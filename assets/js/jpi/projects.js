@@ -87,7 +87,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             var fields = ["short_description", "long_description"];
             for (var i = 0; i < fields.length; i++) {
                 var field = fields[i];
-                if (project.hasOwnProperty(field)) {
+                if ({}.hasOwnProperty.call(project, field)) {
                     project[field] = (new Template(project[field])).replace("colour", project.colour);
                 }
             }
@@ -240,7 +240,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             // Loop through each image in project
             var images = project.images;
             for (var i = 0; i < images.length; i++) {
-                if (!images.hasOwnProperty(i)) {
+                if (!{}.hasOwnProperty.call(images, i)) {
                     continue;
                 }
 
@@ -249,7 +249,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 var image = images[i];
                 for (var field in image) {
-                    if (image.hasOwnProperty(field)) {
+                    if ({}.hasOwnProperty.call(image, field)) {
                         var value = image[field];
                         slideTemplate.replace(field, value);
                         bulletTemplate.replace(field, value);
@@ -486,7 +486,10 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
-            global.dateFormat = new Intl.DateTimeFormat(undefined, {month: "long", year: "numeric"});
+            global.dateFormat = new Intl.DateTimeFormat("default", {
+                month: "long",
+                year: "numeric",
+            });
 
             global.projectsElem = jQuery(".projects__items");
             if (!global.projectsElem.length) {

@@ -18,7 +18,7 @@ window.jpi.ajax = (function() {
             // If data/rows exists, For each row run a function
             if (data && data.rows && data.rows.length) {
                 for (var i = 0; i < data.rows.length; i++) {
-                    if (Object.prototype.hasOwnProperty.call(data.rows, i)) {
+                    if ({}.hasOwnProperty.call(data.rows, i)) {
                         rowRenderer(data.rows[i]);
                     }
                 }
@@ -38,7 +38,7 @@ window.jpi.ajax = (function() {
             var payload = [];
 
             for (var name in data) {
-                if (data.hasOwnProperty(name)) {
+                if ({}.hasOwnProperty.call(data, name)) {
                     payload.push(name + "=" + encodeURIComponent(data[name]));
                 }
             }

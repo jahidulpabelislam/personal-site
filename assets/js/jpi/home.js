@@ -31,7 +31,7 @@ window.jpi.home = (function(jQuery, jpi) {
             var slideTemplate = new Template(global.slideTemplate);
             var bulletTemplate = new Template(global.bulletTemplate);
             for (var field in project) {
-                if (project.hasOwnProperty(field)) {
+                if ({}.hasOwnProperty.call(project, field)) {
                     var value = project[field];
                     slideTemplate.replace(field, value);
                     bulletTemplate.replace(field, value);

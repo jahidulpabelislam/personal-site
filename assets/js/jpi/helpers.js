@@ -6,9 +6,6 @@ window.jpi.helpers = (function(jQuery) {
 
     "use strict";
 
-    var global = {
-    };
-
     var fn = {
 
         /**

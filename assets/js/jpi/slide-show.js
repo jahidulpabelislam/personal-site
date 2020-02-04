@@ -124,6 +124,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         // Sets up events when the user wants to change slides with drag control
         onSlideDrag: function(startEvent) {
+            var dragMove, dragEnd;
+
             var getXPosition = function(e) {
                 return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
             };
@@ -149,7 +151,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 fn.resume(slideShowId);
                 removeListeners();
             };
-            var dragMove = function(e) {
+            dragMove = function(e) {
                 var endX = getXPosition(e);
                 var diff = startX - endX;
 
@@ -158,7 +160,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                     left: (slidesContainerLeft - diff) + "px",
                 });
             };
-            var dragEnd = function(e) {
+            dragEnd = function(e) {
                 var endX = getXPosition(e);
 
                 var diff = startX - endX;

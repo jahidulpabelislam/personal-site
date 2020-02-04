@@ -14,7 +14,7 @@ window.jpi.templating = (function() {
         // Get a ReEx of a 'moustache' for the field to replace (e.g. `{{ fieldName }}` or `{{fieldName}}`)
         getMoustache: function(field) {
             if (!global.moustaches[field]) {
-                global.moustaches[field] = new RegExp("\{{2} ?" + field + " ?\\}{2}", "g");
+                global.moustaches[field] = new RegExp("{{2} ?" + field + " ?}{2}", "g");
             }
 
             return global.moustaches[field];
@@ -32,7 +32,7 @@ window.jpi.Template = (function(jpi) {
 
     "use strict";
 
-    var Template = function(template, _context) {
+    return function(template, _context) {
 
         _context = _context || {};
 
@@ -47,7 +47,7 @@ window.jpi.Template = (function(jpi) {
                 }
                 else if (type === "object") {
                     for (var innerField in value) {
-                        if (value.hasOwnProperty(innerField)) {
+                        if ({}.hasOwnProperty.call(value, innerField)) {
                             var innerKey = field ? field + "." + innerField : innerField;
                             template = fn.replace(innerKey, value[innerField]);
                         }
@@ -70,7 +70,7 @@ window.jpi.Template = (function(jpi) {
 
             renderIn: function(parentElem) {
                 parentElem.append(fn.get());
-            }
+            },
         };
 
         return {
@@ -80,8 +80,6 @@ window.jpi.Template = (function(jpi) {
             renderIn: fn.renderIn,
         };
     };
-
-    return Template;
 
 })(jpi);
 
