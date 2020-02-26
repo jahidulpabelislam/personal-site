@@ -16,6 +16,7 @@ class File {
 
     private $exists = null;
     private $contents = null;
+    private $contentsAsArray = null;
 
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
@@ -48,13 +49,15 @@ class File {
     }
 
     public function getArray(array $default = null): ?array {
-        $jsonString = $this->get();
+        if ($this->contentsAsArray === null) {
+            $jsonString = $this->get();
 
-        if ($jsonString) {
-            return json_decode($jsonString, true);
+            if ($jsonString) {
+                $this->contentsAsArray = json_decode($jsonString, true);
+            }
         }
 
-        return $default;
+        return $this->contentsAsArray ?? $default;
     }
 
     public function render(string $default = "") {
