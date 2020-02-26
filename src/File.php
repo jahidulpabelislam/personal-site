@@ -14,6 +14,9 @@ class File {
 
     private $path;
 
+    private $exists = null;
+    private $contents = null;
+
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
             $path = getProjectRoot() . addTrailingSlash($path);
@@ -23,7 +26,11 @@ class File {
     }
 
     public function exists(): bool {
-        return file_exists($this->path);
+        if ($this->exists === null) {
+            $this->exists = file_exists($this->path);
+        }
+
+        return $this->exists;
     }
 
     public function include() {
@@ -33,11 +40,11 @@ class File {
     }
 
     public function get($default = null) {
-        if ($this->exists()) {
-            return file_get_contents($this->path);
+        if ($this->contents === null && $this->exists()) {
+            $this->contents = file_get_contents($this->path);
         }
 
-        return $default;
+        return $this->contents ?? $default;
     }
 
     public function getArray(array $default = null): ?array {
