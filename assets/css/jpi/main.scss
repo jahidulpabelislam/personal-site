@@ -1,35 +1,38 @@
-@import "third-party/google-fonts";
 @import "third-party/reset";
+@import "third-party/google-fonts";
 
 @import "tools/variables";
 @import "tools/mixins";
 
-@import "base/layout";
 @import "base/base";
-@import "base/clearfix";
-@import "base/accessibility";
 @import "base/global";
+@import "base/clearfix";
+@import "base/typography";
 
-@import "components/row";
+@import "layout/base";
+@import "layout/row";
+@import "layout/header";
+@import "layout/nav";
+@import "layout/footer";
+
 @import "components/buttons";
-@import "components/footer";
 @import "components/form";
-@import "components/header";
-@import "components/nav";
+@import "components/table";
+@import "components/modal";
 @import "components/pagination";
-@import "components/slide-show";
 @import "components/social-links";
 @import "components/social-media-images";
-@import "components/modal";
+@import "components/cookie-banner";
+@import "components/slide-show";
+@import "components/expanded-slide-show";
+@import "components/project";
 @import "components/workflow";
 @import "components/stats";
-@import "components/projects";
-@import "components/cookie-banner";
 @import "components/timeline";
 
+@import "templates/home";
 @import "templates/about";
 @import "templates/contact";
-@import "templates/home";
-@import "templates/links";
 @import "templates/projects";
+@import "templates/links";
 @import "templates/site-map";

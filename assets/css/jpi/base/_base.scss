@@ -4,14 +4,6 @@
  */
 
 /* For all devices */
-body {
-    font: 400 14px "Cabin", sans-serif;
-    font-family: "Cabin", sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-    color: $dark-colour;
-}
-
 body.no-scroll {
     overflow: hidden;
 }
@@ -39,26 +31,6 @@ blockquote {
     border-left: 5px solid $light-grey;
 }
 
-strong {
-    font-weight: 700;
-}
-
 [hidden="hidden"] {
     display: none;
-}
-
-/* Only for Desktops */
-@media only screen and (min-width: $tablet-width) {
-    body {
-        font-size: 15px;
-        line-height: 20px;
-    }
-}
-
-/* Only for Desktops */
-@media only screen and (min-width: $desktop-width) {
-    body {
-        font-size: 16px;
-        line-height: 21px;
-    }
 }

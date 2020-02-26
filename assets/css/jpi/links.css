@@ -61,28 +61,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.screen-reader-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0); }
-
 /**
  * Any base css for all pages.
  * Plus any css for components/templates that will only have 1 line of code if separated.
  */
 /* For all devices */
-body {
-  font: 400 14px "Cabin", sans-serif;
-  font-family: "Cabin", sans-serif;
-  font-size: 14px;
-  line-height: 18px;
-  color: #333333; }
-
 body.no-scroll {
   overflow: hidden; }
 
@@ -105,23 +88,8 @@ blockquote {
   padding: 5px 15px;
   border-left: 5px solid #eeeeee; }
 
-strong {
-  font-weight: 700; }
-
 [hidden="hidden"] {
   display: none; }
-
-/* Only for Desktops */
-@media only screen and (min-width: 768px) {
-  body {
-    font-size: 15px;
-    line-height: 20px; } }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  body {
-    font-size: 16px;
-    line-height: 21px; } }
 
 /**
  * For modern browsers
@@ -148,6 +116,29 @@ strong {
  */
 .clearfix {
   *zoom: 1; }
+
+/* For all devices */
+body {
+  font: 400 14px "Cabin", sans-serif;
+  font-family: "Cabin", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #333333; }
+
+strong {
+  font-weight: 700; }
+
+/* Only for Desktops */
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 15px;
+    line-height: 20px; } }
+
+/* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size: 16px;
+    line-height: 21px; } }
 
 /* For all devices */
 *,
@@ -187,19 +178,6 @@ time {
 
 img {
   vertical-align: middle; }
-
-.table {
-  margin: 0 auto;
-  border-color: #333333; }
-
-.table__row {
-  border: 1px solid #333333; }
-
-.table__col {
-  padding: 6px; }
-
-.table__col--header {
-  font-weight: 700; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
@@ -306,44 +284,6 @@ img {
   height: 3.6px;
   border-radius: 1.76px; }
 
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .social-link__image {
-    height: 50px; }
-  .social-link__image--instagram {
-    width: 50px;
-    border-radius: 11.1px; }
-  .social-link__image--instagram i {
-    width: 36.8px;
-    height: 36.8px;
-    border: 3.4px solid white;
-    border-radius: 10.4px; }
-  .social-link__image--instagram i::before {
-    width: 19.05px;
-    height: 19.05px;
-    border: 3.4px solid white;
-    border-radius: 9.5px; }
-  .social-link__image--instagram i::after {
-    top: 3px;
-    right: 3px;
-    width: 4.5px;
-    height: 4.5px;
-    border-radius: 2.2px; } }
-
-/* For all devices */
-.social-links-page {
-  margin-bottom: 0; }
-
-.social-link-container {
-  display: block;
-  margin: 5px;
-  padding: 15px; }
-
-.social-link-container--snapchat {
-  display: block;
-  max-width: 200px;
-  margin: auto; }
-
 .social-link__image--facebook {
   border-radius: 5px; }
 
@@ -386,6 +326,45 @@ img {
   color: #fffc00; }
 
 /* Only for Desktops */
+@media only screen and (min-width: 1200px) {
+  .social-link__image {
+    height: 50px; }
+  .social-link__image--instagram {
+    width: 50px;
+    border-radius: 11.1px; }
+  .social-link__image--instagram i {
+    width: 36.8px;
+    height: 36.8px;
+    border: 3.4px solid white;
+    border-radius: 10.4px; }
+  .social-link__image--instagram i::before {
+    width: 19.05px;
+    height: 19.05px;
+    border: 3.4px solid white;
+    border-radius: 9.5px; }
+  .social-link__image--instagram i::after {
+    top: 3px;
+    right: 3px;
+    width: 4.5px;
+    height: 4.5px;
+    border-radius: 2.2px; }
+  .social-link__image--snapchat {
+    max-width: 200px; } }
+
+/* For all devices */
+.social-links-page {
+  margin-bottom: 0; }
+
+.social-link-container {
+  display: block;
+  margin: 5px;
+  padding: 15px; }
+
+.social-link-container--snapchat {
+  max-width: 200px;
+  margin: auto; }
+
+/* Only for Desktops */
 @media only screen and (min-width: 400px) {
   .social-link-container {
     display: inline-block; } }
@@ -397,8 +376,6 @@ img {
     align-items: center;
     justify-content: center; }
   .social-link-container--snapchat {
-    width: calc(33% - 10px);
+    min-width: calc(33% - 10px);
     max-width: 200px;
-    margin: 5px; }
-  .social-link__image--snapchat {
-    max-width: 200px; } }
+    margin: 5px; } }

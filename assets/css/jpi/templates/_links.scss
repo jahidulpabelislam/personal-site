@@ -10,60 +10,8 @@
 }
 
 .social-link-container--snapchat {
-    display: block;
     max-width: 200px;
     margin: auto;
-}
-
-.social-link__image--facebook {
-    border-radius: 5px;
-}
-
-.social-link:hover .social-link__text--facebook {
-    color: $facebook-colour;
-    text-decoration: underline;
-}
-
-.social-link:hover .social-link__image--facebook {
-    background: $facebook-colour;
-}
-
-.social-link__image--twitter {
-    border-radius: 50%;
-}
-
-.social-link:hover .social-link__text--twitter {
-    color: $twitter-colour;
-    text-decoration: underline;
-}
-
-.social-link:hover .social-link__image--twitter {
-    background: $twitter-colour;
-}
-
-.social-link__image--snapchat {
-    width: 100%;
-    height: auto;
-    border-radius: 15%;
-    filter: grayscale(100%);
-    transition: all 0.3s ease-in-out;
-}
-
-.social-link:hover .social-link__image--snapchat {
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
-    cursor: pointer;
-    filter: grayscale(0);
-}
-
-.social-link__text--snapchat {
-    padding: 4px;
-    border-radius: 6px;
-    background-color: black;
-    color: white;
-}
-
-.social-link:hover .social-link__text--snapchat {
-    color: $snapchat-colour;
 }
 
 /* Only for Desktops */
@@ -82,12 +30,8 @@
     }
 
     .social-link-container--snapchat {
-        width: calc(33% - 10px);
+        min-width: calc(33% - 10px);
         max-width: 200px;
         margin: 5px;
-    }
-
-    .social-link__image--snapchat {
-        max-width: 200px;
     }
 }

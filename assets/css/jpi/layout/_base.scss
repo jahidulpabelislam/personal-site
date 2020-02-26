@@ -47,23 +47,6 @@ img {
     vertical-align: middle;
 }
 
-.table {
-    margin: 0 auto;
-    border-color: $dark-colour;
-}
-
-.table__row {
-    border: 1px solid $dark-colour;
-}
-
-.table__col {
-    padding: 6px;
-}
-
-.table__col--header {
-    font-weight: 700;
-}
-
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
     .container {

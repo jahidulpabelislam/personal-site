@@ -4,10 +4,11 @@
 @import "tools/variables";
 @import "tools/mixins";
 
-@import "base/accessibility";
 @import "base/base";
 @import "base/clearfix";
-@import "base/layout";
+@import "base/typography";
+
+@import "layout/base";
 
 @import "components/social-media-images";
 
