@@ -40,7 +40,7 @@ class File {
         return $default;
     }
 
-    public function getArray(array $default = []): array {
+    public function getArray(array $default = null): ?array {
         $jsonString = $this->get();
 
         if ($jsonString) {
