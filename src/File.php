@@ -50,7 +50,7 @@ class File {
         return $default;
     }
 
-    public function render($default = null) {
+    public function render($default = "") {
         echo $this->get($default);
     }
 
