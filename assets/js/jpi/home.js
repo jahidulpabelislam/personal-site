@@ -98,8 +98,6 @@ window.jpi.home = (function(jQuery, jpi) {
             if (dataValid) {
                 jpi.slideShow.start("#latest-projects");
             }
-
-            jpi.main.resetFooter();
         },
 
         init: function() {

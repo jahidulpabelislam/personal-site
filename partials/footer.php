@@ -88,7 +88,6 @@ $page = Page::get();
                 ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
                 ["src" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
                 ["src" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
-                ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
                 ["src" => "/assets/js/jpi/expanded-slide-show.js"],
                 ["src" => "/assets/js/jpi/slide-show.js"],
                 ["src" => "/assets/js/jpi/helpers.js"],

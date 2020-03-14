@@ -1,5 +1,4 @@
-;window.jpi = window.jpi || {};
-window.jpi.main = (function(jQuery, jpi, StickyFooter) {
+;(function(jQuery, jpi) {
 
     "use strict";
 
@@ -124,12 +123,6 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             selected.slideToggle();
         },
 
-        resetFooter: function() {
-            if (jpi && jpi.stickyFooter) {
-                jpi.stickyFooter.repositionFooter();
-            }
-        },
-
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.scrollToContent);
 
@@ -150,8 +143,6 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
             global.expandableContents = jQuery(".skills-interests__expand-content");
             global.expandableIcons = jQuery(".skills-interests__expand-icon");
 
-            jpi.stickyFooter = new StickyFooter(".main-content");
-
             fn.initListeners();
             fn.initSecondsCounter();
             fn.initCounters();
@@ -160,8 +151,4 @@ window.jpi.main = (function(jQuery, jpi, StickyFooter) {
 
     jQuery(window).on("jpi-css-loaded", fn.init);
 
-    return {
-        resetFooter: fn.resetFooter,
-    };
-
-})(jQuery, jpi, StickyFooter);
+})(jQuery, jpi);

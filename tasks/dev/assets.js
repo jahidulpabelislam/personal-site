@@ -40,7 +40,6 @@ gulp.task("scripts", function(callback) {
             `${jsDir}/third-party/jquery.min.js`,
             `${jsDir}/third-party/waypoint.min.js`,
             `${jsDir}/third-party/jquery.countTo.js`,
-            `${jsDir}/third-party/sticky-footer.min.js`,
             `${jsDir}/jpi/expanded-slide-show.js`,
             `${jsDir}/jpi/slide-show.js`,
             `${jsDir}/jpi/helpers.js`,

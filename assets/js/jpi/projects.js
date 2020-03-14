@@ -99,7 +99,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.errorElem.text(error).show(600);
             global.pagination.text("").hide(600);
             global.loading.hide(600);
-            jpi.main.resetFooter();
         },
 
         renderPaginationItem: function(page, containerElem, isCurrent) {
@@ -305,7 +304,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
 
             fn.bottomAlignProjectFooters();
-            jpi.main.resetFooter();
         },
 
         getProjects: function() {
