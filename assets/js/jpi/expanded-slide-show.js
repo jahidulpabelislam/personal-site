@@ -61,11 +61,11 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
         close: function(e) {
             e.stopPropagation();
-            global.expandedImageDivContainer.removeClass("expanded-slide-show--active")
-                .addClass("expanded-slide-show--hiding");
+            global.expandedImageDivContainer.removeClass("expanded-slide-show--open")
+                .addClass("expanded-slide-show--closing");
 
             global.timeout = setTimeout(function() {
-                global.expandedImageDivContainer.removeClass("expanded-slide-show--hiding");
+                global.expandedImageDivContainer.removeClass("expanded-slide-show--closing");
                 jpi.modal.close();
                 global.timeout = null;
             }, 990);
@@ -109,7 +109,7 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             fn.displaySlide(jQuery(".expanded-slide-show__image--active"));
             jpi.modal.open(global.expandedImageDivContainer);
-            global.expandedImageDivContainer.addClass("expanded-slide-show--active");
+            global.expandedImageDivContainer.addClass("expanded-slide-show--open");
         },
 
         initListeners: function() {

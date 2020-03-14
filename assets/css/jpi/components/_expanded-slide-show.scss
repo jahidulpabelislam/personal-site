@@ -9,7 +9,7 @@
     transition-property: background, top, left, height, width, opacity;
     cursor: initial;
 }
-.expanded-slide-show--active {
+.expanded-slide-show--open {
     top: 0;
     left: 0;
     width: 100%;
@@ -18,7 +18,7 @@
     z-index: 100;
     background: $light-colour;
 }
-.expanded-slide-show--hiding {
+.expanded-slide-show--closing {
     z-index: 100;
 }
 

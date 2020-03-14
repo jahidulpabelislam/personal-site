@@ -17,7 +17,7 @@
 }
 
 .nav--scrolled,
-.nav--opened {
+.nav--open {
     background-color: white;
     box-shadow: 0 0 10px 0 $dark-colour;
 }
@@ -41,7 +41,7 @@
 }
 
 .nav--scrolled .nav__logo,
-.nav--opened .nav__logo {
+.nav--open .nav__logo {
     background: $dark-colour;
     border-color: $dark-colour;
 }
@@ -56,7 +56,7 @@
     box-shadow: none;
 }
 
-.nav--opened .nav__logo {
+.nav--open .nav__logo {
     display: none;
 }
 
@@ -84,11 +84,11 @@
     background-color: $dark-colour;
 }
 
-.nav--opened .nav__mobile-toggle {
+.nav--open .nav__mobile-toggle {
     border-color: get-colour(red, main);
 }
 
-.nav--opened .nav__menu-bar {
+.nav--open .nav__menu-bar {
     background-color: get-colour(red, main);
 }
 
@@ -107,18 +107,18 @@
     margin-top: 4px;
 }
 
-.nav--opened .nav__menu-bar:nth-child(2) {
+.nav--open .nav__menu-bar:nth-child(2) {
     top: 6px;
     transform: rotate(45deg);
 }
 
-.nav--opened .nav__menu-bar:nth-child(3),
-.nav--opened:hover .nav__menu-bar:nth-child(3) {
+.nav--open .nav__menu-bar:nth-child(3),
+.nav--open:hover .nav__menu-bar:nth-child(3) {
     background-color: transparent;
     width: 0;
 }
 
-.nav--opened .nav__menu-bar:nth-child(4) {
+.nav--open .nav__menu-bar:nth-child(4) {
     top: -6px;
     transform: rotate(-45deg);
 }
@@ -141,7 +141,7 @@
 }
 
 .nav--scrolled .nav__link,
-.nav--opened .nav__link {
+.nav--open .nav__link {
     color: $dark-colour;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .nav--scrolled .nav__social-links .social-link__image,
-.nav--opened .nav__social-links .social-link__image {
+.nav--open .nav__social-links .social-link__image {
     background: $dark-colour;
 }
 

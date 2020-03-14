@@ -14,7 +14,7 @@ window.jpi.nav = (function(jQuery, jpi) {
     var fn = {
 
         toggleMobileMenu: function() {
-            global.nav.toggleClass("nav--opened");
+            global.nav.toggleClass("nav--open");
             global.linksContainers.slideToggle();
         },
 
@@ -39,7 +39,7 @@ window.jpi.nav = (function(jQuery, jpi) {
         // Code to collapse mobile menu when user clicks anywhere off it.
         onNavClick: function(e) {
             if (
-                global.nav.hasClass("nav--opened") &&
+                global.nav.hasClass("nav--open") &&
                 !jQuery(e.target).closest(".nav").length &&
                 global.menuButton.css("display") !== "none"
             ) {

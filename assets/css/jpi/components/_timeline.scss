@@ -103,7 +103,7 @@
     content: "\f008";
 }
 
-.timeline__item--active .timeline__content::after {
+.timeline__item--present .timeline__content::after {
     color: get-colour(orange, main);
     border-color: get-colour(orange, main);
     box-shadow: 0 0 10px 0 get-colour(orange, main);

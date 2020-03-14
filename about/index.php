@@ -307,7 +307,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 
                             foreach ($timelineItems as $timelineItem) {
                                 $isActive = $timelineItem["isActive"] ?? false;
-                                $activeClass = $isActive ? "timeline__item--active" : "";
+                                $activeClass = $isActive ? "timeline__item--present" : "";
                                 echo "<div class='timeline__item {$activeClass}'>";
 
                                 $date = $timelineItem["date"];
