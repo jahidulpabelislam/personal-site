@@ -17,7 +17,7 @@ $site = Site::get();
                         <span class="nav__menu-bar"></span>
                     </button>
                     <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
-                        <img class="nav__logo <?php if ($pageId === "home") {echo "active";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
+                        <img class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
                     </a>
                 </div>
                 <div class="nav__links-container">
@@ -46,7 +46,7 @@ $site = Site::get();
 
                             $classes = "nav__link";
                             if ($currentURL === $site->getURL($url, false)) {
-                                $classes .= " active";
+                                $classes .= " nav__link--active";
                             }
 
                             echo "<li class='nav__item'>";

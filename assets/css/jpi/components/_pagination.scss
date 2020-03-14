@@ -28,8 +28,8 @@
     color: $primary-colour;
 }
 
-.pagination__link.active,
-.pagination__link.active:hover {
+.pagination__link.pagination__link--active,
+.pagination__link--active:hover {
     background: $primary-colour;
     border-color: darken($primary-colour, 5);
     color: white;

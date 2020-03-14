@@ -109,7 +109,7 @@ $page->renderHeader();
                     <button type="button" class="button button--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
                     <div class="expanded-slide-show__image-container">
-                        <img class="expanded-slide-show__image active" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+                        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
                     </div>
 
                     <div class="expanded-slide-show__image-container">

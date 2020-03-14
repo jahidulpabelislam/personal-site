@@ -403,8 +403,8 @@ img {
 .nav--dark {
   background-color: rgba(51, 51, 51, 0.2); }
 
-.nav.scrolled,
-.nav.opened {
+.nav--scrolled,
+.nav--opened {
   background-color: white;
   box-shadow: 0 0 10px 0 #333333; }
 
@@ -423,20 +423,20 @@ img {
   border: 1px solid transparent;
   opacity: 1; }
 
-.nav.scrolled .nav__logo,
-.nav.opened .nav__logo {
+.nav--scrolled .nav__logo,
+.nav--opened .nav__logo {
   background: #333333;
   border-color: #333333; }
 
-.nav__logo.nav__logo.active,
+.nav__logo.nav__logo--active,
 .nav__logo-container:hover .nav__logo {
   background: #0375b4;
   border-color: #0375b4; }
 
-.nav__logo-container:hover .nav__logo.active {
+.nav__logo-container:hover .nav__logo--active {
   box-shadow: none; }
 
-.nav.opened .nav__logo {
+.nav--opened .nav__logo {
   display: none; }
 
 .nav__mobile-toggle {
@@ -457,13 +457,13 @@ img {
   transition: all 0.7s ease-in-out;
   position: relative; }
 
-.nav.scrolled .nav__menu-bar {
+.nav--scrolled .nav__menu-bar {
   background-color: #333333; }
 
-.nav.opened .nav__mobile-toggle {
+.nav--opened .nav__mobile-toggle {
   border-color: #f12525; }
 
-.nav.opened .nav__menu-bar {
+.nav--opened .nav__menu-bar {
   background-color: #f12525; }
 
 .nav__menu-bar:nth-child(2) {
@@ -478,16 +478,16 @@ img {
   top: 0;
   margin-top: 4px; }
 
-.nav.opened .nav__menu-bar:nth-child(2) {
+.nav--opened .nav__menu-bar:nth-child(2) {
   top: 6px;
   transform: rotate(45deg); }
 
-.nav.opened .nav__menu-bar:nth-child(3),
-.nav.opened:hover .nav__menu-bar:nth-child(3) {
+.nav--opened .nav__menu-bar:nth-child(3),
+.nav--opened:hover .nav__menu-bar:nth-child(3) {
   background-color: transparent;
   width: 0; }
 
-.nav.opened .nav__menu-bar:nth-child(4) {
+.nav--opened .nav__menu-bar:nth-child(4) {
   top: -6px;
   transform: rotate(-45deg); }
 
@@ -505,15 +505,15 @@ img {
   color: white;
   text-align: center; }
 
-.nav.scrolled .nav__link,
-.nav.opened .nav__link {
+.nav--scrolled .nav__link,
+.nav--opened .nav__link {
   color: #333333; }
 
 .nav__link:focus,
 .nav__link:hover {
   color: #0375b4; }
 
-.nav__link.nav__link.active {
+.nav__link.nav__link--active {
   background-color: #0375b4;
   color: white; }
 
@@ -526,8 +526,8 @@ img {
   margin: 10px 4px;
   background: transparent; }
 
-.nav.scrolled .nav__social-links .social-link__image,
-.nav.opened .nav__social-links .social-link__image {
+.nav--scrolled .nav__social-links .social-link__image,
+.nav--opened .nav__social-links .social-link__image {
   background: #333333; }
 
 .nav__social-links .social-link:hover .social-link__image {
@@ -566,7 +566,7 @@ img {
   .nav__link {
     border-bottom: solid transparent 2px; }
   .nav__link:hover,
-  .nav__link.active {
+  .nav__link--active {
     border-bottom-color: #0375b4; }
   .nav__social-links .social-link__image.social-link__image {
     margin: 5px 2px; }

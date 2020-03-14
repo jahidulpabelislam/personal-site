@@ -56,7 +56,7 @@
     transition: all 2s ease-in-out;
 }
 
-.latest-project.active .latest-project__image {
+.latest-project.slide-show__slide--active .latest-project__image {
     opacity: 1;
 }
 
@@ -69,7 +69,7 @@
     opacity: 0.15;
     transition: all 2s ease-in-out;
 }
-.latest-project.active .latest-project__info-content {
+.latest-project.slide-show__slide--active .latest-project__info-content {
     opacity: 1;
 }
 
@@ -175,7 +175,7 @@
         color: white;
     }
 
-    .latest-project.active .latest-project__info-content {
+    .latest-project.slide-show__slide--active .latest-project__info-content {
         transform: translateY(0);
     }
 

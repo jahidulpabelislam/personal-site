@@ -14,7 +14,7 @@ window.jpi.nav = (function(jQuery, jpi) {
     var fn = {
 
         toggleMobileMenu: function() {
-            global.nav.toggleClass("opened");
+            global.nav.toggleClass("nav--opened");
             global.linksContainers.slideToggle();
         },
 
@@ -29,17 +29,17 @@ window.jpi.nav = (function(jQuery, jpi) {
             var headerHeight = global.header.height();
 
             if (scrollPos >= headerHeight) {
-                global.nav.addClass("scrolled");
+                global.nav.addClass("nav--scrolled");
             }
             else {
-                global.nav.removeClass("scrolled");
+                global.nav.removeClass("nav--scrolled");
             }
         },
 
         // Code to collapse mobile menu when user clicks anywhere off it.
         onNavClick: function(e) {
             if (
-                global.nav.hasClass("opened") &&
+                global.nav.hasClass("nav--opened") &&
                 !jQuery(e.target).closest(".nav").length &&
                 global.menuButton.css("display") !== "none"
             ) {

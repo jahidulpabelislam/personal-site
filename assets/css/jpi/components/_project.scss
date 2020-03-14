@@ -79,14 +79,14 @@
     box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
-.project__skill.searched,
-.project__skill.searched:hover {
+.project__skill--searched,
+.project__skill--searched:hover {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
 }
 
-.project__skill.searched:hover {
+.project__skill--searched:hover {
     box-shadow: none;
 }
 
@@ -103,8 +103,8 @@
         box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
-    .project__skill--#{$colour}.searched,
-    .project__skill--#{$colour}.searched:hover {
+    .project__skill--#{$colour}.project__skill--searched,
+    .project__skill--#{$colour}.project__skill--searched:hover {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);

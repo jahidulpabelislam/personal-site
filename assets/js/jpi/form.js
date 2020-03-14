@@ -59,11 +59,11 @@ window.jpi.form = (function(jQuery, jpi) {
             var emailAddress = global.emailInput.val();
 
             global.formFeedback.hide(200);
-            global.emailInput.removeClass("valid");
+            global.emailInput.removeClass("input--valid");
 
             if (emailAddress.trim() === "") {
                 if (isForm) {
-                    global.emailInput.addClass("invalid");
+                    global.emailInput.addClass("input--invalid");
                     global.emailFeedback.text("Email address must be provided and valid.").show(200);
                 }
                 return false;
@@ -73,13 +73,13 @@ window.jpi.form = (function(jQuery, jpi) {
             var emailValidationTest = validEmailPattern.test(emailAddress);
 
             if (emailValidationTest) {
-                global.emailInput.removeClass("invalid").addClass("valid");
+                global.emailInput.removeClass("input--invalid").addClass("input--valid");
                 global.emailFeedback.hide(200);
                 return true;
             }
 
             if (isForm) {
-                global.emailInput.addClass("invalid");
+                global.emailInput.addClass("input--invalid");
                 global.emailFeedback.text("Email address must be valid.").show(200);
             }
 
@@ -90,16 +90,16 @@ window.jpi.form = (function(jQuery, jpi) {
             var message = global.messageInput.val();
 
             global.formFeedback.hide(200);
-            global.messageInput.removeClass("valid");
+            global.messageInput.removeClass("input--valid");
 
             if (message.trim() !== "") {
-                global.messageInput.removeClass("invalid").addClass("valid");
+                global.messageInput.removeClass("input--invalid").addClass("input--valid");
                 global.messageFeedback.hide(200);
                 return true;
             }
 
             if (isForm) {
-                global.messageInput.addClass("invalid");
+                global.messageInput.addClass("input--invalid");
                 global.messageFeedback.text("Message must be filled out.").show(200);
             }
 

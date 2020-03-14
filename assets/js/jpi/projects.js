@@ -107,7 +107,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             url += global.url.search;
 
             var link = jpi.helpers.createElement("a", {
-                "class": "pagination__link" + (isCurrent ? " active" : ""),
+                "class": "pagination__link" + (isCurrent ? " pagination__link--active" : ""),
                 "text": page,
                 "data-page": page,
                 "href": url,
@@ -171,7 +171,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     classes.push("project__skill--" + project.colour);
                 }
                 if (isInSearch) {
-                    classes.push("searched");
+                    classes.push("project__skill--searched");
                 }
 
                 jpi.helpers.renderNewElement("a", skillsContainer, {

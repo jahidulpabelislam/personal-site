@@ -52,7 +52,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var slideShow = jQuery(slideShowId);
             var slidesContainer = slideShow.find(".slide-show__slides");
 
-            var position = slideShow.find(".slide-show__slide.active").position();
+            var position = slideShow.find(".slide-show__slide--active").position();
             slidesContainer.css({
                 transitionDuration: "0s",
                 left: "-" + position.left + "px",
@@ -75,8 +75,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var slideShow = jQuery(slideShowId);
             fn.setNavColour(slideShow, nextSlide);
 
-            slideShow.find(".active").removeClass("active");
-            nextSlide.addClass("active");
+            slideShow.find(".slide-show__slide--active").removeClass("slide-show__slide--active");
+            slideShow.find(".slide-show__bullet--active").removeClass("slide-show__bullet--active");
+            nextSlide.addClass("slide-show__slide--active");
 
             var position = nextSlide.position();
 
@@ -84,13 +85,13 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             slidesContainer.css("left", "-" + position.left + "px");
 
             var newSlideID = nextSlide.attr("id");
-            slideShow.find(".slide-show__bullet[data-slide-id=#" + newSlideID + "]").addClass("active");
+            slideShow.find(".slide-show__bullet[data-slide-id=#" + newSlideID + "]").addClass("slide-show__bullet--active");
         },
 
         // Moves to next or previous slide
         move: function(slideShowId, direction) {
             var slideShow = jQuery(slideShowId);
-            var oldSlide = slideShow.find(".slide-show__slide.active");
+            var oldSlide = slideShow.find(".slide-show__slide--active");
 
             var nextSlide;
             if (direction === "previous") {
@@ -194,8 +195,8 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             var firstSlide = slides.first();
 
-            firstSlide.addClass("active");
-            slideShow.find(".slide-show__bullet").first().addClass("active");
+            firstSlide.addClass("slide-show__slide--active");
+            slideShow.find(".slide-show__bullet").first().addClass("slide-show__bullet--active");
 
             fn.setNavColour(slideShow, firstSlide);
 

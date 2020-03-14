@@ -9,7 +9,7 @@
     transition-property: background, top, left, height, width, opacity;
     cursor: initial;
 }
-.expanded-slide-show.active {
+.expanded-slide-show--active {
     top: 0;
     left: 0;
     width: 100%;
@@ -18,7 +18,7 @@
     z-index: 100;
     background: $light-colour;
 }
-.expanded-slide-show.hiding {
+.expanded-slide-show--hiding {
     z-index: 100;
 }
 
@@ -40,7 +40,7 @@
     opacity: 0;
     transition: all 1s ease-in-out;
 }
-.expanded-slide-show__image.active {
+.expanded-slide-show__image--active {
     opacity: 1;
 }
 
@@ -70,11 +70,11 @@
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
-.expanded-slide-show__bullet.active {
+.expanded-slide-show__bullet--active {
     background: white;
     transform: scale(1.2);
 }
-.expanded-slide-show__bullet:not(.active):hover {
+.expanded-slide-show__bullet:not(.expanded-slide-show__bullet--active):hover {
     background-color: darken($light-grey, 15);
     transform: scale(1.05);
 }

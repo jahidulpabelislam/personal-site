@@ -24,7 +24,8 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
             expandedImage.attr("src", global.slides[global.currentSlide].src);
 
             global.currentElem.text(global.currentSlide + 1);
-            jQuery(".expanded-slide-show__bullet:eq(" + global.currentSlide + ")").addClass("active");
+            var currentBullet = jQuery(".expanded-slide-show__bullet:eq(" + global.currentSlide + ")");
+            currentBullet.addClass("expanded-slide-show__bullet--active");
         },
 
         // Changes the current slide to new slide
@@ -42,14 +43,14 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             global.currentSlide = newSlideIndex;
 
-            var expandedImageOld = jQuery(".expanded-slide-show__image.active");
-            var expandedImageNew = jQuery(".expanded-slide-show__image:not(.active)");
+            var expandedImageOld = jQuery(".expanded-slide-show__image--active");
+            var expandedImageNew = jQuery(".expanded-slide-show__image").not(expandedImageOld);
 
-            jQuery(".expanded-slide-show__bullet").removeClass("active");
+            jQuery(".expanded-slide-show__bullet--active").removeClass("expanded-slide-show__bullet--active");
             fn.displaySlide(expandedImageNew);
 
-            expandedImageNew.addClass("active");
-            expandedImageOld.removeClass("active");
+            expandedImageNew.addClass("expanded-slide-show__image--active");
+            expandedImageOld.removeClass("expanded-slide-show__image--active");
         },
         next: function() {
             fn.changeSlide(global.currentSlide + 1);
@@ -60,10 +61,11 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
         close: function(e) {
             e.stopPropagation();
-            global.expandedImageDivContainer.removeClass("active").addClass("hiding");
+            global.expandedImageDivContainer.removeClass("expanded-slide-show--active")
+                .addClass("expanded-slide-show--hiding");
 
             global.timeout = setTimeout(function() {
-                global.expandedImageDivContainer.removeClass("hiding");
+                global.expandedImageDivContainer.removeClass("expanded-slide-show--hiding");
                 jpi.modal.close();
                 global.timeout = null;
             }, 990);
@@ -105,9 +107,9 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
 
             clearTimeout(global.timeout);
 
-            fn.displaySlide(jQuery(".expanded-slide-show__image.active"));
+            fn.displaySlide(jQuery(".expanded-slide-show__image--active"));
             jpi.modal.open(global.expandedImageDivContainer);
-            global.expandedImageDivContainer.addClass("active");
+            global.expandedImageDivContainer.addClass("expanded-slide-show--active");
         },
 
         initListeners: function() {

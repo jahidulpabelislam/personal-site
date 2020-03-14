@@ -26,20 +26,20 @@
     border-color: $primary-colour;
 }
 
-.input.invalid {
+.input--invalid {
     border-color: $error-colour;
 }
 
-.input:focus.invalid {
+.input--invalid:focus {
     border-color: $error-colour;
     box-shadow: 0 0 8px transparentize($error-colour, 0.4);
 }
 
-.input.valid {
+.input--valid {
     border-color: $success-colour;
 }
 
-.input:focus.valid {
+.input--valid:focus {
     border-color: $success-colour;
     box-shadow: 0 0 8px transparentize($success-colour, 0.4);
 }

@@ -100,17 +100,17 @@
     cursor: pointer;
     transition: all 0.4s ease-in-out;
 }
-.slide-show__bullet.active {
+.slide-show__bullet--active {
     background-color: get-colour(black, dark);
     transform: scale(1.2);
 }
-.slide-show__bullet:not(.active):hover {
+.slide-show__bullet:not(.slide-show__bullet--active):hover {
     background-color: darken($light-grey, 15);
     transform: scale(1.05);
 }
 
 @each $colour, $colours in $colour-schemes {
-    .slide-show__bullet--#{$colour}.active {
+    .slide-show__bullet--#{$colour}--active {
         background-color: map-get($colours, main);
     }
 }

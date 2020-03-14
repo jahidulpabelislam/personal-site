@@ -15,11 +15,11 @@ window.jpi.helpers = (function(jQuery) {
          */
         checkInputField: function(input) {
             if (input.val().trim() === "") {
-                input.removeClass("valid").addClass("invalid");
+                input.removeClass("input--valid").addClass("input--invalid");
                 return false;
             }
 
-            input.removeClass("invalid").addClass("valid");
+            input.removeClass("input--invalid").addClass("input--valid");
             return true;
         },
 
