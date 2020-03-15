@@ -65,7 +65,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                             <?php
                             // Work out my age by the time difference from DOB to today
                             $dob = "1996-02-22";
-                            $age = getTimeDifference($dob, $nowDateTime, "%y");
+                            $age = getTimeDifference($dob, $nowDateTime, "%r%y");
                             ?>
 
                             <p>I'm <?php echo $age; ?> years old.</p>
@@ -87,12 +87,12 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 
                             $workDuration = getTimeDifference("2019-09-23", $nowDateTime);
 
-                            $yearsSinceStarted = (int)$workDuration->format("%y");
+                            $yearsSinceStarted = (int)$workDuration->format("%r%y");
                             if ($yearsSinceStarted) {
                                 $durations[] = "{$yearsSinceStarted} year" . ($yearsSinceStarted !== 1 ? "s" : "");
                             }
 
-                            $monthsSinceStarted = (int)$workDuration->format("%m");
+                            $monthsSinceStarted = (int)$workDuration->format("%r%m");
                             if ($monthsSinceStarted) {
                                 $durations[] = "{$monthsSinceStarted} month" . ($monthsSinceStarted !== 1 ? "s" : "");
                             }
