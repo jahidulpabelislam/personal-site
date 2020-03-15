@@ -85,7 +85,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                             <?php
                             $durations = [];
 
-                            $workDuration = getTimeDifference("2021-09-23", $nowDateTime);
+                            $workDuration = getTimeDifference("2019-09-23", $nowDateTime);
 
                             $yearsSinceStarted = (int)$workDuration->format("%y");
                             if ($yearsSinceStarted) {
