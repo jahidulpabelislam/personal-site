@@ -83,15 +83,16 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                         </div>
                         <div class="row__column">
                             <?php
-                            $workStartDate = new DateTime("2021-09-23");
-
                             $durations = [];
-                            $yearsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%y");
+
+                            $workDuration = getTimeDifference("2021-09-23", $nowDateTime);
+
+                            $yearsSinceStarted = (int)$workDuration->format("%y");
                             if ($yearsSinceStarted) {
                                 $durations[] = "{$yearsSinceStarted} year" . ($yearsSinceStarted !== 1 ? "s" : "");
                             }
 
-                            $monthsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%m");
+                            $monthsSinceStarted = (int)$workDuration->format("%m");
                             if ($monthsSinceStarted) {
                                 $durations[] = "{$monthsSinceStarted} month" . ($monthsSinceStarted !== 1 ? "s" : "");
                             }
