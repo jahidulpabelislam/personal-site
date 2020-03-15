@@ -211,6 +211,9 @@ function getNowDateTime(): DateTime {
  * @throws Exception
  */
 function getTimeDifference($fromDate, $toDate, string $format): string {
+    $origTimezone = date_default_timezone_get();
+    date_default_timezone_set(JPI_DATE_TIMEZONE);
+
     if (is_string($fromDate)) {
         $fromDate = new DateTime($fromDate);
     }
@@ -221,9 +224,6 @@ function getTimeDifference($fromDate, $toDate, string $format): string {
     if (!$fromDate instanceof DateTime || !$toDate instanceof DateTime) {
         return "";
     }
-
-    $origTimezone = date_default_timezone_get();
-    date_default_timezone_set(JPI_DATE_TIMEZONE);
 
     // Work out the time difference from both dates
     $diff = $fromDate->diff($toDate);
