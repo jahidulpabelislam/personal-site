@@ -206,11 +206,11 @@ function getNowDateTime(): DateTime {
 /**
  * @param $fromDate DateTime|string
  * @param $toDate DateTime|string
- * @param $format string
- * @return string
+ * @param $format string|null
+ * @return DateInterval|string
  * @throws Exception
  */
-function getTimeDifference($fromDate, $toDate, string $format): string {
+function getTimeDifference($fromDate, $toDate, string $format = null) {
     $origTimezone = date_default_timezone_get();
     date_default_timezone_set(JPI_DATE_TIMEZONE);
 
@@ -228,11 +228,14 @@ function getTimeDifference($fromDate, $toDate, string $format): string {
     // Work out the time difference from both dates
     $diff = $fromDate->diff($toDate);
 
-    // Get the value of the difference formatted
-    $timeDiff = $diff->format($format);
+    // Get the formatted value of the difference if requested
+    if ($format) {
+        $diff = $diff->format($format);
+    }
+
     date_default_timezone_set($origTimezone);
 
-    return $timeDiff;
+    return $diff;
 }
 
 /**
