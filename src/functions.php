@@ -221,6 +221,8 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
         $toDate = new DateTime($toDate);
     }
 
+    date_default_timezone_set($origTimezone);
+
     if (!$fromDate instanceof DateTime || !$toDate instanceof DateTime) {
         return "";
     }
@@ -232,8 +234,6 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
     if ($format) {
         $diff = $diff->format($format);
     }
-
-    date_default_timezone_set($origTimezone);
 
     return $diff;
 }
