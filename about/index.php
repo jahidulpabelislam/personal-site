@@ -84,34 +84,27 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                         </div>
                         <div class="row__column">
                             <?php
-                            $durationAtWorkStr = "";
-
                             $workStartDateStr = "23/09/2019";
                             $workStartDate = DateTime::createFromFormat("d/m/Y", $workStartDateStr);
 
+                            $durations = [];
                             $yearsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%y");
                             if ($yearsSinceStarted) {
-                                $durationAtWorkStr .= "{$yearsSinceStarted} ";
-                                $durationAtWorkStr .= $yearsSinceStarted === 1 ? "year" : "years";
+                                $durations[] = "{$yearsSinceStarted} year" . ($yearsSinceStarted !== 1 ? "s" : "");
                             }
 
                             $monthsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%m");
                             if ($monthsSinceStarted) {
-                                if ($yearsSinceStarted) {
-                                    $durationAtWorkStr .= " and";
-                                }
-
-                                $durationAtWorkStr .= " {$monthsSinceStarted} ";
-                                $durationAtWorkStr .= $monthsSinceStarted === 1 ? "month" : "months";
+                                $durations[] = "{$monthsSinceStarted} month" . ($monthsSinceStarted !== 1 ? "s" : "");
                             }
 
-                            if ($durationAtWorkStr) {
-                                $durationAtWorkStr = " for the past " . trim($durationAtWorkStr);
+                            if (count($durations)) {
+                                $durationAtWorkStr = " for the past " . implode(" and ", $durations);
                             }
                             ?>
                             <p>
                                 Been working as a Web Developer at
-                                <a class="link link--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr; ?>.
+                                <a class="link link--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr ?? ""; ?>.
                             </p>
                         </div>
                     </div>

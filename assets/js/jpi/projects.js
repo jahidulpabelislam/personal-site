@@ -194,11 +194,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             var defaultAttributes = {
                 target: "_blank",
                 rel: "noopener",
-                class: "project__link",
+                classes: ["project__link"],
             };
             if (project.colour) {
-                defaultAttributes.class += " project__link--" + project.colour;
+                defaultAttributes.classes.push("project__link--" + project.colour);
             }
+
+            defaultAttributes.class = defaultAttributes.classes.join(" ");
+            delete defaultAttributes.classes;
 
             if (project.link) {
                 defaultAttributes.href = project.link;

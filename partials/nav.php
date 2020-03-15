@@ -44,13 +44,13 @@ $site = Site::get();
                             $url = $link["url"] ?? "/";
                             $fullURL = $site->getURL($url);
 
-                            $classes = "nav__link";
+                            $classes = ["nav__link"];
                             if ($currentURL === $site->getURL($url, false)) {
-                                $classes .= " nav__link--active";
+                                $classes[] = "nav__link--active";
                             }
 
                             echo "<li class='nav__item'>";
-                            echo "<a class='{$classes}' href='{$fullURL}' title='Link to {$linkTitle} Page'>{$linkTitle}</a>";
+                            echo "<a class='" . implode(" ", $classes) . "' href='{$fullURL}' title='Link to {$linkTitle} Page'>{$linkTitle}</a>";
                             echo "</li>";
                         }
                         ?>
