@@ -63,9 +63,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                             <p>My name is Jahidul Pabel Islam.</p>
 
                             <?php
-                            $dob = "22/02/1996";
-
                             // Work out my age by the time difference from DOB to today
+                            $dob = "1996-02-22";
                             $age = getTimeDifference($dob, $nowDateTime, "%y");
                             ?>
 

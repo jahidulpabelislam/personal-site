@@ -208,13 +208,14 @@ function getNowDateTime(): DateTime {
  * @param $toDate DateTime|string
  * @param $format string
  * @return string
+ * @throws Exception
  */
 function getTimeDifference($fromDate, $toDate, string $format): string {
     if (is_string($fromDate)) {
-        $fromDate = DateTime::createFromFormat("d/m/Y", $fromDate);
+        $fromDate = new DateTime($fromDate);
     }
     if (is_string($toDate)) {
-        $toDate = DateTime::createFromFormat("d/m/Y", $toDate);
+        $toDate = new DateTime($toDate);
     }
 
     if (!$fromDate instanceof DateTime || !$toDate instanceof DateTime) {

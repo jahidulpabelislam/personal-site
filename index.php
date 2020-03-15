@@ -18,7 +18,7 @@ $page->renderNav();
 $page->renderHeader();
 
 // Work out the time since I started to today
-$yearsSinceStarted = getTimeDifference($site::JPI_START_DATE, getNowDateTime(), "%y");
+$yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime(), "%y");
 ?>
 
                 <section>

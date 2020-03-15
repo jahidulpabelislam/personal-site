@@ -17,7 +17,7 @@ class Site {
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
     public const VALID_NAV_TINTS = ["dark", "light"];
-    public const JPI_START_DATE = "04/10/2010";
+    public const JPI_START_DATE = "2010-10-04";
 
     private $environment;
 
@@ -196,7 +196,7 @@ class Site {
             $origTimezone = date_default_timezone_get();
             date_default_timezone_set(JPI_DATE_TIMEZONE);
 
-            $this->dateStarted = DateTime::createFromFormat("d/m/Y", self::JPI_START_DATE);
+            $this->dateStarted = new DateTime(self::JPI_START_DATE);
 
             date_default_timezone_set($origTimezone);
         }
