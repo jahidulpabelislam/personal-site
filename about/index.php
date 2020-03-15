@@ -84,8 +84,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                         </div>
                         <div class="row__column">
                             <?php
-                            $workStartDateStr = "23/09/2019";
-                            $workStartDate = DateTime::createFromFormat("d/m/Y", $workStartDateStr);
+                            $workStartDate = new DateTime("2021-09-23");
 
                             $durations = [];
                             $yearsSinceStarted = (int)getTimeDifference($workStartDate, $nowDateTime, "%y");
