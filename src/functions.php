@@ -217,7 +217,7 @@ function getTimeDifference($fromDate, $toDate, string $format): string {
         $toDate = DateTime::createFromFormat("d/m/Y", $toDate);
     }
 
-    if (!$fromDate instanceof \DateTime || !$toDate instanceof \DateTime) {
+    if (!$fromDate instanceof DateTime || !$toDate instanceof DateTime) {
         return "";
     }
 
