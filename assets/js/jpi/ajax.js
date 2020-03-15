@@ -1,5 +1,5 @@
 ;window.jpi = window.jpi || {};
-window.jpi.ajax = (function() {
+window.jpi.ajax = (function(jQuery) {
 
     "use strict";
 
@@ -32,25 +32,6 @@ window.jpi.ajax = (function() {
         },
 
         /**
-         * Convert the data/payload object (containing name/value pairs) into a URLEncoded string.
-         */
-        encodePayload: function(data) {
-            var payload = [];
-
-            for (var name in data) {
-                if ({}.hasOwnProperty.call(data, name)) {
-                    payload.push(name + "=" + encodeURIComponent(data[name]));
-                }
-            }
-
-            var payloadString = payload.join("&");
-            payloadString = payloadString.replace("%20", "+");
-            payloadString = payloadString.replace("%3D", "=");
-
-            return payloadString;
-        },
-
-        /**
          * Function for sending XHR requests
          *
          * @param request Object of necessary data needed to do a HTTP request
@@ -63,48 +44,16 @@ window.jpi.ajax = (function() {
          * }
          */
         request: function(request) {
-            request.method = request.method.toUpperCase();
-
-            // Checks if there is data to send to payload and checks it's not sending a file
-            if (request.data && request.dataType !== "file") {
-                request.data = fn.encodePayload(request.data);
-
-                if (request.method !== "POST") {
-                    request.url += "?" + request.data;
-                    delete request.data;
-                }
-            }
-
-            var xhr = new XMLHttpRequest();
-            xhr.open(request.method, request.url, true);
-
-            xhr.setRequestHeader("Accept", "application/json");
-
-            if (request.method === "POST" && request.data && request.dataType !== "file") {
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            }
-
-            var errorText = "Error Loading Content.";
-
-            xhr.addEventListener("load", function() {
-                if (xhr && xhr.responseText !== "") {
-                    try {
-                        var jsonData = JSON.parse(xhr.responseText);
-                        request.onSuccess(jsonData);
-                        return;
-                    }
-                    catch (e) {
-                        console.log(e);
-                    }
-                }
-                request.onError(errorText);
+            return jQuery.ajax({
+                url: request.url,
+                method: request.method.toUpperCase(),
+                data: request.data,
+                dataType: "json",
+                success: request.onSuccess,
+                error: function () {
+                    request.onError("Error Loading Content.");
+                },
             });
-
-            xhr.addEventListener("error", function() {
-                request.onError(errorText);
-            });
-
-            xhr.send(request.data || null);
         },
     };
 
@@ -112,4 +61,4 @@ window.jpi.ajax = (function() {
         renderRowsOrError: fn.renderRowsOrError,
         request: fn.request,
     };
-})();
+})(jQuery);
