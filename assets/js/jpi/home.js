@@ -3,7 +3,7 @@
  * eg. to display latest 3 project on the home page
  */
 window.jpi = window.jpi || {};
-window.jpi.home = (function(jQuery, jpi) {
+(function(jQuery, jpi) {
 
     "use strict";
 
@@ -121,7 +121,5 @@ window.jpi.home = (function(jQuery, jpi) {
     };
 
     jQuery(window).on("jpi-css-loaded", fn.init);
-
-    return {};
 
 })(jQuery, jpi);

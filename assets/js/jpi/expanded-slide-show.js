@@ -2,7 +2,7 @@
  * Used to expand a projects slide show
  */
 window.jpi = window.jpi || {};
-window.jpi.expandedSlideShow = (function(jQuery, jpi) {
+(function(jQuery, jpi) {
 
     "use strict";
 
@@ -140,7 +140,5 @@ window.jpi.expandedSlideShow = (function(jQuery, jpi) {
     };
 
     jQuery(document).on("ready", fn.initListeners);
-
-    return {};
 
 })(jQuery, jpi);
