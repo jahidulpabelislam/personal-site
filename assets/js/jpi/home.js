@@ -88,14 +88,14 @@ window.jpi = window.jpi || {};
             global.bulletsElem = jQuery(".slide-show__bullets");
 
             // Send the data, the function to do if data is valid
-            var dataValid = jpi.ajax.renderRowsOrError(
+            var wasSuccessfullyRendered = jpi.ajax.renderRowsOrError(
                 response,
                 fn.renderProject,
                 fn.renderError,
                 "Error Getting the Projects."
             );
 
-            if (dataValid) {
+            if (wasSuccessfullyRendered) {
                 jpi.slideShow.start("#latest-projects");
             }
         },
