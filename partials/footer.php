@@ -103,15 +103,15 @@ $page = Page::get();
             ];
         }
         $page->addScripts($scripts);
-
-        $page->renderJSGlobals();
         $page->renderScripts();
-        ?>
 
-        <script type="application/javascript">
-            jQuery(document).on("ready", function() {
-                jpi.helpers.loadStylesheets(<?php echo json_encode($page->stylesheets); ?>);
+        $stylesheetsString = json_encode($page->stylesheets);
+        $page->addInlineJS("
+            jQuery(document).on('ready', function() {
+                jpi.helpers.loadStylesheets({$stylesheetsString});
             });
-        </script>
+        ");
+        $page->renderInlineJS();
+        ?>
     </body>
 </html>

@@ -81,15 +81,15 @@ $page->renderHTMLHead();
         }
         $page->addScripts($scripts);
         $page->renderScripts();
-        ?>
 
-        <script type="application/javascript">
-            jQuery(window).on("load", function() {
-                jpi.helpers.loadStylesheets(<?php echo json_encode($page->stylesheets); ?>);
-
-                jpi.stickyFooter = new StickyFooter(".main-content");
+        $stylesheetsString = json_encode($page->stylesheets);
+        $page->addInlineJS("
+            jQuery(document).on('ready', function() {
+                jpi.helpers.loadStylesheets({$stylesheetsString});
+                jpi.stickyFooter = new StickyFooter('.main-content');
             });
-        </script>
-
+        ");
+        $page->renderInlineJS();
+        ?>
     </body>
 </html>

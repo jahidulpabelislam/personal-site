@@ -90,23 +90,27 @@ class Renderer {
         include_once(ROOT . "/partials/cookie-banner.php");
     }
 
-    /**
-     * Include any global JS variables under the JPI scope
-     */
-    public function renderJSGlobals() {
+    public function renderInlineJS() {
         $jsGlobals = $this->page->jsGlobals;
+        $inlineJS = $this->page->inlineJS;
 
-        if (empty($jsGlobals)) {
+        if (empty($jsGlobals) && empty($inlineJS)) {
             return;
         }
 
         ?>
         <script type="application/javascript">
-            window.jpi = window.jpi || {};
             <?php
-            foreach ($jsGlobals as $globalName => $vars) {
-                $jsVars = json_encode($vars);
-                echo "window.jpi.{$globalName} = {$jsVars};";
+            if (!empty($jsGlobals)) {
+                echo "window.jpi = window.jpi || {};";
+                foreach ($jsGlobals as $globalName => $vars) {
+                    $jsVars = json_encode($vars);
+                    echo "window.jpi.{$globalName} = {$jsVars};";
+                }
+            }
+
+            if (!empty($inlineJS)) {
+                echo $inlineJS;
             }
             ?>
         </script>

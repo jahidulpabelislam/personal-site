@@ -106,6 +106,7 @@ class Page {
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
             ],
+            "inlineJS" => "",
             "scripts" => [],
         ];
 
@@ -122,6 +123,10 @@ class Page {
 
     public function addJSGlobal(string $global, string $key, $value) {
         $this->data["jsGlobals"][$global][$key] = $value;
+    }
+
+    public function addInlineJS(string $code) {
+        $this->data["inlineJS"] .= trim($code);
     }
 
     public function addScript($src, $version = false) {
