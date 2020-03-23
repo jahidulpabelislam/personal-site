@@ -171,7 +171,7 @@ $page->renderHeader();
                     </div>
                 </div>
 
-                <script type="text/template" id="tmpl-project-template">
+                <script type="text/template" id="project-template">
                     <article class="project" id="project-{{ id }}">
                         <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
                             <div class="slide-show__viewport">
@@ -197,13 +197,13 @@ $page->renderHeader();
                     </article>
                 </script>
 
-                <script type="text/template" id="tmpl-slide-template">
+                <script type="text/template" id="slide-template">
                     <div class="slide-show__slide" id="slide-{{ id }}">
                         <img class="slide-show__image js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
                     </div>
                 </script>
 
-                <script type="text/template" id="tmpl-slide-bullet-template">
+                <script type="text/template" id="slide-bullet-template">
                     <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
                     </button>
                 </script>

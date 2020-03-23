@@ -181,7 +181,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                     </div>
                 </section>
 
-                <script type="text/template" id="tmpl-slide-template">
+                <script type="text/template" id="slide-template">
                     <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
                         <img class="slide-show__image latest-project__image" src="<?php $site::echoProjectImageURL("{{ images.0.file }}"); ?>" alt="Screen shot of {{ name }} Project" />
                         <div class="latest-project__info">
@@ -197,7 +197,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                     </div>
                 </script>
 
-                <script type="text/template" id="tmpl-slide-bullet-template">
+                <script type="text/template" id="slide-bullet-template">
                     <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}"></button>
                 </script>
 

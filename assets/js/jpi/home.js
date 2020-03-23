@@ -81,8 +81,8 @@ window.jpi = window.jpi || {};
             global.errorElem.text("").hide(200);
             global.loadingElem.hide(200);
 
-            global.slideTemplate = jQuery("#tmpl-slide-template").text();
-            global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+            global.slideTemplate = jQuery("#slide-template").text();
+            global.bulletTemplate = jQuery("#slide-bullet-template").text();
 
             global.slidesContainer = jQuery(".slide-show__slides");
             global.bulletsElem = jQuery(".slide-show__bullets");

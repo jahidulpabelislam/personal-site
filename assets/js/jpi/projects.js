@@ -514,9 +514,9 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.pageNumber = jpi.helpers.getInt(jQuery(".js-page").val(), 1);
 
-            global.projectTemplate = jQuery("#tmpl-project-template").text();
-            global.slideTemplate = jQuery("#tmpl-slide-template").text();
-            global.bulletTemplate = jQuery("#tmpl-slide-bullet-template").text();
+            global.projectTemplate = jQuery("#project-template").text();
+            global.slideTemplate = jQuery("#slide-template").text();
+            global.bulletTemplate = jQuery("#slide-bullet-template").text();
 
             global.typeColourRegex = /project__type--[\w-]*/g;
 
