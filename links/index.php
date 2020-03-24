@@ -83,10 +83,13 @@ $page->renderHTMLHead();
         $page->renderScripts();
 
         $stylesheetsString = json_encode($page->stylesheets);
-        $page->addInlineJS("
-            jpi.helpers.loadStylesheets({$stylesheetsString});
-            jpi.stickyFooter = new StickyFooter('.main-content');
-        ", true);
+        $page->addInlineJS(
+                <<<HTML
+                jpi.helpers.loadStylesheets({$stylesheetsString});
+                jpi.stickyFooter = new StickyFooter('.main-content');
+                HTML,
+                true
+        );
         $page->renderInlineJS();
         ?>
     </body>

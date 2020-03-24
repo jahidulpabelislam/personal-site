@@ -172,7 +172,9 @@ $page->renderHeader();
                 </div>
 
 <?php
-$page->addJSTemplate("project", '
+$page->addJSTemplate(
+    "project",
+    <<<HTML
     <article class="project" id="project-{{ id }}">
         <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
             <div class="slide-show__viewport">
@@ -196,20 +198,27 @@ $page->addJSTemplate("project", '
             </button>
         </div>
     </article>
-');
+    HTML
+);
 
 $projectImageURL = Site::getProjectImageURL("{{ file }}");
 
-$page->addJSTemplate("slide", '
+$page->addJSTemplate(
+    "slide",
+    <<<HTML
     <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="' . $projectImageURL . '" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+        <img class="slide-show__image js-expandable-image" src="{$projectImageURL}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
     </div>
-');
+    HTML
+);
 
-$page->addJSTemplate("slide-bullet", '
+$page->addJSTemplate(
+    "slide-bullet",
+    <<<HTML
     <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
     </button>
-');
+    HTML
+);
 
 $page->addJSGlobal("config", "projectsPerPage", $projectsPerPage);
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));

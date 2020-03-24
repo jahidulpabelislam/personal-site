@@ -122,9 +122,9 @@ class Renderer {
         }
 
         $js = self::trim($js);
-        ?>
-        <script type="application/javascript"><?php echo $js; ?></script>
-        <?php
+        echo <<<HTML
+            <script type="application/javascript">{$js}</script>
+            HTML;
     }
 
     public function renderScripts() {
@@ -149,9 +149,9 @@ class Renderer {
 
         foreach ($jsTemplates as $name => $template) {
             $template = self::trim($template);
-            ?>
-            <script type="text/template" id="<?php echo $name ?>-template"><?php echo $template; ?></script>
-            <?php
+            echo <<<HTML
+                <script type="text/template" id="{$name}-template">{$template}</script>
+                HTML;
         }
     }
 

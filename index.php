@@ -184,9 +184,11 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
 <?php
 $projectImageURL = Site::getProjectImageURL("{{ images.0.file }}");
 
-$page->addJSTemplate("slide", '
+$page->addJSTemplate(
+    "slide",
+    <<<HTML
     <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
-        <img class="slide-show__image latest-project__image" src="' . $projectImageURL . '" alt="Screen shot of {{ name }} Project" />
+        <img class="slide-show__image latest-project__image" src="{$projectImageURL}" alt="Screen shot of {{ name }} Project" />
         <div class="latest-project__info">
             <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
                 <div class="latest-project__header">
@@ -198,12 +200,16 @@ $page->addJSTemplate("slide", '
             </div>
         </div>
     </div>
-');
+    HTML
+);
 
-$page->addJSTemplate("slide-bullet", '
+$page->addJSTemplate(
+    "slide-bullet",
+    <<<HTML
     <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}">
     </button>
-');
+    HTML
+);
 
 $page->addJSGlobal("config", "projectsPerPage", 3);
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
