@@ -81,6 +81,8 @@ $page = Page::get();
         <!-- End of .page-container-->
 
         <?php
+        $page->renderJSTemplates();
+
         // Either output a compiled js file for whole project & libraries js files, or include individual files if debug is specified
         $scripts = [["src" => "/assets/js/main.min.js"]];
         if ($site->getIsDebug()) {

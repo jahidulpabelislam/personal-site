@@ -171,44 +171,46 @@ $page->renderHeader();
                     </div>
                 </div>
 
-                <script type="text/template" id="project-template">
-                    <article class="project" id="project-{{ id }}">
-                        <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
-                            <div class="slide-show__viewport">
-                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show-{{ id }}"></div>
-                            </div>
-                        </div>
-
-                        <p class="project__type project__type--{{ colour }}">{{ type }}</p>
-
-                        <div class="project__header">
-                            <h3 class="project__title">{{ name }}</h3>
-                            <time class="project__date">{{ date }}</time>
-                        </div>
-
-                        <div class="project__description">{{ short_description }}</div>
-
-                        <div class="project__footer">
-                            <div class="project__links"></div>
-                            <button type="button" class="button button--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
-                                Read More
-                            </button>
-                        </div>
-                    </article>
-                </script>
-
-                <script type="text/template" id="slide-template">
-                    <div class="slide-show__slide" id="slide-{{ id }}">
-                        <img class="slide-show__image js-expandable-image" src="<?php $site::echoProjectImageURL("{{ file }}"); ?>" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
-                    </div>
-                </script>
-
-                <script type="text/template" id="slide-bullet-template">
-                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
-                    </button>
-                </script>
-
 <?php
+$page->addJSTemplate("project", '
+    <article class="project" id="project-{{ id }}">
+        <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
+            <div class="slide-show__viewport">
+                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show-{{ id }}"></div>
+            </div>
+        </div>
+    
+        <p class="project__type project__type--{{ colour }}">{{ type }}</p>
+    
+        <div class="project__header">
+            <h3 class="project__title">{{ name }}</h3>
+            <time class="project__date">{{ date }}</time>
+        </div>
+    
+        <div class="project__description">{{ short_description }}</div>
+    
+        <div class="project__footer">
+            <div class="project__links"></div>
+            <button type="button" class="button button--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
+                Read More
+            </button>
+        </div>
+    </article>
+');
+
+$projectImageURL = Site::getProjectImageURL("{{ file }}");
+
+$page->addJSTemplate("slide", '
+    <div class="slide-show__slide" id="slide-{{ id }}">
+        <img class="slide-show__image js-expandable-image" src="' . $projectImageURL . '" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+    </div>
+');
+
+$page->addJSTemplate("slide-bullet", '
+    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
+    </button>
+');
+
 $page->addJSGlobal("config", "projectsPerPage", $projectsPerPage);
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 

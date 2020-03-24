@@ -185,10 +185,19 @@ class Site {
      *
      * @param string $filepath string The relative url of image
      */
-    public static function echoProjectImageURL(string $filepath = "") {
+    public static function getProjectImageURL(string $filepath = "") {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
         $imageURL = "{$root}{$filepath}";
-        echoWithAssetVersion($imageURL);
+        return addAssetVersion($imageURL);
+    }
+
+    /**
+     * Echo a full url to a image file
+     *
+     * @param string $filepath string The relative url of image
+     */
+    public static function echoProjectImageURL(string $filepath = "") {
+        echo self::getProjectImageURL($filepath);
     }
 
     public function getDateStarted(): DateTime {

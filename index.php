@@ -181,27 +181,30 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                     </div>
                 </section>
 
-                <script type="text/template" id="slide-template">
-                    <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
-                        <img class="slide-show__image latest-project__image" src="<?php $site::echoProjectImageURL("{{ images.0.file }}"); ?>" alt="Screen shot of {{ name }} Project" />
-                        <div class="latest-project__info">
-                            <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
-                                <div class="latest-project__header">
-                                    <h4 class="latest-project__title">{{ name }}</h4>
-                                    <time class="latest-project__date">{{ date }}</time>
-                                </div>
-                                <div class="latest-project__desc">{{ short_description }}</div>
-                                <div class="latest-project__links"></div>
-                            </div>
-                        </div>
-                    </div>
-                </script>
-
-                <script type="text/template" id="slide-bullet-template">
-                    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}"></button>
-                </script>
-
 <?php
+$projectImageURL = Site::getProjectImageURL("{{ images.0.file }}");
+
+$page->addJSTemplate("slide", '
+    <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
+        <img class="slide-show__image latest-project__image" src="' . $projectImageURL . '" alt="Screen shot of {{ name }} Project" />
+        <div class="latest-project__info">
+            <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
+                <div class="latest-project__header">
+                    <h4 class="latest-project__title">{{ name }}</h4>
+                    <time class="latest-project__date">{{ date }}</time>
+                </div>
+                <div class="latest-project__desc">{{ short_description }}</div>
+                <div class="latest-project__links"></div>
+            </div>
+        </div>
+    </div>
+');
+
+$page->addJSTemplate("slide-bullet", '
+    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}">
+    </button>
+');
+
 $page->addJSGlobal("config", "projectsPerPage", 3);
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 

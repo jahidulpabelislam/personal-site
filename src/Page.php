@@ -108,6 +108,7 @@ class Page {
             ],
             "inlineJS" => "",
             "scripts" => [],
+            "jsTemplates" => [],
         ];
 
         return $globalPageData;
@@ -139,6 +140,10 @@ class Page {
             $version = $script["ver"] ?? false;
             $this->addScript($src, $version);
         }
+    }
+
+    public function addJSTemplate(string $name, string $template) {
+        $this->data["jsTemplates"][$name] = $template;
     }
 
 }

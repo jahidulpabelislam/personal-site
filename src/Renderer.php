@@ -130,4 +130,20 @@ class Renderer {
         }
     }
 
+    public function renderJSTemplates() {
+        $jsTemplates = $this->page->jsTemplates;
+
+        if (empty($jsTemplates)) {
+            return;
+        }
+
+        foreach ($jsTemplates as $name => $template) {
+            ?>
+            <script type="text/template" id="<?php echo $name ?>-template">
+                <?php echo trim($template); ?>
+            </script>
+            <?php
+        }
+    }
+
 }
