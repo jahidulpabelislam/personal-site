@@ -22,6 +22,10 @@ class Renderer {
         $this->page = $page;
     }
 
+    private static function trim(string $contents): string {
+        return str_replace("\n", "", trim($contents));
+    }
+
     /**
      * Include the common html head for page/site
      */
@@ -98,22 +102,23 @@ class Renderer {
             return;
         }
 
-        ?>
-        <script type="application/javascript">
-            <?php
-            if (!empty($jsGlobals)) {
-                echo "window.jpi = window.jpi || {};";
-                foreach ($jsGlobals as $globalName => $vars) {
-                    $jsVars = json_encode($vars);
-                    echo "window.jpi.{$globalName} = {$jsVars};";
-                }
-            }
+        $js = "";
 
-            if (!empty($inlineJS)) {
-                echo $inlineJS;
+        if (!empty($jsGlobals)) {
+            $js .= "window.jpi = window.jpi || {};";
+            foreach ($jsGlobals as $globalName => $vars) {
+                $jsVars = json_encode($vars);
+                $js .= "window.jpi.{$globalName} = {$jsVars};";
             }
-            ?>
-        </script>
+        }
+
+        if (!empty($inlineJS)) {
+            $js .= $inlineJS;
+        }
+
+        $js = self::trim($js);
+        ?>
+        <script type="application/javascript"><?php echo $js; ?></script>
         <?php
     }
 
@@ -138,10 +143,9 @@ class Renderer {
         }
 
         foreach ($jsTemplates as $name => $template) {
+            $template = self::trim($template);
             ?>
-            <script type="text/template" id="<?php echo $name ?>-template">
-                <?php echo trim($template); ?>
-            </script>
+            <script type="text/template" id="<?php echo $name ?>-template"><?php echo $template; ?></script>
             <?php
         }
     }
