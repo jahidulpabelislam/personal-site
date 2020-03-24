@@ -84,11 +84,9 @@ $page->renderHTMLHead();
 
         $stylesheetsString = json_encode($page->stylesheets);
         $page->addInlineJS("
-            jQuery(document).on('ready', function() {
-                jpi.helpers.loadStylesheets({$stylesheetsString});
-                jpi.stickyFooter = new StickyFooter('.main-content');
-            });
-        ");
+            jpi.helpers.loadStylesheets({$stylesheetsString});
+            jpi.stickyFooter = new StickyFooter('.main-content');
+        ", true);
         $page->renderInlineJS();
         ?>
     </body>

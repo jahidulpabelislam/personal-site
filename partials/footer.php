@@ -108,11 +108,7 @@ $page = Page::get();
         $page->renderScripts();
 
         $stylesheetsString = json_encode($page->stylesheets);
-        $page->addInlineJS("
-            jQuery(document).on('ready', function() {
-                jpi.helpers.loadStylesheets({$stylesheetsString});
-            });
-        ");
+        $page->addInlineJS("jpi.helpers.loadStylesheets({$stylesheetsString});", true);
         $page->renderInlineJS();
         ?>
     </body>

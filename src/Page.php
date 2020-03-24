@@ -107,6 +107,7 @@ class Page {
                 "css" => ["tabletWidth" => 768],
             ],
             "inlineJS" => "",
+            "onLoadInlineJS" => "",
             "scripts" => [],
             "jsTemplates" => [],
         ];
@@ -126,8 +127,14 @@ class Page {
         $this->data["jsGlobals"][$global][$key] = $value;
     }
 
-    public function addInlineJS(string $code) {
-        $this->data["inlineJS"] .= trim($code);
+    public function addInlineJS(string $code, bool $isOnLoad = false) {
+        $code = trim($code);
+        if ($isOnLoad) {
+            $this->data["onLoadInlineJS"] .= $code;
+        }
+        else {
+            $this->data["inlineJS"] .= $code;
+        }
     }
 
     public function addScript($src, $version = false) {

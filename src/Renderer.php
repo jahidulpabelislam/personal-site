@@ -97,8 +97,9 @@ class Renderer {
     public function renderInlineJS() {
         $jsGlobals = $this->page->jsGlobals;
         $inlineJS = $this->page->inlineJS;
+        $onLoadInlineJS = $this->page->onLoadInlineJS;
 
-        if (empty($jsGlobals) && empty($inlineJS)) {
+        if (empty($jsGlobals) && empty($inlineJS) && empty($onLoadInlineJS)) {
             return;
         }
 
@@ -114,6 +115,10 @@ class Renderer {
 
         if (!empty($inlineJS)) {
             $js .= $inlineJS;
+        }
+
+        if (!empty($onLoadInlineJS)) {
+            $js .= "jQuery(document).on('ready', function() {{$onLoadInlineJS}});";
         }
 
         $js = self::trim($js);
