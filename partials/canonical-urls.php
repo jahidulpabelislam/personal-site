@@ -36,16 +36,16 @@ if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
                 $prevURL .= addTrailingSlash($page - 1);
             }
 
-            echo "<link rel='prev' href='{$prevURL}' />" . PHP_EOL;
+            echo "<link rel='prev' href='{$prevURL}' />";
         }
 
         if ($pagination["hasNextPage"]) {
             $nextURL = $url . addTrailingSlash($page + 1);
-            echo "<link rel='next' href='{$nextURL}' />" . PHP_EOL;
+            echo "<link rel='next' href='{$nextURL}' />";
         }
     }
-    echo "<link rel='canonical' href='{$liveURL}' />" . PHP_EOL;
+    echo "<link rel='canonical' href='{$liveURL}' />";
 }
 else {
-    echo "<meta name='robots' content='noindex,nofollow' />" . PHP_EOL;
+    echo "<meta name='robots' content='noindex,nofollow' />";
 }
