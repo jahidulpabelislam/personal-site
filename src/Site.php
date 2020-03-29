@@ -160,17 +160,16 @@ class Site {
      * Generate and return the API endpoint
      */
     public static function getAPIEndpoint(string $entity = ""): string {
-        $endpoint = addTrailingSlash(JPI_API_ENDPOINT);
-        $endpoint .= "v" . JPI_API_VERSION;
-        $endpoint = addTrailingSlash($endpoint);
-
+        $parts = [
+            JPI_API_ENDPOINT,
+            "v" . JPI_API_VERSION
+        ];
         $entity = removeSlashes($entity);
         if (!empty($entity)) {
-            $endpoint .= $entity;
-            $endpoint = addTrailingSlash($endpoint);
+            $parts[] = $entity;
         }
 
-        return $endpoint;
+        return partsToUrl($parts);
     }
 
     /**

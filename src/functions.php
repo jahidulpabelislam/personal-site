@@ -56,6 +56,12 @@ function addTrailingSlash(string $url): string {
     return "{$url}/";
 }
 
+function partsToUrl(array $parts): string {
+    $url = implode("/", $parts);
+
+    return addTrailingSlash($url);
+}
+
 function formatURL(string $domain, string $relativeURL): string {
     $indexes = [
         "index.php",
@@ -69,13 +75,12 @@ function formatURL(string $domain, string $relativeURL): string {
         }
     }
 
-    $domain = addTrailingSlash($domain);
+    $parts = [
+        removeTrailingSlash($domain),
+        removeLeadingSlash($relativeURL),
+    ];
 
-    // Remove the leading slash as domain will have the slash
-    $relativeURL = removeLeadingSlash($relativeURL);
-    $fullURL = addTrailingSlash($domain . $relativeURL);
-
-    return $fullURL;
+    return partsToUrl($parts);
 }
 
 function turnPathToURL(string $path): string {
