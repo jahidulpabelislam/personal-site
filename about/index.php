@@ -30,18 +30,22 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             <?php
             foreach ($items as $item) {
                 $hasDesc = !empty($item["desc"]);
-
                 $expandClass = $hasDesc ? "skills-interests__item--expandable" : "";
 
-                echo "<li class='skills-interests__item skills-interests__item--{$colour} {$expandClass}'>";
-                echo $item["text"];
-
+                $description = "";
                 if ($hasDesc) {
-                    echo "&nbsp;<span class='skills-interests__expand-icon fa fa-plus'></span>";
-                    echo "<div class='skills-interests__expand-content'>{$item["desc"]}</div>";
+                    $description = <<<HTML
+                        &nbsp;<span class="skills-interests__expand-icon fa fa-plus"></span>
+                        <div class="skills-interests__expand-content">{$item["desc"]}</div>
+                        HTML;
                 }
 
-                echo "</li>";
+                echo <<<HTML
+                    <li class="skills-interests__item skills-interests__item--{$colour} {$expandClass}">
+                        {$item["text"]}
+                        {$description}
+                    </li>
+                    HTML;
             }
             ?>
             </ul>
@@ -300,18 +304,18 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                             foreach ($timelineItems as $timelineItem) {
                                 $isActive = $timelineItem["isActive"] ?? false;
                                 $activeClass = $isActive ? "timeline__item--present" : "";
-                                echo "<div class='timeline__item {$activeClass}'>";
-
-                                $date = $timelineItem["date"];
-                                echo "<p class='timeline__date'>{$date}</p>";
 
                                 $iconName = $timelineItem["icon"];
                                 $iconClass = !empty($iconName) ? "timeline__content--{$iconName}" : "";
-                                echo "<div class='timeline__content {$iconClass}'>";
 
-                                echo "<p>" . $timelineItem["text"] . "</p>";
-                                echo "</div>";
-                                echo "</div>";
+                                echo <<<HTML
+                                    <div class="timeline__item {$activeClass}">
+                                        <p class="timeline__date">{$timelineItem["date"]}</p>
+                                        <div class="timeline__content {$iconClass}">
+                                            <p>{$timelineItem["text"]}</p>
+                                        </div>
+                                    </div>
+                                    HTML;
                             }
                             ?>
                         </div>

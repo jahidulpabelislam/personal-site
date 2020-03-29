@@ -9,9 +9,7 @@ $page = Page::get();
 
                 <?php
                 if (count($similarLinks)) {
-                    echo "<div class='row row--split similar-links'>";
-                    echo "<div class='container'>";
-
+                    $linksContent = "";
                     foreach ($similarLinks as $link) {
                         $pageTitle = $link["title"];
                         $buttonText = $link["text"] ?? $title;
@@ -23,13 +21,22 @@ $page = Page::get();
                         $buttonColour = $link["colour"] ?? "";
                         $buttonClasses .= !empty($buttonColour) ? " button--{$buttonColour}" : "";
 
-                        echo "<div class='row__column'>";
-                        echo "<a class='{$buttonClasses}' href='{$url}' title='Link to {$pageTitle} Page'>{$buttonText}</a>";
-                        echo "</div>";
+                        $linksContent .= <<<HTML
+                            <div class="row__column">
+                                <a class="{$buttonClasses}" href="{$url}" title="Link to {$pageTitle} Page">
+                                    {$buttonText}
+                                </a>
+                            </div>;
+                            HTML;
                     }
 
-                    echo "</div>";
-                    echo "</div>";
+                    echo <<<HTML
+                        <div class="row row--split similar-links">
+                            <div class="container">
+                                {$linksContent}
+                            </div>
+                        </div>
+                        HTML;
                 }
                 ?>
 

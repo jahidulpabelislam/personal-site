@@ -49,9 +49,14 @@ $site = Site::get();
                                 $classes[] = "nav__link--active";
                             }
 
-                            echo "<li class='nav__item'>";
-                            echo "<a class='" . implode(" ", $classes) . "' href='{$fullURL}' title='Link to {$linkTitle} Page'>{$linkTitle}</a>";
-                            echo "</li>";
+                            $class = implode(" ", $classes);
+                            echo <<<HTML
+                                <li class="nav__item">
+                                    <a class="{$class}" href="{$fullURL}" title="Link to {$linkTitle} Page">
+                                        {$linkTitle}
+                                    </a>
+                                </li>
+                                HTML;
                         }
                         ?>
                     </ul>
