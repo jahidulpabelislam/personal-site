@@ -17,13 +17,17 @@ $page = Page::get();
                         $url = $link["url"];
                         $url = $site->getURL($url);
 
-                        $buttonClasses = "button";
-                        $buttonColour = $link["colour"] ?? "";
-                        $buttonClasses .= !empty($buttonColour) ? " button--{$buttonColour}" : "";
+                        $buttonClasses = ["button"];
+
+                        if (!empty($link["colour"])){
+                            $buttonClasses[] =  "button--{$link["colour"]}";
+                        }
+
+                        $buttonClass = implode(" ", $buttonClasses);
 
                         $linksContent .= <<<HTML
                             <div class="row__column">
-                                <a class="{$buttonClasses}" href="{$url}" title="Link to {$pageTitle} Page">
+                                <a class="{$buttonClass}" href="{$url}" title="Link to {$pageTitle} Page">
                                     {$buttonText}
                                 </a>
                             </div>;
