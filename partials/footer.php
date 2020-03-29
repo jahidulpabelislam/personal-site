@@ -12,7 +12,7 @@ $page = Page::get();
                     $linksContent = "";
                     foreach ($similarLinks as $link) {
                         $pageTitle = $link["title"];
-                        $buttonText = $link["text"] ?? $title;
+                        $buttonText = $link["text"] ?? $pageTitle;
 
                         $url = $link["url"];
                         $url = $site->getURL($url);
