@@ -363,18 +363,18 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         getNewURL: function(page) {
-            var url = "/projects/";
+            var urlParts = ["projects"];
 
             var search = global.searchInput.val();
             if (search.trim() !== "") {
-                url += search + "/";
+                urlParts.push(search);
             }
 
             if (page > 1) {
-                url += page + "/";
+                urlParts.push(page);
             }
 
-            return url;
+            return  "/" + urlParts.join("/") + "/";
         },
 
         getNewTitle: function(page) {
