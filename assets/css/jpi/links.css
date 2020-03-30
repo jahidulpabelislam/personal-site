@@ -349,7 +349,8 @@ img {
     height: 4.5px;
     border-radius: 2.2px; }
   .social-link__image--snapchat {
-    max-width: 200px; } }
+    max-width: 200px;
+    height: auto; } }
 
 /* For all devices */
 .social-links-page {
@@ -376,6 +377,6 @@ img {
     align-items: center;
     justify-content: center; }
   .social-link-container--snapchat {
-    min-width: calc(33% - 10px);
+    width: calc(33% - 10px);
     max-width: 200px;
     margin: 5px; } }
