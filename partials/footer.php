@@ -30,7 +30,7 @@ $page = Page::get();
                                 <a class="{$buttonClass}" href="{$url}" title="Link to {$pageTitle} Page">
                                     {$buttonText}
                                 </a>
-                            </div>;
+                            </div>
                             HTML;
                     }
 
