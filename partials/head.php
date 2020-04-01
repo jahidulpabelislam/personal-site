@@ -62,14 +62,19 @@ $page = Page::get();
 
         <?php $page->renderFavicons(); ?>
 
-        <style>
-            <?php
-            foreach ($page->inlineStylesheets as $inlineStylesheet) {
-                renderFile($inlineStylesheet);
-            }
-            ?>
-        </style>
         <?php
+        $inlineStylesheets = $page->inlineStylesheets;
+        if (count($inlineStylesheets)) {
+            ?>
+            <style>
+                <?php
+                foreach ($inlineStylesheets as $inlineStylesheet) {
+                    renderFile($inlineStylesheet);
+                }
+                ?>
+            </style>
+            <?php
+        }
 
         foreach ($page->deferredStylesheets as $stylesheet) {
             ?>
