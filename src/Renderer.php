@@ -102,7 +102,7 @@ class Renderer {
         $deferredStylesheets = $this->page->deferredStylesheets;
         if (count($deferredStylesheets)) {
             $deferredStylesheetsString = json_encode($deferredStylesheets);
-            $inlineJS = "jpi.helpers.loadStylesheets({$deferredStylesheetsString});" . $inlineJS;
+            $onLoadInlineJS = "jpi.helpers.loadStylesheets({$deferredStylesheetsString});" . $onLoadInlineJS;
         }
 
         if (empty($jsGlobals) && empty($inlineJS) && empty($onLoadInlineJS)) {
