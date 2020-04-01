@@ -52,11 +52,13 @@ class Page {
         return false;
     }
 
-    private function getInlineStylesheetForPage(string $pageId): string {
+    private function getInlineStylesheetsForPage(string $pageId): array {
         $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
-        return "{$cssDir}/above-the-fold.{$cssExtension}";
+        return [
+            "{$cssDir}/above-the-fold.{$cssExtension}",
+        ];
     }
 
     /**
@@ -109,7 +111,7 @@ class Page {
         $globalPageData = [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
-            "inlineStylesheet" => $this->getInlineStylesheetForPage($pageId),
+            "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],

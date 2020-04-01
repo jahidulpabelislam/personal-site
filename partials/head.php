@@ -62,8 +62,15 @@ $page = Page::get();
 
         <?php $page->renderFavicons(); ?>
 
-        <style><?php renderFile($page->inlineStylesheet); ?></style>
+        <style>
+            <?php
+            foreach ($page->inlineStylesheets as $inlineStylesheet) {
+                renderFile($inlineStylesheet);
+            }
+            ?>
+        </style>
         <?php
+
         foreach ($page->deferredStylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
