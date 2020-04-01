@@ -88,7 +88,7 @@ $page->renderHeader();
                             </p>
 
                             <div class="search-form__inner">
-                                <label for="search" class="screen-reader-text">Search for projects.</label>
+                                <label for="search" class="label screen-reader-text">Search for projects.</label>
                                 <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
                                 <button type="submit" class="button search-form__submit">
                                     <i class="fa fa-search"></i>

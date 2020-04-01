@@ -28,18 +28,18 @@ $page->renderHeader();
                             <p><span class="required">*</span> indicates a required field</p>
 
                             <div class="input-group">
-                                <label for="email-input">Your Email Address <span class="required">*</span></label>
+                                <label for="email-input" class="label">Your Email Address <span class="required">*</span></label>
                                 <input type="email" class="input contact-form__email" id="email-input" name="email-input" placeholder="e.g. joe@example.com" title="Email Address" required />
                                 <p class="feedback feedback--error contact-form__email-feedback"></p>
                             </div>
 
                             <div class="input-group">
-                                <label for="subject-input">The Message Subject</label>
+                                <label for="subject-input" class="label">The Message Subject</label>
                                 <input type="text" class="input contact-form_subject" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" />
                             </div>
 
                             <div class="input-group input-group--full">
-                                <label for="message-input">Your Message <span class="required">*</span></label>
+                                <label for="message-input" class="label">Your Message <span class="required">*</span></label>
                                 <textarea class="input contact-form__message" id="message-input" name="message-input" placeholder="e.g. Your site could do with more colour." title="The Message" rows="10" required></textarea>
                                 <p class="feedback feedback--error contact-form__message-feedback"></p>
                             </div>
