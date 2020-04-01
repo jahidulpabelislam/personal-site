@@ -62,14 +62,7 @@ $page = Page::get();
 
         <?php $page->renderFavicons(); ?>
 
-        <!-- Custom stylesheet for site -->
-        <?php
-        $cssDir = $site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $site->getIsDebug() ? "css" : "min.css";
-        ?>
-        <style>
-            <?php renderFile("{$cssDir}/above-the-fold.{$cssExtension}"); ?>
-        </style>
+        <style><?php renderFile($page->inlineStylesheet); ?></style>
         <?php
         foreach ($page->deferredStylesheets as $stylesheet) {
             ?>

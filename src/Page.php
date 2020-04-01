@@ -52,20 +52,27 @@ class Page {
         return false;
     }
 
+    private function getInlineStylesheetForPage(string $pageId): string {
+        $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
+
+        return "{$cssDir}/above-the-fold.{$cssExtension}";
+    }
+
     /**
      * Get the page specific stylesheet/css or the default
      * @param $pageId string
      * @return string
      */
     private function getDeferredPageStylesheet(string $pageId): string {
-        $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
+        $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
         // Some pages (like `Links`) may use its own css file
         // so figure out if one exists to use, else use the main one
-        $cssSrc = "/{$cssDir}/{$pageId}.{$cssExtension}";
+        $cssSrc = "{$cssDir}/{$pageId}.{$cssExtension}";
         if (!(new File($cssSrc))->exists()) {
-            $cssSrc = "/{$cssDir}/main.{$cssExtension}";
+            $cssSrc = "{$cssDir}/main.{$cssExtension}";
         }
 
         return addAssetVersion($cssSrc);
@@ -102,6 +109,7 @@ class Page {
         $globalPageData = [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
+            "inlineStylesheet" => $this->getInlineStylesheetForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
