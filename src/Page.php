@@ -72,7 +72,9 @@ class Page {
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
-        $stylesheets = [];
+        $stylesheets = [
+            $this->getDeferredPageStylesheet($pageId)
+        ];
 
         // Only some pages use Font Awesome, so only add if it uses it
         $pagesUsingFA = [
@@ -81,8 +83,6 @@ class Page {
         if (in_array($pageId, $pagesUsingFA)) {
             $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0");
         }
-
-        $stylesheets[] = $this->getDeferredPageStylesheet($pageId);
 
         return $stylesheets;
     }
