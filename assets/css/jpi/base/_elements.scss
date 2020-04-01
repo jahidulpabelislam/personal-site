@@ -1,9 +1,7 @@
-/**
- * Any base css for all pages.
- * Plus any css for components/templates that will only have 1 line of code if separated.
- */
+[hidden="hidden"] {
+    display: none;
+}
 
-/* For all devices */
 body.no-scroll {
     overflow: hidden;
 }
@@ -26,11 +24,19 @@ a:hover > img {
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
 }
 
+button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+button > * {
+    pointer-events: none;
+}
+
 blockquote {
     padding: 5px 15px;
     border-left: 5px solid $light-grey;
-}
-
-[hidden="hidden"] {
-    display: none;
 }

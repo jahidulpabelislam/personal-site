@@ -1,16 +1,4 @@
 /* For all devices */
-button {
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    background-color: transparent;
-    -webkit-appearance: none;
-}
-
-button > * {
-    pointer-events: none;
-}
-
 .button {
     width: auto;
     margin: 5px;
