@@ -57,7 +57,7 @@ class Page {
      * @param $pageId string
      * @return string
      */
-    private function getPageStylesheet(string $pageId): string {
+    private function getDeferredPageStylesheet(string $pageId): string {
         $cssDir = $this->site->getIsDebug() ? "assets/css/jpi" : "assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
@@ -71,7 +71,7 @@ class Page {
         return addAssetVersion($cssSrc);
     }
 
-    public function getStylesheetsForPage(string $pageId): array {
+    public function getDeferredStylesheetsForPage(string $pageId): array {
         $stylesheets = [];
 
         // Only some pages use Font Awesome, so only add if it uses it
@@ -82,7 +82,7 @@ class Page {
             $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0");
         }
 
-        $stylesheets[] = $this->getPageStylesheet($pageId);
+        $stylesheets[] = $this->getDeferredPageStylesheet($pageId);
 
         return $stylesheets;
     }
@@ -102,7 +102,7 @@ class Page {
         $globalPageData = [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
-            "stylesheets" => $this->getStylesheetsForPage($pageId),
+            "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
             ],

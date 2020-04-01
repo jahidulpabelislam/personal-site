@@ -82,10 +82,10 @@ $page->renderHTMLHead();
         $page->addScripts($scripts);
         $page->renderScripts();
 
-        $stylesheetsString = json_encode($page->stylesheets);
+        $deferredStylesheetsString = json_encode($page->deferredStylesheets);
         $page->addInlineJS(
                 <<<HTML
-                jpi.helpers.loadStylesheets({$stylesheetsString});
+                jpi.helpers.loadStylesheets({$deferredStylesheetsString});
                 jpi.stickyFooter = new StickyFooter('.main-content');
                 HTML,
                 true

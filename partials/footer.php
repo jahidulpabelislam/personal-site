@@ -118,8 +118,8 @@ $page = Page::get();
         $page->addScripts($scripts);
         $page->renderScripts();
 
-        $stylesheetsString = json_encode($page->stylesheets);
-        $page->addInlineJS("jpi.helpers.loadStylesheets({$stylesheetsString});", true);
+        $deferredStylesheetsString = json_encode($page->deferredStylesheets);
+        $page->addInlineJS("jpi.helpers.loadStylesheets({$deferredStylesheetsString});", true);
         $page->renderInlineJS();
         ?>
     </body>

@@ -71,7 +71,7 @@ $page = Page::get();
             <?php renderFile("{$cssDir}/above-the-fold.{$cssExtension}"); ?>
         </style>
         <?php
-        foreach ($page->stylesheets as $stylesheet) {
+        foreach ($page->deferredStylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
             <?php
