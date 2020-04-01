@@ -1,5 +1,3 @@
-
-
 const gulp = require("gulp");
 
 const rename = require("gulp-rename");
@@ -12,7 +10,7 @@ const autoPrefix = require("gulp-autoprefixer");
 
 const sass = require("gulp-sass");
 
-const livereload = require('gulp-livereload');
+const livereload = require("gulp-livereload");
 
 const { jsDir, cssDir } = require("../config");
 
@@ -92,15 +90,15 @@ gulp.task("watch", gulp.series(["reload-listen", "sass", "watch-scss", "watch-js
 defaultTasks.push("stylesheets");
 gulp.task("stylesheets", function() {
     return gulp.src(`${cssDir}/jpi/*.css`)
-        .pipe(rename({suffix: ".min"}))
-        .pipe(autoPrefix({
-            browsers: ["> 0.1%", "ie 8-11"],
-            remove: false,
-        }))
-        .pipe(cleanCss({
-            compatibility: "ie8",
-        }))
-        .pipe(gulp.dest(`${cssDir}/`));
+               .pipe(rename({suffix: ".min"}))
+               .pipe(autoPrefix({
+                   browsers: ["> 0.1%", "ie 8-11"],
+                   remove: false,
+               }))
+               .pipe(cleanCss({
+                   compatibility: "ie8",
+               }))
+               .pipe(gulp.dest(`${cssDir}/`));
 });
 
 gulp.task("default", gulp.series(defaultTasks));
