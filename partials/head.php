@@ -76,6 +76,12 @@ $page = Page::get();
             <?php
         }
 
+        foreach ($page->stylesheets as $stylesheet) {
+            ?>
+            <link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" />
+            <?php
+        }
+
         foreach ($page->deferredStylesheets as $stylesheet) {
             ?>
             <noscript><link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>

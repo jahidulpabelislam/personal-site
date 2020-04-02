@@ -53,12 +53,29 @@ class Page {
     }
 
     private function getInlineStylesheetsForPage(string $pageId): array {
+        if ($pageId === "links") {
+            return [];
+        }
+
         $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
         return [
             "{$cssDir}/above-the-fold.{$cssExtension}",
         ];
+    }
+
+    private function getStylestyleshetsForPage(string $pageId): array  {
+        if ($pageId === "links") {
+            $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+            $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
+
+            return [
+                "{$cssDir}/links.{$cssExtension}",
+            ];
+        }
+
+        return [];
     }
 
     /**
@@ -81,6 +98,10 @@ class Page {
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
+        if ($pageId === "links") {
+            return [];
+        }
+
         $stylesheets = [
             $this->getDeferredPageStylesheet($pageId)
         ];
@@ -112,6 +133,7 @@ class Page {
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
             "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
+            "stylesheets" => $this->getStylestyleshetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
