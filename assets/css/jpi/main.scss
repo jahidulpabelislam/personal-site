@@ -1,28 +1,14 @@
-@import "third-party/reset";
-@import "third-party/google-fonts";
-
 @import "tools/variables";
 @import "tools/mixins";
 
-@import "base/clearfix";
-@import "base/elements";
-@import "base/global";
-@import "base/typography";
-
-@import "layout/base";
 @import "layout/row";
-@import "layout/header";
-@import "layout/nav";
 @import "layout/footer";
 
-@import "components/buttons";
 @import "components/form";
 @import "components/table";
 @import "components/modal";
 @import "components/pagination";
 @import "components/social-links";
-@import "components/social-media-images";
-@import "components/cookie-banner";
 @import "components/slide-show";
 @import "components/expanded-slide-show";
 @import "components/project";
