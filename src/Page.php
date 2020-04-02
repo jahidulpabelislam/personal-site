@@ -13,6 +13,7 @@ class Page {
         $this->site = Site::get();
 
         $this->data = $this->getGlobalPageData();
+        $this->addScripts($this->getScriptsForPage($this->id));
 
         $this->renderer = new Renderer($this);
     }
@@ -117,6 +118,45 @@ class Page {
         return $stylesheets;
     }
 
+    private function getScriptsForPage(string $pageId): array {
+        // Either add compiled js file(s) for whole page, or include individual files if debug is specified
+
+        if ($pageId === "links") {
+            $scripts = [["src" => "/assets/js/social-links.min.js"]];
+            if ($this->site->getIsDebug()) {
+                $scripts = [
+                    ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                    ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                    ["src" => "/assets/js/jpi/helpers.js"],
+                ];
+            }
+            return $scripts;
+        }
+
+        $scripts = [["src" => "/assets/js/main.min.js"]];
+        if ($this->site->getIsDebug()) {
+            $scripts = [
+                ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
+                ["src" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
+                ["src" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
+                ["src" => "/assets/js/jpi/expanded-slide-show.js"],
+                ["src" => "/assets/js/jpi/slide-show.js"],
+                ["src" => "/assets/js/jpi/helpers.js"],
+                ["src" => "/assets/js/jpi/templating.js"],
+                ["src" => "/assets/js/jpi/ajax.js"],
+                ["src" => "/assets/js/jpi/modal.js"],
+                ["src" => "/assets/js/jpi/projects.js"],
+                ["src" => "/assets/js/jpi/home.js"],
+                ["src" => "/assets/js/jpi/form.js"],
+                ["src" => "/assets/js/jpi/nav.js"],
+                ["src" => "/assets/js/jpi/cookie-banner.js"],
+                ["src" => "/assets/js/jpi/main.js"],
+            ];
+        }
+
+        return $scripts;
+    }
+
     private function getGlobalPageData(): array {
         $pageId = "home";
         $url = "/";
@@ -138,9 +178,9 @@ class Page {
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
             ],
+            "scripts" => [],
             "inlineJS" => "",
             "onLoadInlineJS" => "",
-            "scripts" => [],
             "jsTemplates" => [],
         ];
 

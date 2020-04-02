@@ -70,16 +70,6 @@ $page->renderHTMLHead();
         </div>
 
         <?php
-        // Either output a compiled js file for whole page & libraries js files, or include individual files if debug is specified
-        $scripts = [["src" => "/assets/js/social-links.min.js"]];
-        if ($site->getIsDebug()) {
-            $scripts = [
-                ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
-                ["src" => "/assets/js/jpi/helpers.js"],
-            ];
-        }
-        $page->addScripts($scripts);
         $page->renderScripts();
 
         $page->addInlineJS("jpi.stickyFooter = new StickyFooter('.main-content');", true);
