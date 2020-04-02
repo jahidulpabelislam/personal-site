@@ -9,7 +9,7 @@ class Page {
 
     private static $instance;
 
-    public function __construct() {
+    private function __construct() {
         $this->site = Site::get();
 
         $this->data = $this->getGlobalPageData();

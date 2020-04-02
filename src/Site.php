@@ -34,7 +34,7 @@ class Site {
 
     private static $instance;
 
-    public function __construct() {
+    private function __construct() {
         $this->environment = getEnvironment();
     }
 
