@@ -61,11 +61,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/**
- * Any base css for all pages.
- * Plus any css for components/templates that will only have 1 line of code if separated.
- */
-/* For all devices */
+[hidden="hidden"] {
+  display: none; }
+
 body.no-scroll {
   overflow: hidden; }
 
@@ -84,12 +82,19 @@ a:hover > img {
   opacity: 1;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
+button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-appearance: none; }
+
+button > * {
+  pointer-events: none; }
+
 blockquote {
   padding: 5px 15px;
   border-left: 5px solid #eeeeee; }
-
-[hidden="hidden"] {
-  display: none; }
 
 /*
  * Any css for many templates and/or components.
@@ -201,32 +206,6 @@ blockquote {
   .similar-links.similar-links > .container {
     flex-direction: row-reverse; } }
 
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */ }
-
-.clearfix:after {
-  clear: both; }
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.clearfix {
-  *zoom: 1; }
-
 /* For all devices */
 body {
   font: 400 14px "Cabin", sans-serif;
@@ -264,21 +243,6 @@ body {
   padding: 0 15px;
   margin: auto;
   transition: all 1s ease-in-out; }
-
-.main-content {
-  display: flex;
-  transition: all 1s ease-in-out; }
-
-.main-content__inner {
-  width: 100%; }
-
-.main-content ul {
-  margin: 10px 0;
-  padding-left: 20px;
-  list-style: inside; }
-
-.main-content li {
-  margin: 2px 0; }
 
 p {
   margin: 10px 0; }
@@ -588,220 +552,6 @@ img {
     border-radius: 1.77px; } }
 
 /* For all devices */
-button {
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  background-color: transparent;
-  -webkit-appearance: none; }
-
-button > * {
-  pointer-events: none; }
-
-.button {
-  width: auto;
-  margin: 5px;
-  padding: 6px 12px;
-  background-color: #333333;
-  color: white;
-  font: inherit;
-  border-radius: 2px;
-  transition: background-color 0.2s ease-in-out; }
-
-.button:hover,
-.button:focus {
-  background-color: #262626; }
-
-.button:disabled {
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  opacity: 0.65; }
-
-.button--light-blue {
-  background-color: #54c6e2;
-  color: white; }
-
-.button--light-blue:hover,
-.button--light-blue:focus {
-  background-color: #53d1ec; }
-
-.button--dark-blue {
-  background-color: #0375b4;
-  color: white; }
-
-.button--dark-blue:hover,
-.button--dark-blue:focus {
-  background-color: #0382c3; }
-
-.button--purple {
-  background-color: #82379d;
-  color: white; }
-
-.button--purple:hover,
-.button--purple:focus {
-  background-color: #9339af; }
-
-.button--pink {
-  background-color: #f47ab3;
-  color: white; }
-
-.button--pink:hover,
-.button--pink:focus {
-  background-color: #ff82bf; }
-
-.button--red {
-  background-color: #f12525;
-  color: white; }
-
-.button--red:hover,
-.button--red:focus {
-  background-color: #ff2525; }
-
-.button--orange {
-  background-color: #f69e00;
-  color: white; }
-
-.button--orange:hover,
-.button--orange:focus {
-  background-color: #fba300; }
-
-.button--yellow {
-  background-color: #ffef38;
-  color: #333333; }
-
-.button--yellow:hover,
-.button--yellow:focus {
-  background-color: #fffd3c; }
-
-.button--light-green {
-  background-color: #3dc714;
-  color: white; }
-
-.button--light-green:hover,
-.button--light-green:focus {
-  background-color: #3bcf14; }
-
-.button--lime-green {
-  background-color: #b5cf16;
-  color: white; }
-
-.button--lime-green:hover,
-.button--lime-green:focus {
-  background-color: #bdd716; }
-
-.button--dark-green {
-  background-color: #1aad5b;
-  color: white; }
-
-.button--dark-green:hover,
-.button--dark-green:focus {
-  background-color: #1bbe69; }
-
-.button--grey {
-  background-color: #7b8676;
-  color: white; }
-
-.button--grey:hover,
-.button--grey:focus {
-  background-color: #889283; }
-
-.button--black {
-  background-color: #333333;
-  color: white; }
-
-.button--black:hover,
-.button--black:focus {
-  background-color: #262626; }
-
-.button--white {
-  background-color: white;
-  color: #333333; }
-
-.button--white:hover,
-.button--white:focus {
-  background-color: #fcfcfc; }
-
-.button--clear {
-  background-color: transparent;
-  color: white; }
-
-.button--clear:hover,
-.button--clear:focus,
-.button--clear:active,
-.button--clear:active:hover,
-.button--clear:active:focus {
-  background-color: transparent;
-  color: #cccccc; }
-
-a.button {
-  display: inline-block;
-  margin: 5px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: none; }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .button {
-    margin: 7px;
-    padding: 9px 14px; } }
-
-.cookie-banner {
-  display: none;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  background: rgba(51, 51, 51, 0.8); }
-
-.cookie-banner > .container {
-  display: flex;
-  align-items: center;
-  padding: 0 15px; }
-
-.cookie-banner__text {
-  text-align: left;
-  color: white;
-  font-weight: 700; }
-
-.cookie-banner__actions {
-  text-align: right;
-  margin-left: 15px; }
-
-.cookie-banner__link {
-  color: white;
-  border-bottom-color: white; }
-
-.cookie-banner__link:hover {
-  color: #0382c3;
-  border-bottom-color: #0382c3; }
-
-.cookie-banner__close {
-  padding: 4px 8px;
-  font-weight: 700; }
-
-/* Only for Tablets & Desktops */
-@media only screen and (min-width: 768px) {
-  .cookie-banner {
-    font-size: 14px;
-    line-height: 18px; }
-  .cookie-banner > .container {
-    padding: 0 60px; }
-  .cookie-banner__text {
-    width: 80%; }
-  .cookie-banner__actions {
-    width: 20%;
-    margin-left: 0; } }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .cookie-banner > .container {
-    padding: 0 120px; }
-  .cookie-banner__close {
-    padding: 5px 10px; } }
-
-/* For all devices */
 .social-link__image {
   height: 40px;
   background-color: black;
@@ -964,4 +714,5 @@ a.button {
     height: 4.5px;
     border-radius: 2.2px; }
   .social-link__image--snapchat {
-    max-width: 200px; } }
+    max-width: 200px;
+    height: auto; } }

@@ -160,21 +160,6 @@ body {
   margin: auto;
   transition: all 1s ease-in-out; }
 
-.main-content {
-  display: flex;
-  transition: all 1s ease-in-out; }
-
-.main-content__inner {
-  width: 100%; }
-
-.main-content ul {
-  margin: 10px 0;
-  padding-left: 20px;
-  list-style: inside; }
-
-.main-content li {
-  margin: 2px 0; }
-
 p {
   margin: 10px 0; }
 
@@ -190,6 +175,21 @@ img {
     width: 1170px; }
   .main-content li {
     margin: 5px 0; } }
+
+.main-content {
+  display: flex;
+  transition: all 1s ease-in-out; }
+
+.main-content__inner {
+  width: 100%; }
+
+.main-content ul {
+  margin: 10px 0;
+  padding-left: 20px;
+  list-style: inside; }
+
+.main-content li {
+  margin: 2px 0; }
 
 /* For all devices */
 .social-link__image {
