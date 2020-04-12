@@ -64,7 +64,8 @@
     border-radius: 50% 0 0 50%;
 }
 
-.slide-show__nav:hover svg {
+.slide-show__nav:hover svg,
+.slide-show__nav:focus svg {
     opacity: 1;
     cursor: pointer;
     box-shadow: 0 0 20px 0 $dark-colour;
@@ -80,7 +81,8 @@
         fill: map-get($colours, main);
     }
 
-    .slide-show__nav[data-colour="#{$colour}"]:hover svg {
+    .slide-show__nav[data-colour="#{$colour}"]:hover svg,
+    .slide-show__nav[data-colour="#{$colour}"]:focus svg {
         box-shadow: 0 0 20px 0 map-get($colours, main);
     }
 }
@@ -104,7 +106,8 @@
     background-color: get-colour(black, dark);
     transform: scale(1.2);
 }
-.slide-show__bullet:not(.slide-show__bullet--active):hover {
+.slide-show__bullet:not(.slide-show__bullet--active):hover,
+.slide-show__bullet:not(.slide-show__bullet--active):focus {
     background-color: darken($light-grey, 15);
     transform: scale(1.05);
 }

@@ -74,7 +74,8 @@
     background: white;
     transform: scale(1.2);
 }
-.expanded-slide-show__bullet:not(.expanded-slide-show__bullet--active):hover {
+.expanded-slide-show__bullet:not(.expanded-slide-show__bullet--active):hover,
+.expanded-slide-show__bullet:not(.expanded-slide-show__bullet--active):focus {
     background-color: darken($light-grey, 15);
     transform: scale(1.05);
 }
@@ -90,7 +91,8 @@
     transition: all 0.3s ease-in-out;
 }
 
-.expanded-slide-show__nav:hover {
+.expanded-slide-show__nav:hover,
+.expanded-slide-show__nav:focus {
     opacity: 1;
 }
 

@@ -18,7 +18,8 @@
     border-bottom: transparent solid 1px;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
     color: darken($dark-colour, 10%);
     border-bottom-color: darken($dark-colour, 10%);
 }
@@ -28,7 +29,8 @@
         color: map-get($colours, main);
     }
 
-    .link--#{$colour}:hover {
+    .link--#{$colour}:hover,
+    .link--#{$colour}:focus {
         color: map-get($colours, hover);
         border-bottom-color: map-get($colours, hover);
     }

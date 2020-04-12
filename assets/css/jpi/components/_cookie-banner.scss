@@ -33,7 +33,8 @@
     border-bottom-color: white;
 }
 
-.cookie-banner__link:hover {
+.cookie-banner__link:hover,
+.cookie-banner__link:focus {
     color: get-colour(dark-green, hover);
     border-bottom-color: get-colour(dark-green, hover);
 }

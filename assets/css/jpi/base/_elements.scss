@@ -18,7 +18,8 @@ a > img {
     transition: all 0.3s ease-in-out;
 }
 
-a:hover > img {
+a:hover > img,
+a:focus > img {
     cursor: pointer;
     opacity: 1;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);

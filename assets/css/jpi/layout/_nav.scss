@@ -47,12 +47,14 @@
 }
 
 .nav__logo.nav__logo--active,
-.nav__logo-container:hover .nav__logo {
+.nav__logo-container:hover .nav__logo,
+.nav__logo-container:focus .nav__logo {
     background: $primary-colour;
     border-color: $primary-colour;
 }
 
-.nav__logo-container:hover .nav__logo--active {
+.nav__logo-container:hover .nav__logo--active,
+.nav__logo-container:focus .nav__logo--active {
     box-shadow: none;
 }
 
@@ -145,8 +147,8 @@
     color: $dark-colour;
 }
 
-.nav__link:focus,
-.nav__link:hover {
+.nav__link:hover,
+.nav__link:focus {
     color: get-colour(dark-blue, main);
 }
 
@@ -171,7 +173,8 @@
     background: $dark-colour;
 }
 
-.nav__social-links .social-link:hover .social-link__image {
+.nav__social-links .social-link:hover .social-link__image,
+.nav__social-links .social-link:focus .social-link__image {
     background: get-colour(dark-blue, main);
 }
 
@@ -229,6 +232,7 @@
     }
 
     .nav__link:hover,
+    .nav__link:focus,
     .nav__link--active {
         border-bottom-color: get-colour(dark-blue, main);
     }

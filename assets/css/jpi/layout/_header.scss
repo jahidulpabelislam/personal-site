@@ -62,7 +62,8 @@
     animation: bounce 1.5s linear infinite;
 }
 
-.header__scroll-to-content:hover {
+.header__scroll-to-content:hover,
+.header__scroll-to-content:focus {
     opacity: 1;
     background: transparentize($light-colour, 0.9);
 }

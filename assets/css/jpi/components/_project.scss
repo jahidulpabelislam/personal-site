@@ -72,7 +72,8 @@
     transition-property: border-color, background-color, color, box-shadow;
 }
 
-.project__skill:hover {
+.project__skill:hover,
+.project__skill:focus {
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
@@ -80,13 +81,15 @@
 }
 
 .project__skill--searched,
-.project__skill--searched:hover {
+.project__skill--searched:hover,
+.project__skill--searched:focus {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
 }
 
-.project__skill--searched:hover {
+.project__skill--searched:hover,
+.project__skill--searched:focus {
     box-shadow: none;
 }
 
@@ -96,7 +99,8 @@
         color: map-get($colours, main);
     }
 
-    .project__skill--#{$colour}:hover {
+    .project__skill--#{$colour}:hover,
+    .project__skill--#{$colour}:focus {
         border-color: map-get($colours, hover);
         background-color: map-get($colours, hover);
         color: get-colour-variant($colours, text, white);
@@ -104,7 +108,8 @@
     }
 
     .project__skill--#{$colour}.project__skill--searched,
-    .project__skill--#{$colour}.project__skill--searched:hover {
+    .project__skill--#{$colour}.project__skill--searched:hover,
+    .project__skill--#{$colour}.project__skill--searched:focus {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);
@@ -151,7 +156,8 @@
     margin-right: 0;
 }
 
-.project__link:hover {
+.project__link:hover,
+.project__link:focus {
     color: get-colour(black, hover);
 }
 
@@ -173,7 +179,8 @@
         color: map-get($colours, main);
     }
 
-    .project__link--#{$colour}:hover {
+    .project__link--#{$colour}:hover,
+    .project__link--#{$colour}:focus {
         color: map-get($colours, hover);
     }
 }
@@ -204,7 +211,8 @@
     transition: background-color 0.2s ease-in-out;
 }
 
-.project__read-more:hover::after {
+.project__read-more:hover::after,
+.project__read-more:focus::after {
     background-color: get-colour(black, hover);
 }
 
@@ -213,7 +221,8 @@
         background-color: map-get($colours, main);
     }
 
-    .project__read-more--#{$colour}:hover::after {
+    .project__read-more--#{$colour}:hover::after,
+    .project__read-more--#{$colour}:focus::after {
         background-color: map-get($colours, hover);
     }
 }

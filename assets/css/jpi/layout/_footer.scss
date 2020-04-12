@@ -43,11 +43,13 @@
     transition: all 0.3s ease-in-out;
 }
 
-.footer__link:hover {
+.footer__link:hover,
+.footer__link:focus {
     color: darken($dark-colour, 10%);
 }
 
-.footer__link:hover:before {
+.footer__link:hover:before,
+.footer__link:focus:before {
     border-bottom-color: darken($dark-colour, 10%);
 }
 

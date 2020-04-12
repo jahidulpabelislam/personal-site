@@ -16,20 +16,24 @@
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__image--email {
+.social-link:hover .social-link__image--email,
+.social-link:focus .social-link__image--email {
     background-color: $email-colour;
 }
 
-.social-link:hover .social-link__text--email {
+.social-link:hover .social-link__text--email,
+.social-link:focus .social-link__text--email {
     color: $email-colour;
     text-decoration: underline;
 }
 
-.social-link:hover .social-link__image--linkedin {
+.social-link:hover .social-link__image--linkedin,
+.social-link:focus .social-link__image--linkedin {
     background-color: $linkedin-colour;
 }
 
-.social-link:hover .social-link__text--linkedin {
+.social-link:hover .social-link__text--linkedin,
+.social-link:focus .social-link__text--linkedin {
     color: $linkedin-colour;
     text-decoration: underline;
 }
@@ -38,16 +42,19 @@
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__image--github {
+.social-link:hover .social-link__image--github,
+.social-link:focus .social-link__image--github {
     background-color: $github-colour;
 }
 
-.social-link:hover .social-link__text--github {
+.social-link:hover .social-link__text--github,
+.social-link:focus .social-link__text--github {
     color: $github-colour;
     text-decoration: underline;
 }
 
-.social-link:hover .social-link__text--instagram {
+.social-link:hover .social-link__text--instagram ,
+.social-link:focus .social-link__text--instagram {
     color: $instagram-purple-colour;
     text-decoration: underline;
 }
@@ -60,7 +67,8 @@
     vertical-align: middle;
 }
 
-.social-link:hover .social-link__image--instagram {
+.social-link:hover .social-link__image--instagram,
+.social-link:focus .social-link__image--instagram {
     background: radial-gradient(
             circle farthest-corner at 32% 106%,
             #ffe17d 0%,
@@ -105,12 +113,14 @@
     border-radius: 5px;
 }
 
-.social-link:hover .social-link__text--facebook {
+.social-link:hover .social-link__text--facebook,
+.social-link:focus .social-link__text--facebook {
     color: $facebook-colour;
     text-decoration: underline;
 }
 
-.social-link:hover .social-link__image--facebook {
+.social-link:hover .social-link__image--facebook,
+.social-link:focus .social-link__image--facebook {
     background: $facebook-colour;
 }
 
@@ -118,12 +128,14 @@
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__text--twitter {
+.social-link:hover .social-link__text--twitter,
+.social-link:focus .social-link__text--twitter {
     color: $twitter-colour;
     text-decoration: underline;
 }
 
-.social-link:hover .social-link__image--twitter {
+.social-link:hover .social-link__image--twitter,
+.social-link:focus .social-link__image--twitter {
     background: $twitter-colour;
 }
 
@@ -135,7 +147,8 @@
     transition: all 0.3s ease-in-out;
 }
 
-.social-link:hover .social-link__image--snapchat {
+.social-link:hover .social-link__image--snapchat,
+.social-link:focus .social-link__image--snapchat {
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     cursor: pointer;
     filter: grayscale(0);
@@ -148,7 +161,8 @@
     color: white;
 }
 
-.social-link:hover .social-link__text--snapchat {
+.social-link:hover .social-link__text--snapchat,
+.social-link:focus .social-link__text--snapchat {
     color: $snapchat-colour;
 }
 
