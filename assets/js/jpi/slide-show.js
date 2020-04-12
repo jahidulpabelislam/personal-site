@@ -75,7 +75,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             var slideShow = jQuery(slideShowId);
             fn.setNavColour(slideShow, nextSlide);
 
-            slideShow.find(".slide-show__slide--active").removeClass("slide-show__slide--active");
+            var currentSlide = slideShow.find(".slide-show__slide--active");
+
+            currentSlide.removeClass("slide-show__slide--active");
             slideShow.find(".slide-show__bullet--active").removeClass("slide-show__bullet--active");
             nextSlide.addClass("slide-show__slide--active");
 
@@ -86,6 +88,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             var newSlideID = nextSlide.attr("id");
             slideShow.find(".slide-show__bullet[data-slide-id=#" + newSlideID + "]").addClass("slide-show__bullet--active");
+
+            jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
+            jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
         },
 
         // Moves to next or previous slide
@@ -194,6 +199,10 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             }
 
             var firstSlide = slides.first();
+
+            var inactiveSlides = slides.not(firstSlide);
+
+            jpi.helpers.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
 
             firstSlide.addClass("slide-show__slide--active");
             slideShow.find(".slide-show__bullet").first().addClass("slide-show__bullet--active");
