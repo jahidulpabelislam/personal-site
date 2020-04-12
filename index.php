@@ -119,11 +119,11 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
 
                     <div class="slide-show latest-projects__slide-show" id="latest-projects">
                         <div class="slide-show__viewport">
-                            <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
                             <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous" data-colour="">
                                 <span class="screen-reader-text">Navigate to the previous slide/image.</span>
                                 <?php renderFile("/assets/images/previous.svg"); ?>
                             </button>
+                            <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
                             <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next" data-colour="">
                                 <span class="screen-reader-text">Navigate to the next slide/image.</span>
                                 <?php renderFile("/assets/images/next.svg"); ?>

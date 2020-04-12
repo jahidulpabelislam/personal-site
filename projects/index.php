@@ -156,11 +156,11 @@ $page->renderHeader();
 
                         <div class="slide-show project__slide-show" id="detailed-project-slide-show">
                             <div class="slide-show__viewport">
-                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
                                 <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="previous">
                                     <span class="screen-reader-text">Navigate to the previous slide/image.</span>
                                     <?php renderFile("/assets/images/previous.svg"); ?>
                                 </button>
+                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
                                 <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="next">
                                     <span class="screen-reader-text">Navigate to the next slide/image.</span>
                                     <?php renderFile("/assets/images/next.svg"); ?>
