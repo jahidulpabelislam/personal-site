@@ -77,7 +77,7 @@ window.jpi.modal = (function(jQuery, jpi) {
             });
             global.activeModal.addClass("is-open");
 
-            global.focusables = global.activeModal.find("a, button, input, select, textarea").filter(":not([disabled]):visible");
+            global.focusables = jpi.helpers.getFocusableChildren(global.activeModal);
             var focusablesLength = global.focusables.length;
             if (focusablesLength) {
                 global.firstFocusable = jQuery(global.focusables[0]);

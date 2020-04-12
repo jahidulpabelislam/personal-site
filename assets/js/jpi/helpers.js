@@ -34,6 +34,10 @@ window.jpi.helpers = (function(jQuery) {
             return newElement;
         },
 
+        getFocusableChildren: function(parent) {
+            return parent.find("a, button, input, select, textarea").filter(":not([disabled]):visible");
+        },
+
         getInt: function(value, defaultInt) {
             var parsedInt = parseInt(value, 10);
 
@@ -132,6 +136,7 @@ window.jpi.helpers = (function(jQuery) {
         checkInputField: fn.checkInputField,
         createElement: fn.createElement,
         renderNewElement: fn.renderNewElement,
+        getFocusableChildren: fn.getFocusableChildren,
         getInt: fn.getInt,
         getCookie: fn.getCookie,
         checkCookieValue: fn.checkCookieValue,
