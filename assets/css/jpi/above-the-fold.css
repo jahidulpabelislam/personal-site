@@ -463,8 +463,7 @@ img {
   top: 6px;
   transform: rotate(45deg); }
 
-.nav--open .nav__menu-bar:nth-child(3),
-.nav--open:hover .nav__menu-bar:nth-child(3) {
+.nav--open .nav__menu-bar:nth-child(3) {
   background-color: transparent;
   width: 0; }
 
