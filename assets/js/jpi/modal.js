@@ -26,7 +26,7 @@ window.jpi.modal = (function(jQuery, jpi) {
 
             global.activeModal.removeClass("is-open");
             global.activeModal.attr({
-                "tab-index": -1,
+                "tabindex": -1,
                 "aria-hidden": true,
                 "hidden": "hidden",
             });
@@ -71,7 +71,7 @@ window.jpi.modal = (function(jQuery, jpi) {
             global.page.attr("aria-hidden", "true");
 
             global.activeModal.attr({
-                "tab-index": 0,
+                "tabindex": 0,
                 "aria-hidden": false,
                 "hidden": false,
             });
