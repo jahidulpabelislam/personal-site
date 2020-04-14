@@ -56,9 +56,9 @@ $page->renderHeader();
                             <h3 class="row__heading">Drop me a old school email</h3>
                         </div>
                         <div class="row__column">
-                            <a class="social-link" href="mailto:me@jahidulpabelislam.com" target="_blank">
-                                <img class="social-link__image social-link__image--email" src="<?php echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" />
-                                <p class="social-link__text social-link__text--email">me@jahidulpabelislam.com</p>
+                            <a class="social-link social-link--email" href="mailto:me@jahidulpabelislam.com" target="_blank">
+                                <img class="social-link__image" src="<?php echoWithAssetVersion("/assets/images/email.svg"); ?>" alt="Email me" />
+                                <p class="social-link__text">me@jahidulpabelislam.com</p>
                             </a>
                         </div>
                     </div>
@@ -79,9 +79,9 @@ $page->renderHeader();
                             <h4 class="row__heading">View my LinkedIn</h4>
                         </div>
                         <div class="row__column">
-                            <a class="social-link" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__image social-link__image--linkedin" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
-                                <p class="social-link__text social-link__text--linkedin">/jahidulpabelislam</p>
+                            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
+                                <img class="social-link__image" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+                                <p class="social-link__text">/jahidulpabelislam</p>
                             </a>
                         </div>
                     </div>
@@ -93,9 +93,9 @@ $page->renderHeader();
                             <h4 class="row__heading">See &amp; follow my code</h4>
                         </div>
                         <div class="row__column">
-                            <a class="social-link" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                                <img class="social-link__image social-link__image--github" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
-                                <p class="social-link__text social-link__text--github">/jahidulpabelislam</p>
+                            <a class="social-link social-link--github" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
+                                <img class="social-link__image" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+                                <p class="social-link__text">/jahidulpabelislam</p>
                             </a>
                         </div>
                     </div>
@@ -107,9 +107,9 @@ $page->renderHeader();
                             <h4 class="row__heading">See what I get up to</h4>
                         </div>
                         <div class="row__column">
-                            <a class="social-link" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
-                                <span class="social-link__image social-link__image--instagram"><i></i></span>
-                                <p class="social-link__text social-link__text--instagram">@jpi.dev</p>
+                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
+                                <span class="social-link__image"><i></i></span>
+                                <p class="social-link__text">@jpi.dev</p>
                             </a>
                         </div>
                     </div>

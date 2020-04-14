@@ -16,59 +16,59 @@
     text-decoration: underline;
 }
 
-.social-link__image--email {
+.social-link--email .social-link__image {
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__image--email,
-.social-link:focus .social-link__image--email {
+.social-link--email:hover .social-link__image,
+.social-link--email:focus .social-link__image {
     background-color: $email-colour;
 }
 
-.social-link:hover .social-link__text--email,
-.social-link:focus .social-link__text--email {
+.social-link--email:hover .social-link__text,
+.social-link--email:focus .social-link__text {
     color: $email-colour;
 }
 
-.social-link:hover .social-link__image--linkedin,
-.social-link:focus .social-link__image--linkedin {
+.social-link--linkedin:hover .social-link__image,
+.social-link--linkedin:focus .social-link__image {
     background-color: $linkedin-colour;
 }
 
-.social-link:hover .social-link__text--linkedin,
-.social-link:focus .social-link__text--linkedin {
+.social-link--linkedin:hover .social-link__text,
+.social-link--linkedin:focus .social-link__text {
     color: $linkedin-colour;
 }
 
-.social-link__image--github {
+.social-link--github .social-link__image {
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__image--github,
-.social-link:focus .social-link__image--github {
+.social-link--github:hover .social-link__image,
+.social-link--github:focus .social-link__image {
     background-color: $github-colour;
 }
 
-.social-link:hover .social-link__text--github,
-.social-link:focus .social-link__text--github {
+.social-link--github:hover .social-link__text,
+.social-link--github:focus .social-link__text {
     color: $github-colour;
 }
 
-.social-link:hover .social-link__text--instagram ,
-.social-link:focus .social-link__text--instagram {
+.social-link--instagram:hover .social-link__text ,
+.social-link--instagram:focus .social-link__text {
     color: $instagram-purple-colour;
 }
 
 // Based on styling from https://codepen.io/anon/pen/xdXNjw
-.social-link__image--instagram {
+.social-link--instagram .social-link__image {
     display: inline-block;
     position: relative;
     background: black;
     vertical-align: middle;
 }
 
-.social-link:hover .social-link__image--instagram,
-.social-link:focus .social-link__image--instagram {
+.social-link--instagram:hover .social-link__image,
+.social-link--instagram:focus .social-link__image {
     background: radial-gradient(
             circle farthest-corner at 32% 106%,
             #ffe17d 0%,
@@ -81,7 +81,7 @@
     box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
 }
 
-.social-link__image--instagram i {
+.social-link--instagram .social-link__image i {
     position: absolute;
     top: 0;
     right: 0;
@@ -90,7 +90,7 @@
     margin: auto;
 }
 
-.social-link__image--instagram i::before {
+.social-link--instagram .social-link__image i::before {
     content: "\00a0";
     position: absolute;
     top: 0;
@@ -100,43 +100,43 @@
     margin: auto;
 }
 
-.social-link__image--instagram i::after {
+.social-link--instagram .social-link__image i::after {
     content: "\00a0";
     position: absolute;
     background: white;
 }
 
-@include insta-logo(".social-link__image--instagram", 40);
+@include insta-logo(".social-link--instagram .social-link__image", 40);
 
-.social-link__image--facebook {
+.social-link--facebook .social-link__image {
     border-radius: 5px;
 }
 
-.social-link:hover .social-link__text--facebook,
-.social-link:focus .social-link__text--facebook {
+.social-link--facebook:hover .social-link__text,
+.social-link--facebook:focus .social-link__text {
     color: $facebook-colour;
 }
 
-.social-link:hover .social-link__image--facebook,
-.social-link:focus .social-link__image--facebook {
+.social-link--facebook:hover .social-link__image,
+.social-link--facebook:focus .social-link__image {
     background: $facebook-colour;
 }
 
-.social-link__image--twitter {
+.social-link--twitter .social-link__image {
     border-radius: 50%;
 }
 
-.social-link:hover .social-link__text--twitter,
-.social-link:focus .social-link__text--twitter {
+.social-link--twitter:hover .social-link__text,
+.social-link--twitter:focus .social-link__text {
     color: $twitter-colour;
 }
 
-.social-link:hover .social-link__image--twitter,
-.social-link:focus .social-link__image--twitter {
+.social-link--twitter:hover .social-link__image,
+.social-link--twitter:focus .social-link__image {
     background: $twitter-colour;
 }
 
-.social-link__image--snapchat {
+.social-link--snapchat .social-link__image {
     width: 100%;
     height: auto;
     border-radius: 15%;
@@ -144,22 +144,22 @@
     transition: all 0.3s ease-in-out;
 }
 
-.social-link:hover .social-link__image--snapchat,
-.social-link:focus .social-link__image--snapchat {
+.social-link--snapchat:hover .social-link__image,
+.social-link--snapchat:focus .social-link__image {
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
     cursor: pointer;
     filter: grayscale(0);
 }
 
-.social-link__text--snapchat {
+.social-link--snapchat .social-link__text {
     padding: 4px;
     border-radius: 6px;
     background-color: black;
     color: white;
 }
 
-.social-link:hover .social-link__text--snapchat,
-.social-link:focus .social-link__text--snapchat {
+.social-link--snapchat:hover .social-link__text,
+.social-link--snapchat:focus .social-link__text {
     color: $snapchat-colour;
     text-decoration: none;
 }
@@ -170,9 +170,9 @@
         height: 50px;
     }
 
-    @include insta-logo(".social-link__image--instagram", 50);
+    @include insta-logo(".social-link--instagram .social-link__image", 50);
 
-    .social-link__image--snapchat {
+    .social-link--snapchat .social-link__image {
         max-width: 200px;
         height: auto;
     }

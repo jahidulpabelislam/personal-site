@@ -500,7 +500,7 @@ img {
 .nav__social-links .nav__item {
   display: inline-block; }
 
-.nav__social-links .social-link__image {
+.nav__social-links .social-link__image.social-link__image {
   width: 36px;
   height: 36px;
   margin: 10px 4px;
@@ -514,7 +514,7 @@ img {
 .nav__social-links .social-link:focus .social-link__image {
   background: #0375b4; }
 
-.nav__social-links .social-link__image--instagram {
+.nav__social-links .social-link--instagram .social-link__image {
   transition: all 0.3s ease-in-out; }
 
 /* For Tablets & Desktops */
@@ -552,17 +552,17 @@ img {
     border-bottom-color: #0375b4; }
   .nav__social-links .social-link__image.social-link__image {
     margin: 5px 2px; }
-  .nav__social-links .social-link__image--instagram i {
+  .nav__social-links .social-link--instagram .social-link__image i {
     width: 29.44px;
     height: 29.44px;
     border: 2.72px solid white;
     border-radius: 8.33px; }
-  .nav__social-links .social-link__image--instagram i::before {
+  .nav__social-links .social-link--instagram .social-link__image i::before {
     width: 15.22px;
     height: 15.22px;
     border: 2.72px solid white;
     border-radius: 7.61px; }
-  .nav__social-links .social-link__image--instagram i::after {
+  .nav__social-links .social-link--instagram .social-link__image i::after {
     top: 2.38px;
     right: 2.38px;
     width: 3.55px;
@@ -585,52 +585,52 @@ img {
 .social-link:focus .social-link__text {
   text-decoration: underline; }
 
-.social-link__image--email {
+.social-link--email .social-link__image {
   border-radius: 50%; }
 
-.social-link:hover .social-link__image--email,
-.social-link:focus .social-link__image--email {
+.social-link--email:hover .social-link__image,
+.social-link--email:focus .social-link__image {
   background-color: #0f7c10; }
 
-.social-link:hover .social-link__text--email,
-.social-link:focus .social-link__text--email {
+.social-link--email:hover .social-link__text,
+.social-link--email:focus .social-link__text {
   color: #0f7c10; }
 
-.social-link:hover .social-link__image--linkedin,
-.social-link:focus .social-link__image--linkedin {
+.social-link--linkedin:hover .social-link__image,
+.social-link--linkedin:focus .social-link__image {
   background-color: #007bb5; }
 
-.social-link:hover .social-link__text--linkedin,
-.social-link:focus .social-link__text--linkedin {
+.social-link--linkedin:hover .social-link__text,
+.social-link--linkedin:focus .social-link__text {
   color: #007bb5; }
 
-.social-link__image--github {
+.social-link--github .social-link__image {
   border-radius: 50%; }
 
-.social-link:hover .social-link__image--github,
-.social-link:focus .social-link__image--github {
+.social-link--github:hover .social-link__image,
+.social-link--github:focus .social-link__image {
   background-color: #e52525; }
 
-.social-link:hover .social-link__text--github,
-.social-link:focus .social-link__text--github {
+.social-link--github:hover .social-link__text,
+.social-link--github:focus .social-link__text {
   color: #e52525; }
 
-.social-link:hover .social-link__text--instagram,
-.social-link:focus .social-link__text--instagram {
+.social-link--instagram:hover .social-link__text,
+.social-link--instagram:focus .social-link__text {
   color: #8a3ab9; }
 
-.social-link__image--instagram {
+.social-link--instagram .social-link__image {
   display: inline-block;
   position: relative;
   background: black;
   vertical-align: middle; }
 
-.social-link:hover .social-link__image--instagram,
-.social-link:focus .social-link__image--instagram {
+.social-link--instagram:hover .social-link__image,
+.social-link--instagram:focus .social-link__image {
   background: radial-gradient(circle farthest-corner at 32% 106%, #ffe17d 0%, #ffcd69 10%, #fa9137 28%, #eb4141 42%, transparent 82%), linear-gradient(135deg, #234bd7 12%, #c33cbe 58%);
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.social-link__image--instagram i {
+.social-link--instagram .social-link__image i {
   position: absolute;
   top: 0;
   right: 0;
@@ -638,7 +638,7 @@ img {
   left: 0;
   margin: auto; }
 
-.social-link__image--instagram i::before {
+.social-link--instagram .social-link__image i::before {
   content: "\00a0";
   position: absolute;
   top: 0;
@@ -647,77 +647,77 @@ img {
   left: 0;
   margin: auto; }
 
-.social-link__image--instagram i::after {
+.social-link--instagram .social-link__image i::after {
   content: "\00a0";
   position: absolute;
   background: white; }
 
-.social-link__image--instagram {
+.social-link--instagram .social-link__image {
   width: 40px;
   border-radius: 8.88px; }
 
-.social-link__image--instagram i {
+.social-link--instagram .social-link__image i {
   width: 29.44px;
   height: 29.44px;
   border: 2.72px solid white;
   border-radius: 8.32px; }
 
-.social-link__image--instagram i::before {
+.social-link--instagram .social-link__image i::before {
   width: 15.24px;
   height: 15.24px;
   border: 2.72px solid white;
   border-radius: 7.6px; }
 
-.social-link__image--instagram i::after {
+.social-link--instagram .social-link__image i::after {
   top: 2.4px;
   right: 2.4px;
   width: 3.6px;
   height: 3.6px;
   border-radius: 1.76px; }
 
-.social-link__image--facebook {
+.social-link--facebook .social-link__image {
   border-radius: 5px; }
 
-.social-link:hover .social-link__text--facebook,
-.social-link:focus .social-link__text--facebook {
+.social-link--facebook:hover .social-link__text,
+.social-link--facebook:focus .social-link__text {
   color: #3b5998; }
 
-.social-link:hover .social-link__image--facebook,
-.social-link:focus .social-link__image--facebook {
+.social-link--facebook:hover .social-link__image,
+.social-link--facebook:focus .social-link__image {
   background: #3b5998; }
 
-.social-link__image--twitter {
+.social-link--twitter .social-link__image {
   border-radius: 50%; }
 
-.social-link:hover .social-link__text--twitter,
-.social-link:focus .social-link__text--twitter {
+.social-link--twitter:hover .social-link__text,
+.social-link--twitter:focus .social-link__text {
   color: #55acee; }
 
-.social-link:hover .social-link__image--twitter,
-.social-link:focus .social-link__image--twitter {
+.social-link--twitter:hover .social-link__image,
+.social-link--twitter:focus .social-link__image {
   background: #55acee; }
 
-.social-link__image--snapchat {
+.social-link--snapchat .social-link__image {
   width: 100%;
   height: auto;
   border-radius: 15%;
   filter: grayscale(100%);
   transition: all 0.3s ease-in-out; }
 
-.social-link:hover .social-link__image--snapchat,
-.social-link:focus .social-link__image--snapchat {
+.social-link--snapchat:hover .social-link__image,
+.social-link--snapchat:focus .social-link__image {
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
   cursor: pointer;
   filter: grayscale(0); }
 
-.social-link__text--snapchat {
+.social-link--snapchat .social-link__text {
   padding: 4px;
   border-radius: 6px;
   background-color: black;
   color: white; }
 
-.social-link:hover .social-link__text--snapchat,
-.social-link:focus .social-link__text--snapchat {
+.social-link--snapchat:hover .social-link__text,
+.social-link--snapchat:focus .social-link__text {
   color: #fffc00;
   text-decoration: none; }
 
@@ -725,25 +725,25 @@ img {
 @media only screen and (min-width: 1200px) {
   .social-link__image {
     height: 50px; }
-  .social-link__image--instagram {
+  .social-link--instagram .social-link__image {
     width: 50px;
     border-radius: 11.1px; }
-  .social-link__image--instagram i {
+  .social-link--instagram .social-link__image i {
     width: 36.8px;
     height: 36.8px;
     border: 3.4px solid white;
     border-radius: 10.4px; }
-  .social-link__image--instagram i::before {
+  .social-link--instagram .social-link__image i::before {
     width: 19.05px;
     height: 19.05px;
     border: 3.4px solid white;
     border-radius: 9.5px; }
-  .social-link__image--instagram i::after {
+  .social-link--instagram .social-link__image i::after {
     top: 3px;
     right: 3px;
     width: 4.5px;
     height: 4.5px;
     border-radius: 2.2px; }
-  .social-link__image--snapchat {
+  .social-link--snapchat .social-link__image {
     max-width: 200px;
     height: auto; } }

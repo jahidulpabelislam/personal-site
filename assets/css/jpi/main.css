@@ -591,23 +591,23 @@ a.button {
   height: 50px;
   margin: 15px 3px; }
 
-.social-links__image.social-link__image--instagram {
+.social-link--instagram .social-links__image {
   width: 50px;
   border-radius: 11.1px; }
 
-.social-links__image.social-link__image--instagram i {
+.social-link--instagram .social-links__image i {
   width: 36.8px;
   height: 36.8px;
   border: 3.4px solid white;
   border-radius: 10.4px; }
 
-.social-links__image.social-link__image--instagram i::before {
+.social-link--instagram .social-links__image i::before {
   width: 19.05px;
   height: 19.05px;
   border: 3.4px solid white;
   border-radius: 9.5px; }
 
-.social-links__image.social-link__image--instagram i::after {
+.social-link--instagram .social-links__image i::after {
   top: 3px;
   right: 3px;
   width: 4.5px;
@@ -621,20 +621,20 @@ a.button {
   .social-links__image.social-links__image {
     height: 60px;
     margin: 20px 3px; }
-  .social-links__image.social-link__image--instagram {
+  .social-link--instagram .social-links__image {
     width: 60px;
     border-radius: 13.32px; }
-  .social-links__image.social-link__image--instagram i {
+  .social-link--instagram .social-links__image i {
     width: 44.16px;
     height: 44.16px;
     border: 4.08px solid white;
     border-radius: 12.48px; }
-  .social-links__image.social-link__image--instagram i::before {
+  .social-link--instagram .social-links__image i::before {
     width: 22.86px;
     height: 22.86px;
     border: 4.08px solid white;
     border-radius: 11.4px; }
-  .social-links__image.social-link__image--instagram i::after {
+  .social-link--instagram .social-links__image i::after {
     top: 3.6px;
     right: 3.6px;
     width: 5.4px;
@@ -652,20 +652,20 @@ a.button {
   .social-links__image.social-links__image {
     height: 70px;
     margin: 0 20px 25px; }
-  .social-links__image.social-link__image--instagram {
+  .social-link--instagram .social-links__image {
     width: 70px;
     border-radius: 15.54px; }
-  .social-links__image.social-link__image--instagram i {
+  .social-link--instagram .social-links__image i {
     width: 51.52px;
     height: 51.52px;
     border: 4.76px solid white;
     border-radius: 14.56px; }
-  .social-links__image.social-link__image--instagram i::before {
+  .social-link--instagram .social-links__image i::before {
     width: 26.67px;
     height: 26.67px;
     border: 4.76px solid white;
     border-radius: 13.3px; }
-  .social-links__image.social-link__image--instagram i::after {
+  .social-link--instagram .social-links__image i::after {
     top: 4.2px;
     right: 4.2px;
     width: 6.3px;
