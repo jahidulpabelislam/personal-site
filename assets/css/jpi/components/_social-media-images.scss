@@ -11,6 +11,10 @@
     font-weight: 700;
     transition: all 0.3s ease-in-out;
 }
+.social-link:hover .social-link__text,
+.social-link:focus .social-link__text {
+    text-decoration: underline;
+}
 
 .social-link__image--email {
     border-radius: 50%;
@@ -24,7 +28,6 @@
 .social-link:hover .social-link__text--email,
 .social-link:focus .social-link__text--email {
     color: $email-colour;
-    text-decoration: underline;
 }
 
 .social-link:hover .social-link__image--linkedin,
@@ -35,7 +38,6 @@
 .social-link:hover .social-link__text--linkedin,
 .social-link:focus .social-link__text--linkedin {
     color: $linkedin-colour;
-    text-decoration: underline;
 }
 
 .social-link__image--github {
@@ -50,13 +52,11 @@
 .social-link:hover .social-link__text--github,
 .social-link:focus .social-link__text--github {
     color: $github-colour;
-    text-decoration: underline;
 }
 
 .social-link:hover .social-link__text--instagram ,
 .social-link:focus .social-link__text--instagram {
     color: $instagram-purple-colour;
-    text-decoration: underline;
 }
 
 // Based on styling from https://codepen.io/anon/pen/xdXNjw
@@ -115,7 +115,6 @@
 .social-link:hover .social-link__text--facebook,
 .social-link:focus .social-link__text--facebook {
     color: $facebook-colour;
-    text-decoration: underline;
 }
 
 .social-link:hover .social-link__image--facebook,
@@ -130,7 +129,6 @@
 .social-link:hover .social-link__text--twitter,
 .social-link:focus .social-link__text--twitter {
     color: $twitter-colour;
-    text-decoration: underline;
 }
 
 .social-link:hover .social-link__image--twitter,
@@ -163,6 +161,7 @@
 .social-link:hover .social-link__text--snapchat,
 .social-link:focus .social-link__text--snapchat {
     color: $snapchat-colour;
+    text-decoration: none;
 }
 
 /* Only for Desktops */

@@ -178,6 +178,10 @@ img {
   font-weight: 700;
   transition: all 0.3s ease-in-out; }
 
+.social-link:hover .social-link__text,
+.social-link:focus .social-link__text {
+  text-decoration: underline; }
+
 .social-link__image--email {
   border-radius: 50%; }
 
@@ -187,8 +191,7 @@ img {
 
 .social-link:hover .social-link__text--email,
 .social-link:focus .social-link__text--email {
-  color: #0f7c10;
-  text-decoration: underline; }
+  color: #0f7c10; }
 
 .social-link:hover .social-link__image--linkedin,
 .social-link:focus .social-link__image--linkedin {
@@ -196,8 +199,7 @@ img {
 
 .social-link:hover .social-link__text--linkedin,
 .social-link:focus .social-link__text--linkedin {
-  color: #007bb5;
-  text-decoration: underline; }
+  color: #007bb5; }
 
 .social-link__image--github {
   border-radius: 50%; }
@@ -208,13 +210,11 @@ img {
 
 .social-link:hover .social-link__text--github,
 .social-link:focus .social-link__text--github {
-  color: #e52525;
-  text-decoration: underline; }
+  color: #e52525; }
 
 .social-link:hover .social-link__text--instagram,
 .social-link:focus .social-link__text--instagram {
-  color: #8a3ab9;
-  text-decoration: underline; }
+  color: #8a3ab9; }
 
 .social-link__image--instagram {
   display: inline-block;
@@ -277,8 +277,7 @@ img {
 
 .social-link:hover .social-link__text--facebook,
 .social-link:focus .social-link__text--facebook {
-  color: #3b5998;
-  text-decoration: underline; }
+  color: #3b5998; }
 
 .social-link:hover .social-link__image--facebook,
 .social-link:focus .social-link__image--facebook {
@@ -289,8 +288,7 @@ img {
 
 .social-link:hover .social-link__text--twitter,
 .social-link:focus .social-link__text--twitter {
-  color: #55acee;
-  text-decoration: underline; }
+  color: #55acee; }
 
 .social-link:hover .social-link__image--twitter,
 .social-link:focus .social-link__image--twitter {
@@ -317,7 +315,8 @@ img {
 
 .social-link:hover .social-link__text--snapchat,
 .social-link:focus .social-link__text--snapchat {
-  color: #fffc00; }
+  color: #fffc00;
+  text-decoration: none; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
