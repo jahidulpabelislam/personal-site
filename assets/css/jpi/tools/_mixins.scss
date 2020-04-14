@@ -16,7 +16,6 @@
     @return $colour;
 }
 
-
 @mixin insta-logo($selector, $size) {
     #{$selector} {
         width: #{$size}px;

@@ -31,9 +31,8 @@
                     }
 
                 </style>
-
-
             </head>
+
             <body>
                 <!--Heading for page-->
                 <h1 text-align="center">Site Map</h1>

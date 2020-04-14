@@ -3,14 +3,14 @@
 # Autumn Teaching Block 2014
 
 import math
-from graphics import * 
+from graphics import *
 
 
 def main():
     size, colourList = getInputs()
     win, patchList, patchColourList = drawPatches(size, colourList)
     changeColour(win, size, colourList, patchList, patchColourList)
-    
+
 def getInputs():
     size = getSize()
     colourList = getColours()
@@ -23,7 +23,7 @@ def getSize():
 this size is the number of patches.")
     print("Available sizes are 5, 7 & 9.")
     while not size in validSize: #loop until the users size choice is valid
-        size = input("Enter a common patchwork width & height size: ") 
+        size = input("Enter a common patchwork width & height size: ")
         if size.isdigit():
             size = int(size)
             if not size in validSize: #checks if users size is not a valid size
@@ -60,11 +60,11 @@ Available colours are red, green, blue, yellow, magenta & cyan.")
                 print(colour, "is an invalid colour")
         else:
             #if choice is already chosen it prints saying its already chosen
-            print("You have already chosen", colour + 
+            print("You have already chosen", colour +
                   ", please choose another colour.")
         print()
     return colourList #returns colourlist for later use
-    
+
 def drawPatches(size, colourList):
     size2 = size * 100 #works out window height & width
     win =  GraphWin("Patchwork Sampler", size2, size2)
@@ -84,23 +84,23 @@ def drawPatches(size, colourList):
             #used to figure out which patch to draw
             #works out if row is before the last 2 rows and if column is after 1st column
             if row < size - 2 and column > 0:
-                patch = drawPatch2(win, x, y, colour)  
+                patch = drawPatch2(win, x, y, colour)
             else:
                 patch = drawPatch1(win, x, y, colour)
-            patchList.append(patch) #appends each patch to list 
+            patchList.append(patch) #appends each patch to list
             if colourNum == 3: #resets colourNum to 0 if at end of colour sequence
                 colourNum = 0
             else: #otherwise adds 1 to colourNum
                 colourNum = colourNum + 1
-    return win, patchList, patchColourList #returns win for later use 
+    return win, patchList, patchColourList #returns win for later use
     #and patchList & patchColourList to be used for the changeColour function
-        
+
 def drawPatch1(win, x, y, colour):
     patch = []
     for line in range(10):
-        lines1 = Line(Point(100 - line * 10 + x, 100 + y),   
+        lines1 = Line(Point(100 - line * 10 + x, 100 + y),
                       Point(x, 100 - (line + 1) * 10 + y))
-        lines2 = Line(Point(line * 10 + x, y), 
+        lines2 = Line(Point(line * 10 + x, y),
                       Point(100 + x, (line + 1) * 10 + y))
         lines1.setOutline(colour)
         lines1.draw(win)
@@ -117,25 +117,25 @@ def drawPatch2(win, x, y, colour):
         y2 = 10 * (row + 1) + y #used to work out y point for bottom of rectangle
         for rect in range(4):
             if row % 2 != 0: #works out if row is not even
-                rectangle = Rectangle(Point(10 + rect * 30 + x,y1), 
+                rectangle = Rectangle(Point(10 + rect * 30 + x,y1),
                                       Point(30 * (rect + 1) + x,y2))
                 if rect == 3:
                     break
-            else: 
+            else:
                 if rect == 0:
-                    rectangle = Rectangle(Point(0 + x,y1), 
+                    rectangle = Rectangle(Point(0 + x,y1),
                                       Point(15 + rect * 30 + x,y2))
                 elif rect == 4:
-                    rectangle = Rectangle(Point(-5 + rect * 30 + x,y1), 
+                    rectangle = Rectangle(Point(-5 + rect * 30 + x,y1),
                                       Point(100 + x,y2))
                 else:
-                    rectangle = Rectangle(Point(-5 + rect * 30 + x,y1), 
+                    rectangle = Rectangle(Point(-5 + rect * 30 + x,y1),
                                       Point(15 + rect * 30 + x,y2))
             rectangle.setFill(colour)
             rectangle.draw(win)
             patch.append(rectangle) #each object is appended to patch list
     return patch #returns patch list to be used for the changeColour function
-            
+
 def changeColour(win, size, colourList, patchList, patchColourList):
     #allows user to click a patch to change colour as many times
     while True:
