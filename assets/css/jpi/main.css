@@ -2200,6 +2200,10 @@ a.button {
 .skills-interests__item.skills-interests__item {
   margin: 2px; }
 
+.skills-interests__item p {
+  display: inline-block;
+  margin: 0; }
+
 .skills-interests__item--expandable {
   cursor: pointer; }
 

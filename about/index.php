@@ -36,13 +36,15 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 if ($hasDesc) {
                     $description = <<<HTML
                         &nbsp;<span class="skills-interests__expand-icon fa fa-plus"></span>
-                        <div class="skills-interests__expand-content">{$item["desc"]}</div>
+                        <div class="skills-interests__expand-content">
+                            <p>{$item["desc"]}</p>
+                        </div>
                         HTML;
                 }
 
                 echo <<<HTML
                     <li class="skills-interests__item skills-interests__item--{$colour} {$expandClass}">
-                        {$item["text"]}
+                        <p>{$item["text"]}</p>
                         {$description}
                     </li>
                     HTML;

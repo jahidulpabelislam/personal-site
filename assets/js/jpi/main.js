@@ -110,8 +110,8 @@
             var item = jQuery(e.target);
 
             // Get the new item elems that was clicked
-            var selected = item.children(".skills-interests__expand-content");
-            var selectedIcon = item.children(".skills-interests__expand-icon");
+            var selected = item.find(".skills-interests__expand-content");
+            var selectedIcon = item.find(".skills-interests__expand-icon");
 
             // Reset all other item to closed
             global.expandableContents.not(selected).slideUp();
