@@ -8,6 +8,8 @@
         mainContentElem: null,
         map: null,
         skillsInterests: null,
+        expandableContents: null,
+        expandableIcons: null,
     };
 
     var fn = {
@@ -126,7 +128,6 @@
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.scrollToContent);
 
-            global.skillsInterests = jQuery(".skills-interests__item--expandable");
             global.skillsInterests.on("click", fn.toggleSkillInterestContent);
 
             global.map = jQuery(".js-bognor-regis-map");
@@ -140,8 +141,11 @@
             global.nav = jQuery(".nav");
             global.mainContentElem = jQuery(".main-content");
 
-            global.expandableContents = jQuery(".skills-interests__expand-content");
-            global.expandableIcons = jQuery(".skills-interests__expand-icon");
+            global.skillsInterests = jQuery(".skills-interests__item--expandable");
+            if (global.skillsInterests.length) {
+                global.expandableContents = jQuery(".skills-interests__expand-content");
+                global.expandableIcons = jQuery(".skills-interests__expand-icon");
+            }
 
             fn.initListeners();
             fn.initSecondsCounter();
