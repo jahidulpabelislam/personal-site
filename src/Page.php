@@ -147,7 +147,7 @@ class Page {
                 ["src" => "/assets/js/jpi/modal.js"],
                 ["src" => "/assets/js/jpi/projects.js"],
                 ["src" => "/assets/js/jpi/home.js"],
-                ["src" => "/assets/js/jpi/form.js"],
+                ["src" => "/assets/js/jpi/contact-form.js"],
                 ["src" => "/assets/js/jpi/nav.js"],
                 ["src" => "/assets/js/jpi/cookie-banner.js"],
                 ["src" => "/assets/js/jpi/main.js"],

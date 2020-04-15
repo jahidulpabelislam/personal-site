@@ -46,7 +46,7 @@ gulp.task("scripts", function(callback) {
             `${jsDir}/jpi/modal.js`,
             `${jsDir}/jpi/projects.js`,
             `${jsDir}/jpi/home.js`,
-            `${jsDir}/jpi/form.js`,
+            `${jsDir}/jpi/contact-form.js`,
             `${jsDir}/jpi/nav.js`,
             `${jsDir}/jpi/cookie-banner.js`,
             `${jsDir}/jpi/main.js`,
