@@ -2319,10 +2319,10 @@ a.button {
   background-color: #262626;
   border-color: #262626; }
 
-.skills-interests__expand-icon {
+.skills-interests__toggle {
   vertical-align: middle; }
 
-.skills-interests__expand-content {
+.skills-interests__description {
   display: none;
   font-weight: 400; }
 

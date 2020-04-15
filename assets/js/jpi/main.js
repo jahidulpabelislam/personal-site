@@ -112,8 +112,8 @@
             var item = jQuery(e.target);
 
             // Get the new item elems that was clicked
-            var selected = item.find(".skills-interests__expand-content");
-            var selectedIcon = item.find(".skills-interests__expand-icon");
+            var selected = item.find(".skills-interests__description");
+            var selectedIcon = item.find(".skills-interests__toggle");
 
             // Reset all other item to closed
             global.expandableContents.not(selected).slideUp();
@@ -143,8 +143,8 @@
 
             global.skillsInterests = jQuery(".skills-interests__item--expandable");
             if (global.skillsInterests.length) {
-                global.expandableContents = jQuery(".skills-interests__expand-content");
-                global.expandableIcons = jQuery(".skills-interests__expand-icon");
+                global.expandableContents = jQuery(".skills-interests__description");
+                global.expandableIcons = jQuery(".skills-interests__toggle");
             }
 
             fn.initListeners();
