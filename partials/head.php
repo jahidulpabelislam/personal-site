@@ -35,14 +35,14 @@ $page = Page::get();
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Jahidul Pabel Islam" />
-        <meta name="description" content="<?php echo $desc; ?>" />
+        <meta name="description" content="<?php echo $description; ?>" />
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="<?php echo $title; ?>" />
-        <meta property="og:description" content="<?php echo $desc; ?>" />
+        <meta property="og:description" content="<?php echo $description; ?>" />
         <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
         <meta property="og:site_name" content="Jahidul Pabel Islam" />
 

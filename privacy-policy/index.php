@@ -4,11 +4,11 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDesc = "Privacy policy for the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Privacy policy for the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Privacy Policy",
-    "headDesc" => $headDesc,
+    "headDescription" => $headDescription,
 ];
 $page->addPageData($pageData);
 

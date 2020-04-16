@@ -2104,7 +2104,7 @@ a.button {
     color: white; }
   .latest-project.slide-show__slide--active .latest-project__info-content {
     transform: translateY(0); }
-  .latest-project__desc {
+  .latest-project__description {
     display: none; } }
 
 /* Only for Desktops */
@@ -2147,7 +2147,7 @@ a.button {
     transition: all 3s ease-in-out; }
   .latest-project__date {
     margin-left: 25px; }
-  .latest-project__desc {
+  .latest-project__description {
     display: block; } }
 
 /* For all devices */

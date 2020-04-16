@@ -27,7 +27,7 @@ if ($pageNum > 1) {
     $apiRequestParams["page"] = $pageNum;
 }
 
-$headDesc = "Projects Jahidul Pabel Islam has developed, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Projects Jahidul Pabel Islam has developed, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
 
@@ -61,9 +61,9 @@ if ($projectsCount === 0) {
 
 $pageData = [
     "headTitle" => $headTitle,
-    "headDesc" => $headDesc,
+    "headDescription" => $headDescription,
     "headerTitle" => "My Projects",
-    "headerDesc" => "See My Skills in Action in My Projects",
+    "headerDescription" => "See My Skills in Action in My Projects",
     "pagination" => [
         "page" => $apiMeta["page"] ?? 1,
         "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,

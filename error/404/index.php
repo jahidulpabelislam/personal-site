@@ -5,17 +5,17 @@ $site = Site::get();
 $page = Page::get();
 
 $error = basename(__DIR__);
-$errorDesc = "Page Not Found";
-$headDesc = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$errorDescription = "Page Not Found";
+$headDescription = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $directory = __DIR__;
 $url = turnPathToURL($directory);
 $pageData = [
     "id" => $error,
-    "headTitle" => "{$error} - {$errorDesc}",
-    "headDesc" => $headDesc,
+    "headTitle" => "{$error} - {$errorDescription}",
+    "headDescription" => $headDescription,
     "headerTitle" => $error,
-    "headerDesc" => $errorDesc,
+    "headerDescription" => $errorDescription,
     "currentURL" => $site->getURL($url, false),
 ];
 $page->addPageData($pageData);

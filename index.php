@@ -4,12 +4,12 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDesc = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
+$headDescription = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
-    "headDesc" => $headDesc,
+    "headDescription" => $headDescription,
     "headerTitle" => "Jahidul Pabel Islam",
-    "headerDesc" => "Full Stack Developer",
+    "headerDescription" => "Full Stack Developer",
 ];
 $page->addPageData($pageData);
 
@@ -199,7 +199,7 @@ $page->addJSTemplate(
                     <h4 class="latest-project__title">{{ name }}</h4>
                     <time class="latest-project__date">{{ date }}</time>
                 </div>
-                <div class="latest-project__desc">{{ short_description }}</div>
+                <div class="latest-project__description">{{ short_description }}</div>
                 <div class="latest-project__links"></div>
             </div>
         </div>

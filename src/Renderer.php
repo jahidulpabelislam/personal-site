@@ -32,7 +32,7 @@ class Renderer {
     public function renderHTMLHead() {
         $pageId = $this->page->id;
         $title = $this->page->headTitle ?? $this->page->title ?? "";
-        $desc = $this->page->headDesc ?? $this->page->desc ?? "";
+        $description = $this->page->headDescription ?? $this->page->description ?? "";
 
         include_once(ROOT . "/partials/head.php");
     }
@@ -75,7 +75,7 @@ class Renderer {
     public function renderHeader() {
         $pageId = $this->page->id;
         $title = $this->page->headerTitle ?? $this->page->title ?? "";
-        $desc = $this->page->headerDesc ?? $this->page->desc ?? "";
+        $description = $this->page->headerDescription ?? $this->page->description ?? "";
 
         include_once(ROOT . "/partials/header.php");
     }

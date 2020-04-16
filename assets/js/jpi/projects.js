@@ -58,21 +58,21 @@ window.jpi.projects = (function(jQuery, jpi) {
                 var project = jQuery(projectElem);
                 var height = project.height();
 
-                var projectDesc = project.children(".project__description");
+                var projectDescription = project.children(".project__description");
 
-                var otherElems = project.children().not(projectDesc);
+                var otherElems = project.children().not(projectDescription);
                 var totalAllHeight = 0;
                 otherElems.each(function(j, elem) {
                     totalAllHeight += jQuery(elem).outerHeight(true);
                 });
 
                 // Expand the description element to fit remaining space
-                var maxHeight = projectDesc.outerHeight(true);
-                var innerHeight = projectDesc.height();
+                var maxHeight = projectDescription.outerHeight(true);
+                var innerHeight = projectDescription.height();
                 var padding = maxHeight - innerHeight;
 
                 var newHeight = height - totalAllHeight - padding;
-                projectDesc.css("min-height", newHeight);
+                projectDescription.css("min-height", newHeight);
             });
         },
 

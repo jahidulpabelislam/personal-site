@@ -4,11 +4,11 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDesc = "Social media links for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Social media links for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "Social Media Links",
-    "headDesc" => $headDesc,
+    "headDescription" => $headDescription,
 ];
 $page->addPageData($pageData);
 

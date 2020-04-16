@@ -5,14 +5,14 @@ $site = Site::get();
 $page = Page::get();
 
 $error = basename(__DIR__);
-$errorDesc = "Forbidden Page";
-$headDesc = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$errorDescription = "Forbidden Page";
+$headDescription = "Error: {$error} - Forbidden Page message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
-    "headTitle" => "{$error} - {$errorDesc}",
-    "headDesc" => $headDesc,
+    "headTitle" => "{$error} - {$errorDescription}",
+    "headDescription" => $headDescription,
     "headerTitle" => $error,
-    "headerDesc" => $errorDesc,
+    "headerDescription" => $errorDescription,
 ];
 $page->addPageData($pageData);
 

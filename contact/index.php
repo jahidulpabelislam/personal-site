@@ -4,13 +4,13 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDesc = "Contact or find contact information for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
-$headerDesc = "Send Your Feedback &amp; Enquires My Way";
+$headDescription = "Contact or find contact information for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headerDescription = "Send Your Feedback &amp; Enquires My Way";
 
 $pageData = [
     "title" => "Contact Me",
-    "headDesc" => $headDesc,
-    "headerDesc" => $headerDesc,
+    "headDescription" => $headDescription,
+    "headerDescription" => $headerDescription,
     "navTint" => "light",
 ];
 $page->addPageData($pageData);

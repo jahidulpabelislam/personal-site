@@ -4,13 +4,13 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDesc = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
-    "headDesc" => $headDesc,
+    "headDescription" => $headDescription,
     "headerTitle" => "About Me",
-    "headerDesc" => "Find Out About Me",
+    "headerDescription" => "Find Out About Me",
     "navTint" => "light",
 ];
 $page->addPageData($pageData);
@@ -29,15 +29,15 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             <ul class="skills-interests">
             <?php
             foreach ($items as $item) {
-                $hasDesc = !empty($item["desc"]);
-                $expandClass = $hasDesc ? "skills-interests__item--expandable" : "";
+                $hasDescription = !empty($item["description"]);
+                $expandClass = $hasDescription ? "skills-interests__item--expandable" : "";
 
                 $descriptionHTML = "";
-                if ($hasDesc) {
+                if ($hasDescription) {
                     $descriptionHTML = <<<HTML
                         &nbsp;<span class="skills-interests__toggle fa fa-plus"></span>
                         <div class="skills-interests__description">
-                            {$item["desc"]}
+                            {$item["description"]}
                         </div>
                         HTML;
                 }
@@ -170,42 +170,42 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $techSkills = [
                     [
                         "text" => "PHP",
-                        "desc" => "<p>Wordpress, Laravel &amp; PDO</p>",
+                        "description" => "<p>Wordpress, Laravel &amp; PDO</p>",
                     ],
                     [
                         "text" => "JavaScript",
-                        "desc" => "<p>Node.js (socket.io &amp; Express), JQuery &amp; AngularJS</p>",
+                        "description" => "<p>Node.js (socket.io &amp; Express), JQuery &amp; AngularJS</p>",
                     ],
                     [
                         "text" => "CSS",
-                        "desc" => "<p>CSS3, SCSS &amp; Bootstrap3/4</p>",
+                        "description" => "<p>CSS3, SCSS &amp; Bootstrap3/4</p>",
                     ],
                     [
                         "text" => "HTML",
                     ],
                     [
                         "text" => "Python",
-                        "desc" => "<p>flask &amp; graphics.py</p>",
+                        "description" => "<p>flask &amp; graphics.py</p>",
                     ],
                     [
                         "text" => "SQL",
-                        "desc" => "<p>MySQL</p>",
+                        "description" => "<p>MySQL</p>",
                     ],
                     [
                         "text" => "NoSQL",
-                        "desc" => "<p>Amazon DynamoDB &amp; MongoDB</p>",
+                        "description" => "<p>Amazon DynamoDB &amp; MongoDB</p>",
                     ],
                     [
                         "text" => "Java",
-                        "desc" => "<p>Java EE 7, JSF 2, AWT &amp; Swing</p>",
+                        "description" => "<p>Java EE 7, JSF 2, AWT &amp; Swing</p>",
                     ],
                     [
                         "text" => "DVCS",
-                        "desc" => "<p>Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
+                        "description" => "<p>Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
                     ],
                     [
                         "text" => "Microsoft Office",
-                        "desc" => "<p>Excel, Word &amp; Powerpoint</p>",
+                        "description" => "<p>Excel, Word &amp; Powerpoint</p>",
                     ],
                 ];
                 renderSkillsOrInterests("Technical Skills", $techSkills, "dark-blue");
@@ -215,11 +215,11 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $otherSkills = [
                     [
                         "text" => "Team Player",
-                        "desc" => "<p>Playing competitive football has meant being a good team player is installed in me</p>",
+                        "description" => "<p>Playing competitive football has meant being a good team player is installed in me</p>",
                     ],
                     [
                         "text" => "Communication",
-                        "desc" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
+                        "description" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
                     ],
                     [
                         "text" => "Hard Worker",
