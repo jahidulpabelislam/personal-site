@@ -77,7 +77,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                                         I mainly work from PSD's or flat image files designs.<br />
                                         This is where I turn designs into pixel perfect sites/apps.
                                     </p>",
-                                ], [
+                                ],
+                                [
                                     "heading" => "Responsive",
                                     "icon" => "responsive-icon.png",
                                     "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
@@ -85,7 +86,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                                         Aim to make all sites/apps usable on many different sized devices.<br />
                                         By approach the styling form a mobile first point of view
                                     </p>",
-                                ], [
+                                ],
+                                [
                                     "heading" => "Code",
                                     "icon" => "code-icon.png",
                                     "imageAlt" => "A image showing code",
@@ -150,11 +152,13 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                                     "text" => "Years experience",
                                     "number" => $yearsSinceStarted,
                                     "speed" => $baseSpeed,
-                                ], [
+                                ],
+                                [
                                     "text" => "Projects",
                                     "number" => $counts["projects"] ?? 60,
                                     "speed" => $baseSpeed + 600,
-                                ], [
+                                ],
+                                [
                                     "text" => "Commits",
                                     "number" => $counts["commits"] ?? 8500,
                                     "speed" => $baseSpeed + 1000,
@@ -220,7 +224,8 @@ $similarLinks = [
         "url" => "projects",
         "text" => "View My Work",
         "colour" => "purple",
-    ], [
+    ],
+    [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",

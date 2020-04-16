@@ -26,13 +26,16 @@ $site = Site::get();
                         $links = [
                             [
                                 "title" => "Home",
-                            ], [
+                            ],
+                            [
                                 "title" => "Projects",
                                 "url" => "/projects/",
-                            ], [
+                            ],
+                            [
                                 "title" => "Contact",
                                 "url" => "/contact/",
-                            ], [
+                            ],
+                            [
                                 "title" => "About",
                                 "url" => "/about/",
                             ],

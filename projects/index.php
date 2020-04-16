@@ -229,7 +229,8 @@ $similarLinks = [
         "url" => "contact",
         "text" => "Get in Touch",
         "colour" => "purple",
-    ], [
+    ],
+    [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",

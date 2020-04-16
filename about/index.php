@@ -171,30 +171,39 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                     [
                         "text" => "PHP",
                         "desc" => "Wordpress, Laravel &amp; PDO",
-                    ], [
+                    ],
+                    [
                         "text" => "JavaScript",
                         "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
-                    ], [
+                    ],
+                    [
                         "text" => "CSS",
                         "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
-                    ], [
+                    ],
+                    [
                         "text" => "HTML",
-                    ], [
+                    ],
+                    [
                         "text" => "Python",
                         "desc" => "flask &amp; graphics.py",
-                    ], [
+                    ],
+                    [
                         "text" => "SQL",
                         "desc" => "MySQL",
-                    ], [
+                    ],
+                    [
                         "text" => "NoSQL",
                         "desc" => "Amazon DynamoDB &amp; MongoDB",
-                    ], [
+                    ],
+                    [
                         "text" => "Java",
                         "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
-                    ], [
+                    ],
+                    [
                         "text" => "DVCS",
                         "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
-                    ], [
+                    ],
+                    [
                         "text" => "Microsoft Office",
                         "desc" => "Excel, Word &amp; Powerpoint",
                     ],
@@ -207,10 +216,12 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                     [
                         "text" => "Team Player",
                         "desc" => "Playing competitive football has meant being a good team player is installed in me",
-                    ], [
+                    ],
+                    [
                         "text" => "Communication",
                         "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
-                    ], [
+                    ],
+                    [
                         "text" => "Hard Worker",
                     ],
                 ];
@@ -244,21 +255,24 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                             D3R
                                         </a>",
                                     "isActive" => true,
-                                ], [
+                                ],
+                                [
                                     "date" => "2017 - 2019",
                                     "icon" => "work",
                                     "text" => "Software Developer @
                                         <a class='link link--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
-                                ], [
+                                ],
+                                [
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
                                         <a class='link link--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
-                                ], [
+                                ],
+                                [
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
@@ -266,7 +280,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                             CeX
                                         </a>
                                          as a Sales Assistant",
-                                ], [
+                                ],
+                                [
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
@@ -274,29 +289,34 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                             KFC
                                         </a>
                                          as a Team Member",
-                                ], [
+                                ],
+                                [
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
                                         <a class='link link--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
-                                ], [
+                                ],
+                                [
                                     "date" => $site->getYearStarted(),
                                     "icon" => "coding",
                                     "text" => "Got introduced to coding",
-                                ], [
+                                ],
+                                [
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
                                         <a class='link link--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
-                                ], [
+                                ],
+                                [
                                     "date" => "1996 - 2007",
                                     "icon" => "childhood",
                                     "text" => "Life before getting introduced to technology",
-                                ], [
+                                ],
+                                [
                                     "date" => "1996",
                                     "icon" => "baby",
                                     "text" => "Born",
@@ -335,7 +355,8 @@ $similarLinks = [
         "url" => "projects",
         "text" => "View My Work",
         "colour" => "purple",
-    ], [
+    ],
+    [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
