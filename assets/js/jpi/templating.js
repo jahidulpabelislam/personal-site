@@ -32,9 +32,9 @@ window.jpi.Template = (function(jpi) {
 
     "use strict";
 
-    return function(template, _context) {
+    return function(template, context) {
 
-        _context = _context || {};
+        context = context || {};
 
         var fn = {
 
@@ -64,7 +64,7 @@ window.jpi.Template = (function(jpi) {
             },
 
             get: function() {
-                fn.process(_context);
+                fn.process(context);
                 return template;
             },
 
