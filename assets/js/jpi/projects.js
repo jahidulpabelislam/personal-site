@@ -105,8 +105,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             var url = fn.getNewURL(page);
             url += global.url.search;
 
+            var classes = ["pagination__link"];
+            if (isCurrent) {
+                classes.push("pagination__link--active");
+            }
             var link = jpi.helpers.createElement("a", {
-                "class": "pagination__link" + (isCurrent ? " pagination__link--active" : ""),
+                "class": classes.join(" "),
                 "text": page,
                 "data-page": page,
                 "href": url,
