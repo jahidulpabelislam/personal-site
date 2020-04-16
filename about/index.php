@@ -32,12 +32,12 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $hasDesc = !empty($item["desc"]);
                 $expandClass = $hasDesc ? "skills-interests__item--expandable" : "";
 
-                $description = "";
+                $descriptionHTML = "";
                 if ($hasDesc) {
-                    $description = <<<HTML
+                    $descriptionHTML = <<<HTML
                         &nbsp;<span class="skills-interests__toggle fa fa-plus"></span>
                         <div class="skills-interests__description">
-                            <p>{$item["desc"]}</p>
+                            {$item["desc"]}
                         </div>
                         HTML;
                 }
@@ -45,7 +45,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 echo <<<HTML
                     <li class="skills-interests__item skills-interests__item--{$colour} {$expandClass}">
                         <p>{$item["text"]}</p>
-                        {$description}
+                        {$descriptionHTML}
                     </li>
                     HTML;
             }
@@ -170,42 +170,42 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $techSkills = [
                     [
                         "text" => "PHP",
-                        "desc" => "Wordpress, Laravel &amp; PDO",
+                        "desc" => "<p>Wordpress, Laravel &amp; PDO</p>",
                     ],
                     [
                         "text" => "JavaScript",
-                        "desc" => "Node.js (socket.io &amp; Express), JQuery &amp; AngularJS",
+                        "desc" => "<p>Node.js (socket.io &amp; Express), JQuery &amp; AngularJS</p>",
                     ],
                     [
                         "text" => "CSS",
-                        "desc" => "CSS3, SCSS &amp; Bootstrap3/4",
+                        "desc" => "<p>CSS3, SCSS &amp; Bootstrap3/4</p>",
                     ],
                     [
                         "text" => "HTML",
                     ],
                     [
                         "text" => "Python",
-                        "desc" => "flask &amp; graphics.py",
+                        "desc" => "<p>flask &amp; graphics.py</p>",
                     ],
                     [
                         "text" => "SQL",
-                        "desc" => "MySQL",
+                        "desc" => "<p>MySQL</p>",
                     ],
                     [
                         "text" => "NoSQL",
-                        "desc" => "Amazon DynamoDB &amp; MongoDB",
+                        "desc" => "<p>Amazon DynamoDB &amp; MongoDB</p>",
                     ],
                     [
                         "text" => "Java",
-                        "desc" => "Java EE 7, JSF 2, AWT &amp; Swing",
+                        "desc" => "<p>Java EE 7, JSF 2, AWT &amp; Swing</p>",
                     ],
                     [
                         "text" => "DVCS",
-                        "desc" => "Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)",
+                        "desc" => "<p>Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
                     ],
                     [
                         "text" => "Microsoft Office",
-                        "desc" => "Excel, Word &amp; Powerpoint",
+                        "desc" => "<p>Excel, Word &amp; Powerpoint</p>",
                     ],
                 ];
                 renderSkillsOrInterests("Technical Skills", $techSkills, "dark-blue");
@@ -215,11 +215,11 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $otherSkills = [
                     [
                         "text" => "Team Player",
-                        "desc" => "Playing competitive football has meant being a good team player is installed in me",
+                        "desc" => "<p>Playing competitive football has meant being a good team player is installed in me</p>",
                     ],
                     [
                         "text" => "Communication",
-                        "desc" => "Written &amp; spoken communication skills from experience in customer focused environments",
+                        "desc" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
                     ],
                     [
                         "text" => "Hard Worker",
