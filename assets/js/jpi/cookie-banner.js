@@ -6,7 +6,7 @@
     var global = {
         window: null,
         body: null,
-        container: null,
+        banner: null,
         transitionSpeedSecs: 700,
         cookieKey: "cookie-banner-closed",
         cookieClickedValue: "true",
@@ -24,24 +24,24 @@
         },
 
         close: function() {
-            global.container.fadeOut(global.transitionSpeedSecs, function() {
-                global.container.remove();
+            global.banner.fadeOut(global.transitionSpeedSecs, function() {
+                global.banner.remove();
             });
             fn.setCookie();
         },
 
         showOrHide: function() {
-            var container = global.container;
-            if (container.length) {
-                var height = container.height();
+            var banner = global.banner;
+            if (banner.length) {
+                var height = banner.height();
                 var scrollPos = global.window.scrollTop();
                 var lowestTop = global.body.height() - (global.window.height() + height);
 
                 if (scrollPos < height || scrollPos > lowestTop) {
-                    container.slideUp(global.transitionSpeedSecs);
+                    banner.slideUp(global.transitionSpeedSecs);
                 }
                 else {
-                    container.slideDown(global.transitionSpeedSecs);
+                    banner.slideDown(global.transitionSpeedSecs);
                 }
             }
         },
@@ -50,7 +50,7 @@
             var hasClosedBefore = fn.getHasClosedBefore();
             if (hasClosedBefore) {
                 fn.setCookie();
-                global.container.remove();
+                global.banner.remove();
             }
             else {
                 fn.showOrHide();
@@ -58,8 +58,8 @@
         },
 
         init: function() {
-            global.container = jQuery(".cookie-banner");
-            if (global.container.length) {
+            global.banner = jQuery(".cookie-banner");
+            if (global.banner.length) {
                 global.window = jQuery(window);
                 global.body = jQuery("body");
 
