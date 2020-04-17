@@ -24,7 +24,9 @@
                     global.formFeedback.removeClass("feedback--error").addClass("feedback--success");
                 }
 
-                jQuery(".contact-form__email, .contact-form__message, .contact-form__subject").val("");
+                global.emailInput.val("");
+                global.messageInput.val("");
+                global.subjectInput.val("");
             }
             else {
                 if (response.feedback) {
