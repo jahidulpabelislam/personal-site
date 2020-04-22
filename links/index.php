@@ -72,7 +72,7 @@ $page->renderHTMLHead();
         <?php
         $page->renderScripts();
 
-        $page->addInlineJS("jpi.stickyFooter = new StickyFooter('.main-content');", true);
+        $page->addInlineJS("jQuery('.main-content').adjustHeightForScreen();", true);
         $page->renderInlineJS();
         ?>
     </body>

@@ -126,7 +126,7 @@ class Page {
             if ($this->site->getIsDebug()) {
                 $scripts = [
                     ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                    ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
+                    ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "2.0.0"],
                     ["src" => "/assets/js/jpi/helpers.js"],
                 ];
             }
