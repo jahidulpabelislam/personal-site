@@ -746,7 +746,8 @@ a.button {
   width: 100%;
   left: 0;
   align-items: center;
-  transition: left 2s ease; }
+  transition: left 2s ease;
+  z-index: 1; }
 
 .slide-show__slide {
   position: relative;
@@ -763,7 +764,8 @@ a.button {
 .slide-show__nav {
   position: absolute;
   top: calc(50% - 15px);
-  padding: 0; }
+  padding: 0;
+  z-index: 2; }
 
 .slide-show__nav[data-direction="previous"] {
   left: 0; }
