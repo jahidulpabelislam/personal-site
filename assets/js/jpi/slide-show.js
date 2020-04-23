@@ -87,7 +87,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             slidesContainer.css("left", "-" + position.left + "px");
 
             var newSlideID = nextSlide.attr("id");
-            slideShow.find(".slide-show__bullet[data-slide-id=#" + newSlideID + "]").addClass("slide-show__bullet--active");
+            slideShow.find(".slide-show__bullet[data-slide-id='#" + newSlideID + "']").addClass("slide-show__bullet--active");
 
             jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
             jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
