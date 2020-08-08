@@ -88,7 +88,7 @@ button {
   padding: 0;
   cursor: pointer;
   background-color: transparent;
-  -webkit-appearance: none; }
+  appearance: none; }
 
 button > * {
   pointer-events: none; }
