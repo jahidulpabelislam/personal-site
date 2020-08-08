@@ -558,7 +558,7 @@ a.button {
   border-radius: 50%;
   background: white;
   color: #333333;
-  transition: all .25s ease-in-out; }
+  transition: all 0.25s ease-in-out; }
 
 .pagination__link:hover,
 .pagination__link:focus {
@@ -2369,7 +2369,7 @@ a.button {
   font-size: 22px;
   background: transparent;
   color: transparent;
-  transition: color .2s ease-in-out; }
+  transition: color 0.2s ease-in-out; }
 
 .search-form__submit:hover,
 .search-form__submit:focus {
