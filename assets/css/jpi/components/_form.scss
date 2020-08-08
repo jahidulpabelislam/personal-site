@@ -53,7 +53,7 @@
     margin-left: 20px;
 }
 
-.styled-checkbox__pseudo:before {
+.styled-checkbox__pseudo::before {
     content: "\00a0";
     display: block;
     position: absolute;
@@ -66,7 +66,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.input:checked + .styled-checkbox__pseudo:before {
+.input:checked + .styled-checkbox__pseudo::before {
     content: "\2714";
     padding: 1px 2px;
     background-color: $primary-colour;

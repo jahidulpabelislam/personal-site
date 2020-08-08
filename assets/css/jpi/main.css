@@ -7,14 +7,14 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
 
-.clearfix:after {
+.clearfix::after {
   clear: both; }
 
 /**
@@ -161,19 +161,19 @@
   display: inline-block;
   width: 100%; }
 
-.footer__link:after {
+.footer__link::after {
   content: "|";
   color: #7b8676;
   margin: 0 4px; }
 
-.footer__link:last-child:after {
+.footer__link:last-child::after {
   content: none; }
 
 .footer__link {
   position: relative;
   color: #333333; }
 
-.footer__link:before {
+.footer__link::before {
   content: "\00a0";
   position: absolute;
   bottom: 0;
@@ -187,11 +187,11 @@
 .footer__link:focus {
   color: #1a1a1a; }
 
-.footer__link:hover:before,
-.footer__link:focus:before {
+.footer__link:hover::before,
+.footer__link:focus::before {
   border-bottom-color: #1a1a1a; }
 
-.footer__link:last-child:before {
+.footer__link:last-child::before {
   width: 100%; }
 
 /* Only for Desktops */
@@ -410,7 +410,7 @@ a.button {
   position: relative;
   margin-left: 20px; }
 
-.styled-checkbox__pseudo:before {
+.styled-checkbox__pseudo::before {
   content: "\00a0";
   display: block;
   position: absolute;
@@ -422,7 +422,7 @@ a.button {
   border: 2px solid #7b8676;
   transition: all 0.3s ease-in-out; }
 
-.input:checked + .styled-checkbox__pseudo:before {
+.input:checked + .styled-checkbox__pseudo::before {
   content: "\2714";
   padding: 1px 2px;
   background-color: #0375b4;
@@ -1431,7 +1431,7 @@ a.button {
 .project__link:focus {
   color: #262626; }
 
-.project__link:after {
+.project__link::after {
   content: "\00a0";
   position: absolute;
   top: 25%;
@@ -1440,7 +1440,7 @@ a.button {
   margin: 0 12px;
   background: rgba(123, 134, 118, 0.2); }
 
-.project__link:last-child:after {
+.project__link:last-child::after {
   content: none; }
 
 .project__link--light-blue {
@@ -1675,7 +1675,7 @@ a.button {
   .project:nth-child(3n) {
     margin-right: 0;
     margin-left: 14px; }
-  .project__read-more:after {
+  .project__read-more::after {
     font-size: 40px;
     line-height: 33px; } }
 
