@@ -537,11 +537,11 @@ img {
     order: 1;
     flex: 1; }
   .nav__social-links {
-    border-top: none;
+    border-top: 0;
     text-align: left; }
   .nav__links {
     float: right;
-    border-top: none; }
+    border-top: 0; }
   .nav__item {
     float: left; }
   .nav__link {
