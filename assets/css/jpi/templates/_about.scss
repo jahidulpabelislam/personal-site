@@ -48,7 +48,7 @@
     border: 1px solid get-colour(black, main);
     border-radius: 5px;
     background-color: get-colour(black, main);
-    color: get-colour(black, text, white);
+    color: get-colour(black, text, #ffffff);
     cursor: auto;
     transition: all 0.4s ease-in-out;
 }
@@ -73,7 +73,7 @@
     .skills-interests__item--#{$colour} {
         background-color: map-get($colours, main);
         border-color: map-get($colours, main);
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
     }
 
     .skills-interests__item--#{$colour}.skills-interests__item--expandable:hover {

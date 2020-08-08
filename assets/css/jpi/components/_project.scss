@@ -3,7 +3,7 @@
     padding: 0 15px 15px;
     border: 1px solid $light-grey;
     border-radius: 10px;
-    background-color: white;
+    background-color: #ffffff;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
@@ -76,7 +76,7 @@
 .project__skill:focus {
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
-    color: get-colour(black, text, white);
+    color: get-colour(black, text, #ffffff);
     box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
@@ -85,7 +85,7 @@
 .project__skill--searched:focus {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
-    color: get-colour(black, text, white);
+    color: get-colour(black, text, #ffffff);
 }
 
 .project__skill--searched:hover,
@@ -103,7 +103,7 @@
     .project__skill--#{$colour}:focus {
         border-color: map-get($colours, hover);
         background-color: map-get($colours, hover);
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
         box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
@@ -112,7 +112,7 @@
     .project__skill--#{$colour}.project__skill--searched:focus {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
         box-shadow: none;
     }
 }
@@ -205,7 +205,7 @@
     font-size: 36px;
     line-height: 32px;
     font-weight: 900;
-    color: white;
+    color: #ffffff;
     text-align: center;
     border-radius: 0 30px 30px 0;
     transition: background-color 0.2s ease-in-out;

@@ -169,7 +169,7 @@ img {
 /* For all devices */
 .social-link__image {
   height: 40px;
-  background-color: black;
+  background-color: #000000;
   opacity: 1; }
 
 .social-link__text {
@@ -219,7 +219,7 @@ img {
 .social-link--instagram .social-link__image {
   display: inline-block;
   position: relative;
-  background: black;
+  background: #000000;
   vertical-align: middle; }
 
 .social-link--instagram:hover .social-link__image,
@@ -247,7 +247,7 @@ img {
 .social-link--instagram .social-link__image i::after {
   content: "\00a0";
   position: absolute;
-  background: white; }
+  background: #ffffff; }
 
 .social-link--instagram .social-link__image {
   width: 40px;
@@ -256,13 +256,13 @@ img {
 .social-link--instagram .social-link__image i {
   width: 29.44px;
   height: 29.44px;
-  border: 2.72px solid white;
+  border: 2.72px solid #ffffff;
   border-radius: 8.32px; }
 
 .social-link--instagram .social-link__image i::before {
   width: 15.24px;
   height: 15.24px;
-  border: 2.72px solid white;
+  border: 2.72px solid #ffffff;
   border-radius: 7.6px; }
 
 .social-link--instagram .social-link__image i::after {
@@ -310,8 +310,8 @@ img {
 .social-link--snapchat .social-link__text {
   padding: 4px;
   border-radius: 6px;
-  background-color: black;
-  color: white; }
+  background-color: #000000;
+  color: #ffffff; }
 
 .social-link--snapchat:hover .social-link__text,
 .social-link--snapchat:focus .social-link__text {
@@ -328,12 +328,12 @@ img {
   .social-link--instagram .social-link__image i {
     width: 36.8px;
     height: 36.8px;
-    border: 3.4px solid white;
+    border: 3.4px solid #ffffff;
     border-radius: 10.4px; }
   .social-link--instagram .social-link__image i::before {
     width: 19.05px;
     height: 19.05px;
-    border: 3.4px solid white;
+    border: 3.4px solid #ffffff;
     border-radius: 9.5px; }
   .social-link--instagram .social-link__image i::after {
     top: 3px;

@@ -9,7 +9,7 @@
 }
 
 .nav--light {
-    background-color: transparentize(white, 0.92);
+    background-color: transparentize(#ffffff, 0.92);
 }
 
 .nav--dark {
@@ -18,7 +18,7 @@
 
 .nav--scrolled,
 .nav--open {
-    background-color: white;
+    background-color: #ffffff;
     box-shadow: 0 0 10px 0 $dark-colour;
 }
 
@@ -77,7 +77,7 @@
     display: block;
     width: 18px;
     height: 2px;
-    background-color: white;
+    background-color: #ffffff;
     transition: all 0.7s ease-in-out;
     position: relative;
 }
@@ -137,7 +137,7 @@
 .nav__link {
     display: block;
     padding: 12px;
-    color: white;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -153,7 +153,7 @@
 
 .nav__link.nav__link--active {
     background-color: get-colour(dark-blue, main);
-    color: white;
+    color: #ffffff;
 }
 
 .nav__social-links .nav__item {
@@ -243,14 +243,14 @@
     .nav__social-links .social-link--instagram .social-link__image i {
         width: 29.44px;
         height: 29.44px;
-        border: 2.72px solid white;
+        border: 2.72px solid #ffffff;
         border-radius: 8.33px;
     }
 
     .nav__social-links .social-link--instagram .social-link__image i::before {
         width: 15.22px;
         height: 15.22px;
-        border: 2.72px solid white;
+        border: 2.72px solid #ffffff;
         border-radius: 7.61px;
     }
 

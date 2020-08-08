@@ -25,14 +25,14 @@
     #{$selector} i {
         width: #{$size * 0.736}px;
         height: #{$size * 0.736}px;
-        border: #{$size * 0.068}px solid white;
+        border: #{$size * 0.068}px solid #ffffff;
         border-radius: #{$size * 0.208}px;
     }
 
     #{$selector} i::before {
         width: #{$size * 0.381}px;
         height: #{$size * 0.381}px;
-        border: #{$size * 0.068}px solid white;
+        border: #{$size * 0.068}px solid #ffffff;
         border-radius: #{$size * 0.19}px;
     }
 
