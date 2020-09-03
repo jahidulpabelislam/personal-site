@@ -9,13 +9,13 @@
 }
 
 .row:nth-child(even) {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 @each $colour, $colours in $colour-schemes {
     .row--#{$colour}.row--#{$colour} {
         background-color: map-get($colours, main);
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
     }
 }
 

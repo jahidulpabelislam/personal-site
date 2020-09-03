@@ -17,13 +17,13 @@
     width: 100%;
 }
 
-.footer__link:after {
+.footer__link::after {
     content: "|";
     color: $grey;
     margin: 0 4px;
 }
 
-.footer__link:last-child:after {
+.footer__link:last-child::after {
     content: none;
 }
 
@@ -32,7 +32,7 @@
     color: $dark-colour;
 }
 
-.footer__link:before {
+.footer__link::before {
     content: "\00a0";
     position: absolute;
     bottom: 0;
@@ -48,12 +48,12 @@
     color: darken($dark-colour, 10%);
 }
 
-.footer__link:hover:before,
-.footer__link:focus:before {
+.footer__link:hover::before,
+.footer__link:focus::before {
     border-bottom-color: darken($dark-colour, 10%);
 }
 
-.footer__link:last-child:before {
+.footer__link:last-child::before {
     width: 100%;
 }
 

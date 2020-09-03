@@ -1,7 +1,7 @@
 /* For all devices */
 .social-link__image {
     height: 40px;
-    background-color: black;
+    background-color: #000000;
     opacity: 1;
 }
 
@@ -63,7 +63,7 @@
 .social-link--instagram .social-link__image {
     display: inline-block;
     position: relative;
-    background: black;
+    background: #000000;
     vertical-align: middle;
 }
 
@@ -103,10 +103,12 @@
 .social-link--instagram .social-link__image i::after {
     content: "\00a0";
     position: absolute;
-    background: white;
+    background: #ffffff;
 }
 
-@include insta-logo(".social-link--instagram .social-link__image", 40);
+.social-link--instagram .social-link__image {
+    @include insta-logo(40);
+}
 
 .social-link--facebook .social-link__image {
     border-radius: 5px;
@@ -154,8 +156,8 @@
 .social-link--snapchat .social-link__text {
     padding: 4px;
     border-radius: 6px;
-    background-color: black;
-    color: white;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .social-link--snapchat:hover .social-link__text,
@@ -170,7 +172,9 @@
         height: 50px;
     }
 
-    @include insta-logo(".social-link--instagram .social-link__image", 50);
+    .social-link--instagram .social-link__image {
+        @include insta-logo(50);
+    }
 
     .social-link--snapchat .social-link__image {
         max-width: 200px;

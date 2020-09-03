@@ -52,8 +52,8 @@ ol, ul {
 blockquote, q {
   quotes: none; }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote::before, blockquote::after,
+q::before, q::after {
   content: "\00a0";
   content: none; }
 
@@ -88,7 +88,7 @@ button {
   padding: 0;
   cursor: pointer;
   background-color: transparent;
-  -webkit-appearance: none; }
+  appearance: none; }
 
 button > * {
   pointer-events: none; }
@@ -307,7 +307,7 @@ img {
   background: rgba(51, 51, 51, 0.15); }
 
 .header__title {
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 2px 2px 3px #000000;
   font-size: 50px;
   font-weight: bold;
   line-height: 52px; }
@@ -316,7 +316,7 @@ img {
   margin: 30px 0 38px; }
 
 .header__description {
-  text-shadow: 2px 2px 3px black;
+  text-shadow: 2px 2px 3px #000000;
   font-size: 26px;
   font-weight: bold;
   line-height: 28px; }
@@ -384,7 +384,7 @@ img {
 
 .nav--scrolled,
 .nav--open {
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 0 10px 0 #333333; }
 
 .nav__header {
@@ -434,7 +434,7 @@ img {
   display: block;
   width: 18px;
   height: 2px;
-  background-color: white;
+  background-color: #ffffff;
   transition: all 0.7s ease-in-out;
   position: relative; }
 
@@ -482,7 +482,7 @@ img {
 .nav__link {
   display: block;
   padding: 12px;
-  color: white;
+  color: #ffffff;
   text-align: center; }
 
 .nav--scrolled .nav__link,
@@ -495,7 +495,7 @@ img {
 
 .nav__link.nav__link--active {
   background-color: #0375b4;
-  color: white; }
+  color: #ffffff; }
 
 .nav__social-links .nav__item {
   display: inline-block; }
@@ -537,11 +537,11 @@ img {
     order: 1;
     flex: 1; }
   .nav__social-links {
-    border-top: none;
+    border-top: 0;
     text-align: left; }
   .nav__links {
     float: right;
-    border-top: none; }
+    border-top: 0; }
   .nav__item {
     float: left; }
   .nav__link {
@@ -555,12 +555,12 @@ img {
   .nav__social-links .social-link--instagram .social-link__image i {
     width: 29.44px;
     height: 29.44px;
-    border: 2.72px solid white;
+    border: 2.72px solid #ffffff;
     border-radius: 8.33px; }
   .nav__social-links .social-link--instagram .social-link__image i::before {
     width: 15.22px;
     height: 15.22px;
-    border: 2.72px solid white;
+    border: 2.72px solid #ffffff;
     border-radius: 7.61px; }
   .nav__social-links .social-link--instagram .social-link__image i::after {
     top: 2.38px;
@@ -572,7 +572,7 @@ img {
 /* For all devices */
 .social-link__image {
   height: 40px;
-  background-color: black;
+  background-color: #000000;
   opacity: 1; }
 
 .social-link__text {
@@ -622,7 +622,7 @@ img {
 .social-link--instagram .social-link__image {
   display: inline-block;
   position: relative;
-  background: black;
+  background: #000000;
   vertical-align: middle; }
 
 .social-link--instagram:hover .social-link__image,
@@ -650,30 +650,27 @@ img {
 .social-link--instagram .social-link__image i::after {
   content: "\00a0";
   position: absolute;
-  background: white; }
+  background: #ffffff; }
 
 .social-link--instagram .social-link__image {
   width: 40px;
   border-radius: 8.88px; }
-
-.social-link--instagram .social-link__image i {
-  width: 29.44px;
-  height: 29.44px;
-  border: 2.72px solid white;
-  border-radius: 8.32px; }
-
-.social-link--instagram .social-link__image i::before {
-  width: 15.24px;
-  height: 15.24px;
-  border: 2.72px solid white;
-  border-radius: 7.6px; }
-
-.social-link--instagram .social-link__image i::after {
-  top: 2.4px;
-  right: 2.4px;
-  width: 3.6px;
-  height: 3.6px;
-  border-radius: 1.76px; }
+  .social-link--instagram .social-link__image i {
+    width: 29.44px;
+    height: 29.44px;
+    border: 2.72px solid #ffffff;
+    border-radius: 8.32px; }
+  .social-link--instagram .social-link__image i::before {
+    width: 15.24px;
+    height: 15.24px;
+    border: 2.72px solid #ffffff;
+    border-radius: 7.6px; }
+  .social-link--instagram .social-link__image i::after {
+    top: 2.4px;
+    right: 2.4px;
+    width: 3.6px;
+    height: 3.6px;
+    border-radius: 1.76px; }
 
 .social-link--facebook .social-link__image {
   border-radius: 5px; }
@@ -713,8 +710,8 @@ img {
 .social-link--snapchat .social-link__text {
   padding: 4px;
   border-radius: 6px;
-  background-color: black;
-  color: white; }
+  background-color: #000000;
+  color: #ffffff; }
 
 .social-link--snapchat:hover .social-link__text,
 .social-link--snapchat:focus .social-link__text {
@@ -728,22 +725,22 @@ img {
   .social-link--instagram .social-link__image {
     width: 50px;
     border-radius: 11.1px; }
-  .social-link--instagram .social-link__image i {
-    width: 36.8px;
-    height: 36.8px;
-    border: 3.4px solid white;
-    border-radius: 10.4px; }
-  .social-link--instagram .social-link__image i::before {
-    width: 19.05px;
-    height: 19.05px;
-    border: 3.4px solid white;
-    border-radius: 9.5px; }
-  .social-link--instagram .social-link__image i::after {
-    top: 3px;
-    right: 3px;
-    width: 4.5px;
-    height: 4.5px;
-    border-radius: 2.2px; }
+    .social-link--instagram .social-link__image i {
+      width: 36.8px;
+      height: 36.8px;
+      border: 3.4px solid #ffffff;
+      border-radius: 10.4px; }
+    .social-link--instagram .social-link__image i::before {
+      width: 19.05px;
+      height: 19.05px;
+      border: 3.4px solid #ffffff;
+      border-radius: 9.5px; }
+    .social-link--instagram .social-link__image i::after {
+      top: 3px;
+      right: 3px;
+      width: 4.5px;
+      height: 4.5px;
+      border-radius: 2.2px; }
   .social-link--snapchat .social-link__image {
     max-width: 200px;
     height: auto; } }

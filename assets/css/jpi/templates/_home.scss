@@ -64,7 +64,7 @@
     margin: 0 auto;
     padding: 10px 35px;
     background-color: get-colour(black, main);
-    color: get-colour(black, text, white);
+    color: get-colour(black, text, #ffffff);
     cursor: initial;
     opacity: 0.15;
     transition: all 2s ease-in-out;
@@ -76,11 +76,11 @@
 @each $colour, $colours in $colour-schemes {
     .latest-project__info-content--#{$colour} {
         background-color: map-get($colours, main);
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
     }
 
     .latest-project__info-content--#{$colour} .latest-project__date {
-        color: get-colour-variant($colours, text, white);
+        color: get-colour-variant($colours, text, #ffffff);
     }
 }
 
@@ -172,7 +172,7 @@
     }
 
     .latest-project__date {
-        color: white;
+        color: #ffffff;
     }
 
     .latest-project.slide-show__slide--active .latest-project__info-content {

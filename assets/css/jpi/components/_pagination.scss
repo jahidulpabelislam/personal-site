@@ -3,7 +3,7 @@
     display: inline-block;
     padding: 3px 38px;
     border-radius: 24px;
-    background: white;
+    background: #ffffff;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
@@ -17,11 +17,11 @@
     min-height: 38px;
     min-width: 38px;
     padding: 8px 14px;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     border-radius: 50%;
-    background: white;
+    background: #ffffff;
     color: $dark-colour;
-    transition: all .25s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 .pagination__link:hover,
@@ -34,6 +34,6 @@
 .pagination__link--active:focus {
     background: $primary-colour;
     border-color: darken($primary-colour, 5);
-    color: white;
+    color: #ffffff;
     cursor: default;
 }
