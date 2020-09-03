@@ -20,7 +20,9 @@
     margin: 15px 3px;
 }
 
-@include insta-logo(".social-link--instagram .social-links__image", 50);
+.social-link--instagram .social-links__image {
+    @include insta-logo(50);
+}
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
@@ -33,7 +35,9 @@
         margin: 20px 3px;
     }
 
-    @include insta-logo(".social-link--instagram .social-links__image", 60);
+    .social-link--instagram .social-links__image {
+        @include insta-logo(60);
+    }
 }
 
 /* Only for Desktops */
@@ -53,5 +57,7 @@
         margin: 0 20px 25px;
     }
 
-    @include insta-logo(".social-link--instagram .social-links__image", 70);
+    .social-link--instagram .social-links__image {
+        @include insta-logo(70);
+    }
 }

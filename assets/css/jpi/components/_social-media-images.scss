@@ -106,7 +106,9 @@
     background: #ffffff;
 }
 
-@include insta-logo(".social-link--instagram .social-link__image", 40);
+.social-link--instagram .social-link__image {
+    @include insta-logo(40);
+}
 
 .social-link--facebook .social-link__image {
     border-radius: 5px;
@@ -170,7 +172,9 @@
         height: 50px;
     }
 
-    @include insta-logo(".social-link--instagram .social-link__image", 50);
+    .social-link--instagram .social-link__image {
+        @include insta-logo(50);
+    }
 
     .social-link--snapchat .social-link__image {
         max-width: 200px;
