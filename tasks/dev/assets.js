@@ -91,13 +91,8 @@ defaultTasks.push("stylesheets");
 gulp.task("stylesheets", function() {
     return gulp.src(`${cssDir}/jpi/*.css`)
                .pipe(rename({suffix: ".min"}))
-               .pipe(autoPrefix({
-                   browsers: ["> 0.1%", "ie 8-11"],
-                   remove: false,
-               }))
-               .pipe(cleanCss({
-                   compatibility: "ie8",
-               }))
+               .pipe(autoPrefix({remove: false}))
+               .pipe(cleanCss({compatibility: "ie8"}))
                .pipe(gulp.dest(`${cssDir}/`));
 });
 
