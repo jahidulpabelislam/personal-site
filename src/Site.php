@@ -130,10 +130,10 @@ class Site {
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $relativeURL string The relative url part/s to use to generate url from
-     * @param bool $addDebug bool Whether the url should include the debug flag if currently added
-     * @param bool $isFull bool Whether the url should be a full url
-     * @param bool $isLive bool Whether the url should be a full live url
+     * @param $relativeURL string The relative url part/s to use to generate url from
+     * @param $addDebug bool Whether the url should include the debug flag if currently added
+     * @param $isFull bool Whether the url should be a full url
+     * @param $isLive bool Whether the url should be a full live url
      * @return string
      */
     public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
@@ -147,10 +147,10 @@ class Site {
      * Uses getURL to generate the url, then echoes what is returned
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $url string The relative url part/s to use to generate url from
-     * @param bool $addDebug bool Whether the url should include the debug flag if currently added
-     * @param bool $isFull bool Whether the url should be a full url
-     * @param bool $isLive bool Whether the url should be a full live url
+     * @param $url string The relative url part/s to use to generate url from
+     * @param $addDebug bool Whether the url should include the debug flag if currently added
+     * @param $isFull bool Whether the url should be a full url
+     * @param $isLive bool Whether the url should be a full live url
      */
     public function echoURL(string $url = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
         echo $this->getURL($url, $addDebug, $isFull, $isLive);
@@ -182,7 +182,7 @@ class Site {
     /**
      * Generate a full url to a image file
      *
-     * @param string $filepath string The relative url of image
+     * @param $filepath string The relative url of image
      */
     public static function getProjectImageURL(string $filepath = "") {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
@@ -193,7 +193,7 @@ class Site {
     /**
      * Echo a full url to a image file
      *
-     * @param string $filepath string The relative url of image
+     * @param $filepath string The relative url of image
      */
     public static function echoProjectImageURL(string $filepath = "") {
         echo self::getProjectImageURL($filepath);
