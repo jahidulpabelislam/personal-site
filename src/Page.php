@@ -58,21 +58,15 @@ class Page {
             return [];
         }
 
-        $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
-        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
-
         return [
-            "{$cssDir}/above-the-fold.{$cssExtension}",
+            "/assets/css/above-the-fold." . ($this->site->getIsDebug() ? "css" : "min.css"),
         ];
     }
 
     private function getStylesheetsForPage(string $pageId): array  {
         if ($pageId === "links") {
-            $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
-            $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
-
             return [
-                "{$cssDir}/links.{$cssExtension}",
+                "/assets/css/links." . ($this->site->getIsDebug() ? "css" : "min.css"),
             ];
         }
 
@@ -85,7 +79,7 @@ class Page {
      * @return string
      */
     private function getDeferredPageStylesheet(string $pageId): string {
-        $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
+        $cssDir = "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
         // Some pages (like `Links`) may use its own css file
@@ -112,7 +106,7 @@ class Page {
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = addAssetVersion("/assets/css/third-party/font-awesome.min.css", "5.10.0");
+            $stylesheets[] = addAssetVersion("/assets/css/font-awesome.min.css", "5.10.0");
         }
 
         return $stylesheets;
