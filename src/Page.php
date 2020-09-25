@@ -66,7 +66,7 @@ class Page {
         ];
     }
 
-    private function getStylestyleshetsForPage(string $pageId): array  {
+    private function getStylesheetsForPage(string $pageId): array  {
         if ($pageId === "links") {
             $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
             $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
@@ -173,7 +173,7 @@ class Page {
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
             "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
-            "stylesheets" => $this->getStylestyleshetsForPage($pageId),
+            "stylesheets" => $this->getStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
                 "css" => ["tabletWidth" => 768],
