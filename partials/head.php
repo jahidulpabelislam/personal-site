@@ -78,7 +78,7 @@ $page = Page::get();
 
         foreach ($page->stylesheets as $stylesheet) {
             ?>
-            <link href="<?php echo $stylesheet; ?>" rel="stylesheet" type="text/css" media="all" title="style" />
+            <link href="<?php echoWithAssetVersion($stylesheet); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
             <?php
         }
 
