@@ -119,42 +119,17 @@ class Page {
     }
 
     private function getScriptsForPage(string $pageId): array {
-        // Either add compiled js file(s) for whole page, or include individual files if debug is specified
+        $directory = "/assets/js";
+        $extension = $this->site->getIsDebug() ? "js" : "min.js";
 
-        if ($pageId === "links") {
-            $scripts = [["src" => "/assets/js/social-links.min.js"]];
-            if ($this->site->getIsDebug()) {
-                $scripts = [
-                    ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                    ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "2.0.0"],
-                    ["src" => "/assets/js/jpi/helpers.js"],
-                ];
-            }
-            return $scripts;
+        // Some pages (like `Links`) may use its own JS file
+        // so figure out if one exists to use, else use the main one
+        $path = "{$directory}/{$pageId}.{$extension}";
+        if (!(new File($path))->exists()) {
+            $path = "{$directory}/main.{$extension}";
         }
 
-        $scripts = [["src" => "/assets/js/main.min.js"]];
-        if ($this->site->getIsDebug()) {
-            $scripts = [
-                ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                ["src" => "/assets/js/third-party/waypoint.min.js", "ver" => "1.6.2"],
-                ["src" => "/assets/js/third-party/jquery.countTo.js", "ver" => "1.2.0"],
-                ["src" => "/assets/js/jpi/expanded-slide-show.js"],
-                ["src" => "/assets/js/jpi/slide-show.js"],
-                ["src" => "/assets/js/jpi/helpers.js"],
-                ["src" => "/assets/js/jpi/templating.js"],
-                ["src" => "/assets/js/jpi/ajax.js"],
-                ["src" => "/assets/js/jpi/modal.js"],
-                ["src" => "/assets/js/jpi/projects.js"],
-                ["src" => "/assets/js/jpi/home.js"],
-                ["src" => "/assets/js/jpi/contact-form.js"],
-                ["src" => "/assets/js/jpi/nav.js"],
-                ["src" => "/assets/js/jpi/cookie-banner.js"],
-                ["src" => "/assets/js/jpi/main.js"],
-            ];
-        }
-
-        return $scripts;
+        return [["src" => $path]];
     }
 
     private function getGlobalPageData(): array {

@@ -14,7 +14,7 @@ const sass = require("gulp-sass");
 
 const livereload = require("gulp-livereload");
 
-const { jsDir, cssDir } = require("../config");
+const { jsDir, jsDevDir, cssDir } = require("../config");
 
 let defaultTasks = [];
 
@@ -24,8 +24,10 @@ gulp.task("reload-listen", function(callback) {
 });
 
 gulp.task("watch-js", function(callback) {
-    gulp.watch(`${jsDir}/**/*.js`, function() {
-        return gulp.src(`${jsDir}/**/*.js`)
+    gulp.watch(`${jsDevDir}/**/*.js`, function() {
+        return gulp.src(`${jsDevDir}/*.js`)
+                   .pipe(include())
+                   .pipe(gulp.dest(`${jsDir}/`))
                    .pipe(livereload());
     });
 
@@ -36,7 +38,6 @@ gulp.task("watch-js", function(callback) {
 defaultTasks.push("scripts");
 gulp.task("scripts", function() {
     return gulp.src([`${jsDir}/*.js`, `!${jsDir}/*.min.js`])
-        .pipe(include())
         .pipe(rename({suffix: ".min"}))
         .pipe(uglify())
         .pipe(gulp.dest(`${jsDir}/`));
