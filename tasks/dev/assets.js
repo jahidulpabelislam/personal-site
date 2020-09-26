@@ -4,7 +4,6 @@ const include = require("gulp-include")
 
 const rename = require("gulp-rename");
 
-const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 
 const cleanCss = require("gulp-clean-css");
