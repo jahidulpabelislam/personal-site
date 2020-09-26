@@ -38,9 +38,9 @@ gulp.task("watch-js", function(callback) {
 defaultTasks.push("scripts");
 gulp.task("scripts", function() {
     return gulp.src([`${jsDir}/*.js`, `!${jsDir}/*.min.js`])
-        .pipe(rename({suffix: ".min"}))
-        .pipe(uglify())
-        .pipe(gulp.dest(`${jsDir}/`));
+               .pipe(rename({suffix: ".min"}))
+               .pipe(uglify())
+               .pipe(gulp.dest(`${jsDir}/`));
 });
 
 defaultTasks.push("sass");
