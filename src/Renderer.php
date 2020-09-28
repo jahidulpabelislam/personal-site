@@ -16,63 +16,32 @@
 
 class Renderer {
 
+    private static function trim(string $contents): string {
+        return str_replace("\n", "", trim($contents));
+    }
+
     private $page;
 
     public function __construct(Page $page) {
         $this->page = $page;
     }
 
-    private static function trim(string $contents): string {
-        return str_replace("\n", "", trim($contents));
-    }
-
     /**
-     * Include the common html head for page/site
+     * @param string $method
+     * @param array $arguments
+     * @throws Exception
      */
-    public function renderHTMLHead() {
-        include_once(ROOT . "/partials/head.php");
-    }
+    public function __call(string $method, array $arguments) {
+        $partial = substr($method, 6); // Remove 'render'
+        $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
+        $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
+        $file = new File("/partials/{$partial}.php");
+        if ($file->exists()) {
+            $file->include();
+            return;
+        }
 
-    /**
-     * Include the common canonical urls meta elements for page/site
-     */
-    public function renderCanonicalURLs() {
-        include_once(ROOT . "/partials/canonical-urls.php");
-    }
-
-    /**
-     * Include the common favicons content for page/site
-     */
-    public function renderFavicons() {
-        include_once(ROOT . "/partials/favicons.php");
-    }
-
-    /**
-     * Include the common html nav content for page/site
-     */
-    public function renderNav() {
-        include_once(ROOT . "/partials/nav.php");
-    }
-
-    /**
-     * Include the common html header content for page/site
-     */
-    public function renderHeader() {
-        include_once(ROOT . "/partials/header.php");
-    }
-
-    /**
-     * Include the common footer content for page/site
-     */
-    public function renderFooter() {
-        include_once(ROOT . "/partials/footer.php");
-    }
-
-    /**
-     * Include the common cookie banner content for page/site
-     */
-    public function renderCookieBanner() {
-        include_once(ROOT . "/partials/cookie-banner.php");
+        throw new Exception("No method found for {$method}");
     }
 
     public function renderInlineJS() {

@@ -33,7 +33,7 @@ class Page {
      * @throws Exception
      */
     public function __call(string $method, array $arguments) {
-        if (strpos($method, "render") === 0 && method_exists($this->renderer, $method)) {
+        if (strpos($method, "render") === 0 && is_callable([$this->renderer, $method])) {
             return call_user_func_array([$this->renderer, $method], $arguments);
         }
 

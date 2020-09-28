@@ -34,7 +34,7 @@ $description = $page->headDescription ?? $page->description ?? "";
         <!-- All meta data for page -->
         <title><?php echo $title; ?></title>
 
-        <?php $page->renderCanonicalURLs(); ?>
+        <?php $page->renderCanonicalUrls(); ?>
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

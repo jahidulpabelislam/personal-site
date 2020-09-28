@@ -12,7 +12,7 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHead();
 ?>
 
             <main class="main-content social-links-page">

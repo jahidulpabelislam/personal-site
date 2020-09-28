@@ -15,7 +15,7 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHead();
 $page->renderNav();
 $page->renderHeader();
 
