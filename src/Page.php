@@ -13,7 +13,7 @@ class Page {
         $this->site = Site::get();
 
         $this->data = $this->getGlobalPageData();
-        $this->addScripts($this->getScriptsForPage($this->id));
+        $this->addScripts($this->getScriptsForPage($this->data["id"]));
 
         $this->renderer = new Renderer($this);
     }
@@ -26,11 +26,15 @@ class Page {
         return self::$instance;
     }
 
-    public function __call($method, $arguments) {
-        if (strpos($method, "render") === 0) {
-            if (method_exists($this->renderer, $method)) {
-                return call_user_func_array([$this->renderer, $method], $arguments);
-            }
+    /**
+     * @param $method string
+     * @param $arguments array
+     * @return mixed
+     * @throws Exception
+     */
+    public function __call(string $method, array $arguments) {
+        if (strpos($method, "render") === 0 && method_exists($this->renderer, $method)) {
+            return call_user_func_array([$this->renderer, $method], $arguments);
         }
 
         throw new Exception("No method found for {$method}");
@@ -138,7 +142,7 @@ class Page {
             $url = turnPathToURL($path);
         }
 
-        $globalPageData = [
+        return [
             "id" => $pageId,
             "currentURL" => $this->site->getURL($url, false),
             "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
@@ -152,8 +156,6 @@ class Page {
             "onLoadInlineJS" => "",
             "jsTemplates" => [],
         ];
-
-        return $globalPageData;
     }
 
     public function addPageData(array $newPageData) {
