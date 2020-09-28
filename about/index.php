@@ -363,4 +363,5 @@ $similarLinks = [
         "colour" => "red",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderFooter();

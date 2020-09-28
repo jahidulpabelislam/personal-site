@@ -237,4 +237,5 @@ $similarLinks = [
         "colour" => "dark-green",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderFooter();

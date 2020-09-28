@@ -4,6 +4,11 @@ if (!defined("ROOT")) {
 }
 
 $site = Site::get();
+$page = Page::get();
+
+$pageId = $page->id;
+$title = $page->headerTitle ?? $page->title ?? "";
+$description = $page->headerDescription ?? $page->description ?? "";
 ?>
 
         <!-- Header to grab users attention -->

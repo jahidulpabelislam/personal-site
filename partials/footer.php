@@ -5,6 +5,8 @@ if (!defined("ROOT")) {
 
 $site = Site::get();
 $page = Page::get();
+
+$similarLinks = $page->similarLinks ?? [];
 ?>
 
                     <?php

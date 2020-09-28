@@ -30,10 +30,6 @@ class Renderer {
      * Include the common html head for page/site
      */
     public function renderHTMLHead() {
-        $pageId = $this->page->id;
-        $title = $this->page->headTitle ?? $this->page->title ?? "";
-        $description = $this->page->headDescription ?? $this->page->description ?? "";
-
         include_once(ROOT . "/partials/head.php");
     }
 
@@ -41,9 +37,6 @@ class Renderer {
      * Include the common canonical urls meta elements for page/site
      */
     public function renderCanonicalURLs() {
-        $pagination = $this->page->pagination ?? [];
-        $currentURL = $this->page->currentURL;
-
         include_once(ROOT . "/partials/canonical-urls.php");
     }
 
@@ -58,14 +51,6 @@ class Renderer {
      * Include the common html nav content for page/site
      */
     public function renderNav() {
-        $pageId = $this->page->id;
-        $currentURL = $this->page->currentURL;
-
-        $defaultTint = "dark";
-
-        $navTint = $this->page->navTint ?? $defaultTint;
-        $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
-
         include_once(ROOT . "/partials/nav.php");
     }
 
@@ -73,17 +58,13 @@ class Renderer {
      * Include the common html header content for page/site
      */
     public function renderHeader() {
-        $pageId = $this->page->id;
-        $title = $this->page->headerTitle ?? $this->page->title ?? "";
-        $description = $this->page->headerDescription ?? $this->page->description ?? "";
-
         include_once(ROOT . "/partials/header.php");
     }
 
     /**
      * Include the common footer content for page/site
      */
-    public function renderFooter(array $similarLinks = []) {
+    public function renderFooter() {
         include_once(ROOT . "/partials/footer.php");
     }
 

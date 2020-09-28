@@ -5,6 +5,10 @@ if (!defined("ROOT")) {
 
 $site = Site::get();
 $page = Page::get();
+
+$pageId = $page->id;
+$title = $page->headTitle ?? $page->title ?? "";
+$description = $page->headDescription ?? $page->description ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +92,6 @@ $page = Page::get();
             <?php
         }
         ?>
-
     </head>
 
     <body>

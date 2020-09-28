@@ -130,4 +130,5 @@ $similarLinks = [
         "colour" => "orange",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderFooter();

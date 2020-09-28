@@ -47,4 +47,5 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderFooter();

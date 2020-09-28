@@ -4,6 +4,15 @@ if (!defined("ROOT")) {
 }
 
 $site = Site::get();
+$page = Page::get();
+
+$pageId = $page->id;
+$currentURL = $page->currentURL;
+
+$defaultTint = "dark";
+
+$navTint = $page->navTint ?? $defaultTint;
+$navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
 ?>
 
         <!-- Navigation for site -->
