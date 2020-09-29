@@ -12,7 +12,9 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
+$page->renderHtmlStart();
 $page->renderHead();
+$page->renderPageStart();
 ?>
 
             <main class="main-content social-links-page">
@@ -67,13 +69,9 @@ $page->renderHead();
                     </div>
                 </div>
             </main>
-        </div>
 
-        <?php
-        $page->renderScripts();
-
-        $page->addInlineJS("jQuery('.main-content').adjustHeightForScreen();", true);
-        $page->renderInlineJS();
-        ?>
-    </body>
-</html>
+<?php
+$page->addInlineJS("jQuery('.main-content').adjustHeightForScreen();", true);
+$page->renderPageEnd();
+$page->renderHtmlEnd();
+?>

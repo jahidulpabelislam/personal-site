@@ -44,6 +44,49 @@ class Renderer {
         throw new Exception("No method found for {$method}");
     }
 
+    public function renderHtmlStart() {
+        echo <<<HTML
+<!DOCTYPE html>
+<html lang="en-GB">
+HTML;
+    }
+
+    public function renderHtmlEnd() {
+        echo <<<HTML
+</html>
+HTML;
+    }
+
+    public function renderPageStart() {
+        echo <<<HTML
+<body>
+    <div class="page-container">
+HTML;
+    }
+
+    public function renderPageEnd() {
+        echo "</div>";
+        $this->page->renderJSTemplates();
+        $this->page->renderScripts();
+        $this->page->renderInlineJS();
+        echo "</body>";
+    }
+
+    public function renderContentStart() {
+        echo <<<HTML
+<main class="main-content">
+    <div class="main-content__inner">
+HTML;
+    }
+
+    public function renderContentEnd() {
+        echo <<<HTML
+    </div>
+</main>
+HTML;
+    }
+
+
     public function renderInlineJS() {
         $jsGlobals = $this->page->jsGlobals;
         $inlineJS = $this->page->inlineJS;

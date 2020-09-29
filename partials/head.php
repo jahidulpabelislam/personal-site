@@ -11,9 +11,6 @@ $title = $page->headTitle ?? $page->title ?? "";
 $description = $page->headDescription ?? $page->description ?? "";
 ?>
 
-<!DOCTYPE html>
-<html lang="en-GB">
-
     <head>
         <?php
         // Only want Google Analytic for live site
@@ -93,6 +90,3 @@ $description = $page->headDescription ?? $page->description ?? "";
         }
         ?>
     </head>
-
-    <body>
-        <div class="page-container">

@@ -3,7 +3,6 @@ if (!defined("ROOT")) {
     die();
 }
 
-$site = Site::get();
 $page = Page::get();
 
 $pageId = $page->id;
@@ -25,8 +24,3 @@ $description = $page->headerDescription ?? $page->description ?? "";
                 </div>
             </div>
         </header>
-
-        <!-- Main content for page -->
-        <main class="main-content">
-            <div class="main-content__inner">
-                <!-- Start dynamic content for page -->

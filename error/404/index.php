@@ -20,9 +20,12 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
+$page->renderHtmlStart();
 $page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
                 <div class="row row--split">
@@ -53,4 +56,10 @@ $similarLinks = [
     ],
 ];
 $page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
 $page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

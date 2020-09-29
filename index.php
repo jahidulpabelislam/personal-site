@@ -13,9 +13,12 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
+$page->renderHtmlStart();
 $page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 
 // Work out the time since I started to today
 $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime(), "%r%y");
@@ -233,4 +236,10 @@ $similarLinks = [
     ],
 ];
 $page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
 $page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();
