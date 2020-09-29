@@ -24,16 +24,16 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-                <div class="row row--split">
-                    <div class="container">
-                        <div class="row__column">
-                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
-                        </div>
-                        <div class="row__column">
-                            <p>Access to the requested page is strictly forbidden.</p>
-                        </div>
-                    </div>
-                </div>
+<div class="row row--split">
+    <div class="container">
+        <div class="row__column">
+            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
+        </div>
+        <div class="row__column">
+            <p>Access to the requested page is strictly forbidden.</p>
+        </div>
+    </div>
+</div>
 
 <?php
 $similarLinks = [

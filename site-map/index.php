@@ -21,30 +21,30 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-                <div class="row">
-                    <div class="container">
-                        <ul class="site-map">
-                            <?php
-                            $pages = [
-                                "Home" => "/",
-                                "Projects" => "/projects",
-                                "Contact" => "/contact",
-                                "About" => "/about",
-                                "Privacy Policy" => "/privacy-policy",
-                                "Links" => "/links",
-                            ];
+<div class="row">
+    <div class="container">
+        <ul class="site-map">
+            <?php
+            $pages = [
+                "Home" => "/",
+                "Projects" => "/projects",
+                "Contact" => "/contact",
+                "About" => "/about",
+                "Privacy Policy" => "/privacy-policy",
+                "Links" => "/links",
+            ];
 
-                            foreach ($pages as $title => $url) {
-                                ?>
-                                <li>
-                                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title ?></a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+            foreach ($pages as $title => $url) {
+                ?>
+                <li>
+                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title ?></a>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+    </div>
+</div>
 
 <?php
 $similarLinks = [
