@@ -22,14 +22,16 @@ gulp.task("reload-listen", function(callback) {
     callback();
 });
 
-gulp.task("watch-js", function(callback) {
-    gulp.watch(`${jsDevDir}/**/*.js`, function() {
-        return gulp.src(`${jsDevDir}/*.js`)
-                   .pipe(include())
-                   .pipe(gulp.dest(`${jsDir}/`))
-                   .pipe(livereload());
-    });
+defaultTasks.push("compile-js");
+gulp.task("compile-js", function() {
+    return gulp.src(`${jsDevDir}/*.js`)
+        .pipe(include())
+        .pipe(gulp.dest(`${jsDir}/`))
+        .pipe(livereload());
+});
 
+gulp.task("watch-js", function(callback) {
+    gulp.watch(`${jsDevDir}/**/*.js`, gulp.parallel("compile-js"));
     callback();
 });
 
@@ -57,7 +59,7 @@ gulp.task("watch-scss", function(callback) {
 });
 
 // Watch files For changes
-gulp.task("watch", gulp.series(["reload-listen", "sass", "watch-scss", "watch-js"]));
+gulp.task("watch", gulp.series(["reload-listen", "sass", "compile-js", "watch-scss", "watch-js"]));
 
 // Minify stylesheets
 defaultTasks.push("stylesheets");
