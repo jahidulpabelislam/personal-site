@@ -68,9 +68,9 @@ class Page {
     }
 
     private function getStylesheetsForPage(string $pageId): array  {
-        if ($pageId === "links") {
+        if (in_array($pageId, ["links"])) {
             return [
-                "/assets/css/links." . ($this->site->getIsDebug() ? "css" : "min.css"),
+                "/assets/css/{$pageId}." . ($this->site->getIsDebug() ? "css" : "min.css"),
             ];
         }
 
