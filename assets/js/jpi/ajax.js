@@ -14,12 +14,12 @@ window.jpi.ajax = (function(jQuery) {
         },
 
         // Loop through data to see if it exists and if it does run a function on each row
-        renderRowsOrError: function(data, rowRenderer, errorRenderer, genericMessage) {
+        renderRowsOrError: function(response, rowRenderer, errorRenderer, genericMessage) {
             // If data/rows exists, For each row run a function
-            if (data && data.rows && data.rows.length) {
-                for (var i = 0; i < data.rows.length; i++) {
-                    if ({}.hasOwnProperty.call(data.rows, i)) {
-                        rowRenderer(data.rows[i]);
+            if (response && response.data && response.data.length) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if ({}.hasOwnProperty.call(response.data, i)) {
+                        rowRenderer(response.data[i]);
                     }
                 }
 
@@ -27,7 +27,7 @@ window.jpi.ajax = (function(jQuery) {
             }
 
             // Otherwise check feedback and show user and return false as data isn't there
-            fn.checkAndRenderError(data, errorRenderer, genericMessage);
+            fn.checkAndRenderError(response, errorRenderer, genericMessage);
             return false;
         },
 
