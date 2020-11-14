@@ -117,7 +117,7 @@ HTML;
         }
 
         if (!empty($onLoadInlineJS)) {
-            $js .= "jQuery(document).on('ready', function() {{$onLoadInlineJS}});";
+            $js .= "jQuery(function() {{$onLoadInlineJS}});";
         }
 
         $js = self::trim($js);

@@ -139,6 +139,6 @@ window.jpi = window.jpi || {};
         },
     };
 
-    jQuery(document).on("ready", fn.initListeners);
+    jQuery(fn.initListeners);
 
 })(jQuery, jpi);

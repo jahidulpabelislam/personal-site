@@ -163,7 +163,7 @@ window.jpi.modal = (function(jQuery, jpi) {
 
     };
 
-    jQuery(document).on("ready", fn.init);
+    jQuery(fn.init);
 
     return {
         open: fn.open,

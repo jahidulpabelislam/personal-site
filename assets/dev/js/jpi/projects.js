@@ -536,7 +536,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
     };
 
-    jQuery(window).on("jpi-css-loaded", fn.init);
+    jQuery(fn.init);
 
     return {
         formatProjectData: fn.formatProjectData,

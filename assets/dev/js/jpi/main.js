@@ -71,7 +71,7 @@
                 var waypointArgs = {offset: "50%"};
                 groups.each(function(i, groupElem) {
                     jQuery(groupElem).waypoint(function() {
-                        var group = jQuery(this);
+                        var group = jQuery(this.element);
                         var counters = group.find(".js-counter");
                         counters.each(function(j, counter) {
                             fn.countTo(jQuery(counter), countToOptions);
@@ -153,6 +153,6 @@
         },
     };
 
-    jQuery(window).on("jpi-css-loaded", fn.init);
+    jQuery(fn.init);
 
 })(jQuery, jpi);

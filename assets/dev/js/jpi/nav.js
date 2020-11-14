@@ -48,7 +48,7 @@
         },
 
         initListeners: function() {
-            jQuery(document).on("click", fn.onNavClick);
+            jQuery(window).on("click", fn.onNavClick);
             global.window.on("scroll orientationchange resize", jpi.helpers.debounce(fn.reset, 150));
             global.menuButton.on("click", fn.toggleMobileMenu);
         },
@@ -66,6 +66,6 @@
         },
     };
 
-    jQuery(document).on("ready", fn.init);
+    jQuery(fn.init);
 
 })(jQuery, jpi);

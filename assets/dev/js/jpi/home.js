@@ -120,6 +120,6 @@ window.jpi = window.jpi || {};
         },
     };
 
-    jQuery(window).on("jpi-css-loaded", fn.init);
+    jQuery(fn.init);
 
 })(jQuery, jpi);

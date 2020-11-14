@@ -71,6 +71,6 @@
         },
     };
 
-    jQuery(document).on("ready", fn.init);
+    jQuery(fn.init);
 
 })(jQuery, jpi);

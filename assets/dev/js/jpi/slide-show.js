@@ -274,7 +274,7 @@ window.jpi.slideShow = (function(jQuery, jpi) {
         },
     };
 
-    jQuery(document).on("ready", fn.initListeners);
+    jQuery(fn.initListeners);
 
     return {
         start: fn.start,
