@@ -59,6 +59,8 @@ if ($projectsCount === 0) {
     exit;
 }
 
+$page->addJSGlobal("projects", "apiResponse", $apiRes);
+
 $pageData = [
     "headTitle" => $headTitle,
     "headDescription" => $headDescription,

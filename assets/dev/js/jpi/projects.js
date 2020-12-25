@@ -532,11 +532,11 @@ window.jpi.projects = (function(jQuery, jpi) {
             history.replaceState(state, document.title);
 
             fn.initListeners();
-            fn.getProjects();
+            fn.gotProjects(jpi.projects.apiResponse);
         },
     };
 
-    jQuery(fn.init);
+    jQuery(window).on("jpi-css-loaded", fn.init);
 
     return {
         formatProjectData: fn.formatProjectData,
