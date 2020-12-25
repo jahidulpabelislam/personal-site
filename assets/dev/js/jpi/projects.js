@@ -245,7 +245,8 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             // Loop through each image in project
             var images = project.images;
-            for (var i = 0; i < images.length; i++) {
+            var numberOfImages = images.length;
+            for (var i = 0; i < numberOfImages; i++) {
                 if (!{}.hasOwnProperty.call(images, i)) {
                     continue;
                 }
@@ -269,6 +270,11 @@ window.jpi.projects = (function(jQuery, jpi) {
                 bulletTemplate.replace("slideShowId", slideShowId);
                 bulletTemplate.renderIn(slideShowBullets);
             }
+
+            // Realign the project footers when the first (displayed) image is loaded
+            slideShow.find("img:first").on("load", function() {
+                fn.bottomAlignProjectFooters();
+            });
 
             jpi.slideShow.start(slideShowId);
         },
