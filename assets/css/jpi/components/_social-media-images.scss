@@ -108,62 +108,6 @@
 
 @include insta-logo(".social-link--instagram .social-link__image", 40);
 
-.social-link--facebook .social-link__image {
-    border-radius: 5px;
-}
-
-.social-link--facebook:hover .social-link__text,
-.social-link--facebook:focus .social-link__text {
-    color: $facebook-colour;
-}
-
-.social-link--facebook:hover .social-link__image,
-.social-link--facebook:focus .social-link__image {
-    background: $facebook-colour;
-}
-
-.social-link--twitter .social-link__image {
-    border-radius: 50%;
-}
-
-.social-link--twitter:hover .social-link__text,
-.social-link--twitter:focus .social-link__text {
-    color: $twitter-colour;
-}
-
-.social-link--twitter:hover .social-link__image,
-.social-link--twitter:focus .social-link__image {
-    background: $twitter-colour;
-}
-
-.social-link--snapchat .social-link__image {
-    width: 100%;
-    height: auto;
-    border-radius: 15%;
-    filter: grayscale(100%);
-    transition: all 0.3s ease-in-out;
-}
-
-.social-link--snapchat:hover .social-link__image,
-.social-link--snapchat:focus .social-link__image {
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
-    cursor: pointer;
-    filter: grayscale(0);
-}
-
-.social-link--snapchat .social-link__text {
-    padding: 4px;
-    border-radius: 6px;
-    background-color: black;
-    color: white;
-}
-
-.social-link--snapchat:hover .social-link__text,
-.social-link--snapchat:focus .social-link__text {
-    color: $snapchat-colour;
-    text-decoration: none;
-}
-
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
     .social-link__image {
@@ -171,9 +115,4 @@
     }
 
     @include insta-logo(".social-link--instagram .social-link__image", 50);
-
-    .social-link--snapchat .social-link__image {
-        max-width: 200px;
-        height: auto;
-    }
 }

@@ -54,10 +54,6 @@ class Page {
     }
 
     private function getInlineStylesheetsForPage(string $pageId): array {
-        if ($pageId === "links") {
-            return [];
-        }
-
         $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
@@ -67,15 +63,6 @@ class Page {
     }
 
     private function getStylestyleshetsForPage(string $pageId): array  {
-        if ($pageId === "links") {
-            $cssDir = $this->site->getIsDebug() ? "/assets/css/jpi" : "/assets/css";
-            $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
-
-            return [
-                "{$cssDir}/links.{$cssExtension}",
-            ];
-        }
-
         return [];
     }
 
@@ -99,10 +86,6 @@ class Page {
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
-        if ($pageId === "links") {
-            return [];
-        }
-
         $stylesheets = [
             $this->getDeferredPageStylesheet($pageId)
         ];
@@ -120,19 +103,6 @@ class Page {
 
     private function getScriptsForPage(string $pageId): array {
         // Either add compiled js file(s) for whole page, or include individual files if debug is specified
-
-        if ($pageId === "links") {
-            $scripts = [["src" => "/assets/js/social-links.min.js"]];
-            if ($this->site->getIsDebug()) {
-                $scripts = [
-                    ["src" => "/assets/js/third-party/jquery.min.js", "ver" => "1.11.3"],
-                    ["src" => "/assets/js/third-party/sticky-footer.min.js", "ver" => "1.1.2"],
-                    ["src" => "/assets/js/jpi/helpers.js"],
-                ];
-            }
-            return $scripts;
-        }
-
         $scripts = [["src" => "/assets/js/main.min.js"]];
         if ($this->site->getIsDebug()) {
             $scripts = [

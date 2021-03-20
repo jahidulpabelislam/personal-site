@@ -32,41 +32,29 @@ gulp.task("watch-js", function(callback) {
 
 // Concatenate & minify JS
 defaultTasks.push("scripts");
-gulp.task("scripts", function(callback) {
-    const scripts = {
-        "main": [
-            `${jsDir}/third-party/jquery.min.js`,
-            `${jsDir}/third-party/waypoint.min.js`,
-            `${jsDir}/third-party/jquery.countTo.js`,
-            `${jsDir}/jpi/expanded-slide-show.js`,
-            `${jsDir}/jpi/slide-show.js`,
-            `${jsDir}/jpi/helpers.js`,
-            `${jsDir}/jpi/templating.js`,
-            `${jsDir}/jpi/ajax.js`,
-            `${jsDir}/jpi/modal.js`,
-            `${jsDir}/jpi/projects.js`,
-            `${jsDir}/jpi/home.js`,
-            `${jsDir}/jpi/contact-form.js`,
-            `${jsDir}/jpi/nav.js`,
-            `${jsDir}/jpi/cookie-banner.js`,
-            `${jsDir}/jpi/main.js`,
-        ],
-        "social-links": [
-            `${jsDir}/third-party/jquery.min.js`,
-            `${jsDir}/third-party/sticky-footer.min.js`,
-            `${jsDir}/jpi/helpers.js`,
-        ],
-    };
-    const scriptNames = Object.keys(scripts);
+gulp.task("scripts", function() {
+    const files = [
+        `${jsDir}/third-party/jquery.min.js`,
+        `${jsDir}/third-party/waypoint.min.js`,
+        `${jsDir}/third-party/jquery.countTo.js`,
+        `${jsDir}/jpi/expanded-slide-show.js`,
+        `${jsDir}/jpi/slide-show.js`,
+        `${jsDir}/jpi/helpers.js`,
+        `${jsDir}/jpi/templating.js`,
+        `${jsDir}/jpi/ajax.js`,
+        `${jsDir}/jpi/modal.js`,
+        `${jsDir}/jpi/projects.js`,
+        `${jsDir}/jpi/home.js`,
+        `${jsDir}/jpi/contact-form.js`,
+        `${jsDir}/jpi/nav.js`,
+        `${jsDir}/jpi/cookie-banner.js`,
+        `${jsDir}/jpi/main.js`,
+    ];
 
-    scriptNames.forEach(function(key) {
-        gulp.src(scripts[key])
-            .pipe(concat(`${key}.min.js`))
+    return gulp.src(files)
+            .pipe(concat("main.min.js"))
             .pipe(uglify())
             .pipe(gulp.dest(`${jsDir}/`));
-    });
-
-    callback();
 });
 
 defaultTasks.push("sass");
