@@ -228,13 +228,11 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "dark-blue",
     ],
 ];
 $page->renderFooter($similarLinks);

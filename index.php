@@ -136,7 +136,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
 
                     <p class="feedback feedback--error latest-projects__error"></p>
 
-                    <a class="button button--dark-blue" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
+                    <a class="button" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
                 </section>
 
                 <section class="row row--dark-blue">
@@ -223,13 +223,11 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "dark-blue",
     ],
 ];
 $page->renderFooter($similarLinks);
