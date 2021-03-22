@@ -121,12 +121,12 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
 
                     <div class="slide-show latest-projects__slide-show" id="latest-projects">
                         <div class="slide-show__viewport">
-                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous" data-colour="">
+                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous">
                                 <span class="screen-reader-text">Navigate to the previous slide/image.</span>
                                 <?php renderFile("/assets/images/previous.svg"); ?>
                             </button>
                             <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
-                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next" data-colour="">
+                            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next">
                                 <span class="screen-reader-text">Navigate to the next slide/image.</span>
                                 <?php renderFile("/assets/images/next.svg"); ?>
                             </button>
@@ -191,10 +191,10 @@ $projectImageURL = Site::getProjectImageURL("{{ images.0.file }}");
 $page->addJSTemplate(
     "slide",
     <<<HTML
-    <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
+    <div class="slide-show__slide latest-project" id="slide-{{ id }}">
         <img class="slide-show__image latest-project__image" src="{$projectImageURL}" alt="Screen shot of {{ name }} Project" />
         <div class="latest-project__info">
-            <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
+            <div class="latest-project__info-content">
                 <div class="latest-project__header">
                     <h4 class="latest-project__title">{{ name }}</h4>
                     <time class="latest-project__date">{{ date }}</time>
@@ -210,7 +210,7 @@ $page->addJSTemplate(
 $page->addJSTemplate(
     "slide-bullet",
     <<<HTML
-    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}">
+    <button type="button" class="slide-show__bullet" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}">
     </button>
     HTML
 );

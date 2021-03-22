@@ -21,13 +21,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
             });
         },
 
-        setNavColour: function(slideShow, slide) {
-            if (slideShow.attr("id") === "latest-projects") {
-                var colour = slide.attr("data-slide-colour");
-                slideShow.find(".slide-show__nav").attr("data-colour", colour);
-            }
-        },
-
         // Resets the transition duration of a slide show
         resetTransition: function(slidesContainer) {
             slidesContainer.css("transition-duration", "");
@@ -73,7 +66,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
         moveToSlide: function(slideShowId, nextSlide) {
             var slideShow = jQuery(slideShowId);
-            fn.setNavColour(slideShow, nextSlide);
 
             var currentSlide = slideShow.find(".slide-show__slide--active");
 
@@ -206,8 +198,6 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             firstSlide.addClass("slide-show__slide--active");
             slideShow.find(".slide-show__bullet").first().addClass("slide-show__bullet--active");
-
-            fn.setNavColour(slideShow, firstSlide);
 
             if (count > 1) {
                 slideShow.addClass("js-slide-show");

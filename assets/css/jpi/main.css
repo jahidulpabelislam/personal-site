@@ -1944,7 +1944,7 @@ a.button {
 .latest-project__info-content {
   margin: 0 auto;
   padding: 10px 35px;
-  background-color: #333333;
+  background-color: #0078c9;
   color: white;
   cursor: initial;
   opacity: 0.15;
@@ -1952,90 +1952,6 @@ a.button {
 
 .latest-project.slide-show__slide--active .latest-project__info-content {
   opacity: 1; }
-
-.latest-project__info-content--light-blue {
-  background-color: #54c6e2;
-  color: white; }
-
-.latest-project__info-content--light-blue .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--dark-blue {
-  background-color: #0078c9;
-  color: white; }
-
-.latest-project__info-content--dark-blue .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--purple {
-  background-color: #82379d;
-  color: white; }
-
-.latest-project__info-content--purple .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--pink {
-  background-color: #f47ab3;
-  color: white; }
-
-.latest-project__info-content--pink .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--red {
-  background-color: #f12525;
-  color: white; }
-
-.latest-project__info-content--red .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--orange {
-  background-color: #f69e00;
-  color: white; }
-
-.latest-project__info-content--orange .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--yellow {
-  background-color: #ffef38;
-  color: #333333; }
-
-.latest-project__info-content--yellow .latest-project__date {
-  color: #333333; }
-
-.latest-project__info-content--light-green {
-  background-color: #3dc714;
-  color: white; }
-
-.latest-project__info-content--light-green .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--lime-green {
-  background-color: #b5cf16;
-  color: white; }
-
-.latest-project__info-content--lime-green .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--dark-green {
-  background-color: #1aad5b;
-  color: white; }
-
-.latest-project__info-content--dark-green .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--grey {
-  background-color: #7b8676;
-  color: white; }
-
-.latest-project__info-content--grey .latest-project__date {
-  color: white; }
-
-.latest-project__info-content--black {
-  background-color: #333333;
-  color: white; }
-
-.latest-project__info-content--black .latest-project__date {
-  color: white; }
 
 .latest-project__link {
   transition: all 0.3s ease-in-out;
@@ -2064,8 +1980,7 @@ a.button {
   margin: 0 0 0 36px;
   font-size: 14px;
   text-align: right;
-  white-space: nowrap;
-  color: #737373; }
+  white-space: nowrap; }
 
 .latest-projects__loading {
   width: 100%; }
