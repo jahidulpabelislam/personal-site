@@ -21,9 +21,9 @@ $site = Site::get();
         <link rel="icon" type="image/png" sizes="192x192" href="<?php echoWithAssetVersion("/assets/favicons/android-chrome-192x192.png"); ?>" />
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echoWithAssetVersion("/assets/favicons/favicon-16x16.png"); ?>" />
         <link rel="manifest" href="<?php echoWithAssetVersion("/assets/favicons/site.webmanifest"); ?>" />
-        <link rel="mask-icon" href="<?php echoWithAssetVersion("/assets/favicons/safari-pinned-tab.svg"); ?>" color="#0375b4" />
+        <link rel="mask-icon" href="<?php echoWithAssetVersion("/assets/favicons/safari-pinned-tab.svg"); ?>" color="#0078c9" />
         <link rel="shortcut icon" href="<?php echoWithAssetVersion("/favicon.ico"); ?>" />
-        <meta name="msapplication-TileColor" content="#0375b4" />
+        <meta name="msapplication-TileColor" content="#0078c9" />
         <meta name="msapplication-TileImage" content="<?php echoWithAssetVersion("/assets/favicons/mstile-144x144.png"); ?>" />
         <meta name="msapplication-config" content="<?php echoWithAssetVersion("/assets/favicons/browserconfig.xml"); ?>" />
         <meta name="theme-color" content="#f5f5f5" />

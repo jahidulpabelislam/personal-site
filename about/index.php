@@ -225,7 +225,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                         "text" => "Hard Worker",
                     ],
                 ];
-                renderSkillsOrInterests("Other Skills", $otherSkills, "purple");
+                renderSkillsOrInterests("Other Skills", $otherSkills, "dark-blue");
                 ?>
 
                 <?php
@@ -238,7 +238,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                     ["text" => "Gaming"],
                     ["text" => "Trading"],
                 ];
-                renderSkillsOrInterests("Interests", $interests, "dark-green");
+                renderSkillsOrInterests("Interests", $interests, "dark-blue");
                 ?>
 
                 <section class="row">
@@ -251,7 +251,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2019 - Present",
                                     "icon" => "work",
                                     "text" => "Web Developer @
-                                        <a class='link link--orange' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
                                             D3R
                                         </a>",
                                     "isActive" => true,
@@ -260,7 +260,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2017 - 2019",
                                     "icon" => "work",
                                     "text" => "Software Developer @
-                                        <a class='link link--orange' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                             BrightMinded
                                         </a>",
                                 ],
@@ -268,7 +268,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2014 - 2017",
                                     "icon" => "school",
                                     "text" => "Web Technologies Student @
-                                        <a class='link link--orange' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                             University of Portsmouth
                                         </a>",
                                 ],
@@ -276,7 +276,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2014 - 2017",
                                     "icon" => "film",
                                     "text" => "Working Part Time @
-                                        <a class='link link--orange' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                             CeX
                                         </a>
                                          as a Sales Assistant",
@@ -285,7 +285,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2014",
                                     "icon" => "food",
                                     "text" => "Working Part Time @
-                                        <a class='link link--orange' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                             KFC
                                         </a>
                                          as a Team Member",
@@ -294,7 +294,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2012 - 2014",
                                     "icon" => "school",
                                     "text" => "IT Student @
-                                        <a class='link link--orange' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                             Chichester College
                                         </a>",
                                 ],
@@ -307,7 +307,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                                     "date" => "2005 - 2009",
                                     "icon" => "football",
                                     "text" => "Playing competitive football with
-                                        <a class='link link--orange' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
+                                        <a class='link link--dark-blue' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                             Felpham Colts
                                         </a>",
                                 ],
@@ -354,13 +354,13 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "purple",
+        "colour" => "dark-blue",
     ],
     [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
-        "colour" => "red",
+        "colour" => "dark-blue",
     ],
 ];
 $page->renderFooter($similarLinks);

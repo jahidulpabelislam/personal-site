@@ -64,7 +64,7 @@ $page->renderHeader();
                     </div>
                 </section>
 
-                <section class="row row--lime-green">
+                <section class="row row--dark-blue">
                     <div class="container">
                         <h3 class="row__heading">Stay up to date with me</h3>
                         <div>
@@ -127,7 +127,7 @@ $similarLinks = [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "orange",
+        "colour" => "dark-blue",
     ],
 ];
 $page->renderFooter($similarLinks);

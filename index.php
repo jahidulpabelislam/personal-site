@@ -63,7 +63,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                     </div>
                 </section>
 
-                <section class="row row--orange">
+                <section class="row row--dark-blue">
                     <div class="container">
                         <div class="workflow">
                             <?php
@@ -136,10 +136,10 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
 
                     <p class="feedback feedback--error latest-projects__error"></p>
 
-                    <a class="button" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
+                    <a class="button button--dark-blue" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
                 </section>
 
-                <section class="row row--dark-green">
+                <section class="row row--dark-blue">
                     <div class="container">
                         <div class="stats js-counters">
                             <?php
@@ -223,13 +223,13 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "purple",
+        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "red",
+        "colour" => "dark-blue",
     ],
 ];
 $page->renderFooter($similarLinks);

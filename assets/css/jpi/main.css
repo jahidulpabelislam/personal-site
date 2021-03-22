@@ -1760,7 +1760,7 @@ a.button {
   left: 30px;
   margin-left: -3px;
   border-radius: 50%;
-  background-color: #f69e00; }
+  background-color: #0078c9; }
 
 .timeline__item {
   position: relative;
@@ -1837,9 +1837,9 @@ a.button {
   content: "\f008"; }
 
 .timeline__item--present .timeline__content::after {
-  color: #f69e00;
-  border-color: #f69e00;
-  box-shadow: 0 0 10px 0 #f69e00; }
+  color: #0078c9;
+  border-color: #0078c9;
+  box-shadow: 0 0 10px 0 #0078c9; }
 
 .timeline__content p {
   margin: 0; }
