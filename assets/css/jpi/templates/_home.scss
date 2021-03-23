@@ -63,8 +63,8 @@
 .latest-project__info-content {
     margin: 0 auto;
     padding: 10px 35px;
-    background-color: get-colour(dark-blue, main);
-    color: get-colour(dark-blue, text, white);
+    background-color: $dark-colour;
+    color: white;
     cursor: initial;
     opacity: 0.15;
     transition: all 2s ease-in-out;
@@ -157,10 +157,6 @@
         padding: 10px;
         background-color: transparentize($dark-colour, 0.2);
         border-radius: 5px;
-    }
-
-    .latest-project__date {
-        color: white;
     }
 
     .latest-project.slide-show__slide--active .latest-project__info-content {
