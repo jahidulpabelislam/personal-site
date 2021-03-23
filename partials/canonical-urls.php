@@ -14,7 +14,6 @@ $indexedURLs = [
     "/projects/",
     "/contact/",
     "/about/",
-    "/links/",
     "/privacy-policy/",
     "/site-map/",
 ];

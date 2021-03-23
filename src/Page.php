@@ -58,22 +58,12 @@ class Page {
     }
 
     private function getInlineStylesheetsForPage(string $pageId): array {
-        if ($pageId === "links") {
-            return [];
-        }
-
         return [
             "/assets/css/above-the-fold." . ($this->site->getIsDebug() ? "css" : "min.css"),
         ];
     }
 
     private function getStylesheetsForPage(string $pageId): array  {
-        if (in_array($pageId, ["links"])) {
-            return [
-                "/assets/css/{$pageId}." . ($this->site->getIsDebug() ? "css" : "min.css"),
-            ];
-        }
-
         return [];
     }
 
@@ -97,10 +87,6 @@ class Page {
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
-        if ($pageId === "links") {
-            return [];
-        }
-
         $stylesheets = [
             $this->getDeferredPageStylesheet($pageId)
         ];

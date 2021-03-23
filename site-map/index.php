@@ -31,7 +31,6 @@ $page->renderContentStart();
                 "Contact" => "/contact",
                 "About" => "/about",
                 "Privacy Policy" => "/privacy-policy",
-                "Links" => "/links",
             ];
 
             foreach ($pages as $title => $url) {
