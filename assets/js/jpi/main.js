@@ -34,6 +34,7 @@
 
             new google.maps.Marker({
                 position: bognorRegisLocation,
+                icon: window.location.origin + "/assets/images/marker.png",
                 map: map,
             });
 
