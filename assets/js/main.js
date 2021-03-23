@@ -1084,7 +1084,10 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         projects: {},
 
-        dateFormat: false,
+        dateFormat: new Intl.DateTimeFormat("default", {
+            month: "long",
+            year: "numeric",
+        }),
     };
 
     var fn = {
@@ -1545,11 +1548,6 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         init: function() {
-            global.dateFormat = new Intl.DateTimeFormat("default", {
-                month: "long",
-                year: "numeric",
-            });
-
             global.projectsElem = jQuery(".projects__items");
             if (!global.projectsElem.length) {
                 return;
