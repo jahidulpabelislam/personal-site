@@ -143,7 +143,7 @@ $page->renderContentStart();
 
 <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
     <div class="modal__content">
-        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
+        <button type="button" class="button button--red modal__close js-modal-close" aria-label="Close">X</button>
 
         <h1 class="modal__heading" id="detailed-project-title"></h1>
 
@@ -187,7 +187,7 @@ $page->addJSTemplate(
             </div>
         </div>
     
-        <p class="project__type project__type--{{ colour }}">{{ type }}</p>
+        <p class="project__type">{{ type }}</p>
     
         <div class="project__header">
             <h3 class="project__title">{{ name }}</h3>
@@ -198,7 +198,7 @@ $page->addJSTemplate(
     
         <div class="project__footer">
             <div class="project__links"></div>
-            <button type="button" class="button button--{{ colour }} project__read-more project__read-more--{{ colour }}" data-project-id="{{ id }}">
+            <button type="button" class="button project__read-more" data-project-id="{{ id }}">
                 Read More
             </button>
         </div>
@@ -212,7 +212,7 @@ $page->addJSTemplate(
     "slide",
     <<<HTML
     <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="{$projectImageURL}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+        <img class="slide-show__image js-expandable-image" src="{$projectImageURL}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" />
     </div>
     HTML
 );
@@ -220,7 +220,7 @@ $page->addJSTemplate(
 $page->addJSTemplate(
     "slide-bullet",
     <<<HTML
-    <button type="button" class="slide-show__bullet slide-show__bullet--{{ colour }}" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
+    <button type="button" class="slide-show__bullet" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
     </button>
     HTML
 );
@@ -233,11 +233,13 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "contact",
         "text" => "Get in Touch",
+        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
+        "colour" => "dark-blue",
     ],
 ];
 $page->similarLinks = $similarLinks;

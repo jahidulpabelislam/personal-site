@@ -78,17 +78,6 @@
     transition: all 0.3s ease-in-out;
 }
 
-@each $colour, $colours in $colour-schemes {
-    .slide-show__nav[data-colour="#{$colour}"] svg path {
-        fill: map-get($colours, main);
-    }
-
-    .slide-show__nav[data-colour="#{$colour}"]:hover svg,
-    .slide-show__nav[data-colour="#{$colour}"]:focus svg {
-        box-shadow: 0 0 20px 0 map-get($colours, main);
-    }
-}
-
 .slide-show__bullets {
     margin: 15px auto;
 }
@@ -112,10 +101,4 @@
 .slide-show__bullet:not(.slide-show__bullet--active):focus {
     background-color: darken($light-grey, 15);
     transform: scale(1.05);
-}
-
-@each $colour, $colours in $colour-schemes {
-    .slide-show__bullet--active.slide-show__bullet--#{$colour} {
-        background-color: map-get($colours, main);
-    }
 }

@@ -1124,15 +1124,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 project.date = global.dateFormat.format(date);
             }
 
-            // Make sure colour placeholders are replaced in content
-            var fields = ["short_description", "long_description"];
-            for (var i = 0; i < fields.length; i++) {
-                var field = fields[i];
-                if ({}.hasOwnProperty.call(project, field)) {
-                    project[field] = (new Template(project[field])).replace("colour", project.colour);
-                }
-            }
-
             return project;
         },
 
@@ -1211,9 +1202,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 }
 
                 var classes = ["project__skill"];
-                if (project.colour) {
-                    classes.push("project__skill--" + project.colour);
-                }
                 if (isInSearch) {
                     classes.push("project__skill--searched");
                 }
@@ -1241,9 +1229,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 rel: "noopener",
                 classes: ["project__link"],
             };
-            if (project.colour) {
-                defaultAttributes.classes.push("project__link--" + project.colour);
-            }
 
             defaultAttributes.class = defaultAttributes.classes.join(" ");
             delete defaultAttributes.classes;
@@ -1304,10 +1289,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                slideTemplate.replace("colour", project.colour);
                 slideTemplate.renderIn(slidesContainer);
 
-                bulletTemplate.replace("colour", project.colour);
                 bulletTemplate.replace("slideShowId", slideShowId);
                 bulletTemplate.renderIn(slideShowBullets);
             }
@@ -1391,15 +1374,9 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             projectTypeElem.text(project.type);
 
-            var classList = projectTypeElem.attr("class");
-            classList = classList.replace(global.typeColourRegex, "project__type--" + project.colour);
-            projectTypeElem.attr("class", classList);
-
             fn.renderProjectSkills(project, global.modalSelector);
             fn.renderProjectLinks(project, global.modalSelector);
             fn.renderProjectImages(project, global.modalSelector);
-
-            modal.find(".slide-show__nav").attr("data-colour", project.colour);
 
             jpi.modal.open(modal);
             jpi.slideShow.start("#detailed-project-slide-show");
@@ -1564,8 +1541,6 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.slideTemplate = jQuery("#slide-template").text();
             global.bulletTemplate = jQuery("#slide-bullet-template").text();
 
-            global.typeColourRegex = /project__type--[\w-]*/g;
-
             var state = {
                 search: global.searchInput.val(),
                 page: global.pageNumber,
@@ -1574,6 +1549,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             history.replaceState(state, document.title);
 
             fn.initListeners();
+
             fn.gotProjects(jpi.projects.apiResponse);
         },
     };
