@@ -16,83 +16,76 @@
 
 class Renderer {
 
+    private static function trim(string $contents): string {
+        return str_replace("\n", "", trim($contents));
+    }
+
     private $page;
 
     public function __construct(Page $page) {
         $this->page = $page;
     }
 
-    private static function trim(string $contents): string {
-        return str_replace("\n", "", trim($contents));
-    }
-
     /**
-     * Include the common html head for page/site
+     * @param string $method
+     * @param array $arguments
+     * @throws Exception
      */
-    public function renderHTMLHead() {
-        $pageId = $this->page->id;
-        $title = $this->page->headTitle ?? $this->page->title ?? "";
-        $description = $this->page->headDescription ?? $this->page->description ?? "";
+    public function __call(string $method, array $arguments) {
+        $partial = substr($method, 6); // Remove 'render'
+        $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
+        $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
+        $file = new File("/partials/{$partial}.php");
+        if ($file->exists()) {
+            $file->include();
+            return;
+        }
 
-        include_once(ROOT . "/partials/head.php");
+        throw new Exception("No method found for {$method}");
     }
 
-    /**
-     * Include the common canonical urls meta elements for page/site
-     */
-    public function renderCanonicalURLs() {
-        $pagination = $this->page->pagination ?? [];
-        $currentURL = $this->page->currentURL;
-
-        include_once(ROOT . "/partials/canonical-urls.php");
+    public function renderHtmlStart() {
+        echo <<<HTML
+<!DOCTYPE html>
+<html lang="en-GB">
+HTML;
     }
 
-    /**
-     * Include the common favicons content for page/site
-     */
-    public function renderFavicons() {
-        include_once(ROOT . "/partials/favicons.php");
+    public function renderHtmlEnd() {
+        echo <<<HTML
+</html>
+HTML;
     }
 
-    /**
-     * Include the common html nav content for page/site
-     */
-    public function renderNav() {
-        $pageId = $this->page->id;
-        $currentURL = $this->page->currentURL;
-
-        $defaultTint = "dark";
-
-        $navTint = $this->page->navTint ?? $defaultTint;
-        $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
-
-        include_once(ROOT . "/partials/nav.php");
+    public function renderPageStart() {
+        echo <<<HTML
+<body>
+    <div class="page-container">
+HTML;
     }
 
-    /**
-     * Include the common html header content for page/site
-     */
-    public function renderHeader() {
-        $pageId = $this->page->id;
-        $title = $this->page->headerTitle ?? $this->page->title ?? "";
-        $description = $this->page->headerDescription ?? $this->page->description ?? "";
-
-        include_once(ROOT . "/partials/header.php");
+    public function renderPageEnd() {
+        echo "</div>";
+        $this->page->renderJSTemplates();
+        $this->page->renderScripts();
+        $this->page->renderInlineJS();
+        echo "</body>";
     }
 
-    /**
-     * Include the common footer content for page/site
-     */
-    public function renderFooter(array $similarLinks = []) {
-        include_once(ROOT . "/partials/footer.php");
+    public function renderContentStart() {
+        echo <<<HTML
+<main class="main-content">
+    <div class="main-content__inner">
+HTML;
     }
 
-    /**
-     * Include the common cookie banner content for page/site
-     */
-    public function renderCookieBanner() {
-        include_once(ROOT . "/partials/cookie-banner.php");
+    public function renderContentEnd() {
+        echo <<<HTML
+    </div>
+</main>
+HTML;
     }
+
 
     public function renderInlineJS() {
         $jsGlobals = $this->page->jsGlobals;
@@ -124,7 +117,7 @@ class Renderer {
         }
 
         if (!empty($onLoadInlineJS)) {
-            $js .= "jQuery(document).on('ready', function() {{$onLoadInlineJS}});";
+            $js .= "jQuery(function() {{$onLoadInlineJS}});";
         }
 
         $js = self::trim($js);

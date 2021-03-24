@@ -4,6 +4,10 @@ if (!defined("ROOT")) {
 }
 
 $site = Site::get();
+$page = Page::get();
+
+$pagination = $page->pagination ?? [];
+$currentURL = $page->currentURL;
 
 $indexedURLs = [
     "/",

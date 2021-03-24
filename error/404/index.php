@@ -20,22 +20,25 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHtmlStart();
+$page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
-                <div class="row row--split">
-                    <div class="container">
-                        <div class="row__column">
-                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
-                        </div>
-                        <div class="row__column">
-                            <p>The requested page can not be found.</p>
-                            <p>Please consider going back to the previous page or try retyping the URL.</p>
-                        </div>
-                    </div>
-                </div>
+<div class="row row--split">
+    <div class="container">
+        <div class="row__column">
+            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+        </div>
+        <div class="row__column">
+            <p>The requested page can not be found.</p>
+            <p>Please consider going back to the previous page or try retyping the URL.</p>
+        </div>
+    </div>
+</div>
 
 <?php
 $similarLinks = [
@@ -52,4 +55,11 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

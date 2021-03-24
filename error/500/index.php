@@ -17,24 +17,27 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHtmlStart();
+$page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
-                <div class="row row--split">
-                    <div class="container">
-                        <div class="row__column">
-                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
-                        </div>
+<div class="row row--split">
+    <div class="container">
+        <div class="row__column">
+            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
+        </div>
 
-                        <div class="row__column">
-                            <p>The server couldn't follow your request so can't display the content.</p>
-                            <p>You can either try refreshing the page or try again later.</p>
-                            <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="row__column">
+            <p>The server couldn't follow your request so can't display the content.</p>
+            <p>You can either try refreshing the page or try again later.</p>
+            <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>
+        </div>
+    </div>
+</div>
 
 <?php
 $similarLinks = [
@@ -51,4 +54,11 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

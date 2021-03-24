@@ -13,34 +13,37 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHtmlStart();
+$page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
-                <div class="row">
-                    <div class="container">
-                        <ul class="site-map">
-                            <?php
-                            $pages = [
-                                "Home" => "/",
-                                "Projects" => "/projects",
-                                "Contact" => "/contact",
-                                "About" => "/about",
-                                "Privacy Policy" => "/privacy-policy",
-                            ];
+<div class="row">
+    <div class="container">
+        <ul class="site-map">
+            <?php
+            $pages = [
+                "Home" => "/",
+                "Projects" => "/projects",
+                "Contact" => "/contact",
+                "About" => "/about",
+                "Privacy Policy" => "/privacy-policy",
+            ];
 
-                            foreach ($pages as $title => $url) {
-                                ?>
-                                <li>
-                                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title ?></a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+            foreach ($pages as $title => $url) {
+                ?>
+                <li>
+                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title ?></a>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+    </div>
+</div>
 
 <?php
 $similarLinks = [
@@ -57,4 +60,11 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

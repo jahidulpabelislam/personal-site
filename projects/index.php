@@ -59,6 +59,8 @@ if ($projectsCount === 0) {
     exit;
 }
 
+$page->addJSGlobal("projects", "apiResponse", $apiRes);
+
 $pageData = [
     "headTitle" => $headTitle,
     "headDescription" => $headDescription,
@@ -72,104 +74,107 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHtmlStart();
+$page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
-                <section class="row projects">
-                    <div class="container">
-                        <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
+<section class="row projects">
+    <div class="container">
+        <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
 
-                        <form class="search-form">
-                            <p>
-                                You can use the input below to find projects you want to have a look at.<br />
-                                For example you can use names of technologies, frameworks or projects.
-                            </p>
+        <form class="search-form">
+            <p>
+                You can use the input below to find projects you want to have a look at.<br />
+                For example you can use names of technologies, frameworks or projects.
+            </p>
 
-                            <div class="search-form__inner">
-                                <label for="search" class="label screen-reader-text">Search for projects.</label>
-                                <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
-                                <button type="submit" class="button search-form__submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </form>
+            <div class="search-form__inner">
+                <label for="search" class="label screen-reader-text">Search for projects.</label>
+                <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
+                <button type="submit" class="button search-form__submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
 
-                        <p class="feedback feedback--error projects__error"></p>
-                        <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>
-                        <div class="projects__items"></div>
-                        <ul class="pagination projects__pagination"></ul>
+        <p class="feedback feedback--error projects__error"></p>
+        <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>
+        <div class="projects__items"></div>
+        <ul class="pagination projects__pagination"></ul>
 
-                        <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
-                    </div>
-                </section>
+        <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
+    </div>
+</section>
 
-                <div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
-                    <button type="button" class="button button--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
+<div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
+    <button type="button" class="button button--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
-                    <div class="expanded-slide-show__image-container">
-                        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
-                    </div>
+    <div class="expanded-slide-show__image-container">
+        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+    </div>
 
-                    <div class="expanded-slide-show__image-container">
-                        <img class="expanded-slide-show__image" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
-                    </div>
+    <div class="expanded-slide-show__image-container">
+        <img class="expanded-slide-show__image" src="<?php echoWithAssetVersion("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+    </div>
 
-                    <div class="expanded-slide-show__controls">
-                        <div class="expanded-slide-show__navigations">
-                            <button type="button" class="expanded-slide-show__nav" data-direction="previous">
-                                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                                <?php renderFile("/assets/images/previous.svg"); ?>
-                            </button>
-                            <button type="button" class="expanded-slide-show__nav" data-direction="next">
-                                <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                                <?php renderFile("/assets/images/next.svg"); ?>
-                            </button>
-                        </div>
+    <div class="expanded-slide-show__controls">
+        <div class="expanded-slide-show__navigations">
+            <button type="button" class="expanded-slide-show__nav" data-direction="previous">
+                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                <?php renderFile("/assets/images/previous.svg"); ?>
+            </button>
+            <button type="button" class="expanded-slide-show__nav" data-direction="next">
+                <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                <?php renderFile("/assets/images/next.svg"); ?>
+            </button>
+        </div>
 
-                        <div class="expanded-slide-show__bullets"></div>
+        <div class="expanded-slide-show__bullets"></div>
 
-                        <p class="expanded-slide-show__counter">
-                            <span class="expanded-slide-show__current-count"></span>/<span class="expanded-slide-show__total-count"></span>
-                        </p>
-                    </div>
-                </div>
+        <p class="expanded-slide-show__counter">
+            <span class="expanded-slide-show__current-count"></span>/<span class="expanded-slide-show__total-count"></span>
+        </p>
+    </div>
+</div>
 
-                <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
-                    <div class="modal__content">
-                        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
+<div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
+    <div class="modal__content">
+        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
 
-                        <h1 class="modal__heading" id="detailed-project-title"></h1>
+        <h1 class="modal__heading" id="detailed-project-title"></h1>
 
-                        <div class="project__skills"></div>
+        <div class="project__skills"></div>
 
-                        <div class="project__meta">
-                            <p class="project__type project__type--"></p>
-                            <time class="project__date">
-                                <?php echo date("Y"); ?>
-                            </time>
-                        </div>
+        <div class="project__meta">
+            <p class="project__type project__type--"></p>
+            <time class="project__date">
+                <?php echo date("Y"); ?>
+            </time>
+        </div>
 
-                        <div class="project__description" id="detailed-project-description"></div>
-                        <div class="project__links"></div>
+        <div class="project__description" id="detailed-project-description"></div>
+        <div class="project__links"></div>
 
-                        <div class="slide-show project__slide-show" id="detailed-project-slide-show">
-                            <div class="slide-show__viewport">
-                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="previous">
-                                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                                    <?php renderFile("/assets/images/previous.svg"); ?>
-                                </button>
-                                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
-                                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="next">
-                                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                                    <?php renderFile("/assets/images/next.svg"); ?>
-                                </button>
-                            </div>
-                            <div class="slide-show__bullets"></div>
-                        </div>
-                    </div>
-                </div>
+        <div class="slide-show project__slide-show" id="detailed-project-slide-show">
+            <div class="slide-show__viewport">
+                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="previous">
+                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                    <?php renderFile("/assets/images/previous.svg"); ?>
+                </button>
+                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
+                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="next">
+                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                    <?php renderFile("/assets/images/next.svg"); ?>
+                </button>
+            </div>
+            <div class="slide-show__bullets"></div>
+        </div>
+    </div>
+</div>
 
 <?php
 $page->addJSTemplate(
@@ -235,4 +240,11 @@ $similarLinks = [
         "text" => "Learn About Me",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

@@ -16,21 +16,24 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
-$page->renderHTMLHead();
+$page->renderHtmlStart();
+$page->renderHead();
+$page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
+$page->renderContentStart();
 ?>
 
-                <div class="row row--split">
-                    <div class="container">
-                        <div class="row__column">
-                            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
-                        </div>
-                        <div class="row--split">
-                            <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
-                        </div>
-                    </div>
-                </div>
+<div class="row row--split">
+    <div class="container">
+        <div class="row__column">
+            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
+        </div>
+        <div class="row--split">
+            <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
+        </div>
+    </div>
+</div>
 
 <?php
 $similarLinks = [
@@ -47,4 +50,11 @@ $similarLinks = [
         "colour" => "dark-blue",
     ],
 ];
-$page->renderFooter($similarLinks);
+$page->similarLinks = $similarLinks;
+$page->renderSimilarLinks();
+$page->renderSocialLinks();
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderCookieBanner();
+$page->renderPageEnd();
+$page->renderHtmlEnd();

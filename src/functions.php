@@ -134,9 +134,9 @@ function getIsDebug(): bool {
 /**
  * Generate and return a URL from passed URL
  *
- * @param string $domain string The domain to use to generate URL with
- * @param string $url string The relative URL part/s to use to generate URL from
- * @param bool $addDebug bool Whether the URL should include the debug flag if currently added
+ * @param $domain string The domain to use to generate URL with
+ * @param $url string The relative URL part/s to use to generate URL from
+ * @param $addDebug bool Whether the URL should include the debug flag if currently added
  * @return string
  */
 function getURL(string $domain, string $url, bool $addDebug = true): string {
@@ -157,7 +157,7 @@ function getURL(string $domain, string $url, bool $addDebug = true): string {
  * And if that fails it fall backs to global default version number
  *
  * @param $src string The relative path to a asset
- * @param bool $ver string A version number to use
+ * @param $ver string|bool A version number to use
  * @param $root string The root location of where the file should be if not the default
  * @return string The version number found
  */
@@ -246,7 +246,7 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
 /**
  * Echo out the contents of a file
  *
- * @param string $path
+ * @param $path string
  */
 function renderFile(string $path) {
     (new File($path))->render();
