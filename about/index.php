@@ -218,7 +218,7 @@ renderSkillsOrInterests("Technical Skills", $techSkills, "dark-blue");
 $otherSkills = [
     [
         "text" => "Team Player",
-        "description" => "<p>Playing competitive football has meant being a good team player is installed in me</p>",
+        "description" => "<p>Playing competitive football has meant being a good team player is instilled in me</p>",
     ],
     [
         "text" => "Communication",
@@ -239,7 +239,6 @@ $interests = [
     ["text" => "Fashion"],
     ["text" => "Programming"],
     ["text" => "Gaming"],
-    ["text" => "Trading"],
 ];
 renderSkillsOrInterests("Interests", $interests, "dark-blue");
 ?>
