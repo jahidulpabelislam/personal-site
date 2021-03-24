@@ -3,6 +3,10 @@
     transition: all 1s ease-in-out;
 }
 
+.nav ~ .main-content {
+    padding-top: 46px;
+}
+
 .main-content__inner {
     width: 100%;
 }

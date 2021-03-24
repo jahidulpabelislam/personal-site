@@ -1890,7 +1890,7 @@ window.jpi = window.jpi || {};
             var scrollPos = global.window.scrollTop() + navHeight;
             var headerHeight = global.header.height();
 
-            if (scrollPos >= headerHeight) {
+            if (!headerHeight || scrollPos >= headerHeight) {
                 global.nav.addClass("nav--scrolled");
             }
             else {

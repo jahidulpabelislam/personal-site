@@ -80,9 +80,12 @@
     display: inline-block;
     margin: 5px 0 0;
     font-weight: 700;
+
+    span {
+        font-weight: 400;
+    }
 }
 
-.required,
 .notice {
     color: get-colour(red, main);
     font-weight: 700;

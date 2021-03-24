@@ -46,7 +46,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop-width) {
+@media only screen and (min-width: $tablet-width) {
     .row {
         padding: 30px 0;
     }

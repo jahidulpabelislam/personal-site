@@ -20,8 +20,40 @@
     margin: 15px 3px;
 }
 
-.social-link--instagram .social-links__image {
-    @include insta-logo(50);
+.social-link--instagram {
+    &:hover,
+    &:focus {
+        .social-links__image {
+            background: radial-gradient(
+                    circle farthest-corner at 32% 106%,
+                    #ffe17d 0%,
+                    #ffcd69 10%,
+                    #fa9137 28%,
+                    #eb4141 42%,
+                    transparent 82%
+            ),
+            linear-gradient(135deg, #234bd7 12%, #c33cbe 58%);
+            box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+        }
+    }
+
+    .social-links__image {
+        @include insta-logo(50);
+    }
+}
+
+.social-link--linkedin:hover,
+.social-link--linkedin:focus {
+    .social-links__image {
+        background-color: $linkedin-colour;
+    }
+}
+
+.social-link--github:hover,
+.social-link--github:focus {
+    .social-links__image {
+        background-color: $github-colour;
+    }
 }
 
 /* Only for Tablets & Desktops */

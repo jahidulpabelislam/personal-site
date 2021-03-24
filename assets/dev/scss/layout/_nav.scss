@@ -172,11 +172,6 @@
     background: $dark-colour;
 }
 
-.nav__social-links .social-link:hover .social-link__image,
-.nav__social-links .social-link:focus .social-link__image {
-    background: get-colour(dark-blue, main);
-}
-
 .nav__social-links .social-link--instagram .social-link__image {
     transition: all 0.3s ease-in-out;
 }
