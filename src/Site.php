@@ -22,8 +22,6 @@ class Site extends BaseSite {
     public const VALID_NAV_TINTS = ["dark", "light"];
     public const JPI_START_DATE = "2010-10-04";
 
-    private $environment;
-
     private $isDebug;
 
     private $liveDomain;
@@ -34,24 +32,6 @@ class Site extends BaseSite {
 
     private $dateStarted;
     private $yearStarted;
-
-    private static $instance;
-
-    private function __construct() {
-        $this->environment = getEnvironment();
-    }
-
-    public static function get(): Site {
-        if (!self::$instance) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-    public function isProduction(): bool {
-        return $this->environment === "production";
-    }
 
     /**
      * @return bool Whether or not the debug was set by user on page view
