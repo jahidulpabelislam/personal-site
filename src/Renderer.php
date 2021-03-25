@@ -133,7 +133,7 @@ HTML;
         }
 
         foreach ($scripts as $script) {
-            $src = addAssetVersion($script["src"], $script["version"]);
+            $src = Site::asset($script["src"], $script["version"]);
             echo "<script src='{$src}' type='application/javascript'></script>";
         }
     }

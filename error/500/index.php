@@ -28,7 +28,7 @@ $page->renderContentStart();
 <div class="row row--split">
     <div class="container">
         <div class="row__column">
-            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
+            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />
         </div>
 
         <div class="row__column">

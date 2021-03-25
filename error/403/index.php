@@ -27,7 +27,7 @@ $page->renderContentStart();
 <div class="row row--split">
     <div class="container">
         <div class="row__column">
-            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
+            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
         </div>
         <div class="row__column">
             <p>Access to the requested page is strictly forbidden.</p>

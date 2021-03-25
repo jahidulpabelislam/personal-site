@@ -83,7 +83,7 @@ class Page {
             $cssSrc = "{$cssDir}/main.{$cssExtension}";
         }
 
-        return addAssetVersion($cssSrc);
+        return Site::asset($cssSrc);
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
@@ -96,7 +96,7 @@ class Page {
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = addAssetVersion("/assets/css/font-awesome.min.css", "5.10.0");
+            $stylesheets[] = Site::asset("/assets/css/font-awesome.min.css", "5.10.0");
         }
 
         return $stylesheets;

@@ -190,7 +190,7 @@ class Site extends BaseSite {
     public static function getProjectImageURL(string $filepath = "") {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
         $imageURL = "{$root}{$filepath}";
-        return addAssetVersion($imageURL);
+        return static::asset($imageURL);
     }
 
     /**

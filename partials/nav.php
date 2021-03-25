@@ -25,7 +25,7 @@ $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
                 <span class="nav__menu-bar"></span>
             </button>
             <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
-                <img class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
+                <img class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" src="<?php echo $site::asset("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
             </a>
         </div>
         <div class="nav__links-container">

@@ -149,54 +149,6 @@ function getURL(string $domain, string $url, bool $addDebug = true): string {
     return $url;
 }
 
-/**
- * Get a version number of a asset file.
- *
- * The number to use can be passed as a param.
- * Else it tries to get the last modified date string from file.
- * And if that fails it fall backs to global default version number
- *
- * @param $src string The relative path to a asset
- * @param $ver string|bool A version number to use
- * @param $root string The root location of where the file should be if not the default
- * @return string The version number found
- */
-function getAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-    if ($ver === false) {
-        $ver = "1"; // Default
-
-        $src = removeLeadingSlash($src);
-        $filepath = addTrailingSlash($root) . $src;
-        if ((new File($filepath, false))->exists()) {
-            $ver = date("mdYHi", filemtime($filepath));
-        }
-    }
-
-    return $ver;
-}
-
-/**
- * Wrapper around getAssetVersion() to generate the full relative URL for the asset
- * including a version number
- */
-function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-    $ver = getAssetVersion($src, $ver, $root);
-
-    if (empty($ver)) {
-        return $src;
-    }
-
-    return addParamToURL($src, "v", $ver);
-}
-
-/**
- * Wrapper around addAssetVersion() & getAssetVersion()
- * Used to echo the full relative URL for the asset including a version number
- */
-function echoWithAssetVersion(string $src, $ver = false, string $root = ROOT) {
-    echo addAssetVersion($src, $ver, $root);
-}
-
 function getNowDateTime(): DateTime {
     $origTimezone = date_default_timezone_get();
     date_default_timezone_set(JPI_DATE_TIMEZONE);

@@ -31,7 +31,7 @@ $page->renderContentStart();
 <div class="row row--split">
     <div class="container">
         <div class="row__column">
-            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/404.jpg"); ?>" alt="Missing page image" />
         </div>
         <div class="row__column">
             <p>The requested page can not be found.</p>

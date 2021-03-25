@@ -49,7 +49,7 @@ $description = $page->headDescription ?? $page->description ?? "";
     <?php
     $imagePath = "/assets/images/social-cards/{$pageId}.png";
     if ((new File($imagePath))->exists()) {
-        $relativeImageURL = addAssetVersion($imagePath);
+        $relativeImageURL = $site::asset($imagePath);
         $imageURL = $site->getURL($relativeImageURL, false, true);
         ?>
         <meta property="og:image" content="<?php echo $imageURL; ?>" />
@@ -78,7 +78,7 @@ $description = $page->headDescription ?? $page->description ?? "";
 
     foreach ($page->stylesheets as $stylesheet) {
         ?>
-        <link href="<?php echoWithAssetVersion($stylesheet); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
+        <link href="<?php echo $site::asset($stylesheet); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
         <?php
     }
 

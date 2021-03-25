@@ -64,8 +64,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="container">
         <div class="row__column">
             <div class="images-of-me">
-                <img class="images-of-me__image images-of-me__image--baby" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
-                <img class="images-of-me__image images-of-me__image--grown" src="<?php echoWithAssetVersion("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
+                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
+                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
             </div>
         </div>
         <div class="row__column">
@@ -87,7 +87,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="container">
         <div class="row__column">
             <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
+                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
             </a>
         </div>
         <div class="row__column">
@@ -122,7 +122,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="container">
         <div class="row__column">
             <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
+                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
             </a>
         </div>
         <div class="row__column">
@@ -141,7 +141,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="container">
         <div class="row__column">
             <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
+                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
             </a>
         </div>
         <div class="row__column">
@@ -161,7 +161,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 <div class="row row--split about-row">
     <div class="container">
         <div class="row__column">
-            <img class="row__column-image" src="<?php echoWithAssetVersion("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
+            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
         </div>
         <div class="row__column">
             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
