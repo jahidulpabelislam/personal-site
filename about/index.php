@@ -5,8 +5,9 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
-$headDescription = "Information about $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Information about $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
@@ -80,7 +81,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             ?>
 
             <p>I'm <?php echo $age; ?> years old.</p>
-            <p>A Full Stack Developer.</p>
+            <p>A <?php echo $site::JOB;?>.</p>
         </div>
     </div>
 </div>

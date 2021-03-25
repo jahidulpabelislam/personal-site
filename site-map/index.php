@@ -5,8 +5,9 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
-$headDescription = "Site map for $name's Portfolio, a Web &amp; Software Developer based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Site map for $name's Portfolio, a {$job} based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Site Map",

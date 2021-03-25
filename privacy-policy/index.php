@@ -5,8 +5,9 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
-$headDescription = "Privacy policy for the portfolio of $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Privacy policy for the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Privacy Policy",

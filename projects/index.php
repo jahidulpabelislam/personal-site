@@ -5,6 +5,7 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
 $projectsPerPage = 6;
 
@@ -31,7 +32,7 @@ if ($pageNum > 1) {
     $apiRequestParams["page"] = $pageNum;
 }
 
-$headDescription = "Projects $name has developed, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Projects $name has developed, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
 

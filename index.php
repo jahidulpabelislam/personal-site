@@ -5,13 +5,15 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
-$headDescription = "Portfolio of $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
+$headDescription = "Portfolio of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
+    "headTitle" => "$name's Portfolio - $job",
     "headDescription" => $headDescription,
     "headerTitle" => $name,
-    "headerDescription" => "Full Stack Developer",
+    "headerDescription" => $job,
 ];
 $page->addPageData($pageData);
 

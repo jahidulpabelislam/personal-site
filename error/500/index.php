@@ -5,10 +5,11 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
 $error = basename(__DIR__);
 $errorDescription = "Internal Server Error";
-$headDescription = "Error: {$error} - Internal Server Error message on the portfolio of $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Error: {$error} - Internal Server Error message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "{$error} - {$errorDescription}",

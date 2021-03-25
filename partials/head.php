@@ -7,6 +7,7 @@ $site = Site::get();
 $page = Page::get();
 
 $name = $site::NAME;
+$job = $site::JOB;
 
 $pageId = $page->id;
 $title = $page->headTitle ?? $page->title ?? "";
@@ -24,15 +25,14 @@ $description = $page->headDescription ?? $page->description ?? "";
         <?php
     }
 
-    $suffix = " | $name - Full Stack Developer";
+    if ($pageId !== "home") {
+        $suffix = " | $name - $job";
 
-    if ($pageId === "projects") {
-        $page->addJSGlobal("projects", "titleEnd", $suffix);
-    }
+        if ($pageId === "projects") {
+            $page->addJSGlobal("projects", "titleEnd", $suffix);
+        }
 
-    $title = "$title $suffix";
-    if ($pageId === "home") {
-        $title = "$name's Portfolio - Full Stack Developer";
+        $title = "$title $suffix";
     }
     ?>
 
