@@ -6,6 +6,8 @@ if (!defined("ROOT")) {
 $site = Site::get();
 $page = Page::get();
 
+$name = $site::NAME;
+
 $pageId = $page->id;
 $title = $page->headTitle ?? $page->title ?? "";
 $description = $page->headDescription ?? $page->description ?? "";
@@ -22,9 +24,15 @@ $description = $page->headDescription ?? $page->description ?? "";
         <?php
     }
 
-    $title = "{$title} | Jahidul Pabel Islam - Full Stack Developer";
+    $suffix = " | $name - Full Stack Developer";
+
+    if ($pageId === "projects") {
+        $page->addJSGlobal("projects", "titleEnd", $suffix);
+    }
+
+    $title = "$title $suffix";
     if ($pageId === "home") {
-        $title = "Jahidul Pabel Islam's Portfolio - Full Stack Developer";
+        $title = "$name's Portfolio - Full Stack Developer";
     }
     ?>
 
@@ -34,7 +42,7 @@ $description = $page->headDescription ?? $page->description ?? "";
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Jahidul Pabel Islam" />
+    <meta name="author" content="<?php echo $name; ?>" />
     <meta name="description" content="<?php echo $description; ?>" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,7 +52,7 @@ $description = $page->headDescription ?? $page->description ?? "";
     <meta property="og:title" content="<?php echo $title; ?>" />
     <meta property="og:description" content="<?php echo $description; ?>" />
     <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
-    <meta property="og:site_name" content="Jahidul Pabel Islam" />
+    <meta property="og:site_name" content="<?php echo $name; ?>" />
 
     <?php
     $imagePath = "/assets/images/social-cards/{$pageId}.png";

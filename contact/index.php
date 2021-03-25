@@ -4,7 +4,9 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDescription = "Contact or find contact information for Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$name = $site::NAME;
+
+$headDescription = "Contact or find contact information for $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Contact Me",
@@ -69,20 +71,20 @@ $page->renderContentStart();
             <h2 class="connect__heading">Connect with me</h2>
         </div>
         <div class="connect__column">
-            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN ?>/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN ?>" />
+            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
                 &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN ?></p>
+                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
             </a>
-            <a class="social-link social-link--github" href="https://github.com/<?php echo $site::SOCIAL_GITHUB ?>/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB ?>" />
+            <a class="social-link social-link--github" href="https://github.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
                 &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB ?></p>
+                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
             </a>
-            <a class="social-link social-link--instagram" href="https://www.instagram.com/<?php echo $site::SOCIAL_GITHUB ?>/" target="_blank" rel="noopener noreferrer">
+            <a class="social-link social-link--instagram" href="https://www.instagram.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
                 <span class="social-link__image"><i></i></span>
                 &nbsp;
-                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM ?></p>
+                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
             </a>
         </div>
     </div>

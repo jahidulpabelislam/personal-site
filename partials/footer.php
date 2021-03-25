@@ -20,7 +20,7 @@ $site = Site::get();
         </div>
 
         <div class="footer__legal">
-            <p>&copy; Jahidul Pabel Islam <?php echo $site->getYearStarted() . " - " . date("Y"); ?></p>
+            <p>&copy; <?php echo $site::NAME . " " . $site->getYearStarted() . " - " . date("Y"); ?></p>
         </div>
     </div>
 </footer>

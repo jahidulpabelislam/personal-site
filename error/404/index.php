@@ -4,9 +4,11 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
+$name = $site::NAME;
+
 $error = basename(__DIR__);
 $errorDescription = "Page Not Found";
-$headDescription = "Error: {$error} - Page Not Found message on the portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Error: {$error} - Page Not Found message on the portfolio of $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $directory = __DIR__;
 $url = turnPathToURL($directory);

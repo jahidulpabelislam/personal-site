@@ -4,7 +4,9 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDescription = "Information about Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$name = $site::NAME;
+
+$headDescription = "Information about $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "headTitle" => "About",
@@ -64,12 +66,12 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="container">
         <div class="row__column">
             <div class="images-of-me">
-                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of Jahidul Pabel Islam as a Child" />
-                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of Jahidul Pabel Islam currently" />
+                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of <?php echo $name; ?> as a Child" />
+                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
             </div>
         </div>
         <div class="row__column">
-            <p>My name is Jahidul Pabel Islam.</p>
+            <p>My name is <?php echo $name; ?>.</p>
 
             <?php
             // Work out my age by the time difference from DOB to today

@@ -1049,8 +1049,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     var global = {
         url: null,
-        titleStart: "Projects",
-        titleEnd: " | Jahidul Pabel Islam - Full Stack Developer",
 
         htmlElem: null,
         body: null,

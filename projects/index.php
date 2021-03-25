@@ -4,6 +4,8 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
+$name = $site::NAME;
+
 $projectsPerPage = 6;
 
 $apiRequestParams = [
@@ -14,6 +16,8 @@ $search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
 
 $headTitle = "Projects";
+
+$page->addJSGlobal("projects", "titleStart", $headTitle);
 
 $search = trim($search);
 if (strlen($search) > 0) {
@@ -27,7 +31,7 @@ if ($pageNum > 1) {
     $apiRequestParams["page"] = $pageNum;
 }
 
-$headDescription = "Projects Jahidul Pabel Islam has developed, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Projects $name has developed, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
 

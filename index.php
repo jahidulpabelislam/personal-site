@@ -4,11 +4,13 @@ include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
 $site = Site::get();
 $page = Page::get();
 
-$headDescription = "Portfolio of Jahidul Pabel Islam, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
+$name = $site::NAME;
+
+$headDescription = "Portfolio of $name, a Full Stack Developer in Web &amp; Software based at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
     "headDescription" => $headDescription,
-    "headerTitle" => "Jahidul Pabel Islam",
+    "headerTitle" => $name,
     "headerDescription" => "Full Stack Developer",
 ];
 $page->addPageData($pageData);
@@ -28,8 +30,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
     <div class="row home-hello">
         <div class="container">
             <h3 class="home-hello__text"><span class="home-hello__hello">Hello</span> there everyone!</h3>
-            <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="Jahidul Pabel Islam Graduating" />
-            <img class="home-hello__image home-hello__logo" src="<?php echo $site::asset("/assets/images/logos/jpi-inverted.png"); ?>" alt="Jahidul Pabel Islam's Logo" />
+            <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
+            <img class="home-hello__image home-hello__logo" src="<?php echo $site::asset("/assets/images/logos/jpi-inverted.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
         </div>
     </div>
 
