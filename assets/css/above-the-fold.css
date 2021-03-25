@@ -416,9 +416,6 @@ img {
 .nav__logo-container:focus .nav__logo--active {
   box-shadow: none; }
 
-.nav--open .nav__logo {
-  display: none; }
-
 .nav__mobile-toggle {
   position: absolute;
   top: 0;
@@ -470,12 +467,10 @@ img {
   top: -6px;
   transform: rotate(-45deg); }
 
-.nav__links-container,
-.nav__social-links-container {
+.nav__links-container {
   display: none; }
 
-.nav__links,
-.nav__social-links {
+.nav__links {
   border-top: #eeeeee 1px solid; }
 
 .nav__link {
@@ -496,44 +491,17 @@ img {
   background-color: #0078c9;
   color: #ffffff; }
 
-.nav__social-links .nav__item {
-  display: inline-block; }
-
-.nav__social-links .social-link__image.social-link__image {
-  width: 36px;
-  height: 36px;
-  margin: 10px 4px;
-  background: transparent; }
-
-.nav--scrolled .nav__social-links .social-link__image,
-.nav--open .nav__social-links .social-link__image {
-  background: #333333; }
-
-.nav__social-links .social-link--instagram .social-link__image {
-  transition: all 0.3s ease-in-out; }
-
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   .nav {
     margin: 0; }
   .nav__container {
     display: flex; }
-  .nav__header {
-    flex: 1;
-    order: 2; }
   .nav__mobile-toggle {
     display: none; }
   .nav__links-container {
     display: block;
-    flex: 1;
-    order: 3; }
-  .nav__social-links-container {
-    display: block;
-    order: 1;
     flex: 1; }
-  .nav__social-links {
-    border-top: 0;
-    text-align: left; }
   .nav__links {
     float: right;
     border-top: 0; }
@@ -544,25 +512,7 @@ img {
   .nav__link:hover,
   .nav__link:focus,
   .nav__link--active {
-    border-bottom-color: #0078c9; }
-  .nav__social-links .social-link__image.social-link__image {
-    margin: 5px 2px; }
-  .nav__social-links .social-link--instagram .social-link__image i {
-    width: 29.44px;
-    height: 29.44px;
-    border: 2.72px solid #ffffff;
-    border-radius: 8.33px; }
-  .nav__social-links .social-link--instagram .social-link__image i::before {
-    width: 15.22px;
-    height: 15.22px;
-    border: 2.72px solid #ffffff;
-    border-radius: 7.61px; }
-  .nav__social-links .social-link--instagram .social-link__image i::after {
-    top: 2.38px;
-    right: 2.38px;
-    width: 3.55px;
-    height: 3.55px;
-    border-radius: 1.77px; } }
+    border-bottom-color: #0078c9; } }
 
 /* For all devices */
 .social-link__image {

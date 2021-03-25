@@ -33,18 +33,15 @@ $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
                 <?php
                 $links = [
                     [
-                        "title" => "Home",
-                    ],
-                    [
-                        "title" => "Projects",
+                        "title" => "My Projects",
                         "url" => "/projects/",
                     ],
                     [
-                        "title" => "Contact",
+                        "title" => "Contact Me",
                         "url" => "/contact/",
                     ],
                     [
-                        "title" => "About",
+                        "title" => "About Me",
                         "url" => "/about/",
                     ],
                 ];
@@ -70,25 +67,6 @@ $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
                         HTML;
                 }
                 ?>
-            </ul>
-        </div>
-        <div class="nav__social-links-container">
-            <ul class="nav__social-links">
-                <li class="nav__item">
-                    <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__image" src="<?php echoWithAssetVersion("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="social-link social-link--github" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__image" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="social-link social-link--instagram" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
-                        <span class="social-link__image"><i></i></span>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

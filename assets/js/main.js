@@ -1920,7 +1920,7 @@ window.jpi = window.jpi || {};
 
             global.nav = jQuery(".nav");
             global.menuButton = jQuery(".nav__mobile-toggle");
-            global.linksContainers = jQuery(".nav__links-container, .nav__social-links-container");
+            global.linksContainers = jQuery(".nav__links-container");
             global.header = jQuery(".header");
 
             fn.initListeners();
