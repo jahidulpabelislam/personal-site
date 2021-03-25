@@ -69,20 +69,20 @@ $page->renderContentStart();
             <h2 class="connect__heading">Connect with me</h2>
         </div>
         <div class="connect__column">
-            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /jahidulpabelislam" />
+            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN ?>" />
                 &nbsp;
-                <p class="social-link__text">/jahidulpabelislam</p>
+                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN ?></p>
             </a>
-            <a class="social-link social-link--github" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
+            <a class="social-link social-link--github" href="https://github.com/<?php echo $site::SOCIAL_GITHUB ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB ?>" />
                 &nbsp;
-                <p class="social-link__text">/jahidulpabelislam</p>
+                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB ?></p>
             </a>
-            <a class="social-link social-link--instagram" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
+            <a class="social-link social-link--instagram" href="https://www.instagram.com/<?php echo $site::SOCIAL_GITHUB ?>/" target="_blank" rel="noopener noreferrer">
                 <span class="social-link__image"><i></i></span>
                 &nbsp;
-                <p class="social-link__text">@jpi.dev</p>
+                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM ?></p>
             </a>
         </div>
     </div>
