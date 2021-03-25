@@ -1,5 +1,9 @@
 <?php
 
+define("SITE_ROOT", __DIR__ . "/..");
+
+include_once(__DIR__ . "/../vendor/autoload.php");
+
 include_once("functions.php");
 include_once("File.php");
 

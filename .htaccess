@@ -92,6 +92,9 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule .* - [S=7]
 
+RewriteRule ^assets/favicons/(.*)$ /vendor/jpi/site/assets/favicons/$1 [L,QSA]
+RewriteRule ^favicon.ico /vendor/jpi/site/assets/favicons/favicon.ico [L,QSA]
+
 # Add redirects for similar URLS to actual page/URL
 RewriteRule ^about-me/?$ /about/ [R=301,NC,L]
 RewriteRule ^contact-me/?$ /contact/ [R=301,NC,L]

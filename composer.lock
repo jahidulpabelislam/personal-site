@@ -1,0 +1,49 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cce794e2a71cb32611767675ce6c6f46",
+    "packages": [
+        {
+            "name": "jpi/site",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jahidulpabelislam/site.git",
+                "reference": "c9f4f2b5baecfe4e2f20f1dd08fb337d28e1b803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/c9f4f2b5baecfe4e2f20f1dd08fb337d28e1b803",
+                "reference": "c9f4f2b5baecfe4e2f20f1dd08fb337d28e1b803",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JPI\\": "src/"
+                }
+            },
+            "description": "Personal library to hold reusable bits for my sites",
+            "support": {
+                "source": "https://github.com/jahidulpabelislam/site/tree/master",
+                "issues": "https://github.com/jahidulpabelislam/site/issues"
+            },
+            "time": "2021-03-25T20:51:42+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "jpi/site": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

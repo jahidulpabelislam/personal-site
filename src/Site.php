@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.
@@ -13,7 +14,9 @@
  * @copyright 2010-2019 JPI
  */
 
-class Site {
+use JPI\Site as BaseSite;
+
+class Site extends BaseSite {
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
     public const VALID_NAV_TINTS = ["dark", "light"];

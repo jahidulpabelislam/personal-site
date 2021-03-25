@@ -60,7 +60,7 @@ $description = $page->headDescription ?? $page->description ?? "";
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<?php echo $title; ?>" />
 
-    <?php $page->renderFavicons(); ?>
+    <?php $site->renderFavicons(); ?>
 
     <?php
     $inlineStylesheets = $page->inlineStylesheets;

@@ -86,7 +86,6 @@ HTML;
 HTML;
     }
 
-
     public function renderInlineJS() {
         $jsGlobals = $this->page->jsGlobals;
         $inlineJS = $this->page->inlineJS;

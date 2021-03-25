@@ -60,3 +60,5 @@ logs/*.log
 version.txt
 
 counters.json
+
+vendor/
