@@ -25,7 +25,7 @@ $page->renderNav();
 $page->renderHeader();
 $page->renderContentStart();
 
-$nowDateTime = getNowDateTime();
+$nowDateTime = new DateTime();
 
 function renderSkillsOrInterests(string $heading, array $items, string $colour) {
     ?>

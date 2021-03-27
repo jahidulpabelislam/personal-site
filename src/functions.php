@@ -137,17 +137,6 @@ function getURL(string $domain, string $url, bool $addDebug = true): string {
     return $url;
 }
 
-function getNowDateTime(): DateTime {
-    $origTimezone = date_default_timezone_get();
-    date_default_timezone_set(JPI_DATE_TIMEZONE);
-
-    $nowDateTime = new DateTime();
-
-    date_default_timezone_set($origTimezone);
-
-    return $nowDateTime;
-}
-
 /**
  * @param $fromDate DateTime|string
  * @param $toDate DateTime|string
@@ -156,17 +145,12 @@ function getNowDateTime(): DateTime {
  * @throws Exception
  */
 function getTimeDifference($fromDate, $toDate, string $format = null) {
-    $origTimezone = date_default_timezone_get();
-    date_default_timezone_set(JPI_DATE_TIMEZONE);
-
     if (is_string($fromDate)) {
         $fromDate = new DateTime($fromDate);
     }
     if (is_string($toDate)) {
         $toDate = new DateTime($toDate);
     }
-
-    date_default_timezone_set($origTimezone);
 
     if (!$fromDate instanceof DateTime || !$toDate instanceof DateTime) {
         return "";

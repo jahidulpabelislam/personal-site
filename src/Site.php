@@ -184,12 +184,7 @@ class Site extends BaseSite {
 
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
-            $origTimezone = date_default_timezone_get();
-            date_default_timezone_set(JPI_DATE_TIMEZONE);
-
             $this->dateStarted = new DateTime(self::JPI_START_DATE);
-
-            date_default_timezone_set($origTimezone);
         }
 
         return $this->dateStarted;

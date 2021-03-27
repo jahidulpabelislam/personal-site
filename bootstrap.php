@@ -3,6 +3,8 @@
 define("ROOT", __DIR__);
 define("PUBLIC_ROOT", __DIR__ . "/public");
 
+date_default_timezone_set("Europe/London");
+
 include_once(__DIR__ . "/vendor/autoload.php");
 
 include_once("src/functions.php");
