@@ -1,8 +1,9 @@
 {
     "require": {
-        "jpi/site": "dev-master",
+        "php": "^7.3",
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "jpi/site": "dev-master"
     },
     "repositories": [
         {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fde871160004283339257470eab3b90",
+    "content-hash": "9a941eb11679ef661ab75b1c3239c7ea",
     "packages": [
         {
             "name": "jpi/site",
@@ -44,6 +44,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "php": "^7.3",
         "ext-curl": "*",
         "ext-json": "*"
     },
