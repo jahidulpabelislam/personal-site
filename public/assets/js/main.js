@@ -1818,7 +1818,7 @@ window.jpi = window.jpi || {};
             if (isEmailValid && isMessageValid) {
                 jpi.ajax.request({
                     method: "POST",
-                    url: "/contact/form-submission.php",
+                    url: "/contact/",
                     data: {
                         emailAddress: global.emailInput.val(),
                         subject: global.subjectInput.val(),

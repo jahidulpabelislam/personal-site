@@ -2,6 +2,12 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/..//bootstrap.php");
 
 $site = Site::get();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $site->processFormSubmission();
+    exit();
+}
+
 $page = Page::get();
 
 $name = $site::NAME;
