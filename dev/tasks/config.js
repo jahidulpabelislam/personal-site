@@ -1,8 +1,9 @@
-const assetsDir = "./assets";
+const devDir = "./dev";
+const assetsDir = "./public/assets";
 const jsDir = `${assetsDir}/js`;
-const jsDevDir = `${assetsDir}/dev/js`;
+const jsDevDir = `${devDir}/js`;
 const cssDir = `${assetsDir}/css`;
-const scssDir = `${assetsDir}/dev/scss`;
+const scssDir = `${devDir}/scss`;
 
 module.exports = {
     assetsDir: assetsDir,

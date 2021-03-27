@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
 $site = Site::get();
 $page = Page::get();
@@ -8,18 +8,14 @@ $name = $site::NAME;
 $job = $site::JOB;
 
 $error = basename(__DIR__);
-$errorDescription = "Page Not Found";
-$headDescription = "Error: {$error} - Page Not Found message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
+$errorDescription = "Unauthorized";
+$headDescription = "Error: {$error} - Unauthorized message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
-$directory = __DIR__;
-$url = turnPathToURL($directory);
 $pageData = [
-    "id" => $error,
     "headTitle" => "{$error} - {$errorDescription}",
     "headDescription" => $headDescription,
     "headerTitle" => $error,
     "headerDescription" => $errorDescription,
-    "currentURL" => $site->getURL($url, false),
 ];
 $page->addPageData($pageData);
 
@@ -34,11 +30,10 @@ $page->renderContentStart();
 <div class="row row--split">
     <div class="container">
         <div class="row__column">
-            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/404.jpg"); ?>" alt="Missing page image" />
+            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
         </div>
-        <div class="row__column">
-            <p>The requested page can not be found.</p>
-            <p>Please consider going back to the previous page or try retyping the URL.</p>
+        <div class="row--split">
+            <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
         </div>
     </div>
 </div>

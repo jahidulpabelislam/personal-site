@@ -28,10 +28,10 @@ function getProjectRoot(): string {
 
 function getConfigPath(string $level = null): string {
     if ($level && !in_array($level, ["global", "site", "production"])) {
-        return getProjectRoot() . "/src/config.{$level}.php";
+        return SITE_ROOT . "/src/config.{$level}.php";
     }
 
-    return getProjectRoot() . "/src/config.php";
+    return SITE_ROOT . "/src/config.php";
 }
 
 function addTrailingSlash(string $url): string {

@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/..//bootstrap.php");
 
 $site = Site::get();
 $page = Page::get();

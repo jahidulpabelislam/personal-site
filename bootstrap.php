@@ -1,15 +1,16 @@
 <?php
 
-define("SITE_ROOT", __DIR__ . "/..");
+define("SITE_ROOT", __DIR__);
+define("PUBLIC_ROOT", __DIR__ . "/public");
 
-include_once(__DIR__ . "/../vendor/autoload.php");
+include_once(__DIR__ . "/vendor/autoload.php");
 
-include_once("functions.php");
+include_once("src/functions.php");
 
-include_once("File.php");
-include_once("Site.php");
-include_once("Page.php");
-include_once("Renderer.php");
+include_once("src/File.php");
+include_once("src/Site.php");
+include_once("src/Page.php");
+include_once("src/Renderer.php");
 
 // Include local config file (if found) for any local set up of constants takes precedence
 $localConfigPath = getConfigPath("local");

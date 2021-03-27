@@ -35,7 +35,7 @@ class Renderer {
         $partial = substr($method, 6); // Remove 'render'
         $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
         $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
-        $file = new File("/partials/{$partial}.php");
+        $file = new File(SITE_ROOT . "/partials/{$partial}.php", false);
         if ($file->exists()) {
             $file->include();
             return;

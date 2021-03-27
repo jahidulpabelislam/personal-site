@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"] . "/src/bootstrap.php");
+include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
 $site = Site::get();
 $page = Page::get();
@@ -7,15 +7,12 @@ $page = Page::get();
 $name = $site::NAME;
 $job = $site::JOB;
 
-$error = basename(__DIR__);
-$errorDescription = "Unauthorized";
-$headDescription = "Error: {$error} - Unauthorized message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Site map for $name's Portfolio, a {$job} based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
-    "headTitle" => "{$error} - {$errorDescription}",
+    "title" => "Site Map",
     "headDescription" => $headDescription,
-    "headerTitle" => $error,
-    "headerDescription" => $errorDescription,
+    "navTint" => "light",
 ];
 $page->addPageData($pageData);
 
@@ -27,14 +24,27 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<div class="row row--split">
+<div class="row">
     <div class="container">
-        <div class="row__column">
-            <img class="row__column-image" src="<?php echo $site::asset("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
-        </div>
-        <div class="row--split">
-            <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
-        </div>
+        <ul class="site-map">
+            <?php
+            $pages = [
+                "Home" => "/",
+                "Projects" => "/projects",
+                "Contact" => "/contact",
+                "About" => "/about",
+                "Privacy Policy" => "/privacy-policy",
+            ];
+
+            foreach ($pages as $title => $url) {
+                ?>
+                <li>
+                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title; ?></a>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
     </div>
 </div>
 
