@@ -3,7 +3,7 @@
     transition: all 1s ease-in-out;
 }
 
-.nav ~ .main-content {
+.nav + .main-content {
     padding-top: 46px;
 }
 
