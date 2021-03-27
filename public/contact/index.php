@@ -108,7 +108,6 @@ $similarLinks = [
 ];
 $page->similarLinks = $similarLinks;
 $page->renderSimilarLinks();
-$page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderCookieBanner();
