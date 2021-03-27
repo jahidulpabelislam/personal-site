@@ -106,7 +106,7 @@ $page->renderContentStart();
             </div>
         </form>
 
-        <p class="feedback feedback--error projects__error"></p>
+        <p class="projects__error"></p>
         <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>
         <div class="projects__items"></div>
         <ul class="pagination projects__pagination"></ul>

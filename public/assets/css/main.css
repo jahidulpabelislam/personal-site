@@ -397,7 +397,9 @@ a.button {
     color: #7b8676; }
 
 .field__feedback,
-.field__error {
+.field__error,
+.latest-projects__error,
+.projects__error {
   display: none;
   width: 100%;
   margin: 0;
@@ -406,7 +408,10 @@ a.button {
 .field__feedback {
   color: #00a000; }
 
-.field__error {
+
+.field__error,
+.latest-projects__error,
+.projects__error {
   color: #f74440; }
 
 .input {

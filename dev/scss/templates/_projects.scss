@@ -48,6 +48,10 @@
     margin-bottom: 5px;
 }
 
+.projects__error {
+    @extend .field__error;
+}
+
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .search-form {

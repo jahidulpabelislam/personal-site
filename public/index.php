@@ -143,7 +143,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="slide-show__bullets"></div>
     </div>
 
-    <p class="feedback feedback--error latest-projects__error"></p>
+    <p class="latest-projects__error"></p>
 
     <a class="button" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
 </section>
