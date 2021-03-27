@@ -1,6 +1,8 @@
 {
     "require": {
-        "jpi/site": "dev-master"
+        "jpi/site": "dev-master",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "repositories": [
         {
