@@ -3,6 +3,7 @@ $site = Site::get();
 $page = Page::get();
 
 $similarLinks = $page->similarLinks ?? [];
+$colour = $page->similarLinksColour ? "row--$page->similarLinksColour": "";
 
 if (count($similarLinks)) {
     $linksContent = "";
@@ -31,7 +32,7 @@ HTML;
     }
 
     echo <<<HTML
-<div class="row row--halves similar-links">
+<div class="row row--halves similar-links $colour">
     <div class="container">
         {$linksContent}
     </div>

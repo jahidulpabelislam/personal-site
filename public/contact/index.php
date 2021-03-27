@@ -97,15 +97,14 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
-        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
-        "colour" => "dark-blue",
     ],
 ];
+$page->similarLinksColour = "dark-blue";
 $page->similarLinks = $similarLinks;
 $page->renderSimilarLinks();
 $page->renderContentEnd();
