@@ -1,7 +1,7 @@
 .contact-me,
 .connect {
     @extend .row;
-    @extend .row--split;
+    @extend .row--halves;
 }
 
 .contact-me__column,

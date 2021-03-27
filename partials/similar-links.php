@@ -31,7 +31,7 @@ HTML;
     }
 
     echo <<<HTML
-<div class="row row--split similar-links">
+<div class="row row--halves similar-links">
     <div class="container">
         {$linksContent}
     </div>

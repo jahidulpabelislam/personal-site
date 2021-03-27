@@ -123,15 +123,15 @@
     margin: 10px 0;
     font-size: 18px;
     line-height: 20px; }
-  .row--split > .container, .contact-me > .container, .connect > .container {
+  .row--halves > .container, .contact-me > .container, .connect > .container {
     display: flex;
     align-items: center; }
-    .row--split > .container .row__column, .contact-me > .container .row__column, .connect > .container .row__column, .row--split > .container .contact-me__column, .contact-me > .container .contact-me__column, .connect > .container .contact-me__column,
-    .row--split > .container .connect__column,
-    .contact-me > .container .connect__column,
-    .connect > .container .connect__column {
-      width: 50%; }
-  .row--split .row__heading, .contact-me .row__heading, .connect .row__heading, .row--split .connect__heading, .contact-me .connect__heading, .connect .connect__heading {
+  .row--halves .row__column, .contact-me .row__column, .connect .row__column, .row--halves .contact-me__column, .contact-me .contact-me__column, .connect .contact-me__column,
+  .row--halves .connect__column,
+  .contact-me .connect__column,
+  .connect .connect__column {
+    width: 50%; }
+  .row--halves .row__heading, .contact-me .row__heading, .connect .row__heading, .row--halves .connect__heading, .contact-me .connect__heading, .connect .connect__heading {
     margin: 0; } }
 
 @media only screen and (min-width: 1200px) {

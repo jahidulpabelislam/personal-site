@@ -66,17 +66,19 @@
         line-height: 20px;
     }
 
-    .row--split > .container {
-        display: flex;
-        align-items: center;
+    .row--halves {
+        > .container {
+            display: flex;
+            align-items: center;
+        }
 
         .row__column {
             width: 50%;
         }
-    }
 
-    .row--split .row__heading {
-        margin: 0;
+        .row__heading {
+            margin: 0;
+        }
     }
 }
 

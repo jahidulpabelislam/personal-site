@@ -27,12 +27,12 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<div class="row row--split">
+<div class="row row--halves">
     <div class="container">
         <div class="row__column">
             <img class="row__column-image" src="<?php echo $site::asset("/assets/images/no-entry.png"); ?>" alt="No entry sign" />
         </div>
-        <div class="row--split">
+        <div>
             <p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>
         </div>
     </div>

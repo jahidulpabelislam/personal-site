@@ -61,7 +61,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 }
 ?>
 
-<div class="row row--split about-row">
+<div class="row row--halves about-row">
     <div class="container">
         <div class="row__column">
             <div class="images-of-me">
@@ -84,13 +84,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--split about-row">
+<div class="row row--halves about-row">
     <div class="container">
-        <div class="row__column">
-            <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
-            </a>
-        </div>
         <div class="row__column">
             <?php
             $durations = [];
@@ -116,10 +111,15 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 <a class="link link--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr ?? ""; ?>.
             </p>
         </div>
+        <div class="row__column">
+            <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
+                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
+            </a>
+        </div>
     </div>
 </div>
 
-<div class="row row--split about-row">
+<div class="row row--halves about-row">
     <div class="container">
         <div class="row__column">
             <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
@@ -138,19 +138,19 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--split about-row">
+<div class="row row--halves about-row">
     <div class="container">
-        <div class="row__column">
-            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
-            </a>
-        </div>
         <div class="row__column">
             <p>
                 Based in <a class="link link--dark-blue" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                     Bognor Regis</a>,<a class="link link--dark-blue" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                     West Sussex</a>, South East Coast of England.
             </p>
+        </div>
+        <div class="row__column">
+            <a href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/beach.jpg"); ?>" alt="Image of a Beach" />
+            </a>
         </div>
     </div>
 </div>
@@ -159,7 +159,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="map js-bognor-regis-map"></div>
 </div>
 
-<div class="row row--split about-row">
+<div class="row row--halves about-row">
     <div class="container">
         <div class="row__column">
             <img class="row__column-image" src="<?php echo $site::asset("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
