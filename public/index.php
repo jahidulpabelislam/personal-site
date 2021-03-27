@@ -31,7 +31,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 ?>
 
 <section>
-    <div class="row row--grey home-hello">
+    <div class="row home-hello">
         <div class="container">
             <h3 class="home-hello__text"><span class="home-hello__hello">Hello</span> there everyone!</h3>
             <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
@@ -39,24 +39,9 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         </div>
     </div>
 
-    <div class="row home-intro">
+    <div class="row row--grey home-intro">
         <div class="container">
-            <p>Welcome to my portfolio, thanks for clicking on my website!</p>
-        </div>
-    </div>
-
-    <div class="row row--grey">
-        <div class="container">
-            <p>Most of my drive and passion lives in developing all kinds of software from websites to applications.</p>
-            <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>
-            <p>
-                Currently working as a Web Developer at
-                <a class="link" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a>.
-            </p>
-            <p>
-                Reside in
-                <a class="link" href="https://goo.gl/maps/KEJgpYCxm6x" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">West Sussex</a>, down in the south coast of England.
-            </p>
+            <p>Welcome and thanks for visiting me!</p>
         </div>
     </div>
 
@@ -67,7 +52,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                  I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="<?php $site->echoURL("about"); ?>">learn about me</a> also
                 <a class="link" href="<?php $site->echoURL("contact"); ?>">contact me</a> for any enquiries or to just provide feedback.
             </p>
-            <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies and ideas here.</p>
+            <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies, libraries & plugins and ideas here while also improving my skill set and expanding my knowledge then can bring them to projects at work.</p>
         </div>
     </div>
 </section>
@@ -82,9 +67,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                     "icon" => "design-icon.png",
                     "imageAlt" => "A image of a paintbrush on a desktop computer",
                     "description" => "<p>
-                        My work only starts after the designer hands over finished designs.<br />
-                        I mainly work from PSD's or flat image files designs.<br />
-                        This is where I turn designs into pixel perfect sites/apps.
+                        My work only starts when the PSD or flat image designs are handed over, then I can start to turning them into pixel perfect sites/apps.<br />
                     </p>",
                 ],
                 [
@@ -92,8 +75,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                     "icon" => "responsive-icon.png",
                     "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
                     "description" => "<p>
-                        Aim to make all sites/apps usable on many different sized devices.<br />
-                        By approach the styling form a mobile first point of view
+                        I approach styling from a mobile first point of view,
+                        aiming to make all sites/apps usable on different sized devices.<br />
                     </p>",
                 ],
                 [
@@ -101,8 +84,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                     "icon" => "code-icon.png",
                     "imageAlt" => "A image showing code",
                     "description" => "<p>
-                        I tend to develop custom and bespoke systems.<br />
-                        But if the project requires I can use various frameworks or libraries to fulfill the necessary product.
+                        I tend to develop custom and bespoke systems,
+                        but I do use frameworks or libraries to fulfill the necessary requirements if needed.
                     </p>",
                 ],
             ];
@@ -229,15 +212,15 @@ $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPI
 
 $similarLinks = [
     [
-        "title" => "Projects",
-        "url" => "projects",
-        "text" => "View My Work",
-        "colour" => "white",
-    ],
-    [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
+        "colour" => "white",
+    ],
+    [
+        "title" => "Contact",
+        "url" => "contact",
+        "text" => "Contact Me",
         "colour" => "white",
     ],
 ];
