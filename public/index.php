@@ -17,6 +17,8 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
+$page->showSocialLinksHeader = true;
+
 $page->renderHtmlStart();
 $page->renderHead();
 $page->renderPageStart();
@@ -230,16 +232,18 @@ $similarLinks = [
         "title" => "Projects",
         "url" => "projects",
         "text" => "View My Work",
+        "colour" => "white",
     ],
     [
         "title" => "About",
         "url" => "about",
         "text" => "Learn About Me",
+        "colour" => "white",
     ],
 ];
 $page->similarLinks = $similarLinks;
+$page->similarLinksColour = "black";
 $page->renderSimilarLinks();
-$page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderCookieBanner();

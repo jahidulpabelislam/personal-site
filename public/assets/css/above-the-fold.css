@@ -312,13 +312,17 @@ img {
   line-height: 52px; }
 
 .header__line-breaker {
-  margin: 30px 0 38px; }
+  margin: 30px auto 38px;
+  max-width: 50%; }
 
 .header__description {
   text-shadow: 2px 2px 3px #000000;
   font-size: 26px;
   font-weight: bold;
   line-height: 28px; }
+
+.header__links {
+  margin: 36px 0 0; }
 
 .header__scroll-to-content {
   position: absolute;
