@@ -60,7 +60,7 @@ $apiMeta = $apiRes["meta"] ?? [];
 $projectsCount = $apiMeta["count"] ?? count($apiRes["rows"] ?? []);
 if ($projectsCount === 0) {
     http_response_code(404);
-    include(ROOT . "/error/404/index.php");
+    include(PUBLIC_ROOT . "/error/404/index.php");
     exit;
 }
 

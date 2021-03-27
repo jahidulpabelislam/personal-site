@@ -1,8 +1,4 @@
 <?php
-if (!defined("ROOT")) {
-    die();
-}
-
 $site = Site::get();
 ?>
 

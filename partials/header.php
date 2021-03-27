@@ -1,8 +1,4 @@
 <?php
-if (!defined("ROOT")) {
-    die();
-}
-
 $page = Page::get();
 
 $pageId = $page->id;

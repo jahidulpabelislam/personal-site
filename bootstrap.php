@@ -1,6 +1,6 @@
 <?php
 
-define("SITE_ROOT", __DIR__);
+define("ROOT", __DIR__);
 define("PUBLIC_ROOT", __DIR__ . "/public");
 
 include_once(__DIR__ . "/vendor/autoload.php");

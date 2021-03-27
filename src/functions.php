@@ -18,20 +18,12 @@ function removeSlashes(string $url): string {
     return $url;
 }
 
-function getProjectRoot(): string {
-    if (defined("ROOT")) {
-        return ROOT;
-    }
-
-    return removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
-}
-
 function getConfigPath(string $level = null): string {
     if ($level && !in_array($level, ["global", "site", "production"])) {
-        return SITE_ROOT . "/src/config.{$level}.php";
+        return ROOT . "/src/config.{$level}.php";
     }
 
-    return SITE_ROOT . "/src/config.php";
+    return ROOT . "/src/config.php";
 }
 
 function addTrailingSlash(string $url): string {
@@ -80,8 +72,8 @@ function formatURL(string $domain, string $relativeURL): string {
 }
 
 function turnPathToURL(string $path): string {
-    if (stripos($path, ROOT) === 0) {
-        $path = substr($path, strlen(ROOT));
+    if (stripos($path, PUBLIC_ROOT) === 0) {
+        $path = substr($path, strlen(PUBLIC_ROOT));
     }
 
     $url = str_replace("\\", "/", $path);
