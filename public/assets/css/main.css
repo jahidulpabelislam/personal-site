@@ -126,11 +126,23 @@
   .row--split > .container, .contact-me > .container, .connect > .container {
     display: flex;
     align-items: center; }
+    .row--split > .container .row__column, .contact-me > .container .row__column, .connect > .container .row__column, .row--split > .container .contact-me__column, .contact-me > .container .contact-me__column, .connect > .container .contact-me__column,
+    .row--split > .container .connect__column,
+    .contact-me > .container .connect__column,
+    .connect > .container .connect__column {
+      width: 50%; }
   .row--split .row__heading, .contact-me .row__heading, .connect .row__heading, .row--split .connect__heading, .contact-me .connect__heading, .connect .connect__heading {
-    margin: 0; }
-  .row__column, .contact-me__column,
-  .connect__column {
-    width: 50%; } }
+    margin: 0; } }
+
+@media only screen and (min-width: 1200px) {
+  .row--thirds > .container {
+    display: flex;
+    align-items: center; }
+  .row--thirds .row__column, .row--thirds .contact-me__column,
+  .row--thirds .connect__column {
+    width: 33%; }
+  .row--thirds .row__heading, .row--thirds .connect__heading {
+    margin: 0; } }
 
 .main-content {
   display: flex;

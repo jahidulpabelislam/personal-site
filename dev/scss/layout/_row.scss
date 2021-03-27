@@ -69,13 +69,30 @@
     .row--split > .container {
         display: flex;
         align-items: center;
+
+        .row__column {
+            width: 50%;
+        }
     }
 
     .row--split .row__heading {
         margin: 0;
     }
+}
 
-    .row__column {
-        width: 50%;
+@media only screen and (min-width: $desktop-width) {
+    .row--thirds {
+        > .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .row__column {
+            width: 33%;
+        }
+
+        .row__heading {
+            margin: 0;
+        }
     }
 }
