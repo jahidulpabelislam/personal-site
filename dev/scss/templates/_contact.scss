@@ -6,6 +6,7 @@
 
 .contact-me {
     padding: 0;
+    @extend .row--grey;
 }
 
 .contact-me__column {

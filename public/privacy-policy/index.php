@@ -35,7 +35,7 @@ $page->renderContentStart();
     </div>
 </div>
 
-<div class="row">
+<div class="row row--grey">
     <div class="container">
         <h3 class="row__heading">Cookies</h3>
         <p>This website uses cookies to collect information. Cookies are files stored on your device when you come on a website which is using them. The data stored can be a whole range of data, user login session data to shopping basket.</p>

@@ -31,7 +31,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 ?>
 
 <section>
-    <div class="row home-hello">
+    <div class="row row--grey home-hello">
         <div class="container">
             <h3 class="home-hello__text"><span class="home-hello__hello">Hello</span> there everyone!</h3>
             <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
@@ -45,7 +45,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         </div>
     </div>
 
-    <div class="row">
+    <div class="row row--grey">
         <div class="container">
             <p>Most of my drive and passion lives in developing all kinds of software from websites to applications.</p>
             <p>Always looking into new or upcoming languages and frameworks to learn how to improve ongoing projects while also expanding my knowledge.</p>

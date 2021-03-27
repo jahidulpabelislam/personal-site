@@ -27,63 +27,62 @@
 .row, .contact-me,
 .connect {
   padding: 15px 0;
-  background-color: #f5f5f5;
-  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2); }
+  background-color: #ffffff; }
 
 .row--full-width {
   padding: 0; }
 
-.row:nth-child(even), .contact-me:nth-child(even),
-.connect:nth-child(even) {
-  background-color: #ffffff; }
-
-.row--light-blue.row--light-blue {
+.row--light-blue {
   background-color: #54c6e2;
   color: #ffffff; }
 
-.row--dark-blue.row--dark-blue {
+.row--dark-blue {
   background-color: #0078c9;
   color: #ffffff; }
 
-.row--purple.row--purple {
+.row--purple {
   background-color: #82379d;
   color: #ffffff; }
 
-.row--pink.row--pink {
+.row--pink {
   background-color: #f47ab3;
   color: #ffffff; }
 
-.row--red.row--red {
+.row--red {
   background-color: #f12525;
   color: #ffffff; }
 
-.row--orange.row--orange {
+.row--orange {
   background-color: #f69e00;
   color: #ffffff; }
 
-.row--yellow.row--yellow {
+.row--yellow {
   background-color: #ffef38;
   color: #333333; }
 
-.row--light-green.row--light-green {
+.row--light-green {
   background-color: #3dc714;
   color: #ffffff; }
 
-.row--lime-green.row--lime-green {
+.row--lime-green {
   background-color: #b5cf16;
   color: #ffffff; }
 
-.row--dark-green.row--dark-green {
+.row--dark-green {
   background-color: #1aad5b;
   color: #ffffff; }
 
-.row--grey.row--grey {
+.row--grey, .contact-me {
   background-color: #7b8676;
   color: #ffffff; }
 
-.row--black.row--black {
+.row--black {
   background-color: #333333;
   color: #ffffff; }
+
+.row--grey, .contact-me {
+  background-color: #f5f5f5;
+  color: #333333; }
 
 .row__heading, .connect__heading {
   width: 100%;

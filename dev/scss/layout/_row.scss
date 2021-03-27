@@ -1,22 +1,23 @@
 .row {
     padding: 15px 0;
-    background-color: $light-colour;
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
+    background-color: #ffffff;
+    //box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
 .row--full-width {
     padding: 0;
 }
 
-.row:nth-child(even) {
-    background-color: #ffffff;
-}
-
 @each $colour, $colours in $colour-schemes {
-    .row--#{$colour}.row--#{$colour} {
+    .row--#{$colour} {
         background-color: map-get($colours, main);
         color: get-colour-variant($colours, text, #ffffff);
     }
+}
+
+.row--grey {
+    background-color: $light-colour;
+    color: $dark-colour;
 }
 
 .row__heading {

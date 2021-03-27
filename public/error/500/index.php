@@ -28,7 +28,7 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<div class="row row--halves">
+<div class="row row--halves row--grey">
     <div class="container">
         <div class="row__column">
             <img class="row__column-image" src="<?php echo $site::asset("/assets/images/oops.png"); ?>" alt="Road sign with the words oops" />

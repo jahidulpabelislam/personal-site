@@ -24,7 +24,7 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<div class="row">
+<div class="row row--grey">
     <div class="container">
         <ul class="site-map">
             <?php
