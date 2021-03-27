@@ -123,7 +123,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row latest-projects">
+<section class="row row--grey latest-projects">
     <h3 class="row__heading">Latest Projects</h3>
 
     <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
