@@ -24,53 +24,48 @@ $page->renderContentStart();
 ?>
 
 <section class="contact-me">
-    <div class="container">
-        <div class="contact-me__column">
-            <div>
-                <h1 class="contact-me__title">Contact Me</h1>
-                <hr class="contact-me__line-breaker" />
-                <p>Drop me an email</p>
+    <div class="contact-me__column contact-me__column--header">
+        <div>
+            <h1 class="contact-me__title">Contact Me</h1>
+            <hr class="contact-me__line-breaker" />
+            <p>Drop Me An Email</p>
+        </div>
+    </div>
+    <div class="contact-me__column contact-me__column--form">
+        <form class="contact-me__form contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
+            <div class="field">
+                <label for="email-input" class="field__label">Your Email Address</label>
+                <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="joe@example.com" title="Email Address" required />
+                <p class="contact-form__email-feedback field__error"></p>
             </div>
-        </div>
-        <div class="contact-me__column">
-            <form class="contact-me__form contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
-                <div class="input-group input-group--full">
-                    <label for="email-input" class="label">Your Email Address</label>
-                    <input type="email" class="input contact-form__email" id="email-input" name="email-input" placeholder="e.g. joe@example.com" title="Email Address" required />
-                    <p class="feedback feedback--error contact-form__email-feedback"></p>
-                </div>
 
-                <div class="input-group input-group--full">
-                    <label for="subject-input" class="label">Subject <span>(optional)</span></label>
-                    <input type="text" class="input contact-form_subject" id="subject-input" name="subject-input" placeholder="e.g. Site Feedback" title="Subject of Message" />
-                </div>
+            <div class="field">
+                <label for="subject-input" class="field__label">Subject <span>(optional)</span></label>
+                <input type="text" class="contact-form_subject input" id="subject-input" name="subject-input" placeholder="Site Feedback" title="Subject of Message" />
+            </div>
 
-                <div class="input-group input-group--full">
-                    <label for="message-input" class="label">Your Message</label>
-                    <textarea class="input contact-form__message" id="message-input" name="message-input" placeholder="e.g. Your site could do with more colour." title="The Message" rows="10" required></textarea>
-                    <p class="feedback feedback--error contact-form__message-feedback"></p>
-                </div>
+            <div class="field">
+                <label for="message-input" class="field__label">Your Message</label>
+                <textarea class="contact-form__message input" id="message-input" name="message-input" placeholder="Your site could do with more colour." title="The Message" rows="10" required></textarea>
+                <p class="contact-form__message-feedback field__error"></p>
+            </div>
 
-                <p class="feedback contact-form__feedback"></p>
-                <button
-                    type="submit"
-                    class="button button--dark-green contact-form__submit"
-                    id="submit"
-                    data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
-                    data-initial-text="Send Email"
-                >
-                    Send Email
-                </button>
-            </form>
-        </div>
+            <p class="contact-form__feedback"></p>
+            <button
+                type="submit"
+                class="button button--dark-green contact-form__submit"
+                id="submit"
+                data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
+                data-initial-text="Send Email"
+            >
+                Send Email
+            </button>
+        </form>
     </div>
 </section>
 
 <section class="connect">
     <div class="container">
-        <div class="connect__column">
-            <h2 class="connect__heading">Connect with me</h2>
-        </div>
         <div class="connect__column">
             <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">
                 <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
@@ -87,6 +82,9 @@ $page->renderContentStart();
                 &nbsp;
                 <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
             </a>
+        </div>
+        <div class="connect__column">
+            <h2 class="connect__heading">Connect with me</h2>
         </div>
     </div>
 </section>

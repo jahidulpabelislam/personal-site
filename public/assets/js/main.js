@@ -1693,32 +1693,44 @@ window.jpi = window.jpi || {};
 
     var global = {
         form: null,
-        submitButton: null,
+        inputs: null,
         emailInput: null,
         messageInput: null,
         subjectInput: null,
         emailFeedback: null,
         messageFeedback: null,
         formFeedback: null,
+        submitButton: null,
     };
 
     var fn = {
 
+        reset: function() {
+            global.inputs.attr("disabled", false);
+            global.submitButton.prop("disabled", false)
+                .html(global.submitButton.attr("data-initial-text"))
+            ;
+        },
+
         // Show appropriate & relevant feedback to the user after an attempt of sending a message
         renderResponse: function(response) {
+            fn.reset();
+
             // Check if message was sent
             if (response.ok) {
                 if (response.feedback) {
-                    global.formFeedback.removeClass("feedback--error").addClass("feedback--success");
+                    global.formFeedback.removeClass("field__error").addClass("field__feedback");
                 }
 
                 global.emailInput.val("");
                 global.messageInput.val("");
                 global.subjectInput.val("");
+                global.form.find(".field").hide();
+                global.submitButton.hide();
             }
             else {
                 if (response.feedback) {
-                    global.formFeedback.removeClass("feedback--success").addClass("feedback--error");
+                    global.formFeedback.removeClass("field__feedback").addClass("field__error");
                 }
                 if (response.messageFeedback) {
                     global.messageFeedback.text(response.messageFeedback).show(200);
@@ -1731,18 +1743,16 @@ window.jpi = window.jpi || {};
             if (response.feedback) {
                 global.formFeedback.text(response.feedback).show(200);
             }
-
-            global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
         },
 
         // Render an error message when AJAX has errored
         renderErrorMessage: function() {
             global.formFeedback.text("Something went wrong, please try again later.")
-                               .removeClass("feedback--success")
-                               .addClass("feedback--error")
+                               .removeClass("field__feedback")
+                               .addClass("field__error")
                                .show(200);
 
-            global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
+            fn.reset();
         },
 
         validateEmail: function(isForm) {
@@ -1797,7 +1807,10 @@ window.jpi = window.jpi || {};
         },
 
         submit: function() {
-            global.submitButton.prop("disabled", true).html(global.submitButton.attr("data-loading-text"));
+            global.inputs.attr("disabled", true);
+            global.submitButton.prop("disabled", true)
+                .html(global.submitButton.attr("data-loading-text"))
+            ;
 
             var isEmailValid = fn.validateEmail(true);
             var isMessageValid = fn.validateMessage(true);
@@ -1816,7 +1829,7 @@ window.jpi = window.jpi || {};
                 });
             }
             else {
-                global.submitButton.prop("disabled", false).html(global.submitButton.attr("data-initial-text"));
+                fn.reset();
             }
 
             return false;
@@ -1842,13 +1855,14 @@ window.jpi = window.jpi || {};
                 return;
             }
 
-            global.submitButton = jQuery(".contact-form__submit");
+            global.inputs = global.form.find(".input");
             global.emailInput = jQuery(".contact-form__email");
             global.messageInput = jQuery(".contact-form__message");
             global.subjectInput = jQuery(".contact-form__subject");
             global.emailFeedback = jQuery(".contact-form__email-feedback");
             global.messageFeedback = jQuery(".contact-form__message-feedback");
             global.formFeedback = jQuery(".contact-form__feedback");
+            global.submitButton = jQuery(".contact-form__submit");
 
             fn.initListeners();
         },

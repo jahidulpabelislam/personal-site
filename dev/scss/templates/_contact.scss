@@ -4,6 +4,20 @@
     @extend .row--halves;
 }
 
+.contact-me {
+    padding: 0;
+}
+
+.contact-me__column {
+    padding: 30px 15px;
+}
+
+.contact-me__column--header {
+    background: $primary-colour url("/assets/images/contact.jpg?v=2") no-repeat center center scroll;
+    background-size: cover;
+    color: #ffffff;
+}
+
 .contact-me__column,
 .connect__column {
     @extend .row__column;
@@ -11,6 +25,27 @@
 
 .connect__heading {
     @extend .row__heading;
+}
+
+.contact-me__title {
+    font-size: 46px;
+    line-height: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-me__line-breaker {
+    margin: 30px auto 38px;
+    max-width: 50%;
+}
+
+.contact-form__feedback {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.contact-form__submit {
+    margin: 0;
 }
 
 .connect {
@@ -23,53 +58,31 @@
     }
 }
 
-.contact-me__title {
-    font-size: 46px;
-    line-height: 50px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.contact-me__line-breaker {
-    margin: 30px 0 38px;
-}
-
-.contact-me__form {
-    text-align: left;
-}
-
 @media only screen and (min-width: $tablet-width) {
     .contact-me {
         display: flex;
         align-items: center;
-        padding: 0;
+        min-height: calc(100vh - 46px);
+    }
 
-        .container {
+    .contact-me__column--header {
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+
+        > div {
             width: 100%;
-            padding: 0;
+            max-width: $max-width / 2;
+            margin: 0 auto;
         }
+    }
 
-        .row__column {
-            display: inline-block;
-            padding: 30px 15px;
+    .contact-me__column--form {
+        max-width: $max-width / 2;
+        margin: 0;
+    }
 
-            &:first-child {
-                display: flex;
-                align-self: stretch;
-                align-items: center;
-                background: $primary-colour url("/assets/images/contact.jpg?v=2") no-repeat center center scroll;
-                background-size: cover;
-                color: #ffffff;
-
-                > div {
-                    width: 100%;
-                }
-            }
-
-            &:last-child {
-                max-width: $max-width / 2;
-                margin: 0 auto;
-            }
-        }
+    .contact-form {
+        text-align: left;
     }
 }

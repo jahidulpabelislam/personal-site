@@ -518,7 +518,8 @@ img {
 .social-link__image {
   height: 40px;
   background-color: #000000;
-  opacity: 1; }
+  opacity: 1;
+  transition: all 0.3s ease-in-out; }
 
 .social-link__text {
   display: inline-block;
@@ -542,7 +543,6 @@ img {
   border-radius: 8.88px;
   display: inline-block;
   position: relative;
-  background: #000000;
   vertical-align: middle; }
   .social-link--instagram .social-link__image i {
     width: 29.44px;
