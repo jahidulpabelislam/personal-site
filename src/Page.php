@@ -121,7 +121,7 @@ class Page {
         $url = "/";
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
-        if ($filePath !== PUBLIC_ROOT) {
+        if ($filePath !== realpath(PUBLIC_ROOT)) {
             $pageId = basename($filePath);
 
             $path = dirname($_SERVER["SCRIPT_NAME"]);
