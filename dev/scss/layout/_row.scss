@@ -71,10 +71,6 @@
         align-items: center;
     }
 
-    .row--split:nth-of-type(even) > .container {
-        flex-direction: row-reverse;
-    }
-
     .row--split .row__heading {
         margin: 0;
     }

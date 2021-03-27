@@ -126,8 +126,6 @@
   .row--split > .container, .contact-me > .container, .connect > .container {
     display: flex;
     align-items: center; }
-  .row--split:nth-of-type(even) > .container, .contact-me:nth-of-type(even) > .container, .connect:nth-of-type(even) > .container {
-    flex-direction: row-reverse; }
   .row--split .row__heading, .contact-me .row__heading, .connect .row__heading, .row--split .connect__heading, .contact-me .connect__heading, .connect .connect__heading {
     margin: 0; }
   .row__column, .contact-me__column,
