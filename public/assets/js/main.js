@@ -1662,6 +1662,16 @@ window.jpi = window.jpi || {};
             }
         },
 
+        loadProjects: function() {
+            jpi.ajax.request({
+                method: "GET",
+                url: jpi.config.jpiAPIEndpoint + "/projects/",
+                data: {limit: 3},
+                onSuccess: fn.gotProjects,
+                onError: fn.renderError,
+            });
+        },
+
         init: function() {
             if (!jQuery(".latest-projects").length) {
                 return;
@@ -1672,17 +1682,11 @@ window.jpi = window.jpi || {};
 
             global.loadingElem.show(200);
 
-            jpi.ajax.request({
-                method: "GET",
-                url: jpi.config.jpiAPIEndpoint + "/projects/",
-                data: {limit: jpi.config.projectsPerPage},
-                onSuccess: fn.gotProjects,
-                onError: fn.renderError,
-            });
+            jQuery(window).on("jpi-css-loaded", fn.loadProjects);
         },
     };
 
-    jQuery(fn.init);
+    fn.init();
 
 })(jQuery, jpi);
 
