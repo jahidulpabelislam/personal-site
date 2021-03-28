@@ -84,7 +84,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--halves about-row">
+<div class="row row--halves row--grey about-row">
     <div class="container">
         <div class="row__column">
             <?php
@@ -138,7 +138,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--halves about-row">
+<div class="row row--halves row--grey about-row">
     <div class="container">
         <div class="row__column">
             <p>
@@ -159,7 +159,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="map js-bognor-regis-map"></div>
 </div>
 
-<div class="row row--halves about-row">
+<div class="row row--halves row--grey about-row">
     <div class="container">
         <div class="row__column">
             <img class="row__column-image" src="<?php echo $site::asset("/assets/images/languages.png"); ?>" alt="Image of 'hello' in different languages" />
@@ -244,7 +244,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<section class="row">
+<section class="row row--grey">
     <div class="container">
         <h3 class="row__heading">What I've Been Up To</h3>
         <div class="timeline">
