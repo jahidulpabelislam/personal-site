@@ -54,7 +54,7 @@ $page = Page::get();
                             <a class="social-link social-link--github" href="https://github.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <img class="social-links__image social-link__image" src="<?php echoWithAssetVersion("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /jahidulpabelislam" />
                             </a>
-                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jpi.dev/" target="_blank" rel="noopener noreferrer">
+                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jahidulpabelislam.dev/" target="_blank" rel="noopener noreferrer">
                                 <span class="social-links__image social-link__image"><i></i></span>
                             </a>
                         </div>
