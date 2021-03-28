@@ -15,7 +15,7 @@
 
 class Site {
 
-    public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+    public const LIVE_DOMAIN = "https://jahidulpabelislam.dev/";
     public const VALID_NAV_TINTS = ["dark", "light"];
     public const JPI_START_DATE = "2010-10-04";
 

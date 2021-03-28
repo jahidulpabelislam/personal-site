@@ -100,12 +100,12 @@ RewriteRule ^sitemap/?$ /site-map/ [R=301,NC,L]
 RewriteRule ^sitemap.xml?$ /site-map.xml [R=301,NC,L]
 
 # Redirects for old API - used to be located within this project
-RewriteRule ^api/(.*)$ https://api.jahidulpabelislam.com/$1 [R=301,NC,L]
-RewriteRule ^api(.*)$ https://api.jahidulpabelislam.com/$1 [R=301,NC,L] # If no trailing slash
+RewriteRule ^api/(.*)$ https://api.jahidulpabelislam.dev/$1 [R=301,NC,L]
+RewriteRule ^api(.*)$ https://api.jahidulpabelislam.dev/$1 [R=301,NC,L] # If no trailing slash
 
 # Redirects for old Links page - used to be located within this project
-RewriteRule ^links/(.*)$ https://links.jahidulpabelislam.com/$1 [R=301,NC,L]
-RewriteRule ^links(.*)$ https://links.jahidulpabelislam.com/$1 [R=301,NC,L] # If no trailing slash
+RewriteRule ^links/(.*)$ https://links.jahidulpabelislam.dev/$1 [R=301,NC,L]
+RewriteRule ^links(.*)$ https://links.jahidulpabelislam.dev/$1 [R=301,NC,L] # If no trailing slash
 
 # Add caching for resources
 <IfModule mod_headers.c>
