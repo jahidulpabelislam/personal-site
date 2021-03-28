@@ -106,29 +106,30 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row row--grey latest-projects">
-    <h3 class="row__heading">Latest Projects</h3>
-
-    <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
-
-    <div class="slide-show latest-projects__slide-show" id="latest-projects">
-        <div class="slide-show__viewport">
-            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="previous">
-                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                <?php renderFile("/assets/images/previous.svg"); ?>
-            </button>
-            <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
-            <button type="button" class="slide-show__nav" data-slide-show-id="#latest-projects" data-direction="next">
-                <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                <?php renderFile("/assets/images/next.svg"); ?>
-            </button>
+<section class="latest-projects row row--halves row--grey">
+    <div class="container">
+        <div class="row__column">
+            <h3 class="row__heading">Latest Projects</h3>
+            <p>
+                These are the latest personal projects I have worked on.
+            </p>
+            <a class="latest-projects__view button" href="<?php $site->echoURL("projects"); ?>">
+                View More Work
+            </a>
         </div>
-        <div class="slide-show__bullets"></div>
+        <div class="row__column">
+            <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
+
+            <div class="slide-show latest-projects__slide-show" id="latest-projects">
+                <div class="slide-show__viewport">
+                    <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
+                    <div class="slide-show__bullets"></div>
+                </div>
+            </div>
+
+            <p class="latest-projects__error"></p>
+        </div>
     </div>
-
-    <p class="latest-projects__error"></p>
-
-    <a class="button" href="<?php $site->echoURL("projects"); ?>">View More Work</a>
 </section>
 
 <section class="row row--dark-blue">
@@ -207,7 +208,6 @@ $page->addJSTemplate(
     HTML
 );
 
-$page->addJSGlobal("config", "projectsPerPage", 3);
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [
