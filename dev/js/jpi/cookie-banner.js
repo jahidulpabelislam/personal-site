@@ -30,30 +30,13 @@
             fn.setCookie();
         },
 
-        showOrHide: function() {
-            var banner = global.banner;
-            if (banner.length) {
-                var height = banner.height();
-                var scrollPos = global.window.scrollTop();
-                var lowestTop = global.body.height() - (global.window.height() + height);
-
-                if (scrollPos < height || scrollPos > lowestTop) {
-                    banner.slideUp(global.transitionSpeedSecs);
-                }
-                else {
-                    banner.slideDown(global.transitionSpeedSecs);
-                }
-            }
-        },
-
         initDisplay: function() {
             var hasClosedBefore = fn.getHasClosedBefore();
             if (hasClosedBefore) {
                 fn.setCookie();
                 global.banner.remove();
-            }
-            else {
-                fn.showOrHide();
+            } else {
+                global.banner.show();
             }
         },
 
@@ -63,7 +46,6 @@
                 global.window = jQuery(window);
                 global.body = jQuery("body");
 
-                global.window.on("scroll orientationchange resize", jpi.helpers.debounce(fn.showOrHide, 150));
                 jQuery(".cookie-banner__close").on("click", fn.close);
 
                 fn.initDisplay();
