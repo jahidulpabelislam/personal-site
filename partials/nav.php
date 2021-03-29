@@ -20,8 +20,8 @@ $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
                 <span class="nav__menu-bar"></span>
                 <span class="nav__menu-bar"></span>
             </button>
-            <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
-                <img class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" src="<?php echo $site::asset("/assets/images/logos/jpi.png"); ?>" alt="<?php echo $site::NAME; ?> Logo" />
+            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php $site->echoURL(); ?>">
+                <?php renderFile("/assets/images/logo.svg"); ?>
             </a>
         </div>
         <div class="nav__links-container">

@@ -404,21 +404,14 @@ img {
   border-radius: 50%;
   border: 1px solid transparent;
   opacity: 1; }
+  .nav__logo svg {
+    height: 100%;
+    width: auto; }
 
-.nav--scrolled .nav__logo,
-.nav--open .nav__logo {
-  background: #333333;
-  border-color: #333333; }
-
-.nav__logo.nav__logo--active,
-.nav__logo-container:hover .nav__logo,
-.nav__logo-container:focus .nav__logo {
-  background: #0078c9;
-  border-color: #0078c9; }
-
-.nav__logo-container:hover .nav__logo--active,
-.nav__logo-container:focus .nav__logo--active {
-  box-shadow: none; }
+.nav__logo.nav__logo--active svg,
+.nav__logo:hover svg,
+.nav__logo:focus svg {
+  fill: #0078c9; }
 
 .nav__mobile-toggle {
   position: absolute;
