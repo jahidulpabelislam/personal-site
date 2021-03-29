@@ -399,27 +399,25 @@ img {
   padding: 4px 0; }
 
 .nav__logo {
-  height: 100%;
+  display: inline-block;
+  height: calc(100% - 8px);
   background: transparent;
   border-radius: 50%;
   border: 1px solid transparent;
-  opacity: 1; }
-  .nav__logo svg {
+  margin: 4px 0; }
+  .nav__logo img {
     height: 100%;
-    width: auto; }
+    width: auto;
+    opacity: 1; }
 
-.nav__logo.nav__logo--active svg,
-.nav__logo:hover svg,
-.nav__logo:focus svg {
-  fill: #0078c9; }
-  .nav__logo.nav__logo--active svg #front-line,
-  .nav__logo.nav__logo--active svg #front-text,
-  .nav__logo:hover svg #front-line,
-  .nav__logo:hover svg #front-text,
-  .nav__logo:focus svg #front-line,
-  .nav__logo:focus svg #front-text {
-    fill: #0078c9;
-    stroke: #0078c9; }
+.nav__logo.nav__logo--active,
+.nav__logo:hover,
+.nav__logo:focus {
+  border: 1px solid #0078c9; }
+  .nav__logo.nav__logo--active img,
+  .nav__logo:hover img,
+  .nav__logo:focus img {
+    box-shadow: none; }
 
 .nav__mobile-toggle {
   position: absolute;

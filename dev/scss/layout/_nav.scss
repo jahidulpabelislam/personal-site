@@ -33,29 +33,27 @@
 }
 
 .nav__logo {
-    height: 100%;
+    display: inline-block;
+    height: calc(100% - 8px);
     background: transparent;
     border-radius: 50%;
     border: 1px solid transparent;
-    opacity: 1;
+    margin: 4px 0;
 
-    svg {
+    img {
         height: 100%;
         width: auto;
+        opacity: 1;
     }
 }
 
 .nav__logo.nav__logo--active,
 .nav__logo:hover,
 .nav__logo:focus {
-    svg {
-        fill: $primary-colour;
+    border: 1px solid $primary-colour;
 
-        #front-line,
-        #front-text {
-            fill: $primary-colour;
-            stroke: $primary-colour;
-        }
+    img {
+        box-shadow: none;
     }
 }
 

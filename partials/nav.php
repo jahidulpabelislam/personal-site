@@ -21,7 +21,7 @@ $navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
                 <span class="nav__menu-bar"></span>
             </button>
             <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php $site->echoURL(); ?>">
-                <?php renderFile("/assets/images/logo.svg"); ?>
+                <img src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
             </a>
         </div>
         <div class="nav__links-container">

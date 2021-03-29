@@ -36,7 +36,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
             <div class="home-hello__images">
                 <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
-                <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.svg"); ?>" alt="<?php echo $name; ?>'s Logo" />
+                <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
             </div>
             <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
         </div>
