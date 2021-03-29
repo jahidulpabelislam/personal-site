@@ -50,6 +50,12 @@
 .nav__logo:focus {
     svg {
         fill: $primary-colour;
+
+        #front-line,
+        #front-text {
+            fill: $primary-colour;
+            stroke: $primary-colour;
+        }
     }
 }
 

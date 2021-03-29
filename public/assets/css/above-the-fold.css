@@ -412,6 +412,14 @@ img {
 .nav__logo:hover svg,
 .nav__logo:focus svg {
   fill: #0078c9; }
+  .nav__logo.nav__logo--active svg #front-line,
+  .nav__logo.nav__logo--active svg #front-text,
+  .nav__logo:hover svg #front-line,
+  .nav__logo:hover svg #front-text,
+  .nav__logo:focus svg #front-line,
+  .nav__logo:focus svg #front-text {
+    fill: #0078c9;
+    stroke: #0078c9; }
 
 .nav__mobile-toggle {
   position: absolute;
