@@ -59,6 +59,13 @@
     }
 }
 
+.connect {
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
 @media only screen and (min-width: $tablet-width) {
     .contact-me {
         display: flex;
@@ -85,5 +92,11 @@
 
     .contact-form {
         text-align: left;
+    }
+
+    .connect {
+        .container {
+            flex-direction: row;
+        }
     }
 }

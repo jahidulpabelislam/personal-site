@@ -1737,6 +1737,10 @@ a.button {
   .connect .social-link:not(:last-child) {
     margin-bottom: 14px; }
 
+.connect .container {
+  display: flex;
+  flex-direction: column-reverse; }
+
 @media only screen and (min-width: 768px) {
   .contact-me {
     display: flex;
@@ -1754,7 +1758,9 @@ a.button {
     max-width: 585px;
     margin: 0; }
   .contact-form {
-    text-align: left; } }
+    text-align: left; }
+  .connect .container {
+    flex-direction: row; } }
 
 /* For all devices */
 .search-form {
