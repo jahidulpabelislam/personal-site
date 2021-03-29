@@ -210,23 +210,6 @@ $page->addJSTemplate(
 
 $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
 
-$similarLinks = [
-    [
-        "title" => "About",
-        "url" => "about",
-        "text" => "Learn About Me",
-        "colour" => "white",
-    ],
-    [
-        "title" => "Contact",
-        "url" => "contact",
-        "text" => "Contact Me",
-        "colour" => "white",
-    ],
-];
-$page->similarLinks = $similarLinks;
-$page->similarLinksColour = "black";
-$page->renderSimilarLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderCookieBanner();
