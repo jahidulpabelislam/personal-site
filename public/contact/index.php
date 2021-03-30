@@ -18,7 +18,6 @@ $headDescription = "Contact or find contact information for $name, a $job based 
 $pageData = [
     "title" => "Contact Me",
     "headDescription" => $headDescription,
-    "navTint" => "light",
 ];
 $page->addPageData($pageData);
 

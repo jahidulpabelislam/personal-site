@@ -377,13 +377,8 @@ img {
   right: 0;
   left: 0;
   z-index: 10;
-  transition: all 0.7s ease-in-out; }
-
-.nav--light {
+  transition: all 0.7s ease-in-out;
   background-color: rgba(255, 255, 255, 0.08); }
-
-.nav--dark {
-  background-color: rgba(51, 51, 51, 0.2); }
 
 .nav--scrolled,
 .nav--open {
@@ -490,10 +485,6 @@ img {
 .nav__link:focus {
   color: #0078c9; }
 
-.nav__link.nav__link--active {
-  background-color: #0078c9;
-  color: #ffffff; }
-
 /* For Tablets & Desktops */
 @media only screen and (min-width: 768px) {
   .nav {
@@ -506,16 +497,28 @@ img {
     display: block;
     flex: 1; }
   .nav__links {
-    float: right;
-    border-top: 0; }
+    border-top: 0;
+    text-align: right; }
   .nav__item {
-    float: left; }
+    display: inline-block; }
   .nav__link {
-    border-bottom: solid transparent 2px; }
-  .nav__link:hover,
-  .nav__link:focus,
-  .nav__link--active {
-    border-bottom-color: #0078c9; } }
+    position: relative;
+    margin: 8px 0;
+    padding: 4px 12px; }
+    .nav__link::after {
+      content: "\00a0";
+      position: absolute;
+      bottom: 1px;
+      left: 50%;
+      width: 0;
+      height: 1.5px;
+      transition: all 0.3s ease-in-out;
+      transform: translateX(-50%); }
+  .nav__link:hover::after,
+  .nav__link:focus::after,
+  .nav__link--active::after {
+    width: 32px;
+    background: #0078c9; } }
 
 /* For all devices */
 .social-link__image {

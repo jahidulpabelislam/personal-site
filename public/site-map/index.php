@@ -12,7 +12,6 @@ $headDescription = "Site map for $name's Portfolio, a {$job} based at Bognor Reg
 $pageData = [
     "title" => "Site Map",
     "headDescription" => $headDescription,
-    "navTint" => "light",
 ];
 $page->addPageData($pageData);
 

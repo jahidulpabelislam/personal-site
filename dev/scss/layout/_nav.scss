@@ -6,14 +6,7 @@
     left: 0;
     z-index: 10;
     transition: all 0.7s ease-in-out;
-}
-
-.nav--light {
     background-color: transparentize(#ffffff, 0.92);
-}
-
-.nav--dark {
-    background-color: transparentize($dark-colour, 0.8);
 }
 
 .nav--scrolled,
@@ -141,12 +134,7 @@
 
 .nav__link:hover,
 .nav__link:focus {
-    color: get-colour(dark-blue, main);
-}
-
-.nav__link.nav__link--active {
-    background-color: get-colour(dark-blue, main);
-    color: #ffffff;
+    color: $primary-colour;
 }
 
 /* For Tablets & Desktops */
@@ -169,21 +157,37 @@
     }
 
     .nav__links {
-        float: right;
         border-top: 0;
+        text-align: right;
     }
 
     .nav__item {
-        float: left;
+        display: inline-block;
     }
 
     .nav__link {
-        border-bottom: solid transparent 2px;
+        position: relative;
+        margin: 8px 0;
+        padding: 4px 12px;
+
+        &::after {
+            content: "\00a0";
+            position: absolute;
+            bottom: 1px;
+            left: 50%;
+            width: 0;
+            height: 1.5px;
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
     }
 
     .nav__link:hover,
     .nav__link:focus,
     .nav__link--active {
-        border-bottom-color: get-colour(dark-blue, main);
+        &::after {
+            width: 32px;
+            background: $primary-colour;
+        }
     }
 }

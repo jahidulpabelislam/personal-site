@@ -4,14 +4,9 @@ $page = Page::get();
 
 $pageId = $page->id;
 $currentURL = $page->currentURL;
-
-$defaultTint = "dark";
-
-$navTint = $page->navTint ?? $defaultTint;
-$navTint = in_array($navTint, Site::VALID_NAV_TINTS) ? $navTint : $defaultTint;
 ?>
 
-<nav class="nav nav--<?php echo $navTint; ?>">
+<nav class="nav">
     <div class="container nav__container">
         <div class="nav__header">
             <button type="button" class="nav__mobile-toggle">

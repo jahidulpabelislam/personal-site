@@ -19,7 +19,6 @@ use JPI\Site as BaseSite;
 class Site extends BaseSite {
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
-    public const VALID_NAV_TINTS = ["dark", "light"];
     public const JPI_START_DATE = "2010-10-04";
 
     private $isDebug;

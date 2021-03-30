@@ -14,7 +14,6 @@ $pageData = [
     "headDescription" => $headDescription,
     "headerTitle" => "About Me",
     "headerDescription" => "Find Out About Me",
-    "navTint" => "light",
 ];
 $page->addPageData($pageData);
 
