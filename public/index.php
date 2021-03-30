@@ -35,7 +35,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="container">
             <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
             <div class="home-hello__images">
-                <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-smart.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
+                <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
                 <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
             </div>
             <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
@@ -61,7 +61,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             $workflowItems = [
                 [
                     "heading" => "Design",
-                    "icon" => "design-icon.png",
+                    "icon" => "web-design.svg",
                     "imageAlt" => "A image of a paintbrush on a desktop computer",
                     "description" => "<p>
                         My work only starts when the PSD or flat image designs are handed over, then I can start to turning them into pixel perfect sites/apps.<br />
@@ -69,7 +69,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 ],
                 [
                     "heading" => "Responsive",
-                    "icon" => "responsive-icon.png",
+                    "icon" => "responsive-design.svg",
                     "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
                     "description" => "<p>
                         I approach styling from a mobile first point of view,
@@ -78,7 +78,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 ],
                 [
                     "heading" => "Code",
-                    "icon" => "code-icon.png",
+                    "icon" => "code.svg",
                     "imageAlt" => "A image showing code",
                     "description" => "<p>
                         I tend to develop custom and bespoke systems,

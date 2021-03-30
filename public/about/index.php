@@ -65,7 +65,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
         <div class="row__column">
             <div class="images-of-me">
                 <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of <?php echo $name; ?> as a Child" />
-                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-casual.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
+                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
             </div>
         </div>
         <div class="row__column">
