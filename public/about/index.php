@@ -86,60 +86,6 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 <div class="row row--halves row--grey about-row">
     <div class="container">
         <div class="row__column">
-            <?php
-            $durations = [];
-
-            $workDuration = getTimeDifference("2019-09-23", $nowDateTime);
-
-            $yearsSinceStarted = (int)$workDuration->format("%r%y");
-            if ($yearsSinceStarted) {
-                $durations[] = "{$yearsSinceStarted} year" . ($yearsSinceStarted !== 1 ? "s" : "");
-            }
-
-            $monthsSinceStarted = (int)$workDuration->format("%r%m");
-            if ($monthsSinceStarted) {
-                $durations[] = "{$monthsSinceStarted} month" . ($monthsSinceStarted !== 1 ? "s" : "");
-            }
-
-            if (count($durations)) {
-                $durationAtWorkStr = " for the past " . implode(" and ", $durations);
-            }
-            ?>
-            <p>
-                Been working as a Web Developer at
-                <a class="link link--light-blue" href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">D3R</a><?php echo $durationAtWorkStr ?? ""; ?>.
-            </p>
-        </div>
-        <div class="row__column">
-            <a href="https://d3r.com/" title="Link to D3R website." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/d3r.svg"); ?>" alt="Logo of D3R" />
-            </a>
-        </div>
-    </div>
-</div>
-
-<div class="row row--halves about-row">
-    <div class="container">
-        <div class="row__column">
-            <a href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                <img class="row__column-image" src="<?php echo $site::asset("/assets/images/logos/uop.png"); ?>" alt="Logo of University of Portsmouth" />
-            </a>
-        </div>
-        <div class="row__column">
-            <p>
-                Graduated in July 2017 from
-                <a class="link link--purple" href="https://www.port.ac.uk/" title="Link to University of Portsmouth website." target="_blank" rel="noopener noreferrer">
-                    University of Portsmouth
-                </a>
-                 with a 1st Class Honours degree in BSc Web Technologies.
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="row row--halves row--grey about-row">
-    <div class="container">
-        <div class="row__column">
             <p>
                 Based in <a class="link link--dark-blue" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                     Bognor Regis</a>,<a class="link link--dark-blue" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
