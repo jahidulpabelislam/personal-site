@@ -70,7 +70,7 @@ $pageData = [
     "headTitle" => $headTitle,
     "headDescription" => $headDescription,
     "headerTitle" => "My Projects",
-    "headerDescription" => "See My Skills in Action in My Projects",
+    "headerDescription" => "See My Skills In Action",
     "pagination" => [
         "page" => $apiMeta["page"] ?? 1,
         "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,
@@ -89,14 +89,9 @@ $page->renderContentStart();
 
 <section class="row row--grey projects">
     <div class="container">
-        <p>Here you can find some pieces of work I have completed throughout my years as a developer.</p>
+        <p>Here you can find pieces of work I have completed throughout my years as a developer.</p>
 
         <form class="search-form">
-            <p>
-                You can use the input below to find projects you want to have a look at.<br />
-                For example you can use names of technologies, frameworks or projects.
-            </p>
-
             <div class="search-form__inner">
                 <label for="search" class="screen-reader-text">Search for projects.</label>
                 <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
