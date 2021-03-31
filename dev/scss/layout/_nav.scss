@@ -168,7 +168,7 @@
     .nav__link {
         position: relative;
         margin: 8px 0;
-        padding: 4px 12px;
+        padding: 5px 12px;
 
         &::after {
             content: "\00a0";
@@ -185,9 +185,19 @@
     .nav__link:hover,
     .nav__link:focus,
     .nav__link--active {
+        color: #ffffff;
+
+        .nav--scrolled & {
+            color: $dark-colour;
+        }
+
         &::after {
             width: 32px;
             background: $primary-colour;
         }
+    }
+
+    .nav__link--active.nav__link--active.nav__link--active {
+        color: $primary-colour;
     }
 }
