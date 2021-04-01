@@ -88,14 +88,14 @@
         > .container {
             display: flex;
             align-items: center;
-        }
 
-        .row__column {
-            width: 33%;
-        }
+            .row__column {
+                width: 33%;
+            }
 
-        .row__heading {
-            margin: 0;
+            .row__heading {
+                margin: 0;
+            }
         }
     }
 }

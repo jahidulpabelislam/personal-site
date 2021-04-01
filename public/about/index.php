@@ -25,39 +25,6 @@ $page->renderHeader();
 $page->renderContentStart();
 
 $nowDateTime = new DateTime();
-
-function renderSkillsOrInterests(string $heading, array $items, string $colour) {
-    ?>
-    <div class="row__column">
-        <h3 class="row__sub-heading"><?php echo $heading; ?></h3>
-        <ul class="skills-interests">
-        <?php
-        foreach ($items as $item) {
-            $hasDescription = !empty($item["description"]);
-            $expandClass = $hasDescription ? "skills-interests__item--expandable" : "";
-
-            $descriptionHTML = "";
-            if ($hasDescription) {
-                $descriptionHTML = <<<HTML
-                    &nbsp;<span class="skills-interests__toggle fa fa-plus"></span>
-                    <div class="skills-interests__description">
-                        {$item["description"]}
-                    </div>
-                    HTML;
-            }
-
-            echo <<<HTML
-                <li class="skills-interests__item skills-interests__item--{$colour} {$expandClass}">
-                    <p>{$item["text"]}</p>
-                    {$descriptionHTML}
-                </li>
-                HTML;
-        }
-        ?>
-        </ul>
-    </div>
-    <?php
-}
 ?>
 
 <div class="row row--thirds about-row">
@@ -102,14 +69,60 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     <div class="map js-bognor-regis-map"></div>
 </div>
 
-<div class="row row--thirds about-row">
+<div class="row row--thirds about-row about-row--skills">
+    <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
-        $techSkills = [
+        function renderSkills(string $title, array $skills) {
+            ?>
+            <div class="row__column">
+                <h3 class="row__sub-heading"><?php echo $title; ?></h3>
+                <ul class="skills">
+                    <?php
+                    foreach ($skills as $skill) {
+                        $hasDescription = !empty($skill["description"]);
+                        $expandClass = $hasDescription ? "skills__item--expandable" : "";
+
+                        $descriptionHTML = "";
+                        if ($hasDescription) {
+                            $descriptionHTML = <<<HTML
+                    &nbsp;<span class="skills__toggle fa fa-plus"></span>
+                    <div class="skills__description">
+                        {$skill["description"]}
+                    </div>
+                    HTML;
+                        }
+
+                        echo <<<HTML
+                <li class="skills__item $expandClass">
+                    <p>{$skill["text"]}</p>
+                    $descriptionHTML
+                </li>
+                HTML;
+                    }
+                    ?>
+                </ul>
+            </div>
+            <?php
+        }
+
+        $skills = [
             [
                 "text" => "PHP",
                 "description" => "<p>Wordpress, Laravel &amp; PDO</p>",
             ],
+            [
+                "text" => "Python",
+                "description" => "<p>flask &amp; graphics.py</p>",
+            ],
+            [
+                "text" => "SQL",
+                "description" => "<p>MySQL</p>",
+            ],
+        ];
+        renderSkills("Back-end", $skills);
+
+        $skills = [
             [
                 "text" => "JavaScript",
                 "description" => "<p>Node.js (socket.io &amp; Express), JQuery &amp; AngularJS</p>",
@@ -121,34 +134,14 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             [
                 "text" => "HTML",
             ],
-            [
-                "text" => "Python",
-                "description" => "<p>flask &amp; graphics.py</p>",
-            ],
-            [
-                "text" => "SQL",
-                "description" => "<p>MySQL</p>",
-            ],
-            [
-                "text" => "NoSQL",
-                "description" => "<p>Amazon DynamoDB &amp; MongoDB</p>",
-            ],
-            [
-                "text" => "Java",
-                "description" => "<p>Java EE 7, JSF 2, AWT &amp; Swing</p>",
-            ],
+        ];
+        renderSkills("Front-end", $skills);
+
+        $skills = [
             [
                 "text" => "DVCS",
                 "description" => "<p>Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
             ],
-            [
-                "text" => "Microsoft Office",
-                "description" => "<p>Excel, Word &amp; Powerpoint</p>",
-            ],
-        ];
-        renderSkillsOrInterests("Technical Skills", $techSkills, "dark-blue");
-
-        $otherSkills = [
             [
                 "text" => "Team Player",
                 "description" => "<p>Playing competitive football has meant being a good team player is instilled in me</p>",
@@ -157,21 +150,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 "text" => "Communication",
                 "description" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
             ],
-            [
-                "text" => "Hard Worker",
-            ],
         ];
-        renderSkillsOrInterests("Other Skills", $otherSkills, "dark-blue");
-
-        $interests = [
-            ["text" => "Sports"],
-            ["text" => "Music"],
-            ["text" => "Photography"],
-            ["text" => "Fashion"],
-            ["text" => "Programming"],
-            ["text" => "Gaming"],
-        ];
-        renderSkillsOrInterests("Interests", $interests, "dark-blue");
+        renderSkills("Others", $skills);
         ?>
     </div>
 </div>

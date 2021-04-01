@@ -38,62 +38,77 @@
     height: 200px;
 }
 
-.skills-interests.skills-interests {
-    padding-left: 0;
+.about-row--skills {
+    .row__column {
+        margin: 12px 0;
+        padding: 0 15px;
+    }
+
+    .row__sub-heading {
+        display: inline-block;
+        width: auto;
+        padding: 8px;
+        margin: 0 auto;
+        background: $light-colour;
+        border-radius: 12px 12px 0 0;
+    }
 }
 
-.skills-interests__item {
-    display: inline-block;
-    padding: 5px;
-    border: 1px solid get-colour(black, main);
+.skills.skills {
+    margin: 0;
+    padding-left: 0;
+    background: $light-colour;
     border-radius: 5px;
-    background-color: get-colour(black, main);
-    color: get-colour(black, text, #ffffff);
+    text-align: left;
+    list-style: none;
+}
+
+.skills__item {
+    padding: 5px 10px;
     cursor: auto;
+    font-weight: 400;
     transition: all 0.4s ease-in-out;
 }
-.skills-interests__item.skills-interests__item {
-    margin: 2px;
+.skills__item.skills__item {
+    margin: 0;
 }
 
-.skills-interests__item p {
+.skills__item p {
     display: inline-block;
     margin: 0;
 }
 
-.skills-interests__item--expandable {
+.skills__item--expandable {
     cursor: pointer;
 }
-.skills-interests__item--expandable:hover {
-    background-color: get-colour(black, hover);
-    border-color: get-colour(black, hover);
+.skills__item--expandable:hover {
+    background-color: get-colour(dark-blue, hover);
+    border-color: get-colour(dark-blue, hover);
+    color: get-colour(dark-blue, text, #ffffff);
 }
 
-@each $colour, $colours in $colour-schemes {
-    .skills-interests__item--#{$colour} {
-        background-color: map-get($colours, main);
-        border-color: map-get($colours, main);
-        color: get-colour-variant($colours, text, #ffffff);
-    }
-
-    .skills-interests__item--#{$colour}.skills-interests__item--expandable:hover {
-        background-color: map-get($colours, hover);
-        border-color: map-get($colours, hover);
-    }
-}
-
-.skills-interests__toggle {
+.skills__toggle {
     vertical-align: middle;
 }
 
-.skills-interests__description {
+.skills__description {
     display: none;
-    font-weight: 400;
 }
 
-/* For Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .map {
         height: 250px;
+    }
+}
+
+@media only screen and (min-width: $desktop-width) {
+    .about-row--skills {
+       .container {
+           align-items: flex-start;
+       }
+
+        .row__column {
+            margin: 0;
+        }
     }
 }

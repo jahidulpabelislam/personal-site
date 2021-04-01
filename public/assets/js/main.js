@@ -2040,7 +2040,7 @@ window.jpi = window.jpi || {};
         nav: null,
         mainContentElem: null,
         map: null,
-        skillsInterests: null,
+        skills: null,
         expandableContents: null,
         expandableIcons: null,
     };
@@ -2142,12 +2142,12 @@ window.jpi = window.jpi || {};
             }, 1000);
         },
 
-        toggleSkillInterestContent: function(e) {
+        toggleSkillContent: function(e) {
             var item = jQuery(e.target);
 
             // Get the new item elems that was clicked
-            var selected = item.find(".skills-interests__description");
-            var selectedIcon = item.find(".skills-interests__toggle");
+            var selected = item.find(".skills__description");
+            var selectedIcon = item.find(".skills__toggle");
 
             // Reset all other item to closed
             global.expandableContents.not(selected).slideUp();
@@ -2162,7 +2162,7 @@ window.jpi = window.jpi || {};
         initListeners: function() {
             jQuery(".js-scroll-to-content").on("click", fn.scrollToContent);
 
-            global.skillsInterests.on("click", fn.toggleSkillInterestContent);
+            global.skills.on("click", fn.toggleSkillContent);
 
             global.map = jQuery(".js-bognor-regis-map");
             if (global.map.length) {
@@ -2175,10 +2175,10 @@ window.jpi = window.jpi || {};
             global.nav = jQuery(".nav");
             global.mainContentElem = jQuery(".main-content");
 
-            global.skillsInterests = jQuery(".skills-interests__item--expandable");
-            if (global.skillsInterests.length) {
-                global.expandableContents = jQuery(".skills-interests__description");
-                global.expandableIcons = jQuery(".skills-interests__toggle");
+            global.skills = jQuery(".skills__item--expandable");
+            if (global.skills.length) {
+                global.expandableContents = jQuery(".skills__description");
+                global.expandableIcons = jQuery(".skills__toggle");
             }
 
             fn.initListeners();
