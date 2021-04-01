@@ -13,7 +13,7 @@ $pageData = [
     "headTitle" => "About",
     "headDescription" => $headDescription,
     "headerTitle" => "About Me",
-    "headerDescription" => "Find Out About Me",
+    "headerDescription" => "Get To Know Me",
 ];
 $page->addPageData($pageData);
 
@@ -60,14 +60,8 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 }
 ?>
 
-<div class="row row--halves about-row">
+<div class="row row--thirds about-row">
     <div class="container">
-        <div class="row__column">
-            <div class="images-of-me">
-                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of <?php echo $name; ?> as a Child" />
-                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
-            </div>
-        </div>
         <div class="row__column">
             <p>My name is <?php echo $name; ?>.</p>
 
@@ -78,16 +72,22 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
             ?>
 
             <p>I'm <?php echo $age; ?> years old.</p>
+        </div>
+        <div class="row__column">
+            <div class="images-of-me">
+                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of <?php echo $name; ?> as a Child" />
+                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
+            </div>
+        </div>
+        <div class="row__column">
             <p>A <?php echo $site::JOB;?>.</p>
+            <p>I am Bilingual, I can speak English &amp; Bengali.</p>
         </div>
     </div>
 </div>
 
-<div class="row row--halves row--alt about-row">
+<div class="row row--alt about-row">
     <div class="container">
-        <div class="row__column">
-            <p>I am Bilingual, I can speak English &amp; Bengali.</p>
-        </div>
         <div class="row__column">
             <p>
                 Based in <a class="link link--dark-blue" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
