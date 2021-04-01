@@ -87,7 +87,7 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<section class="row row--grey projects">
+<section class="row row--alt projects">
     <div class="container">
         <p>Here you can find pieces of work I have completed throughout my years as a developer.</p>
 

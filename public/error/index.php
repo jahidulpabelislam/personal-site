@@ -58,7 +58,7 @@ $rightSideCopies = [
 $rightSideCopy = $rightSideCopies[$error];
 ?>
 
-<div class="row row--halves row--grey">
+<div class="row row--halves row--alt">
     <div class="container">
         <div class="row__column">
             <?php echo $leftSideCopy; ?>

@@ -83,7 +83,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--halves row--grey about-row">
+<div class="row row--halves row--alt about-row">
     <div class="container">
         <div class="row__column">
             <p>I am Bilingual, I can speak English &amp; Bengali.</p>
@@ -98,7 +98,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<div class="row row--full-width">
+<div class="row row--flush">
     <div class="map js-bognor-regis-map"></div>
 </div>
 
@@ -176,7 +176,7 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
     </div>
 </div>
 
-<section class="row row--grey">
+<section class="row row--alt">
     <h3 class="row__heading">What I've Been Up To</h3>
     <div class="timeline">
         <div class="timeline__inner">

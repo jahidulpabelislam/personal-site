@@ -31,7 +31,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 ?>
 
 <section>
-    <div class="row row--grey home-hello">
+    <div class="row row--alt home-hello">
         <div class="container">
             <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
             <div class="home-hello__images">
@@ -103,7 +103,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="latest-projects row row--halves row--grey">
+<section class="latest-projects row row--halves row--alt">
     <div class="container">
         <div class="row__column">
             <h3 class="row__heading">Latest Projects</h3>

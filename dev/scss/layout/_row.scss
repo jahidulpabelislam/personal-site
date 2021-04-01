@@ -4,7 +4,12 @@
     //box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
-.row--full-width {
+.row--alt {
+    background-color: $light-colour;
+    color: $dark-colour;
+}
+
+.row--flush {
     padding: 0;
 }
 
@@ -13,11 +18,6 @@
         background-color: map-get($colours, main);
         color: get-colour-variant($colours, text, #ffffff);
     }
-}
-
-.row--grey {
-    background-color: $light-colour;
-    color: $dark-colour;
 }
 
 .row__heading {
@@ -51,7 +51,7 @@
     .row {
         padding: 30px 0;
     }
-    .row--full-width {
+    .row--flush {
         padding: 0;
     }
 

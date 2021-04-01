@@ -23,7 +23,7 @@ $page->renderHeader();
 $page->renderContentStart();
 ?>
 
-<div class="row row--grey">
+<div class="row row--alt">
     <div class="container">
         <ul class="site-map">
             <?php

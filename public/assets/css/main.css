@@ -29,7 +29,11 @@
   padding: 15px 0;
   background-color: #ffffff; }
 
-.row--full-width {
+.row--alt, .contact-me {
+  background-color: #f5f5f5;
+  color: #333333; }
+
+.row--flush {
   padding: 0; }
 
 .row--light-blue {
@@ -72,17 +76,13 @@
   background-color: #1aad5b;
   color: #ffffff; }
 
-.row--grey, .contact-me {
+.row--grey {
   background-color: #7b8676;
   color: #ffffff; }
 
 .row--black {
   background-color: #333333;
   color: #ffffff; }
-
-.row--grey, .contact-me {
-  background-color: #f5f5f5;
-  color: #333333; }
 
 .row__heading, .connect__heading {
   width: 100%;
@@ -112,7 +112,7 @@
   .row, .contact-me,
   .connect {
     padding: 30px 0; }
-  .row--full-width {
+  .row--flush {
     padding: 0; }
   .row__heading, .connect__heading {
     margin: 24px 0;
