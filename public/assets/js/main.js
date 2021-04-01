@@ -1908,7 +1908,7 @@ window.jpi = window.jpi || {};
     "use strict";
 
     var global = {
-        window: null,
+        window: jQuery(window),
         nav: null,
         header: null,
         menuButton: null,
@@ -1924,7 +1924,7 @@ window.jpi = window.jpi || {};
 
         reset: function() {
             if (window.innerWidth >= jpi.css.tabletWidth) {
-                global.linksContainers.show();
+                global.linksContainers.css("display", "");
             }
 
             // Set the correct class on nav depending on current scroll position
@@ -1958,8 +1958,6 @@ window.jpi = window.jpi || {};
         },
 
         init: function() {
-            global.window = jQuery(window);
-
             global.nav = jQuery(".nav");
             global.menuButton = jQuery(".nav__mobile-toggle");
             global.linksContainers = jQuery(".nav__links-container");
@@ -1970,7 +1968,7 @@ window.jpi = window.jpi || {};
         },
     };
 
-    jQuery(fn.init);
+    global.window.on("jpi-css-loaded", fn.init);
 
 })(jQuery, jpi);
 
