@@ -177,9 +177,9 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
 </div>
 
 <section class="row row--grey">
-    <div class="container">
-        <h3 class="row__heading">What I've Been Up To</h3>
-        <div class="timeline">
+    <h3 class="row__heading">What I've Been Up To</h3>
+    <div class="timeline">
+        <div class="timeline__inner">
             <?php
             $timelineItems = [
                 [
@@ -263,12 +263,12 @@ function renderSkillsOrInterests(string $heading, array $items, string $colour) 
                 $activeClass = $isActive ? "timeline__item--present" : "";
 
                 $iconName = $timelineItem["icon"];
-                $iconClass = !empty($iconName) ? "timeline__content--{$iconName}" : "";
+                $iconClass = !empty($iconName) ? "timeline__item--{$iconName}" : "";
 
                 echo <<<HTML
-                    <div class="timeline__item {$activeClass}">
+                    <div class="timeline__item $iconClass $activeClass">
                         <p class="timeline__date">{$timelineItem["date"]}</p>
-                        <div class="timeline__content {$iconClass}">
+                        <div class="timeline__content">
                             <p>{$timelineItem["text"]}</p>
                         </div>
                     </div>

@@ -10,6 +10,7 @@
 //=include ./jpi/projects.js
 //=include ./jpi/home.js
 //=include ./jpi/contact-form.js
+//=include ./jpi/about-us.js
 //=include ./jpi/nav.js
 //=include ./jpi/cookie-banner.js
 //=include ./jpi/main.js
