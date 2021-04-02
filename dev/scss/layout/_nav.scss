@@ -17,12 +17,9 @@
 
 .nav__header {
     height: 46px;
-}
-
-.nav__logo-container {
-    display: inline-block;
-    height: 46px;
-    padding: 4px 0;
+    padding: 0 15px;
+    text-align: left;
+    position: relative;
 }
 
 .nav__logo {
@@ -53,8 +50,8 @@
 .nav__mobile-toggle {
     position: absolute;
     top: 0;
-    right: 16px;
-    margin: 6px 10px 6px 0;
+    right: 15px;
+    margin: 6px 0;
     padding: 7px;
     border: solid transparent 2px;
     border-radius: 50%;
@@ -125,11 +122,15 @@
     padding: 12px;
     color: #ffffff;
     text-align: center;
+
+    .nav--scrolled &,
+    .nav--open & {
+        color: $dark-colour;
+    }
 }
 
-.nav--scrolled .nav__link,
-.nav--open .nav__link {
-    color: $dark-colour;
+.nav__link--active.nav__link--active.nav__link--active {
+    color: $primary-colour;
 }
 
 .nav__link:hover,
@@ -141,6 +142,10 @@
 @media only screen and (min-width: $tablet-width) {
     .nav {
         margin: 0;
+    }
+
+    .nav__header {
+        padding: 0;
     }
 
     .nav__container {
@@ -167,8 +172,8 @@
 
     .nav__link {
         position: relative;
-        margin: 8px 0;
-        padding: 5px 12px;
+        margin: 8px 0 8px 24px;
+        padding: 5px 0;
 
         &::after {
             content: "\00a0";
@@ -195,9 +200,5 @@
             width: 32px;
             background: $primary-colour;
         }
-    }
-
-    .nav__link--active.nav__link--active.nav__link--active {
-        color: $primary-colour;
     }
 }
