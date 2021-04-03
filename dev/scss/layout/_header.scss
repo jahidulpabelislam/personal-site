@@ -34,25 +34,32 @@
 
 .header__title {
     text-shadow: 2px 2px 3px #000000;
-    font-size: 50px;
+    font-size: 42px;
     font-weight: bold;
-    line-height: 52px;
+    line-height: 48px;
+    margin-bottom: 26px;
 }
 
 .header__line-breaker {
-    margin: 30px auto 38px;
+    margin: 0 auto;
     max-width: 50%;
 }
 
 .header__description {
     text-shadow: 2px 2px 3px #000000;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
-    line-height: 28px;
+    line-height: 26px;
+    margin-top: 26px;
 }
 
 .header__links {
-    margin: 36px 0 0;
+    margin: 18px 0 0;
+
+    .social-link {
+        display: inline-block;
+        margin: 8px;
+    }
 }
 
 .header__scroll-to-content {
@@ -80,6 +87,22 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
+    .header__title {
+        font-size: 50px;
+        line-height: 52px;
+        margin-bottom: 32px;
+    }
+
+    .header__description {
+        font-size: 26px;
+        line-height: 28px;
+        margin-top: 32px;
+    }
+
+    .header__links {
+        margin: 24px 0 0;
+    }
+
     .header__scroll-to-content {
         margin-left: -20px;
     }

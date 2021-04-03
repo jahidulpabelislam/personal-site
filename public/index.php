@@ -17,6 +17,7 @@ $pageData = [
 ];
 $page->addPageData($pageData);
 
+$page->hideHeaderHr = true;
 $page->showSocialLinksHeader = true;
 
 $page->renderHtmlStart();

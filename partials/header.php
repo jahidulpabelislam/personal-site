@@ -12,7 +12,12 @@ $showSocialLinksHeader = $page->showSocialLinksHeader ?? false;
     <div class="header__overlay">
         <div class="container">
             <h1 class="header__title"><?php echo $title; ?></h1>
-            <hr class="header__line-breaker" />
+            <?php if (!$page->hideHeaderHr) {
+                ?>
+                <hr class="header__line-breaker" />
+                <?php
+            }
+            ?>
             <h2 class="header__description"><?php echo $description; ?></h2>
             <?php
             if ($showSocialLinksHeader) {
