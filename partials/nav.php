@@ -77,7 +77,7 @@ $site = Site::get();
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jahidulpabelislam.dev/" target="_blank" rel="noopener noreferrer">
+                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <span class="social-link__image"><i></i></span>
                             </a>
                         </li>

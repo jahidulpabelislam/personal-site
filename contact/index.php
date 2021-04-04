@@ -107,9 +107,9 @@ $page->renderHeader();
                             <h4 class="row__heading">See what I get up to</h4>
                         </div>
                         <div class="row__column">
-                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jahidulpabelislam.dev/" target="_blank" rel="noopener noreferrer">
+                            <a class="social-link social-link--instagram" href="https://www.instagram.com/jahidulpabelislam/" target="_blank" rel="noopener noreferrer">
                                 <span class="social-link__image"><i></i></span>
-                                <p class="social-link__text">@jahidulpabelislam.dev</p>
+                                <p class="social-link__text">@jahidulpabelislam</p>
                             </a>
                         </div>
                     </div>
