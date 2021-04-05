@@ -89,7 +89,7 @@ $page->renderContentStart();
             </a>
         </div>
         <div class="connect__column">
-            <h2 class="connect__heading">Connect with me</h2>
+            <h2 class="connect__heading">Connect With Me</h2>
         </div>
     </div>
 </section>
