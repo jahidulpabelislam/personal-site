@@ -19,7 +19,6 @@ use JPI\Site as BaseSite;
 class Site extends BaseSite {
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
-    public const JPI_START_DATE = "2010-10-04";
 
     private $isDebug;
 
@@ -28,9 +27,6 @@ class Site extends BaseSite {
 
     private $localDomain;
     private $localURL;
-
-    private $dateStarted;
-    private $yearStarted;
 
     /**
      * @return bool Whether or not the debug was set by user on page view
@@ -143,23 +139,6 @@ class Site extends BaseSite {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
         $imageURL = "$root$filepath";
         return static::asset($imageURL);
-    }
-
-    public function getDateStarted(): DateTime {
-        if (!$this->dateStarted) {
-            $this->dateStarted = new DateTime(self::JPI_START_DATE);
-        }
-
-        return $this->dateStarted;
-    }
-
-    public function getYearStarted(): string {
-        if (!$this->yearStarted) {
-            $dateStartedDate = $this->getDateStarted();
-            $this->yearStarted = $dateStartedDate->format("Y");
-        }
-
-        return $this->yearStarted;
     }
 
     public function processFormSubmission() {
