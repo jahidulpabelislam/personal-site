@@ -50,6 +50,7 @@
         padding: 8px;
         margin: 0 auto;
         background: $light-colour;
+        color: $dark-colour;
         border-radius: 12px 12px 0 0;
     }
 }
@@ -58,6 +59,7 @@
     margin: 0;
     padding-left: 0;
     background: $light-colour;
+    color: $dark-colour;
     border-radius: 5px;
     text-align: left;
     list-style: none;
@@ -84,7 +86,6 @@
 .skills__item--expandable:hover {
     background-color: get-colour(dark-blue, hover);
     border-color: get-colour(dark-blue, hover);
-    color: get-colour(dark-blue, text, #ffffff);
 }
 
 .skills__toggle {

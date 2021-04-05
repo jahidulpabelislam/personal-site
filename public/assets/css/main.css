@@ -1529,12 +1529,14 @@ a.button {
   padding: 8px;
   margin: 0 auto;
   background: #f5f5f5;
+  color: #333333;
   border-radius: 12px 12px 0 0; }
 
 .skills.skills {
   margin: 0;
   padding-left: 0;
   background: #f5f5f5;
+  color: #333333;
   border-radius: 5px;
   text-align: left;
   list-style: none; }
@@ -1557,8 +1559,7 @@ a.button {
 
 .skills__item--expandable:hover {
   background-color: #0081D6;
-  border-color: #0081D6;
-  color: #ffffff; }
+  border-color: #0081D6; }
 
 .skills__toggle {
   vertical-align: middle; }

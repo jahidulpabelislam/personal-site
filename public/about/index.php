@@ -66,7 +66,7 @@ $page->renderContentStart();
     <div class="map js-bognor-regis-map"></div>
 </div>
 
-<div class="row row--thirds about-row about-row--skills">
+<div class="row row--thirds row--dark-blue about-row about-row--skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
