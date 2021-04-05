@@ -1,47 +1,41 @@
 <?php
 
-function removeTrailingSlash(string $url): string {
-    $url = rtrim($url, "/");
-
-    return $url;
-}
-
-function removeLeadingSlash(string $url): string {
-    $url = ltrim($url, "/");
-
-    return $url;
-}
-
-function removeSlashes(string $url): string {
-    $url = trim($url, "/");
-
-    return $url;
-}
-
 function getConfigPath(string $level = null): string {
     if ($level && !in_array($level, ["global", "site", "production"])) {
-        return ROOT . "/src/config.{$level}.php";
+        return ROOT . "/src/config.$level.php";
     }
 
     return ROOT . "/src/config.php";
 }
 
-function addTrailingSlash(string $url): string {
-    $url = removeTrailingSlash($url);
+function removeTrailingSlash(string $value): string {
+    return rtrim($value, "/");
+}
+
+function removeLeadingSlash(string $value): string {
+    return ltrim($value, "/");
+}
+
+function removeSlashes(string $value): string {
+    return trim($value, "/");
+}
+
+function addTrailingSlash(string $value): string {
+    $value = removeTrailingSlash($value);
 
     // If the last bit includes a full stop, assume its a file...
     // so don't add trailing slash
-    $withoutProtocol = str_replace(["https://", "http://"], "", $url);
+    $withoutProtocol = str_replace(["https://", "http://"], "", $value);
     $splitPaths = explode("/", $withoutProtocol);
     $count = count($splitPaths);
-    if ($count > 1 && !is_dir($url)) {
+    if ($count > 1 && !is_dir($value)) {
         $lastPath = $splitPaths[$count - 1] ?? null;
         if ($lastPath && strpos($lastPath, ".")) {
-            return $url;
+            return $value;
         }
     }
 
-    return "{$url}/";
+    return "$value/";
 }
 
 function partsToUrl(array $parts): string {
@@ -78,26 +72,22 @@ function turnPathToURL(string $path): string {
 
     $url = str_replace("\\", "/", $path);
 
-    $url = formatURL("", $url);
-
-    return $url;
+    return formatURL("", $url);
 }
 
-function addParamToURL($url, $param, $value) {
+function addParamToURL($url, $param, $value): string {
     $query = parse_url($url, PHP_URL_QUERY);
     if (empty($query)) {
-        return "{$url}?{$param}={$value}";
+        return "$url?$param=$value";
     }
 
-    return "{$url}&{$param}={$value}";
+    return "$url&$param=$value";
 }
 
 function getDomain(): string {
     $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
-    $domain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-    $domain = addTrailingSlash($domain);
-
-    return $domain;
+    $domain = "$protocol://" . $_SERVER["SERVER_NAME"];
+    return addTrailingSlash($domain);
 }
 
 /**
@@ -105,18 +95,14 @@ function getDomain(): string {
  */
 function getRequestedURL(): string {
     $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-    $relativeURL = formatURL("", $relativeURL);
-
-    return $relativeURL;
+    return formatURL("", $relativeURL);
 }
 
 /**
  * @return bool Whether or not the debug was set by user on page view
  */
 function getIsDebug(): bool {
-    $isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
-
-    return $isDebug;
+    return isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
 }
 
 /**

@@ -71,9 +71,7 @@ class Site extends BaseSite {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
         }
 
-        $fullURL = getURL($domain, $relativeURL, $addDebug);
-
-        return $fullURL;
+        return getURL($domain, $relativeURL, $addDebug);
     }
 
     /**
@@ -81,9 +79,7 @@ class Site extends BaseSite {
      */
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
         $relativeURL = getRequestedURL();
-        $relativeURL = $this->getFullURL($relativeURL, false, $isFull, $isLive);
-
-        return $relativeURL;
+        return $this->getFullURL($relativeURL, false, $isFull, $isLive);
     }
 
     /**
@@ -118,24 +114,8 @@ class Site extends BaseSite {
      * @param $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
-        $url = $this->getFullURL($relativeURL, $addDebug, $isFull, $isLive);
-
-        return $url;
-    }
-
-    /**
-     * Generates and echos a url
-     * Uses getURL to generate the url, then echoes what is returned
-     * Depending on param values, return url can be a relative, full live or a full local url.
-     *
-     * @param $url string The relative url part/s to use to generate url from
-     * @param $addDebug bool Whether the url should include the debug flag if currently added
-     * @param $isFull bool Whether the url should be a full url
-     * @param $isLive bool Whether the url should be a full live url
-     */
-    public function echoURL(string $url = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
-        echo $this->getURL($url, $addDebug, $isFull, $isLive);
+    public function getURL(string $relativeURL = "/", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
+        return $this->getFullURL($relativeURL, $addDebug, $isFull, $isLive);
     }
 
     /**
@@ -155,30 +135,14 @@ class Site extends BaseSite {
     }
 
     /**
-     * Generate and echo the API endpoint
-     */
-    public static function echoAPIEndpoint(string $entity = "") {
-        echo self::getAPIEndpoint($entity);
-    }
-
-    /**
      * Generate a full url to a image file
      *
      * @param $filepath string The relative url of image
      */
     public static function getProjectImageURL(string $filepath = "") {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
-        $imageURL = "{$root}{$filepath}";
+        $imageURL = "$root$filepath";
         return static::asset($imageURL);
-    }
-
-    /**
-     * Echo a full url to a image file
-     *
-     * @param $filepath string The relative url of image
-     */
-    public static function echoProjectImageURL(string $filepath = "") {
-        echo self::getProjectImageURL($filepath);
     }
 
     public function getDateStarted(): DateTime {
@@ -239,7 +203,7 @@ class Site extends BaseSite {
             }
 
             // Creates the headers for sending email
-            $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:{$emailAddress}";
+            $headers = "From: contact@jahidulpabelislam.com\r\nReply-To:$emailAddress";
 
             // The address to send mail to
             $to = "contact@jahidulpabelislam.com";
@@ -258,7 +222,7 @@ class Site extends BaseSite {
 
         $meta["data"] = $data;
 
-        header("HTTP/1.1 {$status} {$message}");
+        header("HTTP/1.1 $status $message");
 
         // Send the response, by json
         header("Content-Type: application/json");
@@ -266,5 +230,3 @@ class Site extends BaseSite {
     }
 
 }
-
-Site::get();

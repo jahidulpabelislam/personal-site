@@ -231,13 +231,13 @@ $page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPI
 $similarLinks = [
     [
         "title" => "Contact",
-        "url" => "contact",
+        "url" => "/contact/",
         "text" => "Get in Touch",
         "colour" => "dark-blue",
     ],
     [
         "title" => "About",
-        "url" => "about",
+        "url" => "/about/",
         "text" => "Learn About Me",
         "colour" => "dark-blue",
     ],

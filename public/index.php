@@ -46,9 +46,9 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="row">
         <div class="container">
             <p>
-                Here you will be able to look at all the <a class="link" href="<?php $site->echoURL("projects"); ?>">work</a>
-                 I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="<?php $site->echoURL("about"); ?>">learn about me</a> also
-                <a class="link" href="<?php $site->echoURL("contact"); ?>">contact me</a> for any enquiries or to just provide feedback.
+                Here you will be able to look at all the <a class="link" href="<?php echo $site->getURL("/projects/"); ?>">work</a>
+                 I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="<?php echo $site->getURL("/about/"); ?>">learn about me</a> also
+                <a class="link" href="<?php echo $site->getURL("/contact/"); ?>">contact me</a> for any enquiries or to just provide feedback.
             </p>
             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies, libraries & plugins and ideas here while also improving my skill set and expanding my knowledge then can bring them to projects at work.</p>
         </div>
@@ -111,7 +111,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <p>
                 These are the latest personal projects I have worked on.
             </p>
-            <a class="latest-projects__view button" href="<?php $site->echoURL("projects"); ?>">
+            <a class="latest-projects__view button" href="<?php echo $site->getURL("/projects/"); ?>">
                 View More Work
             </a>
         </div>

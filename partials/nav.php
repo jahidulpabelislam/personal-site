@@ -15,7 +15,7 @@ $currentURL = $page->currentURL;
                 <span class="nav__menu-bar"></span>
                 <span class="nav__menu-bar"></span>
             </button>
-            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php $site->echoURL(); ?>">
+            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->getURL(); ?>">
                 <img src="<?php echo $site::asset("/assets/images/logo-v2.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
             </a>
         </div>

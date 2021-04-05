@@ -266,13 +266,13 @@ $page->addScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_o
 $similarLinks = [
     [
         "title" => "Projects",
-        "url" => "projects",
+        "url" => "/projects/",
         "text" => "View My Work",
         "colour" => "dark-blue",
     ],
     [
         "title" => "Contact",
-        "url" => "contact",
+        "url" => "/contact/",
         "text" => "Get in Touch",
         "colour" => "dark-blue",
     ],

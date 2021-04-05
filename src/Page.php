@@ -80,22 +80,14 @@ class Page {
      * @return string
      */
     private function getDeferredPageStylesheet(string $pageId): string {
-        $cssDir = "/assets/css";
         $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
 
-        // Some pages (like `Links`) may use its own css file
-        // so figure out if one exists to use, else use the main one
-        $cssSrc = "{$cssDir}/{$pageId}.{$cssExtension}";
-        if (!(new File($cssSrc))->exists()) {
-            $cssSrc = "{$cssDir}/main.{$cssExtension}";
-        }
-
-        return Site::asset($cssSrc);
+        return Site::asset("/assets/css/main.$cssExtension");
     }
 
     public function getDeferredStylesheetsForPage(string $pageId): array {
         $stylesheets = [
-            $this->getDeferredPageStylesheet($pageId)
+            $this->getDeferredPageStylesheet($pageId),
         ];
 
         // Only some pages use Font Awesome, so only add if it uses it
@@ -110,17 +102,9 @@ class Page {
     }
 
     private function getScriptsForPage(string $pageId): array {
-        $directory = "/assets/js";
         $extension = $this->site->getIsDebug() ? "js" : "min.js";
 
-        // Some pages (like `Links`) may use its own JS file
-        // so figure out if one exists to use, else use the main one
-        $path = "{$directory}/{$pageId}.{$extension}";
-        if (!(new File($path))->exists()) {
-            $path = "{$directory}/main.{$extension}";
-        }
-
-        return [["src" => $path]];
+        return [["src" => "/assets/js/main.$extension"]];
     }
 
     private function getGlobalPageData(): array {

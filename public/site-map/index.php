@@ -29,16 +29,16 @@ $page->renderContentStart();
             <?php
             $pages = [
                 "Home" => "/",
-                "Projects" => "/projects",
-                "Contact" => "/contact",
-                "About" => "/about",
-                "Privacy Policy" => "/privacy-policy",
+                "Projects" => "/projects/",
+                "Contact" => "/contact/",
+                "About" => "/about/",
+                "Privacy Policy" => "/privacy-policy/",
             ];
 
             foreach ($pages as $title => $url) {
                 ?>
                 <li>
-                    <a class="link" href="<?php $site->echoURL($url); ?>"><?php echo $title; ?></a>
+                    <a class="link" href="<?php echo $site->getURL($url); ?>"><?php echo $title; ?></a>
                 </li>
                 <?php
             }
@@ -51,13 +51,13 @@ $page->renderContentStart();
 $similarLinks = [
     [
         "title" => "Projects",
-        "url" => "projects",
+        "url" => "/projects/",
         "text" => "View My Work",
         "colour" => "dark-blue",
     ],
     [
         "title" => "Contact",
-        "url" => "contact",
+        "url" => "/contact/",
         "text" => "Get in Touch",
         "colour" => "dark-blue",
     ],

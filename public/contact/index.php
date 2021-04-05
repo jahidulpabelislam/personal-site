@@ -98,13 +98,13 @@ $page->renderContentStart();
 $similarLinks = [
     [
         "title" => "Projects",
-        "url" => "projects",
+        "url" => "/projects/",
         "text" => "View My Work",
         "colour" => "white",
     ],
     [
         "title" => "About",
-        "url" => "about",
+        "url" => "/about/",
         "text" => "Learn About Me",
         "colour" => "white",
     ],
