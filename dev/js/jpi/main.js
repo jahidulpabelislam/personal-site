@@ -69,7 +69,7 @@
                 var countToOptions = {
                     formatter: fn.counterFormatter,
                 };
-                var waypointArgs = {offset: "50%"};
+                var waypointArgs = {offset: "95%"};
                 groups.each(function(i, groupElem) {
                     jQuery(groupElem).waypoint(function() {
                         var group = jQuery(this.element);
