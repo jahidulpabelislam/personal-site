@@ -23,8 +23,6 @@ $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader();
 $page->renderContentStart();
-
-$nowDateTime = new DateTime();
 ?>
 
 <div class="row row--thirds about-row">
@@ -34,8 +32,7 @@ $nowDateTime = new DateTime();
 
             <?php
             // Work out my age by the time difference from DOB to today
-            $dob = "1996-02-22";
-            $age = getTimeDifference($dob, $nowDateTime, "%r%y");
+            $age = getTimeDifference($site::DATE_OF_BIRTH, new DateTime(), "%r%y");
             ?>
 
             <p>I'm <?php echo $age; ?> years old.</p>
