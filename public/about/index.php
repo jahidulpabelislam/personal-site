@@ -156,102 +156,104 @@ $page->renderContentStart();
 <section class="row row--alt">
     <h3 class="row__heading">What I've Been Up To</h3>
     <div class="timeline">
-        <div class="timeline__inner">
-            <?php
-            $timelineItems = [
-                [
-                    "date" => "1996",
-                    "icon" => "baby",
-                    "text" => "Born",
-                ],
-                [
-                    "date" => "1996 - 2007",
-                    "icon" => "childhood",
-                    "text" => "Life before getting introduced to technology",
-                ],
-                [
-                    "date" => "2005 - 2009",
-                    "icon" => "football",
-                    "text" => "Playing competitive football with
-                        <a class='link link--dark-blue' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
-                            Felpham Colts
-                        </a>",
-                ],
-                [
-                    "date" => $site->getYearStarted(),
-                    "icon" => "coding",
-                    "text" => "Got introduced to coding",
-                ],
-                [
-                    "date" => "2012 - 2014",
-                    "icon" => "school",
-                    "text" => "IT Student @
-                        <a class='link link--dark-blue' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
-                            Chichester College
-                        </a>",
-                ],
-                [
-                    "date" => "2014",
-                    "icon" => "food",
-                    "text" => "Working Part Time @
-                        <a class='link link--dark-blue' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
-                            KFC
-                        </a>
-                         as a Team Member",
-                ],
-                [
-                    "date" => "2014 - 2017",
-                    "icon" => "film",
-                    "text" => "Working Part Time @
-                        <a class='link link--dark-blue' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
-                            CeX
-                        </a>
-                         as a Sales Assistant",
-                ],
-                [
-                    "date" => "2014 - 2017",
-                    "icon" => "school",
-                    "text" => "Web Technologies Student @
-                        <a class='link link--dark-blue' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
-                            University of Portsmouth
-                        </a>",
-                ],
-                [
-                    "date" => "2017 - 2019",
-                    "icon" => "work",
-                    "text" => "Software Developer @
-                        <a class='link link--dark-blue' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
-                            BrightMinded
-                        </a>",
-                ],
-                [
-                    "date" => "2019 - Present",
-                    "icon" => "work",
-                    "text" => "Web Developer @
-                        <a class='link link--dark-blue' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
-                            D3R
-                        </a>",
-                    "isActive" => true,
-                ],
-            ];
+        <div class="timeline__viewport">
+            <div class="timeline__items">
+                <?php
+                $timelineItems = [
+                    [
+                        "date" => "1996",
+                        "icon" => "baby",
+                        "text" => "Born",
+                    ],
+                    [
+                        "date" => "1996 - 2007",
+                        "icon" => "childhood",
+                        "text" => "Life before getting introduced to technology",
+                    ],
+                    [
+                        "date" => "2005 - 2009",
+                        "icon" => "football",
+                        "text" => "Playing competitive football with
+                            <a class='link link--dark-blue' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
+                                Felpham Colts
+                            </a>",
+                    ],
+                    [
+                        "date" => $site->getYearStarted(),
+                        "icon" => "coding",
+                        "text" => "Got introduced to coding",
+                    ],
+                    [
+                        "date" => "2012 - 2014",
+                        "icon" => "school",
+                        "text" => "IT Student @
+                            <a class='link link--dark-blue' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
+                                Chichester College
+                            </a>",
+                    ],
+                    [
+                        "date" => "2014",
+                        "icon" => "food",
+                        "text" => "Working Part Time @
+                            <a class='link link--dark-blue' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
+                                KFC
+                            </a>
+                             as a Team Member",
+                    ],
+                    [
+                        "date" => "2014 - 2017",
+                        "icon" => "film",
+                        "text" => "Working Part Time @
+                            <a class='link link--dark-blue' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
+                                CeX
+                            </a>
+                             as a Sales Assistant",
+                    ],
+                    [
+                        "date" => "2014 - 2017",
+                        "icon" => "school",
+                        "text" => "Web Technologies Student @
+                            <a class='link link--dark-blue' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                                University of Portsmouth
+                            </a>",
+                    ],
+                    [
+                        "date" => "2017 - 2019",
+                        "icon" => "work",
+                        "text" => "Software Developer @
+                            <a class='link link--dark-blue' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                                BrightMinded
+                            </a>",
+                    ],
+                    [
+                        "date" => "2019 - Present",
+                        "icon" => "work",
+                        "text" => "Web Developer @
+                            <a class='link link--dark-blue' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                                D3R
+                            </a>",
+                        "isActive" => true,
+                    ],
+                ];
 
-            foreach ($timelineItems as $timelineItem) {
-                $isActive = $timelineItem["isActive"] ?? false;
-                $activeClass = $isActive ? "timeline__item--present" : "";
+                foreach ($timelineItems as $timelineItem) {
+                    $isActive = $timelineItem["isActive"] ?? false;
+                    $activeClass = $isActive ? "timeline__item--present" : "";
 
-                $iconName = $timelineItem["icon"];
-                $iconClass = !empty($iconName) ? "timeline__item--{$iconName}" : "";
+                    $iconName = $timelineItem["icon"];
+                    $iconClass = !empty($iconName) ? "timeline__item--{$iconName}" : "";
 
-                echo <<<HTML
-                    <div class="timeline__item $iconClass $activeClass">
-                        <p class="timeline__date">{$timelineItem["date"]}</p>
-                        <div class="timeline__content">
-                            <p>{$timelineItem["text"]}</p>
+                    echo <<<HTML
+                        <div class="timeline__item $iconClass $activeClass">
+                            <p class="timeline__date">{$timelineItem["date"]}</p>
+                            <div class="timeline__content">
+                                <p>{$timelineItem["text"]}</p>
+                            </div>
                         </div>
-                    </div>
-                    HTML;
-            }
-            ?>
+                        HTML;
+                }
+                ?>
+            </div>
         </div>
     </div>
 </section>

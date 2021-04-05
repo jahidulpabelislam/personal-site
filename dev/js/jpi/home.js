@@ -96,7 +96,9 @@ window.jpi = window.jpi || {};
             );
 
             if (wasSuccessfullyRendered) {
-                jpi.slideShow.start("#latest-projects");
+                new jpi.SlideShow({
+                    selector: "#latest-projects",
+                });
             }
         },
 

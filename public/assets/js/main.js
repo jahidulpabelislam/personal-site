@@ -289,137 +289,142 @@ window.jpi = window.jpi || {};
  * Holds all functions needed for a project slide show
  */
 window.jpi = window.jpi || {};
-window.jpi.slideShow = (function(jQuery, jpi) {
+(function(jQuery, jpi) {
 
     "use strict";
 
-    var global = {
-        slideShows: {},
-        durationPerSlide: 5000, // Milliseconds
+    var getXPosition = function(e) {
+        return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
     };
 
-    var fn = {
+    var removeSelector = function(selector) {
+        return selector.substring(1);
+    }
 
-        // Loops through all slide shows
-        loopThroughAll: function(afterLoopedFunc) {
-            var slideShows = jQuery(".js-slide-show");
-            slideShows.each(function(i, slideShow) {
-                afterLoopedFunc("#" + slideShow.id);
-            });
-        },
+    window.jpi.SlideShow = function(options) {
+
+        var defaults = {
+            selector: ".slide-show",
+            viewportSelector: ".slide-show__viewport",
+            slidesContainerSelector: ".slide-show__slides",
+            slideSelector: ".slide-show__slide",
+            bulletsSelector: ".slide-show__bullets",
+            bulletSelector: ".slide-show__bullet",
+            navSelector: ".slide-show__nav",
+
+            slidesPerView: 1,
+
+            durationPerSlide: 5000, // Milliseconds
+        };
+
+        options = jQuery.extend(defaults, options || {});
+
+        var slideShow = jQuery(options.selector);
+        var viewport = slideShow.find(options.viewportSelector);
+        var container = slideShow.find(options.slidesContainerSelector);
+        var slides = slideShow.find(options.slideSelector);
+
+        var bulletsContainer;
+        var bullets;
+        if (options.bulletsSelector && options.bulletSelector) {
+            bulletsContainer = slideShow.find(options.bulletsSelector);
+            bullets = slideShow.find(options.bulletSelector);
+        }
+
+        var navs = slideShow.find(options.navSelector);
+
+        var internal;
 
         // Resets the transition duration of a slide show
-        resetTransition: function(slidesContainer) {
-            slidesContainer.css("transition-duration", "");
-        },
+        var resetTransition = function() {
+            container.css("transition-duration", "");
+        };
 
         // Widens slide show to fit all slides
-        widenSlideShow: function(slideShowId) {
-            var slideShow = jQuery(slideShowId);
-            var slideShowViewport = slideShow.find(".slide-show__viewport");
-            var slidesContainer = slideShow.find(".slide-show__slides");
-            var slides = slideShow.find(".slide-show__slide");
+        var widenSlideShow = function() {
+            var slideWidth = viewport.innerWidth();
 
-            var slideWidth = slideShowViewport.innerWidth();
+            if (options.slidesPerView) {
+                slideWidth = slideWidth / options.slidesPerView;
+            }
 
             slides.css("width", slideWidth + "px");
 
-            slidesContainer.css("width", slideWidth * slides.length + "px");
-        },
+            container.css("width", slideWidth * slides.length + "px");
+        };
 
         // Moves current slide to correct position
-        resetToCurrentSlide: function(slideShowId) {
-            var slideShow = jQuery(slideShowId);
-            var slidesContainer = slideShow.find(".slide-show__slides");
-
-            var position = slideShow.find(".slide-show__slide--active").position();
-            slidesContainer.css({
+        var resetToCurrentSlide = function() {
+            var position = slideShow.find(options.slideSelector + "--active").position();
+            container.css({
                 transitionDuration: "0s",
                 left: "-" + position.left + "px",
             });
 
-            fn.resetTransition(slidesContainer);
-        },
+            resetTransition();
+        };
 
         // Adjusts all slides in slide show to fit
-        repositionSlides: function(slideShowId) {
-            fn.widenSlideShow(slideShowId);
-            fn.resetToCurrentSlide(slideShowId);
-        },
+        var repositionSlides = function() {
+            widenSlideShow();
+            resetToCurrentSlide();
+        };
 
-        fixSlides: function() {
-            fn.loopThroughAll(fn.repositionSlides);
-        },
+        var moveToSlide = function(nextSlide) {
+            var currentSlide = slideShow.find(options.slideSelector + "--active");
 
-        moveToSlide: function(slideShowId, nextSlide) {
-            var slideShow = jQuery(slideShowId);
+            currentSlide.removeClass(removeSelector(options.slideSelector) + "--active");
 
-            var currentSlide = slideShow.find(".slide-show__slide--active");
-
-            currentSlide.removeClass("slide-show__slide--active");
-            slideShow.find(".slide-show__bullet--active").removeClass("slide-show__bullet--active");
-            nextSlide.addClass("slide-show__slide--active");
+            if (bullets) {
+                bullets.filter(options.bulletSelector + ".slide-show__bullet--active")
+                    .removeClass(removeSelector(options.bulletSelector)  + "--active")
+                ;
+            }
+            nextSlide.addClass(removeSelector(options.slideSelector) + "--active");
 
             var position = nextSlide.position();
 
-            var slidesContainer = slideShow.find(".slide-show__slides");
-            slidesContainer.css("left", "-" + position.left + "px");
+            container.css("left", "-" + position.left + "px");
 
-            var newSlideID = nextSlide.attr("id");
-            slideShow.find(".slide-show__bullet[data-slide-id='#" + newSlideID + "']").addClass("slide-show__bullet--active");
+            if (bullets) {
+                var newSlideID = nextSlide.attr("id");
+                bullets.filter("[data-slide-id='#" + newSlideID + "']")
+                    .addClass(removeSelector(options.bulletSelector) + "--active")
+                ;
+            }
+
 
             jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
             jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
-        },
+        };
 
         // Moves to next or previous slide
-        move: function(slideShowId, direction) {
-            var slideShow = jQuery(slideShowId);
-            var oldSlide = slideShow.find(".slide-show__slide--active");
+        var move = function(direction) {
+            var oldSlide = slideShow.find(options.slideSelector + "--active");
 
             var nextSlide;
             if (direction === "previous") {
                 nextSlide = oldSlide.prev();
                 if (!nextSlide.length) {
-                    nextSlide = slideShow.find(".slide-show__slide").last();
+                    nextSlide = slides.last();
                 }
             }
             else {
                 nextSlide = oldSlide.next();
                 if (!nextSlide.length) {
-                    nextSlide = slideShow.find(".slide-show__slide").first();
+                    nextSlide = slides.first();
                 }
             }
 
-            fn.moveToSlide(slideShowId, nextSlide);
-        },
-
-        // Function when bullet was clicked to change slide show to a particular slide
-        changeToSlide: function(e) {
-            var bulletElem = jQuery(e.target);
-            var slideShowId = bulletElem.attr("data-slide-show-id");
-            var clickedSlideId = bulletElem.attr("data-slide-id");
-            var nextSlide = jQuery(slideShowId).find(clickedSlideId);
-
-            fn.pause(slideShowId);
-            fn.moveToSlide(slideShowId, nextSlide);
-            fn.resume(slideShowId);
-        },
+            moveToSlide(nextSlide);
+        };
 
         // Sets up events when the user wants to change slides with drag control
-        onSlideDrag: function(startEvent) {
+        var onSlideDrag = function(startEvent) {
             var dragMove, dragEnd;
 
-            var getXPosition = function(e) {
-                return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-            };
-
-            var slideShowId = jQuery(startEvent.target).attr("data-slide-show-id");
-            var slideShow = jQuery(slideShowId);
-
-            var slidesContainer = slideShow.find(".slide-show__slides");
-            var slidesContainerDom = slidesContainer[0];
-            var slidesContainerLeft = slidesContainer.position().left;
+            var slidesContainerDom = container[0];
+            var slidesContainerLeft = container.position().left;
 
             var startX = getXPosition(startEvent);
 
@@ -431,15 +436,15 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 slidesContainerDom.removeEventListener("mouseleave", dragEnd);
             };
             var dragCancel = function() {
-                fn.resetToCurrentSlide(slideShowId);
-                fn.resume(slideShowId);
+                resetToCurrentSlide();
+                resume();
                 removeListeners();
             };
             dragMove = function(e) {
                 var endX = getXPosition(e);
                 var diff = startX - endX;
 
-                slidesContainer.css({
+                container.css({
                     transitionDuration: "0s",
                     left: (slidesContainerLeft - diff) + "px",
                 });
@@ -449,9 +454,9 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
                 var diff = startX - endX;
                 if (Math.abs(diff) >= 15) {
-                    fn.resetTransition(slidesContainer);
-                    fn.move(slideShowId, diff < 0 ? "previous" : "next");
-                    fn.resume(slideShowId);
+                    resetTransition();
+                    move(diff < 0 ? "previous" : "next");
+                    resume();
                     removeListeners();
                     return;
                 }
@@ -459,21 +464,56 @@ window.jpi.slideShow = (function(jQuery, jpi) {
                 dragCancel();
             };
 
-            fn.pause(slideShowId);
+            pause();
             slidesContainerDom.addEventListener("touchmove", dragMove);
             slidesContainerDom.addEventListener("mousemove", dragMove);
             slidesContainerDom.addEventListener("touchend", dragEnd);
             slidesContainerDom.addEventListener("mouseup", dragEnd);
             slidesContainerDom.addEventListener("mouseleave", dragEnd);
-        },
+        };
 
-        start: function(slideShowId) {
-            var slideShow = jQuery(slideShowId);
-            var slides = slideShow.find(".slide-show__slide");
+        // Pause a slide show by clearing the interval function on slide show id
+        var pause = function() {
+            clearInterval(internal);
+        };
+
+        var stop = function() {
+            var slidesContainer = container[0];
+            slidesContainer.removeEventListener("mousedown", onSlideDrag);
+            slidesContainer.removeEventListener("touchstart", onSlideDrag);
+
+            clearInterval(internal);
+        };
+
+        // Resumes a slide show by slide show element id
+        var resume = function() {
+            internal = setInterval(function() {
+                move("next");
+            }, options.durationPerSlide);
+        };
+
+        // Function when bullet was clicked to change slide show to a particular slide
+        var changeToSlide = function(e) {
+            var bulletElem = jQuery(e.target);
+            var clickedSlideId = bulletElem.attr("data-slide-id");
+            var nextSlide = slideShow.find(clickedSlideId);
+
+            pause();
+            moveToSlide(nextSlide);
+            resume();
+        };
+
+        var start = function() {
             var count = slides.length;
 
             if (count <= 0) {
-                slideShow.find(".slide-show__nav, .slide-show__bullets").hide();
+                if (bulletsContainer) {
+                    bulletsContainer.hide();
+                }
+                if (navs) {
+                    navs.hide();
+                }
+
                 return;
             }
 
@@ -483,82 +523,54 @@ window.jpi.slideShow = (function(jQuery, jpi) {
 
             jpi.helpers.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
 
-            firstSlide.addClass("slide-show__slide--active");
-            slideShow.find(".slide-show__bullet").first().addClass("slide-show__bullet--active");
+            firstSlide.addClass(removeSelector(options.slideSelector) + "--active");
+
+            if (bullets) {
+                bullets.first().addClass(removeSelector(options.bulletSelector) +  "--active");
+            }
 
             if (count > 1) {
-                slideShow.addClass("js-slide-show");
-                fn.widenSlideShow(slideShowId);
-                slideShow.find(".slide-show__nav, .slide-show__bullets").show();
+                widenSlideShow();
 
-                var slidesContainer = slideShow.find(".slide-show__slides")[0];
-                slidesContainer.addEventListener("mousedown", fn.onSlideDrag);
-                slidesContainer.addEventListener("touchstart", fn.onSlideDrag);
+                if (bulletsContainer) {
+                    bulletsContainer.show();
+                }
+                if (navs) {
+                    navs.show();
+                }
 
-                global.slideShows[slideShowId] = setInterval(function() {
-                    fn.move(slideShowId, "next");
-                }, global.durationPerSlide);
+                container[0].addEventListener("mousedown", onSlideDrag);
+                container[0].addEventListener("touchstart", onSlideDrag);
+
+                resume();
             }
-        },
+        };
 
-        // Pause a slide show by clearing the interval function on slide show id
-        pause: function(slideShowId) {
-            clearInterval(global.slideShows[slideShowId]);
-        },
-        pauseAll: function() {
-            fn.loopThroughAll(fn.pause);
-        },
+        var init = function() {
+            slideShow.on("dragstart", ".slide-show__image", false); // todo: move
 
-        stop: function(slideShowId) {
-            var slideShow = jQuery(slideShowId);
-
-            var slidesContainer = slideShow.find(".slide-show__slides")[0];
-            slidesContainer.removeEventListener("mousedown", fn.onSlideDrag);
-            slidesContainer.removeEventListener("touchstart", fn.onSlideDrag);
-
-            slideShow.removeClass("js-slide-show");
-            clearInterval(global.slideShows[slideShowId]);
-        },
-
-        // Resumes a slide show by slide show element id
-        resume: function(slideShowId) {
-            global.slideShows[slideShowId] = setInterval(function() {
-                fn.move(slideShowId, "next");
-            }, global.durationPerSlide);
-        },
-        resumeAll: function() {
-            fn.loopThroughAll(fn.resume);
-        },
-
-        initListeners: function() {
-            if (!jQuery(".slide-show").length) {
-                return;
+            if (bullets) {
+                bullets.on("click", changeToSlide);
             }
 
-            var body = jQuery("body");
-            body.on("dragstart", ".slide-show__image", false);
-            body.on("click", ".slide-show__bullet", fn.changeToSlide);
+            if (navs) {
+                navs.on("click", function(e) {
+                    var nav = jQuery(e.target);
+                    pause();
+                    move(nav.attr("data-direction"));
+                    resume();
+                });
+            }
 
-            body.on("click", ".slide-show__nav", function(e) {
-                var nav = jQuery(e.target);
-                var slideShowId = nav.attr("data-slide-show-id");
-                fn.pause(slideShowId);
-                fn.move(slideShowId, nav.attr("data-direction"));
-                fn.resume(slideShowId);
-            });
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(repositionSlides, 150));
+        };
 
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.fixSlides, 150));
-        },
-    };
+        this.stop = stop;
+        this.pause = pause;
+        this.resume = resume;
 
-    jQuery(fn.initListeners);
-
-    return {
-        start: fn.start,
-        stop: fn.stop,
-        pauseAll: fn.pauseAll,
-        resumeAll: fn.resumeAll,
-        reposition: fn.repositionSlides,
+        init();
+        start();
     };
 
 })(jQuery, jpi);
@@ -901,8 +913,6 @@ window.jpi.modal = (function(jQuery, jpi) {
 
             global.activeModal.trigger("closed");
 
-            jpi.slideShow.resumeAll();
-
             global.activeModal = null;
             global.lastFocused = null;
             global.focusables = null;
@@ -924,8 +934,6 @@ window.jpi.modal = (function(jQuery, jpi) {
             if (global.activeModal) {
                 fn.triggerClose();
             }
-
-            jpi.slideShow.pauseAll();
 
             global.activeModal = jQuery(modal);
 
@@ -1071,6 +1079,9 @@ window.jpi.projects = (function(jQuery, jpi) {
         bulletTemplate: "",
 
         projects: {},
+        slideShows: [],
+
+        modalSlideShow: null,
 
         dateFormat: new Intl.DateTimeFormat("default", {
             month: "long",
@@ -1298,7 +1309,9 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.bottomAlignProjectFooters();
             });
 
-            jpi.slideShow.start(slideShowId);
+            global.slideShows.push(new jpi.SlideShow({
+                selector: slideShowId,
+            }));
         },
 
         renderProject: function(project) {
@@ -1319,7 +1332,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Sets up events when projects were received
         gotProjects: function(response) {
-            jpi.slideShow.pauseAll();
+            global.slideShows = [];
 
             global.errorElem.text("").hide(600);
             global.loading.hide(600);
@@ -1357,6 +1370,22 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
         },
 
+        pauseSlideShows: function() {
+            for (var i = 0; i < global.slideShows.length; i++) {
+                if ({}.hasOwnProperty.call(global.slideShows, i)) {
+                    global.slideShows[i].pause();
+                }
+            }
+        },
+
+        resumeSlideShows: function() {
+            for (var i = 0; i < global.slideShows.length; i++) {
+                if ({}.hasOwnProperty.call(global.slideShows, i)) {
+                    global.slideShows[i].resume();
+                }
+            }
+        },
+
         openProjectModal: function(e) {
             var projectId = jQuery(e.target).attr("data-project-id");
             var project = global.projects[projectId];
@@ -1376,16 +1405,23 @@ window.jpi.projects = (function(jQuery, jpi) {
             fn.renderProjectLinks(project, global.modalSelector);
             fn.renderProjectImages(project, global.modalSelector);
 
+            fn.pauseSlideShows();
+
             jpi.modal.open(modal);
-            jpi.slideShow.start("#detailed-project-slide-show");
+
+            global.modalSlideShow = new jpi.SlideShow({
+                selector: "#detailed-project-slide-show",
+            });
         },
 
         onProjectModalClose: function() {
-            jpi.slideShow.stop("#detailed-project-slide-show");
+            global.modalSlideShow.stop();
             global.modalSlidesContainer.css({
                 width: "",
                 left: "",
             });
+
+            fn.resumeSlideShows();
         },
 
         getNewURL: function(page) {
@@ -1465,6 +1501,10 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.projectsElem.on("click", ".project__read-more", fn.openProjectModal);
 
             global.modal.on("closed", fn.onProjectModalClose);
+
+            var expandedSlideShow = jQuery(".expanded-slide-show");
+            expandedSlideShow.on("opened", fn.pauseSlideShows);
+            expandedSlideShow.on("closed", fn.resumeSlideShows);
 
             global.body.on("click", ".project__skill", function(e) {
                 jpi.modal.close();
@@ -1658,7 +1698,9 @@ window.jpi = window.jpi || {};
             );
 
             if (wasSuccessfullyRendered) {
-                jpi.slideShow.start("#latest-projects");
+                new jpi.SlideShow({
+                    selector: "#latest-projects",
+                });
             }
         },
 
@@ -1881,24 +1923,50 @@ window.jpi = window.jpi || {};
 
     "use strict";
 
+    var timelineItems = jQuery(".timeline__item");
+
+    if (!timelineItems.length) {
+        return;
+    }
+
     var fn = {
+
         setHeights: function() {
-            var items = jQuery(".timeline__item");
-            items.css("min-height", ""); // reset
+            timelineItems.css("min-height", ""); // reset
 
             var maxHeight = 0;
-            items.each(function(i, elem) {
+            timelineItems.each(function(i, elem) {
                 var height = jQuery(elem).outerHeight(true);
                 if (height > maxHeight) {
                     maxHeight = height;
                 }
             });
 
-            items.css("min-height", maxHeight * 2);
+            timelineItems.css("min-height", maxHeight * 2);
         },
+
+        initListeners: function() {
+            jQuery(window).on("resize", fn.setHeights);
+        },
+
+        init: function() {
+            fn.setHeights();
+
+            new jpi.SlideShow({
+                selector: ".timeline",
+                viewportSelector: ".timeline__viewport",
+                slidesContainerSelector: ".timeline__items",
+                slideSelector: ".timeline__item",
+                bulletsSelector: false,
+                bulletSelector: false,
+                navSelector: false,
+                slidesPerView : 3,
+            });
+        },
+
     };
 
-    jQuery(window).on("jpi-css-loaded resize", fn.setHeights);
+    jQuery(window).on("jpi-css-loaded", fn.init);
 
 })(jQuery, jpi);
 
