@@ -20,6 +20,9 @@ class Renderer {
         return str_replace("\n", "", trim($contents));
     }
 
+    /**
+     * @var Page
+     */
     private $page;
 
     public function __construct(Page $page) {

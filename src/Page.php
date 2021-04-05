@@ -2,10 +2,17 @@
 
 class Page {
 
+    /**
+     * @var Site
+     */
     private $site;
-    private $data;
 
+    /**
+     * @var Renderer
+     */
     private $renderer;
+
+    private $data;
 
     private static $instance;
 
