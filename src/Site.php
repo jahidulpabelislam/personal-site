@@ -15,8 +15,12 @@
  */
 
 use JPI\Site as BaseSite;
+use JPI\Me;
+use JPI\MeTrait;
 
-class Site extends BaseSite {
+class Site extends BaseSite implements Me {
+
+    use MeTrait;
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
