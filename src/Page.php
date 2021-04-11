@@ -135,7 +135,7 @@ class Page {
         ];
     }
 
-    public function addPageData(array $newPageData) {
+    public function addPageData(array $newPageData): void {
         $this->data = array_replace_recursive($this->data, $newPageData);
     }
 
@@ -143,11 +143,11 @@ class Page {
         return $this->data[$field] ?? null;
     }
 
-    public function addJSGlobal(string $global, string $key, $value) {
+    public function addJSGlobal(string $global, string $key, $value): void {
         $this->data["jsGlobals"][$global][$key] = $value;
     }
 
-    public function addInlineJS(string $code, bool $isOnLoad = false) {
+    public function addInlineJS(string $code, bool $isOnLoad = false): void {
         $code = trim($code);
         if ($isOnLoad) {
             $this->data["onLoadInlineJS"] .= $code;
@@ -157,11 +157,11 @@ class Page {
         }
     }
 
-    public function addScript($src, $version = false) {
+    public function addScript($src, $version = false): void {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
     }
 
-    public function addScripts(array $scripts) {
+    public function addScripts(array $scripts): void {
         foreach ($scripts as $script) {
             $src = $script["src"];
             $version = $script["ver"] ?? false;
@@ -169,7 +169,7 @@ class Page {
         }
     }
 
-    public function addJSTemplate(string $name, string $template) {
+    public function addJSTemplate(string $name, string $template): void {
         $this->data["jsTemplates"][$name] = $template;
     }
 

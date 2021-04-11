@@ -34,7 +34,7 @@ class File {
         return $this->exists;
     }
 
-    public function include() {
+    public function include(): void {
         if ($this->exists()) {
             include_once($this->path);
         }
@@ -60,7 +60,7 @@ class File {
         return $this->contentsAsArray ?? $default;
     }
 
-    public function render(string $default = "") {
+    public function render(string $default = ""): void {
         echo $this->get($default);
     }
 

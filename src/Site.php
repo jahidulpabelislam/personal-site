@@ -139,13 +139,13 @@ class Site extends BaseSite implements Me {
      *
      * @param $filepath string The relative url of image
      */
-    public static function getProjectImageURL(string $filepath = "") {
+    public static function getProjectImageURL(string $filepath = ""): string {
         $root = removeTrailingSlash(JPI_API_ENDPOINT);
         $imageURL = "$root$filepath";
         return static::asset($imageURL);
     }
 
-    public function processFormSubmission() {
+    public function processFormSubmission(): void {
         // Get the data from request
         $data = [];
         foreach ($_POST as $key => $value) {
