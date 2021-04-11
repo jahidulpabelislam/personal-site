@@ -38,13 +38,13 @@ class Renderer {
         $partial = substr($method, 6); // Remove 'render'
         $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
         $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
-        $file = new File(ROOT . "/partials/{$partial}.php", false);
+        $file = new File(ROOT . "/partials/$partial.php", false);
         if ($file->exists()) {
             $file->include();
             return;
         }
 
-        throw new Exception("No method found for {$method}");
+        throw new Exception("No method found for $method");
     }
 
     public function renderHtmlStart(): void {
@@ -97,7 +97,7 @@ HTML;
         $deferredStylesheets = $this->page->deferredStylesheets;
         if (count($deferredStylesheets)) {
             $deferredStylesheetsString = json_encode($deferredStylesheets);
-            $onLoadInlineJS = "jpi.helpers.loadStylesheets({$deferredStylesheetsString});" . $onLoadInlineJS;
+            $onLoadInlineJS = "jpi.helpers.loadStylesheets($deferredStylesheetsString);" . $onLoadInlineJS;
         }
 
         if (empty($jsGlobals) && empty($inlineJS) && empty($onLoadInlineJS)) {
@@ -110,7 +110,7 @@ HTML;
             $js .= "window.jpi = window.jpi || {};";
             foreach ($jsGlobals as $globalName => $vars) {
                 $jsVars = json_encode($vars);
-                $js .= "window.jpi.{$globalName} = {$jsVars};";
+                $js .= "window.jpi.$globalName = $jsVars;";
             }
         }
 
@@ -124,7 +124,7 @@ HTML;
 
         $js = self::trim($js);
         echo <<<HTML
-            <script type="application/javascript">{$js}</script>
+            <script type="application/javascript">$js</script>
             HTML;
     }
 
@@ -137,7 +137,9 @@ HTML;
 
         foreach ($scripts as $script) {
             $src = Site::asset($script["src"], $script["version"]);
-            echo "<script src='{$src}' type='application/javascript'></script>";
+            echo <<<HTML
+                <script src="$src" type="application/javascript"></script>
+                HTML;
         }
     }
 
@@ -151,7 +153,7 @@ HTML;
         foreach ($jsTemplates as $name => $template) {
             $template = self::trim($template);
             echo <<<HTML
-                <script type="text/template" id="{$name}-template">{$template}</script>
+                <script type="text/template" id="$name-template">$template</script>
                 HTML;
         }
     }

@@ -44,7 +44,7 @@ class Page {
             return call_user_func_array([$this->renderer, $method], $arguments);
         }
 
-        throw new Exception("No method found for {$method}");
+        throw new Exception("No method found for $method");
     }
 
     public function __get(string $field) {
