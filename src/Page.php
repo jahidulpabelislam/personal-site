@@ -157,14 +157,14 @@ class Page {
         }
     }
 
-    public function addScript($src, $version = false): void {
+    public function addScript(string $src, string $version = null): void {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
     }
 
     public function addScripts(array $scripts): void {
         foreach ($scripts as $script) {
             $src = $script["src"];
-            $version = $script["ver"] ?? false;
+            $version = $script["ver"] ?? null;
             $this->addScript($src, $version);
         }
     }
