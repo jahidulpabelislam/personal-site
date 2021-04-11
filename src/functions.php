@@ -85,14 +85,6 @@ function addParamToURL($url, $param, $value): string {
 }
 
 /**
- * @return string Generate and return the URL of current requested page/URL
- */
-function getRequestedURL(): string {
-    $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-    return formatURL("", $relativeURL);
-}
-
-/**
  * @return bool Whether or not the debug was set by user on page view
  */
 function getIsDebug(): bool {

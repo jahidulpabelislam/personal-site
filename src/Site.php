@@ -66,7 +66,7 @@ class Site extends BaseSite implements Me {
      * @return string Generate and return the URL of current requested page/URL
      */
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
-        $relativeURL = getRequestedURL();
+        $relativeURL = $this->getCurrentURL();
         return $this->getFullURL($relativeURL, false, $isFull, $isLive);
     }
 
