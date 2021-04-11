@@ -85,28 +85,14 @@ function addParamToURL($url, $param, $value): string {
 }
 
 /**
- * @return bool Whether or not the debug was set by user on page view
- */
-function getIsDebug(): bool {
-    return isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
-}
-
-/**
  * Generate and return a URL from passed URL
  *
  * @param $domain string The domain to use to generate URL with
  * @param $url string The relative URL part/s to use to generate URL from
- * @param $addDebug bool Whether the URL should include the debug flag if currently added
  * @return string
  */
-function getURL(string $domain, string $url, bool $addDebug = true): string {
-    $url = formatURL($domain, $url);
-
-    if ($addDebug && getIsDebug()) {
-        $url = addParamToURL($url, "debug", "");
-    }
-
-    return $url;
+function getURL(string $domain, string $url): string {
+    return formatURL($domain, $url);
 }
 
 /**

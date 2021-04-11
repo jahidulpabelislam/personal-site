@@ -66,7 +66,7 @@ class Page {
 
     private function getInlineStylesheetsForPage(string $pageId): array {
         return [
-            "/assets/css/above-the-fold." . ($this->site->getIsDebug() ? "css" : "min.css"),
+            "/assets/css/above-the-fold." . ($this->site->useDevAssets() ? "css" : "min.css"),
         ];
     }
 
@@ -80,7 +80,7 @@ class Page {
      * @return string
      */
     private function getDeferredPageStylesheet(string $pageId): string {
-        $cssExtension = $this->site->getIsDebug() ? "css" : "min.css";
+        $cssExtension = $this->site->useDevAssets() ? "css" : "min.css";
 
         return Site::asset("/assets/css/main.$cssExtension");
     }
@@ -102,7 +102,7 @@ class Page {
     }
 
     private function getScriptsForPage(string $pageId): array {
-        $extension = $this->site->getIsDebug() ? "js" : "min.js";
+        $extension = $this->site->useDevAssets() ? "js" : "min.js";
 
         return [["src" => "/assets/js/main.$extension"]];
     }

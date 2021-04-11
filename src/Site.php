@@ -24,23 +24,10 @@ class Site extends BaseSite implements Me {
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
-    private $isDebug;
-
     private $liveDomain;
     private $liveURL;
 
     private $localURL;
-
-    /**
-     * @return bool Whether or not the debug was set by user on page view
-     */
-    public function getIsDebug(): bool {
-        if ($this->isDebug === null) {
-            $this->isDebug = getIsDebug();
-        }
-
-        return $this->isDebug;
-    }
 
     /**
      * @return string Generate and return the live domain
@@ -53,13 +40,19 @@ class Site extends BaseSite implements Me {
         return $this->liveDomain;
     }
 
-    private function getFullURL(string $relativeURL, bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
+    private function getFullURL(string $relativeURL, bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getDomain();
         }
 
-        return getURL($domain, $relativeURL, $addDebug);
+        $url = getURL($domain, $relativeURL);
+
+        if ($addDevAssetsParam && $this->useDevAssets()) {
+            $url = addParamToURL($url, $this->devAssetsKey, "");
+        }
+
+        return $url;
     }
 
     /**
@@ -97,13 +90,13 @@ class Site extends BaseSite implements Me {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param $relativeURL string The relative url part/s to use to generate url from
-     * @param $addDebug bool Whether the url should include the debug flag if currently added
+     * @param $addDevAssetsParam bool Whether the url should include the dev assets flag if currently added
      * @param $isFull bool Whether the url should be a full url
      * @param $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public function getURL(string $relativeURL = "/", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
-        return $this->getFullURL($relativeURL, $addDebug, $isFull, $isLive);
+    public function getURL(string $relativeURL = "/", bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
+        return $this->getFullURL($relativeURL, $addDevAssetsParam, $isFull, $isLive);
     }
 
     /**
