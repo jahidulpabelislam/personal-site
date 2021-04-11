@@ -84,12 +84,6 @@ function addParamToURL($url, $param, $value): string {
     return "$url&$param=$value";
 }
 
-function getDomain(): string {
-    $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
-    $domain = "$protocol://" . $_SERVER["SERVER_NAME"];
-    return addTrailingSlash($domain);
-}
-
 /**
  * @return string Generate and return the URL of current requested page/URL
  */

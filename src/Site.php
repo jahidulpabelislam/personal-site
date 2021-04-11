@@ -29,7 +29,6 @@ class Site extends BaseSite implements Me {
     private $liveDomain;
     private $liveURL;
 
-    private $localDomain;
     private $localURL;
 
     /**
@@ -54,21 +53,10 @@ class Site extends BaseSite implements Me {
         return $this->liveDomain;
     }
 
-    /**
-     * @return string Generate and return the local domain
-     */
-    public function getLocalDomain(): string {
-        if (!$this->localDomain) {
-            $this->localDomain = getDomain();
-        }
-
-        return $this->localDomain;
-    }
-
     private function getFullURL(string $relativeURL, bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
         $domain = "";
         if ($isFull) {
-            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
+            $domain = $isLive ? $this->getLiveDomain() : $this->getDomain();
         }
 
         return getURL($domain, $relativeURL, $addDebug);
