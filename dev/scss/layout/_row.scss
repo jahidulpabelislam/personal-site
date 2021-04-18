@@ -75,6 +75,14 @@
 
         .row__column {
             width: 50%;
+
+            &:first-child {
+                padding-right: 30px;
+            }
+
+            &:last-child {
+                padding-left: 30px;
+            }
         }
 
         .row__heading {
@@ -91,6 +99,18 @@
 
             .row__column {
                 width: 33%;
+
+                &:first-child {
+                    padding-right: 30px;
+                }
+
+                &:not(:first-child):not(:last-child) {
+                    padding: 0 15px;
+                }
+
+                &:last-child {
+                    padding-left: 30px;
+                }
             }
 
             .row__heading {

@@ -130,6 +130,16 @@
   .contact-me .connect__column,
   .connect .connect__column {
     width: 50%; }
+    .row--halves .row__column:first-child, .contact-me .row__column:first-child, .connect .row__column:first-child, .row--halves .contact-me__column:first-child, .contact-me .contact-me__column:first-child, .connect .contact-me__column:first-child,
+    .row--halves .connect__column:first-child,
+    .contact-me .connect__column:first-child,
+    .connect .connect__column:first-child {
+      padding-right: 30px; }
+    .row--halves .row__column:last-child, .contact-me .row__column:last-child, .connect .row__column:last-child, .row--halves .contact-me__column:last-child, .contact-me .contact-me__column:last-child, .connect .contact-me__column:last-child,
+    .row--halves .connect__column:last-child,
+    .contact-me .connect__column:last-child,
+    .connect .connect__column:last-child {
+      padding-left: 30px; }
   .row--halves .row__heading, .contact-me .row__heading, .connect .row__heading, .row--halves .connect__heading, .contact-me .connect__heading, .connect .connect__heading {
     margin: 0; } }
 
@@ -140,6 +150,15 @@
     .row--thirds > .container .row__column, .row--thirds > .container .contact-me__column,
     .row--thirds > .container .connect__column {
       width: 33%; }
+      .row--thirds > .container .row__column:first-child, .row--thirds > .container .contact-me__column:first-child,
+      .row--thirds > .container .connect__column:first-child {
+        padding-right: 30px; }
+      .row--thirds > .container .row__column:not(:first-child):not(:last-child), .row--thirds > .container .contact-me__column:not(:first-child):not(:last-child),
+      .row--thirds > .container .connect__column:not(:first-child):not(:last-child) {
+        padding: 0 15px; }
+      .row--thirds > .container .row__column:last-child, .row--thirds > .container .contact-me__column:last-child,
+      .row--thirds > .container .connect__column:last-child {
+        padding-left: 30px; }
     .row--thirds > .container .row__heading, .row--thirds > .container .connect__heading {
       margin: 0; } }
 
