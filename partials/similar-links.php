@@ -12,7 +12,7 @@ if (count($similarLinks)) {
         $buttonText = $link["text"] ?? $pageTitle;
 
         $url = $link["url"];
-        $url = $site->getURL($url);
+        $url = $site->makeURL($url);
 
         $buttonClasses = ["button"];
 

@@ -47,14 +47,14 @@ $description = $page->headDescription ?? $page->description ?? "";
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $title; ?>" />
     <meta property="og:description" content="<?php echo $description; ?>" />
-    <meta property="og:url" content="<?php echo $site->getRequestedLocalURL(); ?>" />
+    <meta property="og:url" content="<?php echo $site->getCurrentURL(true); ?>" />
     <meta property="og:site_name" content="<?php echo $name; ?>" />
 
     <?php
     $imagePath = "/assets/images/social-cards/{$pageId}.png";
     if ((new File($imagePath))->exists()) {
         $relativeImageURL = $site::asset($imagePath);
-        $imageURL = $site->getURL($relativeImageURL, false, true);
+        $imageURL = $site->makeURL($relativeImageURL, false, true);
         ?>
         <meta property="og:image" content="<?php echo $imageURL; ?>" />
         <?php

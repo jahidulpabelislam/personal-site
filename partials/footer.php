@@ -10,8 +10,8 @@ $site = Site::get();
 
         <div class="footer__links">
             <p>
-                <a class="footer__link" href="<?php echo $site->getURL("/site-map/"); ?>">Site Map</a>
-                <a class="footer__link" href="<?php echo $site->getURL("/privacy-policy/"); ?>">Privacy Policy</a>
+                <a class="footer__link" href="<?php echo $site->makeURL("/site-map/"); ?>">Site Map</a>
+                <a class="footer__link" href="<?php echo $site->makeURL("/privacy-policy/"); ?>">Privacy Policy</a>
             </p>
         </div>
 

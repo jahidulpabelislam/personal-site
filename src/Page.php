@@ -115,13 +115,12 @@ class Page {
         if ($filePath !== realpath(PUBLIC_ROOT)) {
             $pageId = basename($filePath);
 
-            $path = dirname($_SERVER["SCRIPT_NAME"]);
-            $url = turnPathToURL($path);
+            $url = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
         return [
             "id" => $pageId,
-            "currentURL" => $this->site->getURL($url, false),
+            "currentURL" => $this->site->makeURL($url, false),
             "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
             "stylesheets" => $this->getStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),

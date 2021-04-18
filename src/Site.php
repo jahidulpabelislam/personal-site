@@ -25,64 +25,16 @@ class Site extends BaseSite implements Me {
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
 
     private $liveDomain;
-    private $liveURL;
-
-    private $localURL;
 
     /**
      * @return string Generate and return the live domain
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
-            $this->liveDomain = addTrailingSlash(self::LIVE_DOMAIN);
+            $this->liveDomain = static::addTrailingSlash(self::LIVE_DOMAIN);
         }
 
         return $this->liveDomain;
-    }
-
-    private function getFullURL(string $relativeURL, bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
-        $domain = "";
-        if ($isFull) {
-            $domain = $isLive ? $this->getLiveDomain() : $this->getDomain();
-        }
-
-        $url = getURL($domain, $relativeURL);
-
-        if ($addDevAssetsParam && $this->useDevAssets()) {
-            $url = addParamToURL($url, $this->devAssetsKey, "");
-        }
-
-        return $url;
-    }
-
-    /**
-     * @return string Generate and return the URL of current requested page/URL
-     */
-    public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
-        $relativeURL = $this->getCurrentURL();
-        return $this->getFullURL($relativeURL, false, $isFull, $isLive);
-    }
-
-    /**
-     * @return string Generate and return the live URL of the current requested page/URL
-     */
-    public function getRequestedLiveURL(): string {
-        if (!$this->liveURL) {
-            $this->liveURL = $this->getRequestedURL(true, true);
-        }
-
-        return $this->liveURL;
-    }
-
-    /**
-     * @return string Generate and return the local URL of the current requested page/URL
-     */
-    public function getRequestedLocalURL(): string {
-        if (!$this->localURL) {
-            $this->localURL = $this->getRequestedURL(true);
-        }
-
-        return $this->localURL;
     }
 
     /**
@@ -95,8 +47,27 @@ class Site extends BaseSite implements Me {
      * @param $isLive bool Whether the url should be a full live url
      * @return string
      */
-    public function getURL(string $relativeURL = "/", bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
-        return $this->getFullURL($relativeURL, $addDevAssetsParam, $isFull, $isLive);
+    public function makeURL(string $relativeURL = "/", bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
+        $url = parent::makeURL($relativeURL, $addDevAssetsParam, $isFull && !$isLive);
+
+        if ($isFull && $isLive) {
+            $url = $this->getLiveDomain() . $url;
+        }
+
+        return $url;
+    }
+
+    /**
+     * @return string Generate and return the URL of current requested page/URL
+     */
+    public function getCurrentURL(bool $isFull = false, bool $isLive = false): string {
+        $url = parent::getCurrentURL($isFull && !$isLive);
+
+        if ($isFull && $isLive) {
+            $url = $this->getLiveDomain() . $url;
+        }
+
+        return $url;
     }
 
     /**
@@ -104,15 +75,17 @@ class Site extends BaseSite implements Me {
      */
     public static function getAPIEndpoint(string $entity = ""): string {
         $parts = [
-            JPI_API_ENDPOINT,
-            "v" . JPI_API_VERSION
+            static::removeTrailingSlash(JPI_API_ENDPOINT),
+            static::removeSlashes("v" . JPI_API_VERSION),
         ];
-        $entity = removeSlashes($entity);
+        $entity = static::removeSlashes($entity);
         if (!empty($entity)) {
             $parts[] = $entity;
         }
 
-        return partsToUrl($parts);
+        $url = implode("/", $parts);
+
+        return static::addTrailingSlash($url);
     }
 
     /**
@@ -120,9 +93,9 @@ class Site extends BaseSite implements Me {
      *
      * @param $filepath string The relative url of image
      */
-    public static function getProjectImageURL(string $filepath = ""): string {
-        $root = removeTrailingSlash(JPI_API_ENDPOINT);
-        $imageURL = "$root$filepath";
+    public static function getProjectImageURL(string $filepath): string {
+        $root = static::removeTrailingSlash(JPI_API_ENDPOINT);
+        $imageURL = $root . $filepath;
         return static::asset($imageURL);
     }
 

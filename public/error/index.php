@@ -19,13 +19,12 @@ $errorDescription = $errorDescriptions[$error];
 
 $headDescription = "Error: $error - $errorDescription message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
-$url = turnPathToURL($error);
 $pageData = [
     "id" => $error,
     "headTitle" => "$error - $errorDescription",
     "headerTitle" => $error,
     "headerDescription" => $errorDescription,
-    "currentURL" => $site->getURL($url, false),
+    "currentURL" => $site->makeURL("/$error"),
 ];
 $page->addPageData($pageData);
 

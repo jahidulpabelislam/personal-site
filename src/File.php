@@ -20,7 +20,7 @@ class File {
 
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
-            $path = PUBLIC_ROOT . addTrailingSlash($path);
+            $path = PUBLIC_ROOT . Site::addTrailingSlash($path);
         }
 
         $this->path = $path;

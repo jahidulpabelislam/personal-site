@@ -15,7 +15,7 @@ $currentURL = $page->currentURL;
                 <span class="nav__menu-bar"></span>
                 <span class="nav__menu-bar"></span>
             </button>
-            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->getURL(); ?>">
+            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->makeURL(); ?>">
                 <img src="<?php echo $site::asset("/assets/images/logo-v2.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
             </a>
         </div>
@@ -41,10 +41,10 @@ $currentURL = $page->currentURL;
                     $linkTitle = $link["title"];
 
                     $url = $link["url"] ?? "/";
-                    $fullURL = $site->getURL($url);
+                    $fullURL = $site->makeURL($url);
 
                     $classes = ["nav__link"];
-                    if ($currentURL === $site->getURL($url, false)) {
+                    if ($currentURL === $site->makeURL($url, false)) {
                         $classes[] = "nav__link--active";
                     }
 
