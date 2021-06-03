@@ -179,26 +179,6 @@ class Site {
         echo self::getAPIEndpoint($entity);
     }
 
-    /**
-     * Generate a full url to a image file
-     *
-     * @param string $filepath string The relative url of image
-     */
-    public static function getProjectImageURL(string $filepath = "") {
-        $root = removeTrailingSlash(JPI_API_ENDPOINT);
-        $imageURL = "{$root}{$filepath}";
-        return addAssetVersion($imageURL);
-    }
-
-    /**
-     * Echo a full url to a image file
-     *
-     * @param string $filepath string The relative url of image
-     */
-    public static function echoProjectImageURL(string $filepath = "") {
-        echo self::getProjectImageURL($filepath);
-    }
-
     public function getDateStarted(): DateTime {
         if (!$this->dateStarted) {
             $origTimezone = date_default_timezone_get();

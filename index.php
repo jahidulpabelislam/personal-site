@@ -186,13 +186,11 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), getNowDateTime()
                 </section>
 
 <?php
-$projectImageURL = Site::getProjectImageURL("{{ images.0.file }}");
-
 $page->addJSTemplate(
     "slide",
     <<<HTML
     <div class="slide-show__slide latest-project" id="slide-{{ id }}" data-slide-colour="{{ colour }}">
-        <img class="slide-show__image latest-project__image" src="{$projectImageURL}" alt="Screen shot of {{ name }} Project" />
+        <img class="slide-show__image latest-project__image" src="{{ images.0.url }}" alt="Screen shot of {{ name }} Project" />
         <div class="latest-project__info">
             <div class="latest-project__info-content latest-project__info-content--{{ colour }}">
                 <div class="latest-project__header">
