@@ -6,8 +6,22 @@ window.jpi.ajax = (function(jQuery) {
     var fn = {
 
         // Display feedback from server if there is one otherwise output generic message
-        checkAndRenderError: function(data, errorRenderer, genericMessage) {
-            var message = (data && data.meta && data.meta.feedback) ? data.meta.feedback : genericMessage;
+        checkAndRenderError: function(response, errorRenderer, genericMessage) {
+            var message = genericMessage || "";
+            if (response) {
+                if (response.error) {
+                    message = response.error;
+                }
+
+                if (response.errors && response.errors.message) {
+                    message = response.errors.message;
+                }
+
+                if (response.meta && response.meta.message) {
+                    message = response.meta.message;
+                }
+            }
+
             if (message) {
                 errorRenderer(message);
             }
