@@ -11,14 +11,8 @@ window.jpi.ajax = (function(jQuery) {
             if (response) {
                 if (response.error) {
                     message = response.error;
-                }
-
-                if (response.errors && response.errors.message) {
-                    message = response.errors.message;
-                }
-
-                if (response.meta && response.meta.message) {
-                    message = response.meta.message;
+                } else if (response.message) {
+                    message = response.message;
                 }
             }
 
