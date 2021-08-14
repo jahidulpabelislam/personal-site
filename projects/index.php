@@ -52,8 +52,7 @@ curl_close($ch);
 
 $apiMeta = $apiRes["meta"] ?? [];
 
-$projectsCount = $apiMeta["count"] ?? count($apiRes["data"] ?? []);
-if ($projectsCount === 0) {
+if (!count($apiRes["data"] ?? [])) {
     http_response_code(404);
     include(ROOT . "/error/404/index.php");
     exit;
