@@ -188,7 +188,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderProjectLinks: function(project, containerSelector) {
             var linksContainer = jQuery(containerSelector).find(".project__links");
 
-            if (!project.link && !project.download && !project.github) {
+            if (!project.url && !project.download_url && !project.github_url) {
                 if (containerSelector !== global.modalSelector) {
                     linksContainer.remove();
                 }
@@ -207,22 +207,22 @@ window.jpi.projects = (function(jQuery, jpi) {
             defaultAttributes.class = defaultAttributes.classes.join(" ");
             delete defaultAttributes.classes;
 
-            if (project.link) {
-                defaultAttributes.href = project.link;
+            if (project.url) {
+                defaultAttributes.href = project.url;
                 defaultAttributes.title = "Link to " + project.name;
                 defaultAttributes.html = "<i class='fas fa-link fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
-            if (project.download) {
-                defaultAttributes.href = project.download;
+            if (project.download_url) {
+                defaultAttributes.href = project.download_url;
                 defaultAttributes.title = "Link to download " + project.name;
                 defaultAttributes.html = "<i class='fas fa-download fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
-            if (project.github) {
-                defaultAttributes.href = project.github;
+            if (project.github_url) {
+                defaultAttributes.href = project.github_url;
                 defaultAttributes.title = "Link to " + project.name + " code on GitHub";
                 defaultAttributes.html = "<i class='fab fa-github fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);

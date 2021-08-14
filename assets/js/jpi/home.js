@@ -50,14 +50,14 @@ window.jpi = window.jpi || {};
 
             var linksContainer = slideElem.find(".latest-project__links");
 
-            if (!project.link && !project.github) {
+            if (!project.url && !project.github_url) {
                 linksContainer.remove();
                 return;
             }
 
-            if (project.link) {
+            if (project.url) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
-                    href: project.link,
+                    href: project.url,
                     html: "<i class='fas fa-link fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
@@ -65,9 +65,9 @@ window.jpi = window.jpi || {};
                 });
             }
 
-            if (project.github) {
+            if (project.github_url) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
-                    href: project.github,
+                    href: project.github_url,
                     html: "<i class='fab fa-github fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
