@@ -306,8 +306,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                 "No Projects Found."
             );
 
-            if (response && response.meta && response.meta.total_count) {
-                fn.renderPagination(response.meta.total_count);
+            if (response && response._total_count) {
+                fn.renderPagination(response._total_count);
             }
 
             fn.bottomAlignProjectFooters();
