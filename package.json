@@ -5,6 +5,7 @@
         "gulp-hub": "^4.2.0"
     },
     "devDependencies": {
+        "gulp-sass-variables": "^1.2.0",
         "gulp-autoprefixer": "^7.0.1",
         "gulp-clean-css": "^4.3.0",
         "gulp-include": "^2.4.1",
