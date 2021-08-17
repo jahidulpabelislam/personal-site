@@ -259,7 +259,7 @@ $page->renderContentStart();
 </section>
 
 <?php
-$page->addJSGlobal("config", "googleMapStyles", (new File("/assets/map-styling.json"))->getArray());
+$page->addJSGlobal("config", "googleMapStyles", (new File(ROOT. "/assets/map-styling.json", false))->getArray());
 $page->addScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg", "");
 
 $similarLinks = [

@@ -5,7 +5,7 @@ $site = Site::get();
 <footer class="footer">
     <div class="container">
         <div class="footer__version">
-            <p><?php renderFile("/assets/version.txt"); ?></p>
+            <p><?php renderFile(ROOT . "/assets/version.txt", false); ?></p>
         </div>
 
         <div class="footer__links">

@@ -136,7 +136,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <?php
             $baseSpeed = 1600;
 
-            $counts = (new File("/assets/counters.json"))->getArray();
+            $counts = (new File(ROOT . "/assets/counters.json", false))->getArray();
 
             $counterItems = [
                 [
