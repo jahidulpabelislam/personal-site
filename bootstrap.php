@@ -7,8 +7,6 @@ date_default_timezone_set("Europe/London");
 
 include_once(__DIR__ . "/vendor/autoload.php");
 
-include_once("src/functions.php");
-
 include_once("src/File.php");
 include_once("src/Site.php");
 include_once("src/Page.php");
