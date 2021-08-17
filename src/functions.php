@@ -42,7 +42,8 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
  * Echo out the contents of a file
  *
  * @param $path string
+ * @param $isRelative bool
  */
-function renderFile(string $path) {
-    (new File($path))->render();
+function renderFile(string $path, bool $isRelative = true) {
+    (new File($path, $isRelative))->render();
 }
