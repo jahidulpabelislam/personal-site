@@ -179,7 +179,7 @@ $page->renderContentStart();
                             </a>",
                     ],
                     [
-                        "date" => $site->getYearStarted(),
+                        "date" => 2010,
                         "icon" => "coding",
                         "text" => "Got introduced to coding",
                     ],
