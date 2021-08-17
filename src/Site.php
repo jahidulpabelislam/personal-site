@@ -88,17 +88,6 @@ class Site extends BaseSite implements Me {
         return static::addTrailingSlash($url);
     }
 
-    /**
-     * Generate a full url to a image file
-     *
-     * @param $filepath string The relative url of image
-     */
-    public static function getProjectImageURL(string $filepath): string {
-        $root = static::removeTrailingSlash(JPI_API_ENDPOINT);
-        $imageURL = $root . $filepath;
-        return static::asset($imageURL);
-    }
-
     public function processFormSubmission(): void {
         // Get the data from request
         $data = [];
@@ -165,5 +154,4 @@ class Site extends BaseSite implements Me {
         header("Content-Type: application/json");
         echo json_encode($meta);
     }
-
 }

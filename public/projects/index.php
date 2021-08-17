@@ -57,8 +57,7 @@ curl_close($ch);
 
 $apiMeta = $apiRes["meta"] ?? [];
 
-$projectsCount = $apiMeta["count"] ?? count($apiRes["rows"] ?? []);
-if ($projectsCount === 0) {
+if (!count($apiRes["data"] ?? [])) {
     http_response_code(404);
     include(PUBLIC_ROOT . "/error/index.php");
     exit;
@@ -206,13 +205,11 @@ $page->addJSTemplate(
     HTML
 );
 
-$projectImageURL = Site::getProjectImageURL("{{ file }}");
-
 $page->addJSTemplate(
     "slide",
     <<<HTML
     <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="{$projectImageURL}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" />
+        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
     </div>
     HTML
 );

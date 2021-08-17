@@ -817,20 +817,28 @@ window.jpi.ajax = (function(jQuery) {
     var fn = {
 
         // Display feedback from server if there is one otherwise output generic message
-        checkAndRenderError: function(data, errorRenderer, genericMessage) {
-            var message = (data && data.meta && data.meta.feedback) ? data.meta.feedback : genericMessage;
+        checkAndRenderError: function(response, errorRenderer, genericMessage) {
+            var message = genericMessage || "";
+            if (response) {
+                if (response.error) {
+                    message = response.error;
+                } else if (response.message) {
+                    message = response.message;
+                }
+            }
+
             if (message) {
                 errorRenderer(message);
             }
         },
 
         // Loop through data to see if it exists and if it does run a function on each row
-        renderRowsOrError: function(data, rowRenderer, errorRenderer, genericMessage) {
+        renderRowsOrError: function(response, rowRenderer, errorRenderer, genericMessage) {
             // If data/rows exists, For each row run a function
-            if (data && data.rows && data.rows.length) {
-                for (var i = 0; i < data.rows.length; i++) {
-                    if ({}.hasOwnProperty.call(data.rows, i)) {
-                        rowRenderer(data.rows[i]);
+            if (response && response.data && response.data.length) {
+                for (var i = 0; i < response.data.length; i++) {
+                    if ({}.hasOwnProperty.call(response.data, i)) {
+                        rowRenderer(response.data[i]);
                     }
                 }
 
@@ -838,7 +846,7 @@ window.jpi.ajax = (function(jQuery) {
             }
 
             // Otherwise check feedback and show user and return false as data isn't there
-            fn.checkAndRenderError(data, errorRenderer, genericMessage);
+            fn.checkAndRenderError(response, errorRenderer, genericMessage);
             return false;
         },
 
@@ -1226,7 +1234,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderProjectLinks: function(project, containerSelector) {
             var linksContainer = jQuery(containerSelector).find(".project__links");
 
-            if (!project.link && !project.download && !project.github) {
+            if (!project.url && !project.download_url && !project.github_url) {
                 if (containerSelector !== global.modalSelector) {
                     linksContainer.remove();
                 }
@@ -1242,22 +1250,22 @@ window.jpi.projects = (function(jQuery, jpi) {
             defaultAttributes.class = defaultAttributes.classes.join(" ");
             delete defaultAttributes.classes;
 
-            if (project.link) {
-                defaultAttributes.href = project.link;
+            if (project.url) {
+                defaultAttributes.href = project.url;
                 defaultAttributes.title = "Link to " + project.name;
                 defaultAttributes.html = "<i class='fas fa-link fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
-            if (project.download) {
-                defaultAttributes.href = project.download;
+            if (project.download_url) {
+                defaultAttributes.href = project.download_url;
                 defaultAttributes.title = "Link to download " + project.name;
                 defaultAttributes.html = "<i class='fas fa-download fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
-            if (project.github) {
-                defaultAttributes.href = project.github;
+            if (project.github_url) {
+                defaultAttributes.href = project.github_url;
                 defaultAttributes.title = "Link to " + project.name + " code on GitHub";
                 defaultAttributes.html = "<i class='fab fa-github fa-2x'></i>";
                 jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
@@ -1347,8 +1355,8 @@ window.jpi.projects = (function(jQuery, jpi) {
                 "No Projects Found."
             );
 
-            if (response && response.meta && response.meta.total_count) {
-                fn.renderPagination(response.meta.total_count);
+            if (response && response._total_count) {
+                fn.renderPagination(response._total_count);
             }
 
             fn.bottomAlignProjectFooters();
@@ -1652,14 +1660,14 @@ window.jpi = window.jpi || {};
 
             var linksContainer = slideElem.find(".latest-project__links");
 
-            if (!project.link && !project.github) {
+            if (!project.url && !project.github_url) {
                 linksContainer.remove();
                 return;
             }
 
-            if (project.link) {
+            if (project.url) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
-                    href: project.link,
+                    href: project.url,
                     html: "<i class='fas fa-link fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
@@ -1667,9 +1675,9 @@ window.jpi = window.jpi || {};
                 });
             }
 
-            if (project.github) {
+            if (project.github_url) {
                 jpi.helpers.renderNewElement("a", linksContainer, {
-                    href: project.github,
+                    href: project.github_url,
                     html: "<i class='fab fa-github fa-2x'></i>",
                     class: "button button--clear latest-project__link",
                     target: "_blank",
