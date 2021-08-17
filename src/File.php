@@ -10,6 +10,8 @@
  * @copyright 2010-2020 JPI
  */
 
+namespace App;
+
 class File {
 
     private $path;

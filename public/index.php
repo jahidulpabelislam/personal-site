@@ -1,8 +1,8 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $name = $site::NAME;
 $job = $site::JOB;
@@ -136,7 +136,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <?php
             $baseSpeed = 1600;
 
-            $counts = (new File(ROOT . "/assets/counters.json", false))->getArray();
+            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
 
             $counterItems = [
                 [

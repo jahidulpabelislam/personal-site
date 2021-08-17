@@ -17,6 +17,8 @@ use JPI\Site;
  * @copyright 2010-2019 JPI
  */
 
+namespace App;
+
 class Renderer {
 
     private static function trim(string $contents): string {

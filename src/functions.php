@@ -1,5 +1,17 @@
 <?php
 
+function site(): \App\Site {
+    return \App\Site::get();
+}
+
+function page(): \App\Page {
+    return \App\Page::get();
+}
+
+function load(string $path, bool $isRelative = true): \App\File {
+    return new \App\File($path, $isRelative);
+}
+
 function getConfigPath(string $level = null): string {
     if ($level && !in_array($level, ["global", "site", "production"])) {
         return ROOT . "/src/config.$level.php";
@@ -45,5 +57,5 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
  * @param $isRelative bool
  */
 function renderFile(string $path, bool $isRelative = true) {
-    (new File($path, $isRelative))->render();
+    load($path, $isRelative)->render();
 }

@@ -1,8 +1,8 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $name = $site::NAME;
 $job = $site::JOB;
@@ -259,7 +259,7 @@ $page->renderContentStart();
 </section>
 
 <?php
-$page->addJSGlobal("config", "googleMapStyles", (new File(ROOT. "/assets/map-styling.json", false))->getArray());
+$page->addJSGlobal("config", "googleMapStyles", load(ROOT. "/assets/map-styling.json", false)->getArray());
 $page->addScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg", "");
 
 $similarLinks = [

@@ -1,6 +1,6 @@
 <?php
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $similarLinks = $page->similarLinks ?? [];
 $colour = $page->similarLinksColour ? "row--$page->similarLinksColour": "";

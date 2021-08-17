@@ -1,14 +1,14 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = Site::get();
+$site = site();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $site->processFormSubmission();
     exit();
 }
 
-$page = Page::get();
+$page = page();
 
 $name = $site::NAME;
 $job = $site::JOB;

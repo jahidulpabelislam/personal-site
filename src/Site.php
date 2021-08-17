@@ -14,6 +14,8 @@
  * @copyright 2010-2019 JPI
  */
 
+namespace App;
+
 use JPI\Site as BaseSite;
 use JPI\Me;
 use JPI\MeTrait;

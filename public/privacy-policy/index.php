@@ -1,8 +1,8 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $name = $site::NAME;
 $job = $site::JOB;

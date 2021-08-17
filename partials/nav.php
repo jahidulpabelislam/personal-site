@@ -1,6 +1,6 @@
 <?php
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $pageId = $page->id;
 $currentURL = $page->currentURL;

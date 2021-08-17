@@ -1,6 +1,6 @@
 <?php
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $name = $site::NAME;
 $job = $site::JOB;
@@ -52,7 +52,7 @@ $description = $page->headDescription ?? $page->description ?? "";
 
     <?php
     $imagePath = "/assets/images/social-cards/{$pageId}.png";
-    if ((new File($imagePath))->exists()) {
+    if (load($imagePath)->exists()) {
         $relativeImageURL = $site::asset($imagePath);
         $imageURL = $site->makeURL($relativeImageURL, false, true);
         ?>

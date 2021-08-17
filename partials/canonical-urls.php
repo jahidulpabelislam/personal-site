@@ -1,6 +1,6 @@
 <?php
-$site = Site::get();
-$page = Page::get();
+$site = site();
+$page = page();
 
 $pagination = $page->pagination ?? [];
 $currentURL = $page->currentURL;

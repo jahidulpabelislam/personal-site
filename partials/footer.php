@@ -1,5 +1,5 @@
 <?php
-$site = Site::get();
+$site = site();
 ?>
 
 <footer class="footer">
