@@ -1958,6 +1958,7 @@ window.jpi = window.jpi || {};
         },
 
         init: function() {
+            fn.initListeners();
             fn.setHeights();
 
             new jpi.SlideShow({

@@ -30,6 +30,7 @@
         },
 
         init: function() {
+            fn.initListeners();
             fn.setHeights();
 
             new jpi.SlideShow({
