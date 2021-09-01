@@ -263,9 +263,13 @@ window.jpi.projects = (function(jQuery, jpi) {
                 fn.bottomAlignProjectFooters();
             });
 
-            global.slideShows.push(new jpi.SlideShow({
-                selector: slideShowId,
-            }));
+            if (containerSelector !== global.modalSelector) {
+                var slidesShow = new jpi.SlideShow({
+                    selector: slideShowId,
+                });
+                global.slideShows.push(slidesShow);
+                slidesShow.start();
+            }
         },
 
         renderProject: function(project) {
@@ -363,9 +367,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             jpi.modal.open(modal);
 
-            global.modalSlideShow = new jpi.SlideShow({
-                selector: "#detailed-project-slide-show",
-            });
+            global.modalSlideShow.start();
         },
 
         onProjectModalClose: function() {
@@ -526,6 +528,9 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal = jQuery(global.modalSelector);
             global.modalSlidesContainer = global.modal.find(".slide-show__slides");
+            global.modalSlideShow = new jpi.SlideShow({
+                selector: "#detailed-project-slide-show",
+            });
 
             global.pageNumber = jpi.helpers.getInt(jQuery(".js-page").val(), 1);
 

@@ -36,21 +36,7 @@ window.jpi = window.jpi || {};
 
         options = jQuery.extend(defaults, options || {});
 
-        var slideShow = jQuery(options.selector);
-        var viewport = slideShow.find(options.viewportSelector);
-        var container = slideShow.find(options.slidesContainerSelector);
-        var slides = slideShow.find(options.slideSelector);
-
-        var bulletsContainer;
-        var bullets;
-        if (options.bulletsSelector && options.bulletSelector) {
-            bulletsContainer = slideShow.find(options.bulletsSelector);
-            bullets = slideShow.find(options.bulletSelector);
-        }
-
-        var navs = slideShow.find(options.navSelector);
-
-        var internal;
+        var slideShow, viewport, container, slides, bulletsContainer, bullets, navs, internal;
 
         // Resets the transition duration of a slide show
         var resetTransition = function() {
@@ -250,7 +236,47 @@ window.jpi = window.jpi || {};
             }
         };
 
+        var navigate = function(e) {
+            pause();
+            move(jQuery(e.target).attr("data-direction"));
+
+            if (options.autoplay) {
+                resume();
+            }
+        }
+
         var start = function() {
+            if (bullets) {
+                bullets.off("click", changeToSlide);
+            }
+            if (navs) {
+                navs.off("click", navigate);
+            }
+
+            slideShow = jQuery(options.selector);
+            viewport = slideShow.find(options.viewportSelector);
+            container = slideShow.find(options.slidesContainerSelector);
+            slides = slideShow.find(options.slideSelector);
+
+            if (options.bulletsSelector && options.bulletSelector) {
+                bulletsContainer = slideShow.find(options.bulletsSelector);
+                bullets = slideShow.find(options.bulletSelector);
+            }
+
+            navs = slideShow.find(options.navSelector);
+
+            slideShow.on("dragstart", ".slide-show__image", false); // todo: move
+
+            if (bullets) {
+                bullets.on("click", changeToSlide);
+            }
+
+            if (navs) {
+                navs.on("click", navigate);
+            }
+
+            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(repositionSlides, 150));
+
             var count = slides.length;
 
             if (count <= 0) {
@@ -296,34 +322,10 @@ window.jpi = window.jpi || {};
             }
         };
 
-        var init = function() {
-            slideShow.on("dragstart", ".slide-show__image", false); // todo: move
-
-            if (bullets) {
-                bullets.on("click", changeToSlide);
-            }
-
-            if (navs) {
-                navs.on("click", function(e) {
-                    var nav = jQuery(e.target);
-                    pause();
-                    move(nav.attr("data-direction"));
-
-                    if (options.autoplay) {
-                        resume();
-                    }
-                });
-            }
-
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(repositionSlides, 150));
-        };
-
-        this.stop = stop;
+        this.start = start;
         this.pause = pause;
         this.resume = resume;
-
-        init();
-        start();
+        this.stop = stop;
     };
 
 })(jQuery, jpi);

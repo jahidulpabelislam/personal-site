@@ -33,7 +33,7 @@
             fn.initListeners();
             fn.setHeights();
 
-            new jpi.SlideShow({
+            var slideShow = new jpi.SlideShow({
                 selector: ".timeline",
                 viewportSelector: ".timeline__viewport",
                 slidesContainerSelector: ".timeline__items",
@@ -45,6 +45,8 @@
                 autoplay: false,
                 loop: false,
             });
+
+            slideShow.start();
         },
     };
 
