@@ -37,7 +37,7 @@ $page->renderContentStart();
         </div>
     </div>
     <div class="contact-me__column contact-me__column--form">
-        <form class="contact-me__form contact-form" name="contact-form" method="POST" action="/contact/form-submission.php">
+        <form class="contact-me__form contact-form" name="contact-form" method="POST" action="">
             <div class="field">
                 <label for="email-input" class="field__label">Your Email Address</label>
                 <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="joe@example.com" title="Email Address" required />
