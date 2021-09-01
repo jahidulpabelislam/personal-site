@@ -349,12 +349,12 @@ window.jpi = window.jpi || {};
             var slideWidth = viewport.innerWidth();
             var count = slides.length;
 
-            if (options.slidesPerView) {
+            if (options.slidesPerView > 1) {
                 slideWidth = slideWidth / options.slidesPerView;
                 count++;
-            }
 
-            slides.first().css("margin-left", slideWidth);
+                slides.first().css("margin-left", slideWidth);
+            }
 
             slides.css("width", slideWidth + "px");
 
@@ -364,12 +364,8 @@ window.jpi = window.jpi || {};
         var getPosition = function(slide) {
             var offset = 0;
 
-            if (options.slidesPerView) {
+            if (options.slidesPerView > 1 && !slide.is(":first-child")) {
                 offset = slide.innerWidth();
-            }
-
-            if (slide.is(":first-child")) {
-                offset = 0;
             }
 
             var position = slide.position();
