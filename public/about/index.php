@@ -154,9 +154,20 @@ $page->renderContentStart();
 </div>
 
 <section class="row row--alt">
-    <h3 class="row__heading">What I've Been Up To</h3>
+    <h3 class="row__heading">My Journey So Far</h3>
     <div class="timeline">
         <div class="timeline__viewport">
+            <div class="timeline__navs">
+                <button type="button" class="timeline__nav button button--white" data-direction="previous">
+                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                    <?php renderFile("/assets/images/previous.svg"); ?>
+                </button>
+                <button type="button" class="timeline__nav button button--white" data-direction="next">
+                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                    <?php renderFile("/assets/images/next.svg"); ?>
+                </button>
+            </div>
+
             <div class="timeline__items">
                 <?php
                 $timelineItems = [
@@ -245,9 +256,11 @@ $page->renderContentStart();
 
                     echo <<<HTML
                         <div class="timeline__item $iconClass $activeClass">
-                            <p class="timeline__date">{$timelineItem["date"]}</p>
-                            <div class="timeline__content">
-                                <p>{$timelineItem["text"]}</p>
+                            <div>
+                                <p class="timeline__date">{$timelineItem["date"]}</p>
+                                <div class="timeline__content">
+                                    <p>{$timelineItem["text"]}</p>
+                                </div>
                             </div>
                         </div>
                         HTML;

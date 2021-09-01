@@ -28,6 +28,10 @@ window.jpi = window.jpi || {};
             slidesPerView: 1,
 
             durationPerSlide: 5000, // Milliseconds
+
+            autoplay: true,
+
+            loop: true,
         };
 
         options = jQuery.extend(defaults, options || {});
@@ -56,22 +60,42 @@ window.jpi = window.jpi || {};
         // Widens slide show to fit all slides
         var widenSlideShow = function() {
             var slideWidth = viewport.innerWidth();
+            var count = slides.length;
 
             if (options.slidesPerView) {
                 slideWidth = slideWidth / options.slidesPerView;
+                count++;
             }
+
+            slides.first().css("margin-left", slideWidth);
 
             slides.css("width", slideWidth + "px");
 
-            container.css("width", slideWidth * slides.length + "px");
+            container.css("width", slideWidth * count + "px");
         };
+
+        var getPosition = function(slide) {
+            var offset = 0;
+
+            if (options.slidesPerView) {
+                offset = slide.innerWidth();
+            }
+
+            if (slide.is(":first-child")) {
+                offset = 0;
+            }
+
+            var position = slide.position();
+
+            return "-" + (position.left - offset) + "px";
+        }
 
         // Moves current slide to correct position
         var resetToCurrentSlide = function() {
-            var position = slideShow.find(options.slideSelector + "--active").position();
+            var activeSlide = slideShow.find(options.slideSelector + "--active");
             container.css({
                 transitionDuration: "0s",
-                left: "-" + position.left + "px",
+                left: getPosition(activeSlide),
             });
 
             resetTransition();
@@ -82,6 +106,14 @@ window.jpi = window.jpi || {};
             widenSlideShow();
             resetToCurrentSlide();
         };
+
+        var setupNav = function() {
+            if (navs && !options.loop) {
+                var currentSlide = slideShow.find(options.slideSelector + "--active");
+                navs.filter("[data-direction='previous']").attr("disabled", currentSlide.is(":first-child"));
+                navs.filter("[data-direction='next']").attr("disabled", currentSlide.is(":last-child"));
+            }
+        }
 
         var moveToSlide = function(nextSlide) {
             var currentSlide = slideShow.find(options.slideSelector + "--active");
@@ -95,9 +127,7 @@ window.jpi = window.jpi || {};
             }
             nextSlide.addClass(removeSelector(options.slideSelector) + "--active");
 
-            var position = nextSlide.position();
-
-            container.css("left", "-" + position.left + "px");
+            container.css("left", getPosition(nextSlide));
 
             if (bullets) {
                 var newSlideID = nextSlide.attr("id");
@@ -106,6 +136,7 @@ window.jpi = window.jpi || {};
                 ;
             }
 
+            setupNav();
 
             jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
             jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
@@ -150,7 +181,9 @@ window.jpi = window.jpi || {};
             };
             var dragCancel = function() {
                 resetToCurrentSlide();
-                resume();
+                if (options.autoplay) {
+                    resume();
+                }
                 removeListeners();
             };
             dragMove = function(e) {
@@ -169,7 +202,9 @@ window.jpi = window.jpi || {};
                 if (Math.abs(diff) >= 15) {
                     resetTransition();
                     move(diff < 0 ? "previous" : "next");
-                    resume();
+                    if (options.autoplay) {
+                        resume();
+                    }
                     removeListeners();
                     return;
                 }
@@ -213,7 +248,10 @@ window.jpi = window.jpi || {};
 
             pause();
             moveToSlide(nextSlide);
-            resume();
+
+            if (options.autoplay) {
+                resume();
+            }
         };
 
         var start = function() {
@@ -250,12 +288,15 @@ window.jpi = window.jpi || {};
                 }
                 if (navs) {
                     navs.show();
+                    setupNav();
                 }
 
                 container[0].addEventListener("mousedown", onSlideDrag);
                 container[0].addEventListener("touchstart", onSlideDrag);
 
-                resume();
+                if (options.autoplay) {
+                    resume();
+                }
             }
         };
 
@@ -271,7 +312,10 @@ window.jpi = window.jpi || {};
                     var nav = jQuery(e.target);
                     pause();
                     move(nav.attr("data-direction"));
-                    resume();
+
+                    if (options.autoplay) {
+                        resume();
+                    }
                 });
             }
 

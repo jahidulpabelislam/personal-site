@@ -12,7 +12,7 @@
     var fn = {
 
         setHeights: function() {
-            timelineItems.css("min-height", ""); // reset
+            timelineItems.css("height", ""); // reset
 
             var maxHeight = 0;
             timelineItems.each(function(i, elem) {
@@ -22,7 +22,7 @@
                 }
             });
 
-            timelineItems.css("min-height", maxHeight * 2);
+            timelineItems.css("height", maxHeight * 2);
         },
 
         initListeners: function() {
@@ -40,13 +40,14 @@
                 slideSelector: ".timeline__item",
                 bulletsSelector: false,
                 bulletSelector: false,
-                navSelector: false,
-                slidesPerView : 3,
+                navSelector: ".timeline__nav",
+                slidesPerView: 3,
+                autoplay: false,
+                loop: false,
             });
         },
-
     };
 
-    jQuery(window).on("jpi-css-loaded", fn.init);
+    jQuery(window).on("load", fn.init);
 
 })(jQuery, jpi);

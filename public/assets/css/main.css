@@ -1219,16 +1219,16 @@ a.button {
     width: calc(25% - 20px);
     margin: 0 10px; } }
 
-.timeline {
-  padding: 0 30px; }
-
 .timeline__viewport {
   position: relative;
   overflow: hidden;
-  transition: all 1s ease-in-out; }
+  transition: all 1s ease-in-out;
+  padding: 40px 0; }
 
 .timeline__items {
-  position: relative; }
+  position: relative;
+  left: 0;
+  transition: left 1.2s ease; }
 
 .timeline__item {
   position: relative;
@@ -1252,10 +1252,9 @@ a.button {
     content: "\00a0";
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-left: -13px;
+    left: calc(50% - 17px);
     margin-top: -15px;
-    border: 2px solid #0078c9;
+    border: 2px solid #333333;
     border-radius: 50%;
     background-color: #f5f5f5;
     font-family: "Font Awesome 5 Free";
@@ -1265,9 +1264,14 @@ a.button {
     width: 34px;
     height: 34px;
     font-size: 18px;
-    line-height: 31px; }
-  .timeline__item:nth-child(even) {
-    flex-direction: column-reverse; }
+    line-height: 31px;
+    transition: all 0.3s ease-in-out; }
+  .timeline__item.timeline__item--active::after, .timeline__item.timeline__item--present::after {
+    border-color: #0078c9; }
+  .timeline__item > div {
+    height: 100%; }
+  .timeline__item:nth-child(even) > div {
+    transform: rotate(180deg); }
 
 .timeline__item:nth-child(odd) .timeline__content::before {
   bottom: -10px;
@@ -1308,22 +1312,25 @@ a.button {
 
 .timeline__item--present::after {
   color: #0078c9;
-  border-color: #0078c9;
   box-shadow: 0 0 10px 0 #0078c9; }
 
 .timeline__content {
   position: relative;
-  margin-top: 4px;
-  left: -5px;
+  margin-bottom: 15px;
   padding: 8px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: 0 0 10px 0 rgba(123, 134, 118, 0.1); }
+  .timeline__item:nth-child(even) .timeline__content {
+    transform: rotate(180deg);
+    margin-top: 15px;
+    margin-bottom: 0; }
 
 .timeline__content::before {
   content: " ";
   position: absolute;
+  left: calc(50% - 10px);
   width: 0;
   bottom: -10px;
   z-index: 1; }
@@ -1334,6 +1341,29 @@ a.button {
 .timeline__date {
   font-weight: 700;
   font-style: italic; }
+  .timeline__item:nth-child(even) .timeline__date {
+    transform: rotate(180deg); }
+
+.timeline__navs {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+.timeline__nav {
+  padding: 5px;
+  transition: all 0.3s ease; }
+
+.timeline__nav svg {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle; }
+
+.timeline__nav:not(:disabled):hover,
+.timeline__nav:not(:disabled):focus {
+  box-shadow: 0 0 10px 0 #333333; }
+
+.timeline__nav svg path {
+  fill: #333333; }
 
 /* For all devices */
 .home-hello__hello,
