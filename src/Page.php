@@ -97,7 +97,7 @@ class Page {
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = Site::asset("/assets/css/font-awesome.min.css", "5.10.0");
+            $stylesheets[] = Site::asset("/assets/css/third-party/font-awesome.min.css", "5.10.0");
         }
 
         return $stylesheets;
