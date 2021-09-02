@@ -26,7 +26,7 @@ window.jpi = window.jpi || {};
         },
 
         renderProject: function(project) {
-            project = jpi.projects.formatProjectData(project);
+            project = jpi.api.formatProjectData(project);
 
             var slideTemplate = new Template(global.slideTemplate);
             var bulletTemplate = new Template(global.bulletTemplate);
@@ -112,15 +112,74 @@ window.jpi = window.jpi || {};
             });
         },
 
-        init: function() {
-            if (!jQuery(".latest-projects").length) {
-                return;
-            }
+        counterFormatter: function(value, options) {
+            options = options || {};
+            value = value.toFixed(options.decimals || 0);
+            value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return value;
+        },
 
+        countTo: function(counter, options) {
+            options = jQuery.extend(options || {}, counter.data("countToOptions") || {});
+            counter.countTo(options);
+        },
+
+        initCounters: function() {
+            var groups = jQuery(".js-counters");
+
+            if (groups.length) {
+                // Make the initial display be the from value
+                jQuery(".js-counter").each(function(j, counterElem) {
+                    var counter = jQuery(counterElem);
+                    var start = counter.attr("data-from");
+                    counter.text(start || 0);
+                });
+
+                var countToOptions = {
+                    formatter: fn.counterFormatter,
+                };
+                var waypointArgs = {offset: "95%"};
+                groups.each(function(i, groupElem) {
+                    jQuery(groupElem).waypoint(function() {
+                        var group = jQuery(this.element);
+                        var counters = group.find(".js-counter");
+                        counters.each(function(j, counter) {
+                            fn.countTo(jQuery(counter), countToOptions);
+                        });
+                    }, waypointArgs);
+                });
+            }
+        },
+
+        initSecondsCounter: function() {
+            var secsElems = jQuery(".js-seconds-on-site");
+            if (secsElems.length) {
+                var secsInMilliseconds = 1000;
+
+                secsElems.each(function(i, secsElem) {
+                    secsElem = jQuery(secsElem);
+                    setTimeout(function() {
+                        setInterval(function() {
+                            var lastSec = secsElem.attr("data-current-second");
+                            lastSec = jpi.helpers.getInt(lastSec, 0);
+                            var newSec = lastSec + 1;
+                            secsElem.attr("data-current-second", newSec);
+                            newSec = fn.counterFormatter(newSec);
+                            secsElem.text(newSec);
+                        }, secsInMilliseconds);
+                    }, secsInMilliseconds);
+                });
+            }
+        },
+
+        init: function() {
             global.loadingElem = jQuery(".latest-projects__loading");
             global.errorElem = jQuery(".latest-projects__error");
 
             global.loadingElem.show(200);
+
+            fn.initSecondsCounter();
+            fn.initCounters();
 
             jQuery(window).on("jpi-css-loaded", fn.loadProjects);
         },

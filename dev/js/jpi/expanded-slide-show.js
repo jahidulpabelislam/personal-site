@@ -114,9 +114,6 @@ window.jpi = window.jpi || {};
 
         initListeners: function() {
             global.expandedImageDivContainer = jQuery(".expanded-slide-show");
-            if (!global.expandedImageDivContainer.length) {
-                return;
-            }
 
             global.body = jQuery("body");
             global.bulletsContainer = jQuery(".expanded-slide-show__bullets");

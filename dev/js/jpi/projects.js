@@ -36,11 +36,6 @@ window.jpi.projects = (function(jQuery, jpi) {
         slideShows: [],
 
         modalSlideShow: null,
-
-        dateFormat: new Intl.DateTimeFormat("default", {
-            month: "long",
-            year: "numeric",
-        }),
     };
 
     var fn = {
@@ -78,16 +73,6 @@ window.jpi.projects = (function(jQuery, jpi) {
                 var newHeight = height - totalAllHeight - padding;
                 projectDescription.css("min-height", newHeight);
             });
-        },
-
-        // Helper function to format Project data from the API to the necessary format for the Website
-        formatProjectData: function(project) {
-            if (project.date) {
-                var date = new Date(project.date);
-                project.date = global.dateFormat.format(date);
-            }
-
-            return project;
         },
 
         renderError: function(error) {
@@ -278,7 +263,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            project = fn.formatProjectData(project);
+            project = jpi.api.formatProjectData(project);
 
             global.projects[project.id] = project;
 
@@ -510,9 +495,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         init: function() {
             global.projectsElem = jQuery(".projects__items");
-            if (!global.projectsElem.length) {
-                return;
-            }
 
             global.url = new URL(window.location);
 
@@ -553,8 +535,6 @@ window.jpi.projects = (function(jQuery, jpi) {
 
     jQuery(window).on("jpi-css-loaded", fn.init);
 
-    return {
-        formatProjectData: fn.formatProjectData,
-    };
+    return {};
 
 })(jQuery, jpi);

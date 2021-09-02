@@ -106,7 +106,16 @@ class Page {
     private function getScriptsForPage(string $pageId): array {
         $extension = $this->site->useDevAssets() ? "js" : "min.js";
 
-        return [["src" => "/assets/js/main.$extension"]];
+        $scripts = [
+            ["src" => "/assets/js/global.$extension"],
+        ];
+
+        $pageScript = new File("/assets/js/$pageId.$extension");
+        if ($pageScript->exists()) {
+            $scripts[] = ["src" => $pageScript->getPath()];
+        }
+
+        return $scripts;
     }
 
     private function getGlobalPageData(): array {
@@ -173,5 +182,4 @@ class Page {
     public function addJSTemplate(string $name, string $template): void {
         $this->data["jsTemplates"][$name] = $template;
     }
-
 }
