@@ -104,9 +104,10 @@ var JPI = JPI || {};
             );
 
             if (wasSuccessfullyRendered) {
-                new JPI.SlideShow({
+                var slideShow = new JPI.SlideShow({
                     selector: "#latest-projects",
                 });
+                slideShow.start();
             }
         },
 
