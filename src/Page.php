@@ -136,7 +136,7 @@ class Page {
             "stylesheets" => $this->getStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
-                "breakpoints" => ["tablet" => 768],
+                "breakpoints" => load(ROOT . "/dev/config/breakpoints.json", false)->getArray(),
             ],
             "scripts" => [],
             "inlineJS" => "",

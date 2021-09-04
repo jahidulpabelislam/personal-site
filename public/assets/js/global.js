@@ -156,7 +156,7 @@ var JPI = JPI || {};
         },
 
         reset: function() {
-            if (window.innerWidth >= JPI.breakpoints.tablet) {
+            if (window.innerWidth >= JPI.getInt(JPI.breakpoints.tablet)) {
                 global.linksContainers.css("display", "");
             }
 

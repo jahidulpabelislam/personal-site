@@ -956,7 +956,7 @@ JPI.SlideShow = (function() {
 
             jQuery(".project .project__description").css("min-height", "");
 
-            if (window.innerWidth < JPI.breakpoints.tablet) {
+            if (window.innerWidth < JPI.getInt(JPI.breakpoints.tablet)) {
                 return;
             }
 
