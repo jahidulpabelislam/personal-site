@@ -1,8 +1,7 @@
 ;/**
  * Holds all functions needed for a project slide show
  */
-window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+JPI.SlideShow = (function() {
 
     "use strict";
 
@@ -14,7 +13,7 @@ window.jpi = window.jpi || {};
         return selector.substring(1);
     }
 
-    window.jpi.SlideShow = function(options) {
+    return function(options) {
 
         var defaults = {
             selector: ".slide-show",
@@ -120,8 +119,8 @@ window.jpi = window.jpi || {};
 
             setupNav();
 
-            jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
-            jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
+            JPI.getFocusableChildren(currentSlide).attr("tabindex", -1);
+            JPI.getFocusableChildren(nextSlide).attr("tabindex", "");
         };
 
         // Moves to next or previous slide
@@ -275,7 +274,7 @@ window.jpi = window.jpi || {};
                 navs.on("click", navigate);
             }
 
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(repositionSlides, 150));
+            jQuery(window).on("orientationchange resize", JPI.debounce(repositionSlides, 150));
 
             var count = slides.length;
 
@@ -294,7 +293,7 @@ window.jpi = window.jpi || {};
 
             var inactiveSlides = slides.not(firstSlide);
 
-            jpi.helpers.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
+            JPI.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
 
             firstSlide.addClass(removeSelector(options.slideSelector) + "--active");
 
@@ -328,4 +327,4 @@ window.jpi = window.jpi || {};
         this.stop = stop;
     };
 
-})(jQuery, jpi);
+})();

@@ -1,5 +1,4 @@
-;window.jpi = window.jpi || {};
-window.jpi.modal = (function(jQuery, jpi) {
+;JPI.modal = (function() {
 
     "use strict";
 
@@ -73,7 +72,7 @@ window.jpi.modal = (function(jQuery, jpi) {
             });
             global.activeModal.addClass("is-open");
 
-            global.focusables = jpi.helpers.getFocusableChildren(global.activeModal);
+            global.focusables = JPI.getFocusableChildren(global.activeModal);
             var focusablesLength = global.focusables.length;
             if (focusablesLength) {
                 global.firstFocusable = jQuery(global.focusables[0]);
@@ -166,4 +165,4 @@ window.jpi.modal = (function(jQuery, jpi) {
         close: fn.close,
     };
 
-})(jQuery, jpi);
+})();

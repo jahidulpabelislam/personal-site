@@ -1,5 +1,4 @@
-window.jpi = window.jpi || {};
-window.jpi.api = (function(jQuery, jpi) {
+;JPI.api = (function() {
 
     "use strict";
 
@@ -22,4 +21,4 @@ window.jpi.api = (function(jQuery, jpi) {
         formatProjectData: formatProjectData,
     }
 
-})(jQuery, window.jpi);
+})();

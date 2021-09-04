@@ -1,5 +1,4 @@
-;window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+;(function() {
 
     "use strict";
 
@@ -16,11 +15,11 @@
     var fn = {
 
         getHasClosedBefore: function() {
-            return jpi.helpers.checkCookieValue(global.cookieKey, global.cookieClickedValue);
+            return JPI.checkCookieValue(global.cookieKey, global.cookieClickedValue);
         },
 
         setCookie: function() {
-            jpi.helpers.setCookie(global.cookieKey, global.cookieClickedValue, global.cookieExpirationDays);
+            JPI.setCookie(global.cookieKey, global.cookieClickedValue, global.cookieExpirationDays);
         },
 
         close: function() {
@@ -55,4 +54,4 @@
 
     jQuery(fn.init);
 
-})(jQuery, jpi);
+})();

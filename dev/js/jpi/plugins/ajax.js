@@ -1,5 +1,4 @@
-;window.jpi = window.jpi || {};
-window.jpi.ajax = (function(jQuery) {
+;JPI.ajax = (function() {
 
     "use strict";
 
@@ -69,4 +68,4 @@ window.jpi.ajax = (function(jQuery) {
         renderRowsOrError: fn.renderRowsOrError,
         request: fn.request,
     };
-})(jQuery);
+})();

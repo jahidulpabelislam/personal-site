@@ -1,117 +1,173 @@
-;window.jpi = window.jpi || {};
+var JPI = JPI || {};
 
-// Handles all the general JS templating stuff - for use out of Template class as well
-window.jpi.templating = (function() {
+;// Handles all the general JS templating stuff - for use out of Template class as well
+
+JPI.templating = (function() {
+
+
 
     "use strict";
 
+
+
     var global = {
+
         moustaches: {}, // `Cache` of moustaches
+
     };
+
+
 
     var fn = {
 
+
+
         // Get a ReEx of a 'moustache' for the field to replace (e.g. `{{ fieldName }}` or `{{fieldName}}`)
+
         getMoustache: function(field) {
+
             if (!global.moustaches[field]) {
+
                 global.moustaches[field] = new RegExp("{{2} ?" + field + " ?}{2}", "g");
+
             }
 
+
+
             return global.moustaches[field];
+
         },
+
     };
 
+
+
     return {
+
         getMoustache: fn.getMoustache,
+
     };
+
+
 
 })();
 
+
+
 // A Template 'class' that holds all necessary logic to load a template, replace/process with data and render
-window.jpi.Template = (function(jpi) {
+
+JPI.Template = (function() {
+
+
 
     "use strict";
+
+
 
     return function(template, context) {
 
+
+
         context = context || {};
+
+
 
         var fn = {
 
+
+
             replace: function(field, value) {
+
                 var type = typeof value;
 
+
+
                 if (type === "string" || type === "number") {
-                    var moustache = jpi.templating.getMoustache(field);
+
+                    var moustache = JPI.templating.getMoustache(field);
+
                     template = template.replace(moustache, value);
-                }
-                else if (type === "object") {
-                    for (var innerField in value) {
-                        if ({}.hasOwnProperty.call(value, innerField)) {
-                            var innerKey = field ? field + "." + innerField : innerField;
-                            template = fn.replace(innerKey, value[innerField]);
-                        }
-                    }
+
                 }
 
+                else if (type === "object") {
+
+                    for (var innerField in value) {
+
+                        if ({}.hasOwnProperty.call(value, innerField)) {
+
+                            var innerKey = field ? field + "." + innerField : innerField;
+
+                            template = fn.replace(innerKey, value[innerField]);
+
+                        }
+
+                    }
+
+                }
+
+
+
                 return template;
+
             },
+
+
 
             process: function(data) {
+
                 if (data) {
+
                     fn.replace(null, data);
+
                 }
+
             },
+
+
 
             get: function() {
+
                 fn.process(context);
+
                 return template;
+
             },
+
+
 
             renderIn: function(parentElem) {
+
                 parentElem.append(fn.get());
+
             },
+
         };
+
+
 
         return {
+
             replace: fn.replace,
+
             process: fn.process,
+
             get: fn.get,
+
             renderIn: fn.renderIn,
+
         };
+
     };
 
-})(jpi);
 
 
-window.jpi = window.jpi || {};
-window.jpi.api = (function(jQuery, jpi) {
+})();
 
-    "use strict";
 
-    var dateFormat = new Intl.DateTimeFormat("default", {
-        month: "long",
-        year: "numeric",
-    });
 
-    // Helper function to format Project data from the API to the necessary format for the Website
-    var formatProjectData = function(project) {
-        if (project.date) {
-            var date = new Date(project.date);
-            project.date = dateFormat.format(date);
-        }
 
-        return project;
-    };
-
-    return {
-        formatProjectData: formatProjectData,
-    }
-
-})(jQuery, window.jpi);
-
-;window.jpi = window.jpi || {};
-window.jpi.ajax = (function(jQuery) {
+;JPI.ajax = (function() {
 
     "use strict";
 
@@ -181,10 +237,9 @@ window.jpi.ajax = (function(jQuery) {
         renderRowsOrError: fn.renderRowsOrError,
         request: fn.request,
     };
-})(jQuery);
+})();
 
-;window.jpi = window.jpi || {};
-window.jpi.modal = (function(jQuery, jpi) {
+;JPI.modal = (function() {
 
     "use strict";
 
@@ -258,7 +313,7 @@ window.jpi.modal = (function(jQuery, jpi) {
             });
             global.activeModal.addClass("is-open");
 
-            global.focusables = jpi.helpers.getFocusableChildren(global.activeModal);
+            global.focusables = JPI.getFocusableChildren(global.activeModal);
             var focusablesLength = global.focusables.length;
             if (focusablesLength) {
                 global.firstFocusable = jQuery(global.focusables[0]);
@@ -351,13 +406,12 @@ window.jpi.modal = (function(jQuery, jpi) {
         close: fn.close,
     };
 
-})(jQuery, jpi);
+})();
 
 ;/**
  * Holds all functions needed for a project slide show
  */
-window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+JPI.SlideShow = (function() {
 
     "use strict";
 
@@ -369,7 +423,7 @@ window.jpi = window.jpi || {};
         return selector.substring(1);
     }
 
-    window.jpi.SlideShow = function(options) {
+    return function(options) {
 
         var defaults = {
             selector: ".slide-show",
@@ -475,8 +529,8 @@ window.jpi = window.jpi || {};
 
             setupNav();
 
-            jpi.helpers.getFocusableChildren(currentSlide).attr("tabindex", -1);
-            jpi.helpers.getFocusableChildren(nextSlide).attr("tabindex", "");
+            JPI.getFocusableChildren(currentSlide).attr("tabindex", -1);
+            JPI.getFocusableChildren(nextSlide).attr("tabindex", "");
         };
 
         // Moves to next or previous slide
@@ -630,7 +684,7 @@ window.jpi = window.jpi || {};
                 navs.on("click", navigate);
             }
 
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(repositionSlides, 150));
+            jQuery(window).on("orientationchange resize", JPI.debounce(repositionSlides, 150));
 
             var count = slides.length;
 
@@ -649,7 +703,7 @@ window.jpi = window.jpi || {};
 
             var inactiveSlides = slides.not(firstSlide);
 
-            jpi.helpers.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
+            JPI.getFocusableChildren(inactiveSlides).attr("tabindex", -1);
 
             firstSlide.addClass(removeSelector(options.slideSelector) + "--active");
 
@@ -683,13 +737,12 @@ window.jpi = window.jpi || {};
         this.stop = stop;
     };
 
-})(jQuery, jpi);
+})();
 
 ;/**
  * Used to expand a projects slide show
  */
-window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+(function() {
 
     "use strict";
 
@@ -753,7 +806,7 @@ window.jpi = window.jpi || {};
 
             global.timeout = setTimeout(function() {
                 global.expandedImageDivContainer.removeClass("expanded-slide-show--closing");
-                jpi.modal.close();
+                JPI.modal.close();
                 global.timeout = null;
             }, 990);
         },
@@ -780,7 +833,7 @@ window.jpi = window.jpi || {};
                     }
 
                     // Set up bullet navigation for slide
-                    jpi.helpers.renderNewElement("button", bulletsContainer, {
+                    JPI.renderNewElement("button", bulletsContainer, {
                         "class": "expanded-slide-show__bullet",
                         "data-slide-id": i,
                     });
@@ -795,7 +848,7 @@ window.jpi = window.jpi || {};
             clearTimeout(global.timeout);
 
             fn.displaySlide(jQuery(".expanded-slide-show__image--active"));
-            jpi.modal.open(global.expandedImageDivContainer);
+            JPI.modal.open(global.expandedImageDivContainer);
             global.expandedImageDivContainer.addClass("expanded-slide-show--open");
         },
 
@@ -810,7 +863,7 @@ window.jpi = window.jpi || {};
 
             global.body.on("click", ".expanded-slide-show__bullet", function(e) {
                 var slideId = jQuery(e.target).attr("data-slide-id");
-                slideId = jpi.helpers.getInt(slideId);
+                slideId = JPI.getInt(slideId);
                 fn.changeSlide(slideId);
             });
 
@@ -825,18 +878,43 @@ window.jpi = window.jpi || {};
 
     jQuery(fn.initListeners);
 
-})(jQuery, jpi);
+})();
+
+;JPI.api = (function() {
+
+    "use strict";
+
+    var dateFormat = new Intl.DateTimeFormat("default", {
+        month: "long",
+        year: "numeric",
+    });
+
+    // Helper function to format Project data from the API to the necessary format for the Website
+    var formatProjectData = function(project) {
+        if (project.date) {
+            var date = new Date(project.date);
+            project.date = dateFormat.format(date);
+        }
+
+        return project;
+    };
+
+    return {
+        formatProjectData: formatProjectData,
+    }
+
+})();
+
 
 ;/**
  * Holds all the functions needed for the projects page
  * e.g. display projects
  */
-window.jpi = window.jpi || {};
-window.jpi.projects = (function(jQuery, jpi) {
+(function() {
 
     "use strict";
 
-    var Template = jpi.Template;
+    var Template = JPI.Template;
 
     var global = {
         url: null,
@@ -878,7 +956,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             jQuery(".project .project__description").css("min-height", "");
 
-            if (window.innerWidth < jpi.css.tabletWidth) {
+            if (window.innerWidth < JPI.breakpoints.tablet) {
                 return;
             }
 
@@ -918,14 +996,14 @@ window.jpi.projects = (function(jQuery, jpi) {
             if (isCurrent) {
                 classes.push("pagination__link--active");
             }
-            var link = jpi.helpers.createElement("a", {
+            var link = JPI.createElement("a", {
                 "class": classes.join(" "),
                 "text": page,
                 "data-page": page,
                 "href": url,
             });
 
-            jpi.helpers.renderNewElement("li", containerElem, {
+            JPI.renderNewElement("li", containerElem, {
                 class: "pagination__item",
                 html: link,
             });
@@ -933,13 +1011,13 @@ window.jpi.projects = (function(jQuery, jpi) {
 
         // Adds pagination buttons/elements to the page
         renderPagination: function(totalProjects) {
-            totalProjects = jpi.helpers.getInt(totalProjects);
-            if (totalProjects > jpi.config.projectsPerPage) {
+            totalProjects = JPI.getInt(totalProjects);
+            if (totalProjects > JPI.projects.perPage) {
                 var paginationElem = global.pagination;
 
                 var currentPage = global.pageNumber;
 
-                var totalPages = Math.ceil(totalProjects / jpi.config.projectsPerPage);
+                var totalPages = Math.ceil(totalProjects / JPI.projects.perPage);
 
                 for (var page = 1; page <= totalPages; page++) {
                     var isCurrent = page === currentPage;
@@ -983,7 +1061,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                     classes.push("project__skill--searched");
                 }
 
-                jpi.helpers.renderNewElement("a", skillsContainer, {
+                JPI.renderNewElement("a", skillsContainer, {
                     text: skill,
                     class: classes.join(" "),
                     href: "/projects/" + skill + "/",
@@ -1014,21 +1092,21 @@ window.jpi.projects = (function(jQuery, jpi) {
                 defaultAttributes.href = project.url;
                 defaultAttributes.title = "Link to " + project.name;
                 defaultAttributes.html = "<i class='fas fa-link fa-2x'></i>";
-                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
+                JPI.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.download_url) {
                 defaultAttributes.href = project.download_url;
                 defaultAttributes.title = "Link to download " + project.name;
                 defaultAttributes.html = "<i class='fas fa-download fa-2x'></i>";
-                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
+                JPI.renderNewElement("a", linksContainer, defaultAttributes);
             }
 
             if (project.github_url) {
                 defaultAttributes.href = project.github_url;
                 defaultAttributes.title = "Link to " + project.name + " code on GitHub";
                 defaultAttributes.html = "<i class='fab fa-github fa-2x'></i>";
-                jpi.helpers.renderNewElement("a", linksContainer, defaultAttributes);
+                JPI.renderNewElement("a", linksContainer, defaultAttributes);
             }
         },
 
@@ -1078,7 +1156,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             });
 
             if (containerSelector !== global.modalSelector) {
-                var slidesShow = new jpi.SlideShow({
+                var slidesShow = new JPI.SlideShow({
                     selector: slideShowId,
                 });
                 global.slideShows.push(slidesShow);
@@ -1092,7 +1170,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 return;
             }
 
-            project = jpi.api.formatProjectData(project);
+            project = JPI.api.formatProjectData(project);
 
             global.projects[project.id] = project;
 
@@ -1112,7 +1190,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             global.pagination.text("").hide();
 
             // Send the data, the function to do if data is valid
-            jpi.ajax.renderRowsOrError(
+            JPI.ajax.renderRowsOrError(
                 response,
                 fn.renderProject,
                 fn.renderError,
@@ -1130,12 +1208,12 @@ window.jpi.projects = (function(jQuery, jpi) {
             var query = {
                 page: global.pageNumber,
                 search: global.searchInput.val(),
-                limit: jpi.config.projectsPerPage,
+                limit: JPI.projects.perPage,
             };
 
-            jpi.ajax.request({
+            JPI.ajax.request({
                 method: "GET",
-                url: jpi.config.jpiAPIEndpoint + "/projects/",
+                url: JPI.projects.apiEndpoint + "/projects/",
                 data: query,
                 onSuccess: fn.gotProjects,
                 onError: fn.renderError,
@@ -1179,7 +1257,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             fn.pauseSlideShows();
 
-            jpi.modal.open(modal);
+            JPI.modal.open(modal);
 
             global.modalSlideShow.start();
         },
@@ -1264,7 +1342,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         },
 
         initListeners: function() {
-            jQuery(window).on("orientationchange resize", jpi.helpers.debounce(fn.bottomAlignProjectFooters, 200));
+            jQuery(window).on("orientationchange resize", JPI.debounce(fn.bottomAlignProjectFooters, 200));
 
             jQuery(".search-form").on("submit", fn.doSearch);
 
@@ -1277,7 +1355,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             expandedSlideShow.on("closed", fn.resumeSlideShows);
 
             global.body.on("click", ".project__skill", function(e) {
-                jpi.modal.close();
+                JPI.modal.close();
                 e.preventDefault();
                 fn.scrollToProjects();
 
@@ -1296,7 +1374,7 @@ window.jpi.projects = (function(jQuery, jpi) {
                 e.stopPropagation();
 
                 var page = jQuery(e.target).attr("data-page");
-                page = jpi.helpers.getInt(page, 1);
+                page = JPI.getInt(page, 1);
 
                 if (global.pageNumber === page) {
                     return;
@@ -1314,7 +1392,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
                 document.title = fn.getNewTitle(page);
 
-                global.pageNumber = jpi.helpers.getInt(page, 1);
+                global.pageNumber = JPI.getInt(page, 1);
                 global.searchInput.val(state.search || "");
 
                 fn.scrollToProjects();
@@ -1339,11 +1417,11 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal = jQuery(global.modalSelector);
             global.modalSlidesContainer = global.modal.find(".slide-show__slides");
-            global.modalSlideShow = new jpi.SlideShow({
+            global.modalSlideShow = new JPI.SlideShow({
                 selector: "#detailed-project-slide-show",
             });
 
-            global.pageNumber = jpi.helpers.getInt(jQuery(".js-page").val(), 1);
+            global.pageNumber = JPI.getInt(jQuery(".js-page").val(), 1);
 
             global.projectTemplate = jQuery("#project-template").text();
             global.slideTemplate = jQuery("#slide-template").text();
@@ -1358,13 +1436,11 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             fn.initListeners();
 
-            fn.gotProjects(jpi.projects.apiResponse);
+            fn.gotProjects(JPI.projects.apiResponse);
         },
     };
 
     jQuery(window).on("jpi-css-loaded", fn.init);
 
-    return {};
-
-})(jQuery, jpi);
+})();
 

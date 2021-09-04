@@ -102,7 +102,7 @@ HTML;
         $deferredStylesheets = $this->page->deferredStylesheets;
         if (count($deferredStylesheets)) {
             $deferredStylesheetsString = json_encode($deferredStylesheets);
-            $onLoadInlineJS = "jpi.helpers.loadStylesheets($deferredStylesheetsString);" . $onLoadInlineJS;
+            $onLoadInlineJS = "JPI.loadStylesheets($deferredStylesheetsString);" . $onLoadInlineJS;
         }
 
         if (empty($jsGlobals) && empty($inlineJS) && empty($onLoadInlineJS)) {
@@ -112,10 +112,10 @@ HTML;
         $js = "";
 
         if (!empty($jsGlobals)) {
-            $js .= "window.jpi = window.jpi || {};";
+            $js .= "var JPI = JPI || {};";
             foreach ($jsGlobals as $globalName => $vars) {
                 $jsVars = json_encode($vars);
-                $js .= "window.jpi.$globalName = $jsVars;";
+                $js .= "JPI.$globalName = $jsVars;";
             }
         }
 

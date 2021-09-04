@@ -136,7 +136,7 @@ class Page {
             "stylesheets" => $this->getStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
-                "css" => ["tabletWidth" => 768],
+                "breakpoints" => ["tablet" => 768],
             ],
             "scripts" => [],
             "inlineJS" => "",
@@ -153,8 +153,12 @@ class Page {
         return $this->data[$field] ?? null;
     }
 
-    public function addJSGlobal(string $global, string $key, $value): void {
-        $this->data["jsGlobals"][$global][$key] = $value;
+    public function addJSGlobal(string $global, ?string $key, $value): void {
+        if ($key) {
+            $this->data["jsGlobals"][$global][$key] = $value;
+        } else {
+            $this->data["jsGlobals"][$global] = $value;
+        }
     }
 
     public function addInlineJS(string $code, bool $isOnLoad = false): void {

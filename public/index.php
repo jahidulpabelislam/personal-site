@@ -204,7 +204,7 @@ $page->addJSTemplate(
     HTML
 );
 
-$page->addJSGlobal("config", "jpiAPIEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
 
 $page->renderContentEnd();
 $page->renderFooter();

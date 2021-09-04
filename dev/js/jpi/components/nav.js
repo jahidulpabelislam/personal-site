@@ -1,5 +1,4 @@
-;window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+;(function() {
 
     "use strict";
 
@@ -19,7 +18,7 @@
         },
 
         reset: function() {
-            if (window.innerWidth >= jpi.css.tabletWidth) {
+            if (window.innerWidth >= JPI.breakpoints.tablet) {
                 global.linksContainers.css("display", "");
             }
 
@@ -49,7 +48,7 @@
 
         initListeners: function() {
             jQuery(window).on("click", fn.onNavClick);
-            global.window.on("scroll orientationchange resize", jpi.helpers.debounce(fn.reset, 150));
+            global.window.on("scroll orientationchange resize", JPI.debounce(fn.reset, 150));
             global.menuButton.on("click", fn.toggleMobileMenu);
         },
 
@@ -66,4 +65,4 @@
 
     global.window.on("jpi-css-loaded", fn.init);
 
-})(jQuery, jpi);
+})();

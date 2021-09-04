@@ -1,8 +1,7 @@
 ;/**
  * Used to expand a projects slide show
  */
-window.jpi = window.jpi || {};
-(function(jQuery, jpi) {
+(function() {
 
     "use strict";
 
@@ -66,7 +65,7 @@ window.jpi = window.jpi || {};
 
             global.timeout = setTimeout(function() {
                 global.expandedImageDivContainer.removeClass("expanded-slide-show--closing");
-                jpi.modal.close();
+                JPI.modal.close();
                 global.timeout = null;
             }, 990);
         },
@@ -93,7 +92,7 @@ window.jpi = window.jpi || {};
                     }
 
                     // Set up bullet navigation for slide
-                    jpi.helpers.renderNewElement("button", bulletsContainer, {
+                    JPI.renderNewElement("button", bulletsContainer, {
                         "class": "expanded-slide-show__bullet",
                         "data-slide-id": i,
                     });
@@ -108,7 +107,7 @@ window.jpi = window.jpi || {};
             clearTimeout(global.timeout);
 
             fn.displaySlide(jQuery(".expanded-slide-show__image--active"));
-            jpi.modal.open(global.expandedImageDivContainer);
+            JPI.modal.open(global.expandedImageDivContainer);
             global.expandedImageDivContainer.addClass("expanded-slide-show--open");
         },
 
@@ -123,7 +122,7 @@ window.jpi = window.jpi || {};
 
             global.body.on("click", ".expanded-slide-show__bullet", function(e) {
                 var slideId = jQuery(e.target).attr("data-slide-id");
-                slideId = jpi.helpers.getInt(slideId);
+                slideId = JPI.getInt(slideId);
                 fn.changeSlide(slideId);
             });
 
@@ -138,4 +137,4 @@ window.jpi = window.jpi || {};
 
     jQuery(fn.initListeners);
 
-})(jQuery, jpi);
+})();

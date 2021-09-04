@@ -1,7 +1,5 @@
-;window.jpi = window.jpi || {};
-
-// Handles all the general JS templating stuff - for use out of Template class as well
-window.jpi.templating = (function() {
+;// Handles all the general JS templating stuff - for use out of Template class as well
+JPI.templating = (function() {
 
     "use strict";
 
@@ -28,7 +26,7 @@ window.jpi.templating = (function() {
 })();
 
 // A Template 'class' that holds all necessary logic to load a template, replace/process with data and render
-window.jpi.Template = (function(jpi) {
+JPI.Template = (function() {
 
     "use strict";
 
@@ -42,7 +40,7 @@ window.jpi.Template = (function(jpi) {
                 var type = typeof value;
 
                 if (type === "string" || type === "number") {
-                    var moustache = jpi.templating.getMoustache(field);
+                    var moustache = JPI.templating.getMoustache(field);
                     template = template.replace(moustache, value);
                 }
                 else if (type === "object") {
@@ -81,5 +79,5 @@ window.jpi.Template = (function(jpi) {
         };
     };
 
-})(jpi);
+})();
 
