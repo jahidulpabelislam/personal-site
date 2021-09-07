@@ -298,3 +298,5 @@ var JPI = JPI || {};
     jQuery(fn.init);
 
 })();
+
+//# sourceMappingURL=public/assets/js/maps/global.js.map
