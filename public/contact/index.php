@@ -28,15 +28,15 @@ $page->renderNav();
 $page->renderContentStart();
 ?>
 
-<section class="contact-me">
-    <div class="contact-me__column contact-me__column--header">
+<section class="contact-me row row--halves row--alt">
+    <div class="contact-me__column contact-me__column--header row__column">
         <div>
             <h1 class="contact-me__title">Contact Me</h1>
             <hr class="contact-me__line-breaker" />
             <p>Drop Me An Email</p>
         </div>
     </div>
-    <div class="contact-me__column contact-me__column--form">
+    <div class="contact-me__column contact-me__column--form row__column">
         <form class="contact-me__form contact-form" name="contact-form" method="POST" action="">
             <div class="field">
                 <label for="email-input" class="field__label">Your Email Address</label>
@@ -69,9 +69,9 @@ $page->renderContentStart();
     </div>
 </section>
 
-<section class="connect">
+<section class="connect row row--halves">
     <div class="container">
-        <div class="connect__column">
+        <div class="connect__column row__column">
             <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">
                 <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
                 &nbsp;
@@ -88,8 +88,8 @@ $page->renderContentStart();
                 <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
             </a>
         </div>
-        <div class="connect__column">
-            <h2 class="connect__heading">Connect With Me</h2>
+        <div class="connect__column row__column">
+            <h2 class="connect__heading row__heading">Connect With Me</h2>
         </div>
     </div>
 </section>

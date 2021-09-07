@@ -101,7 +101,11 @@ HTML;
 
         $deferredStylesheets = $this->page->deferredStylesheets;
         if (count($deferredStylesheets)) {
-            $deferredStylesheetsString = json_encode($deferredStylesheets);
+            $deferredStylesheetsString = [];
+            foreach ($deferredStylesheets as $deferredStylesheet) {
+                $deferredStylesheetsString[] = Site::asset($deferredStylesheet["src"], $deferredStylesheet["version"] ?? null);
+            }
+            $deferredStylesheetsString = json_encode($deferredStylesheetsString);
             $onLoadInlineJS = "JPI.loadStylesheets($deferredStylesheetsString);" . $onLoadInlineJS;
         }
 

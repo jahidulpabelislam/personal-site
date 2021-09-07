@@ -131,7 +131,11 @@
 }
 
 .latest-projects__error {
-    @extend .field__error;
+    display: none;
+    width: 100%;
+    margin: 0;
+    font-weight: 700;
+    color: $error-colour;
 }
 
 /* Only for Tablets */

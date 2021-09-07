@@ -76,28 +76,27 @@ class Page {
         return [];
     }
 
-    /**
-     * Get the page specific stylesheet/css or the default
-     * @param $pageId string
-     * @return string
-     */
-    private function getDeferredPageStylesheet(string $pageId): string {
-        $cssExtension = $this->site->useDevAssets() ? "css" : "min.css";
-
-        return Site::asset("/assets/css/main.$cssExtension");
-    }
-
     public function getDeferredStylesheetsForPage(string $pageId): array {
+        $extension = $this->site->useDevAssets() ? "css" : "min.css";
+
         $stylesheets = [
-            $this->getDeferredPageStylesheet($pageId),
+            ["src" => "/assets/css/global.$extension"],
         ];
+
+        $pageScript = new File("/assets/css/$pageId.$extension");
+        if ($pageScript->exists()) {
+            $stylesheets[] = ["src" => $pageScript->getPath()];
+        }
 
         // Only some pages use Font Awesome, so only add if it uses it
         $pagesUsingFA = [
             "home", "projects", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
-            $stylesheets[] = Site::asset("/assets/css/third-party/font-awesome.min.css", "5.10.0");
+            $stylesheets[] = [
+                "src" => "/assets/css/third-party/font-awesome.min.css",
+                "version" => "5.10.0",
+            ];
         }
 
         return $stylesheets;

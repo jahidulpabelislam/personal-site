@@ -1,12 +1,5 @@
-.contact-me,
-.connect {
-    @extend .row;
-    @extend .row--halves;
-}
-
 .contact-me {
     padding: 0;
-    @extend .row--alt;
 }
 
 .contact-me__column {
@@ -17,15 +10,6 @@
     background: $primary-colour url("/assets/images/contact.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
     color: #ffffff;
-}
-
-.contact-me__column,
-.connect__column {
-    @extend .row__column;
-}
-
-.connect__heading {
-    @extend .row__heading;
 }
 
 .contact-me__title {
