@@ -60,7 +60,7 @@ $apiMeta = $apiRes["meta"] ?? [];
 if (!count($apiRes["data"] ?? [])) {
     http_response_code(404);
     include(PUBLIC_ROOT . "/error/index.php");
-    exit;
+    exit();
 }
 
 $page->addJSGlobal("projects", "apiResponse", $apiRes);

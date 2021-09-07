@@ -27,14 +27,6 @@ $currentURL = $page->currentURL;
                         "title" => "My Projects",
                         "url" => "/projects/",
                     ],
-                    [
-                        "title" => "Contact Me",
-                        "url" => "/contact/",
-                    ],
-                    [
-                        "title" => "About Me",
-                        "url" => "/about/",
-                    ],
                 ];
 
                 foreach ($links as $link) {

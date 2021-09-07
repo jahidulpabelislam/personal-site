@@ -198,3 +198,311 @@ var JPI = JPI || {};
 
 })();
 
+;(function() {
+
+    "use strict";
+
+    var global = {
+        form: null,
+        inputs: null,
+        emailInput: null,
+        messageInput: null,
+        subjectInput: null,
+        emailFeedback: null,
+        messageFeedback: null,
+        formFeedback: null,
+        submitButton: null,
+    };
+
+    var fn = {
+
+        reset: function() {
+            global.inputs.attr("disabled", false);
+            global.submitButton.prop("disabled", false)
+                .html(global.submitButton.attr("data-initial-text"))
+            ;
+        },
+
+        // Show appropriate & relevant feedback to the user after an attempt of sending a message
+        renderResponse: function(response) {
+            fn.reset();
+
+            // Check if message was sent
+            if (response.ok) {
+                if (response.feedback) {
+                    global.formFeedback.removeClass("field__error").addClass("field__feedback");
+                }
+
+                global.emailInput.val("");
+                global.messageInput.val("");
+                global.subjectInput.val("");
+                global.form.find(".field").hide();
+                global.submitButton.hide();
+            }
+            else {
+                if (response.feedback) {
+                    global.formFeedback.removeClass("field__feedback").addClass("field__error");
+                }
+                if (response.messageFeedback) {
+                    global.messageFeedback.text(response.messageFeedback).show(200);
+                }
+                if (response.emailAddressFeedback) {
+                    global.emailFeedback.text(response.emailAddressFeedback).show(200);
+                }
+            }
+
+            if (response.feedback) {
+                global.formFeedback.text(response.feedback).show(200);
+            }
+        },
+
+        // Render an error message when AJAX has errored
+        renderErrorMessage: function() {
+            global.formFeedback.text("Something went wrong, please try again later.")
+                .removeClass("field__feedback")
+                .addClass("field__error")
+                .show(200);
+
+            fn.reset();
+        },
+
+        validateEmail: function(isForm) {
+            var emailAddress = global.emailInput.val();
+
+            global.formFeedback.hide(200);
+            global.emailInput.removeClass("input--valid");
+
+            if (emailAddress.trim() === "") {
+                if (isForm) {
+                    global.emailInput.addClass("input--invalid");
+                    global.emailFeedback.text("Email address must be provided and valid.").show(200);
+                }
+                return false;
+            }
+
+            var validEmailPattern = /\b[\w._-]+@[\w-]+.[\w]{2,}\b/im;
+            var emailValidationTest = validEmailPattern.test(emailAddress);
+
+            if (emailValidationTest) {
+                global.emailInput.removeClass("input--invalid").addClass("input--valid");
+                global.emailFeedback.hide(200);
+                return true;
+            }
+
+            if (isForm) {
+                global.emailInput.addClass("input--invalid");
+                global.emailFeedback.text("Email address must be valid.").show(200);
+            }
+
+            return false;
+        },
+
+        validateMessage: function(isForm) {
+            var message = global.messageInput.val();
+
+            global.formFeedback.hide(200);
+            global.messageInput.removeClass("input--valid");
+
+            if (message.trim() !== "") {
+                global.messageInput.removeClass("input--invalid").addClass("input--valid");
+                global.messageFeedback.hide(200);
+                return true;
+            }
+
+            if (isForm) {
+                global.messageInput.addClass("input--invalid");
+                global.messageFeedback.text("Message must be filled out.").show(200);
+            }
+
+            return false;
+        },
+
+        submit: function() {
+            global.inputs.attr("disabled", true);
+            global.submitButton.prop("disabled", true)
+                .html(global.submitButton.attr("data-loading-text"))
+            ;
+
+            var isEmailValid = fn.validateEmail(true);
+            var isMessageValid = fn.validateMessage(true);
+
+            if (isEmailValid && isMessageValid) {
+                JPI.ajax.request({
+                    method: "POST",
+                    url: "/contact/",
+                    data: {
+                        emailAddress: global.emailInput.val(),
+                        subject: global.subjectInput.val(),
+                        message: global.messageInput.val(),
+                    },
+                    onSuccess: fn.renderResponse,
+                    onError: fn.renderErrorMessage,
+                });
+            }
+            else {
+                fn.reset();
+            }
+
+            return false;
+        },
+
+        initListeners: function() {
+            global.subjectInput.on("keyup", function() {
+                global.formFeedback.hide(200);
+            });
+            global.emailInput.on("input", function() {
+                fn.validateEmail();
+            });
+            global.messageInput.on("input", function() {
+                fn.validateMessage();
+            });
+
+            global.form.on("submit", fn.submit);
+        },
+
+        init: function() {
+            global.form = jQuery(".contact-form");
+
+            global.inputs = global.form.find(".input");
+            global.emailInput = jQuery(".contact-form__email");
+            global.messageInput = jQuery(".contact-form__message");
+            global.subjectInput = jQuery(".contact-form__subject");
+            global.emailFeedback = jQuery(".contact-form__email-feedback");
+            global.messageFeedback = jQuery(".contact-form__message-feedback");
+            global.formFeedback = jQuery(".contact-form__feedback");
+            global.submitButton = jQuery(".contact-form__submit");
+
+            fn.initListeners();
+        },
+    };
+
+    jQuery(fn.init);
+
+})();
+
+
+;(function() {
+
+    "use strict";
+
+    var global = {
+        map: null,
+
+        skills: null,
+        expandableContents: null,
+        expandableIcons: null,
+
+        timelineItems: null,
+    };
+
+    var fn = {
+
+        initBognorRegisMap: function() {
+            var zoomLevel = 12;
+            var bognorRegisLat = 50.7842;
+            var bognorRegisLng = -0.674;
+            var bognorRegisLocation = new google.maps.LatLng(bognorRegisLat, bognorRegisLng);
+            var config = {
+                center: bognorRegisLocation,
+                zoom: zoomLevel,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                styles: JPI.googleMapStyles || {},
+            };
+            var map = new google.maps.Map(global.map[0], config);
+
+            new google.maps.Marker({
+                position: bognorRegisLocation,
+                icon: window.location.origin + "/assets/images/marker.png",
+                map: map,
+            });
+
+            google.maps.event.addDomListener(window, "resize", function() {
+                map.setCenter(bognorRegisLocation);
+            });
+        },
+
+        setTimelineItemHeights: function() {
+            global.timelineItems.css("height", ""); // reset
+
+            var maxHeight = 0;
+            global.timelineItems.each(function(i, elem) {
+                var height = jQuery(elem).outerHeight(true);
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+
+            global.timelineItems.css("height", maxHeight * 2);
+        },
+
+        toggleSkillContent: function(e) {
+            var item = jQuery(e.target);
+
+            // Get the new item elems that was clicked
+            var selected = item.find(".skills__description");
+            var selectedIcon = item.find(".skills__toggle");
+
+            // Reset all other item to closed
+            global.expandableContents.not(selected).slideUp();
+            global.expandableIcons.not(selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+
+            // Toggle the clicked item
+            selectedIcon.toggleClass("fa-plus");
+            selectedIcon.toggleClass("fa-minus");
+            selected.slideToggle();
+        },
+
+        initListeners: function() {
+            jQuery(window).on("resize", fn.setTimelineItemHeights);
+
+            global.skills.on("click", fn.toggleSkillContent);
+
+            jQuery(function() {
+                if (global.map.length) {
+                    google.maps.event.addDomListener(window, "load", fn.initBognorRegisMap);
+                }
+            });
+        },
+
+        init: function() {
+            global.map = jQuery(".js-bognor-regis-map");
+
+            global.skills = jQuery(".skills__item--expandable");
+            if (global.skills.length) {
+                global.expandableContents = jQuery(".skills__description");
+                global.expandableIcons = jQuery(".skills__toggle");
+            }
+
+            global.timelineItems = jQuery(".timeline__item");
+
+            fn.initListeners();
+
+            jQuery(window).on("load", function() {
+                fn.setTimelineItemHeights();
+
+                var slideShow = new JPI.SlideShow({
+                    selector: ".timeline",
+                    viewportSelector: ".timeline__viewport",
+                    slidesContainerSelector: ".timeline__items",
+                    slideSelector: ".timeline__item",
+                    bulletsSelector: false,
+                    bulletSelector: false,
+                    navSelector: ".timeline__nav",
+                    slidesPerView: 3,
+                    autoplay: false,
+                    loop: false,
+                });
+
+                slideShow.start();
+            });
+        },
+    };
+
+    fn.init();
+
+})();
