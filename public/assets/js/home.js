@@ -1159,4 +1159,4 @@ JPI.Template = (function() {
 
 })();
 
-//# sourceMappingURL=public/assets/js/maps/home.js.map
+//# sourceMappingURL=maps/home.js.map

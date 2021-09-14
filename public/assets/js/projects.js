@@ -1445,4 +1445,4 @@ JPI.SlideShow = (function() {
 })();
 
 
-//# sourceMappingURL=public/assets/js/maps/projects.js.map
+//# sourceMappingURL=maps/projects.js.map

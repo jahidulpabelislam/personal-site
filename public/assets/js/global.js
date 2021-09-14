@@ -299,4 +299,4 @@ var JPI = JPI || {};
 
 })();
 
-//# sourceMappingURL=public/assets/js/maps/global.js.map
+//# sourceMappingURL=maps/global.js.map
