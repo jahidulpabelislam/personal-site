@@ -47,19 +47,17 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="container">
             <p>
                 Here you will be able to look at all the <a class="link" href="<?php echo $site->makeURL("/projects/"); ?>">work</a>
-                I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="<?php echo $site->makeURL("/about/"); ?>">learn about me</a> also
-                <a class="link" href="<?php echo $site->makeURL("/contact/"); ?>">contact me</a> for any enquiries or to just provide feedback.
+                I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="#about">learn about me</a> also
+                <a class="link" href="#contact">contact me</a> for any enquiries or to just provide feedback.
             </p>
             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies, libraries & plugins and ideas here while also improving my skill set and expanding my knowledge then can bring them to projects at work.</p>
         </div>
     </div>
 </section>
 
-<div class="row row--thirds about-row">
+<div class="row row--alt row--thirds about-row" id="about">
     <div class="container">
         <div class="row__column">
-            <p>My name is <?php echo $name; ?>.</p>
-
             <?php
             // Work out my age by the time difference from DOB to today
             $age = getTimeDifference($site::DATE_OF_BIRTH, new DateTime(), "%r%y");
@@ -68,26 +66,14 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <p>I'm <?php echo $age; ?> years old.</p>
         </div>
         <div class="row__column">
-            <div class="images-of-me">
-                <img class="images-of-me__image images-of-me__image--baby" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-young.png"); ?>" alt="Image of <?php echo $name; ?> as a Child" />
-                <img class="images-of-me__image images-of-me__image--grown" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="Image of <?php echo $name; ?> currently" />
-            </div>
-        </div>
-        <div class="row__column">
-            <p>A <?php echo $site::JOB;?>.</p>
-            <p>I am Bilingual, I can speak English &amp; Bengali.</p>
-        </div>
-    </div>
-</div>
-
-<div class="row row--alt about-row">
-    <div class="container">
-        <div class="row__column">
             <p>
                 Based in <a class="link link--dark-blue" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
                     Bognor Regis</a>,<a class="link link--dark-blue" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                     West Sussex</a>, South East Coast of England.
             </p>
+        </div>
+        <div class="row__column">
+            <p>I am Bilingual, I can speak English &amp; Bengali.</p>
         </div>
     </div>
 </div>
@@ -95,55 +81,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 <div class="row row--flush">
     <div class="map js-bognor-regis-map"></div>
 </div>
-
-<section class="row row--dark-blue">
-    <div class="container">
-        <div class="workflow">
-            <?php
-            $workflowItems = [
-                [
-                    "heading" => "Design",
-                    "icon" => "web-design.svg",
-                    "imageAlt" => "A image of a paintbrush on a desktop computer",
-                    "description" => "<p>
-                        My work only starts when the PSD or flat image designs are handed over, then I can start to turning them into pixel perfect sites/apps.<br />
-                    </p>",
-                ],
-                [
-                    "heading" => "Responsive",
-                    "icon" => "responsive-design.svg",
-                    "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
-                    "description" => "<p>
-                        I approach styling from a mobile first point of view,
-                        aiming to make all sites/apps usable on different sized devices.<br />
-                    </p>",
-                ],
-                [
-                    "heading" => "Code",
-                    "icon" => "code.svg",
-                    "imageAlt" => "A image showing code",
-                    "description" => "<p>
-                        I tend to develop custom and bespoke systems,
-                        but I do use frameworks or libraries to fulfill the necessary requirements if needed.
-                    </p>",
-                ],
-            ];
-
-            foreach ($workflowItems as $workflowItem) {
-                ?>
-                <div class="workflow__item">
-                    <h3 class="row__heading"><?php echo $workflowItem["heading"]; ?></h3>
-                    <img class="workflow__image" src="<?php echo $site::asset("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
-                    <div class="workflow__description">
-                        <?php echo $workflowItem["description"]; ?>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</section>
 
 <section class="row row--alt">
     <h3 class="row__heading">My Journey So Far</h3>
@@ -263,7 +200,53 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<div class="row row--thirds row--dark-blue about-row about-row--skills">
+<section class="row row--dark-blue">
+    <div class="container">
+        <div class="stats js-counters">
+            <?php
+            $baseSpeed = 1600;
+
+            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
+
+            $counterItems = [
+                [
+                    "text" => "Years experience",
+                    "number" => $yearsSinceStarted,
+                    "speed" => $baseSpeed,
+                ],
+                [
+                    "text" => "Projects",
+                    "number" => $counts["total_projects"] ?? 60,
+                    "speed" => $baseSpeed + 600,
+                ],
+                [
+                    "text" => "Commits",
+                    "number" => $counts["total_commits"] ?? 8500,
+                    "speed" => $baseSpeed + 1000,
+                ],
+            ];
+
+            foreach ($counterItems as $counterItem) {
+                ?>
+                <div class="stats__item">
+                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
+                        <?php echo $counterItem["number"]; ?>
+                    </p>
+                    <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
+                </div>
+                <?php
+            }
+            ?>
+
+            <div class="stats__item">
+                <p class="row__heading stats__heading js-seconds-on-site" data-current-second="0">0</p>
+                <p class="stats__text">Seconds on here</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row row--thirds about-row about-row--skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
@@ -350,6 +333,55 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </div>
 
+<section class="row row--dark-blue">
+    <div class="container">
+        <div class="workflow">
+            <?php
+            $workflowItems = [
+                [
+                    "heading" => "Design",
+                    "icon" => "web-design.svg",
+                    "imageAlt" => "A image of a paintbrush on a desktop computer",
+                    "description" => "<p>
+                My work only starts when the PSD or flat image designs are handed over, then I can start to turning them into pixel perfect sites/apps.<br />
+            </p>",
+                ],
+                [
+                    "heading" => "Responsive",
+                    "icon" => "responsive-design.svg",
+                    "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
+                    "description" => "<p>
+                I approach styling from a mobile first point of view,
+                aiming to make all sites/apps usable on different sized devices.<br />
+            </p>",
+                ],
+                [
+                    "heading" => "Code",
+                    "icon" => "code.svg",
+                    "imageAlt" => "A image showing code",
+                    "description" => "<p>
+                I tend to develop custom and bespoke systems,
+                but I do use frameworks or libraries to fulfill the necessary requirements if needed.
+            </p>",
+                ],
+            ];
+
+            foreach ($workflowItems as $workflowItem) {
+                ?>
+                <div class="workflow__item">
+                    <h3 class="row__heading"><?php echo $workflowItem["heading"]; ?></h3>
+                    <img class="workflow__image" src="<?php echo $site::asset("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
+                    <div class="workflow__description">
+                        <?php echo $workflowItem["description"]; ?>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</section>
+
 <section class="latest-projects row row--halves row--alt">
     <div class="container">
         <div class="row__column">
@@ -361,7 +393,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 View More Work
             </a>
         </div>
-        <div class="row__column">
+        <div class="row__column row__column--flush">
             <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
 
             <div class="slide-show latest-projects__slide-show" id="latest-projects">
@@ -376,53 +408,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row row--dark-blue">
-    <div class="container">
-        <div class="stats js-counters">
-            <?php
-            $baseSpeed = 1600;
-
-            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
-
-            $counterItems = [
-                [
-                    "text" => "Years experience",
-                    "number" => $yearsSinceStarted,
-                    "speed" => $baseSpeed,
-                ],
-                [
-                    "text" => "Projects",
-                    "number" => $counts["total_projects"] ?? 60,
-                    "speed" => $baseSpeed + 600,
-                ],
-                [
-                    "text" => "Commits",
-                    "number" => $counts["total_commits"] ?? 8500,
-                    "speed" => $baseSpeed + 1000,
-                ],
-            ];
-
-            foreach ($counterItems as $counterItem) {
-                ?>
-                <div class="stats__item">
-                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
-                        <?php echo $counterItem["number"]; ?>
-                    </p>
-                    <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
-                </div>
-                <?php
-            }
-            ?>
-
-            <div class="stats__item">
-                <p class="row__heading stats__heading js-seconds-on-site" data-current-second="0">0</p>
-                <p class="stats__text">Seconds on here</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="contact-me row row--halves">
+<section class="contact-me row row--halves" id="contact">
     <div class="contact-me__column contact-me__column--header row__column">
         <div>
             <h2 class="row__heading">Connect With Me</h2>
@@ -446,7 +432,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="contact-me__column contact-me__column--form row__column">
         <form class="contact-me__form contact-form" name="contact-form" method="POST" action="">
             <h2 class="row__heading">Contact Me</h2>
-            <p class="contact-form__intro">Message me below or email me at <a href="jahidul@jahidulpabelislam.com">jahidul@jahidulpabelislam.com</a></p>
+            <p class="contact-form__intro">Message me below or email me at <a class="link" href="jahidul@jahidulpabelislam.com">jahidul@jahidulpabelislam.com</a></p>
             <div class="field">
                 <label for="email-input" class="field__label">Your Email Address</label>
                 <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="joe@example.com" title="Email Address" required />

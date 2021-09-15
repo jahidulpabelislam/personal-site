@@ -128,7 +128,9 @@
     .row--halves .row__column:first-child {
       padding-right: 30px; }
     .row--halves .row__column:last-child {
-      padding-left: 30px; } }
+      padding-left: 30px; }
+  .row--halves .row__column--flush.row__column--flush {
+    padding-left: 0; } }
 
 @media only screen and (min-width: 1200px) {
   .row--thirds > .container {
