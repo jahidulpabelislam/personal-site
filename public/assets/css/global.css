@@ -128,9 +128,7 @@
     .row--halves .row__column:first-child {
       padding-right: 30px; }
     .row--halves .row__column:last-child {
-      padding-left: 30px; }
-  .row--halves .row__heading {
-    margin: 0; } }
+      padding-left: 30px; } }
 
 @media only screen and (min-width: 1200px) {
   .row--thirds > .container {
@@ -383,77 +381,6 @@ a.button {
 @media only screen and (min-width: 1200px) {
   .button {
     margin: 7px;
-    padding: 9px 14px; } }
-
-/* For all devices */
-.field {
-  padding: 0 2px; }
-  .field:not(:first-child) {
-    margin-top: 20px; }
-  .field:not(:last-child) {
-    margin-bottom: 20px; }
-
-.field__label {
-  display: inline-block;
-  font-weight: 700; }
-  .field__label span {
-    font-weight: 400;
-    color: #7b8676; }
-
-.field__feedback,
-.field__error {
-  display: none;
-  width: 100%;
-  margin: 0;
-  font-weight: 700; }
-
-.field__feedback {
-  color: #00a000; }
-
-.field__error {
-  color: #f74440; }
-
-.input {
-  width: 100%;
-  margin: 5px auto;
-  padding: 6px 12px;
-  border: solid #e0e0e0 1px;
-  border-radius: 2px;
-  background: #ffffff;
-  color: #333333;
-  font: inherit;
-  outline: none;
-  transition: all 0.3s ease-in-out; }
-  .input:disabled {
-    opacity: 0.65; }
-  .field .input {
-    margin-top: 0;
-    margin-bottom: 0; }
-
-.input::placeholder {
-  color: #cdcdcd; }
-
-.input:focus {
-  box-shadow: 0 0 8px #0078c9;
-  border-color: #0078c9; }
-
-.input--invalid {
-  border-color: #f74440; }
-
-.input--invalid:focus {
-  border-color: #f74440;
-  box-shadow: 0 0 8px rgba(247, 68, 64, 0.6); }
-
-.input--valid {
-  border-color: #00a000; }
-
-.input--valid:focus {
-  border-color: #00a000;
-  box-shadow: 0 0 8px rgba(0, 160, 0, 0.6); }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .input {
     padding: 9px 14px; } }
 
 .table {

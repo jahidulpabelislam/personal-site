@@ -33,21 +33,28 @@
     margin: 0;
 }
 
-.connect {
+.contact-me {
     .social-link {
         display: block;
 
         &:not(:last-child) {
             margin-bottom: 14px;
         }
+
+        &:hover {
+            .social-link__image {
+                background-color: get-colour(dark-green, hover);;
+            }
+
+            .social-link__text {
+                color: get-colour(dark-green, hover);;
+            }
+        }
     }
 }
 
-.connect {
-    .container {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+.contact-form__intro {
+    margin: 12px 0;
 }
 
 @media only screen and (min-width: $tablet-width) {
@@ -72,15 +79,6 @@
     .contact-me__column--form {
         max-width: $max-width / 2;
         margin: 0;
-    }
-
-    .contact-form {
         text-align: left;
-    }
-
-    .connect {
-        .container {
-            flex-direction: row;
-        }
     }
 }

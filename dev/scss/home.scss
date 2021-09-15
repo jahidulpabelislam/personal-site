@@ -1,11 +1,12 @@
 @import "tools/variables";
 @import "tools/mixins";
 
+@import "components/form";
 @import "components/slide-show";
 @import "components/workflow";
 @import "components/stats";
 @import "components/timeline";
+@import "components/contact";
 
 @import "templates/home";
-@import "templates/contact";
 @import "templates/about";

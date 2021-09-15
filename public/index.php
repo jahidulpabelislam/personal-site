@@ -422,16 +422,31 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="contact-me row row--halves row--alt">
+<section class="contact-me row row--halves">
     <div class="contact-me__column contact-me__column--header row__column">
         <div>
-            <h1 class="contact-me__title">Contact Me</h1>
-            <hr class="contact-me__line-breaker" />
-            <p>Drop Me An Email</p>
+            <h2 class="row__heading">Connect With Me</h2>
+            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                &nbsp;
+                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
+            </a>
+            <a class="social-link social-link--github" href="https://github.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
+                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                &nbsp;
+                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
+            </a>
+            <a class="social-link social-link--instagram" href="https://www.instagram.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
+                <span class="social-link__image"><i></i></span>
+                &nbsp;
+                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
+            </a>
         </div>
     </div>
     <div class="contact-me__column contact-me__column--form row__column">
         <form class="contact-me__form contact-form" name="contact-form" method="POST" action="">
+            <h2 class="row__heading">Contact Me</h2>
+            <p class="contact-form__intro">Message me below or email me at <a href="jahidul@jahidulpabelislam.com">jahidul@jahidulpabelislam.com</a></p>
             <div class="field">
                 <label for="email-input" class="field__label">Your Email Address</label>
                 <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="joe@example.com" title="Email Address" required />
@@ -451,40 +466,15 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
             <p class="contact-form__feedback"></p>
             <button
-                    type="submit"
-                    class="button button--dark-green contact-form__submit"
-                    id="submit"
-                    data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
-                    data-initial-text="Send Email"
+                type="submit"
+                class="button button--dark-green contact-form__submit"
+                id="submit"
+                data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
+                data-initial-text="Send Email"
             >
                 Send Email
             </button>
         </form>
-    </div>
-</section>
-
-<section class="connect row row--halves">
-    <div class="container">
-        <div class="connect__column row__column">
-            <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
-                &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
-            </a>
-            <a class="social-link social-link--github" href="https://github.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
-                &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
-            </a>
-            <a class="social-link social-link--instagram" href="https://www.instagram.com/<?php echo $site::SOCIAL_GITHUB; ?>/" target="_blank" rel="noopener noreferrer">
-                <span class="social-link__image"><i></i></span>
-                &nbsp;
-                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
-            </a>
-        </div>
-        <div class="connect__column row__column">
-            <h2 class="connect__heading row__heading">Connect With Me</h2>
-        </div>
     </div>
 </section>
 
