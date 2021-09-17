@@ -48,7 +48,7 @@
     font-size: 14px;
     font-weight: 700;
     text-align: left;
-    color: $primary-colour;
+    color: $brand-colour;
 }
 
 .project__skills {
@@ -59,9 +59,9 @@
     display: inline-block;
     margin: 2px;
     padding: 5px;
-    border: 1px solid $primary-colour;
+    border: 1px solid $brand-colour;
     border-radius: 2px;
-    color: $primary-colour;
+    color: $brand-colour;
     font-weight: 400;
     cursor: pointer;
     transition: all 0.4s ease-in-out;

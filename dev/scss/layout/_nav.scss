@@ -40,7 +40,7 @@
 .nav__logo.nav__logo--active,
 .nav__logo:hover,
 .nav__logo:focus {
-    border: 1px solid $primary-colour;
+    border: 1px solid $brand-colour;
 
     img {
         box-shadow: none;
@@ -130,12 +130,12 @@
 }
 
 .nav__link--active.nav__link--active.nav__link--active {
-    color: $primary-colour;
+    color: $brand-colour;
 }
 
 .nav__link:hover,
 .nav__link:focus {
-    color: $primary-colour;
+    color: $brand-colour;
 }
 
 /* For Tablets & Desktops */
@@ -198,7 +198,7 @@
 
         &::after {
             width: 32px;
-            background: $primary-colour;
+            background: $brand-colour;
         }
     }
 }

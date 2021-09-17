@@ -26,14 +26,14 @@
 
 .pagination__link:hover,
 .pagination__link:focus {
-    color: $primary-colour;
+    color: $brand-colour;
 }
 
 .pagination__link.pagination__link--active,
 .pagination__link--active:hover,
 .pagination__link--active:focus {
-    background: $primary-colour;
-    border-color: darken($primary-colour, 5);
+    background: $brand-colour;
+    border-color: darken($brand-colour, 5);
     color: #ffffff;
     cursor: default;
 }

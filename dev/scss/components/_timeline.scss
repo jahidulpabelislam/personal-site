@@ -25,7 +25,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: $primary-colour;
+        background: $brand-colour;
     }
 
     &:first-child::before {
@@ -59,7 +59,7 @@
     &.timeline__item--active,
     &.timeline__item--present {
         &::after {
-            border-color: $primary-colour;
+            border-color: $brand-colour;
         }
     }
 

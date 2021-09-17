@@ -15,11 +15,11 @@
 .social-link:focus {
     .social-link__text {
         text-decoration: underline;
-        color: $primary-colour;
+        color: $brand-colour;
     }
 
     .social-link__image {
-        background: $primary-colour;
+        background: $brand-colour;
     }
 }
 

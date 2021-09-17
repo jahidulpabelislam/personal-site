@@ -10,7 +10,7 @@
 .search-form__input {
     margin: 0;
     width: 100%;
-    border: 3px solid $primary-colour;
+    border: 3px solid $brand-colour;
     border-radius: 40px;
     font-size: 15px;
     padding: 6px 12px;
@@ -35,7 +35,7 @@
 
 .search-form__submit:focus,
 .search-form__input:focus + .search-form__submit {
-    color: $primary-colour;
+    color: $brand-colour;
 }
 
 .projects__loading {
