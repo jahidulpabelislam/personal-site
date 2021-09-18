@@ -406,10 +406,14 @@
   display: block; }
   .contact-me .social-link:not(:last-child) {
     margin-bottom: 14px; }
+  .contact-me .social-link .social-link__image {
+    background-color: #333333; }
+  .contact-me .social-link .social-link__text {
+    color: #333333; }
   .contact-me .social-link:hover .social-link__image {
-    background-color: #1bbe69; }
+    background-color: #000; }
   .contact-me .social-link:hover .social-link__text {
-    color: #1bbe69; }
+    color: #000; }
 
 .contact-form__intro {
   margin: 12px 0; }

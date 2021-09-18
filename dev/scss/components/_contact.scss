@@ -49,13 +49,21 @@
             margin-bottom: 14px;
         }
 
+        .social-link__image {
+            background-color: $dark-colour;
+        }
+
+        .social-link__text {
+            color: $dark-colour;
+        }
+
         &:hover {
             .social-link__image {
-                background-color: #1bbe69;
+                background-color: #000;
             }
 
             .social-link__text {
-                color: #1bbe69;
+                color: #000;
             }
         }
     }
