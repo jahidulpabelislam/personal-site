@@ -245,6 +245,23 @@ a.button {
   filter: alpha(opacity=65);
   opacity: 0.65; }
 
+.link {
+  color: #333333;
+  border-bottom: transparent solid 1px; }
+
+.link:hover,
+.link:focus {
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a; }
+
+.link--brand {
+  color: #0078c9; }
+
+.link--brand:hover,
+.link--brand:focus {
+  color: #0081D6;
+  border-bottom-color: #0081D6; }
+
 .table {
   margin: 0 auto;
   border-color: #333333; }

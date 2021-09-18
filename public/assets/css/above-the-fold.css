@@ -110,23 +110,6 @@ blockquote {
   overflow: hidden;
   clip: rect(0, 0, 0, 0); }
 
-.link {
-  color: #333333;
-  border-bottom: transparent solid 1px; }
-
-.link:hover,
-.link:focus {
-  color: #1a1a1a;
-  border-bottom-color: #1a1a1a; }
-
-.link--brand {
-  color: #0078c9; }
-
-.link--brand:hover,
-.link--brand:focus {
-  color: #0081D6;
-  border-bottom-color: #0081D6; }
-
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .similar-links.similar-links > .container {
