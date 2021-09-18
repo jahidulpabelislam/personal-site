@@ -11,7 +11,6 @@ $indexedURLs = [
     "/contact/",
     "/about/",
     "/privacy-policy/",
-    "/site-map/",
 ];
 
 if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
