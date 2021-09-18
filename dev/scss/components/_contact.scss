@@ -31,6 +31,14 @@
 
 .contact-form__submit {
     margin: 0;
+
+    background-color: #1aad5b;
+    color: #ffffff;
+
+    &:hover,
+    &:focus {
+        background-color: #1bbe69;
+    }
 }
 
 .contact-me {
@@ -43,11 +51,11 @@
 
         &:hover {
             .social-link__image {
-                background-color: get-colour(dark-green, hover);;
+                background-color: #1bbe69;
             }
 
             .social-link__text {
-                color: get-colour(dark-green, hover);;
+                color: #1bbe69;
             }
         }
     }

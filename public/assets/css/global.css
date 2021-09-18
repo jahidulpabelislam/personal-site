@@ -32,56 +32,12 @@
   background-color: #f5f5f5;
   color: #333333; }
 
-.row--flush {
-  padding: 0; }
-
-.row--light-blue {
-  background-color: #54c6e2;
-  color: #ffffff; }
-
-.row--dark-blue {
+.row--brand {
   background-color: #0078c9;
   color: #ffffff; }
 
-.row--purple {
-  background-color: #82379d;
-  color: #ffffff; }
-
-.row--pink {
-  background-color: #f47ab3;
-  color: #ffffff; }
-
-.row--red {
-  background-color: #f12525;
-  color: #ffffff; }
-
-.row--orange {
-  background-color: #f69e00;
-  color: #ffffff; }
-
-.row--yellow {
-  background-color: #ffef38;
-  color: #333333; }
-
-.row--light-green {
-  background-color: #3dc714;
-  color: #ffffff; }
-
-.row--lime-green {
-  background-color: #b5cf16;
-  color: #ffffff; }
-
-.row--dark-green {
-  background-color: #1aad5b;
-  color: #ffffff; }
-
-.row--grey {
-  background-color: #7b8676;
-  color: #ffffff; }
-
-.row--black {
-  background-color: #333333;
-  color: #ffffff; }
+.row--flush {
+  padding: 0; }
 
 .row__heading {
   width: 100%;
@@ -251,107 +207,6 @@
 .button:focus {
   background-color: #262626; }
 
-.button:disabled {
-  cursor: not-allowed;
-  filter: alpha(opacity=65);
-  opacity: 0.65; }
-
-.button--light-blue {
-  background-color: #54c6e2;
-  color: #ffffff; }
-
-.button--light-blue:hover,
-.button--light-blue:focus {
-  background-color: #53d1ec; }
-
-.button--dark-blue {
-  background-color: #0078c9;
-  color: #ffffff; }
-
-.button--dark-blue:hover,
-.button--dark-blue:focus {
-  background-color: #0081D6; }
-
-.button--purple {
-  background-color: #82379d;
-  color: #ffffff; }
-
-.button--purple:hover,
-.button--purple:focus {
-  background-color: #9339af; }
-
-.button--pink {
-  background-color: #f47ab3;
-  color: #ffffff; }
-
-.button--pink:hover,
-.button--pink:focus {
-  background-color: #ff82bf; }
-
-.button--red {
-  background-color: #f12525;
-  color: #ffffff; }
-
-.button--red:hover,
-.button--red:focus {
-  background-color: #ff2525; }
-
-.button--orange {
-  background-color: #f69e00;
-  color: #ffffff; }
-
-.button--orange:hover,
-.button--orange:focus {
-  background-color: #fba300; }
-
-.button--yellow {
-  background-color: #ffef38;
-  color: #333333; }
-
-.button--yellow:hover,
-.button--yellow:focus {
-  background-color: #fffd3c; }
-
-.button--light-green {
-  background-color: #3dc714;
-  color: #ffffff; }
-
-.button--light-green:hover,
-.button--light-green:focus {
-  background-color: #3bcf14; }
-
-.button--lime-green {
-  background-color: #b5cf16;
-  color: #ffffff; }
-
-.button--lime-green:hover,
-.button--lime-green:focus {
-  background-color: #bdd716; }
-
-.button--dark-green {
-  background-color: #1aad5b;
-  color: #ffffff; }
-
-.button--dark-green:hover,
-.button--dark-green:focus {
-  background-color: #1bbe69; }
-
-.button--grey {
-  background-color: #7b8676;
-  color: #ffffff; }
-
-.button--grey:hover,
-.button--grey:focus {
-  background-color: #889283; }
-
-.button--black {
-  background-color: #333333;
-  color: #ffffff; }
-
-.button--black:hover,
-.button--black:focus {
-  background-color: #262626; }
-
 .button--white {
   background-color: #ffffff;
   color: #333333; }
@@ -384,6 +239,11 @@ a.button {
   .button {
     margin: 7px;
     padding: 9px 14px; } }
+
+.button:disabled {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: 0.65; }
 
 .table {
   margin: 0 auto;
@@ -541,7 +401,11 @@ a.button {
 
 .cookie-banner__close {
   padding: 4px 8px;
-  font-weight: 700; }
+  font-weight: 700;
+  background-color: #1aad5b;
+  color: #ffffff; }
+  .cookie-banner__close:hover, .cookie-banner__close:focus {
+    background-color: #1bbe69; }
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: 768px) {

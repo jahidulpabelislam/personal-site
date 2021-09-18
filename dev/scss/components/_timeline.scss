@@ -122,8 +122,8 @@
 }
 
 .timeline__item--present::after {
-    color: get-colour(dark-blue, main);
-    box-shadow: 0 0 10px 0 get-colour(dark-blue, main);
+    color: $brand-colour;
+    box-shadow: 0 0 10px 0 $brand-colour;
 }
 
 .timeline__content {
@@ -187,5 +187,5 @@
 }
 
 .timeline__nav svg path {
-    fill: get-colour(black, main);
+    fill: $dark-colour;
 }

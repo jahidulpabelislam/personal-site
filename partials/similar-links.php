@@ -3,7 +3,6 @@ $site = site();
 $page = page();
 
 $similarLinks = $page->similarLinks ?? [];
-$colour = $page->similarLinksColour ? "row--$page->similarLinksColour": "";
 
 if (count($similarLinks)) {
     $linksContent = "";
@@ -14,17 +13,9 @@ if (count($similarLinks)) {
         $url = $link["url"];
         $url = $site->makeURL($url);
 
-        $buttonClasses = ["button"];
-
-        if (!empty($link["colour"])){
-            $buttonClasses[] =  "button--{$link["colour"]}";
-        }
-
-        $buttonClass = implode(" ", $buttonClasses);
-
         $linksContent .= <<<HTML
 <div class="row__column">
-    <a class="{$buttonClass}" href="{$url}" title="Link to {$pageTitle} Page">
+    <a class="button button--brand" href="{$url}" title="Link to {$pageTitle} Page">
         {$buttonText}
     </a>
 </div>
@@ -32,7 +23,7 @@ HTML;
     }
 
     echo <<<HTML
-<div class="row row--halves similar-links $colour">
+<div class="row row--halves similar-links">
     <div class="container">
         {$linksContent}
     </div>

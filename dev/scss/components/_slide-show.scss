@@ -55,7 +55,7 @@
     height: 30px;
     opacity: 0.8;
     background: #ffffff;
-    box-shadow: 0 0 20px 0 transparentize(get-colour(black, main), 0.7);
+    box-shadow: 0 0 20px 0 transparentize($dark-colour, 0.7);
     transition: all 0.3s ease-in-out;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .slide-show__nav svg path {
-    fill: get-colour(black, main);
+    fill: $dark-colour;
     transition: all 0.3s ease-in-out;
 }
 
@@ -94,7 +94,7 @@
     transition: all 0.4s ease-in-out;
 }
 .slide-show__bullet--active {
-    background-color: get-colour(black, dark);
+    background-color: $dark-colour;
     transform: scale(1.2);
 }
 .slide-show__bullet:not(.slide-show__bullet--active):hover,

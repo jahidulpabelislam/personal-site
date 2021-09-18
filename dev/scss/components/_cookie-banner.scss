@@ -32,13 +32,20 @@
 
 .cookie-banner__link:hover,
 .cookie-banner__link:focus {
-    color: get-colour(dark-green, hover);
-    border-bottom-color: get-colour(dark-green, hover);
+    color: #1bbe69;
+    border-bottom-color: #1bbe69;
 }
 
 .cookie-banner__close {
     padding: 4px 8px;
     font-weight: 700;
+    background-color: #1aad5b;
+    color: #ffffff;
+
+    &:hover,
+    &:focus {
+        background-color: #1bbe69;
+    }
 }
 
 /* Only for Tablets & Desktops */

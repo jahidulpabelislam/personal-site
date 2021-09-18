@@ -64,9 +64,9 @@
     cursor: pointer;
 }
 .skills__item--expandable:hover {
-    background-color: get-colour(dark-blue, hover);
-    border-color: get-colour(dark-blue, hover);
-    color: get-colour(dark-blue, text, #fff);
+    background-color: $brand-light-colour;
+    border-color: $brand-light-colour;
+    color: #fff;
 }
 
 .skills__toggle {

@@ -67,8 +67,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         </div>
         <div class="row__column">
             <p>
-                Based in <a class="link link--dark-blue" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                    Bognor Regis</a>,<a class="link link--dark-blue" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
+                Based in <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                    Bognor Regis</a>,<a class="link link--brand" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
                     West Sussex</a>, South East Coast of England.
             </p>
         </div>
@@ -114,7 +114,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2005 - 2009",
                         "icon" => "football",
                         "text" => "Playing competitive football with
-                            <a class='link link--dark-blue' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                 Felpham Colts
                             </a>",
                     ],
@@ -127,7 +127,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2012 - 2014",
                         "icon" => "school",
                         "text" => "IT Student @
-                            <a class='link link--dark-blue' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                 Chichester College
                             </a>",
                     ],
@@ -135,7 +135,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014",
                         "icon" => "food",
                         "text" => "Working Part Time @
-                            <a class='link link--dark-blue' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                 KFC
                             </a>
                              as a Team Member",
@@ -144,7 +144,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014 - 2017",
                         "icon" => "film",
                         "text" => "Working Part Time @
-                            <a class='link link--dark-blue' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                 CeX
                             </a>
                              as a Sales Assistant",
@@ -153,7 +153,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014 - 2017",
                         "icon" => "school",
                         "text" => "Web Technologies Student @
-                            <a class='link link--dark-blue' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                 University of Portsmouth
                             </a>",
                     ],
@@ -161,7 +161,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2017 - 2019",
                         "icon" => "work",
                         "text" => "Software Developer @
-                            <a class='link link--dark-blue' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                 BrightMinded
                             </a>",
                     ],
@@ -169,7 +169,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2019 - Present",
                         "icon" => "work",
                         "text" => "Web Developer @
-                            <a class='link link--dark-blue' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--brand' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
                                 D3R
                             </a>",
                         "isActive" => true,
@@ -200,7 +200,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row row--dark-blue">
+<section class="row row--brand">
     <div class="container">
         <div class="stats js-counters">
             <?php
@@ -333,7 +333,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </div>
 
-<section class="row row--dark-blue">
+<section class="row row--brand">
     <div class="container">
         <div class="workflow">
             <?php
@@ -453,7 +453,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <p class="contact-form__feedback"></p>
             <button
                 type="submit"
-                class="button button--dark-green contact-form__submit"
+                class="button contact-form__submit"
                 id="submit"
                 data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
                 data-initial-text="Send Email"

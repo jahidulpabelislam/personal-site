@@ -42,7 +42,12 @@
     min-width: 44px;
     border-radius: 50%;
     box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
-    background: $error-colour;
+    background: #f12525;
+
+    &:hover,
+    &:focus {
+        background-color: #ff2525;
+    }
 }
 
 .modal__heading {

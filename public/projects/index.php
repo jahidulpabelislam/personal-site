@@ -110,7 +110,7 @@ $page->renderContentStart();
 </section>
 
 <div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
-    <button type="button" class="button button--red expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
+    <button type="button" class="button expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
     <div class="expanded-slide-show__image-container">
         <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
@@ -142,7 +142,7 @@ $page->renderContentStart();
 
 <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
     <div class="modal__content">
-        <button type="button" class="button button--red modal__close js-modal-close" aria-label="Close">X</button>
+        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
 
         <h1 class="modal__heading" id="detailed-project-title"></h1>
 
@@ -230,13 +230,11 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "/contact/",
         "text" => "Get in Touch",
-        "colour" => "dark-blue",
     ],
     [
         "title" => "About",
         "url" => "/about/",
         "text" => "Learn About Me",
-        "colour" => "dark-blue",
     ],
 ];
 $page->similarLinks = $similarLinks;

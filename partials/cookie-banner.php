@@ -7,7 +7,7 @@
             </p>
         </div>
         <div class="cookie-banner__actions">
-            <button type="button" class="button button--dark-green cookie-banner__close">OK</button>
+            <button type="button" class="button cookie-banner__close">OK</button>
         </div>
     </div>
 </div>

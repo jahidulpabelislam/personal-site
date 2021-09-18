@@ -24,16 +24,14 @@
     border-bottom-color: darken($dark-colour, 10%);
 }
 
-@each $colour, $colours in $colour-schemes {
-    .link--#{$colour} {
-        color: map-get($colours, main);
-    }
+.link--brand {
+    color: $brand-colour;
+}
 
-    .link--#{$colour}:hover,
-    .link--#{$colour}:focus {
-        color: map-get($colours, hover);
-        border-bottom-color: map-get($colours, hover);
-    }
+.link--brand:hover,
+.link--brand:focus {
+    color: $brand-light-colour;
+    border-bottom-color: $brand-light-colour;
 }
 
 /* Only for Desktops */

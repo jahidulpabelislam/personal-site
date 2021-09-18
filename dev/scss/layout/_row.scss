@@ -9,15 +9,13 @@
     color: $dark-colour;
 }
 
-.row--flush {
-    padding: 0;
+.row--brand {
+    background-color: $brand-colour;
+    color: #ffffff;
 }
 
-@each $colour, $colours in $colour-schemes {
-    .row--#{$colour} {
-        background-color: map-get($colours, main);
-        color: get-colour-variant($colours, text, #ffffff);
-    }
+.row--flush {
+    padding: 0;
 }
 
 .row__heading {

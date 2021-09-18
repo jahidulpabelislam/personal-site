@@ -152,7 +152,7 @@
   transition: all 0.4s ease-in-out; }
 
 .slide-show__bullet--active {
-  background-color: #0d0d0d;
+  background-color: #333333;
   transform: scale(1.2); }
 
 .slide-show__bullet:not(.slide-show__bullet--active):hover,
@@ -396,7 +396,11 @@
   margin-bottom: 20px; }
 
 .contact-form__submit {
-  margin: 0; }
+  margin: 0;
+  background-color: #1aad5b;
+  color: #ffffff; }
+  .contact-form__submit:hover, .contact-form__submit:focus {
+    background-color: #1bbe69; }
 
 .contact-me .social-link {
   display: block; }
