@@ -444,22 +444,4 @@ a.button {
   .cookie-banner__close {
     padding: 5px 10px; } }
 
-/* For all devices */
-.site-map {
-  width: 100%;
-  text-align: left;
-  color: #333333; }
-
-/* For Tablets & Desktops */
-@media only screen and (min-width: 768px) {
-  .site-map.site-map {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto; } }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .site-map.site-map {
-    width: 25%; } }
-
 /*# sourceMappingURL=maps/global.css.map */
