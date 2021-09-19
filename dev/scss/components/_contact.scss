@@ -50,20 +50,20 @@
         }
 
         .social-link__image {
-            background-color: $dark-colour;
+            background-color: #f69e00;
         }
 
         .social-link__text {
-            color: $dark-colour;
+            color: #f69e00;
         }
 
         &:hover {
             .social-link__image {
-                background-color: #000;
+                background-color: #fba300;
             }
 
             .social-link__text {
-                color: #000;
+                color: #fba300;
             }
         }
     }
