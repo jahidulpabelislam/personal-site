@@ -72,11 +72,11 @@
 }
 
 .nav--open .nav__mobile-toggle {
-    border-color: #f12525;
+    border-color: $red;
 }
 
 .nav--open .nav__menu-bar {
-    background-color: #f12525;
+    background-color: $red;
 }
 
 .nav__menu-bar:nth-child(2) {

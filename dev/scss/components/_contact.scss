@@ -31,13 +31,12 @@
 
 .contact-form__submit {
     margin: 0;
-
-    background-color: #1aad5b;
+    background-color: $green;
     color: #ffffff;
 
     &:hover,
     &:focus {
-        background-color: #1bbe69;
+        background-color: $green-light;
     }
 }
 
@@ -50,21 +49,11 @@
         }
 
         .social-link__image {
-            background-color: #f69e00;
+            background-color: $orange;
         }
 
         .social-link__text {
-            color: #f69e00;
-        }
-
-        &:hover {
-            .social-link__image {
-                background-color: #fba300;
-            }
-
-            .social-link__text {
-                color: #fba300;
-            }
+            color: $orange;
         }
     }
 }

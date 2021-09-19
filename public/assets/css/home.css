@@ -410,10 +410,6 @@
     background-color: #f69e00; }
   .contact-me .social-link .social-link__text {
     color: #f69e00; }
-  .contact-me .social-link:hover .social-link__image {
-    background-color: #fba300; }
-  .contact-me .social-link:hover .social-link__text {
-    color: #fba300; }
 
 .contact-form__intro {
   margin: 12px 0; }
