@@ -23,6 +23,7 @@ $page->showSocialLinksHeader = true;
 $page->renderHtmlStart();
 $page->renderHead();
 $page->renderPageStart();
+$page->renderCookieBanner();
 $page->renderNav();
 $page->renderHeader();
 $page->renderContentStart();
@@ -499,6 +500,5 @@ $page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::
 
 $page->renderContentEnd();
 $page->renderFooter();
-$page->renderCookieBanner();
 $page->renderPageEnd();
 $page->renderHtmlEnd();
