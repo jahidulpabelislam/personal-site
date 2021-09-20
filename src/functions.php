@@ -14,10 +14,10 @@ function load(string $path, bool $isRelative = true): \App\File {
 
 function getConfigPath(string $level = null): string {
     if ($level && !in_array($level, ["global", "site", "production"])) {
-        return ROOT . "/src/config.$level.php";
+        return ROOT . "/config/app.$level.php";
     }
 
-    return ROOT . "/src/config.php";
+    return ROOT . "/config/app.php";
 }
 
 /**
