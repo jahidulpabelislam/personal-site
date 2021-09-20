@@ -2,6 +2,7 @@
 
 define("ROOT", __DIR__);
 define("PUBLIC_ROOT", __DIR__ . "/public");
+define("JPI_SITE_ROOT", __DIR__ . "/vendor/jpi/site");
 
 date_default_timezone_set("Europe/London");
 

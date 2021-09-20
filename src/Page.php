@@ -135,7 +135,7 @@ class Page {
             "stylesheets" => $this->getStylesheetsForPage($pageId),
             "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
             "jsGlobals" => [
-                "breakpoints" => load(ROOT . "/dev/config/breakpoints.json", false)->getArray(),
+                "breakpoints" => load(JPI_SITE_ROOT . "/config/breakpoints.json", false)->getArray(),
             ],
             "scripts" => [],
             "inlineJS" => "",
