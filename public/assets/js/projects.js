@@ -543,11 +543,11 @@ JPI.SlideShow = function(options) {
         this.$slideShow.on("dragstart", ".slide-show__image", false); // todo: move
 
         if (this.$bullets) {
-            this.$bullets.on("click", this.changeToSlide);
+            this.$bullets.on("click", this.changeToSlide.bind(this));
         }
 
         if (this.$navs) {
-            this.$navs.on("click", this.navigate);
+            this.$navs.on("click", this.navigate.bind(this));
         }
 
         jQuery(window).on("orientationchange resize", JPI.debounce(this.repositionSlides.bind(this), 150));
