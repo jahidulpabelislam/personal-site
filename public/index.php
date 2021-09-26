@@ -69,8 +69,9 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="row__column">
             <p>
                 Based in <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                    Bognor Regis</a>,<a class="link link--brand" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">
-                    West Sussex</a>, South East Coast of England.
+                    Bognor Regis</a>,
+                <a class="link link--brand" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">West Sussex</a>
+                , South East Coast of England.
             </p>
         </div>
         <div class="row__column">
