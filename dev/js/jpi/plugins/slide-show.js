@@ -45,6 +45,30 @@ JPI.SlideShow = function(options) {
         return selector.substring(1);
     }
 
+    this.getConfig = function(config) {
+        if (window.innerWidth >= JPI.getInt(JPI.breakpoints.desktop)) {
+            if (
+                this.options.breakpoints &&
+                this.options.breakpoints.desktop &&
+                this.options.breakpoints.desktop[config]
+            ) {
+                return this.options.breakpoints.desktop[config]
+            }
+        }
+
+        if (window.innerWidth >= JPI.getInt(JPI.breakpoints.tablet)) {
+            if (
+                this.options.breakpoints &&
+                this.options.breakpoints.tablet &&
+                this.options.breakpoints.tablet[config]
+            ) {
+                return this.options.breakpoints.tablet[config]
+            }
+        }
+
+        return this.options[config];
+    };
+
     // Resets the transition duration of a slide show
     this.resetTransition = function() {
         this.$container.css("transition-duration", "");
@@ -55,22 +79,37 @@ JPI.SlideShow = function(options) {
         var slideWidth = this.$viewport.innerWidth();
         var count = this.$slides.length;
 
-        if (this.options.slidesPerView > 1) {
-            slideWidth = slideWidth / this.options.slidesPerView;
-            count++;
+        var fullWidth = slideWidth * count;
 
-            this.$slides.first().css("margin-left", slideWidth);
+        var slidesPerView = this.getConfig('slidesPerView');
+        if (slidesPerView > 1) {
+            slideWidth = slideWidth / slidesPerView;
+
+            if (slidesPerView % 2 === 0) {
+                fullWidth = (slideWidth * count) + (slideWidth / 2);
+                var offset = slideWidth / 2;
+            } else {
+                fullWidth = (slideWidth * count) + slideWidth;
+                var offset = slideWidth;
+            }
+
+            this.$slides.first().css("margin-left", offset);
         }
 
         this.$slides.css("width", slideWidth + "px");
-        this.$container.css("width", slideWidth * count + "px");
+        this.$container.css("width", fullWidth + "px");
     };
 
     this.getPosition = function($slide) {
         var offset = 0;
 
-        if (this.options.slidesPerView > 1 && !$slide.is(":first-child")) {
+        var slidesPerView = this.getConfig('slidesPerView');
+        if (slidesPerView > 1 && !$slide.is(":first-child")) {
             offset = $slide.innerWidth();
+
+            if (slidesPerView % 2 === 0) {
+                offset = offset / 2;
+            }
         }
 
         var position = $slide.position();

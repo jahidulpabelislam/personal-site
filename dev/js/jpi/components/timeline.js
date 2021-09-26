@@ -29,9 +29,14 @@
             bulletsSelector: false,
             bulletSelector: false,
             navSelector: ".timeline__nav",
-            slidesPerView: 3,
+            slidesPerView: 2,
             autoplay: false,
             loop: false,
+            breakpoints: {
+                desktop: {
+                    slidesPerView: 3,
+                },
+            },
         });
 
         slideShow.start();
