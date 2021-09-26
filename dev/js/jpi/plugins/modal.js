@@ -1,168 +1,130 @@
-;JPI.modal = (function() {
+;JPI.modal = function($modal) {
 
     "use strict";
 
-    var global = {
-        body: null,
-        page: null,
-        selector: ".modal",
-        activeModal: null,
-        lastFocused: null,
-        focusables: null,
-        firstFocusable: null,
-        lastFocusable: null,
+    this.$body = jQuery("body");
+    this.$page = jQuery(".page-container");
+
+    this.lastFocused = null;
+
+    this.$focusables = null;
+    this.$firstFocusable = null;
+    this.$lastFocusable = null;
+
+    this.close = function() {
+        if (!$modal.hasClass("is-open")) {
+            return;
+        }
+
+        this.$body.removeClass("no-scroll");
+        this.$page.attr("aria-hidden", "false");
+
+        $modal.removeClass("is-open");
+        $modal.attr({
+            "tabindex": -1,
+            "aria-hidden": true,
+            "hidden": "hidden",
+        });
+
+        if (this.lastFocused) {
+            this.lastFocused.focus();
+        }
+
+        $modal.trigger("closed");
     };
 
-    var fn = {
+    this.triggerClose = function() {
+        var $closeButton = $modal.find(".js-modal-close");
+        if ($closeButton.length) {
+            $closeButton.trigger("click");
+            return;
+        }
 
-        close: function() {
-            if (!global.activeModal) {
-                return;
-            }
-
-            global.body.removeClass("no-scroll");
-            global.page.attr("aria-hidden", "false");
-
-            global.activeModal.removeClass("is-open");
-            global.activeModal.attr({
-                "tabindex": -1,
-                "aria-hidden": true,
-                "hidden": "hidden",
-            });
-
-            if (global.lastFocused) {
-                global.lastFocused.focus();
-            }
-
-            global.activeModal.trigger("closed");
-
-            global.activeModal = null;
-            global.lastFocused = null;
-            global.focusables = null;
-            global.firstFocusable = null;
-            global.lastFocusable = null;
-        },
-
-        triggerClose: function() {
-            var closeButton = global.activeModal.find(".js-modal-close");
-            if (closeButton.length) {
-                closeButton.trigger("click");
-                return;
-            }
-
-            fn.close();
-        },
-
-        open: function(modal) {
-            if (global.activeModal) {
-                fn.triggerClose();
-            }
-
-            global.activeModal = jQuery(modal);
-
-            global.lastFocused = document.activeElement;
-
-            global.body.addClass("no-scroll");
-            global.page.attr("aria-hidden", "true");
-
-            global.activeModal.attr({
-                "tabindex": 0,
-                "aria-hidden": false,
-                "hidden": false,
-            });
-            global.activeModal.addClass("is-open");
-
-            global.focusables = JPI.getFocusableChildren(global.activeModal);
-            var focusablesLength = global.focusables.length;
-            if (focusablesLength) {
-                global.firstFocusable = jQuery(global.focusables[0]);
-                global.lastFocusable = jQuery(global.focusables[focusablesLength - 1]);
-
-                global.firstFocusable.focus();
-            }
-            else {
-                global.activeModal.focus();
-            }
-
-            global.activeModal.trigger("opened");
-        },
-
-        onModalClick: function(e) {
-            // Only close if clicked outside of the modal content elem
-            var clickedElem = jQuery(e.target);
-            if (
-                clickedElem.children(".modal__content").length &&
-                !clickedElem.closest(".modal__content").length
-            ) {
-                fn.triggerClose();
-            }
-        },
-
-        onBackwardTab: function(e) {
-            if (document.activeElement === global.firstFocusable[0]) {
-                e.preventDefault();
-                global.lastFocusable.focus();
-            }
-        },
-
-        onForwardTab: function(e) {
-            if (document.activeElement === global.lastFocusable[0]) {
-                e.preventDefault();
-                global.firstFocusable.focus();
-            }
-        },
-
-        onKeyDown: function(e) {
-            switch (e.keyCode || e.key) {
-                case 9:
-                case "Tab":
-                    if (global.focusables.length <= 1) {
-                        e.preventDefault();
-                        break;
-                    }
-
-                    if (e.shiftKey) {
-                        fn.onBackwardTab(e);
-                    }
-                    else {
-                        fn.onForwardTab(e);
-                    }
-                    break;
-                case 27:
-                case "Escape":
-                    fn.triggerClose();
-                    break;
-            }
-        },
-
-        onClose: function(e) {
-            if (global.activeModal && global.activeModal.has(jQuery(e.target))) {
-                fn.close();
-            }
-        },
-
-        init: function() {
-            global.body = jQuery("body");
-            global.page = jQuery(".page-container");
-
-            /**
-             * Due to the way the modal's are rendered
-             * move all modal's after the page element for accessibility
-             */
-            jQuery(global.selector).insertAfter(global.page);
-
-            global.body.on("click", global.selector, fn.onModalClick);
-            global.body.on("click", ".js-modal-close", fn.onClose);
-            global.body.on("keydown", global.selector, fn.onKeyDown);
-        },
-
+        this.close();
     };
 
-    jQuery(fn.init);
+    this.onModalClick = function(e) {
+        // Close if clicked outside of the modal content elem
+        var $clickedElem = jQuery(e.target);
+        if (
+            $clickedElem.children(".modal__content").length &&
+            !$clickedElem.closest(".modal__content").length
+        ) {
+            this.triggerClose();
+        }
+    }
+
+    this.onBackwardTab = function(e) {
+        if (document.activeElement === this.$firstFocusable[0]) {
+            e.preventDefault();
+            this.$lastFocusable.focus();
+        }
+    };
+
+    this.onForwardTab = function(e) {
+        if (document.activeElement === this.$lastFocusable[0]) {
+            e.preventDefault();
+            this.$firstFocusable.focus();
+        }
+    };
+
+    this.onKeyDown = function(e) {
+        switch (e.keyCode || e.key) {
+            case 9:
+            case "Tab":
+                if (this.$focusables.length <= 1) {
+                    e.preventDefault();
+                    break;
+                }
+
+                if (e.shiftKey) {
+                    this.onBackwardTab(e);
+                }
+                else {
+                    this.onForwardTab(e);
+                }
+                break;
+            case 27:
+            case "Escape":
+                this.triggerClose();
+                break;
+        }
+    };
+
+    this.open = function() {
+        this.lastFocused = document.activeElement;
+
+        this.$body.addClass("no-scroll");
+        this.$page.attr("aria-hidden", "true");
+
+        $modal.attr({
+            "tabindex": 0,
+            "aria-hidden": false,
+            "hidden": false,
+        });
+        $modal.addClass("is-open");
+
+        this.$focusables = JPI.getFocusableChildren($modal);
+        var focusablesLength = this.$focusables.length;
+        if (focusablesLength) {
+            this.$firstFocusable = jQuery(this.$focusables[0]);
+            this.$lastFocusable = jQuery(this.$focusables[focusablesLength - 1]);
+
+            this.$firstFocusable.focus();
+        }
+        else {
+            $modal.focus();
+        }
+
+        $modal.trigger("opened");
+
+        $modal.on("click", this.onModalClick.bind(this));
+        $modal.on("click", ".js-modal-close", this.close.bind(this));
+        $modal.on("keydown", this.onKeyDown.bind(this));
+    };
 
     return {
-        open: fn.open,
-        close: fn.close,
+        open: this.open.bind(this),
+        close: this.close.bind(this),
     };
-
-})();
+};

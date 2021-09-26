@@ -10,13 +10,13 @@
      * add invalid class if empty and return false
      * or remove invalid class if not empty and return true
      */
-    JPI.checkInputField = function(input) {
-        if (input.val().trim() === "") {
-            input.removeClass("input--valid").addClass("input--invalid");
+    JPI.checkInputField = function($input) {
+        if ($input.val().trim() === "") {
+            $input.removeClass("input--valid").addClass("input--invalid");
             return false;
         }
 
-        input.removeClass("input--invalid").addClass("input--valid");
+        $input.removeClass("input--invalid").addClass("input--valid");
         return true;
     };
 
@@ -24,23 +24,21 @@
         return jQuery("<" + elementName + ">", attributes || {});
     };
 
-    JPI.renderNewElement = function(elementName, parent, attributes) {
-        var newElement = JPI.createElement(elementName, attributes || {});
-        parent.append(newElement);
+    JPI.renderNewElement = function(elementName, $parent, attributes) {
+        var $newElement = JPI.createElement(elementName, attributes || {});
+        $parent.append($newElement);
 
-        return newElement;
+        return $newElement;
     };
 
-    JPI.getFocusableChildren = function(parent) {
-        return parent.find("a, button, input, select, textarea").filter(":not([disabled]):visible");
+    JPI.getFocusableChildren = function($parent) {
+        return $parent.find("a, button, input, select, textarea").filter(":not([disabled]):visible");
     };
 
     JPI.getInt = function(value, defaultInt) {
         var parsedInt = parseInt(value, 10);
 
-        var int = isNaN(parsedInt) ? defaultInt : parsedInt;
-
-        return int;
+        return isNaN(parsedInt) ? defaultInt : parsedInt;
     };
 
     JPI.getCookie = function(key) {
@@ -86,7 +84,7 @@
         for (var i = 0; i < count; i++) {
             var stylesheet = stylesheets[i];
 
-            var newLink = JPI.renderNewElement("link", head, {
+            var $newLink = JPI.renderNewElement("link", head, {
                 rel: "stylesheet",
                 type: "text/css",
                 media: "all",
@@ -94,7 +92,7 @@
                 href: stylesheet,
             });
 
-            newLink.on("load", function() {
+            $newLink.on("load", function() {
                 totalLoaded++;
                 if (totalLoaded === count) {
                     jQuery(window).trigger("jpi-css-loaded");

@@ -1,68 +1,56 @@
-;(function() {
+;(new (function() {
 
     "use strict";
 
-    var global = {
-        window: jQuery(window),
-        nav: null,
-        header: null,
-        menuButton: null,
-        linksContainers: null,
+    var $window = jQuery(window);
+
+    this.$element = jQuery(".nav");
+    this.$menuButton = jQuery(".nav__mobile-toggle");
+    this.$linksContainers = jQuery(".nav__links-container");
+
+    var $header = jQuery(".header");
+
+    this.toggleMobileMenu = function() {
+        this.$element.toggleClass("nav--open");
+        this.$linksContainers.slideToggle();
     };
 
-    var fn = {
+    this.reset = function() {
+        if (window.innerWidth >= JPI.getInt(JPI.breakpoints.tablet)) {
+            this.$linksContainers.css("display", "");
+        }
 
-        toggleMobileMenu: function() {
-            global.nav.toggleClass("nav--open");
-            global.linksContainers.slideToggle();
-        },
+        // Set the correct class on nav depending on current scroll position
+        var navHeight = this.$element.height();
+        var scrollPos = $window.scrollTop() + navHeight;
+        var headerHeight = $header.height();
 
-        reset: function() {
-            if (window.innerWidth >= JPI.getInt(JPI.breakpoints.tablet)) {
-                global.linksContainers.css("display", "");
-            }
-
-            // Set the correct class on nav depending on current scroll position
-            var navHeight = global.nav.height();
-            var scrollPos = global.window.scrollTop() + navHeight;
-            var headerHeight = global.header.height();
-
-            if (!headerHeight || scrollPos >= headerHeight) {
-                global.nav.addClass("nav--scrolled");
-            }
-            else {
-                global.nav.removeClass("nav--scrolled");
-            }
-        },
-
-        // Code to collapse mobile menu when user clicks anywhere off it.
-        onNavClick: function(e) {
-            if (
-                global.nav.hasClass("nav--open") &&
-                !jQuery(e.target).closest(".nav").length &&
-                global.menuButton.css("display") !== "none"
-            ) {
-                global.menuButton.click();
-            }
-        },
-
-        initListeners: function() {
-            jQuery(window).on("click", fn.onNavClick);
-            global.window.on("scroll orientationchange resize", JPI.debounce(fn.reset, 150));
-            global.menuButton.on("click", fn.toggleMobileMenu);
-        },
-
-        init: function() {
-            global.nav = jQuery(".nav");
-            global.menuButton = jQuery(".nav__mobile-toggle");
-            global.linksContainers = jQuery(".nav__links-container");
-            global.header = jQuery(".header");
-
-            fn.initListeners();
-            fn.reset();
-        },
+        if (!headerHeight || scrollPos >= headerHeight) {
+            this.$element.addClass("nav--scrolled");
+        }
+        else {
+            this.$element.removeClass("nav--scrolled");
+        }
     };
 
-    global.window.on("jpi-css-loaded", fn.init);
+    // Code to collapse mobile menu when user clicks anywhere off it.
+    this.onNavClick = function(e) {
+        if (
+            this.$element.hasClass("nav--open") &&
+            !jQuery(e.target).closest(".nav").length &&
+            this.$menuButton.css("display") !== "none"
+        ) {
+            this.$menuButton.click();
+        }
+    };
 
-})();
+    this.init = function() {
+        this.reset();
+
+        $window.on("click", this.onNavClick.bind(this));
+        $window.on("scroll orientationchange resize", JPI.debounce(this.reset.bind(this), 150));
+        this.$menuButton.on("click", this.toggleMobileMenu.bind(this));
+    };
+
+    $window.on("jpi-css-loaded", this.init.bind(this));
+}));

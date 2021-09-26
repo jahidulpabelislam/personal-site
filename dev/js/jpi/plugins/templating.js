@@ -1,29 +1,23 @@
 ;// Handles all the general JS templating stuff - for use out of Template class as well
-JPI.templating = (function() {
+JPI.templating = new function() {
 
     "use strict";
 
-    var global = {
-        moustaches: {}, // `Cache` of moustaches
-    };
+    this.moustaches = {};
 
-    var fn = {
+    // Get a ReEx of a 'moustache' for the field to replace (e.g. `{{ fieldName }}` or `{{fieldName}}`)
+    this.getMoustache = function(field) {
+        if (!this.moustaches[field]) {
+            this.moustaches[field] = new RegExp("{{2} ?" + field + " ?}{2}", "g");
+        }
 
-        // Get a ReEx of a 'moustache' for the field to replace (e.g. `{{ fieldName }}` or `{{fieldName}}`)
-        getMoustache: function(field) {
-            if (!global.moustaches[field]) {
-                global.moustaches[field] = new RegExp("{{2} ?" + field + " ?}{2}", "g");
-            }
-
-            return global.moustaches[field];
-        },
+        return this.moustaches[field];
     };
 
     return {
-        getMoustache: fn.getMoustache,
+        getMoustache: this.getMoustache.bind(this),
     };
-
-})();
+};
 
 // A Template 'class' that holds all necessary logic to load a template, replace/process with data and render
 JPI.Template = (function() {
@@ -32,52 +26,41 @@ JPI.Template = (function() {
 
     return function(template, context) {
 
-        context = context || {};
+        this.context = context || {};
 
-        var fn = {
+        this.replace = function(field, value) {
+            var type = typeof value;
 
-            replace: function(field, value) {
-                var type = typeof value;
-
-                if (type === "string" || type === "number") {
-                    var moustache = JPI.templating.getMoustache(field);
-                    template = template.replace(moustache, value);
-                }
-                else if (type === "object") {
-                    for (var innerField in value) {
-                        if ({}.hasOwnProperty.call(value, innerField)) {
-                            var innerKey = field ? field + "." + innerField : innerField;
-                            template = fn.replace(innerKey, value[innerField]);
-                        }
+            if (type === "string" || type === "number") {
+                var moustache = JPI.templating.getMoustache(field);
+                template = template.replace(moustache, value);
+            }
+            else if (type === "object") {
+                for (var innerField in value) {
+                    if ({}.hasOwnProperty.call(value, innerField)) {
+                        var innerKey = field ? field + "." + innerField : innerField;
+                        template = this.replace(innerKey, value[innerField]);
                     }
                 }
+            }
 
-                return template;
-            },
-
-            process: function(data) {
-                if (data) {
-                    fn.replace(null, data);
-                }
-            },
-
-            get: function() {
-                fn.process(context);
-                return template;
-            },
-
-            renderIn: function(parentElem) {
-                parentElem.append(fn.get());
-            },
+            return template;
         };
 
-        return {
-            replace: fn.replace,
-            process: fn.process,
-            get: fn.get,
-            renderIn: fn.renderIn,
+        this.process = function(data) {
+            if (data) {
+                this.replace(null, data);
+            }
+        };
+
+        this.get = function() {
+            this.process(context);
+            return template;
+        };
+
+        this.renderIn = function(parentElem) {
+            parentElem.append(this.get());
         };
     };
-
 })();
 

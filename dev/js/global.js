@@ -9,33 +9,23 @@ var JPI = JPI || {};
 
     "use strict";
 
-    var global = {
-        body: null,
-        nav: null,
-        mainContentElem: null,
-    };
+    var $body = jQuery("html, body");
+    var $nav = jQuery(".nav");
+    var $mainContent = jQuery(".main-content");
 
-    var fn = {
+    JPI.scrollTo = function($el, offset) {
+        $body.animate({
+            scrollTop: $el.offset().top - $nav.height() - offset,
+        }, 1000);
+    }
 
-        scrollToContent: function() {
-            global.body.animate({
-                scrollTop: global.mainContentElem.offset().top - global.nav.height(),
-            }, 1000);
-        },
+    jQuery(".js-scroll-to-content").on("click", function() {
+        JPI.scrollTo($mainContent);
+    });
 
-        initListeners: function() {
-            jQuery(".js-scroll-to-content").on("click", fn.scrollToContent);
-        },
-
-        init: function() {
-            global.body = jQuery("html, body");
-            global.nav = jQuery(".nav");
-            global.mainContentElem = jQuery(".main-content");
-
-            fn.initListeners();
-        },
-    };
-
-    jQuery(fn.init);
-
+    /**
+     * Due to the way the modal's are rendered
+     * move all modal's after the page element for accessibility
+     */
+    jQuery('.modal').insertAfter(jQuery('.page-container'));
 })();

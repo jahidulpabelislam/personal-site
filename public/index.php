@@ -80,7 +80,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 </div>
 
 <div class="row row--flush">
-    <div class="map js-bognor-regis-map"></div>
+    <div class="map js-map"></div>
 </div>
 
 <section class="row row--alt">
@@ -240,7 +240,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             ?>
 
             <div class="stats__item">
-                <p class="row__heading stats__heading js-seconds-on-site" data-current-second="0">0</p>
+                <p class="row__heading stats__heading js-seconds-on-site">0</p>
                 <p class="stats__text">Seconds on here</p>
             </div>
         </div>
