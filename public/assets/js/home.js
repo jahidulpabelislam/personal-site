@@ -166,7 +166,20 @@ JPI.SlideShow = function(options) {
         loop: true,
     };
 
+    this.getXPosition = function(e) {
+        return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    };
+
+    this.removeSelector = function(selector) {
+        return selector.substring(1);
+    };
+
     this.options = jQuery.extend(defaults, options || {});
+
+    this.options.activeSlideClass = this.removeSelector(this.options.slideSelector) + "--active";
+    if (this.options.bulletSelector) {
+        this.options.activeBulletClass = this.removeSelector(this.options.bulletSelector) + "--active";
+    }
 
     this.$slideShow;
     this.$viewport;
@@ -177,14 +190,6 @@ JPI.SlideShow = function(options) {
     this.$navs;
 
     this.interval;
-
-    this.getXPosition = function(e) {
-        return e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
-    };
-
-    this.removeSelector = function(selector) {
-        return selector.substring(1);
-    }
 
     this.getConfig = function(config) {
         if (window.innerWidth >= JPI.getInt(JPI.breakpoints.desktop)) {
@@ -222,7 +227,7 @@ JPI.SlideShow = function(options) {
 
         var fullWidth = slideWidth * count;
 
-        var slidesPerView = this.getConfig('slidesPerView');
+        var slidesPerView = this.getConfig("slidesPerView");
         if (slidesPerView > 1) {
             slideWidth = slideWidth / slidesPerView;
 
@@ -244,7 +249,7 @@ JPI.SlideShow = function(options) {
     this.getPosition = function($slide) {
         var offset = 0;
 
-        var slidesPerView = this.getConfig('slidesPerView');
+        var slidesPerView = this.getConfig("slidesPerView");
         if (slidesPerView > 1 && !$slide.is(":first-child")) {
             offset = $slide.innerWidth();
 
@@ -260,7 +265,7 @@ JPI.SlideShow = function(options) {
 
     // Moves current slide to correct position
     this.resetToCurrentSlide = function() {
-        var $activeSlide = this.$slideShow.find(this.options.slideSelector + "--active");
+        var $activeSlide = this.$slideShow.find("." + this.options.activeSlideClass);
         this.$container.css({
             transitionDuration: "0s",
             left: this.getPosition($activeSlide),
@@ -277,30 +282,30 @@ JPI.SlideShow = function(options) {
 
     this.setupNav = function() {
         if (this.$navs && !this.options.loop) {
-            var $currentSlide = this.$slideShow.find(this.options.slideSelector + "--active");
+            var $currentSlide = this.$slideShow.find("." + this.options.activeSlideClass);
             this.$navs.filter("[data-direction='previous']").attr("disabled", $currentSlide.is(":first-child"));
             this.$navs.filter("[data-direction='next']").attr("disabled", $currentSlide.is(":last-child"));
         }
     };
 
     this.moveToSlide = function($nextSlide) {
-        var $currentSlide = this.$slideShow.find(this.options.slideSelector + "--active");
+        var $currentSlide = this.$slideShow.find("." + this.options.activeSlideClass);
 
-        $currentSlide.removeClass(this.removeSelector(this.options.slideSelector) + "--active");
+        $currentSlide.removeClass(this.options.activeSlideClass);
 
         if (this.$bullets) {
-            this.$bullets.filter(this.options.bulletSelector + ".slide-show__bullet--active")
-                .removeClass(this.removeSelector(this.options.bulletSelector)  + "--active")
+            this.$bullets.filter("." + this.options.activeBulletClass)
+                .removeClass(this.options.activeBulletClass)
             ;
         }
-        $nextSlide.addClass(this.removeSelector(this.options.slideSelector) + "--active");
+        $nextSlide.addClass(this.options.activeSlideClass);
 
         this.$container.css("left", this.getPosition($nextSlide));
 
         if (this.$bullets) {
             var newSlideID = $nextSlide.attr("id");
             this.$bullets.filter("[data-slide-id='#" + newSlideID + "']")
-                .addClass(this.removeSelector(this.options.bulletSelector) + "--active")
+                .addClass(this.options.activeBulletClass)
             ;
         }
 
@@ -312,7 +317,7 @@ JPI.SlideShow = function(options) {
 
     // Moves to next or previous slide
     this.move = function(direction) {
-        var $oldSlide = this.$slideShow.find(this.options.slideSelector + "--active");
+        var $oldSlide = this.$slideShow.find("." + this.options.activeSlideClass);
 
         var $nextSlide;
         if (direction === "previous") {
@@ -482,10 +487,10 @@ JPI.SlideShow = function(options) {
 
         JPI.getFocusableChildren($inactiveSlides).attr("tabindex", -1);
 
-        $firstSlide.addClass(this.removeSelector(this.options.slideSelector) + "--active");
+        $firstSlide.addClass(this.options.activeSlideClass);
 
         if (this.$bullets) {
-            this.$bullets.first().addClass(this.removeSelector(this.options.bulletSelector) +  "--active");
+            this.$bullets.first().addClass(this.options.activeBulletClass);
         }
 
         if (count > 1) {
