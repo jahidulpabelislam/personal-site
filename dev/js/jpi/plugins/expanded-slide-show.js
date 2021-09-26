@@ -40,7 +40,7 @@ JPI.ExpandedSlideShow = function() {
         this.current = newSlideIndex;
 
         var $expandedImageOld = jQuery(".expanded-slide-show__image--active");
-        var $expandedImageNew = jQuery(".expanded-slide-show__image").not(expandedImageOld);
+        var $expandedImageNew = jQuery(".expanded-slide-show__image").not($expandedImageOld);
 
         jQuery(".expanded-slide-show__bullet--active").removeClass("expanded-slide-show__bullet--active");
         this.displaySlide($expandedImageNew);
