@@ -181,18 +181,22 @@ JPI.SlideShow = function(options) {
         var $nextSlide;
         if (direction === "previous") {
             $nextSlide = $oldSlide.prev();
-            if (!$nextSlide.length) {
+            if (!$nextSlide.length && this.options.loop) {
                 $nextSlide = this.$slides.last();
             }
         }
         else {
             $nextSlide = $oldSlide.next();
-            if (!$nextSlide.length) {
+            if (!$nextSlide.length && this.options.loop) {
                 $nextSlide = this.$slides.first();
             }
         }
 
-        this.moveToSlide($nextSlide);
+        if ($nextSlide.length) {
+            this.moveToSlide($nextSlide);
+        } else {
+            this.resetToCurrentSlide();
+        }
     };
 
     // Sets up events when the user wants to change slides with drag control
