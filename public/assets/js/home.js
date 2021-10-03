@@ -456,16 +456,10 @@ JPI.SlideShow = function(options) {
         if (this.options.bulletsSelector && this.options.bulletSelector) {
             this.$bulletsContainer = this.$slideShow.find(this.options.bulletsSelector);
             this.$bullets = this.$slideShow.find(this.options.bulletSelector);
-        }
-
-        this.$navs = this.$slideShow.find(this.options.navSelector);
-
-        this.$slideShow.on("dragstart", ".slide-show__image", false); // todo: move
-
-        if (this.$bullets) {
             this.$bullets.on("click", this.changeToSlide.bind(this));
         }
 
+        this.$navs = this.$slideShow.find(this.options.navSelector);
         if (this.$navs) {
             this.$navs.on("click", this.navigate.bind(this));
         }
