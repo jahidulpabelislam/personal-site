@@ -44,13 +44,14 @@ if (count($apiRequestParams) > 0) {
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
 curl_setopt(
-    $ch, CURLOPT_HTTPHEADER, [
-           'Accept: application/json',
-       ]
+    $ch,
+    CURLOPT_HTTPHEADER, [
+       'Accept: application/json',
+   ]
 );
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
+curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
 
 $apiRes = json_decode(curl_exec($ch), true);
 curl_close($ch);
@@ -91,12 +92,15 @@ $page->renderContentStart();
     <div class="container">
         <p>Here you can find pieces of work I have completed throughout my years as a developer.</p>
 
-        <form class="search-form">
+        <form class="projects__search search-form">
             <div class="search-form__inner">
                 <label for="search" class="screen-reader-text">Search for projects.</label>
-                <input type="text" class="input search-form__input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
-                <button type="submit" class="button search-form__submit">
-                    <i class="fa fa-search"></i>
+                <input type="text" class="search-form__input input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
+                <button type="button" class="search-form__clear button">
+                    X
+                </button>
+                <button type="submit" class="search-form__submit button button--brand">
+                    <i class="fas fa-search"></i>
                 </button>
             </div>
         </form>
@@ -109,6 +113,41 @@ $page->renderContentStart();
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
     </div>
 </section>
+
+<div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
+    <div class="modal__content">
+        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
+
+        <h1 class="modal__heading" id="detailed-project-title"></h1>
+
+        <div class="project__skills"></div>
+
+        <div class="project__meta">
+            <p class="project__type project__type--"></p>
+            <time class="project__date">
+                <?php echo date("Y"); ?>
+            </time>
+        </div>
+
+        <div class="project__description" id="detailed-project-description"></div>
+        <div class="project__links"></div>
+
+        <div class="slide-show project__slide-show" id="detailed-project-slide-show">
+            <div class="slide-show__viewport">
+                <button type="button" class="slide-show__nav" data-direction="previous">
+                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                    <?php renderFile("/assets/images/previous.svg"); ?>
+                </button>
+                <div class="slide-show__slides js-expandable-image-group"></div>
+                <button type="button" class="slide-show__nav" data-direction="next">
+                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                    <?php renderFile("/assets/images/next.svg"); ?>
+                </button>
+            </div>
+            <div class="slide-show__bullets"></div>
+        </div>
+    </div>
+</div>
 
 <div class="modal expanded-slide-show" role="dialog" aria-modal="true" aria-hidden="true" hidden="hidden">
     <button type="button" class="button expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
@@ -141,66 +180,31 @@ $page->renderContentStart();
     </div>
 </div>
 
-<div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
-    <div class="modal__content">
-        <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
-
-        <h1 class="modal__heading" id="detailed-project-title"></h1>
-
-        <div class="project__skills"></div>
-
-        <div class="project__meta">
-            <p class="project__type project__type--"></p>
-            <time class="project__date">
-                <?php echo date("Y"); ?>
-            </time>
-        </div>
-
-        <div class="project__description" id="detailed-project-description"></div>
-        <div class="project__links"></div>
-
-        <div class="slide-show project__slide-show" id="detailed-project-slide-show">
-            <div class="slide-show__viewport">
-                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="previous">
-                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                    <?php renderFile("/assets/images/previous.svg"); ?>
-                </button>
-                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#detailed-project-slide-show"></div>
-                <button type="button" class="slide-show__nav" data-slide-show-id="#detailed-project-slide-show" data-direction="next">
-                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                    <?php renderFile("/assets/images/next.svg"); ?>
-                </button>
-            </div>
-            <div class="slide-show__bullets"></div>
-        </div>
-    </div>
-</div>
-
 <?php
 $page->addJSTemplate(
     "project",
     <<<HTML
-    <article class="project" id="project-{{ id }}">
-        <div class="project__slide-show slide-show" id="slide-show-{{ id }}">
-            <div class="slide-show__viewport">
-                <div class="slide-show__slides js-expandable-image-group" data-slide-show-id="#slide-show-{{ id }}"></div>
+    <article class="project">
+        <div class="project__image">
+            <img src="{{ images.0.url }}" alt="Screen shot of project" />
+        </div>
+
+        <div class="project__content">
+            <p class="project__type">{{ type }}</p>
+        
+            <div class="project__header">
+                <h3 class="project__title">{{ name }}</h3>
+                <time class="project__date">{{ date }}</time>
             </div>
-        </div>
-    
-        <p class="project__type">{{ type }}</p>
-    
-        <div class="project__header">
-            <h3 class="project__title">{{ name }}</h3>
-            <time class="project__date">{{ date }}</time>
-        </div>
-    
-        <div class="project__description">{{ short_description }}</div>
-    
-        <div class="project__footer">
-            <div class="project__links"></div>
-            <button type="button" class="button project__read-more" data-project-id="{{ id }}">
-                Read More
-            </button>
+        
+            <div class="project__description">{{ short_description }}</div>
+        
+            <div class="project__footer">
+                <div class="project__links"></div>
+                <button type="button" class="button project__read-more" data-project-id="{{ id }}">
+                    Read More
+                </button>
+            </div>
         </div>
     </article>
     HTML
@@ -218,8 +222,7 @@ $page->addJSTemplate(
 $page->addJSTemplate(
     "slide-bullet",
     <<<HTML
-    <button type="button" class="slide-show__bullet" data-slide-show-id="{{ slideShowId }}" data-slide-id="#slide-{{ id }}">
-    </button>
+    <button type="button" class="slide-show__bullet" data-slide-id="#slide-{{ id }}"></button>
     HTML
 );
 

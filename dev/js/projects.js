@@ -26,7 +26,8 @@ var JPI = JPI || {};
     this.$loading = jQuery(".projects__loading");
     this.$error = jQuery(".projects__error");
     this.$search = jQuery(".search-form__input");
-    this.$pagination = jQuery(".pagination");
+    this.$searchClear = jQuery(".search-form__clear");
+    this.$pagination = jQuery(".projects__pagination");
 
     this.modalSelector = ".detailed-project";
 
@@ -44,41 +45,6 @@ var JPI = JPI || {};
     this.bulletTemplate = jQuery("#slide-bullet-template").text();
 
     this.projects = {};
-    this.slideShows = [];
-
-    this.bottomAlignProjectFooters = function() {
-        var $projects = jQuery(".project");
-        if (!$projects.length) {
-            return;
-        }
-
-        jQuery(".project .project__description").css("min-height", "");
-
-        if (window.innerWidth < JPI.getInt(JPI.breakpoints.tablet)) {
-            return;
-        }
-
-        $projects.each(function(i, project) {
-            var $project = jQuery(project);
-            var height = $project.height();
-
-            var $projectDescription = $project.children(".project__description");
-
-            var $others = $project.children().not($projectDescription);
-            var totalAllHeight = 0;
-            $others.each(function(j, elem) {
-                totalAllHeight += jQuery(elem).outerHeight(true);
-            });
-
-            // Expand the description element to fit remaining space
-            var maxHeight = $projectDescription.outerHeight(true);
-            var innerHeight = $projectDescription.height();
-            var padding = maxHeight - innerHeight;
-
-            var newHeight = height - totalAllHeight - padding;
-            $projectDescription.css("min-height", newHeight);
-        });
-    };
 
     this.renderError = function(error) {
         this.$error.text(error).show(600);
@@ -203,16 +169,11 @@ var JPI = JPI || {};
     };
 
     this.renderProjectImages = function(project, containerSelector) {
-        var $slideShow = jQuery(containerSelector).find(".slide-show");
-        var slideShowId = "#" + $slideShow.attr("id");
-
         if (!project.images || !project.images.length) {
-            if (containerSelector !== this.modalSelector) {
-                $slideShow.remove();
-            }
             return;
         }
 
+        var $slideShow = jQuery(containerSelector).find(".slide-show");
         var $slidesContainer = $slideShow.find(".slide-show__slides");
         var $slideShowBullets = $slideShow.find(".slide-show__bullets");
 
@@ -236,22 +197,7 @@ var JPI = JPI || {};
             }
 
             slideTemplate.renderIn($slidesContainer);
-
-            bulletTemplate.replace("slideShowId", slideShowId);
             bulletTemplate.renderIn($slideShowBullets);
-        }
-
-        // Realign the project footers when the first (displayed) image is loaded
-        $slideShow.find("img:first").on("load", function() {
-            projects.bottomAlignProjectFooters();
-        });
-
-        if (containerSelector !== this.modalSelector) {
-            var slidesShow = new JPI.SlideShow({
-                selector: slideShowId,
-            });
-            this.slideShows.push(slidesShow);
-            slidesShow.start();
         }
     };
 
@@ -273,8 +219,6 @@ var JPI = JPI || {};
 
     // Sets up events when projects were received
     this.gotProjects = function(response) {
-        this.slideShows = [];
-
         this.$error.text("").hide(600);
         this.$loading.hide(600);
         this.$projects.text("");
@@ -309,22 +253,6 @@ var JPI = JPI || {};
         });
     };
 
-    this.pauseSlideShows = function() {
-        for (var i = 0; i < this.slideShows.length; i++) {
-            if ({}.hasOwnProperty.call(this.slideShows, i)) {
-                this.slideShows[i].pause();
-            }
-        }
-    };
-
-    this.resumeSlideShows = function() {
-        for (var i = 0; i < this.slideShows.length; i++) {
-            if ({}.hasOwnProperty.call(this.slideShows, i)) {
-                this.slideShows[i].resume();
-            }
-        }
-    };
-
     this.openProjectModal = function(e) {
         var projectId = jQuery(e.target).attr("data-project-id");
         var project = this.projects[projectId];
@@ -344,8 +272,6 @@ var JPI = JPI || {};
         this.renderProjectLinks(project, this.modalSelector);
         this.renderProjectImages(project, this.modalSelector);
 
-        this.pauseSlideShows();
-
         this.modal.open();
 
         this.modalSlideShow.start();
@@ -357,8 +283,6 @@ var JPI = JPI || {};
             width: "",
             left: "",
         });
-
-        this.resumeSlideShows();
     };
 
     this.getNewURL = function(page) {
@@ -415,6 +339,7 @@ var JPI = JPI || {};
 
     // Sends request when the user has done a search
     this.doSearch = function() {
+        this.$searchClear.show();
         this.page = 1;
         this.storeLatestSearch();
         this.getProjects();
@@ -428,13 +353,17 @@ var JPI = JPI || {};
     this.initListeners = function() {
         jQuery(".search-form").on("submit", this.doSearch.bind(this));
 
+        this.$searchClear.on("click", function() {
+            projects.page = 1;
+            projects.$search.val("");
+            projects.storeLatestSearch();
+            projects.$searchClear.hide();
+            projects.getProjects();
+        });
+
         this.$projects.on("click", ".project__read-more", this.openProjectModal.bind(this));
 
         this.$modal.on("closed", this.onProjectModalClose.bind(this));
-
-        var expandedSlideShow = jQuery(".expanded-slide-show");
-        expandedSlideShow.on("opened", this.pauseSlideShows.bind(this));
-        expandedSlideShow.on("closed", this.resumeSlideShows.bind(this));
 
         this.$body.on("click", ".project__skill", function(e) {
             projects.modal.close();
@@ -480,17 +409,18 @@ var JPI = JPI || {};
             projects.scrollToProjects();
             projects.getProjects();
         });
-
-        jQuery(window).on("orientationchange resize", JPI.debounce(this.bottomAlignProjectFooters, 200));
     };
 
     this.init = function() {
         this.initListeners();
 
+        if (this.$search.val()) {
+            this.$searchClear.show();
+        }
+
         this.gotProjects(JPI.projects.apiResponse);
 
         this.$body.on("click", ".js-expandable-image", function(e) {
-            projects.modal.close();
             var expandedSlideShow = new JPI.ExpandedSlideShow();
             expandedSlideShow.open(e.target, '.js-expandable-image-group');
         });

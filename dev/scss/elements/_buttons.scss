@@ -29,6 +29,15 @@
     color: #ffffff;
 }
 
+.button--brand {
+    background-color: $brand-colour;
+    color: #ffffff;
+}
+.button--brand:hover,
+.button--brand:focus {
+    background-color: $brand-light-colour;
+}
+
 .button--clear:hover,
 .button--clear:focus,
 .button--clear:active,

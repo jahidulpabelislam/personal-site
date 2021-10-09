@@ -400,7 +400,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
             <div class="slide-show latest-projects__slide-show" id="latest-projects">
                 <div class="slide-show__viewport">
-                    <div class="slide-show__slides" data-slide-show-id="#latest-projects"></div>
+                    <div class="slide-show__slides"></div>
                     <div class="slide-show__bullets"></div>
                 </div>
             </div>
@@ -492,7 +492,7 @@ $page->addJSTemplate(
 $page->addJSTemplate(
     "slide-bullet",
     <<<HTML
-    <button type="button" class="slide-show__bullet" data-slide-show-id="#latest-projects" data-slide-id="#slide-{{ id }}">
+    <button type="button" class="slide-show__bullet" data-slide-id="#slide-{{ id }}">
     </button>
     HTML
 );
