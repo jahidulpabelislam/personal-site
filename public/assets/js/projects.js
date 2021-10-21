@@ -829,12 +829,12 @@ JPI.ExpandedSlideShow = function() {
 
     this.$body = jQuery("body");
 
+    this.$projectType = jQuery(".js-project-type");
+
     this.$projects = jQuery(".projects__items");
 
     this.$loading = jQuery(".projects__loading");
     this.$error = jQuery(".projects__error");
-    this.$search = jQuery(".search-form__input");
-    this.$searchClear = jQuery(".search-form__clear");
     this.$pagination = jQuery(".projects__pagination");
 
     this.modalSelector = ".detailed-project";
@@ -1029,8 +1029,10 @@ JPI.ExpandedSlideShow = function() {
 
     this.getProjects = function() {
         var query = {
+            filters: {
+                type_id: this.$projectType.filter(":checked").val(),
+            },
             page: this.page,
-            search: this.$search.val(),
             limit: JPI.projects.perPage,
         };
 
@@ -1078,11 +1080,6 @@ JPI.ExpandedSlideShow = function() {
     this.getNewURL = function(page) {
         var urlParts = ["projects"];
 
-        var search = this.$search.val();
-        if (search.trim() !== "") {
-            urlParts.push(search);
-        }
-
         if (page > 1) {
             urlParts.push(page);
         }
@@ -1092,11 +1089,6 @@ JPI.ExpandedSlideShow = function() {
 
     this.getNewTitle = function(page) {
         var title = JPI.projects.titleStart;
-        var search = this.$search.val();
-
-        if (search.trim() !== "") {
-            title += " with " + search;
-        }
 
         if (page > 1) {
             title += " - Page " + page;
@@ -1108,12 +1100,10 @@ JPI.ExpandedSlideShow = function() {
     };
 
     this.storeLatestSearch = function() {
-        var search = this.$search.val();
         var page = this.page;
         var title = this.getNewTitle(page);
         var url = this.getNewURL(page);
         var state = {
-            search: search,
             page: page,
         };
 
@@ -1127,27 +1117,12 @@ JPI.ExpandedSlideShow = function() {
         }
     };
 
-    // Sends request when the user has done a search
-    this.doSearch = function() {
-        this.$searchClear.show();
-        this.page = 1;
-        this.storeLatestSearch();
-        this.getProjects();
-        return false;
-    };
-
     this.scrollToProjects = function() {
         JPI.scrollTo(this.$projects, 20);
     };
 
     this.initListeners = function() {
-        jQuery(".search-form").on("submit", this.doSearch.bind(this));
-
-        this.$searchClear.on("click", function() {
-            projects.page = 1;
-            projects.$search.val("");
-            projects.storeLatestSearch();
-            projects.$searchClear.hide();
+        this.$projectType.on("change", function(e) {
             projects.getProjects();
         });
 
@@ -1179,7 +1154,6 @@ JPI.ExpandedSlideShow = function() {
             document.title = projects.getNewTitle(page);
 
             projects.page = JPI.getInt(page, 1);
-            projects.$search.val(state.search || "");
 
             projects.scrollToProjects();
             projects.getProjects();
@@ -1188,10 +1162,6 @@ JPI.ExpandedSlideShow = function() {
 
     this.init = function() {
         this.initListeners();
-
-        if (this.$search.val()) {
-            this.$searchClear.show();
-        }
 
         this.gotProjects(JPI.projects.apiResponse);
 

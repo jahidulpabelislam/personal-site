@@ -21,12 +21,12 @@ var JPI = JPI || {};
 
     this.$body = jQuery("body");
 
+    this.$projectType = jQuery(".js-project-type");
+
     this.$projects = jQuery(".projects__items");
 
     this.$loading = jQuery(".projects__loading");
     this.$error = jQuery(".projects__error");
-    this.$search = jQuery(".search-form__input");
-    this.$searchClear = jQuery(".search-form__clear");
     this.$pagination = jQuery(".projects__pagination");
 
     this.modalSelector = ".detailed-project";
@@ -221,8 +221,10 @@ var JPI = JPI || {};
 
     this.getProjects = function() {
         var query = {
+            filters: {
+                type_id: this.$projectType.filter(":checked").val(),
+            },
             page: this.page,
-            search: this.$search.val(),
             limit: JPI.projects.perPage,
         };
 
@@ -270,11 +272,6 @@ var JPI = JPI || {};
     this.getNewURL = function(page) {
         var urlParts = ["projects"];
 
-        var search = this.$search.val();
-        if (search.trim() !== "") {
-            urlParts.push(search);
-        }
-
         if (page > 1) {
             urlParts.push(page);
         }
@@ -284,11 +281,6 @@ var JPI = JPI || {};
 
     this.getNewTitle = function(page) {
         var title = JPI.projects.titleStart;
-        var search = this.$search.val();
-
-        if (search.trim() !== "") {
-            title += " with " + search;
-        }
 
         if (page > 1) {
             title += " - Page " + page;
@@ -300,12 +292,10 @@ var JPI = JPI || {};
     };
 
     this.storeLatestSearch = function() {
-        var search = this.$search.val();
         var page = this.page;
         var title = this.getNewTitle(page);
         var url = this.getNewURL(page);
         var state = {
-            search: search,
             page: page,
         };
 
@@ -319,27 +309,12 @@ var JPI = JPI || {};
         }
     };
 
-    // Sends request when the user has done a search
-    this.doSearch = function() {
-        this.$searchClear.show();
-        this.page = 1;
-        this.storeLatestSearch();
-        this.getProjects();
-        return false;
-    };
-
     this.scrollToProjects = function() {
         JPI.scrollTo(this.$projects, 20);
     };
 
     this.initListeners = function() {
-        jQuery(".search-form").on("submit", this.doSearch.bind(this));
-
-        this.$searchClear.on("click", function() {
-            projects.page = 1;
-            projects.$search.val("");
-            projects.storeLatestSearch();
-            projects.$searchClear.hide();
+        this.$projectType.on("change", function(e) {
             projects.getProjects();
         });
 
@@ -371,7 +346,6 @@ var JPI = JPI || {};
             document.title = projects.getNewTitle(page);
 
             projects.page = JPI.getInt(page, 1);
-            projects.$search.val(state.search || "");
 
             projects.scrollToProjects();
             projects.getProjects();
@@ -380,10 +354,6 @@ var JPI = JPI || {};
 
     this.init = function() {
         this.initListeners();
-
-        if (this.$search.val()) {
-            this.$searchClear.show();
-        }
 
         this.gotProjects(JPI.projects.apiResponse);
 

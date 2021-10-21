@@ -13,18 +13,11 @@ $apiRequestParams = [
     "limit" => $projectsPerPage,
 ];
 
-$search = $_GET["search"] ?? "";
 $pageNum = $_GET["page"] ?? 1;
 
 $headTitle = "Projects";
 
 $page->addJSGlobal("projects", "titleStart", $headTitle);
-
-$search = trim($search);
-if (strlen($search) > 0) {
-    $headTitle .= " with {$search}";
-    $apiRequestParams["search"] = $search;
-}
 
 $pageNum = (int)$pageNum;
 if ($pageNum > 1) {
@@ -86,31 +79,51 @@ $page->renderCookieBanner();
 $page->renderNav();
 $page->renderHeader();
 $page->renderContentStart();
+
+$projectTypesURL = $site::getAPIEndpoint("/project-types/");
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
+curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER, [
+        'Accept: application/json',
+    ]
+);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
+
+$apiRes = json_decode(curl_exec($ch), true);
+curl_close($ch);
+
+$projectTypes = $apiRes["data"] ?? [];
 ?>
 
 <section class="row row--alt projects">
     <div class="container">
         <p>Here you can find pieces of work I have completed throughout my years as a developer.</p>
 
-        <form class="projects__search search-form">
-            <div class="search-form__inner">
-                <label for="search" class="screen-reader-text">Search for projects.</label>
-                <input type="text" class="search-form__input input" id="search" value="<?php echo $search; ?>" placeholder="Search for projects..." />
-                <button type="button" class="search-form__clear button">
-                    X
-                </button>
-                <button type="submit" class="search-form__submit button button--brand">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </form>
+        <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
+
+        <div class="projects__types">
+            <p>Filter by: </p>
+            <?php
+            foreach ($projectTypes as $projectType) {
+                ?>
+                <label class="projects__type">
+                    <input type="radio" class="js-project-type" name="project-type" value="<?php echo $projectType["id"] ?>" />
+                    <span><?php echo $projectType["name"] ?>
+                </label>
+                <?php
+            }
+            ?>
+        </div>
 
         <p class="projects__error"></p>
         <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>
         <div class="projects__items"></div>
         <ul class="pagination projects__pagination"></ul>
-
-        <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
     </div>
 </section>
 
