@@ -901,9 +901,6 @@ JPI.ExpandedSlideShow = function() {
             return;
         }
 
-        var search = this.$search.val().trim().toLowerCase();
-        var searches = search.split(" ");
-
         var skills = project.skills;
         for (var i = 0; i < skills.length; i++) {
             var skill = skills[i].trim();
@@ -912,24 +909,9 @@ JPI.ExpandedSlideShow = function() {
                 continue;
             }
 
-            var lowerCasedSkill = skill.toLowerCase();
-
-            var isInSearch = false;
-            for (var j = 0; j < searches.length; j++) {
-                if (searches[j].trim() !== "" && lowerCasedSkill.includes(searches[j])) {
-                    isInSearch = true;
-                    break;
-                }
-            }
-
-            var classes = ["project__skill"];
-            if (isInSearch) {
-                classes.push("project__skill--searched");
-            }
-
             JPI.renderNewElement("a", $skills, {
                 text: skill,
-                class: classes.join(" "),
+                class: "project__skill",
                 href: "/projects/" + skill + "/",
             });
         }
@@ -1172,21 +1154,6 @@ JPI.ExpandedSlideShow = function() {
         this.$projects.on("click", ".project__read-more", this.openProjectModal.bind(this));
 
         this.$modal.on("closed", this.onProjectModalClose.bind(this));
-
-        this.$body.on("click", ".project__skill", function(e) {
-            projects.modal.close();
-            e.preventDefault();
-            projects.scrollToProjects();
-
-            var skill = e.target.innerHTML;
-
-            if (skill === projects.$search.val() && projects.page === 1) {
-                return;
-            }
-
-            projects.$search.val(skill);
-            projects.doSearch();
-        });
 
         this.$pagination.on("click", ".pagination__link", function(e) {
             e.preventDefault();

@@ -133,30 +133,6 @@
     border-radius: 2px;
     color: $brand-colour;
     font-weight: 400;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-    transition-property: border-color, background-color, color, box-shadow;
-}
-
-.project__skill:hover,
-.project__skill:focus {
-    border-color: $brand-light-colour;
-    background-color: $brand-light-colour;
-    color: #ffffff;
-    box-shadow: 0 0 10px 0 transparentize($brand-colour, 0.6);
-}
-
-.project__skill--searched,
-.project__skill--searched:hover,
-.project__skill--searched:focus {
-    border-color: $brand-dark-colour;
-    background-color: $brand-dark-colour;
-    color: #ffffff;
-}
-
-.project__skill--searched:hover,
-.project__skill--searched:focus {
-    box-shadow: none;
 }
 
 .project__description {
