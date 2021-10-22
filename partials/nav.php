@@ -8,9 +8,11 @@ $currentURL = $page->currentURL;
 
 <nav class="nav">
     <div class="container nav__container">
-        <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->makeURL(); ?>">
-            <img src="<?php echo $site::asset("/assets/images/logo-v2.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
-        </a>
+        <div class="nav__logo-container">
+            <a class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->makeURL(); ?>">
+                <img src="<?php echo $site::asset("/assets/images/logo-v2.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
+            </a>
+        </div>
         <ul class="nav__links">
             <?php
             $links = [

@@ -21,12 +21,15 @@
     display: flex;
 }
 
+.nav__logo-container {
+    flex: 1;
+    text-align: left;
+}
+
 .nav__logo {
     height: 38px;
     margin: 4px 15px 4px 0;
-    text-align: left;
     position: relative;
-    flex: 1;
     display: inline-block;
     background: transparent;
 
