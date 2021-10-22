@@ -239,7 +239,6 @@
 
 @media only screen and (min-width: $tablet-width) {
     .projects__types {
-        max-width: 436px;
         margin: 0 auto 40px;
     }
 
@@ -276,6 +275,10 @@
 }
 
 @media only screen and (min-width: $desktop-width) {
+    .projects__types {
+        width: 80%;
+    }
+
     .project {
         width: 80%;
         margin-right: auto;

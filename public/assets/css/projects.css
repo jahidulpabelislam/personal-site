@@ -558,7 +558,6 @@
 
 @media only screen and (min-width: 768px) {
   .projects__types {
-    max-width: 436px;
     margin: 0 auto 40px; }
   .projects__items {
     display: flex;
@@ -581,6 +580,8 @@
     margin-top: 0; } }
 
 @media only screen and (min-width: 1200px) {
+  .projects__types {
+    width: 80%; }
   .project {
     width: 80%;
     margin-right: auto;
