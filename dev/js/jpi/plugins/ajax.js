@@ -62,7 +62,7 @@
     };
 
     return {
-        renderRowsOrError: this.renderRowsOrError,
-        request: this.request,
+        renderRowsOrError: this.renderRowsOrError.bind(this),
+        request: this.request.bind(this),
     };
 });
