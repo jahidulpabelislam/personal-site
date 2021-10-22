@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin: 25px auto;
 
     > p {
@@ -10,6 +11,7 @@
 }
 
 .projects__type {
+    margin: 4px 8px;
     vertical-align: middle;
     cursor: pointer;
 
@@ -23,12 +25,21 @@
     }
 
     span {
-        margin: 2px;
-        padding: 5px;
-        border: 1px solid $brand-colour;
+        display: block;
+        padding: 8px 14px;
         border-radius: 2px;
-        color: $brand-colour;
+        background: #fff;
+        color: $dark-colour;
         font-weight: 400;
+    }
+
+    &:hover,
+    &:focus {
+        span {
+            background: $brand-colour;
+            color: #fff;
+            box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
+        }
     }
 }
 
@@ -226,13 +237,9 @@
 
 /* For Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
-    .search-form {
-        margin: 0 auto 40px;
-    }
-
-    .search-form__inner {
+    .projects__types {
         max-width: 436px;
-        margin: 0 auto;
+        margin: 0 auto 40px;
     }
 
     .projects__items {
@@ -269,15 +276,6 @@
 
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
-    .search-form__input {
-        font-size: 18px;
-    }
-
-    .search-form__submit {
-        padding: 8px;
-        font-size: 24px;
-    }
-
     .project {
         width: 80%;
         margin-right: auto;
