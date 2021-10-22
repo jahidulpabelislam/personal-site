@@ -909,10 +909,9 @@ JPI.ExpandedSlideShow = function() {
                 continue;
             }
 
-            JPI.renderNewElement("a", $skills, {
+            JPI.renderNewElement("span", $skills, {
                 text: skill,
                 class: "project__skill",
-                href: "/projects/" + skill + "/",
             });
         }
     };
