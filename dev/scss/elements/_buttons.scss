@@ -38,6 +38,16 @@
     background-color: $brand-light-colour;
 }
 
+.button--secondary {
+    background-color: $secondary-colour;
+    color: $dark-colour;
+
+    &:hover,
+    &:focus {
+        background-color: $secondary-light-colour;
+    }
+}
+
 .button--clear:hover,
 .button--clear:focus,
 .button--clear:active,

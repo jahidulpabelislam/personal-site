@@ -13,6 +13,11 @@
     color: #ffffff;
 }
 
+.row--secondary {
+    background-color: $secondary-colour;
+    color: $dark-colour;
+}
+
 .row--flush {
     padding: 0;
 }

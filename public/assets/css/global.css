@@ -36,6 +36,10 @@
   background-color: #0078c9;
   color: #ffffff; }
 
+.row--secondary {
+  background-color: #ffef38;
+  color: #333333; }
+
 .row--flush {
   padding: 0; }
 
@@ -218,6 +222,12 @@
 .button--brand:hover,
 .button--brand:focus {
   background-color: #0081D6; }
+
+.button--secondary {
+  background-color: #ffef38;
+  color: #333333; }
+  .button--secondary:hover, .button--secondary:focus {
+    background-color: #fffd3c; }
 
 .button--clear:hover,
 .button--clear:focus,

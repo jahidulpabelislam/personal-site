@@ -214,7 +214,7 @@ $page->addJSTemplate(
         
             <div class="project__footer">
                 <div class="project__links"></div>
-                <button type="button" class="button project__read-more" data-project-id="{{ id }}">
+                <button type="button" class="button button--secondary project__read-more" data-project-id="{{ id }}">
                     Read More
                 </button>
             </div>

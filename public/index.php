@@ -202,7 +202,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row row--brand">
+<section class="row row--secondary">
     <div class="container">
         <div class="stats js-counters">
             <?php
