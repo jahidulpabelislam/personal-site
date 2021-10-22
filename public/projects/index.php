@@ -247,11 +247,13 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "/contact/",
         "text" => "Get in Touch",
+        "colour" => "secondary",
     ],
     [
         "title" => "About",
         "url" => "/about/",
         "text" => "Learn About Me",
+        "colour" => "secondary",
     ],
 ];
 $page->similarLinks = $similarLinks;

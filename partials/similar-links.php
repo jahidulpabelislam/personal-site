@@ -13,10 +13,12 @@ if (count($similarLinks)) {
         $url = $link["url"];
         $url = $site->makeURL($url);
 
+        $colour = $link["colour"] ?? "brand";
+
         $linksContent .= <<<HTML
 <div class="row__column">
-    <a class="button button--brand" href="{$url}" title="Link to {$pageTitle} Page">
-        {$buttonText}
+    <a class="button button--$colour" href="$url" title="Link to $pageTitle Page">
+        $buttonText
     </a>
 </div>
 HTML;
@@ -25,7 +27,7 @@ HTML;
     echo <<<HTML
 <div class="row row--halves similar-links">
     <div class="container">
-        {$linksContent}
+        $linksContent
     </div>
 </div>
 HTML;
