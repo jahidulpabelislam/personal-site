@@ -18,7 +18,6 @@ $page->addPageData($pageData);
 $page->renderHtmlStart();
 $page->renderHead();
 $page->renderPageStart();
-$page->renderCookieBanner();
 $page->renderNav();
 $page->renderHeader();
 $page->renderContentStart();
@@ -62,9 +61,9 @@ $page->renderContentStart();
                 <td class="table__col">Used to throttle request rate.</td>
             </tr>
             <tr class="table__row">
-                <td class="table__col">cookie-banner-closed</td>
+                <td class="table__col">cookie-modal-closed</td>
                 <td class="table__col">30 days</td>
-                <td class="table__col">Used to make sure the banner isn't shown if clicked 'OK'.</td>
+                <td class="table__col">Used to make sure the modal isn't shown if clicked 'OK'.</td>
             </tr>
         </table>
         <p>The cookies used and the Google Analytics data stored will be anonymised and can't be used to identify individual people.</p>
@@ -94,4 +93,5 @@ $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
+$page->renderCookieModal();
 $page->renderHtmlEnd();

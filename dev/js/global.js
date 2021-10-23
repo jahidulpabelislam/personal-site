@@ -2,8 +2,9 @@ var JPI = JPI || {};
 
 //=include ./third-party/jquery.min.js
 //=include ./jpi/helpers.js
+//=include ./jpi/plugins/modal.js
 //=include ./jpi/components/nav.js
-//=include ./jpi/components/cookie-banner.js
+//=include ./jpi/components/cookie-modal.js
 
 ;(function() {
 

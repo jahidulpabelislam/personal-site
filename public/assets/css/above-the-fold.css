@@ -286,8 +286,6 @@ img {
   z-index: 10;
   transition: background-color 0.7s ease-in-out;
   background-color: rgba(255, 255, 255, 0.08); }
-  .cookie-banner ~ .nav {
-    top: 38px; }
 
 .nav--scrolled {
   background-color: #ffffff;

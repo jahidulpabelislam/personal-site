@@ -2,9 +2,8 @@
 
     "use strict";
 
-    this.$banner = jQuery(".cookie-banner");
     this.transitionSpeedSecs = 700;
-    this.cookieKey = "cookie-banner-closed";
+    this.cookieKey = "cookie-modal-closed";
     this.cookieClickedValue = "true";
     this.cookieExpirationDays = 30;
 
@@ -17,8 +16,8 @@
     };
 
     this.close = function() {
-        this.$banner.fadeOut(this.transitionSpeedSecs, function() {
-            this.$banner.remove();
+        this.$element.fadeOut(this.transitionSpeedSecs, function() {
+            this.$element.remove();
         }.bind(this));
         this.setCookie();
     };
@@ -26,17 +25,20 @@
     this.initDisplay = function() {
         if (this.hasClosedBefore()) {
             this.setCookie();
-            this.$banner.remove();
+            this.$element.remove();
         } else {
-            this.$banner.show();
+            this.modal = new JPI.modal(this.$element);
+            this.modal.open();
         }
     };
 
     this.init = function() {
-        jQuery(".cookie-banner__close").on("click", this.close.bind(this));
+        this.$element = jQuery(".cookie-modal");
+
+        jQuery(".cookie-modal__close").on("click", this.close.bind(this));
 
         this.initDisplay();
     };
 
-    this.init();
+    jQuery(window).on("jpi-css-loaded", this.init.bind(this));
 }));
