@@ -48,8 +48,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="container">
             <p>
                 Here you will be able to look at all the <a class="link" href="<?php echo $site->makeURL("/projects/"); ?>">work</a>
-                I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link" href="#about">learn about me</a> also
-                <a class="link" href="#contact">contact me</a> for any enquiries or to just provide feedback.
+                I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link js-scroll-to" href="#about">learn about me</a> also
+                <a class="link js-scroll-to" href="#contact">contact me</a> for any enquiries or to just provide feedback.
             </p>
             <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies, libraries & plugins and ideas here while also improving my skill set and expanding my knowledge then can bring them to projects at work.</p>
         </div>
