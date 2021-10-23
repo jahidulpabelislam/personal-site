@@ -106,19 +106,21 @@ $projectTypes = $apiRes["data"] ?? [];
 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 
-        <div class="projects__types">
-            <p>Filter by: </p>
-            <?php
-            foreach ($projectTypes as $projectType) {
-                ?>
-                <label class="projects__type">
-                    <input type="radio" class="js-project-type" name="project-type" value="<?php echo $projectType["id"] ?>" />
-                    <span><?php echo $projectType["name"] ?>
-                </label>
+        <?php if ($projectTypes): ?>
+            <div class="projects__types">
+                <p>Filter by: </p>
                 <?php
-            }
-            ?>
-        </div>
+                foreach ($projectTypes as $projectType) {
+                    ?>
+                    <label class="projects__type">
+                        <input type="radio" class="js-project-type" name="project-type" value="<?php echo $projectType["id"] ?>" />
+                        <span><?php echo $projectType["name"] ?>
+                    </label>
+                    <?php
+                }
+                ?>
+            </div>
+        <?php endif ?>
 
         <p class="projects__error"></p>
         <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>

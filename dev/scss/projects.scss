@@ -54,14 +54,19 @@
 
 .projects__loading {
     width: 100%;
+    margin: 25px auto;
 }
 
 .projects__error {
     display: none;
     width: 100%;
-    margin: 0;
+    margin: 25px auto;
     font-weight: 700;
     color: $error-colour;
+}
+
+.projects__items {
+    margin: 25px auto;
 }
 
 .project {
@@ -233,7 +238,6 @@
 
 .projects__pagination {
     display: none;
-    margin-top: 30px;
     margin-bottom: 5px;
 }
 
@@ -246,6 +250,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        margin: 40px auto;
     }
 
     .project {
@@ -291,7 +296,6 @@
     }
 
     .projects__pagination {
-        margin-top: 40px;
         margin-bottom: 10px;
     }
 }
