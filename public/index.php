@@ -335,55 +335,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </div>
 
-<section class="row row--brand">
-    <div class="container">
-        <div class="workflow">
-            <?php
-            $workflowItems = [
-                [
-                    "heading" => "Design",
-                    "icon" => "web-design.svg",
-                    "imageAlt" => "A image of a paintbrush on a desktop computer",
-                    "description" => "<p>
-                My work only starts when the PSD or flat image designs are handed over, then I can start to turning them into pixel perfect sites/apps.<br />
-            </p>",
-                ],
-                [
-                    "heading" => "Responsive",
-                    "icon" => "responsive-design.svg",
-                    "imageAlt" => "A image of various sized devices: Desktop computer, tablet &amp; mobile phone",
-                    "description" => "<p>
-                I approach styling from a mobile first point of view,
-                aiming to make all sites/apps usable on different sized devices.<br />
-            </p>",
-                ],
-                [
-                    "heading" => "Code",
-                    "icon" => "code.svg",
-                    "imageAlt" => "A image showing code",
-                    "description" => "<p>
-                I tend to develop custom and bespoke systems,
-                but I do use frameworks or libraries to fulfill the necessary requirements if needed.
-            </p>",
-                ],
-            ];
-
-            foreach ($workflowItems as $workflowItem) {
-                ?>
-                <div class="workflow__item">
-                    <h3 class="row__heading"><?php echo $workflowItem["heading"]; ?></h3>
-                    <img class="workflow__image" src="<?php echo $site::asset("/assets/images/" . $workflowItem["icon"]); ?>" alt="<?php echo $workflowItem["imageAlt"]; ?>" />
-                    <div class="workflow__description">
-                        <?php echo $workflowItem["description"]; ?>
-                    </div>
-                </div>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</section>
-
 <section class="latest-projects row row--halves row--alt">
     <div class="container">
         <div class="row__column">

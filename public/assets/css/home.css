@@ -160,38 +160,6 @@
   background-color: #c8c8c8;
   transform: scale(1.05); }
 
-.workflow__item {
-  width: 100%;
-  margin-bottom: 10px; }
-
-.workflow__image {
-  width: 100%;
-  max-width: 100px;
-  height: auto; }
-
-.workflow__description {
-  margin-top: 10px; }
-
-/* For Tablets & Desktops */
-@media only screen and (min-width: 768px) {
-  .workflow {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; }
-  .workflow__item {
-    display: inline-block;
-    width: calc(50% - 20px);
-    margin: 0 10px 10px; }
-  .workflow__image {
-    max-width: 120px; } }
-
-/* Only for Desktops */
-@media only screen and (min-width: 1200px) {
-  .workflow__item {
-    width: calc(33% - 20px); }
-  .workflow__image {
-    max-width: 150px; } }
-
 .stats__item {
   width: 100%;
   margin-bottom: 14px; }
@@ -228,7 +196,7 @@
   position: relative;
   overflow: hidden;
   transition: all 1s ease-in-out;
-  padding: 40px 0; }
+  padding: 0 0 40px; }
 
 .timeline__items {
   position: relative;
@@ -614,7 +582,8 @@
   padding: 5px 10px;
   cursor: auto;
   font-weight: 400;
-  transition: all 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  border-bottom: 1px solid #eeeeee; }
   .skills__item:first-child {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px; }
@@ -625,23 +594,22 @@
 .skills__item.skills__item {
   margin: 0; }
 
-.skills__item p {
+.skills__item > p {
   display: inline-block;
   margin: 0; }
 
 .skills__item--expandable {
   cursor: pointer; }
 
-.skills__item--expandable:hover {
-  background-color: #0081D6;
-  border-color: #0081D6;
-  color: #fff; }
+.skills__item--expandable:hover .skills__toggle {
+  color: #0078c9; }
 
 .skills__toggle {
   vertical-align: middle; }
 
 .skills__description {
-  display: none; }
+  display: none;
+  padding-left: 14px; }
 
 @media only screen and (min-width: 768px) {
   .home-hello__hello {
