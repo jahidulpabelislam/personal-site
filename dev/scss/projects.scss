@@ -24,30 +24,30 @@
     vertical-align: middle;
     cursor: pointer;
 
-    > input {
-        display: none;
-
-        &:checked + span {
-            background: $brand-colour;
-            color: #fff;
-        }
-    }
-
-    span {
+    > span {
         display: block;
         padding: 8px 14px;
         border-radius: 2px;
         background: #fff;
         color: $dark-colour;
         font-weight: 400;
+
     }
 
     &:hover,
     &:focus {
-        span {
-            background: $brand-colour;
-            color: #fff;
+        > span {
+            background: $secondary-colour;
             box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
+        }
+    }
+
+    > input {
+        display: none;
+
+        &:checked + span {
+            background: $secondary-colour;
+            box-shadow: none;
         }
     }
 }
@@ -212,7 +212,7 @@
     top: 0;
     bottom: 0;
     left: 100%;
-    background: $secondary-colour;
+    background: $brand-colour;
     font-family: "Font Awesome 5 Free";
     font-size: 36px;
     line-height: 32px;
@@ -225,7 +225,7 @@
 
 .project__read-more:hover::after,
 .project__read-more:focus::after {
-    background-color: $secondary-light-colour;
+    background-color: $brand-light-colour;
 }
 
 .detailed-project .project__links {

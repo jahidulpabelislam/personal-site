@@ -216,7 +216,7 @@ $page->addJSTemplate(
         
             <div class="project__footer">
                 <div class="project__links"></div>
-                <button type="button" class="button button--secondary project__read-more" data-project-id="{{ id }}">
+                <button type="button" class="button button--brand project__read-more" data-project-id="{{ id }}">
                     Read More
                 </button>
             </div>
@@ -249,13 +249,13 @@ $similarLinks = [
         "title" => "Contact",
         "url" => "/contact/",
         "text" => "Get in Touch",
-        "colour" => "secondary",
+//        "colour" => "secondary",
     ],
     [
         "title" => "About",
         "url" => "/about/",
         "text" => "Learn About Me",
-        "colour" => "secondary",
+//        "colour" => "secondary",
     ],
 ];
 $page->similarLinks = $similarLinks;
