@@ -55,7 +55,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<div class="row row--alt row--thirds about-row" id="about">
+<div class="row row--alt row--thirds" id="about">
     <div class="container">
         <div class="row__column">
             <?php
@@ -201,7 +201,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<div class="row row--thirds about-row about-row--skills">
+<div class="row row--thirds row--brand skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
@@ -209,28 +209,31 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             ?>
             <div class="row__column">
                 <h3 class="row__sub-heading"><?php echo $title; ?></h3>
-                <ul class="skills">
+                <ul class="skills__items">
                     <?php
                     foreach ($skills as $skill) {
                         $hasDescription = !empty($skill["description"]);
-                        $expandClass = $hasDescription ? "skills__item--expandable" : "";
+                        $expandClass = $hasDescription ? "skill--expandable" : "";
 
+                        $toggleHTML = "";
                         $descriptionHTML = "";
                         if ($hasDescription) {
+                            $toggleHTML = <<<HTML
+                                &nbsp;<span class="skill__toggle fa fa-plus"></span>
+                            HTML;
                             $descriptionHTML = <<<HTML
-                &nbsp;<span class="skills__toggle fa fa-plus"></span>
-                <div class="skills__description">
-                    {$skill["description"]}
-                </div>
-                HTML;
+                                <div class="skill__description">
+                                    {$skill["description"]}
+                                </div>
+                            HTML;
                         }
 
                         echo <<<HTML
-            <li class="skills__item $expandClass">
-                <p>{$skill["text"]}</p>
-                $descriptionHTML
-            </li>
-            HTML;
+                            <li class="skills__item skill $expandClass">
+                                <p>{$skill["text"]}$toggleHTML</p>
+                                $descriptionHTML
+                            </li>
+                        HTML;
                     }
                     ?>
                 </ul>
@@ -252,7 +255,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 "description" => "<p>MySQL</p>",
             ],
         ];
-        renderSkills("Back-end", $skills);
+        renderSkills("Backend", $skills);
 
         $skills = [
             [
@@ -267,7 +270,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 "text" => "HTML",
             ],
         ];
-        renderSkills("Front-end", $skills);
+        renderSkills("Frontend", $skills);
 
         $skills = [
             [
@@ -283,7 +286,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 "description" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
             ],
         ];
-        renderSkills("Others", $skills);
+        renderSkills("Other", $skills);
         ?>
     </div>
 </div>

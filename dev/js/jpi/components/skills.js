@@ -2,20 +2,22 @@
 
     "use strict";
 
-    this.$items = jQuery(".skills__item--expandable");
-    this.$expandableContents = jQuery(".skills__description");
-    this.$expandableIcons = jQuery(".skills__toggle");
+    var skills = this;
+
+    this.$items = jQuery(".skill--expandable");
+    this.$expandableContents = jQuery(".skill__description");
+    this.$expandableIcons = jQuery(".skill__toggle");
 
     this.toggleContent = function(e) {
-        var $item = jQuery(e.target);
+        var $item = jQuery(this);
 
         // Get the new item elems that was clicked
-        var $selected = $item.find(".skills__description");
-        var $selectedIcon = $item.find(".skills__toggle");
+        var $selected = $item.find(".skill__description");
+        var $selectedIcon = $item.find(".skill__toggle");
 
         // Reset all other item to closed
-        this.$expandableContents.not($selected).slideUp();
-        this.$expandableIcons.not($selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+        skills.$expandableContents.not($selected).slideUp();
+        skills.$expandableIcons.not($selectedIcon).addClass("fa-plus").removeClass("fa-minus");
 
         // Toggle the clicked item
         $selectedIcon.toggleClass("fa-plus");
@@ -23,5 +25,5 @@
         $selected.slideToggle();
     };
 
-    this.$items.on("click", this.toggleContent.bind(this));
+    this.$items.on("click", this.toggleContent);
 }));
