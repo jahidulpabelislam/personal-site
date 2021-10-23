@@ -201,52 +201,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="row row--secondary">
-    <div class="container">
-        <div class="stats js-counters">
-            <?php
-            $baseSpeed = 1600;
-
-            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
-
-            $counterItems = [
-                [
-                    "text" => "Years experience",
-                    "number" => $yearsSinceStarted,
-                    "speed" => $baseSpeed,
-                ],
-                [
-                    "text" => "Projects",
-                    "number" => $counts["total_projects"] ?? 60,
-                    "speed" => $baseSpeed + 600,
-                ],
-                [
-                    "text" => "Commits",
-                    "number" => $counts["total_commits"] ?? 8500,
-                    "speed" => $baseSpeed + 1000,
-                ],
-            ];
-
-            foreach ($counterItems as $counterItem) {
-                ?>
-                <div class="stats__item">
-                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
-                        <?php echo $counterItem["number"]; ?>
-                    </p>
-                    <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
-                </div>
-                <?php
-            }
-            ?>
-
-            <div class="stats__item">
-                <p class="row__heading stats__heading js-seconds-on-site">0</p>
-                <p class="stats__text">Seconds on here</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <div class="row row--thirds about-row about-row--skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
@@ -356,6 +310,52 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             </div>
 
             <p class="latest-projects__error"></p>
+        </div>
+    </div>
+</section>
+
+<section class="row row--secondary">
+    <div class="container">
+        <div class="stats js-counters">
+            <?php
+            $baseSpeed = 1600;
+
+            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
+
+            $counterItems = [
+                [
+                    "text" => "Years experience",
+                    "number" => $yearsSinceStarted,
+                    "speed" => $baseSpeed,
+                ],
+                [
+                    "text" => "Projects",
+                    "number" => $counts["total_projects"] ?? 60,
+                    "speed" => $baseSpeed + 600,
+                ],
+                [
+                    "text" => "Commits",
+                    "number" => $counts["total_commits"] ?? 8500,
+                    "speed" => $baseSpeed + 1000,
+                ],
+            ];
+
+            foreach ($counterItems as $counterItem) {
+                ?>
+                <div class="stats__item">
+                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
+                        <?php echo $counterItem["number"]; ?>
+                    </p>
+                    <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
+                </div>
+                <?php
+            }
+            ?>
+
+            <div class="stats__item">
+                <p class="row__heading stats__heading js-seconds-on-site">0</p>
+                <p class="stats__text">Seconds on here</p>
+            </div>
         </div>
     </div>
 </section>
