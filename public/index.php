@@ -341,7 +341,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <p>
                 These are the latest personal projects I have worked on.
             </p>
-            <a class="latest-projects__view button" href="<?php echo $site->makeURL("/projects/"); ?>">
+            <a class="latest-projects__view button button--brand" href="<?php echo $site->makeURL("/projects/"); ?>">
                 View More Work
             </a>
         </div>
@@ -427,12 +427,8 @@ $page->addJSTemplate(
         <img class="slide-show__image latest-project__image" src="{{ images.0.url }}" alt="Screen shot of {{ name }} Project" />
         <div class="latest-project__info">
             <div class="latest-project__info-content">
-                <div class="latest-project__header">
-                    <h4 class="latest-project__title">{{ name }}</h4>
-                    <time class="latest-project__date">{{ date }}</time>
-                </div>
+                <h4 class="latest-project__title">{{ name }}</h4>
                 <div class="latest-project__description">{{ short_description }}</div>
-                <div class="latest-project__links"></div>
             </div>
         </div>
     </div>

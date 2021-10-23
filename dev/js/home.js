@@ -56,33 +56,6 @@ var JPI = JPI || {};
         if (!project.images || !project.images.length || !project.images[0]) {
             $slide.find(".slide-show__image").remove();
         }
-
-        var $linksContainer = $slide.find(".latest-project__links");
-
-        if (!project.url && !project.github_url) {
-            $linksContainer.remove();
-            return;
-        }
-
-        if (project.url) {
-            JPI.renderNewElement("a", $linksContainer, {
-                href: project.url,
-                html: "<i class='fas fa-link fa-2x'></i>",
-                class: "button button--clear latest-project__link",
-                target: "_blank",
-                rel: "noopener",
-            });
-        }
-
-        if (project.github_url) {
-            JPI.renderNewElement("a", $linksContainer, {
-                href: project.github_url,
-                html: "<i class='fab fa-github fa-2x'></i>",
-                class: "button button--clear latest-project__link",
-                target: "_blank",
-                rel: "noopener noreferrer",
-            });
-        }
     };
 
     // Sets up events when projects is received
