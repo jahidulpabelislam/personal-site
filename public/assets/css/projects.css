@@ -145,13 +145,13 @@
   color: #333333;
   transition: all 0.25s ease-in-out; }
   .pagination__link:hover, .pagination__link:focus {
-    background: #ffef38;
+    background: #ffeb05;
     box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2); }
 
 .pagination__link--active,
 .pagination__link--active:hover,
 .pagination__link--active:focus {
-  background: #ffef38;
+  background: #ffeb05;
   cursor: default;
   box-shadow: none; }
 
@@ -383,12 +383,12 @@
     color: #333333;
     font-weight: 400; }
   .projects__type:hover > span, .projects__type:focus > span {
-    background: #ffef38;
+    background: #ffeb05;
     box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.2); }
   .projects__type > input {
     display: none; }
     .projects__type > input:checked + span {
-      background: #ffef38;
+      background: #ffeb05;
       box-shadow: none; }
 
 .projects__loading {

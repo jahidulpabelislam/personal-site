@@ -37,7 +37,7 @@
   color: #ffffff; }
 
 .row--secondary {
-  background-color: #ffef38;
+  background-color: #ffeb05;
   color: #333333; }
 
 .row--flush {
@@ -224,10 +224,10 @@
   background-color: #0081D6; }
 
 .button--secondary {
-  background-color: #ffef38;
+  background-color: #ffeb05;
   color: #333333; }
   .button--secondary:hover, .button--secondary:focus {
-    background-color: #fffd3c; }
+    background-color: #ffef38; }
 
 .button--clear:hover,
 .button--clear:focus,
