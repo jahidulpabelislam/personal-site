@@ -468,10 +468,7 @@
   display: inline-block;
   margin: 2px;
   padding: 5px;
-  border: 1px solid #0078c9;
-  border-radius: 2px;
-  color: #0078c9;
-  font-weight: 400; }
+  color: #0078c9; }
 
 .project__description {
   text-align: left;
