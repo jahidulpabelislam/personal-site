@@ -7,16 +7,20 @@
 @import "components/slide-show";
 @import "components/expanded-slide-show";
 
+.projects__types-filter {
+    margin: 25px auto;
+}
+
+.projects__types-label {
+    margin: 0 10px 0 0;
+    font-weight: 700;
+}
+
 .projects__types {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 25px auto;
-
-    > p {
-        margin: 0 10px 0 0;
-    }
 }
 
 .projects__type {
@@ -239,8 +243,8 @@
 }
 
 @media only screen and (min-width: $tablet-width) {
-    .projects__types {
-        margin: 0 auto 40px;
+    .projects__types-filter {
+        margin: 40px auto;
     }
 
     .projects__items {
@@ -277,7 +281,7 @@
 }
 
 @media only screen and (min-width: $desktop-width) {
-    .projects__types {
+    .projects__types-filter {
         width: 80%;
     }
 
