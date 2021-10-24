@@ -189,6 +189,15 @@ img {
 
 .header--home {
   background-image: url("/assets/images/laptop.jpg?v=2"); }
+  .header--home .container {
+    display: flex;
+    flex-flow: column; }
+  .header--home .header__title {
+    order: 2; }
+  .header--home .header__description {
+    order: 1; }
+  .header--home .header__links {
+    order: 3; }
 
 .header--projects {
   background-image: url("/assets/images/projects.jpg?v=2"); }
@@ -206,7 +215,7 @@ img {
   margin-bottom: 26px; }
 
 .header__line-breaker {
-  margin: 0 auto;
+  margin: 0 auto 26px;
   max-width: 50%; }
 
 .header__description {
@@ -214,10 +223,12 @@ img {
   font-size: 24px;
   font-weight: bold;
   line-height: 26px;
-  margin-top: 26px; }
+  margin: 0 0 26px; }
+  .header__description:last-child {
+    margin-bottom: 0; }
 
 .header__links {
-  margin: 18px 0 0; }
+  margin: 0; }
   .header__links .social-link {
     display: inline-block;
     margin: 8px; }
@@ -248,12 +259,14 @@ img {
     font-size: 50px;
     line-height: 52px;
     margin-bottom: 32px; }
+  .header__line-breaker {
+    margin-bottom: 32px; }
   .header__description {
     font-size: 26px;
     line-height: 28px;
-    margin-top: 32px; }
-  .header__links {
-    margin: 24px 0 0; }
+    margin-bottom: 32px; }
+    .header__description:last-child {
+      margin-bottom: 0; }
   .header__scroll-to-content {
     margin-left: -20px; }
   .header__scroll-to-content svg {

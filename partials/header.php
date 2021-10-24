@@ -36,10 +36,10 @@ $showSocialLinksHeader = $page->showSocialLinksHeader ?? false;
                 <?php
             }
             ?>
-            <button class="header__scroll-to-content js-scroll-to-content">
-                <span class="screen-reader-text">Scroll to main content</span>
-                <?php renderFile("/assets/images/down-arrow.svg"); ?>
-            </button>
         </div>
     </div>
+    <button class="header__scroll-to-content js-scroll-to-content">
+        <span class="screen-reader-text">Scroll to main content</span>
+        <?php renderFile("/assets/images/down-arrow.svg"); ?>
+    </button>
 </header>

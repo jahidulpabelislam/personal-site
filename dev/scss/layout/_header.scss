@@ -21,6 +21,23 @@
 }
 .header--home {
     background-image: url("/assets/images/laptop.jpg?v=2");
+
+    .container {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .header__title {
+        order: 2;
+    }
+
+    .header__description {
+        order: 1;
+    }
+
+    .header__links {
+        order: 3;
+    }
 }
 .header--projects {
     background-image: url("/assets/images/projects.jpg?v=2");
@@ -41,7 +58,7 @@
 }
 
 .header__line-breaker {
-    margin: 0 auto;
+    margin: 0 auto 26px;
     max-width: 50%;
 }
 
@@ -50,11 +67,15 @@
     font-size: 24px;
     font-weight: bold;
     line-height: 26px;
-    margin-top: 26px;
+    margin: 0 0 26px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .header__links {
-    margin: 18px 0 0;
+    margin: 0;
 
     .social-link {
         display: inline-block;
@@ -93,14 +114,18 @@
         margin-bottom: 32px;
     }
 
+    .header__line-breaker {
+        margin-bottom: 32px;
+    }
+
     .header__description {
         font-size: 26px;
         line-height: 28px;
-        margin-top: 32px;
-    }
+        margin-bottom: 32px;
 
-    .header__links {
-        margin: 24px 0 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .header__scroll-to-content {
