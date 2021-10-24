@@ -314,6 +314,8 @@ var JPI = JPI || {};
 
     this.initListeners = function() {
         this.$projectType.on("change", function(e) {
+            projects.page = 1;
+            projects.storeLatestSearch();
             projects.getProjects();
         });
 

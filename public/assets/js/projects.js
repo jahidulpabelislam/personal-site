@@ -1122,6 +1122,8 @@ JPI.ExpandedSlideShow = function() {
 
     this.initListeners = function() {
         this.$projectType.on("change", function(e) {
+            projects.page = 1;
+            projects.storeLatestSearch();
             projects.getProjects();
         });
 
