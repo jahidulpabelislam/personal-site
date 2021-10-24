@@ -105,7 +105,7 @@ $projectTypes = $apiRes["data"] ?? [];
 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 
-        <?php if ($projectTypes): ?>
+        <?php if (count($projectTypes) > 1): ?>
             <div class="projects__types-filter">
                 <label class="projects__types-label">Filter by: </label>
                 <div class="projects__types">
