@@ -207,8 +207,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <?php
         function renderSkills(string $title, array $skills) {
             ?>
-            <div class="row__column">
-                <h3 class="row__sub-heading"><?php echo $title; ?></h3>
+            <div class="row__column skills__group">
+                <h3 class="row__sub-heading skills__group-title"><?php echo $title; ?></h3>
                 <ul class="skills__items">
                     <?php
                     foreach ($skills as $skill) {
@@ -244,7 +244,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         $skills = [
             [
                 "text" => "PHP",
-                "description" => "<p>Wordpress, Laravel &amp; PDO</p>",
+                "description" => "<p>Worked with Libraries, Frameworks (Wordpress, Laravel &amp; Custom/Inhouse) &amp; APIs</p>",
             ],
             [
                 "text" => "Python",
@@ -252,7 +252,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             ],
             [
                 "text" => "SQL",
-                "description" => "<p>MySQL</p>",
+                "description" => "<p>MySQL/MariaDB</p>",
             ],
         ];
         renderSkills("Backend", $skills);
@@ -260,7 +260,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         $skills = [
             [
                 "text" => "JavaScript",
-                "description" => "<p>Node.js (socket.io &amp; Express), JQuery &amp; AngularJS</p>",
+                "description" => "<p>Node.js (socket.io &amp; Express), jQuery &amp; AngularJS</p>",
             ],
             [
                 "text" => "CSS",
@@ -268,6 +268,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             ],
             [
                 "text" => "HTML",
+                "description" => "<p>Have used template engines (Blade &amp; Twig)</p>",
             ],
         ];
         renderSkills("Frontend", $skills);
@@ -275,7 +276,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         $skills = [
             [
                 "text" => "DVCS",
-                "description" => "<p>Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
+                "description" => "<p>Experience with Git (GitHub &amp; GitLab) &amp; Mercurial (Bitbucket)</p>",
             ],
             [
                 "text" => "Team Player",
@@ -283,7 +284,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             ],
             [
                 "text" => "Communication",
-                "description" => "<p>Written &amp; spoken communication skills from experience in customer focused environments</p>",
+                "description" => "<p>Written &amp; spoken communication skills from having worked in customer focused environments</p>",
             ],
         ];
         renderSkills("Other", $skills);
