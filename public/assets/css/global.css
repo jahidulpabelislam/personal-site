@@ -28,6 +28,9 @@
   padding: 15px 0;
   background-color: #ffffff; }
 
+.row--tall {
+  padding: 24px; }
+
 .row--alt {
   background-color: #f5f5f5;
   color: #333333; }
@@ -70,6 +73,8 @@
 @media only screen and (min-width: 768px) {
   .row {
     padding: 30px 0; }
+  .row--tall {
+    padding: 36px 0; }
   .row--flush {
     padding: 0; }
   .row__heading {
@@ -105,7 +110,9 @@
       .row--thirds > .container .row__column:last-child {
         padding-left: 30px; }
     .row--thirds > .container .row__heading {
-      margin: 0; } }
+      margin: 0; }
+  .row--tall {
+    padding: 44px 0; } }
 
 .main-content {
   display: flex;
