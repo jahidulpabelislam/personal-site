@@ -16,8 +16,8 @@
     color: $error-colour;
 }
 
-.latest-projects__view.latest-projects__view {
-    margin: 14px 0 0;
+.latest-projects__view {
+    margin: 14px 0 15px;
 }
 
 .latest-projects__slide-show {
@@ -94,6 +94,10 @@
         .slide-show__bullet {
             box-shadow: 0 0 10px 0 #ffffff;
         }
+    }
+
+    .latest-projects__view {
+        margin-bottom: 0;
     }
 
     .latest-project__info {
