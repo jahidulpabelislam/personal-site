@@ -8,8 +8,6 @@ $currentURL = $page->currentURL;
 $indexedURLs = [
     "/",
     "/projects/",
-    "/contact/",
-    "/about/",
     "/privacy-policy/",
 ];
 
