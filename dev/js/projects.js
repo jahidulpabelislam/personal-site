@@ -360,7 +360,7 @@ var JPI = JPI || {};
 
         this.$body.on("click", ".js-expandable-image", function(e) {
             var expandedSlideShow = new JPI.ExpandedSlideShow();
-            expandedSlideShow.open(e.target, '.js-expandable-image-group');
+            expandedSlideShow.open(e.target, ".js-expandable-image-group");
         });
     };
 

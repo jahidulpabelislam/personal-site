@@ -39,7 +39,7 @@ curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
 curl_setopt(
     $ch,
     CURLOPT_HTTPHEADER, [
-       'Accept: application/json',
+       "Accept: application/json",
    ]
 );
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -86,7 +86,7 @@ curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
 curl_setopt(
     $ch,
     CURLOPT_HTTPHEADER, [
-        'Accept: application/json',
+        "Accept: application/json",
     ]
 );
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);

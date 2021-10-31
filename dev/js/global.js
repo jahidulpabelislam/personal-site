@@ -40,5 +40,5 @@ var JPI = JPI || {};
      * Due to the way the modal's are rendered
      * move all modal's after the page element for accessibility
      */
-    jQuery('.modal').insertAfter(jQuery('.page-container'));
+    jQuery(".modal").insertAfter(jQuery(".page-container"));
 })();
