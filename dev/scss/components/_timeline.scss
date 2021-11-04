@@ -25,7 +25,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: $brand-colour;
+        background: $secondary-colour;
     }
 
     &:first-child::before {
@@ -59,7 +59,7 @@
     &.timeline__item--active,
     &.timeline__item--present {
         &::after {
-            border-color: $brand-colour;
+            border-color: $secondary-colour;
         }
     }
 
@@ -122,8 +122,8 @@
 }
 
 .timeline__item--present::after {
-    color: $brand-colour;
-    box-shadow: 0 0 10px 0 $brand-colour;
+    color: $secondary-colour;
+    box-shadow: 0 0 10px 0 $secondary-colour;
 }
 
 .timeline__content {

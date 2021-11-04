@@ -110,7 +110,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2005 - 2009",
                         "icon" => "football",
                         "text" => "Playing competitive football with
-                            <a class='link link--brand' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='http://www.felphamcolts.com/' title='Link to Felpham Colts website.' target='_blank' rel='noopener noreferrer'>
                                 Felpham Colts
                             </a>",
                     ],
@@ -123,7 +123,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2012 - 2014",
                         "icon" => "school",
                         "text" => "IT Student @
-                            <a class='link link--brand' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://chichester.ac.uk/' title='Link to Chichester College website.' target='_blank' rel='noopener noreferrer'>
                                 Chichester College
                             </a>",
                     ],
@@ -131,7 +131,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014",
                         "icon" => "food",
                         "text" => "Working Part Time @
-                            <a class='link link--brand' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                 KFC
                             </a>
                              as a Team Member",
@@ -140,7 +140,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014 - 2017",
                         "icon" => "film",
                         "text" => "Working Part Time @
-                            <a class='link link--brand' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                 CeX
                             </a>
                              as a Sales Assistant",
@@ -149,7 +149,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2014 - 2017",
                         "icon" => "school",
                         "text" => "Web Technologies Student @
-                            <a class='link link--brand' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://www.port.ac.uk/' title='Link to University of Portsmouth website.' target='_blank' rel='noopener noreferrer'>
                                 University of Portsmouth
                             </a>",
                     ],
@@ -157,7 +157,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2017 - 2019",
                         "icon" => "work",
                         "text" => "Software Developer @
-                            <a class='link link--brand' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://brightminded.com/' title='Link to BrightMinded website.' target='_blank' rel='noopener noreferrer'>
                                 BrightMinded
                             </a>",
                     ],
@@ -165,7 +165,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                         "date" => "2019 - Present",
                         "icon" => "work",
                         "text" => "Web Developer @
-                            <a class='link link--brand' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
+                            <a class='link link--secondary' href='https://d3r.com/' title='Link to D3R website.' target='_blank' rel='noopener noreferrer'>
                                 D3R
                             </a>",
                         "isActive" => true,

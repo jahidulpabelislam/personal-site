@@ -18,3 +18,13 @@
     color: $brand-light-colour;
     border-bottom-color: $brand-light-colour;
 }
+
+.link--secondary {
+    color: $secondary-colour;
+
+    &:hover,
+    &:focus {
+        color: $secondary-light-colour;
+        border-bottom-color: $secondary-light-colour;
+    }
+}

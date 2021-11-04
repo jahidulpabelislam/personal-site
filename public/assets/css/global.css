@@ -275,6 +275,12 @@ a.button {
   color: #0081D6;
   border-bottom-color: #0081D6; }
 
+.link--secondary {
+  color: #ffeb05; }
+  .link--secondary:hover, .link--secondary:focus {
+    color: #ffef38;
+    border-bottom-color: #ffef38; }
+
 .table {
   margin: 0 auto;
   border-color: #333333; }

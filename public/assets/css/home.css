@@ -279,7 +279,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: #0078c9; }
+    background: #ffeb05; }
   .timeline__item:first-child::before {
     left: 50%; }
   .timeline__item:last-child::before {
@@ -303,7 +303,7 @@
     line-height: 31px;
     transition: all 0.3s ease-in-out; }
   .timeline__item.timeline__item--active::after, .timeline__item.timeline__item--present::after {
-    border-color: #0078c9; }
+    border-color: #ffeb05; }
   .timeline__item > div {
     height: 100%; }
   .timeline__item:nth-child(even) > div {
@@ -347,8 +347,8 @@
   content: "\f008"; }
 
 .timeline__item--present::after {
-  color: #0078c9;
-  box-shadow: 0 0 10px 0 #0078c9; }
+  color: #ffeb05;
+  box-shadow: 0 0 10px 0 #ffeb05; }
 
 .timeline__content {
   position: relative;
