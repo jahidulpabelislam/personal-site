@@ -281,14 +281,12 @@
 }
 
 @media only screen and (min-width: $desktop-width) {
-    .projects__types-filter {
-        width: 80%;
-    }
-
-    .project {
-        width: 80%;
-        margin-right: auto;
-        margin-left: auto;
+    .projects {
+        .container > * {
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 
     .project__read-more::after {

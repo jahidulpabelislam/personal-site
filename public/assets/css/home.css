@@ -573,7 +573,8 @@
     line-height: 30px; }
 
 .home-hello__welcome {
-  display: block; }
+  display: block;
+  margin-bottom: 22px; }
 
 .home-hello__images {
   position: relative;
@@ -673,6 +674,16 @@
   .map {
     height: 250px; } }
 
+@media only screen and (min-width: 768px) {
+  .about .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; }
+  .about .row__column {
+    width: 50%;
+    padding: 0 30px; } }
+
 @media only screen and (min-width: 1200px) {
   .home-hello__hello {
     font-size: 38px;
@@ -686,6 +697,10 @@
   .home-hello__images {
     width: 25%;
     max-width: 220px; }
+  .about .row__column {
+    width: 33%; }
+    .about .row__column:not(:first-child):not(:nth-child(3)) {
+      padding: 0 15px; }
   .skills .container {
     align-items: flex-start; }
   .skills__group {

@@ -580,9 +580,7 @@
     margin-top: 0; } }
 
 @media only screen and (min-width: 1200px) {
-  .projects__types-filter {
-    width: 80%; }
-  .project {
+  .projects .container > * {
     width: 80%;
     margin-right: auto;
     margin-left: auto; }

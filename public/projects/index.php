@@ -97,11 +97,14 @@ $apiRes = json_decode(curl_exec($ch), true);
 curl_close($ch);
 
 $projectTypes = $apiRes["data"] ?? [];
+
+$yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
 
 <section class="row row--alt projects">
     <div class="container">
-        <p>Here you can find pieces of work I have completed throughout my years as a developer.</p>
+        <p>Here you will see some pieces of work I have completed in the last <?php echo $yearsSinceStarted; ?> years.</p>
+        <p>Most of these started as I am always on the lookout for ways to improve my skill set, whether that is experimenting with new technologies, integrating new libraries & plugins (this being my main experiment).</p>
 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 

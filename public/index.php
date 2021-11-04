@@ -31,50 +31,45 @@ $page->renderContentStart();
 $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
 
-<section>
-    <div class="row row--alt home-hello">
-        <div class="container">
-            <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
-            <div class="home-hello__images">
-                <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
-                <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
-            </div>
-            <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
+<div class="row row--alt home-hello">
+    <div class="container">
+        <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
+        <div class="home-hello__images">
+            <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
+            <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
         </div>
+        <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
+        <p>
+            Here you will be able to look at some of the <a class="link" href="<?php echo $site->makeURL("/projects/"); ?>">projects</a>
+            I have worked on, <a class="link js-scroll-to" href="#about">learn about me</a> also be able to
+            <a class="link js-scroll-to" href="#connect">connect with me</a>.
+        </p>
     </div>
+</div>
 
-    <div class="row">
-        <div class="container">
-            <p>
-                Here you will be able to look at all the <a class="link" href="<?php echo $site->makeURL("/projects/"); ?>">work</a>
-                I have completed over the last <?php echo $yearsSinceStarted; ?> years, <a class="link js-scroll-to" href="#about">learn about me</a> also
-                <a class="link js-scroll-to" href="#contact">contact me</a> for any enquiries or to just provide feedback.
-            </p>
-            <p>So, have a look around my ever-evolving portfolio, as I'm always looking to find different ways to improve my site by experimenting with new technologies, libraries & plugins and ideas here while also improving my skill set and expanding my knowledge then can bring them to projects at work.</p>
-        </div>
-    </div>
-</section>
-
-<div class="row row--alt row--thirds" id="about">
+<div class="row about" id="about">
+    <h3 class="row__heading">Quick Facts</h3>
     <div class="container">
         <div class="row__column">
             <?php
             // Work out my age by the time difference from DOB to today
             $age = getTimeDifference($site::DATE_OF_BIRTH, new DateTime(), "%r%y");
             ?>
-
-            <p>I'm <?php echo $age; ?> years old.</p>
+            <p>I am <?php echo $age; ?> years old.</p>
+        </div>
+        <div class="row__column">
+            <p>Currently working as a Web Developer @ D3R</p>
+        </div>
+        <div class="row__column">
+            <p>I can speak English &amp; Bengali.</p>
         </div>
         <div class="row__column">
             <p>
-                Based in <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
-                    Bognor Regis</a>,
-                <a class="link link--brand" href="https://goo.gl/maps/EopyB2gtqXF2" title="Link to Map of West Sussex." target="_blank" rel="noopener noreferrer">West Sussex</a>
-                , South East Coast of England.
+                Based down in the South coast of England in a town called
+                <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                    Bognor Regis
+                </a>.
             </p>
-        </div>
-        <div class="row__column">
-            <p>I am Bilingual, I can speak English &amp; Bengali.</p>
         </div>
     </div>
 </div>
@@ -296,11 +291,9 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="container">
         <div class="row__column">
             <h3 class="row__heading">Latest Projects</h3>
-            <p>
-                These are the latest personal projects I have worked on.
-            </p>
+            <p>These are the latest projects I have been working on.</p>
             <a class="latest-projects__view button button--brand" href="<?php echo $site->makeURL("/projects/"); ?>">
-                View More Work
+                View More
             </a>
         </div>
         <div class="row__column row__column--flush">
@@ -364,7 +357,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<section class="contact-me row row--halves" id="contact">
+<section class="contact-me row row--halves" id="connect">
     <div class="contact-me__column contact-me__column--header row__column">
         <div>
             <h2 class="row__heading">Connect With Me</h2>

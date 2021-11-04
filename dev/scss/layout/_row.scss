@@ -2,9 +2,11 @@
     padding: 15px 0;
     background-color: #ffffff;
 }
-
 .row--tall {
     padding: 24px;
+}
+.row--flush {
+    padding: 0;
 }
 
 .row--alt {
@@ -20,10 +22,6 @@
 .row--secondary {
     background-color: $secondary-colour;
     color: $dark-colour;
-}
-
-.row--flush {
-    padding: 0;
 }
 
 .row__heading {
