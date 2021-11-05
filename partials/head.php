@@ -24,7 +24,7 @@ $description = $page->headDescription ?? $page->description ?? "";
     if ($pageId !== "home") {
         $suffix = " | $name - $job";
 
-        if ($pageId === "projects") {
+        if ($pageId === "portfolio") {
             $page->addJSGlobal("projects", "titleEnd", $suffix);
         }
 

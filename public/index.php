@@ -7,10 +7,10 @@ $page = page();
 $name = $site::NAME;
 $job = $site::JOB;
 
-$headDescription = "Portfolio of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.";
+$headDescription = "Site of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.";
 
 $pageData = [
-    "headTitle" => "$name's Portfolio - $job",
+    "headTitle" => "$name's Site - $job",
     "headDescription" => $headDescription,
     "headerTitle" => $name,
     "headerDescription" => $job,
@@ -40,7 +40,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         </div>
         <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
         <p>
-            Here you will be able to look at some of the <a class="link" href="<?php echo $site->makeURL("/projects/"); ?>">projects</a>
+            Here you will be able to look at some of the <a class="link" href="<?php echo $site->makeURL("/portfolio/"); ?>">projects</a>
             I have worked on, <a class="link js-scroll-to" href="#about">learn about me</a> also be able to
             <a class="link js-scroll-to" href="#connect">connect with me</a>.
         </p>
@@ -292,7 +292,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="row__column">
             <h3 class="row__heading">Latest Projects</h3>
             <p>These are the latest projects I have been working on.</p>
-            <a class="latest-projects__view button button--brand" href="<?php echo $site->makeURL("/projects/"); ?>">
+            <a class="latest-projects__view button button--brand" href="<?php echo $site->makeURL("/portfolio/"); ?>">
                 View More
             </a>
         </div>

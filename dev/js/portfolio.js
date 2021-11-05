@@ -8,7 +8,7 @@ var JPI = JPI || {};
 //=include ./jpi/api.js
 
 ;/**
- * Holds all the functions needed for the projects page
+ * Holds all the functions needed for the portfolio page
  * e.g. display projects
  */
 (new (function() {

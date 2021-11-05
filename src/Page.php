@@ -90,7 +90,7 @@ class Page {
 
         // Only some pages use Font Awesome, so only add if it uses it
         $pagesUsingFA = [
-            "home", "projects", "about", "contact",
+            "home", "portfolio", "about", "contact",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
             $stylesheets[] = [

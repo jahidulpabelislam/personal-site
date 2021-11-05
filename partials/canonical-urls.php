@@ -7,7 +7,7 @@ $currentURL = $page->currentURL;
 
 $indexedURLs = [
     "/",
-    "/projects/",
+    "/portfolio/",
     "/privacy-policy/",
 ];
 

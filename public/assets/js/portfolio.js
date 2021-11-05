@@ -816,7 +816,7 @@ JPI.ExpandedSlideShow = function() {
 
 
 ;/**
- * Holds all the functions needed for the projects page
+ * Holds all the functions needed for the portfolio page
  * e.g. display projects
  */
 (new (function() {
@@ -1175,4 +1175,4 @@ JPI.ExpandedSlideShow = function() {
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
 }));
 
-//# sourceMappingURL=maps/projects.js.map
+//# sourceMappingURL=maps/portfolio.js.map

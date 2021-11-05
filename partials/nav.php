@@ -17,8 +17,8 @@ $currentURL = $page->currentURL;
             <?php
             $links = [
                 [
-                    "title" => "My Projects",
-                    "url" => "/projects/",
+                    "title" => "Portfolio",
+                    "url" => "/portfolio/",
                 ],
             ];
 

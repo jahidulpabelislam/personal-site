@@ -124,10 +124,9 @@ class Site extends BaseSite implements Me {
         }
 
         if ($meta["ok"]) {
-
             // If user didn't provide subject create a default one
             if ($subject === "") {
-                $subject = "Portfolio Contact Form";
+                $subject = "Site Contact Form";
             }
 
             // Creates the headers for sending email

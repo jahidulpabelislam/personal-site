@@ -17,7 +17,7 @@ $errorDescriptions = [
 ];
 $errorDescription = $errorDescriptions[$error];
 
-$headDescription = "Error: $error - $errorDescription message on the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Error: $error - $errorDescription message on the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "id" => $error,

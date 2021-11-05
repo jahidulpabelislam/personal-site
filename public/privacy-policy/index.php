@@ -7,7 +7,7 @@ $page = page();
 $name = $site::NAME;
 $job = $site::JOB;
 
-$headDescription = "Privacy policy for the portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Privacy policy for the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $pageData = [
     "title" => "Privacy Policy",
@@ -77,8 +77,8 @@ $page->renderContentStart();
 <?php
 $similarLinks = [
     [
-        "title" => "Projects",
-        "url" => "/projects/",
+        "title" => "Portfolio",
+        "url" => "/portfolio/",
         "text" => "View My Work",
     ],
     [
