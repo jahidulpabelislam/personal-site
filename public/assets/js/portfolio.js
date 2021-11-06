@@ -814,12 +814,7 @@ JPI.ExpandedSlideShow = function() {
 
 })();
 
-
-;/**
- * Holds all the functions needed for the portfolio page
- * e.g. display projects
- */
-(new (function() {
+;(new (function() {
 
     "use strict";
 
@@ -1174,5 +1169,6 @@ JPI.ExpandedSlideShow = function() {
 
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
 }));
+
 
 //# sourceMappingURL=maps/portfolio.js.map
