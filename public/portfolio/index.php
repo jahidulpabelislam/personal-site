@@ -15,7 +15,7 @@ $apiRequestParams = [
 
 $pageNum = $_GET["page"] ?? 1;
 
-$headTitle = "Projects";
+$headTitle = "Portfolio";
 
 $page->addJSGlobal("projects", "titleStart", $headTitle);
 
@@ -25,7 +25,7 @@ if ($pageNum > 1) {
     $apiRequestParams["page"] = $pageNum;
 }
 
-$headDescription = "Projects $name has developed, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
+$headDescription = "Portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
 
@@ -62,7 +62,7 @@ $page->addJSGlobal("projects", "apiResponse", $apiRes);
 $pageData = [
     "headTitle" => $headTitle,
     "headDescription" => $headDescription,
-    "headerTitle" => "My Projects",
+    "headerTitle" => "My Portfolio",
     "headerDescription" => "See My Skills In Action",
     "pagination" => [
         "page" => $apiMeta["page"] ?? 1,
