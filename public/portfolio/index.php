@@ -248,20 +248,6 @@ $page->addJSTemplate(
 $page->addJSGlobal("projects", "perPage", $projectsPerPage);
 $page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
 
-$similarLinks = [
-    [
-        "title" => "Contact",
-        "url" => "/contact/",
-        "text" => "Get in Touch",
-    ],
-    [
-        "title" => "About",
-        "url" => "/about/",
-        "text" => "Learn About Me",
-    ],
-];
-$page->similarLinks = $similarLinks;
-$page->renderSimilarLinks();
 $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
