@@ -12,6 +12,9 @@ $site = site();
             <p>
                 <a class="footer__link" href="<?php echo $site->makeURL("/privacy-policy/"); ?>">Privacy Policy</a>
             </p>
+            <p>
+                <a class="footer__link" href="https://links.jahidulpabelislam.com/">My Links</a>
+            </p>
         </div>
 
         <div class="footer__legal">
