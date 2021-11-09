@@ -4,21 +4,23 @@ $site = site();
 
 <footer class="footer">
     <div class="container">
-        <div class="footer__version">
-            <p><?php renderFile(ROOT . "/assets/version.txt", false); ?></p>
-        </div>
+        <p class="footer__version">
+            <?php renderFile(ROOT . "/assets/version.txt", false); ?>
+        </p>
 
         <div class="footer__links">
-            <p>
-                <a class="footer__link" href="<?php echo $site->makeURL("/privacy-policy/"); ?>">Privacy Policy</a>
-            </p>
-            <p>
-                <a class="footer__link" href="https://links.jahidulpabelislam.com/" target="_blank">My Links</a>
-            </p>
+            <a class="footer__link" href="<?php echo $site->makeURL("/privacy-policy/"); ?>">Privacy Policy</a>
+            <a class="footer__link" href="https://links.jahidulpabelislam.com/" target="_blank">My Links</a>
         </div>
 
-        <div class="footer__legal">
-            <p>&copy; <?php echo $site::NAME . " " . $site->getYearStarted() . " - " . date("Y"); ?></p>
-        </div>
+        <p class="footer__legal">
+            &copy; <?php echo  $site->getYearStarted() . " - " . date("Y") . " " . $site::NAME; ?>
+        </p>
+
+        <img
+                class="footer__logo"
+                src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>"
+                alt="<?php echo $site::NAME; ?>'s Logo"
+        />
     </div>
 </footer>

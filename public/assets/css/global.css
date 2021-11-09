@@ -129,10 +129,12 @@
   background-color: #f5f5f5;
   color: #7b8676;
   border-top: 1px solid #eeeeee;
-  padding: 6px; }
+  padding: 6px 0; }
 
-.footer p {
-  margin: 5px auto; }
+.footer__logo {
+  height: 40px;
+  border: 1px solid #0078c9;
+  border-radius: 50%; }
 
 .footer__links,
 .footer__legal,
@@ -140,48 +142,40 @@
   display: inline-block;
   width: 100%; }
 
-.footer__link::after {
-  content: "|";
-  color: #7b8676;
-  margin: 0 4px; }
-
-.footer__link:last-child::after {
-  content: none; }
-
 .footer__link {
   position: relative;
   color: #333333; }
-
-.footer__link::before {
-  content: "\00a0";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: calc(100% - 12px);
-  height: 1px;
-  border-bottom: transparent solid 1px;
-  transition: all 0.3s ease-in-out; }
-
-.footer__link:hover,
-.footer__link:focus {
-  color: #1a1a1a; }
-
-.footer__link:hover::before,
-.footer__link:focus::before {
-  border-bottom-color: #1a1a1a; }
-
-.footer__link:last-child::before {
-  width: 100%; }
+  .footer__link::before {
+    content: "\00a0";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 12px);
+    height: 1px;
+    border-bottom: transparent solid 1px;
+    transition: all 0.3s ease-in-out; }
+  .footer__link:last-child::before {
+    width: 100%; }
+  .footer__link:not(:last-child)::after {
+    content: "|";
+    color: #7b8676;
+    margin: 0 4px; }
+  .footer__link:hover, .footer__link:focus {
+    color: #1a1a1a; }
+    .footer__link:hover::before, .footer__link:focus::before {
+      border-bottom-color: #1a1a1a; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .footer {
-    padding: 10px; }
+    padding: 18px 0; }
   .footer > .container {
     display: flex;
-    align-items: center; }
-  .footer p {
-    margin: 10px 0; }
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; }
+  .footer__logo {
+    order: 4; }
   .footer__links {
     width: 33%;
     text-align: left;
@@ -193,7 +187,8 @@
   .footer__version {
     width: 33%;
     text-align: center;
-    order: 2; } }
+    order: 2;
+    margin: 0 0 16px; } }
 
 /* For all devices */
 .button {
