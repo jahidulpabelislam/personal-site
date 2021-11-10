@@ -14,13 +14,13 @@ $site = site();
         </div>
 
         <p class="footer__legal">
-            &copy; <?php echo  $site->getYearStarted() . " - " . date("Y") . " " . $site::NAME; ?>
+            &copy; <?php echo $site->getYearStarted() . " - " . date("Y") . " " . $site::NAME; ?>
         </p>
 
         <img
-                class="footer__logo"
-                src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>"
-                alt="<?php echo $site::NAME; ?>'s Logo"
+            class="footer__logo"
+            src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>"
+            alt="<?php echo $site::NAME; ?>'s Logo"
         />
     </div>
 </footer>
