@@ -14,7 +14,7 @@ $site = site();
         </div>
 
         <p class="footer__legal">
-            &copy; <?php echo $site->getYearStarted() . " - " . date("Y") . " " . $site::NAME; ?>
+            &copy; <?php echo date("Y") . " " . $site::NAME; ?>
         </p>
 
         <img
