@@ -72,6 +72,10 @@ class Site extends BaseSite implements Me {
         return $url;
     }
 
+    public function getLinksUrl(): string {
+        return LINKS_URL;
+    }
+
     /**
      * Generate and return the API endpoint
      */
