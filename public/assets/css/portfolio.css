@@ -586,4 +586,28 @@
   .expanded-slide-show__close:hover, .expanded-slide-show__close:focus {
     background-color: #ff2525; }
 
+.portfolio-links {
+  padding: 10px; }
+
+.portfolio-links__heading.portfolio-links__heading {
+  margin: 10px 0 0;
+  color: #0078c9; }
+
+.portfolio-links__image {
+  height: 50px;
+  margin: 15px 3px;
+  background: #0078c9; }
+
+@media only screen and (min-width: 768px) {
+  .portfolio-links__heading.portfolio-links__heading {
+    margin-top: 15px; }
+  .portfolio-links__image {
+    height: 60px;
+    margin: 20px 10px; } }
+
+@media only screen and (min-width: 1200px) {
+  .portfolio-links__image {
+    height: 70px;
+    margin: 25px 16px; } }
+
 /*# sourceMappingURL=maps/portfolio.css.map */
