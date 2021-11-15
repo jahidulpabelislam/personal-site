@@ -21,18 +21,20 @@ $headDescription = "Error: $error - $errorDescription message on the site of $na
 
 $pageData = [
     "id" => $error,
-    "headTitle" => "$error - $errorDescription",
-    "headerTitle" => $error,
-    "headerDescription" => $errorDescription,
     "currentURL" => $site->makeURL("/$error"),
 ];
 $page->addPageData($pageData);
 
 $page->renderHtmlStart();
-$page->renderHead();
+$page->renderHead([
+    "title" => "$error - $errorDescription",
+]);
 $page->renderPageStart();
 $page->renderNav();
-$page->renderHeader();
+$page->renderHeader([
+    "title" => $error,
+    "description" => $errorDescription,
+]);
 $page->renderContentStart();
 
 $leftSideCopies = [
@@ -69,20 +71,20 @@ $rightSideCopy = $rightSideCopies[$error];
 </div>
 
 <?php
-$similarLinks = [
-    [
-        "title" => "Projects",
-        "url" => "/projects/",
-        "text" => "View My Work",
+$page->renderSimilarLinks([
+    "links" => [
+        [
+            "title" => "Projects",
+            "url" => "/projects/",
+            "text" => "View My Work",
+        ],
+        [
+            "title" => "Contact",
+            "url" => "/contact/",
+            "text" => "Get in Touch",
+        ],
     ],
-    [
-        "title" => "Contact",
-        "url" => "/contact/",
-        "text" => "Get in Touch",
-    ],
-];
-$page->similarLinks = $similarLinks;
-$page->renderSimilarLinks();
+]);
 $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();

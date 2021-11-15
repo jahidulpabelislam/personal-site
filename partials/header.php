@@ -1,26 +1,21 @@
 <?php
 $site = site();
 $page = page();
-
-$pageId = $page->id;
-$title = $page->headerTitle ?? $page->title ?? "";
-$description = $page->headerDescription ?? $page->description ?? "";
-$showSocialLinksHeader = $page->showSocialLinksHeader ?? false;
 ?>
 
-<header class="header header--<?php echo $pageId; ?>">
+<header class="header header--<?php echo $page->id; ?>">
     <div class="header__overlay">
         <div class="container">
-            <h1 class="header__title"><?php echo $title; ?></h1>
-            <?php if (!$page->hideHeaderHr) {
+            <h1 class="header__title"><?php echo $this->title; ?></h1>
+            <?php if (!isset($this->hideHeaderHr) || !$this->hideHeaderHr) {
                 ?>
                 <hr class="header__line-breaker" />
                 <?php
             }
             ?>
-            <h2 class="header__description"><?php echo $description; ?></h2>
+            <h2 class="header__description"><?php echo $this->description ?? ""; ?></h2>
             <?php
-            if ($showSocialLinksHeader) {
+            if (isset($this->showSocialLinksHeader) && $this->showSocialLinksHeader) {
                 ?>
                 <div class="header__links">
                     <a class="social-link social-link--linkedin" href="https://uk.linkedin.com/in/<?php echo $site::SOCIAL_LINKEDIN; ?>/" target="_blank" rel="noopener noreferrer">

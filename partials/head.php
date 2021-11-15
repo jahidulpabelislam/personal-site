@@ -6,8 +6,9 @@ $name = $site::NAME;
 $job = $site::JOB;
 
 $pageId = $page->id;
-$title = $page->headTitle ?? $page->title ?? "";
-$description = $page->headDescription ?? $page->description ?? "";
+
+$title = $this->title;
+$description = $this->description ?? "";
 ?>
 
 <head>
@@ -51,7 +52,7 @@ $description = $page->headDescription ?? $page->description ?? "";
     <meta property="og:site_name" content="<?php echo $name; ?>" />
 
     <?php
-    $imagePath = "/assets/images/social-cards/{$pageId}.png";
+    $imagePath = "/assets/images/social-cards/$pageId.png";
     if (load($imagePath)->exists()) {
         $relativeImageURL = $site::asset($imagePath);
         $imageURL = $site->makeURL($relativeImageURL, false, true);

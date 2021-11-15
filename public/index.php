@@ -7,24 +7,19 @@ $page = page();
 $name = $site::NAME;
 $job = $site::JOB;
 
-$headDescription = "Site of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.";
-
-$pageData = [
-    "headTitle" => "$name's Site - $job",
-    "headDescription" => $headDescription,
-    "headerTitle" => $name,
-    "headerDescription" => $job,
-];
-$page->addPageData($pageData);
-
-$page->hideHeaderHr = true;
-$page->showSocialLinksHeader = true;
-
 $page->renderHtmlStart();
-$page->renderHead();
+$page->renderHead([
+    "title" => "$name's Site - $job",
+    "description" => "Site of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.",
+]);
 $page->renderPageStart();
 $page->renderNav();
-$page->renderHeader();
+$page->renderHeader([
+    "title" => $name,
+    "description" => $job,
+    "hideHeaderHr" => true,
+    "showSocialLinksHeader" => true,
+]);
 $page->renderContentStart();
 
 // Work out the time since I started to today

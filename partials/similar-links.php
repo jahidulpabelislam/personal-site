@@ -2,11 +2,11 @@
 $site = site();
 $page = page();
 
-$similarLinks = $page->similarLinks ?? [];
+$links = $this->links;
 
-if (count($similarLinks)) {
+if (count($links)) {
     $linksContent = "";
-    foreach ($similarLinks as $link) {
+    foreach ($links as $link) {
         $pageTitle = $link["title"];
         $buttonText = $link["text"] ?? $pageTitle;
 

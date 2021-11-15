@@ -60,10 +60,6 @@ if (!count($apiRes["data"] ?? [])) {
 $page->addJSGlobal("projects", "apiResponse", $apiRes);
 
 $pageData = [
-    "headTitle" => $headTitle,
-    "headDescription" => $headDescription,
-    "headerTitle" => "My Portfolio",
-    "headerDescription" => "See My Skills In Action",
     "pagination" => [
         "page" => $apiMeta["page"] ?? 1,
         "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,
@@ -73,10 +69,16 @@ $pageData = [
 $page->addPageData($pageData);
 
 $page->renderHtmlStart();
-$page->renderHead();
+$page->renderHead([
+    "title" => $headTitle,
+    "description" => $headDescription,
+]);
 $page->renderPageStart();
 $page->renderNav();
-$page->renderHeader();
+$page->renderHeader([
+    "title" => "My Portfolio",
+    "description" => "See My Skills In Action",
+]);
 $page->renderContentStart();
 
 $projectTypesURL = $site::getAPIEndpoint("/project-types/");

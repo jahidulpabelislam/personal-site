@@ -7,19 +7,16 @@ $page = page();
 $name = $site::NAME;
 $job = $site::JOB;
 
-$headDescription = "Privacy policy for the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
-
-$pageData = [
-    "title" => "Privacy Policy",
-    "headDescription" => $headDescription,
-];
-$page->addPageData($pageData);
-
 $page->renderHtmlStart();
-$page->renderHead();
+$page->renderHead([
+    "title" => "Privacy Policy",
+    "hdescription" => "Privacy policy for the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.",
+]);
 $page->renderPageStart();
 $page->renderNav();
-$page->renderHeader();
+$page->renderHeader([
+    "title" => "Privacy Policy",
+]);
 $page->renderContentStart();
 ?>
 
@@ -75,20 +72,20 @@ $page->renderContentStart();
 </div>
 
 <?php
-$similarLinks = [
-    [
-        "title" => "Portfolio",
-        "url" => "/portfolio/",
-        "text" => "View My Work",
+$page->renderSimilarLinks([
+    "links" => [
+        [
+            "title" => "Portfolio",
+            "url" => "/portfolio/",
+            "text" => "View My Work",
+        ],
+        [
+            "title" => "Contact",
+            "url" => "/contact/",
+            "text" => "Get in Touch",
+        ],
     ],
-    [
-        "title" => "Contact",
-        "url" => "/contact/",
-        "text" => "Get in Touch",
-    ],
-];
-$page->similarLinks = $similarLinks;
-$page->renderSimilarLinks();
+]);
 $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();

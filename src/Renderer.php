@@ -19,6 +19,8 @@ use JPI\Site;
 
 namespace App;
 
+use Exception;
+
 class Renderer {
 
     private static function trim(string $contents): string {
@@ -43,9 +45,9 @@ class Renderer {
         $partial = substr($method, 6); // Remove 'render'
         $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
         $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
-        $file = new File(ROOT . "/partials/$partial.php", false);
-        if ($file->exists()) {
-            $file->include();
+        $template = new Template(ROOT . "/partials/$partial.php", $arguments[0] ?? []);
+        if ($template->exists()) {
+            $template->include();
             return;
         }
 
