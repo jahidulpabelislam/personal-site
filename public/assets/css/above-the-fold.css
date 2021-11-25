@@ -138,6 +138,22 @@ strong {
     font-size: 16px;
     line-height: 21px; } }
 
+.tablet-show,
+.desktop-show {
+  display: none; }
+
+@media only screen and (min-width: 768px) {
+  .tablet-hide {
+    display: none; }
+  .tablet-show {
+    display: initial; } }
+
+@media only screen and (min-width: 1200px) {
+  .desktop-hide {
+    display: none; }
+  .desktop-show {
+    display: initial; } }
+
 /* For all devices */
 *,
 *::before,

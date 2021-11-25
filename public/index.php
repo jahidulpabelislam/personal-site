@@ -15,7 +15,7 @@ $page->renderHead([
 $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
-    "title" => $name,
+    "title" => "<span class='tablet-show'>[ Ja-He-Dul Pa-Bel Is-Lam ]</span><span class='tablet-hide'>$name</span>",
     "description" => $job,
     "hideHeaderHr" => true,
     "showSocialLinksHeader" => true,
