@@ -326,6 +326,11 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                     "speed" => $baseSpeed + 600,
                 ],
                 [
+                    "text" => "Pull Requests",
+                    "number" => $counts["total_pull_requests"] ?? 1000,
+                    "speed" => $baseSpeed + 800,
+                ],
+                [
                     "text" => "Commits",
                     "number" => $counts["total_commits"] ?? 8500,
                     "speed" => $baseSpeed + 1000,
@@ -343,11 +348,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 <?php
             }
             ?>
-
-            <div class="stats__item">
-                <p class="row__heading stats__heading js-seconds-on-site">0</p>
-                <p class="stats__text">Seconds on here</p>
-            </div>
         </div>
     </div>
 </section>

@@ -108,22 +108,8 @@ var JPI = JPI || {};
         }, waypointArgs);
     };
 
-    var initSecondsCounter = function() {
-        var secsInMilliseconds = 1000;
-
-        var $secsElem = jQuery(".js-seconds-on-site");
-        setTimeout(function() {
-            setInterval(function() {
-                var lastSec = JPI.getInt($secsElem.text());
-                var newSec = counterFormatter(lastSec + 1);
-                $secsElem.text(newSec);
-            }, secsInMilliseconds);
-        }, secsInMilliseconds);
-    };
-
     $loading.show(200);
 
-    initSecondsCounter();
     initCounters();
 
     jQuery(window).on("jpi-css-loaded", getProjects);
