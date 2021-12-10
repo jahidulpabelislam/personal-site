@@ -322,7 +322,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 ],
                 [
                     "text" => "Projects",
-                    "number" => $counts["total_projects"] ?? 60,
+                    "number" => $counts["total_projects"] ?? 120,
                     "speed" => $baseSpeed + 600,
                 ],
                 [
@@ -332,7 +332,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 ],
                 [
                     "text" => "Commits",
-                    "number" => $counts["total_commits"] ?? 8500,
+                    "number" => $counts["total_commits"] ?? 20000,
                     "speed" => $baseSpeed + 1000,
                 ],
             ];
