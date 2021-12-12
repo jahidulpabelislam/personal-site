@@ -356,8 +356,10 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             foreach ($counterItems as $counterItem) {
                 ?>
                 <div class="stats__item">
-                    <p class="row__heading stats__heading js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
-                        <?php echo $counterItem["number"]; ?>
+                    <p class="row__heading stats__heading">
+                        <span class="js-counter" data-to="<?php echo $counterItem["number"]; ?>" data-speed="<?php echo $counterItem["speed"]; ?>">
+                            <?php echo $counterItem["number"]; ?>
+                        </span>+
                     </p>
                     <p class="stats__text"><?php echo $counterItem["text"]; ?></p>
                 </div>
