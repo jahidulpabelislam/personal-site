@@ -317,17 +317,17 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
             $totalProjects = 120;
             if (isset($counts["total_projects"])) {
-                $totalProjects = (round($counts["total_projects"] / 10)) * 10;
+                $totalProjects = (floor($counts["total_projects"] / 10)) * 10;
             }
 
             $totalPullRequests = 1200;
             if (isset($counts["total_pull_requests"])) {
-                $totalPullRequests = (round($counts["total_pull_requests"] / 10)) * 10;
+                $totalPullRequests = (floor($counts["total_pull_requests"] / 10)) * 10;
             }
 
             $totalCommits = 20000;
             if (isset($counts["total_commits"])) {
-                $totalCommits = (round($counts["total_commits"] / 10)) * 10;
+                $totalCommits = (floor($counts["total_commits"] / 10)) * 10;
             }
 
             $counterItems = [
