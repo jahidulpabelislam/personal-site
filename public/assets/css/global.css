@@ -276,6 +276,69 @@ a.button {
     color: #ffef38;
     border-bottom-color: #ffef38; }
 
+/* For all devices */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(51, 51, 51, 0.6);
+  cursor: pointer; }
+
+.modal[hidden="hidden"] {
+  display: block;
+  visibility: hidden;
+  z-index: -1; }
+
+.modal__content {
+  position: relative;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 15px;
+  background-color: #ffffff;
+  border: #7b8676 solid 1px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  cursor: default; }
+
+.modal__close {
+  position: absolute;
+  right: 0;
+  margin: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+  font-size: 26px;
+  padding: 12px 14px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4);
+  background: #f12525; }
+  .modal__close:hover, .modal__close:focus {
+    background-color: #ff2525; }
+
+.modal__heading {
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px; }
+
+/* For Tablets & Desktops */
+@media only screen and (min-width: 768px) {
+  .modal__content {
+    max-width: 75%; } }
+
+/* For Desktops */
+@media only screen and (min-width: 1200px) {
+  .modal__content {
+    max-width: 750px; } }
+
 .table {
   margin: 0 auto;
   border-color: #333333; }
