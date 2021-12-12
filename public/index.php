@@ -315,6 +315,21 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
             $counts = load(ROOT . "/assets/counters.json", false)->getArray();
 
+            $totalProjects = 120;
+            if (isset($counts["total_projects"])) {
+                $totalProjects = (round($counts["total_projects"] / 10)) * 10;
+            }
+
+            $totalPullRequests = 1200;
+            if (isset($counts["total_pull_requests"])) {
+                $totalPullRequests = (round($counts["total_pull_requests"] / 10)) * 10;
+            }
+
+            $totalCommits = 20000;
+            if (isset($counts["total_commits"])) {
+                $totalCommits = (round($counts["total_commits"] / 10)) * 10;
+            }
+
             $counterItems = [
                 [
                     "text" => "Years experience",
@@ -323,17 +338,17 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 ],
                 [
                     "text" => "Projects",
-                    "number" => $counts["total_projects"] ?? 120,
+                    "number" => $totalProjects,
                     "speed" => $baseSpeed + 600,
                 ],
                 [
                     "text" => "Pull Requests",
-                    "number" => $counts["total_pull_requests"] ?? 1000,
+                    "number" => $totalPullRequests,
                     "speed" => $baseSpeed + 800,
                 ],
                 [
                     "text" => "Commits",
-                    "number" => $counts["total_commits"] ?? 20000,
+                    "number" => $totalCommits,
                     "speed" => $baseSpeed + 1000,
                 ],
             ];
