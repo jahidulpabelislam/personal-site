@@ -373,12 +373,6 @@ var JPI = JPI || {};
             JPI.scrollTo($target);
         }
     });
-
-    /**
-     * Due to the way the modal's are rendered
-     * move all modal's after the page element for accessibility
-     */
-    jQuery(".modal").insertAfter(jQuery(".page-container"));
 })();
 
 //# sourceMappingURL=maps/global.js.map

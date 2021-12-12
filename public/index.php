@@ -12,6 +12,7 @@ $page->renderHead([
     "title" => "$name's Site - $job",
     "description" => "Site of $name, a $job at Bognor Regis, West Sussex down in the South Coast of England.",
 ]);
+$page->renderBodyStart();
 $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
@@ -440,5 +441,6 @@ $page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
+$page->renderBodyEnd();
 $page->renderCookieModal();
 $page->renderHtmlEnd();

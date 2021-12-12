@@ -73,6 +73,7 @@ $page->renderHead([
     "title" => $headTitle,
     "description" => $headDescription,
 ]);
+$page->renderBodyStart();
 $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
@@ -150,6 +151,60 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
+<?php
+$page->addJSTemplate(
+    "project",
+    <<<HTML
+    <article class="project">
+        <div class="project__image">
+            <img src="{{ images.0.url }}" alt="Screen shot of project" />
+        </div>
+
+        <div class="project__content">
+            <p class="project__type">{{ type }}</p>
+        
+            <div class="project__header">
+                <h3 class="project__title">{{ name }}</h3>
+                <time class="project__date">{{ date }}</time>
+            </div>
+        
+            <div class="project__description">{{ short_description }}</div>
+        
+            <div class="project__footer">
+                <div class="project__links"></div>
+                <button type="button" class="button button--brand project__read-more" data-project-id="{{ id }}">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </article>
+    HTML
+);
+
+$page->addJSTemplate(
+    "slide",
+    <<<HTML
+    <div class="slide-show__slide" id="slide-{{ id }}">
+        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+    </div>
+    HTML
+);
+
+$page->addJSTemplate(
+    "slide-bullet",
+    <<<HTML
+    <button type="button" class="slide-show__bullet" data-slide-id="#slide-{{ id }}"></button>
+    HTML
+);
+
+$page->addJSGlobal("projects", "perPage", $projectsPerPage);
+$page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
+
+$page->renderContentEnd();
+$page->renderFooter();
+$page->renderPageEnd();
+?>
+
 <div class="modal detailed-project" role="dialog" aria-modal="true" aria-labelledby="detailed-project-title" aria-describedby="detailed-project-description" aria-hidden="true" hidden="hidden">
     <div class="modal__content">
         <button type="button" class="button modal__close js-modal-close" aria-label="Close">X</button>
@@ -217,56 +272,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 </div>
 
 <?php
-$page->addJSTemplate(
-    "project",
-    <<<HTML
-    <article class="project">
-        <div class="project__image">
-            <img src="{{ images.0.url }}" alt="Screen shot of project" />
-        </div>
-
-        <div class="project__content">
-            <p class="project__type">{{ type }}</p>
-        
-            <div class="project__header">
-                <h3 class="project__title">{{ name }}</h3>
-                <time class="project__date">{{ date }}</time>
-            </div>
-        
-            <div class="project__description">{{ short_description }}</div>
-        
-            <div class="project__footer">
-                <div class="project__links"></div>
-                <button type="button" class="button button--brand project__read-more" data-project-id="{{ id }}">
-                    Read More
-                </button>
-            </div>
-        </div>
-    </article>
-    HTML
-);
-
-$page->addJSTemplate(
-    "slide",
-    <<<HTML
-    <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
-    </div>
-    HTML
-);
-
-$page->addJSTemplate(
-    "slide-bullet",
-    <<<HTML
-    <button type="button" class="slide-show__bullet" data-slide-id="#slide-{{ id }}"></button>
-    HTML
-);
-
-$page->addJSGlobal("projects", "perPage", $projectsPerPage);
-$page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
-
-$page->renderContentEnd();
-$page->renderFooter();
-$page->renderPageEnd();
 $page->renderCookieModal();
+$page->renderBodyEnd();
 $page->renderHtmlEnd();

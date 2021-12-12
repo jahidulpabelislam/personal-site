@@ -12,6 +12,7 @@ $page->renderHead([
     "title" => "Privacy Policy",
     "hdescription" => "Privacy policy for the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.",
 ]);
+$page->renderBodyStart();
 $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
@@ -91,4 +92,5 @@ $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
 $page->renderCookieModal();
+$page->renderBodyEnd();
 $page->renderHtmlEnd();

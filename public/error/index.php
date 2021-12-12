@@ -29,6 +29,7 @@ $page->renderHtmlStart();
 $page->renderHead([
     "title" => "$error - $errorDescription",
 ]);
+$page->renderBodyStart();
 $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
@@ -89,5 +90,6 @@ $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
+$page->renderBodyEnd();
 $page->renderCookieModal();
 $page->renderHtmlEnd();

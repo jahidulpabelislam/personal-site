@@ -67,19 +67,27 @@ HTML;
 HTML;
     }
 
-    public function renderPageStart(): void {
+    public function renderBodyStart(): void {
         echo <<<HTML
 <body>
-    <div class="page-container">
+HTML;
+    }
+
+    public function renderBodyEnd(): void {
+        $this->page->renderJSTemplates();
+        $this->page->renderScripts();
+        $this->page->renderInlineJS();
+        echo "</body>";
+    }
+
+    public function renderPageStart(): void {
+        echo <<<HTML
+<div class="page-container">
 HTML;
     }
 
     public function renderPageEnd(): void {
         echo "</div>";
-        $this->page->renderJSTemplates();
-        $this->page->renderScripts();
-        $this->page->renderInlineJS();
-        echo "</body>";
     }
 
     public function renderContentStart(): void {
