@@ -336,7 +336,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="container">
         <div class="stats js-counters">
             <?php
-            $baseSpeed = 1000;
+            $speed = 1000;
+            $speedIncrement = 1200;
 
             $counts = load(ROOT . "/assets/counters.json", false)->getArray();
 
@@ -359,22 +360,22 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 [
                     "text" => "Years experience",
                     "number" => $yearsSinceStarted,
-                    "speed" => $baseSpeed,
+                    "speed" => $speed,
                 ],
                 [
                     "text" => "Projects",
                     "number" => $totalProjects,
-                    "speed" => $baseSpeed + 1000,
+                    "speed" => $speed += $speedIncrement,
                 ],
                 [
                     "text" => "Pull Requests",
                     "number" => $totalPullRequests,
-                    "speed" => $baseSpeed + 2000,
+                    "speed" => $speed += $speedIncrement,
                 ],
                 [
                     "text" => "Commits",
                     "number" => $totalCommits,
-                    "speed" => $baseSpeed + 3000,
+                    "speed" => $speed += $speedIncrement,
                 ],
             ];
 
