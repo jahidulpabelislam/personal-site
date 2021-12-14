@@ -230,6 +230,53 @@ img {
   line-height: 48px;
   margin-bottom: 26px; }
 
+.header__type-writer-1 {
+  animation: type-writer-text-1; }
+
+.header__type-writer-2 {
+  animation: type-writer-text-2; }
+
+.header__type-writer-1,
+.header__type-writer-2 {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  animation-duration: 22s;
+  animation-timing-function: steps(22, end);
+  animation-iteration-count: infinite; }
+  @media only screen and (min-width: 768px) {
+    .header__type-writer-1,
+    .header__type-writer-2 {
+      display: inline-block; } }
+  .header__type-writer-1::after,
+  .header__type-writer-2::after {
+    content: "|";
+    position: absolute;
+    right: 0;
+    animation: caret infinite;
+    animation-duration: 1s;
+    animation-timing-function: steps(1, end);
+    text-shadow: none;
+    width: 5px; }
+
+@keyframes type-writer-text-1 {
+  0%, 50%, 100% {
+    width: 0; }
+  10%, 40% {
+    width: 556px; } }
+
+@keyframes type-writer-text-2 {
+  0%, 50%, 100% {
+    width: 0; }
+  60%, 90% {
+    width: 576px; } }
+
+@keyframes caret {
+  0%, 100% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+
 .header__line-breaker {
   margin: 0 auto 26px;
   max-width: 50%; }

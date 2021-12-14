@@ -15,12 +15,37 @@ $page->renderHead([
 $page->renderBodyStart();
 $page->renderPageStart();
 $page->renderNav();
-$page->renderHeader([
-    "title" => "<span class='tablet-show'>[ Ja-He-Dul Pa-Bel Is-Lam ]</span><span class='tablet-hide'>$name</span>",
-    "description" => $job,
-    "hideHeaderHr" => true,
-    "showSocialLinksHeader" => true,
-]);
+?>
+
+<header class="header header--<?php echo $page->id; ?>">
+    <div class="header__overlay">
+        <div class="container">
+            <h1 class="header__title">
+                <span class='tablet-show header__type-writer-1'>Hi I'm Jahidul Pabel Islam</span>
+                <span class='tablet-show header__type-writer-2'>Ja-He-Dul&nbsp;&nbsp;Pa-Bel&nbsp;&nbsp;Is-Lam</span>
+                <span class='tablet-hide'><?php echo $name ?></span>
+            </h1>
+            <h2 class="header__description"><?php echo $job; ?></h2>
+            <div class="header__links">
+                <a class="social-link social-link--linkedin" href="https://linkto.jahidulpabelislam.com/linkedin/" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                </a>
+                <a class="social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                </a>
+                <a class="social-link social-link--instagram" href="https://linkto.jahidulpabelislam.com/instagram/" target="_blank" rel="noopener noreferrer">
+                    <span class="social-link__image"><i></i></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <button class="header__scroll-to-content js-scroll-to-content">
+        <span class="screen-reader-text">Scroll to main content</span>
+        <?php renderFile("/assets/images/down-arrow.svg"); ?>
+    </button>
+</header>
+
+<?php
 $page->renderContentStart();
 
 // Work out the time since I started to today
