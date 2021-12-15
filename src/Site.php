@@ -16,9 +16,9 @@
 
 namespace App;
 
-use JPI\Site as BaseSite;
 use JPI\Me;
 use JPI\MeTrait;
+use JPI\Site as BaseSite;
 
 class Site extends BaseSite implements Me {
 

@@ -1,15 +1,19 @@
 <?php
 
-function site(): \App\Site {
-    return \App\Site::get();
+use App\File;
+use App\Page;
+use App\Site;
+
+function site(): Site {
+    return Site::get();
 }
 
-function page(): \App\Page {
-    return \App\Page::get();
+function page(): Page {
+    return Page::get();
 }
 
-function load(string $path, bool $isRelative = true): \App\File {
-    return new \App\File($path, $isRelative);
+function load(string $path, bool $isRelative = true): File {
+    return new File($path, $isRelative);
 }
 
 function getConfigPath(string $level = null): string {

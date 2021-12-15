@@ -2,8 +2,8 @@
 
 namespace App;
 
-class Template
-{
+class Template {
+
     private $path;
     private $data;
 

@@ -1,7 +1,5 @@
 <?php
 
-use JPI\Site;
-
 /**
  * A helper class to use throughout the site.
  * To aid in including common partials for all pages.
@@ -176,5 +174,4 @@ HTML;
                 HTML;
         }
     }
-
 }

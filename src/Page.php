@@ -72,7 +72,7 @@ class Page {
         ];
     }
 
-    private function getStylesheetsForPage(string $pageId): array  {
+    private function getStylesheetsForPage(string $pageId): array {
         return [];
     }
 
@@ -155,7 +155,8 @@ class Page {
     public function addJSGlobal(string $global, ?string $key, $value): void {
         if ($key) {
             $this->data["jsGlobals"][$global][$key] = $value;
-        } else {
+        }
+        else {
             $this->data["jsGlobals"][$global] = $value;
         }
     }
