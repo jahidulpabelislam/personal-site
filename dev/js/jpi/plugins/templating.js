@@ -1,6 +1,5 @@
 ;// Handles all the general JS templating stuff - for use out of Template class as well
-JPI.templating = new function() {
-
+JPI.templating = new (function() {
     "use strict";
 
     this.moustaches = {};
@@ -17,15 +16,13 @@ JPI.templating = new function() {
     return {
         getMoustache: this.getMoustache.bind(this),
     };
-};
+})();
 
 // A Template 'class' that holds all necessary logic to load a template, replace/process with data and render
 JPI.Template = (function() {
-
     "use strict";
 
     return function(template, context) {
-
         this.context = context || {};
 
         this.replace = function(field, value) {
@@ -63,4 +60,3 @@ JPI.Template = (function() {
         };
     };
 })();
-

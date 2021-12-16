@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var skills = this;
@@ -17,7 +16,11 @@
 
         // Reset all other item to closed
         skills.$expandableContents.not($selected).slideUp();
-        skills.$expandableIcons.not($selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+        skills.$expandableIcons
+            .not($selectedIcon)
+            .addClass("fa-plus")
+            .removeClass("fa-minus")
+        ;
 
         // Toggle the clicked item
         $selectedIcon.toggleClass("fa-plus");
@@ -26,4 +29,4 @@
     };
 
     this.$items.on("click", this.toggleContent);
-}));
+})();

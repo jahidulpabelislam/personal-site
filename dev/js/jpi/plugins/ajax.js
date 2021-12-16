@@ -1,5 +1,4 @@
 ;JPI.ajax = new (function() {
-
     "use strict";
 
     // Display feedback from server if there is one otherwise output generic message
@@ -8,7 +7,8 @@
         if (response) {
             if (response.error) {
                 message = response.error;
-            } else if (response.message) {
+            }
+            else if (response.message) {
                 message = response.message;
             }
         }
@@ -55,7 +55,7 @@
             data: request.data,
             dataType: "json",
             success: request.onSuccess,
-            error: function () {
+            error: function() {
                 request.onError("Error Loading Content.");
             },
         });
@@ -65,4 +65,4 @@
         renderRowsOrError: this.renderRowsOrError.bind(this),
         request: this.request.bind(this),
     };
-});
+})();

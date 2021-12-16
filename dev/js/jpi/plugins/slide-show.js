@@ -2,7 +2,6 @@
  * Holds all functions needed for a project slide show
  */
 JPI.SlideShow = function(options) {
-
     "use strict";
 
     var slideShow = this;
@@ -57,7 +56,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.desktop &&
                 this.options.breakpoints.desktop[config]
             ) {
-                return this.options.breakpoints.desktop[config]
+                return this.options.breakpoints.desktop[config];
             }
         }
 
@@ -67,7 +66,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.tablet &&
                 this.options.breakpoints.tablet[config]
             ) {
-                return this.options.breakpoints.tablet[config]
+                return this.options.breakpoints.tablet[config];
             }
         }
 
@@ -91,10 +90,11 @@ JPI.SlideShow = function(options) {
             slideWidth = slideWidth / slidesPerView;
 
             if (slidesPerView % 2 === 0) {
-                fullWidth = (slideWidth * count) + (slideWidth / 2);
+                fullWidth = slideWidth * count + slideWidth / 2;
                 var offset = slideWidth / 2;
-            } else {
-                fullWidth = (slideWidth * count) + slideWidth;
+            }
+            else {
+                fullWidth = slideWidth * count + slideWidth;
                 var offset = slideWidth;
             }
 
@@ -153,9 +153,7 @@ JPI.SlideShow = function(options) {
         $currentSlide.removeClass(this.options.activeSlideClass);
 
         if (this.$bullets) {
-            this.$bullets.filter("." + this.options.activeBulletClass)
-                .removeClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("." + this.options.activeBulletClass).removeClass(this.options.activeBulletClass);
         }
         $nextSlide.addClass(this.options.activeSlideClass);
 
@@ -163,9 +161,7 @@ JPI.SlideShow = function(options) {
 
         if (this.$bullets) {
             var newSlideID = $nextSlide.attr("id");
-            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']")
-                .addClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']").addClass(this.options.activeBulletClass);
         }
 
         this.setupNav();
@@ -194,7 +190,8 @@ JPI.SlideShow = function(options) {
 
         if ($nextSlide.length) {
             this.moveToSlide($nextSlide);
-        } else {
+        }
+        else {
             this.resetToCurrentSlide();
         }
     };
@@ -228,7 +225,7 @@ JPI.SlideShow = function(options) {
 
             slideShow.$container.css({
                 transitionDuration: "0s",
-                left: (slidesContainerLeft - diff) + "px",
+                left: slidesContainerLeft - diff + "px",
             });
         };
         dragEnd = function(e) {
@@ -375,5 +372,5 @@ JPI.SlideShow = function(options) {
         pause: this.pause.bind(this),
         resume: this.resume.bind(this),
         stop: this.stop.bind(this),
-    }
+    };
 };

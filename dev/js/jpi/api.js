@@ -1,5 +1,4 @@
 ;JPI.api = (function() {
-
     "use strict";
 
     var dateFormat = new Intl.DateTimeFormat("default", {
@@ -19,6 +18,5 @@
 
     return {
         formatProjectData: formatProjectData,
-    }
-
+    };
 })();

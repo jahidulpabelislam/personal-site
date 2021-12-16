@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var form = this;
@@ -17,9 +16,7 @@
 
     this.reset = function() {
         this.$inputs.attr("disabled", false);
-        this.$submit.prop("disabled", false)
-            .html(this.$submit.attr("data-initial-text"))
-        ;
+        this.$submit.prop("disabled", false).html(this.$submit.attr("data-initial-text"));
     };
 
     // Show appropriate & relevant feedback to the user after an attempt of sending a message
@@ -55,10 +52,12 @@
 
     // Render an error message when AJAX has errored
     this.renderErrorMessage = function() {
-        this.$feedback.text("Something went wrong, please try again later.")
+        this.$feedback
+            .text("Something went wrong, please try again later.")
             .removeClass("field__feedback")
             .addClass("field__error")
-            .show(200);
+            .show(200)
+        ;
 
         this.reset();
     };
@@ -116,9 +115,7 @@
 
     this.submit = function() {
         this.$inputs.attr("disabled", true);
-        this.$submit.prop("disabled", true)
-            .html(this.$submit.attr("data-loading-text"))
-        ;
+        this.$submit.prop("disabled", true).html(this.$submit.attr("data-loading-text"));
 
         var isEmailValid = this.validateEmail(true);
         var isMessageValid = this.validateMessage(true);
@@ -158,4 +155,4 @@
     };
 
     this.initListeners();
-}));
+})();

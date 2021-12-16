@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     this.$items = jQuery(".timeline__item");
@@ -40,9 +39,9 @@
         });
 
         slideShow.start();
-    }
+    };
 
     jQuery(window).on("resize", this.setItemHeights.bind(this));
 
     jQuery(window).on("load", this.init.bind(this));
-}));
+})();

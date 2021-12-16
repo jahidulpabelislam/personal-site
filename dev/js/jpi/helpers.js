@@ -2,7 +2,6 @@
  * Holds any helpers functions for whole project
  */
 (function() {
-
     "use strict";
 
     /**
@@ -67,7 +66,7 @@
     JPI.setCookie = function(key, value, expirationDays) {
         var oneDayInMilliSecs = 24 * 60 * 60 * 1000;
         var expiryDate = new Date();
-        expiryDate.setTime(expiryDate.getTime() + (expirationDays * oneDayInMilliSecs));
+        expiryDate.setTime(expiryDate.getTime() + expirationDays * oneDayInMilliSecs);
         var expires = "expires=" + expiryDate.toUTCString();
         document.cookie = key + "=" + value + ";" + expires + ";path=/";
     };

@@ -1,5 +1,4 @@
 ;JPI.modal = function($modal) {
-
     "use strict";
 
     this.$body = jQuery("body");
@@ -46,13 +45,10 @@
     this.onModalClick = function(e) {
         // Close if clicked outside of the modal content elem
         var $clickedElem = jQuery(e.target);
-        if (
-            $clickedElem.children(".modal__content").length &&
-            !$clickedElem.closest(".modal__content").length
-        ) {
+        if ($clickedElem.children(".modal__content").length && !$clickedElem.closest(".modal__content").length) {
             this.triggerClose();
         }
-    }
+    };
 
     this.onBackwardTab = function(e) {
         if (document.activeElement === this.$firstFocusable[0]) {

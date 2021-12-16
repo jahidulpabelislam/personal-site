@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var $window = jQuery(window);
@@ -29,4 +28,4 @@
     };
 
     $window.on("jpi-css-loaded", this.init.bind(this));
-}));
+})();

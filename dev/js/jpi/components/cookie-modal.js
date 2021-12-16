@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     this.transitionSpeedSecs = 700;
@@ -16,9 +15,12 @@
     };
 
     this.close = function() {
-        this.$element.fadeOut(this.transitionSpeedSecs, function() {
-            this.$element.remove();
-        }.bind(this));
+        this.$element.fadeOut(
+            this.transitionSpeedSecs,
+            function() {
+                this.$element.remove();
+            }.bind(this)
+        );
         this.setCookie();
     };
 
@@ -26,7 +28,8 @@
         if (this.hasClosedBefore()) {
             this.setCookie();
             this.$element.remove();
-        } else {
+        }
+        else {
             this.modal = new JPI.modal(this.$element);
             this.modal.open();
         }
@@ -41,4 +44,4 @@
     };
 
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
-}));
+})();

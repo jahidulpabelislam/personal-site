@@ -16,7 +16,6 @@ var JPI = JPI || {};
  * eg. to display latest 3 project on the home page
  */
 (function() {
-
     "use strict";
 
     var $loading = jQuery(".latest-projects__loading");
@@ -102,9 +101,12 @@ var JPI = JPI || {};
         };
         var waypointArgs = {offset: "95%"};
         jQuery(".js-counters").waypoint(function() {
-            jQuery(this.element).find(".js-counter").each(function(j, counter) {
-                jQuery(counter).countTo(countToOptions);
-            });
+            jQuery(this.element)
+                .find(".js-counter")
+                .each(function(j, counter) {
+                    jQuery(counter).countTo(countToOptions);
+                })
+            ;
         }, waypointArgs);
     };
 

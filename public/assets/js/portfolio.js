@@ -2,9 +2,7 @@ var JPI = JPI || {};
 
 ;// Handles all the general JS templating stuff - for use out of Template class as well
 
-JPI.templating = new function() {
-
-
+JPI.templating = new (function() {
 
     "use strict";
 
@@ -38,7 +36,7 @@ JPI.templating = new function() {
 
     };
 
-};
+})();
 
 
 
@@ -46,15 +44,11 @@ JPI.templating = new function() {
 
 JPI.Template = (function() {
 
-
-
     "use strict";
 
 
 
     return function(template, context) {
-
-
 
         this.context = context || {};
 
@@ -131,10 +125,7 @@ JPI.Template = (function() {
 })();
 
 
-
-
 ;JPI.ajax = new (function() {
-
     "use strict";
 
     // Display feedback from server if there is one otherwise output generic message
@@ -143,7 +134,8 @@ JPI.Template = (function() {
         if (response) {
             if (response.error) {
                 message = response.error;
-            } else if (response.message) {
+            }
+            else if (response.message) {
                 message = response.message;
             }
         }
@@ -190,7 +182,7 @@ JPI.Template = (function() {
             data: request.data,
             dataType: "json",
             success: request.onSuccess,
-            error: function () {
+            error: function() {
                 request.onError("Error Loading Content.");
             },
         });
@@ -200,10 +192,9 @@ JPI.Template = (function() {
         renderRowsOrError: this.renderRowsOrError.bind(this),
         request: this.request.bind(this),
     };
-});
+})();
 
 ;JPI.modal = function($modal) {
-
     "use strict";
 
     this.$body = jQuery("body");
@@ -250,13 +241,10 @@ JPI.Template = (function() {
     this.onModalClick = function(e) {
         // Close if clicked outside of the modal content elem
         var $clickedElem = jQuery(e.target);
-        if (
-            $clickedElem.children(".modal__content").length &&
-            !$clickedElem.closest(".modal__content").length
-        ) {
+        if ($clickedElem.children(".modal__content").length && !$clickedElem.closest(".modal__content").length) {
             this.triggerClose();
         }
-    }
+    };
 
     this.onBackwardTab = function(e) {
         if (document.activeElement === this.$firstFocusable[0]) {
@@ -337,7 +325,6 @@ JPI.Template = (function() {
  * Holds all functions needed for a project slide show
  */
 JPI.SlideShow = function(options) {
-
     "use strict";
 
     var slideShow = this;
@@ -392,7 +379,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.desktop &&
                 this.options.breakpoints.desktop[config]
             ) {
-                return this.options.breakpoints.desktop[config]
+                return this.options.breakpoints.desktop[config];
             }
         }
 
@@ -402,7 +389,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.tablet &&
                 this.options.breakpoints.tablet[config]
             ) {
-                return this.options.breakpoints.tablet[config]
+                return this.options.breakpoints.tablet[config];
             }
         }
 
@@ -426,10 +413,11 @@ JPI.SlideShow = function(options) {
             slideWidth = slideWidth / slidesPerView;
 
             if (slidesPerView % 2 === 0) {
-                fullWidth = (slideWidth * count) + (slideWidth / 2);
+                fullWidth = slideWidth * count + slideWidth / 2;
                 var offset = slideWidth / 2;
-            } else {
-                fullWidth = (slideWidth * count) + slideWidth;
+            }
+            else {
+                fullWidth = slideWidth * count + slideWidth;
                 var offset = slideWidth;
             }
 
@@ -488,9 +476,7 @@ JPI.SlideShow = function(options) {
         $currentSlide.removeClass(this.options.activeSlideClass);
 
         if (this.$bullets) {
-            this.$bullets.filter("." + this.options.activeBulletClass)
-                .removeClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("." + this.options.activeBulletClass).removeClass(this.options.activeBulletClass);
         }
         $nextSlide.addClass(this.options.activeSlideClass);
 
@@ -498,9 +484,7 @@ JPI.SlideShow = function(options) {
 
         if (this.$bullets) {
             var newSlideID = $nextSlide.attr("id");
-            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']")
-                .addClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']").addClass(this.options.activeBulletClass);
         }
 
         this.setupNav();
@@ -529,7 +513,8 @@ JPI.SlideShow = function(options) {
 
         if ($nextSlide.length) {
             this.moveToSlide($nextSlide);
-        } else {
+        }
+        else {
             this.resetToCurrentSlide();
         }
     };
@@ -563,7 +548,7 @@ JPI.SlideShow = function(options) {
 
             slideShow.$container.css({
                 transitionDuration: "0s",
-                left: (slidesContainerLeft - diff) + "px",
+                left: slidesContainerLeft - diff + "px",
             });
         };
         dragEnd = function(e) {
@@ -710,14 +695,13 @@ JPI.SlideShow = function(options) {
         pause: this.pause.bind(this),
         resume: this.resume.bind(this),
         stop: this.stop.bind(this),
-    }
+    };
 };
 
 ;/**
  * Used to expand a projects slide show
  */
 JPI.ExpandedSlideShow = function() {
-
     "use strict";
 
     this.$element = jQuery(".expanded-slide-show");
@@ -788,9 +772,7 @@ JPI.ExpandedSlideShow = function() {
     };
 
     this.close = function() {
-        this.$element.removeClass("expanded-slide-show--open")
-            .addClass("expanded-slide-show--closing")
-        ;
+        this.$element.removeClass("expanded-slide-show--open").addClass("expanded-slide-show--closing");
 
         this.timeout = setTimeout(this.onClose.bind(this), 990);
 
@@ -800,13 +782,16 @@ JPI.ExpandedSlideShow = function() {
     this.onCloseClick = function(e) {
         e.stopPropagation();
         this.close();
-    }
+    };
 
     // Sets up slide show when image is clicked on
     this.open = function(slide, groupSelector) {
         clearTimeout(this.timeout);
 
-        this.$slides = jQuery(slide).parents(groupSelector).find(".js-expandable-image");
+        this.$slides = jQuery(slide)
+            .parents(groupSelector)
+            .find(".js-expandable-image")
+        ;
 
         var slidesCount = this.$slides.length;
 
@@ -852,11 +837,10 @@ JPI.ExpandedSlideShow = function() {
         next: this.next.bind(this),
         previous: this.previous.bind(this),
         close: this.close.bind(this),
-    }
-}
+    };
+};
 
 ;JPI.api = (function() {
-
     "use strict";
 
     var dateFormat = new Intl.DateTimeFormat("default", {
@@ -876,12 +860,10 @@ JPI.ExpandedSlideShow = function() {
 
     return {
         formatProjectData: formatProjectData,
-    }
-
+    };
 })();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var projects = this;
@@ -930,9 +912,9 @@ JPI.ExpandedSlideShow = function() {
             classes.push("pagination__link--active");
         }
         var $link = JPI.createElement("a", {
-            "class": classes.join(" "),
-            "text": page,
-            "href": url,
+            class: classes.join(" "),
+            text: page,
+            href: url,
         });
 
         JPI.renderNewElement("li", $container, {
@@ -1061,7 +1043,7 @@ JPI.ExpandedSlideShow = function() {
 
         this.projects[project.id] = project;
 
-        (new JPI.Template(this.projectTemplate, project)).renderIn(this.$projects);
+        new JPI.Template(this.projectTemplate, project).renderIn(this.$projects);
 
         this.renderProjectImages(project, projectSelector);
         this.renderProjectLinks(project, projectSelector);
@@ -1144,7 +1126,7 @@ JPI.ExpandedSlideShow = function() {
             urlParts.push(page);
         }
 
-        return  "/" + urlParts.join("/") + "/";
+        return "/" + urlParts.join("/") + "/";
     };
 
     this.getNewTitle = function(page) {
@@ -1234,7 +1216,7 @@ JPI.ExpandedSlideShow = function() {
     };
 
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
-}));
+})();
 
 
 //# sourceMappingURL=maps/portfolio.js.map

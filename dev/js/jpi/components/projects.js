@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var projects = this;
@@ -48,9 +47,9 @@
             classes.push("pagination__link--active");
         }
         var $link = JPI.createElement("a", {
-            "class": classes.join(" "),
-            "text": page,
-            "href": url,
+            class: classes.join(" "),
+            text: page,
+            href: url,
         });
 
         JPI.renderNewElement("li", $container, {
@@ -179,7 +178,7 @@
 
         this.projects[project.id] = project;
 
-        (new JPI.Template(this.projectTemplate, project)).renderIn(this.$projects);
+        new JPI.Template(this.projectTemplate, project).renderIn(this.$projects);
 
         this.renderProjectImages(project, projectSelector);
         this.renderProjectLinks(project, projectSelector);
@@ -262,7 +261,7 @@
             urlParts.push(page);
         }
 
-        return  "/" + urlParts.join("/") + "/";
+        return "/" + urlParts.join("/") + "/";
     };
 
     this.getNewTitle = function(page) {
@@ -352,4 +351,4 @@
     };
 
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
-}));
+})();

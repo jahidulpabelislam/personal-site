@@ -1,5 +1,4 @@
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var map = this;
@@ -38,4 +37,4 @@
     jQuery(function() {
         google.maps.event.addDomListener(window, "load", map.initMap.bind(map));
     });
-}));
+})();

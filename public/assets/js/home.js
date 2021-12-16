@@ -150,7 +150,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
  * Holds all functions needed for a project slide show
  */
 JPI.SlideShow = function(options) {
-
     "use strict";
 
     var slideShow = this;
@@ -205,7 +204,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.desktop &&
                 this.options.breakpoints.desktop[config]
             ) {
-                return this.options.breakpoints.desktop[config]
+                return this.options.breakpoints.desktop[config];
             }
         }
 
@@ -215,7 +214,7 @@ JPI.SlideShow = function(options) {
                 this.options.breakpoints.tablet &&
                 this.options.breakpoints.tablet[config]
             ) {
-                return this.options.breakpoints.tablet[config]
+                return this.options.breakpoints.tablet[config];
             }
         }
 
@@ -239,10 +238,11 @@ JPI.SlideShow = function(options) {
             slideWidth = slideWidth / slidesPerView;
 
             if (slidesPerView % 2 === 0) {
-                fullWidth = (slideWidth * count) + (slideWidth / 2);
+                fullWidth = slideWidth * count + slideWidth / 2;
                 var offset = slideWidth / 2;
-            } else {
-                fullWidth = (slideWidth * count) + slideWidth;
+            }
+            else {
+                fullWidth = slideWidth * count + slideWidth;
                 var offset = slideWidth;
             }
 
@@ -301,9 +301,7 @@ JPI.SlideShow = function(options) {
         $currentSlide.removeClass(this.options.activeSlideClass);
 
         if (this.$bullets) {
-            this.$bullets.filter("." + this.options.activeBulletClass)
-                .removeClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("." + this.options.activeBulletClass).removeClass(this.options.activeBulletClass);
         }
         $nextSlide.addClass(this.options.activeSlideClass);
 
@@ -311,9 +309,7 @@ JPI.SlideShow = function(options) {
 
         if (this.$bullets) {
             var newSlideID = $nextSlide.attr("id");
-            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']")
-                .addClass(this.options.activeBulletClass)
-            ;
+            this.$bullets.filter("[data-slide-id='#" + newSlideID + "']").addClass(this.options.activeBulletClass);
         }
 
         this.setupNav();
@@ -342,7 +338,8 @@ JPI.SlideShow = function(options) {
 
         if ($nextSlide.length) {
             this.moveToSlide($nextSlide);
-        } else {
+        }
+        else {
             this.resetToCurrentSlide();
         }
     };
@@ -376,7 +373,7 @@ JPI.SlideShow = function(options) {
 
             slideShow.$container.css({
                 transitionDuration: "0s",
-                left: (slidesContainerLeft - diff) + "px",
+                left: slidesContainerLeft - diff + "px",
             });
         };
         dragEnd = function(e) {
@@ -523,12 +520,11 @@ JPI.SlideShow = function(options) {
         pause: this.pause.bind(this),
         resume: this.resume.bind(this),
         stop: this.stop.bind(this),
-    }
+    };
 };
 
 ;// Handles all the general JS templating stuff - for use out of Template class as well
-JPI.templating = new function() {
-
+JPI.templating = new (function() {
     "use strict";
 
     this.moustaches = {};
@@ -545,15 +541,13 @@ JPI.templating = new function() {
     return {
         getMoustache: this.getMoustache.bind(this),
     };
-};
+})();
 
 // A Template 'class' that holds all necessary logic to load a template, replace/process with data and render
 JPI.Template = (function() {
-
     "use strict";
 
     return function(template, context) {
-
         this.context = context || {};
 
         this.replace = function(field, value) {
@@ -592,9 +586,7 @@ JPI.Template = (function() {
     };
 })();
 
-
 ;JPI.ajax = new (function() {
-
     "use strict";
 
     // Display feedback from server if there is one otherwise output generic message
@@ -603,7 +595,8 @@ JPI.Template = (function() {
         if (response) {
             if (response.error) {
                 message = response.error;
-            } else if (response.message) {
+            }
+            else if (response.message) {
                 message = response.message;
             }
         }
@@ -650,7 +643,7 @@ JPI.Template = (function() {
             data: request.data,
             dataType: "json",
             success: request.onSuccess,
-            error: function () {
+            error: function() {
                 request.onError("Error Loading Content.");
             },
         });
@@ -660,10 +653,9 @@ JPI.Template = (function() {
         renderRowsOrError: this.renderRowsOrError.bind(this),
         request: this.request.bind(this),
     };
-});
+})();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     this.$items = jQuery(".timeline__item");
@@ -704,15 +696,14 @@ JPI.Template = (function() {
         });
 
         slideShow.start();
-    }
+    };
 
     jQuery(window).on("resize", this.setItemHeights.bind(this));
 
     jQuery(window).on("load", this.init.bind(this));
-}));
+})();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var skills = this;
@@ -730,7 +721,11 @@ JPI.Template = (function() {
 
         // Reset all other item to closed
         skills.$expandableContents.not($selected).slideUp();
-        skills.$expandableIcons.not($selectedIcon).addClass("fa-plus").removeClass("fa-minus");
+        skills.$expandableIcons
+            .not($selectedIcon)
+            .addClass("fa-plus")
+            .removeClass("fa-minus")
+        ;
 
         // Toggle the clicked item
         $selectedIcon.toggleClass("fa-plus");
@@ -739,10 +734,9 @@ JPI.Template = (function() {
     };
 
     this.$items.on("click", this.toggleContent);
-}));
+})();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var map = this;
@@ -781,10 +775,9 @@ JPI.Template = (function() {
     jQuery(function() {
         google.maps.event.addDomListener(window, "load", map.initMap.bind(map));
     });
-}));
+})();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var form = this;
@@ -802,9 +795,7 @@ JPI.Template = (function() {
 
     this.reset = function() {
         this.$inputs.attr("disabled", false);
-        this.$submit.prop("disabled", false)
-            .html(this.$submit.attr("data-initial-text"))
-        ;
+        this.$submit.prop("disabled", false).html(this.$submit.attr("data-initial-text"));
     };
 
     // Show appropriate & relevant feedback to the user after an attempt of sending a message
@@ -840,10 +831,12 @@ JPI.Template = (function() {
 
     // Render an error message when AJAX has errored
     this.renderErrorMessage = function() {
-        this.$feedback.text("Something went wrong, please try again later.")
+        this.$feedback
+            .text("Something went wrong, please try again later.")
             .removeClass("field__feedback")
             .addClass("field__error")
-            .show(200);
+            .show(200)
+        ;
 
         this.reset();
     };
@@ -901,9 +894,7 @@ JPI.Template = (function() {
 
     this.submit = function() {
         this.$inputs.attr("disabled", true);
-        this.$submit.prop("disabled", true)
-            .html(this.$submit.attr("data-loading-text"))
-        ;
+        this.$submit.prop("disabled", true).html(this.$submit.attr("data-loading-text"));
 
         var isEmailValid = this.validateEmail(true);
         var isMessageValid = this.validateMessage(true);
@@ -943,10 +934,9 @@ JPI.Template = (function() {
     };
 
     this.initListeners();
-}));
+})();
 
 ;JPI.api = (function() {
-
     "use strict";
 
     var dateFormat = new Intl.DateTimeFormat("default", {
@@ -966,8 +956,7 @@ JPI.Template = (function() {
 
     return {
         formatProjectData: formatProjectData,
-    }
-
+    };
 })();
 
 
@@ -976,7 +965,6 @@ JPI.Template = (function() {
  * eg. to display latest 3 project on the home page
  */
 (function() {
-
     "use strict";
 
     var $loading = jQuery(".latest-projects__loading");
@@ -1062,9 +1050,12 @@ JPI.Template = (function() {
         };
         var waypointArgs = {offset: "95%"};
         jQuery(".js-counters").waypoint(function() {
-            jQuery(this.element).find(".js-counter").each(function(j, counter) {
-                jQuery(counter).countTo(countToOptions);
-            });
+            jQuery(this.element)
+                .find(".js-counter")
+                .each(function(j, counter) {
+                    jQuery(counter).countTo(countToOptions);
+                })
+            ;
         }, waypointArgs);
     };
 

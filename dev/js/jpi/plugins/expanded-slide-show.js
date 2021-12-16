@@ -2,7 +2,6 @@
  * Used to expand a projects slide show
  */
 JPI.ExpandedSlideShow = function() {
-
     "use strict";
 
     this.$element = jQuery(".expanded-slide-show");
@@ -73,9 +72,7 @@ JPI.ExpandedSlideShow = function() {
     };
 
     this.close = function() {
-        this.$element.removeClass("expanded-slide-show--open")
-            .addClass("expanded-slide-show--closing")
-        ;
+        this.$element.removeClass("expanded-slide-show--open").addClass("expanded-slide-show--closing");
 
         this.timeout = setTimeout(this.onClose.bind(this), 990);
 
@@ -85,13 +82,16 @@ JPI.ExpandedSlideShow = function() {
     this.onCloseClick = function(e) {
         e.stopPropagation();
         this.close();
-    }
+    };
 
     // Sets up slide show when image is clicked on
     this.open = function(slide, groupSelector) {
         clearTimeout(this.timeout);
 
-        this.$slides = jQuery(slide).parents(groupSelector).find(".js-expandable-image");
+        this.$slides = jQuery(slide)
+            .parents(groupSelector)
+            .find(".js-expandable-image")
+        ;
 
         var slidesCount = this.$slides.length;
 
@@ -137,5 +137,5 @@ JPI.ExpandedSlideShow = function() {
         next: this.next.bind(this),
         previous: this.previous.bind(this),
         close: this.close.bind(this),
-    }
-}
+    };
+};

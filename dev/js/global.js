@@ -7,7 +7,6 @@ var JPI = JPI || {};
 //=include ./jpi/components/cookie-modal.js
 
 ;(function() {
-
     "use strict";
 
     var $body = jQuery("html, body");
@@ -16,10 +15,13 @@ var JPI = JPI || {};
 
     JPI.scrollTo = function($el, offset) {
         offset = offset || 0;
-        $body.animate({
-            scrollTop: $el.offset().top - $nav.height() - offset,
-        }, 1000);
-    }
+        $body.animate(
+            {
+                scrollTop: $el.offset().top - $nav.height() - offset,
+            },
+            1000
+        );
+    };
 
     jQuery(".js-scroll-to-content").on("click", function() {
         JPI.scrollTo($mainContent);

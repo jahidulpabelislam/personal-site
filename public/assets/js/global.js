@@ -9,7 +9,6 @@ var JPI = JPI || {};
  * Holds any helpers functions for whole project
  */
 (function() {
-
     "use strict";
 
     /**
@@ -74,7 +73,7 @@ var JPI = JPI || {};
     JPI.setCookie = function(key, value, expirationDays) {
         var oneDayInMilliSecs = 24 * 60 * 60 * 1000;
         var expiryDate = new Date();
-        expiryDate.setTime(expiryDate.getTime() + (expirationDays * oneDayInMilliSecs));
+        expiryDate.setTime(expiryDate.getTime() + expirationDays * oneDayInMilliSecs);
         var expires = "expires=" + expiryDate.toUTCString();
         document.cookie = key + "=" + value + ";" + expires + ";path=/";
     };
@@ -135,7 +134,6 @@ var JPI = JPI || {};
 })();
 
 ;JPI.modal = function($modal) {
-
     "use strict";
 
     this.$body = jQuery("body");
@@ -182,13 +180,10 @@ var JPI = JPI || {};
     this.onModalClick = function(e) {
         // Close if clicked outside of the modal content elem
         var $clickedElem = jQuery(e.target);
-        if (
-            $clickedElem.children(".modal__content").length &&
-            !$clickedElem.closest(".modal__content").length
-        ) {
+        if ($clickedElem.children(".modal__content").length && !$clickedElem.closest(".modal__content").length) {
             this.triggerClose();
         }
-    }
+    };
 
     this.onBackwardTab = function(e) {
         if (document.activeElement === this.$firstFocusable[0]) {
@@ -265,8 +260,7 @@ var JPI = JPI || {};
     };
 };
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     var $window = jQuery(window);
@@ -296,10 +290,9 @@ var JPI = JPI || {};
     };
 
     $window.on("jpi-css-loaded", this.init.bind(this));
-}));
+})();
 
-;(new (function() {
-
+;new (function() {
     "use strict";
 
     this.transitionSpeedSecs = 700;
@@ -316,9 +309,12 @@ var JPI = JPI || {};
     };
 
     this.close = function() {
-        this.$element.fadeOut(this.transitionSpeedSecs, function() {
-            this.$element.remove();
-        }.bind(this));
+        this.$element.fadeOut(
+            this.transitionSpeedSecs,
+            function() {
+                this.$element.remove();
+            }.bind(this)
+        );
         this.setCookie();
     };
 
@@ -326,7 +322,8 @@ var JPI = JPI || {};
         if (this.hasClosedBefore()) {
             this.setCookie();
             this.$element.remove();
-        } else {
+        }
+        else {
             this.modal = new JPI.modal(this.$element);
             this.modal.open();
         }
@@ -341,11 +338,10 @@ var JPI = JPI || {};
     };
 
     jQuery(window).on("jpi-css-loaded", this.init.bind(this));
-}));
+})();
 
 
 ;(function() {
-
     "use strict";
 
     var $body = jQuery("html, body");
@@ -354,10 +350,13 @@ var JPI = JPI || {};
 
     JPI.scrollTo = function($el, offset) {
         offset = offset || 0;
-        $body.animate({
-            scrollTop: $el.offset().top - $nav.height() - offset,
-        }, 1000);
-    }
+        $body.animate(
+            {
+                scrollTop: $el.offset().top - $nav.height() - offset,
+            },
+            1000
+        );
+    };
 
     jQuery(".js-scroll-to-content").on("click", function() {
         JPI.scrollTo($mainContent);
