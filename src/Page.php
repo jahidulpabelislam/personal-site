@@ -130,6 +130,7 @@ class Page {
 
         return [
             "id" => $pageId,
+            "indexed" => $this->site->isProduction(),
             "currentURL" => $this->site->makeURL($url, false),
             "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
             "stylesheets" => $this->getStylesheetsForPage($pageId),

@@ -5,13 +5,7 @@ $page = page();
 $pagination = $page->pagination ?? [];
 $currentURL = $page->currentURL;
 
-$indexedURLs = [
-    "/",
-    "/portfolio/",
-    "/privacy-policy/",
-];
-
-if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
+if ($page->indexed) {
     $liveURL = $site->getCurrentURL(true, true);
 
     if (!empty($pagination)) {
