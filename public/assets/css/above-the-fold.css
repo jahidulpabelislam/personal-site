@@ -385,7 +385,7 @@ img {
 .nav__logo:hover img,
 .nav__logo:focus img {
   box-shadow: none;
-  border-color: #ffeb05; }
+  border-color: #0078c9; }
 
 .nav__link {
   display: block;
