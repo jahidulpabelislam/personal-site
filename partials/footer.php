@@ -19,7 +19,7 @@ $site = site();
 
         <img
             class="footer__logo"
-            src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>"
+            src="<?php echo $site::asset("/assets/images/logo.png"); ?>"
             alt="<?php echo $site::NAME; ?>'s Logo"
         />
     </div>

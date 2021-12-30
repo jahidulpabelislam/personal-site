@@ -7,7 +7,7 @@ $page = page();
     <div class="container nav__container">
         <div class="nav__logo-container">
             <a class="nav__logo <?php if ($page->id === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->makeURL(); ?>">
-                <img src="<?php echo $site::asset("/assets/images/logo-v2-2.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
+                <img src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
             </a>
         </div>
         <ul class="nav__links">
