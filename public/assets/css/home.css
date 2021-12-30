@@ -532,7 +532,9 @@
   top: 0;
   box-shadow: none;
   opacity: 0;
-  transition: 1s opacity ease; }
+  transition: 1s opacity ease;
+  background: #fff;
+  border: 3px solid #0078c9; }
   .home-hello__image--logo:hover {
     opacity: 1; }
 

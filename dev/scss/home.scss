@@ -53,6 +53,8 @@
     box-shadow: none;
     opacity: 0;
     transition: 1s opacity ease;
+    background: #fff;
+    border: 3px solid $brand-colour;
 
     &:hover {
         opacity: 1;
