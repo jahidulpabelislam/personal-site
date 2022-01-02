@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a941eb11679ef661ab75b1c3239c7ea",
+    "content-hash": "edfd2f9367a25ced54c2263a4be37798",
     "packages": [
         {
             "name": "jpi/site",
-            "version": "dev-master",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "e22fba73b5177e3c6a18d15130534046d22e5808"
+                "reference": "8525cffd1331006d16d751855e1627c192400603"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/e22fba73b5177e3c6a18d15130534046d22e5808",
-                "reference": "e22fba73b5177e3c6a18d15130534046d22e5808",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/8525cffd1331006d16d751855e1627c192400603",
+                "reference": "8525cffd1331006d16d751855e1627c192400603",
                 "shasum": ""
             },
             "require": {
@@ -33,10 +33,10 @@
             },
             "description": "Personal library with reusable bits for my sites.",
             "support": {
-                "source": "https://github.com/jahidulpabelislam/site/tree/master",
+                "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2021-09-21T21:25:59+00:00"
+            "time": "2021-12-22T22:43:04+00:00"
         }
     ],
     "packages-dev": [],

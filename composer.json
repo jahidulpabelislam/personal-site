@@ -3,7 +3,7 @@
         "php": "^7.3",
         "ext-curl": "*",
         "ext-json": "*",
-        "jpi/site": "dev-master"
+        "jpi/site": "1.x-dev"
     },
     "repositories": [
         {
