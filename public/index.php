@@ -342,18 +342,18 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             $counts = load(ROOT . "/assets/counters.json", false)->getArray();
 
             $totalProjects = 120;
-            if (isset($counts["totalPullRequests"])) {
-                $totalProjects = (floor($counts["totalProjects"] / 10)) * 10;
+            if (isset($counts["projects"])) {
+                $totalProjects = (floor($counts["projects"] / 10)) * 10;
             }
 
             $totalPullRequests = 1200;
-            if (isset($counts["totalPullRequests"])) {
-                $totalPullRequests = (floor($counts["totalPullRequests"] / 10)) * 10;
+            if (isset($counts["pullRequests"])) {
+                $totalPullRequests = (floor($counts["pullRequests"] / 10)) * 10;
             }
 
             $totalCommits = 20000;
-            if (isset($counts["totalCommits"])) {
-                $totalCommits = (floor($counts["totalCommits"] / 10)) * 10;
+            if (isset($counts["commits"])) {
+                $totalCommits = (floor($counts["commits"] / 10)) * 10;
             }
 
             $counterItems = [
