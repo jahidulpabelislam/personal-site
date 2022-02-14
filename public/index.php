@@ -441,7 +441,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             <p class="contact-form__feedback"></p>
             <button
                 type="submit"
-                class="button contact-form__submit"
+                class="button button--large contact-form__submit"
                 id="submit"
                 data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
                 data-initial-text="Send Email"
