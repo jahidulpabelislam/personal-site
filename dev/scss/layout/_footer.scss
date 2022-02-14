@@ -3,7 +3,7 @@
     background-color: $light-colour;
     color: $grey;
     border-top: 1px solid $light-grey;
-    padding: 6px 0;
+    padding: 18px 0;
 }
 
 .footer__logo {
@@ -18,6 +18,7 @@
 .footer__version {
     display: inline-block;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .footer__link {
@@ -60,7 +61,7 @@
 /* Only for Desktops */
 @media only screen and (min-width: $desktop-width) {
     .footer {
-        padding: 18px 0;
+        padding: 34px 0;
     }
 
     .footer > .container {

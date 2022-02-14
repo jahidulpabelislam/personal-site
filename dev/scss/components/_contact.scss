@@ -41,13 +41,15 @@
 }
 
 .contact-me {
-    .social-link {
-        display: block;
-
+    .contact-me__item {
         &:not(:last-child) {
             margin-bottom: 14px;
         }
+    }
 
+    .social-link,
+    .social-link:hover,
+    .social-link:focus {
         .social-link__image {
             background-color: $secondary-colour;
         }
@@ -85,5 +87,12 @@
         max-width: $max-width / 2;
         margin: 0;
         text-align: left;
+    }
+}
+
+
+@media only screen and (min-width: $tablet-width) {
+    .contact-form__intro  {
+        margin-bottom: 36px;
     }
 }

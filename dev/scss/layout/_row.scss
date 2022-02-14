@@ -1,5 +1,5 @@
 .row {
-    padding: 15px 0;
+    padding: 18px 0;
     background-color: #ffffff;
 }
 .row--tall {
@@ -26,14 +26,14 @@
 
 .row__heading {
     width: 100%;
-    margin: 12px 0;
+    margin: 0 0 18px 0;
     font-family: "Oswald", sans-serif;
     font-size: 22px;
     line-height: 24px;
     font-weight: 700;
 }
-.row__heading:first-child {
-    margin-top: 0;
+.row__heading--flush {
+    margin-bottom: 0;
 }
 
 .row__sub-heading {
@@ -63,7 +63,7 @@
     }
 
     .row__heading {
-        margin: 24px 0;
+        margin-bottom: 32px;
         font-size: 26px;
         line-height: 30px;
     }
@@ -72,6 +72,33 @@
         margin: 10px 0;
         font-size: 18px;
         line-height: 20px;
+    }
+
+    .row--tablet-thirds {
+        > .container {
+            display: flex;
+            align-items: center;
+
+            .row__column {
+                width: 33%;
+
+                &:first-child {
+                    padding-right: 30px;
+                }
+
+                &:not(:first-child):not(:last-child) {
+                    padding: 0 15px;
+                }
+
+                &:last-child {
+                    padding-left: 30px;
+                }
+            }
+
+            .row__heading {
+                margin: 0;
+            }
+        }
     }
 
     .row--halves {
@@ -128,5 +155,9 @@
 
     .row--tall {
         padding: 44px 0;
+    }
+
+    .row__heading {
+        margin-bottom: 40px;
     }
 }

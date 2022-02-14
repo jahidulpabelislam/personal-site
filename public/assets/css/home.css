@@ -465,14 +465,18 @@
   .contact-form__submit:hover, .contact-form__submit:focus {
     background-color: #1bbe69; }
 
-.contact-me .social-link {
-  display: block; }
-  .contact-me .social-link:not(:last-child) {
-    margin-bottom: 14px; }
-  .contact-me .social-link .social-link__image {
-    background-color: #ffeb05; }
-  .contact-me .social-link .social-link__text {
-    color: #ffeb05; }
+.contact-me .contact-me__item:not(:last-child) {
+  margin-bottom: 14px; }
+
+.contact-me .social-link .social-link__image,
+.contact-me .social-link:hover .social-link__image,
+.contact-me .social-link:focus .social-link__image {
+  background-color: #ffeb05; }
+
+.contact-me .social-link .social-link__text,
+.contact-me .social-link:hover .social-link__text,
+.contact-me .social-link:focus .social-link__text {
+  color: #ffeb05; }
 
 .contact-form__intro {
   margin: 12px 0; }
@@ -494,6 +498,10 @@
     max-width: 585px;
     margin: 0;
     text-align: left; } }
+
+@media only screen and (min-width: 768px) {
+  .contact-form__intro {
+    margin-bottom: 36px; } }
 
 .home-hello__hello,
 .home-hello__welcome {

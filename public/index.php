@@ -100,7 +100,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 </div>
 
 <section class="row row--alt">
-    <h3 class="row__heading">My Journey So Far</h3>
+    <h3 class="row__heading row__heading--flush">My Journey So Far</h3>
     <div class="timeline">
         <div class="timeline__viewport">
             <div class="timeline__navs">
@@ -217,7 +217,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<div class="row row--thirds row--brand skills">
+<div class="row row--tablet-thirds row--brand skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
@@ -400,41 +400,47 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="contact-me__column contact-me__column--header row__column">
         <div>
             <h2 class="row__heading">Connect With Me</h2>
-            <a class="social-link social-link--linkedin" href="https://linkto.jahidulpabelislam.com/linkedin/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
-                &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
-            </a>
-            <a class="social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
-                <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
-                &nbsp;
-                <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
-            </a>
-            <a class="social-link social-link--instagram" href="https://linkto.jahidulpabelislam.com/instagram/" target="_blank" rel="noopener noreferrer">
-                <span class="social-link__image"><i></i></span>
-                &nbsp;
-                <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
-            </a>
+            <div class="contact-me__item">
+                <a class="social-link social-link--linkedin" href="https://linkto.jahidulpabelislam.com/linkedin/" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                    &nbsp;
+                    <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
+                </a>
+            </div>
+            <div class="contact-me__item">
+                <a class="social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                    &nbsp;
+                    <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
+                </a>
+            </div>
+            <div class="contact-me__item">
+                <a class="social-link social-link--instagram" href="https://linkto.jahidulpabelislam.com/instagram/" target="_blank" rel="noopener noreferrer">
+                    <span class="social-link__image"><i></i></span>
+                    &nbsp;
+                    <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
+                </a>
+            </div>
         </div>
     </div>
     <div class="contact-me__column contact-me__column--form row__column">
         <form class="contact-me__form contact-form" name="contact-form" method="POST" action="">
             <h2 class="row__heading">Contact Me</h2>
-            <p class="contact-form__intro">Message me below or email me at <a class="link" href="jahidul@jahidulpabelislam.com">jahidul@jahidulpabelislam.com</a></p>
+            <p class="contact-form__intro">Use the form below or email me directly at <a class="link" href="jahidul@jahidulpabelislam.com">jahidul@jahidulpabelislam.com</a></p>
             <div class="field">
-                <label for="email-input" class="field__label">Your Email Address</label>
-                <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="joe@example.com" title="Email Address" required />
+                <label for="email-input" class="field__label">Email Address</label>
+                <input type="email" class="contact-form__email input" id="email-input" name="email-input" placeholder="example@jahidulpabelislam.com" title="Email address" required />
                 <p class="contact-form__email-feedback field__error"></p>
             </div>
 
             <div class="field">
                 <label for="subject-input" class="field__label">Subject <span>(optional)</span></label>
-                <input type="text" class="contact-form_subject input" id="subject-input" name="subject-input" placeholder="Site Feedback" title="Subject of Message" />
+                <input type="text" class="contact-form_subject input" id="subject-input" name="subject-input" placeholder="Site feedback" title="Subject of message" />
             </div>
 
             <div class="field">
-                <label for="message-input" class="field__label">Your Message</label>
-                <textarea class="contact-form__message input" id="message-input" name="message-input" placeholder="Your site could do with more colour." title="The Message" rows="10" required></textarea>
+                <label for="message-input" class="field__label">Message</label>
+                <textarea class="contact-form__message input" id="message-input" name="message-input" placeholder="Your site could do with more colour." title="The message" rows="10" required></textarea>
                 <p class="contact-form__message-feedback field__error"></p>
             </div>
 

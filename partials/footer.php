@@ -4,18 +4,18 @@ $site = site();
 
 <footer class="footer">
     <div class="container">
-        <p class="footer__version">
+        <div class="footer__version">
             <?php renderFile(ROOT . "/assets/version.txt", false); ?>
-        </p>
+        </div>
 
         <div class="footer__links">
             <a class="footer__link" href="<?php echo $site->makeURL("/privacy-policy/"); ?>">Privacy Policy</a>
             <a class="footer__link" href="<?php echo $site->getLinksUrl(); ?>" target="_blank">My Links</a>
         </div>
 
-        <p class="footer__legal">
+        <div class="footer__legal">
             &copy; <?php echo date("Y") . " " . $site::NAME; ?>
-        </p>
+        </div>
 
         <img
             class="footer__logo"
