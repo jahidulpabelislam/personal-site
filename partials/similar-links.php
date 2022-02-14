@@ -13,11 +13,9 @@ if (count($links)) {
         $url = $link["url"];
         $url = $site->makeURL($url);
 
-        $colour = $link["colour"] ?? "brand";
-
         $linksContent .= <<<HTML
 <div class="row__column">
-    <a class="button button--$colour" href="$url" title="Link to $pageTitle Page">
+    <a class="button button--large button--brand" href="$url" title="Link to $pageTitle Page">
         $buttonText
     </a>
 </div>
