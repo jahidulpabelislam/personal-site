@@ -313,7 +313,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div class="row__column">
             <h3 class="row__heading">Latest Projects</h3>
             <p>These are the latest projects I have been working on.</p>
-            <a class="latest-projects__view button button--brand" href="<?php echo $site->makeURL("/portfolio/"); ?>">
+            <a class="latest-projects__view button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
                 View More
             </a>
         </div>
