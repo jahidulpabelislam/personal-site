@@ -344,6 +344,9 @@
 .latest-projects__loading {
   width: 100%; }
 
+.latest-projects__intro {
+  margin-bottom: 18px; }
+
 .latest-projects__error {
   display: none;
   width: 100%;
@@ -351,8 +354,8 @@
   font-weight: 700;
   color: #f74440; }
 
-.latest-projects__view {
-  margin: 14px 0 15px; }
+.latest-projects__view-more {
+  margin: 0 0 15px; }
 
 .latest-projects__slide-show {
   width: 100%;
@@ -386,7 +389,7 @@
 
 .latest-project__title {
   width: 100%;
-  margin: 0;
+  margin: 0 0 12px;
   font-family: "Oswald", sans-serif;
   font-size: 22px;
   line-height: 24px;
@@ -410,7 +413,9 @@
       z-index: 1; }
     .latest-projects .slide-show__bullet {
       box-shadow: 0 0 10px 0 #ffffff; }
-  .latest-projects__view {
+  .latest-projects__intro {
+    margin-bottom: 32px; }
+  .latest-projects__view-more {
     margin-bottom: 0; }
   .latest-project__info {
     position: absolute;
@@ -421,7 +426,7 @@
     align-items: center;
     justify-content: center; }
   .latest-project__info-content {
-    max-width: 75%;
+    max-width: 66%;
     transform: translateY(100%);
     padding: 10px;
     background-color: rgba(51, 51, 51, 0.8);
@@ -432,6 +437,10 @@
     height: 100%;
     width: 100%;
     object-fit: cover; } }
+
+@media only screen and (min-width: 1200px) {
+  .latest-projects__intro {
+    margin-bottom: 40px; } }
 
 .contact-me {
   padding: 0; }
@@ -478,6 +487,9 @@
 .contact-me .social-link:focus .social-link__text {
   color: #ffeb05; }
 
+.contact-me .social-link__text {
+  text-shadow: 2px 2px 3px #000; }
+
 .contact-form__intro {
   margin: 12px 0; }
 
@@ -512,21 +524,21 @@
   text-shadow: 1px 1px 2px rgba(123, 134, 118, 0.6); }
 
 .home-hello__hello {
-  margin: 10px 0; }
+  margin: 0; }
   .home-hello__hello span {
     font-size: 28px;
     line-height: 30px; }
-
-.home-hello__welcome {
-  display: block;
-  margin-bottom: 22px; }
 
 .home-hello__images {
   position: relative;
   display: inline-block;
   width: 66%;
   max-width: 150px;
-  margin: 0 auto; }
+  margin: 18px auto; }
+
+.home-hello__welcome {
+  display: block;
+  margin-bottom: 22px; }
 
 .home-hello__image {
   width: 100%;
@@ -549,10 +561,6 @@
 .map {
   width: 100%;
   height: 200px; }
-
-.skills__group {
-  margin: 12px 0;
-  padding: 0 15px; }
 
 .skills__group-title {
   display: inline-block;

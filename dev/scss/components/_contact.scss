@@ -58,6 +58,10 @@
             color: $secondary-colour;
         }
     }
+
+    .social-link__text {
+        text-shadow: 2px 2px 3px #000;
+    }
 }
 
 .contact-form__intro {

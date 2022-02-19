@@ -50,6 +50,15 @@
     max-width: 165px;
 }
 
+.row--tablet-thirds,
+.row--halves,
+.row--thirds {
+    .row__column {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+
 /* Only for Desktops */
 @media only screen and (min-width: $tablet-width) {
     .row {
@@ -74,39 +83,38 @@
         line-height: 20px;
     }
 
-    .row--tablet-thirds {
-        > .container {
-            display: flex;
-            align-items: center;
-
-            .row__column {
-                width: 33%;
-
-                &:first-child {
-                    padding-right: 30px;
-                }
-
-                &:not(:first-child):not(:last-child) {
-                    padding: 0 15px;
-                }
-
-                &:last-child {
-                    padding-left: 30px;
-                }
-            }
-
-            .row__heading {
-                margin: 0;
-            }
-        }
-    }
-
+    .row--tablet-thirds,
     .row--halves {
         > .container {
             display: flex;
             align-items: center;
         }
 
+        .row__column {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .row--tablet-thirds {
+        .row__column {
+            width: 33%;
+
+            &:first-child {
+                padding-right: 30px;
+            }
+
+            &:not(:first-child):not(:last-child) {
+                padding-left: 15px;
+            }
+
+            &:last-child {
+                padding-left: 30px;
+            }
+        }
+    }
+
+    .row--halves {
         .row__column {
             width: 50%;
 
@@ -130,25 +138,23 @@
         > .container {
             display: flex;
             align-items: center;
+        }
 
-            .row__column {
-                width: 33%;
+        .row__column {
+            width: 33%;
+            padding-top: 0;
+            padding-bottom: 0;
 
-                &:first-child {
-                    padding-right: 30px;
-                }
-
-                &:not(:first-child):not(:last-child) {
-                    padding: 0 15px;
-                }
-
-                &:last-child {
-                    padding-left: 30px;
-                }
+            &:first-child {
+                padding-right: 30px;
             }
 
-            .row__heading {
-                margin: 0;
+            &:not(:first-child):not(:last-child) {
+                padding: 0 15px;
+            }
+
+            &:last-child {
+                padding-left: 30px;
             }
         }
     }

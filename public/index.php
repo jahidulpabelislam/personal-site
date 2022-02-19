@@ -54,7 +54,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
 <div class="row row--alt home-hello">
     <div class="container">
-        <h3 class="home-hello__hello"><span>Hello</span> there everyone!</h3>
+        <p class="home-hello__hello"><span>Hello</span> there everyone!</p>
         <div class="home-hello__images">
             <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
             <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
@@ -69,7 +69,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 </div>
 
 <div class="row about" id="about">
-    <h3 class="row__heading">Quick Facts</h3>
+    <h2 class="row__heading">Quick Facts</h2>
     <div class="container">
         <div class="row__column">
             <?php
@@ -100,7 +100,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 </div>
 
 <section class="row row--alt">
-    <h3 class="row__heading row__heading--flush">My Journey So Far</h3>
+    <h2 class="row__heading row__heading--flush">My Journey So Far</h2>
     <div class="timeline">
         <div class="timeline__viewport">
             <div class="timeline__navs">
@@ -308,12 +308,12 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </div>
 
-<section class="latest-projects row row--halves row--alt">
+<section class="latest-projects row row--halves">
     <div class="container">
         <div class="row__column">
-            <h3 class="row__heading">Latest Projects</h3>
-            <p>These are the latest projects I have been working on.</p>
-            <a class="latest-projects__view button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
+            <h2 class="row__heading">Latest Projects</h2>
+            <p class="latest-projects__intro">These are the latest projects I have been working on.</p>
+            <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
                 View More
             </a>
         </div>
@@ -450,10 +450,8 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 class="button button--large contact-form__submit"
                 id="submit"
                 data-loading-text="<i class='fas fa-spinner fa-spin'></i> Sending"
-                data-initial-text="Send Email"
-            >
-                Send Email
-            </button>
+                data-initial-text="Send"
+            >Send</button>
         </form>
     </div>
 </section>
@@ -469,7 +467,7 @@ $page->addJSTemplate(
         <img class="slide-show__image latest-project__image" src="{{ images.0.url }}" alt="Screen shot of {{ name }} Project" />
         <div class="latest-project__info">
             <div class="latest-project__info-content">
-                <h4 class="latest-project__title">{{ name }}</h4>
+                <h3 class="latest-project__title">{{ name }}</h3>
                 <div class="latest-project__description">{{ short_description }}</div>
             </div>
         </div>

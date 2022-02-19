@@ -18,7 +18,7 @@
 }
 
 .home-hello__hello {
-    margin: 10px 0;
+    margin: 0;
 
     span {
         font-size: 28px;
@@ -26,17 +26,17 @@
     }
 }
 
-.home-hello__welcome {
-    display: block;
-    margin-bottom: 22px;
-}
-
 .home-hello__images {
     position: relative;
     display: inline-block;
     width: 66%;
     max-width: 150px;
-    margin: 0 auto;
+    margin: 18px auto;
+}
+
+.home-hello__welcome {
+    display: block;
+    margin-bottom: 22px;
 }
 
 .home-hello__image {
@@ -64,11 +64,6 @@
 .map {
     width: 100%;
     height: 200px;
-}
-
-.skills__group {
-    margin: 12px 0;
-    padding: 0 15px;
 }
 
 .skills__group-title {

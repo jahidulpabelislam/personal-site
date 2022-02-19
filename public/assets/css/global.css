@@ -69,6 +69,12 @@
   width: 75%;
   max-width: 165px; }
 
+.row--tablet-thirds .row__column,
+.row--halves .row__column,
+.row--thirds .row__column {
+  padding-top: 18px;
+  padding-bottom: 18px; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 768px) {
   .row {
@@ -85,22 +91,22 @@
     margin: 10px 0;
     font-size: 18px;
     line-height: 20px; }
-  .row--tablet-thirds > .container {
-    display: flex;
-    align-items: center; }
-    .row--tablet-thirds > .container .row__column {
-      width: 33%; }
-      .row--tablet-thirds > .container .row__column:first-child {
-        padding-right: 30px; }
-      .row--tablet-thirds > .container .row__column:not(:first-child):not(:last-child) {
-        padding: 0 15px; }
-      .row--tablet-thirds > .container .row__column:last-child {
-        padding-left: 30px; }
-    .row--tablet-thirds > .container .row__heading {
-      margin: 0; }
+  .row--tablet-thirds > .container,
   .row--halves > .container {
     display: flex;
     align-items: center; }
+  .row--tablet-thirds .row__column,
+  .row--halves .row__column {
+    padding-top: 0;
+    padding-bottom: 0; }
+  .row--tablet-thirds .row__column {
+    width: 33%; }
+    .row--tablet-thirds .row__column:first-child {
+      padding-right: 30px; }
+    .row--tablet-thirds .row__column:not(:first-child):not(:last-child) {
+      padding-left: 15px; }
+    .row--tablet-thirds .row__column:last-child {
+      padding-left: 30px; }
   .row--halves .row__column {
     width: 50%; }
     .row--halves .row__column:first-child {
@@ -114,16 +120,16 @@
   .row--thirds > .container {
     display: flex;
     align-items: center; }
-    .row--thirds > .container .row__column {
-      width: 33%; }
-      .row--thirds > .container .row__column:first-child {
-        padding-right: 30px; }
-      .row--thirds > .container .row__column:not(:first-child):not(:last-child) {
-        padding: 0 15px; }
-      .row--thirds > .container .row__column:last-child {
-        padding-left: 30px; }
-    .row--thirds > .container .row__heading {
-      margin: 0; }
+  .row--thirds .row__column {
+    width: 33%;
+    padding-top: 0;
+    padding-bottom: 0; }
+    .row--thirds .row__column:first-child {
+      padding-right: 30px; }
+    .row--thirds .row__column:not(:first-child):not(:last-child) {
+      padding: 0 15px; }
+    .row--thirds .row__column:last-child {
+      padding-left: 30px; }
   .row--tall {
     padding: 44px 0; }
   .row__heading {

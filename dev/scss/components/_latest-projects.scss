@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.latest-projects__intro {
+    margin-bottom: 18px;
+}
+
 .latest-projects__error {
     display: none;
     width: 100%;
@@ -16,8 +20,8 @@
     color: $error-colour;
 }
 
-.latest-projects__view {
-    margin: 14px 0 15px;
+.latest-projects__view-more {
+    margin: 0 0 15px;
 }
 
 .latest-projects__slide-show {
@@ -58,7 +62,7 @@
 
 .latest-project__title {
     width: 100%;
-    margin: 0;
+    margin: 0 0 12px;
     font-family: "Oswald", sans-serif;
     font-size: 22px;
     line-height: 24px;
@@ -96,7 +100,11 @@
         }
     }
 
-    .latest-projects__view {
+    .latest-projects__intro {
+        margin-bottom: 32px;
+    }
+
+    .latest-projects__view-more {
         margin-bottom: 0;
     }
 
@@ -111,7 +119,7 @@
     }
 
     .latest-project__info-content {
-        max-width: 75%;
+        max-width: 66%;
         transform: translateY(100%);
         padding: 10px;
         background-color: transparentize($dark-colour, 0.2);
@@ -126,5 +134,11 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+    }
+}
+
+@media only screen and (min-width: $desktop-width) {
+    .latest-projects__intro {
+        margin-bottom: 40px;
     }
 }
