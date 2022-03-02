@@ -904,8 +904,13 @@ JPI.ExpandedSlideShow = function() {
     };
 
     this.renderPaginationItem = function(page, $container, isCurrent) {
-        var url = this.getNewURL(page);
-        url += this.url.search;
+        var url = new URL(window.location);
+
+        if (page > 1) {
+            url.searchParams.set("page", page);
+        } else {
+            url.searchParams.delete("page");
+        }
 
         var classes = ["pagination__link"];
         if (isCurrent) {
@@ -914,7 +919,7 @@ JPI.ExpandedSlideShow = function() {
         var $link = JPI.createElement("a", {
             class: classes.join(" "),
             text: page,
-            href: url,
+            href: url.toString(),
         });
 
         JPI.renderNewElement("li", $container, {
@@ -1097,10 +1102,7 @@ JPI.ExpandedSlideShow = function() {
         $modal.find(".modal__heading").text(project.name);
         $modal.find(".project__date").text(project.date);
         $modal.find(".project__description").html(project.long_description);
-
-        var $projectType = $modal.find(".project__type");
-
-        $projectType.text(project.type);
+        $modal.find(".project__type").text(project.type);
 
         this.renderProjectSkills(project, this.modalSelector);
         this.renderProjectLinks(project, this.modalSelector);
@@ -1119,39 +1121,19 @@ JPI.ExpandedSlideShow = function() {
         });
     };
 
-    this.getNewURL = function(page) {
-        var urlParts = ["projects"];
-
-        if (page > 1) {
-            urlParts.push(page);
-        }
-
-        return "/" + urlParts.join("/") + "/";
-    };
-
-    this.getNewTitle = function(page) {
-        var title = JPI.projects.titleStart;
-
-        if (page > 1) {
-            title += " - Page " + page;
-        }
-
-        title += JPI.projects.titleEnd;
-
-        return title;
-    };
-
     this.storeLatestSearch = function() {
-        var page = this.page;
-        var title = this.getNewTitle(page);
-        var url = this.getNewURL(page);
+        if (this.page > 1) {
+            this.url.searchParams.set("page", this.page);
+        } else {
+            projects.url.searchParams.delete("page");
+        }
+
         var state = {
-            page: page,
+            page: this.page,
+            type: this.$projectType.filter(":checked").val(),
         };
 
-        this.url.pathname = url;
-        document.title = title;
-        history.pushState(state, title, this.url.toString());
+        history.pushState(state, window.title, this.url.toString());
 
         if (typeof ga !== "undefined") {
             ga("set", "page", url);
@@ -1166,6 +1148,13 @@ JPI.ExpandedSlideShow = function() {
     this.initListeners = function() {
         this.$projectType.on("change", function(e) {
             projects.page = 1;
+
+            if (jQuery(this).val()) {
+                projects.url.searchParams.set("type", jQuery(this).val());
+            } else {
+                projects.url.searchParams.delete("type");
+            }
+
             projects.storeLatestSearch();
             projects.getProjects();
         });
@@ -1193,13 +1182,17 @@ JPI.ExpandedSlideShow = function() {
 
         window.addEventListener("popstate", function(e) {
             var state = e.state || {};
-            var page = state.page || 1;
 
-            document.title = projects.getNewTitle(page);
+            var page = state.page || 1;
+            var type = state.type || "";
 
             projects.page = JPI.getInt(page, 1);
 
+            projects.$projectType.attr("checked", false);
+            projects.$projectType.filter("[value='" + type + "']").prop("checked", true);
+
             projects.scrollToProjects();
+
             projects.getProjects();
         });
     };

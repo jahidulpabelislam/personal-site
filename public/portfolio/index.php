@@ -11,21 +11,15 @@ $projectsPerPage = 6;
 
 $apiRequestParams = [
     "limit" => $projectsPerPage,
+    "page" => (int) ($_GET["page"] ?? 1),
 ];
 
-$pageNum = $_GET["page"] ?? 1;
-
-$headTitle = "Portfolio";
-
-$page->addJSGlobal("projects", "titleStart", $headTitle);
-
-$pageNum = (int)$pageNum;
-if ($pageNum > 1) {
-    $headTitle .= " - Page {$pageNum}";
-    $apiRequestParams["page"] = $pageNum;
+$type = $_GET["type"] ?? null;
+if ($type) {
+    $apiRequestParams["filters"] = [
+        "type_id" => $type,
+    ];
 }
-
-$headDescription = "Portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
 
@@ -70,8 +64,8 @@ $page->addPageData($pageData);
 
 $page->renderHtmlStart();
 $page->renderHead([
-    "title" => $headTitle,
-    "description" => $headDescription,
+    "title" => "Portfolio",
+    "description" => "Portfolio of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.",
 ]);
 $page->renderBodyStart();
 $page->renderPageStart();
@@ -116,12 +110,18 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 <label class="projects__types-label">Filter by: </label>
                 <div class="projects__types">
                     <label class="projects__type">
-                        <input type="radio" class="js-project-type" name="project-type" value="" checked />
+                        <input type="radio" class="js-project-type" name="project-type" value="" <?php echo !$type ? "checked" : "" ?> />
                         <span>Show all</span>
                     </label>
                     <?php foreach ($projectTypes as $projectType): ?>
                         <label class="projects__type">
-                            <input type="radio" class="js-project-type" name="project-type" value="<?php echo $projectType["id"] ?>" />
+                            <input
+                                type="radio"
+                                class="js-project-type"
+                                name="project-type"
+                                value="<?php echo $projectType["id"] ?>"
+                                <?php echo $type == $projectType["id"] ? "checked" : "" ?>
+                            />
                             <span><?php echo $projectType["name"] ?></span>
                         </label>
                     <?php endforeach; ?>
