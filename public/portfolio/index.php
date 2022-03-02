@@ -55,15 +55,6 @@ if (!count($apiRes["data"] ?? [])) {
 
 $page->addJSGlobal("projects", "apiResponse", $apiRes);
 
-$pageData = [
-    "pagination" => [
-        "page" => $apiMeta["page"] ?? 1,
-        "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,
-        "hasNextPage" => $apiMeta["has_next_page"] ?? false,
-    ],
-];
-$page->addPageData($pageData);
-
 $page->renderHtmlStart();
 $page->renderHead([
     "title" => "Portfolio",
