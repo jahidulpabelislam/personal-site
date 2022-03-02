@@ -9,9 +9,11 @@ $job = $site::JOB;
 
 $projectsPerPage = 6;
 
+$pageNum = (int) ($_GET["page"] ?? 1);
+
 $apiRequestParams = [
     "limit" => $projectsPerPage,
-    "page" => (int) ($_GET["page"] ?? 1),
+    "page" => $pageNum,
 ];
 
 $type = $_GET["type"] ?? null;
