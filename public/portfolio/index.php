@@ -45,9 +45,9 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
 $apiRes = json_decode(curl_exec($ch), true);
 curl_close($ch);
 
-$apiMeta = $apiRes["meta"] ?? [];
+$projects = $apiRes["data"] ?? [];
 
-if (!count($apiRes["data"] ?? [])) {
+if (!count($projects)) {
     http_response_code(404);
     include(PUBLIC_ROOT . "/error/index.php");
     exit();
@@ -83,10 +83,10 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
 
-$apiRes = json_decode(curl_exec($ch), true);
+$projectTypesRes = json_decode(curl_exec($ch), true);
 curl_close($ch);
 
-$projectTypes = $apiRes["data"] ?? [];
+$projectTypes = $projectTypesRes["data"] ?? [];
 
 $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
@@ -121,6 +121,24 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                 </div>
             </div>
         <?php endif; ?>
+
+        <?php
+        $paginationStatusFormat = "Showing {start} - {end} of {total} projects";
+        $paginationStatus = str_replace(
+            [
+                "{start}",
+                "{end}",
+                "{total}",
+            ],
+            [
+                1 + ($pageNum - 1) * $projectsPerPage,
+                ($pageNum - 1) * $projectsPerPage + count($projects),
+                $apiRes["_total_count"]
+            ],
+            $paginationStatusFormat
+        )
+        ?>
+        <p class="projects__pagination-status" data-format="<?php echo $paginationStatusFormat; ?>"><?php echo $paginationStatus; ?></p>
 
         <p class="projects__error"></p>
         <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>

@@ -879,6 +879,7 @@ JPI.ExpandedSlideShow = function() {
     this.$loading = jQuery(".projects__loading");
     this.$error = jQuery(".projects__error");
     this.$pagination = jQuery(".projects__pagination");
+    this.$paginationStatus = jQuery(".projects__pagination-status");
 
     this.modalSelector = ".detailed-project";
 
@@ -1060,6 +1061,7 @@ JPI.ExpandedSlideShow = function() {
         this.$loading.hide(600);
         this.$projects.text("");
         this.$pagination.text("").hide();
+        this.$paginationStatus.text("").hide();
 
         // Send the data, the function to do if data is valid
         JPI.ajax.renderRowsOrError(
@@ -1071,6 +1073,14 @@ JPI.ExpandedSlideShow = function() {
 
         if (response && response._total_count) {
             this.renderPagination(JPI.getInt(response._total_count));
+
+            var paginationStatus = this.$paginationStatus.attr("data-format");
+
+            paginationStatus = paginationStatus.replace("{start}", 1 + (this.page - 1) * JPI.projects.perPage);
+            paginationStatus = paginationStatus.replace("{end}", (this.page - 1) * JPI.projects.perPage + response.data.length);
+            paginationStatus = paginationStatus.replace("{total}", response._total_count);
+
+            this.$paginationStatus.text(paginationStatus).show();
         }
     };
 
