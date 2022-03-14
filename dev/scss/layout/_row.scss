@@ -9,6 +9,29 @@
     padding: 0;
 }
 
+.row--tablet-thirds,
+.row--thirds,
+.row--halves {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.row--tablet-thirds,
+.row--thirds {
+    .row__heading {
+        padding-top: 18px;
+    }
+}
+
+.row--tablet-thirds,
+.row--thirds,
+.row--halves {
+    .row__column {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+
 .row--alt {
     background-color: $light-colour;
     color: $dark-colour;
@@ -50,13 +73,8 @@
     max-width: 165px;
 }
 
-.row--tablet-thirds,
-.row--halves,
-.row--thirds {
-    .row__column {
-        padding-top: 18px;
-        padding-bottom: 18px;
-    }
+.row__column--flush.row__column--flush {
+    padding: 0;
 }
 
 /* Only for Desktops */
@@ -64,11 +82,13 @@
     .row {
         padding: 30px 0;
     }
-    .row--tall {
-        padding: 36px 0;
-    }
+
     .row--flush {
         padding: 0;
+    }
+
+    .row--tall {
+        padding: 36px 0;
     }
 
     .row__heading {
@@ -90,26 +110,27 @@
             align-items: center;
         }
 
-        .row__column {
+        .row__heading {
             padding-top: 0;
-            padding-bottom: 0;
         }
     }
 
     .row--tablet-thirds {
         .row__column {
             width: 33%;
+            padding: 0;
 
             &:first-child {
-                padding-right: 30px;
+                padding-right: 15px;
             }
 
             &:not(:first-child):not(:last-child) {
-                padding-left: 15px;
+                padding-right: 7.5px;
+                padding-left: 7.5px;
             }
 
             &:last-child {
-                padding-left: 30px;
+                padding-left: 15px;
             }
         }
     }
@@ -117,18 +138,15 @@
     .row--halves {
         .row__column {
             width: 50%;
+            padding: 0;
 
             &:first-child {
-                padding-right: 30px;
+                padding-right: 15px;
             }
 
             &:last-child {
-                padding-left: 30px;
+                padding-left: 15px;
             }
-        }
-
-        .row__column--flush.row__column--flush {
-            padding-left: 0;
         }
     }
 }

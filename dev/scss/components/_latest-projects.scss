@@ -21,7 +21,7 @@
 }
 
 .latest-projects__view-more {
-    margin: 0 0 15px;
+    margin: 0;
 }
 
 .latest-projects__slide-show {
@@ -45,15 +45,16 @@
 
 .latest-project__info-content {
     margin: 0 auto;
-    padding: 10px 35px;
+    padding: 16px 35px;
     background-color: $dark-colour;
     color: #ffffff;
     cursor: initial;
     opacity: 0.15;
     transition: all 2s ease-in-out;
-}
-.latest-project.slide-show__slide--active .latest-project__info-content {
-    opacity: 1;
+
+    .latest-project.slide-show__slide--active & {
+        opacity: 1;
+    }
 }
 
 .latest-project__image:hover {
@@ -77,9 +78,7 @@
 
 @media only screen and (min-width: $tablet-width) {
     .latest-projects {
-        padding: 0;
-
-        .container {
+         .container {
             padding: 0 15px;
 
             > div:first-child {
@@ -98,6 +97,11 @@
         .slide-show__bullet {
             box-shadow: 0 0 10px 0 #ffffff;
         }
+    }
+
+    .latest-projects_column--slide-show {
+        margin-top: -30px;
+        margin-bottom: -30px;
     }
 
     .latest-projects__intro {

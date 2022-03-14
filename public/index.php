@@ -217,7 +217,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     </div>
 </section>
 
-<div class="row row--tablet-thirds row--brand skills">
+<section class="row row--tablet-thirds row--brand skills">
     <h2 class="row__heading">What I'm Best At</h2>
     <div class="container">
         <?php
@@ -306,18 +306,18 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         renderSkills("Other", $skills);
         ?>
     </div>
-</div>
+</section>
 
 <section class="latest-projects row row--halves">
     <div class="container">
-        <div class="row__column">
+        <div class="row__column latest-projects_column latest-projects_column--copy">
             <h2 class="row__heading">Latest Projects</h2>
             <p class="latest-projects__intro">These are the latest projects I have been working on.</p>
             <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
                 View More
             </a>
         </div>
-        <div class="row__column row__column--flush">
+        <div class="row__column latest-projects_column latest-projects_column--slide-show row__column--flush">
             <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
 
             <div class="slide-show latest-projects__slide-show" id="latest-projects">

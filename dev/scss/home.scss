@@ -127,7 +127,11 @@
 
 .skill__description {
     display: none;
-    padding-left: 14px;
+    padding: 8px 0 8px 14px;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 @media only screen and (min-width: $tablet-width) {

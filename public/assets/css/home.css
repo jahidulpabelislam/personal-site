@@ -355,7 +355,7 @@
   color: #f74440; }
 
 .latest-projects__view-more {
-  margin: 0 0 15px; }
+  margin: 0; }
 
 .latest-projects__slide-show {
   width: 100%;
@@ -374,15 +374,14 @@
 
 .latest-project__info-content {
   margin: 0 auto;
-  padding: 10px 35px;
+  padding: 16px 35px;
   background-color: #333333;
   color: #ffffff;
   cursor: initial;
   opacity: 0.15;
   transition: all 2s ease-in-out; }
-
-.latest-project.slide-show__slide--active .latest-project__info-content {
-  opacity: 1; }
+  .latest-project.slide-show__slide--active .latest-project__info-content {
+    opacity: 1; }
 
 .latest-project__image:hover {
   transform: none; }
@@ -399,20 +398,21 @@
   margin-bottom: 0; }
 
 @media only screen and (min-width: 768px) {
-  .latest-projects {
-    padding: 0; }
-    .latest-projects .container {
-      padding: 0 15px; }
-      .latest-projects .container > div:first-child {
-        text-align: left; }
-    .latest-projects .slide-show__bullets {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1; }
-    .latest-projects .slide-show__bullet {
-      box-shadow: 0 0 10px 0 #ffffff; }
+  .latest-projects .container {
+    padding: 0 15px; }
+    .latest-projects .container > div:first-child {
+      text-align: left; }
+  .latest-projects .slide-show__bullets {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
+  .latest-projects .slide-show__bullet {
+    box-shadow: 0 0 10px 0 #ffffff; }
+  .latest-projects_column--slide-show {
+    margin-top: -30px;
+    margin-bottom: -30px; }
   .latest-projects__intro {
     margin-bottom: 32px; }
   .latest-projects__view-more {
@@ -441,9 +441,6 @@
 @media only screen and (min-width: 1200px) {
   .latest-projects__intro {
     margin-bottom: 40px; } }
-
-.contact-me {
-  padding: 0; }
 
 .contact-me__column {
   padding: 30px 15px; }
@@ -501,7 +498,9 @@
   .contact-me__column--header {
     display: flex;
     align-self: stretch;
-    align-items: center; }
+    align-items: center;
+    margin-top: -30px;
+    margin-bottom: -30px; }
     .contact-me__column--header > div {
       width: 100%;
       max-width: 585px;
@@ -611,7 +610,9 @@
 
 .skill__description {
   display: none;
-  padding-left: 14px; }
+  padding: 8px 0 8px 14px; }
+  .skill__description p:last-child {
+    margin-bottom: 0; }
 
 @media only screen and (min-width: 768px) {
   .home-hello__hello {

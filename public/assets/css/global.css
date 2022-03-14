@@ -34,6 +34,22 @@
 .row--flush {
   padding: 0; }
 
+.row--tablet-thirds,
+.row--thirds,
+.row--halves {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+.row--tablet-thirds .row__heading,
+.row--thirds .row__heading {
+  padding-top: 18px; }
+
+.row--tablet-thirds .row__column,
+.row--thirds .row__column,
+.row--halves .row__column {
+  padding-top: 18px;
+  padding-bottom: 18px; }
+
 .row--alt {
   background-color: #f5f5f5;
   color: #333333; }
@@ -69,20 +85,17 @@
   width: 75%;
   max-width: 165px; }
 
-.row--tablet-thirds .row__column,
-.row--halves .row__column,
-.row--thirds .row__column {
-  padding-top: 18px;
-  padding-bottom: 18px; }
+.row__column--flush.row__column--flush {
+  padding: 0; }
 
 /* Only for Desktops */
 @media only screen and (min-width: 768px) {
   .row {
     padding: 30px 0; }
-  .row--tall {
-    padding: 36px 0; }
   .row--flush {
     padding: 0; }
+  .row--tall {
+    padding: 36px 0; }
   .row__heading {
     margin-bottom: 32px;
     font-size: 26px;
@@ -95,26 +108,26 @@
   .row--halves > .container {
     display: flex;
     align-items: center; }
-  .row--tablet-thirds .row__column,
-  .row--halves .row__column {
-    padding-top: 0;
-    padding-bottom: 0; }
+  .row--tablet-thirds .row__heading,
+  .row--halves .row__heading {
+    padding-top: 0; }
   .row--tablet-thirds .row__column {
-    width: 33%; }
+    width: 33%;
+    padding: 0; }
     .row--tablet-thirds .row__column:first-child {
-      padding-right: 30px; }
+      padding-right: 15px; }
     .row--tablet-thirds .row__column:not(:first-child):not(:last-child) {
-      padding-left: 15px; }
+      padding-right: 7.5px;
+      padding-left: 7.5px; }
     .row--tablet-thirds .row__column:last-child {
-      padding-left: 30px; }
+      padding-left: 15px; }
   .row--halves .row__column {
-    width: 50%; }
+    width: 50%;
+    padding: 0; }
     .row--halves .row__column:first-child {
-      padding-right: 30px; }
+      padding-right: 15px; }
     .row--halves .row__column:last-child {
-      padding-left: 30px; }
-  .row--halves .row__column--flush.row__column--flush {
-    padding-left: 0; } }
+      padding-left: 15px; } }
 
 @media only screen and (min-width: 1200px) {
   .row--thirds > .container {
