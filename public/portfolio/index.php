@@ -104,7 +104,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
         <div class="projects__header">
             <?php
-            $paginationStatusFormat = "Showing <strong>{start} - {end}</strong> of <strong>{total}</strong> projects";
+            $paginationStatusFormat = "Showing <strong>{start}</strong>-<strong>{end}</strong> of <strong>{total}</strong> projects";
             $paginationStatus = str_replace(
                 [
                     "{start}",
