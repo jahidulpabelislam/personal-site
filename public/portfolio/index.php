@@ -88,6 +88,10 @@ curl_close($ch);
 
 $projectTypes = $projectTypesRes["data"] ?? [];
 
+usort($projectTypes, function ($projectTypeA, $projectTypeB) {
+    return strcmp($projectTypeA["name"], $projectTypeB["name"]);
+});
+
 $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
 
