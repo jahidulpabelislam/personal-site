@@ -1,50 +1,20 @@
-.projects__types-filter {
-    margin: 25px auto;
+.projects__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 40px auto;
 }
 
-.projects__types-label {
+.projects__type-filter-label {
     margin: 0 10px 0 0;
     font-weight: 700;
 }
 
-.projects__types {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.projects__type {
-    margin: 4px 8px;
+.projects__type-filter-select {
+    width: auto;
+    margin: 0;
     vertical-align: middle;
-    cursor: pointer;
-
-    > span {
-        display: block;
-        padding: 8px 14px;
-        border-radius: 2px;
-        background: #fff;
-        color: $dark-colour;
-        font-weight: 400;
-
-    }
-
-    &:hover,
-    &:focus {
-        > span {
-            background: $secondary-colour;
-            box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
-        }
-    }
-
-    > input {
-        display: none;
-
-        &:checked + span {
-            background: $secondary-colour;
-            box-shadow: none;
-        }
-    }
 }
 
 .projects__loading {

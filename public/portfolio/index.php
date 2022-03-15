@@ -98,47 +98,37 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 
-        <?php if (count($projectTypes) > 1): ?>
-            <div class="projects__types-filter">
-                <label class="projects__types-label">Filter by: </label>
-                <div class="projects__types">
-                    <label class="projects__type">
-                        <input type="radio" class="js-project-type" name="project-type" value="" <?php echo !$type ? "checked" : "" ?> />
-                        <span>Show all</span>
-                    </label>
-                    <?php foreach ($projectTypes as $projectType): ?>
-                        <label class="projects__type">
-                            <input
-                                type="radio"
-                                class="js-project-type"
-                                name="project-type"
-                                value="<?php echo $projectType["id"] ?>"
-                                <?php echo $type == $projectType["id"] ? "checked" : "" ?>
-                            />
-                            <span><?php echo $projectType["name"] ?></span>
-                        </label>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        <?php endif; ?>
+        <div class="projects__header">
+            <?php
+            $paginationStatusFormat = "Showing <strong>{start} - {end}</strong> of <strong>{total}</strong> projects";
+            $paginationStatus = str_replace(
+                [
+                    "{start}",
+                    "{end}",
+                    "{total}",
+                ],
+                [
+                    1 + ($pageNum - 1) * $projectsPerPage,
+                    ($pageNum - 1) * $projectsPerPage + count($projects),
+                    $apiRes["_total_count"]
+                ],
+                $paginationStatusFormat
+            )
+            ?>
+            <p class="projects__pagination-status" data-format="<?php echo $paginationStatusFormat; ?>"><?php echo $paginationStatus; ?></p>
 
-        <?php
-        $paginationStatusFormat = "Showing {start} - {end} of {total} projects";
-        $paginationStatus = str_replace(
-            [
-                "{start}",
-                "{end}",
-                "{total}",
-            ],
-            [
-                1 + ($pageNum - 1) * $projectsPerPage,
-                ($pageNum - 1) * $projectsPerPage + count($projects),
-                $apiRes["_total_count"]
-            ],
-            $paginationStatusFormat
-        )
-        ?>
-        <p class="projects__pagination-status" data-format="<?php echo $paginationStatusFormat; ?>"><?php echo $paginationStatus; ?></p>
+            <?php if (count($projectTypes) > 1): ?>
+                <div class="projects__type-filter">
+                    <label for="projects-type" class="projects__type-filter-label">Filter by:</label>
+                    <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
+                        <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
+                        <?php foreach ($projectTypes as $projectType): ?>
+                            <option value="<?php echo $projectType["id"] ?>" <?php echo $type == $projectType["id"] ? "selected" : "" ?>><?php echo $projectType["name"] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
+        </div>
 
         <p class="projects__error"></p>
         <i class="projects__loading fas fa-spinner fa-spin fa-3x"></i>

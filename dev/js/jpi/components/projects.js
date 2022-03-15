@@ -215,14 +215,14 @@
             paginationStatus = paginationStatus.replace("{end}", (this.page - 1) * JPI.projects.perPage + response.data.length);
             paginationStatus = paginationStatus.replace("{total}", response._total_count);
 
-            this.$paginationStatus.text(paginationStatus).show();
+            this.$paginationStatus.html(paginationStatus).show();
         }
     };
 
     this.getProjects = function() {
         var query = {
             filters: {
-                type_id: this.$projectType.filter(":checked").val(),
+                type_id: this.$projectType.val(),
             },
             page: this.page,
             limit: JPI.projects.perPage,
@@ -275,7 +275,7 @@
 
         var state = {
             page: this.page,
-            type: this.$projectType.filter(":checked").val(),
+            type: this.$projectType.val(),
         };
 
         history.pushState(state, window.title, this.url.toString());
@@ -333,8 +333,7 @@
 
             projects.page = JPI.getInt(page, 1);
 
-            projects.$projectType.attr("checked", false);
-            projects.$projectType.filter("[value='" + type + "']").prop("checked", true);
+            projects.$projectType.val("");
 
             projects.scrollToProjects();
 
