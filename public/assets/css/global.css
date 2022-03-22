@@ -387,14 +387,15 @@ a.button {
     max-width: 750px; } }
 
 .table {
-  margin: 0 auto;
+  margin: 0 auto 10px;
   border-color: #333333; }
 
 .table__row {
   border: 1px solid #333333; }
 
 .table__col {
-  padding: 6px; }
+  padding: 6px;
+  border: 1px solid #333333; }
 
 .table__col--header {
   font-weight: 700; }

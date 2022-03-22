@@ -21,12 +21,16 @@ $page->renderHeader([
 $page->renderContentStart();
 ?>
 
-<div class="row row--alt">
+<div class="row">
     <div class="container">
         <h3 class="row__heading">Cookies</h3>
         <p>This website uses cookies to collect information. Cookies are files stored on your device when you come on a website which is using them. The data stored can be a whole range of data, user login session data to shopping basket.</p>
         <p>Cookies on this site is used to allow tracking user behaviour with the site, to use in analytics and improving the site.</p>
         <p>By viewing the site, it will be assumed you agree to use cookies within this site.</p>
+    </div>
+</div>
+<div class="row row--alt">
+    <div class="container">
         <h4 class="row__sub-heading">Cookies used:</h4>
         <table class="table">
             <tr class="table__row table__row--header">
