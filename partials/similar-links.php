@@ -14,7 +14,7 @@ if (count($links)) {
         $url = $site->makeURL($url);
 
         $linksContent .= <<<HTML
-<div class="row__column">
+<div class="row__column row__column--flush">
     <a class="button button--large button--brand" href="$url" title="Link to $pageTitle Page">
         $buttonText
     </a>

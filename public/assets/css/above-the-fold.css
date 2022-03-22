@@ -110,6 +110,9 @@ blockquote {
   overflow: hidden;
   clip: rect(0, 0, 0, 0); }
 
+.similar-links.similar-links {
+  padding: 18px 0; }
+
 /* Only for Desktops */
 @media only screen and (min-width: 1200px) {
   .similar-links.similar-links > .container {
