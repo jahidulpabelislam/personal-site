@@ -103,6 +103,17 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 
         <div class="projects__header">
+            <?php if (count($projectTypes) > 1): ?>
+                <div class="projects__type-filter">
+                    <label for="projects-type" class="projects__type-filter-label">Filter by:</label>
+                    <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
+                        <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
+                        <?php foreach ($projectTypes as $projectType): ?>
+                            <option value="<?php echo $projectType["id"] ?>" <?php echo $type == $projectType["id"] ? "selected" : "" ?>><?php echo $projectType["name"] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
             <?php
             $paginationStatusFormat = "Showing <strong>{start}</strong>-<strong>{end}</strong> of <strong>{total}</strong> projects";
             $paginationStatus = str_replace(
@@ -120,18 +131,6 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             )
             ?>
             <p class="projects__pagination-status" data-format="<?php echo $paginationStatusFormat; ?>"><?php echo $paginationStatus; ?></p>
-
-            <?php if (count($projectTypes) > 1): ?>
-                <div class="projects__type-filter">
-                    <label for="projects-type" class="projects__type-filter-label">Filter by:</label>
-                    <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
-                        <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
-                        <?php foreach ($projectTypes as $projectType): ?>
-                            <option value="<?php echo $projectType["id"] ?>" <?php echo $type == $projectType["id"] ? "selected" : "" ?>><?php echo $projectType["name"] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            <?php endif; ?>
         </div>
 
         <p class="projects__error"></p>
