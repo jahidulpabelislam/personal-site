@@ -295,7 +295,7 @@
             projects.page = 1;
 
             if (jQuery(this).val()) {
-                projects.url.searchParams.set("type", jQuery(this).val());
+                projects.url.searchParams.set("type", jQuery(this).find("option:selected").attr("data-urlname"));
             } else {
                 projects.url.searchParams.delete("type");
             }

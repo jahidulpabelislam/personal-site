@@ -16,11 +16,45 @@ $apiRequestParams = [
     "page" => $pageNum,
 ];
 
+$projectTypesURL = $site::getAPIEndpoint("/project-types/");
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
+curl_setopt(
+    $ch,
+    CURLOPT_HTTPHEADER, [
+        "Accept: application/json",
+    ]
+);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
+
+$projectTypesRes = json_decode(curl_exec($ch), true);
+curl_close($ch);
+
+$projectTypes = $projectTypesRes["data"] ?? [];
+
+usort($projectTypes, function ($projectTypeA, $projectTypeB) {
+    return strcmp($projectTypeA["name"], $projectTypeB["name"]);
+});
+
+foreach ($projectTypes as $i => $projectType) {
+    $projectTypes[$i]["urlname"] = preg_replace("/[^a-z0-9]+/", "-", strtolower($projectType["name"]));
+}
+
 $type = $_GET["type"] ?? null;
 if ($type) {
-    $apiRequestParams["filters"] = [
-        "type_id" => $type,
-    ];
+    foreach ($projectTypes as $i => $projectType) {
+        if ($type !== $projectType["urlname"]) {
+            continue;
+        }
+
+        $apiRequestParams["filters"] = [
+            "type_id" => $projectType["id"],
+        ];
+        break;
+    }
 }
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
@@ -69,29 +103,6 @@ $page->renderHeader([
 ]);
 $page->renderContentStart();
 
-$projectTypesURL = $site::getAPIEndpoint("/project-types/");
-
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
-curl_setopt(
-    $ch,
-    CURLOPT_HTTPHEADER, [
-        "Accept: application/json",
-    ]
-);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_TIMEOUT, 10); // Seconds
-
-$projectTypesRes = json_decode(curl_exec($ch), true);
-curl_close($ch);
-
-$projectTypes = $projectTypesRes["data"] ?? [];
-
-usort($projectTypes, function ($projectTypeA, $projectTypeB) {
-    return strcmp($projectTypeA["name"], $projectTypeB["name"]);
-});
-
 $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
 
@@ -109,13 +120,19 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
                     <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
                         <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
                         <?php foreach ($projectTypes as $projectType): ?>
-                            <option value="<?php echo $projectType["id"] ?>" <?php echo $type == $projectType["id"] ? "selected" : "" ?>><?php echo $projectType["name"] ?></option>
+                            <option
+                                value="<?php echo $projectType["id"] ?>"
+                                data-urlname="<?php echo $projectType["urlname"] ?>"
+                                <?php echo $type === $projectType["urlname"] ? "selected" : "" ?>
+                            >
+                                <?php echo $projectType["name"] ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
             <?php endif; ?>
             <?php
-            $paginationStatusFormat = "Showing <strong>{start}</strong>-<strong>{end}</strong> of <strong>{total}</strong> projects";
+            $paginationStatusFormat = "Showing <strong>{start}</strong> - <strong>{end}</strong> of <strong>{total}</strong> projects";
             $paginationStatus = str_replace(
                 [
                     "{start}",
