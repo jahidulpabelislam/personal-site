@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Exception;
+
 class Page {
 
     /**
@@ -39,7 +41,7 @@ class Page {
      * @param $method string
      * @param $arguments array
      * @return mixed
-     * @throws Exception
+     * @throws \Exception
      */
     public function __call(string $method, array $arguments) {
         if (strpos($method, "render") === 0 && is_callable([$this->renderer, $method])) {
