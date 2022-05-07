@@ -53,7 +53,7 @@ class Site extends BaseSite implements Me {
         $url = parent::makeURL($relativeURL, $addDevAssetsParam, $isFull && !$isLive);
 
         if ($isFull && $isLive) {
-            $url = static::removeTrailingSlash($this->getLiveDomain()) . $url;
+            $url = static::formatURL($this->getLiveDomain(), $url);
         }
 
         return $url;
@@ -66,7 +66,7 @@ class Site extends BaseSite implements Me {
         $url = parent::getCurrentURL($isFull && !$isLive);
 
         if ($isFull && $isLive) {
-            $url = static::removeTrailingSlash($this->getLiveDomain()) . $url;
+            $url = static::formatURL($this->getLiveDomain(), $url);
         }
 
         return $url;
