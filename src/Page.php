@@ -16,17 +16,20 @@ class Page {
      */
     private $renderer;
 
-    private $data;
+    private $data = [];
 
     private static $instance;
 
     private function __construct() {
         $this->site = Site::get();
-
-        $this->data = $this->getGlobalPageData();
-        $this->addScripts($this->getScriptsForPage($this->data["id"]));
-
         $this->renderer = new Renderer($this);
+
+        $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
+        if ($filePath !== realpath(PUBLIC_ROOT)) {
+            $this->id = basename($filePath);
+        } else {
+            $this->id = "home";
+        }
     }
 
     public static function get(): Page {
@@ -56,7 +59,14 @@ class Page {
     }
 
     public function __set(string $field, $value) {
+        $oldValue = $this->data[$field] ?? null;
+
         $this->data[$field] = $value;
+
+        if ($field === "id" && $oldValue !== $value) {
+            $this->setUpGlobalPageData();
+            $this->addScripts($this->getScriptsForPage($value));
+        }
     }
 
     public function __isset(string $field): bool {
@@ -119,32 +129,27 @@ class Page {
         return $scripts;
     }
 
-    private function getGlobalPageData(): array {
-        $pageId = "home";
+    private function setUpGlobalPageData(): void {
+        $pageId = $this->data["id"];
         $url = "/";
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== realpath(PUBLIC_ROOT)) {
-            $pageId = basename($filePath);
-
             $url = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
-        return [
-            "id" => $pageId,
-            "indexed" => $this->site->isProduction(),
-            "currentURL" => $this->site->makeURL($url, false),
-            "inlineStylesheets" => $this->getInlineStylesheetsForPage($pageId),
-            "stylesheets" => $this->getStylesheetsForPage($pageId),
-            "deferredStylesheets" => $this->getDeferredStylesheetsForPage($pageId),
-            "jsGlobals" => [
-                "breakpoints" => load(JPI_SITE_ROOT . "/config/breakpoints.json", false)->getArray(),
-            ],
-            "scripts" => [],
-            "inlineJS" => "",
-            "onLoadInlineJS" => "",
-            "jsTemplates" => [],
+        $this->data["indexed"] = $this->site->isProduction();
+        $this->data["currentURL"] = $this->site->makeURL($url, false);
+        $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage($pageId);
+        $this->data["stylesheets"] = $this->getStylesheetsForPage($pageId);
+        $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage($pageId);
+        $this->data["jsGlobals"] = [
+            "breakpoints" => load(JPI_SITE_ROOT . "/config/breakpoints.json", false)->getArray(),
         ];
+        $this->data["scripts"] = [];
+        $this->data["inlineJS"] = "";
+        $this->data["onLoadInlineJS"] = "";
+        $this->data["jsTemplates"] = [];
     }
 
     public function addPageData(array $newPageData): void {

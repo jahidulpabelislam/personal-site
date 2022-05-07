@@ -19,8 +19,8 @@ $errorDescription = $errorDescriptions[$error];
 
 $headDescription = "Error: $error - $errorDescription message on the site of $name, a $job based at Bognor Regis, West Sussex down by the South Coast of England.";
 
+$page->id = $error;
 $pageData = [
-    "id" => $error,
     "indexed" => false,
     "currentURL" => $site->makeURL("/$error"),
 ];
