@@ -1197,8 +1197,7 @@ JPI.ExpandedSlideShow = function() {
             var type = state.type || "";
 
             projects.page = JPI.getInt(page, 1);
-
-            projects.$projectType.val("");
+            projects.$projectType.val(type);
 
             projects.scrollToProjects();
 
