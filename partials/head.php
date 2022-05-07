@@ -29,7 +29,7 @@ $description = $this->description ?? "";
             $page->addJSGlobal("projects", "titleEnd", $suffix);
         }
 
-        $title = "$title $suffix";
+        $title = "$title$suffix";
     }
     ?>
 
