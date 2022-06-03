@@ -72,6 +72,10 @@ class Site extends BaseSite implements Me {
         return $url;
     }
 
+    public static function getLinkToURL(string $service): string {
+        return static::formatURL(LINK_TO_URL, "/$service/");
+    }
+
     public function getLinksUrl(): string {
         return LINKS_URL;
     }

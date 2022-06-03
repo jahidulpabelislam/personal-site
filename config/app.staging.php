@@ -1,5 +1,9 @@
 <?php
 
+if (!defined("LINK_TO_URL")) {
+    define("LINK_TO_URL", "https://staging.linkto.jahidulpabelislam.com/");
+}
+
 if (!defined("LINKS_URL")) {
     define("LINKS_URL", "https://staging.links.jahidulpabelislam.com/");
 }

@@ -160,13 +160,13 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 <section class="portfolio-links row">
     <div class="container">
         <h1 class="portfolio-links__heading row__heading">View My Packages</h1>
-        <a class="portfolio-links__link social-link social-link--npm" href="https://linkto.jahidulpabelislam.com/npm/" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $site::getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/npm.svg"); ?>" alt="Find me on NPM" />
         </a>
-        <a class="portfolio-links__link social-link social-link--packagist" href="https://linkto.jahidulpabelislam.com/packagist/" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $site::getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/packagist.svg"); ?>" alt="Find me on Packagist" />
         </a>
-        <a class="portfolio-links__link social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub" />
         </a>
     </div>

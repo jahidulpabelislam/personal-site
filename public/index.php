@@ -27,13 +27,13 @@ $page->renderNav();
             </h1>
             <h2 class="header__description"><?php echo $job; ?></h2>
             <div class="header__links">
-                <a class="social-link social-link--linkedin" href="https://linkto.jahidulpabelislam.com/linkedin/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
                     <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
                 </a>
-                <a class="social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
                     <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
                 </a>
-                <a class="social-link social-link--instagram" href="https://linkto.jahidulpabelislam.com/instagram/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--instagram" href="<?php echo $site::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
                     <span class="social-link__image"><i></i></span>
                 </a>
             </div>
@@ -401,21 +401,21 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
         <div>
             <h2 class="row__heading">Connect With Me</h2>
             <div class="contact-me__item">
-                <a class="social-link social-link--linkedin" href="https://linkto.jahidulpabelislam.com/linkedin/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
                     <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
                     &nbsp;
                     <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
                 </a>
             </div>
             <div class="contact-me__item">
-                <a class="social-link social-link--github" href="https://linkto.jahidulpabelislam.com/github/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
                     <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
                     &nbsp;
                     <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
                 </a>
             </div>
             <div class="contact-me__item">
-                <a class="social-link social-link--instagram" href="https://linkto.jahidulpabelislam.com/instagram/" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--instagram" href="<?php echo $site::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
                     <span class="social-link__image"><i></i></span>
                     &nbsp;
                     <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
