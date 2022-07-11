@@ -120,6 +120,16 @@
 .project__description {
     text-align: left;
     margin-top: 15px;
+
+    ol, ul {
+        list-style: inside;
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+
+    li {
+        margin: 2px 0;
+    }
 }
 
 .project__description > p:first-child {

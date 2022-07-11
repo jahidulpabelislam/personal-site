@@ -1397,6 +1397,12 @@ a.button {
 .project__description {
   text-align: left;
   margin-top: 15px; }
+  .project__description ol, .project__description ul {
+    list-style: inside;
+    margin: 10px 0;
+    padding-left: 20px; }
+  .project__description li {
+    margin: 2px 0; }
 
 .project__description > p:first-child {
   margin-top: 0; }
