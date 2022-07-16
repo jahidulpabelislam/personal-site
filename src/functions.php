@@ -16,14 +16,6 @@ function load(string $path, bool $isRelative = true): File {
     return new File($path, $isRelative);
 }
 
-function getConfigPath(string $level = null): string {
-    if ($level && !in_array($level, ["global", "site", "production"])) {
-        return ROOT . "/config/app.$level.php";
-    }
-
-    return ROOT . "/config/app.php";
-}
-
 /**
  * @param $fromDate DateTime|string
  * @param $toDate DateTime|string
