@@ -47,9 +47,6 @@ $page->renderNav();
 
 <?php
 $page->renderContentStart();
-
-// Work out the time since I started to today
-$yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
 ?>
 
 <div class="row row--alt home-hello">
@@ -359,7 +356,7 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             $counterItems = [
                 [
                     "text" => "Years experience",
-                    "number" => $yearsSinceStarted,
+                    "number" => getTimeDifference(new DateTime("2017-06-28"), new DateTime(), "%r%y"),
                     "speed" => $speed,
                 ],
                 [
