@@ -35,7 +35,7 @@ curl_close($ch);
 
 $projectTypes = $projectTypesRes["data"] ?? [];
 
-usort($projectTypes, function ($projectTypeA, $projectTypeB) {
+usort($projectTypes, static function ($projectTypeA, $projectTypeB) {
     return strcmp($projectTypeA["name"], $projectTypeB["name"]);
 });
 
@@ -109,28 +109,11 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
 <section class="row row--alt projects">
     <div class="container">
         <p>Here you will see some pieces of work I have completed in the last <?php echo $yearsSinceStarted; ?> years.</p>
-        <p>Most of these started as I am always on the lookout for ways to improve my skill set, whether that is experimenting with new technologies, integrating new libraries & plugins (this being my main experiment).</p>
+        <p>Most of these started as I am always on the lookout for ways to improve my skill set, whether that is experimenting with new technologies, integrating new libraries &amp; plugins (this being my main experiment).</p>
 
         <input type="hidden" class="js-page" value="<?php echo $pageNum; ?>" />
 
         <div class="projects__header">
-            <?php if (count($projectTypes) > 1): ?>
-                <div class="projects__type-filter">
-                    <label for="projects-type" class="projects__type-filter-label">Filter by:</label>
-                    <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
-                        <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
-                        <?php foreach ($projectTypes as $projectType): ?>
-                            <option
-                                value="<?php echo $projectType["id"] ?>"
-                                data-urlname="<?php echo $projectType["urlname"] ?>"
-                                <?php echo $type === $projectType["urlname"] ? "selected" : "" ?>
-                            >
-                                <?php echo $projectType["name"] ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            <?php endif; ?>
             <?php
             $paginationStatusFormat = "Showing <strong>{start}</strong> - <strong>{end}</strong> of <strong>{total}</strong> projects";
             $paginationStatus = str_replace(
@@ -148,6 +131,24 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
             )
             ?>
             <p class="projects__pagination-status" data-format="<?php echo $paginationStatusFormat; ?>"><?php echo $paginationStatus; ?></p>
+
+            <?php if (count($projectTypes) > 1): ?>
+                <div class="projects__type-filter">
+                    <label for="projects-type" class="projects__type-filter-label">Filter by:</label>
+                    <select name="project-type" id="projects-type" class="projects__type-filter-select input js-project-type">
+                        <option value="" <?php echo !$type ? "selected" : "" ?>>All</option>
+                        <?php foreach ($projectTypes as $projectType): ?>
+                            <option
+                                value="<?php echo $projectType["id"] ?>"
+                                data-urlname="<?php echo $projectType["urlname"] ?>"
+                                <?php echo $type === $projectType["urlname"] ? "selected" : "" ?>
+                            >
+                                <?php echo $projectType["name"] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
         </div>
 
         <p class="projects__error"></p>
@@ -161,13 +162,13 @@ $yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), 
     <div class="container">
         <h1 class="portfolio-links__heading row__heading">View My Packages</h1>
         <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $site::getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/npm.svg"); ?>" alt="Find me on NPM" />
+            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/npm.svg"); ?>" alt="NPM logo" />
         </a>
         <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $site::getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/packagist.svg"); ?>" alt="Find me on Packagist" />
+            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/packagist.svg"); ?>" alt="Packagist logo" />
         </a>
         <a class="portfolio-links__link social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub" />
+            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
         </a>
     </div>
 </section>
@@ -178,7 +179,7 @@ $page->addJSTemplate(
     <<<HTML
     <article class="project">
         <div class="project__image">
-            <img src="{{ images.0.url }}" alt="Screen shot of project" />
+            <img src="{{ images.0.url }}" alt="Screenshot of project" />
         </div>
 
         <div class="project__content">
@@ -206,7 +207,7 @@ $page->addJSTemplate(
     "slide",
     <<<HTML
     <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screen shot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screenshot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
     </div>
     HTML
 );
@@ -247,12 +248,12 @@ $page->renderPageEnd();
         <div class="slide-show project__slide-show" id="detailed-project-slide-show">
             <div class="slide-show__viewport">
                 <button type="button" class="slide-show__nav" data-direction="previous">
-                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                    <span class="screen-reader-text">Navigate to the previous slide</span>
                     <?php renderFile("/assets/images/previous.svg"); ?>
                 </button>
                 <div class="slide-show__slides js-expandable-image-group"></div>
                 <button type="button" class="slide-show__nav" data-direction="next">
-                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                    <span class="screen-reader-text">Navigate to the next slide</span>
                     <?php renderFile("/assets/images/next.svg"); ?>
                 </button>
             </div>
@@ -265,30 +266,30 @@ $page->renderPageEnd();
     <button type="button" class="button expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
     <div class="expanded-slide-show__image-container">
-        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
     </div>
 
     <div class="expanded-slide-show__image-container">
-        <img class="expanded-slide-show__image" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Expanded Image of slide" />
+        <img class="expanded-slide-show__image" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
     </div>
 
     <div class="expanded-slide-show__controls">
-        <div class="expanded-slide-show__navigations">
-            <button type="button" class="expanded-slide-show__nav" data-direction="previous">
-                <span class="screen-reader-text">Navigate to the previous slide/image.</span>
-                <?php renderFile("/assets/images/previous.svg"); ?>
-            </button>
-            <button type="button" class="expanded-slide-show__nav" data-direction="next">
-                <span class="screen-reader-text">Navigate to the next slide/image.</span>
-                <?php renderFile("/assets/images/next.svg"); ?>
-            </button>
-        </div>
-
-        <div class="expanded-slide-show__bullets"></div>
-
         <p class="expanded-slide-show__counter">
             <span class="expanded-slide-show__current-count"></span>/<span class="expanded-slide-show__total-count"></span>
         </p>
+
+        <div class="expanded-slide-show__bullets"></div>
+
+        <div class="expanded-slide-show__navigations">
+            <button type="button" class="expanded-slide-show__nav" data-direction="previous">
+                <span class="screen-reader-text">Navigate to the previous slide</span>
+                <?php renderFile("/assets/images/previous.svg"); ?>
+            </button>
+            <button type="button" class="expanded-slide-show__nav" data-direction="next">
+                <span class="screen-reader-text">Navigate to the next slide</span>
+                <?php renderFile("/assets/images/next.svg"); ?>
+            </button>
+        </div>
     </div>
 </div>
 

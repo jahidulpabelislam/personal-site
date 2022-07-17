@@ -43,8 +43,8 @@ $page->renderContentStart();
             </tr>
             <tr class="table__row">
                 <td class="table__col">_ga</td>
-                <td class="table__col">Performance </td>
-                <td class="table__col">First Party</td>
+                <td class="table__col">Performance</td>
+                <td class="table__col">First party</td>
                 <td class="table__col">.jahidulpabelislam.com</td>
                 <td class="table__col">2 years</td>
                 <td class="table__col">Used to distinguish unique users</td>
@@ -52,21 +52,21 @@ $page->renderContentStart();
             <tr class="table__row">
                 <td class="table__col">_gat</td>
                 <td class="table__col">todo</td>
-                <td class="table__col">First Party</td>
+                <td class="table__col">First party</td>
                 <td class="table__col">.jahidulpabelislam.com</td>
                 <td class="table__col">10 minutes</td>
                 <td class="table__col">Used to throttle request rate</td>
             </tr>
             <tr class="table__row">
                 <td class="table__col">cookie-modal-closed</td>
-                <td class="table__col">Strictly Necessary</td>
-                <td class="table__col">First Party</td>
+                <td class="table__col">Strictly necessary</td>
+                <td class="table__col">First party</td>
                 <td class="table__col">jahidulpabelislam.com</td>
                 <td class="table__col">30 days</td>
                 <td class="table__col">Used to make sure the modal isn't shown if closed already</td>
             </tr>
         </table>
-        <p>The cookies used and the Google Analytics data stored will be anonymised and can't be used to identify individual people.</p>
+        <p>The cookies used and the Google Analytics data stored will be anonymised and can't be used to identify individuals.</p>
         <p>
             To stop cookies you will need to go to your browser settings, for more information on this as well as general/more information on cookies can be found at
             <a class="link" href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer">allaboutcookies</a>.

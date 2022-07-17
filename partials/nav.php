@@ -6,7 +6,7 @@ $page = page();
 <nav class="nav">
     <div class="container nav__container">
         <div class="nav__logo-container">
-            <a class="nav__logo <?php if ($page->id === "home") {echo "nav__logo--active";} ?>" href="<?php echo $site->makeURL(); ?>">
+            <a class="nav__logo<?php echo $page->id === "home" ? " nav__logo--active" : "" ?>" href="<?php echo $site->makeURL(); ?>">
                 <img src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
             </a>
         </div>
@@ -16,7 +16,7 @@ $page = page();
 
             $links = [
                 [
-                    "title" => "My Portfolio",
+                    "title" => "Portfolio",
                     "url" => "/portfolio/",
                 ],
             ];

@@ -28,10 +28,10 @@ $page->renderNav();
             <h2 class="header__description"><?php echo $job; ?></h2>
             <div class="header__links">
                 <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="LinkedIn logo" />
                 </a>
                 <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
                 </a>
                 <a class="social-link social-link--instagram" href="<?php echo $site::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
                     <span class="social-link__image"><i></i></span>
@@ -51,16 +51,16 @@ $page->renderContentStart();
 
 <div class="row row--alt home-hello">
     <div class="container">
-        <p class="home-hello__hello"><span>Hello</span> there everyone!</p>
+        <p class="home-hello__hello"><span>Hello</span> there everyone 👋!</p>
         <div class="home-hello__images">
-            <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
-            <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $name; ?>'s Logo" />
+            <img class="home-hello__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> graduating" />
+            <img class="home-hello__image home-hello__image--logo" src="<?php echo $site::asset("/assets/images/logo.png"); ?>" alt="<?php echo $name; ?>'s logo" />
         </div>
         <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
         <p>
-            Here you will be able to look at some of the <a class="link" href="<?php echo $site->makeURL("/portfolio/"); ?>">projects</a>
-            I have worked on, <a class="link js-scroll-to" href="#about">learn about me</a> also be able to
-            <a class="link js-scroll-to" href="#connect">connect with me</a>.
+            Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, have a look at some of the
+            <a class="link" href="<?php echo $site->makeURL("/portfolio/"); ?>">projects</a>
+            I have worked on also be able to <a class="link js-scroll-to" href="#connect">connect with me</a>.
         </p>
     </div>
 </div>
@@ -76,15 +76,20 @@ $page->renderContentStart();
             <p>I am <?php echo $age; ?> years old.</p>
         </div>
         <div class="row__column">
-            <p>Currently working as a Web Developer @ D3R</p>
+            <p>
+                Currently working as a Web Developer @
+                <a class="link link--brand" href="https://d3r.com" title="Link to D3R site" target="_blank" rel="noopener noreferrer">
+                    D3R
+                </a>.
+            </p>
         </div>
         <div class="row__column">
             <p>I can speak English &amp; Bengali.</p>
         </div>
         <div class="row__column">
             <p>
-                Based down in the South coast of England in a town called
-                <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis." target="_blank" rel="noopener noreferrer">
+                Based down in the South coast of England in a small town called
+                <a class="link link--brand" href="https://goo.gl/maps/KEJgpYCxm6x/" title="Link to map of Bognor Regis" target="_blank" rel="noopener noreferrer">
                     Bognor Regis
                 </a>.
             </p>
@@ -102,11 +107,11 @@ $page->renderContentStart();
         <div class="timeline__viewport">
             <div class="timeline__navs">
                 <button type="button" class="timeline__nav button button--white" data-direction="previous">
-                    <span class="screen-reader-text">Navigate to the previous slide/image.</span>
+                    <span class="screen-reader-text">Navigate to the previous slide</span>
                     <?php renderFile("/assets/images/previous.svg"); ?>
                 </button>
                 <button type="button" class="timeline__nav button button--white" data-direction="next">
-                    <span class="screen-reader-text">Navigate to the next slide/image.</span>
+                    <span class="screen-reader-text">Navigate to the next slide</span>
                     <?php renderFile("/assets/images/next.svg"); ?>
                 </button>
             </div>
@@ -117,12 +122,12 @@ $page->renderContentStart();
                     [
                         "date" => "1996",
                         "icon" => "baby",
-                        "text" => "Born",
+                        "text" => "Birth",
                     ],
                     [
                         "date" => "1996 - 2007",
                         "icon" => "childhood",
-                        "text" => "Life before getting introduced to technology",
+                        "text" => "Life before tech",
                     ],
                     [
                         "date" => "2005 - 2009",
@@ -135,7 +140,7 @@ $page->renderContentStart();
                     [
                         "date" => 2010,
                         "icon" => "coding",
-                        "text" => "Got introduced to coding",
+                        "text" => "Introduced to coding",
                     ],
                     [
                         "date" => "2012 - 2014",
@@ -148,20 +153,18 @@ $page->renderContentStart();
                     [
                         "date" => "2014",
                         "icon" => "food",
-                        "text" => "Working Part Time @
+                        "text" => "Part Time Team Member @
                             <a class='link link--secondary' href='https://www.kfc.co.uk/' title='Link to KFC website.' target='_blank' rel='noopener noreferrer'>
                                 KFC
-                            </a>
-                             as a Team Member",
+                            </a>",
                     ],
                     [
                         "date" => "2014 - 2017",
                         "icon" => "film",
-                        "text" => "Working Part Time @
+                        "text" => "Part Time Sales Assistant @
                             <a class='link link--secondary' href='https://uk.webuy.com/' title='Link to CeX website.' target='_blank' rel='noopener noreferrer'>
                                 CeX
-                            </a>
-                             as a Sales Assistant",
+                            </a>",
                     ],
                     [
                         "date" => "2014 - 2017",
@@ -206,7 +209,7 @@ $page->renderContentStart();
                                 </div>
                             </div>
                         </div>
-                        HTML;
+                    HTML;
                 }
                 ?>
             </div>
@@ -215,7 +218,7 @@ $page->renderContentStart();
 </section>
 
 <section class="row row--tablet-thirds row--brand skills">
-    <h2 class="row__heading">What I'm Best At</h2>
+    <h2 class="row__heading">What (I Think) I'm Best At</h2>
     <div class="container">
         <?php
         function renderSkills(string $title, array $skills) {
@@ -257,7 +260,7 @@ $page->renderContentStart();
         $skills = [
             [
                 "text" => "PHP",
-                "description" => "<p>Worked with Libraries, Frameworks (Wordpress, Laravel &amp; Custom/Inhouse) &amp; APIs</p>",
+                "description" => "<p>Worked with frameworks (Wordpress, Laravel &amp; custom/in-house), libraries &amp; APIs</p>",
             ],
             [
                 "text" => "Python",
@@ -281,7 +284,7 @@ $page->renderContentStart();
             ],
             [
                 "text" => "HTML",
-                "description" => "<p>Have used template engines (Blade &amp; Twig)</p>",
+                "description" => "<p>HTMl 4/5 &amp; templating engines (Blade &amp; Twig)</p>",
             ],
         ];
         renderSkills("Frontend", $skills);
@@ -300,20 +303,13 @@ $page->renderContentStart();
                 "description" => "<p>Written &amp; spoken communication skills from having worked in customer focused environments</p>",
             ],
         ];
-        renderSkills("Other", $skills);
+        renderSkills("General", $skills);
         ?>
     </div>
 </section>
 
 <section class="latest-projects row row--halves">
     <div class="container">
-        <div class="row__column latest-projects_column latest-projects_column--copy">
-            <h2 class="row__heading">Latest Projects</h2>
-            <p class="latest-projects__intro">These are the latest projects I have been working on.</p>
-            <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
-                View More
-            </a>
-        </div>
         <div class="row__column latest-projects_column latest-projects_column--slide-show row__column--flush">
             <i class="latest-projects__loading fas fa-spinner fa-spin fa-3x"></i>
 
@@ -325,6 +321,13 @@ $page->renderContentStart();
             </div>
 
             <p class="latest-projects__error"></p>
+        </div>
+        <div class="row__column latest-projects_column latest-projects_column--copy">
+            <h2 class="row__heading">Latest Projects</h2>
+            <p class="latest-projects__intro">These are the latest projects I have been working on.</p>
+            <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
+                View More
+            </a>
         </div>
     </div>
 </section>
@@ -355,7 +358,7 @@ $page->renderContentStart();
 
             $counterItems = [
                 [
-                    "text" => "Years experience",
+                    "text" => "Years Experience",
                     "number" => getTimeDifference(new DateTime("2017-06-28"), new DateTime(), "%r%y"),
                     "speed" => $speed,
                 ],
@@ -399,14 +402,14 @@ $page->renderContentStart();
             <h2 class="row__heading">Connect With Me</h2>
             <div class="contact-me__item">
                 <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="LinkedIn logo" />
                     &nbsp;
                     <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
                 </a>
             </div>
             <div class="contact-me__item">
                 <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
                     &nbsp;
                     <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
                 </a>
