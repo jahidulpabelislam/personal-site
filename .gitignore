@@ -7,7 +7,7 @@ projects/*.zip
 node_modules/*
 npm-debug.log*
 
-config/app.local.php
+assets/config.local.php
 
 logs/*.log
 
