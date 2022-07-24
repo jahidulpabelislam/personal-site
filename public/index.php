@@ -201,14 +201,14 @@ $page->renderContentStart();
                     $iconClass = !empty($iconName) ? "timeline__item--{$iconName}" : "";
 
                     echo <<<HTML
-                        <div class="timeline__item $iconClass $activeClass">
-                            <div>
-                                <p class="timeline__date">{$timelineItem["date"]}</p>
-                                <div class="timeline__content">
-                                    <p>{$timelineItem["text"]}</p>
-                                </div>
+                    <div class="timeline__item $iconClass $activeClass">
+                        <div>
+                            <p class="timeline__date">{$timelineItem["date"]}</p>
+                            <div class="timeline__content">
+                                <p>{$timelineItem["text"]}</p>
                             </div>
                         </div>
+                    </div>
                     HTML;
                 }
                 ?>
