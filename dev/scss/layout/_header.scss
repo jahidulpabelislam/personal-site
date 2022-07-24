@@ -18,21 +18,18 @@
 
     .container {
         display: flex;
-        flex-flow: column;
-    }
+        flex-wrap: wrap;
 
-    .header__title {
-        order: 2;
-    }
+        > div {
+            width: 100%;
 
-    .header__description {
-        order: 1;
-    }
-
-    .header__links {
-        order: 3;
+            &:first-child {
+                order: 2;
+            }
+        }
     }
 }
+
 .header--portfolio {
     background-image: url("/assets/images/projects.jpg?v=2");
 }
@@ -137,6 +134,13 @@
     }
 }
 
+.header__image {
+    height: auto;
+    width: 200px;
+    border-radius: 50%;
+    align-self: flex-end;
+}
+
 .header__scroll-to-content {
     position: absolute;
     bottom: 24px;
@@ -196,6 +200,28 @@
 @media only screen and (min-width: $desktop-width) {
     .header {
         background-attachment: fixed;
+    }
+
+    .header--home {
+        text-align: left;
+
+        .container {
+            > div {
+                width: 50%;
+
+                &:first-child {
+                    order: unset;
+                }
+
+                &:last-child {
+                    text-align: right;
+                }
+            }
+        }
+
+        .header__links .social-link {
+            margin: 0 8px 8px 0;
+        }
     }
 
     .header__scroll-to-content {

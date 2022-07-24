@@ -204,13 +204,11 @@ img {
   background-image: url("/assets/images/laptop.jpg?v=2"); }
   .header--home .container {
     display: flex;
-    flex-flow: column; }
-  .header--home .header__title {
-    order: 2; }
-  .header--home .header__description {
-    order: 1; }
-  .header--home .header__links {
-    order: 3; }
+    flex-wrap: wrap; }
+    .header--home .container > div {
+      width: 100%; }
+      .header--home .container > div:first-child {
+        order: 2; }
 
 .header--portfolio {
   background-image: url("/assets/images/projects.jpg?v=2"); }
@@ -293,6 +291,12 @@ img {
     display: inline-block;
     margin: 8px; }
 
+.header__image {
+  height: auto;
+  width: 200px;
+  border-radius: 50%;
+  align-self: flex-end; }
+
 .header__scroll-to-content {
   position: absolute;
   bottom: 24px;
@@ -337,6 +341,16 @@ img {
 @media only screen and (min-width: 1200px) {
   .header {
     background-attachment: fixed; }
+  .header--home {
+    text-align: left; }
+    .header--home .container > div {
+      width: 50%; }
+      .header--home .container > div:first-child {
+        order: unset; }
+      .header--home .container > div:last-child {
+        text-align: right; }
+    .header--home .header__links .social-link {
+      margin: 0 8px 8px 0; }
   .header__scroll-to-content {
     margin-left: -25px; }
   .header__scroll-to-content svg {

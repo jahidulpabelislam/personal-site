@@ -515,48 +515,20 @@
   .contact-form__intro {
     margin-bottom: 36px; } }
 
-.home-hello__hello,
-.home-hello__welcome {
+.home-hello__hello {
   font-size: 18px;
   line-height: 20px;
   font-weight: 700;
   color: #0078c9;
-  text-shadow: 1px 1px 2px rgba(123, 134, 118, 0.6); }
-
-.home-hello__hello {
-  margin: 0; }
+  text-shadow: 1px 1px 2px rgba(123, 134, 118, 0.6);
+  margin: 18px auto; }
   .home-hello__hello span {
     font-size: 28px;
     line-height: 30px; }
 
-.home-hello__images {
-  position: relative;
-  display: inline-block;
-  width: 66%;
-  max-width: 150px;
-  margin: 18px auto; }
-
 .home-hello__welcome {
-  display: block;
-  margin-bottom: 22px; }
-
-.home-hello__image {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
-
-.home-hello__image--logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  box-shadow: none;
-  opacity: 0;
-  transition: 1s opacity ease;
-  background: #fff;
-  border: 3px solid #0078c9; }
-  .home-hello__image--logo:hover {
-    opacity: 1; }
+  margin-bottom: 22px;
+  font-weight: 700; }
 
 .map {
   width: 100%;
@@ -625,9 +597,6 @@
   .home-hello__welcome {
     font-size: 22px;
     line-height: 24px; }
-  .home-hello__images {
-    width: 50%;
-    max-width: 200px; }
   .map {
     height: 250px; } }
 
@@ -651,9 +620,6 @@
   .home-hello__welcome {
     font-size: 26px;
     line-height: 30px; }
-  .home-hello__images {
-    width: 25%;
-    max-width: 220px; }
   .about .row__column {
     width: 33%; }
     .about .row__column:not(:first-child):not(:nth-child(3)) {

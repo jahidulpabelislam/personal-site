@@ -8,17 +8,13 @@
 @import "components/latest-projects";
 @import "components/contact";
 
-.home-hello__hello,
-.home-hello__welcome {
+.home-hello__hello {
     font-size: 18px;
     line-height: 20px;
     font-weight: 700;
     color: $brand-colour;
     text-shadow: 1px 1px 2px transparentize($grey, 0.4);
-}
-
-.home-hello__hello {
-    margin: 0;
+    margin: 18px auto;
 
     span {
         font-size: 28px;
@@ -26,39 +22,9 @@
     }
 }
 
-.home-hello__images {
-    position: relative;
-    display: inline-block;
-    width: 66%;
-    max-width: 150px;
-    margin: 18px auto;
-}
-
 .home-hello__welcome {
-    display: block;
     margin-bottom: 22px;
-}
-
-.home-hello__image {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.6);
-}
-
-.home-hello__image--logo {
-    position: absolute;
-    left: 0;
-    top: 0;
-    box-shadow: none;
-    opacity: 0;
-    transition: 1s opacity ease;
-    background: #fff;
-    border: 3px solid $brand-colour;
-
-    &:hover {
-        opacity: 1;
-    }
+    font-weight: 700;
 }
 
 .map {
@@ -150,11 +116,6 @@
         line-height: 24px;
     }
 
-    .home-hello__images {
-        width: 50%;
-        max-width: 200px;
-    }
-
     .map {
         height: 250px;
     }
@@ -190,11 +151,6 @@
     .home-hello__welcome {
         font-size: 26px;
         line-height: 30px;
-    }
-
-    .home-hello__images {
-        width: 25%;
-        max-width: 220px;
     }
 
     .about {
