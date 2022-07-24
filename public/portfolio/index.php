@@ -103,7 +103,7 @@ $page->renderHeader([
 ]);
 $page->renderContentStart();
 
-$yearsSinceStarted = getTimeDifference($site->getDateStarted(), new DateTime(), "%r%y");
+$yearsSinceStarted = getTimeDifference($site->getStartDate(), new DateTime(), "%r%y");
 ?>
 
 <section class="row row--alt projects">

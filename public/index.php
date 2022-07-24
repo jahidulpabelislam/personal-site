@@ -359,7 +359,7 @@ $page->renderContentStart();
             $counterItems = [
                 [
                     "text" => "Years Experience",
-                    "number" => getTimeDifference(new DateTime("2017-06-28"), new DateTime(), "%r%y"),
+                    "number" => getTimeDifference($site->getProfessionalStartDate(), new DateTime(), "%r%y"),
                     "speed" => $speed,
                 ],
                 [

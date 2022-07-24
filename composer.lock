@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "6b300784cffad782be305153cf6940d7237756ab"
+                "reference": "0a1b1c33ab7e956c86da077685f2fb3ed9fdc04d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/6b300784cffad782be305153cf6940d7237756ab",
-                "reference": "6b300784cffad782be305153cf6940d7237756ab",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/0a1b1c33ab7e956c86da077685f2fb3ed9fdc04d",
+                "reference": "0a1b1c33ab7e956c86da077685f2fb3ed9fdc04d",
                 "shasum": ""
             },
             "require": {
@@ -36,7 +36,7 @@
                 "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2022-05-07T16:09:40+00:00"
+            "time": "2022-07-24T16:08:27+00:00"
         }
     ],
     "packages-dev": [],
