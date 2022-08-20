@@ -26,9 +26,9 @@ class Page {
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== realpath(PUBLIC_ROOT)) {
-            $this->id = basename($filePath);
+            $this->setId(basename($filePath));
         } else {
-            $this->id = "home";
+            $this->setId("home");
         }
     }
 
@@ -38,6 +38,21 @@ class Page {
         }
 
         return self::$instance;
+    }
+
+    public function setId(string $id): void {
+        $this->data["id"] = $id;
+
+        $this->setUpGlobalData();
+
+        $extension = $this->site->useDevAssets() ? "js" : "min.js";
+
+        $this->addScript("/assets/js/global.$extension");
+
+        $pageScript = new File("/assets/js/$id.$extension");
+        if ($pageScript->exists()) {
+            $this->addScript($pageScript->getPath());
+        }
     }
 
     /**
@@ -54,41 +69,40 @@ class Page {
         throw new Exception("No method found for $method");
     }
 
-    public function __get(string $field) {
-        return $this->getFromPageData($field);
-    }
-
     public function __set(string $field, $value) {
-        $oldValue = $this->data[$field] ?? null;
+        if ($field === "id" && ($this->data[$field] ?? null) !== $value) {
+            $this->setId($value);
+            return;
+        }
 
         $this->data[$field] = $value;
+    }
 
-        if ($field === "id" && $oldValue !== $value) {
-            $this->setUpGlobalPageData();
-            $this->addScripts($this->getScriptsForPage($value));
-        }
+    public function __get(string $field) {
+        return $this->data[$field] ?? null;
     }
 
     public function __isset(string $field): bool {
         if (array_key_exists($field, $this->data)) {
-            $value = $this->getFromPageData($field);
-            return isset($value);
+            return isset($this->data[$field]);
         }
 
         return false;
     }
 
-    private function getInlineStylesheetsForPage(string $pageId): array {
+    private function getInlineStylesheetsForPage(): array {
         return [
             "/assets/css/above-the-fold." . ($this->site->useDevAssets() ? "css" : "min.css"),
         ];
     }
 
-    private function getStylesheetsForPage(string $pageId): array {
+    private function getStylesheetsForPage(): array {
         return [];
     }
 
-    public function getDeferredStylesheetsForPage(string $pageId): array {
+    public function getDeferredStylesheetsForPage(): array {
+        $pageId = $this->data["id"];
+
         $extension = $this->site->useDevAssets() ? "css" : "min.css";
 
         $stylesheets = [
@@ -102,7 +116,7 @@ class Page {
 
         // Only some pages use Font Awesome, so only add if it uses it
         $pagesUsingFA = [
-            "home", "portfolio", "about", "contact",
+            "home", "portfolio",
         ];
         if (in_array($pageId, $pagesUsingFA)) {
             $stylesheets[] = [
@@ -114,23 +128,7 @@ class Page {
         return $stylesheets;
     }
 
-    private function getScriptsForPage(string $pageId): array {
-        $extension = $this->site->useDevAssets() ? "js" : "min.js";
-
-        $scripts = [
-            ["src" => "/assets/js/global.$extension"],
-        ];
-
-        $pageScript = new File("/assets/js/$pageId.$extension");
-        if ($pageScript->exists()) {
-            $scripts[] = ["src" => $pageScript->getPath()];
-        }
-
-        return $scripts;
-    }
-
-    private function setUpGlobalPageData(): void {
-        $pageId = $this->data["id"];
+    private function setUpGlobalData(): void {
         $url = "/";
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
@@ -140,9 +138,9 @@ class Page {
 
         $this->data["indexed"] = $this->site->isProduction();
         $this->data["currentURL"] = $this->site->makeURL($url, false);
-        $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage($pageId);
-        $this->data["stylesheets"] = $this->getStylesheetsForPage($pageId);
-        $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage($pageId);
+        $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage();
+        $this->data["stylesheets"] = $this->getStylesheetsForPage();
+        $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage();
         $this->data["jsGlobals"] = [
             "breakpoints" => load(JPI_SITE_ROOT . "/config/breakpoints.json", false)->getArray(),
         ];
@@ -156,13 +154,9 @@ class Page {
         $this->data = array_replace_recursive($this->data, $newPageData);
     }
 
-    public function getFromPageData(string $field) {
-        return $this->data[$field] ?? null;
-    }
-
-    public function addJSGlobal(string $global, ?string $key, $value): void {
-        if ($key) {
-            $this->data["jsGlobals"][$global][$key] = $value;
+    public function addJSGlobal(string $global, ?string $subKey, $value): void {
+        if ($subKey) {
+            $this->data["jsGlobals"][$global][$subKey] = $value;
         }
         else {
             $this->data["jsGlobals"][$global] = $value;
@@ -181,14 +175,6 @@ class Page {
 
     public function addScript(string $src, string $version = null): void {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
-    }
-
-    public function addScripts(array $scripts): void {
-        foreach ($scripts as $script) {
-            $src = $script["src"];
-            $version = $script["ver"] ?? null;
-            $this->addScript($src, $version);
-        }
     }
 
     public function addJSTemplate(string $name, string $template): void {
