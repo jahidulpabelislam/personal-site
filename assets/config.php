@@ -1,6 +1,6 @@
 <?php
 
-define("JPI_API_VERSION", "4");
+const JPI_API_VERSION = "4";
 
 $environment = site()->getEnvironment();
 if ($environment === "development") {
