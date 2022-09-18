@@ -1,13 +1,15 @@
 <?php
 
+use JPI\Utils\Singleton;
+
 class Page {
+
+    use Singleton;
 
     private $site;
     private $data;
 
     private $renderer;
-
-    private static $instance;
 
     private function __construct() {
         $this->site = Site::get();
@@ -16,14 +18,6 @@ class Page {
         $this->addScripts($this->getScriptsForPage($this->id));
 
         $this->renderer = new Renderer($this);
-    }
-
-    public static function get(): Page {
-        if (!self::$instance) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 
     public function __call($method, $arguments) {
