@@ -1,4 +1,5 @@
 <?php
+
 /**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.
@@ -13,7 +14,11 @@
  * @copyright 2010-2019 JPI
  */
 
+use JPI\Utils\Singleton;
+
 class Site {
+
+    use Singleton;
 
     public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
     public const VALID_NAV_TINTS = ["dark", "light"];
@@ -32,18 +37,8 @@ class Site {
     private $dateStarted;
     private $yearStarted;
 
-    private static $instance;
-
     private function __construct() {
         $this->environment = getEnvironment();
-    }
-
-    public static function get(): Site {
-        if (!self::$instance) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 
     public function isProduction(): bool {
