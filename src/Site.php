@@ -15,6 +15,7 @@
  */
 
 use JPI\Utils\Singleton;
+use JPI\Utils\URL;
 
 class Site {
 
@@ -159,7 +160,7 @@ class Site {
             JPI_API_ENDPOINT,
             "v" . JPI_API_VERSION
         ];
-        $entity = removeSlashes($entity);
+        $entity = URL::removeSlashes($entity);
         if (!empty($entity)) {
             $parts[] = $entity;
         }

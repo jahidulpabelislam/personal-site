@@ -4,30 +4,12 @@ function getEnvironment(): string {
     return getenv("APPLICATION_ENV") ?? "production";
 }
 
-function removeTrailingSlash(string $url): string {
-    $url = rtrim($url, "/");
-
-    return $url;
-}
-
-function removeLeadingSlash(string $url): string {
-    $url = ltrim($url, "/");
-
-    return $url;
-}
-
-function removeSlashes(string $url): string {
-    $url = trim($url, "/");
-
-    return $url;
-}
-
 function getProjectRoot(): string {
     if (defined("ROOT")) {
         return ROOT;
     }
 
-    return removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
+    return \JPI\Utils\URL::removeTrailingSlash(realpath($_SERVER["DOCUMENT_ROOT"]));
 }
 
 function getConfigPath(string $level = null): string {
@@ -39,21 +21,18 @@ function getConfigPath(string $level = null): string {
 }
 
 function addTrailingSlash(string $url): string {
-    $url = removeTrailingSlash($url);
+    $url = \JPI\Utils\URL::removeTrailingSlash($url);
 
     // If the last bit includes a full stop, assume its a file...
     // so don't add trailing slash
     $withoutProtocol = str_replace(["https://", "http://"], "", $url);
     $splitPaths = explode("/", $withoutProtocol);
     $count = count($splitPaths);
-    if ($count > 1 && !is_dir($url)) {
-        $lastPath = $splitPaths[$count - 1] ?? null;
-        if ($lastPath && strpos($lastPath, ".")) {
-            return $url;
-        }
+    if ($count > 1 && strpos($splitPaths[$count - 1], ".")) {
+        return $url;
     }
 
-    return "{$url}/";
+    return "$url/";
 }
 
 function partsToUrl(array $parts): string {
@@ -76,8 +55,8 @@ function formatURL(string $domain, string $relativeURL): string {
     }
 
     $parts = [
-        removeTrailingSlash($domain),
-        removeLeadingSlash($relativeURL),
+        \JPI\Utils\URL::removeTrailingSlash($domain),
+        \JPI\Utils\URL::removeLeadingSlash($relativeURL),
     ];
 
     return partsToUrl($parts);
@@ -165,7 +144,7 @@ function getAssetVersion(string $src, $ver = false, string $root = ROOT): string
     if ($ver === false) {
         $ver = "1"; // Default
 
-        $src = removeLeadingSlash($src);
+        $src = \JPI\Utils\URL::removeLeadingSlash($src);
         $filepath = addTrailingSlash($root) . $src;
         if ((new File($filepath, false))->exists()) {
             $ver = date("mdYHi", filemtime($filepath));
