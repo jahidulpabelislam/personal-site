@@ -218,7 +218,7 @@ $page->addJSTemplate(
 );
 
 $page->addJSGlobal("config", "projectsPerPage", $projectsPerPage);
-$page->addJSGlobal("config", "jpiAPIEndpoint", removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("config", "jpiAPIEndpoint", \JPI\Utils\URL::removeTrailingSlash($site::getAPIEndpoint()));
 
 $similarLinks = [
     [
