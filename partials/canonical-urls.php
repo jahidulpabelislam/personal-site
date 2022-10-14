@@ -14,7 +14,7 @@ $indexedURLs = [
     "/site-map/",
 ];
 
-if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
+if (($site->isProduction() || $site->isDevelopment()) && in_array($currentURL, $indexedURLs)) {
     $liveURL = $site->getRequestedLiveURL();
 
     if (!empty($pagination)) {

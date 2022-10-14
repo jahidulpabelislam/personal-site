@@ -42,6 +42,10 @@ class Site {
         $this->environment = getEnvironment();
     }
 
+    public function isDevelopment(): bool {
+        return $this->environment === "development";
+    }
+
     public function isProduction(): bool {
         return $this->environment === "production";
     }
