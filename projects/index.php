@@ -50,8 +50,6 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 4); // Seconds
 $apiRes = json_decode(curl_exec($ch), true);
 curl_close($ch);
 
-$apiMeta = $apiRes["meta"] ?? [];
-
 if (!count($apiRes["data"] ?? [])) {
     http_response_code(404);
     include(ROOT . "/error/404/index.php");
@@ -64,11 +62,12 @@ $pageData = [
     "headerTitle" => "My Projects",
     "headerDescription" => "See My Skills in Action in My Projects",
     "pagination" => [
-        "page" => $apiMeta["page"] ?? 1,
-        "hasPreviousPage" => $apiMeta["has_previous_page"] ?? false,
-        "hasNextPage" => $apiMeta["has_next_page"] ?? false,
+        "page" => $pageNum ?? 1,
+        "hasPreviousPage" => $apiRes["_links"]["previous_page"] ?? false,
+        "hasNextPage" => $apiRes["_links"]["next_page"] ?? false,
     ],
 ];
+
 $page->addPageData($pageData);
 
 $page->renderHTMLHead();
