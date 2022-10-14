@@ -48,7 +48,7 @@ $site = Site::get();
                             $fullURL = $site->getURL($url);
 
                             $classes = ["nav__link"];
-                            if ($currentURL === $site->getURL($url, false)) {
+                            if ((string)$currentURL === (string)$site->getURL($url, false)) {
                                 $classes[] = "nav__link--active";
                             }
 

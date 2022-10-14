@@ -188,5 +188,4 @@ class Page {
     public function addJSTemplate(string $name, string $template) {
         $this->data["jsTemplates"][$name] = $template;
     }
-
 }

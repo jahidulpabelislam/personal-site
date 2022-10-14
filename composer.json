@@ -1,5 +1,5 @@
 {
     "require": {
-        "jpi/utils": "0.x-dev"
+        "jpi/utils": "dev-feature/url-instance"
     }
 }

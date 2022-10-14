@@ -21,7 +21,7 @@ class Site {
 
     use Singleton;
 
-    public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
+    public const LIVE_DOMAIN = "https://jahidulpabelislam.com";
     public const VALID_NAV_TINTS = ["dark", "light"];
     public const JPI_START_DATE = "2010-10-04";
 
@@ -62,7 +62,7 @@ class Site {
      */
     public function getLiveDomain(): string {
         if (!$this->liveDomain) {
-            $this->liveDomain = addTrailingSlash(self::LIVE_DOMAIN);
+            $this->liveDomain = self::LIVE_DOMAIN;
         }
 
         return $this->liveDomain;
@@ -79,31 +79,34 @@ class Site {
         return $this->localDomain;
     }
 
-    private function getFullURL(string $relativeURL, bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
+    private function getFullURL(string $path, bool $addDebug = true, bool $isFull = false, bool $isLive = false): URL {
         $domain = "";
         if ($isFull) {
             $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
         }
 
-        $fullURL = getURL($domain, $relativeURL, $addDebug);
+        $url = (new URL($domain))
+            ->addPath(formatURL($path))
+        ;
 
-        return $fullURL;
+        if ($addDebug && getIsDebug()) {
+            $url->setParam("debug", "");
+        }
+
+        return $url;
     }
 
     /**
-     * @return string Generate and return the URL of current requested page/URL
+     * @return URL Generate and return the URL of current requested page/URL
      */
-    public function getRequestedURL(bool $isFull = false, bool $isLive = false): string {
-        $relativeURL = getRequestedURL();
-        $relativeURL = $this->getFullURL($relativeURL, false, $isFull, $isLive);
-
-        return $relativeURL;
+    public function getRequestedURL(bool $isFull = false, bool $isLive = false): URL {
+        return $this->getFullURL(getRequestedPath(), false, $isFull, $isLive);
     }
 
     /**
-     * @return string Generate and return the live URL of the current requested page/URL
+     * @return URL Generate and return the live URL of the current requested page/URL
      */
-    public function getRequestedLiveURL(): string {
+    public function getRequestedLiveURL(): URL {
         if (!$this->liveURL) {
             $this->liveURL = $this->getRequestedURL(true, true);
         }
@@ -112,9 +115,9 @@ class Site {
     }
 
     /**
-     * @return string Generate and return the local URL of the current requested page/URL
+     * @return URL Generate and return the local URL of the current requested page/URL
      */
-    public function getRequestedLocalURL(): string {
+    public function getRequestedLocalURL(): URL {
         if (!$this->localURL) {
             $this->localURL = $this->getRequestedURL(true);
         }
@@ -126,16 +129,14 @@ class Site {
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $relativeURL string The relative url part/s to use to generate url from
+     * @param string $path string The relative url part/s to use to generate url from
      * @param bool $addDebug bool Whether the url should include the debug flag if currently added
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
-     * @return string
+     * @return URL
      */
-    public function getURL(string $relativeURL = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): string {
-        $url = $this->getFullURL($relativeURL, $addDebug, $isFull, $isLive);
-
-        return $url;
+    public function getURL(string $path = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): URL {
+        return $this->getFullURL($path, $addDebug, $isFull, $isLive);
     }
 
     /**
@@ -143,29 +144,23 @@ class Site {
      * Uses getURL to generate the url, then echoes what is returned
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param string $url string The relative url part/s to use to generate url from
+     * @param string $path string The relative url part/s to use to generate url from
      * @param bool $addDebug bool Whether the url should include the debug flag if currently added
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public function echoURL(string $url = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
-        echo $this->getURL($url, $addDebug, $isFull, $isLive);
+    public function echoURL(string $path = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
+        echo $this->getURL($path, $addDebug, $isFull, $isLive);
     }
 
     /**
      * Generate and return the API endpoint
      */
-    public static function getAPIEndpoint(string $entity = ""): string {
-        $parts = [
-            JPI_API_ENDPOINT,
-            "v" . JPI_API_VERSION
-        ];
-        $entity = URL::removeSlashes($entity);
-        if (!empty($entity)) {
-            $parts[] = $entity;
-        }
-
-        return partsToUrl($parts);
+    public static function getAPIEndpoint(string $entity = ""): URL {
+        return (new URL(JPI_API_ENDPOINT))
+            ->addPath("v" . JPI_API_VERSION)
+            ->addPath($entity)
+        ;
     }
 
     /**
@@ -196,7 +191,6 @@ class Site {
 
         return $this->yearStarted;
     }
-
 }
 
 Site::get();
