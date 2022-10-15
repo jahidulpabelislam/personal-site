@@ -14,7 +14,7 @@ $indexedURLs = [
     "/site-map/",
 ];
 
-if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
+if (($site->isProduction() || $site->isDevelopment()) && in_array($currentURL, $indexedURLs)) {
     $liveURL = $site->getRequestedLiveURL();
 
     if (!empty($pagination)) {
@@ -25,25 +25,26 @@ if ($site->isProduction() && in_array($currentURL, $indexedURLs)) {
         $url = $site->getURL($currentURL, false, true, true);
 
         if (strlen($search) > 0) {
-            $url .= addTrailingSlash($search);
+            $url->addPath($search);
         }
 
         if ($pagination["hasPreviousPage"]) {
-            $prevURL = $url;
+            $prevURL = clone $url;
 
             if ($page > 2) {
-                $prevURL .= addTrailingSlash($page - 1);
+                $prevURL->addPath($page - 1);
             }
 
-            echo "<link rel='prev' href='{$prevURL}' />";
+            echo "<link rel='prev' href='$prevURL' />";
         }
 
         if ($pagination["hasNextPage"]) {
-            $nextURL = $url . addTrailingSlash($page + 1);
-            echo "<link rel='next' href='{$nextURL}' />";
+            $nextURL = clone $url;
+            $nextURL->addPath($page + 1);
+            echo "<link rel='next' href='$nextURL' />";
         }
     }
-    echo "<link rel='canonical' href='{$liveURL}' />";
+    echo "<link rel='canonical' href='$liveURL' />";
 }
 else {
     echo "<meta name='robots' content='noindex,nofollow' />";

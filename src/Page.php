@@ -173,14 +173,14 @@ class Page {
         }
     }
 
-    public function addScript($src, $version = false) {
+    public function addScript(string $src, string $version = null) {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
     }
 
     public function addScripts(array $scripts) {
         foreach ($scripts as $script) {
             $src = $script["src"];
-            $version = $script["ver"] ?? false;
+            $version = $script["ver"] ?? null;
             $this->addScript($src, $version);
         }
     }
@@ -188,5 +188,4 @@ class Page {
     public function addJSTemplate(string $name, string $template) {
         $this->data["jsTemplates"][$name] = $template;
     }
-
 }

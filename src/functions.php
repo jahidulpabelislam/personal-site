@@ -20,46 +20,19 @@ function getConfigPath(string $level = null): string {
     return getProjectRoot() . "/src/config.php";
 }
 
-function addTrailingSlash(string $url): string {
-    $url = \JPI\Utils\URL::removeTrailingSlash($url);
-
-    // If the last bit includes a full stop, assume its a file...
-    // so don't add trailing slash
-    $withoutProtocol = str_replace(["https://", "http://"], "", $url);
-    $splitPaths = explode("/", $withoutProtocol);
-    $count = count($splitPaths);
-    if ($count > 1 && strpos($splitPaths[$count - 1], ".")) {
-        return $url;
-    }
-
-    return "$url/";
-}
-
-function partsToUrl(array $parts): string {
-    $url = implode("/", $parts);
-
-    return addTrailingSlash($url);
-}
-
-function formatURL(string $domain, string $relativeURL): string {
+function formatURL(string $url): string {
     $indexes = [
         "index.php",
         "index.html",
     ];
     foreach ($indexes as $index) {
         $indexLength = strlen($index);
-        if (substr($relativeURL, -$indexLength) === $index) {
-            $relativeURL = substr($relativeURL, 0, -$indexLength);
-            break;
+        if (substr($url, -$indexLength) === $index) {
+            return substr($url, 0, -$indexLength);
         }
     }
 
-    $parts = [
-        \JPI\Utils\URL::removeTrailingSlash($domain),
-        \JPI\Utils\URL::removeLeadingSlash($relativeURL),
-    ];
-
-    return partsToUrl($parts);
+    return $url;
 }
 
 function turnPathToURL(string $path): string {
@@ -69,63 +42,25 @@ function turnPathToURL(string $path): string {
 
     $url = str_replace("\\", "/", $path);
 
-    $url = formatURL("", $url);
-
-    return $url;
-}
-
-function addParamToURL($url, $param, $value) {
-    $query = parse_url($url, PHP_URL_QUERY);
-    if (empty($query)) {
-        return "{$url}?{$param}={$value}";
-    }
-
-    return "{$url}&{$param}={$value}";
+    return formatURL($url);
 }
 
 function getDomain(): string {
-    $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
-    $domain = "{$protocol}://" . $_SERVER["SERVER_NAME"];
-    $domain = addTrailingSlash($domain);
-
-    return $domain;
+    return $_SERVER["SERVER_NAME"];
 }
 
 /**
  * @return string Generate and return the URL of current requested page/URL
  */
-function getRequestedURL(): string {
-    $relativeURL = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-    $relativeURL = formatURL("", $relativeURL);
-
-    return $relativeURL;
+function getRequestedPath(): string {
+    return formatURL(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
 }
 
 /**
  * @return bool Whether or not the debug was set by user on page view
  */
 function getIsDebug(): bool {
-    $isDebug = isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
-
-    return $isDebug;
-}
-
-/**
- * Generate and return a URL from passed URL
- *
- * @param string $domain string The domain to use to generate URL with
- * @param string $url string The relative URL part/s to use to generate URL from
- * @param bool $addDebug bool Whether the URL should include the debug flag if currently added
- * @return string
- */
-function getURL(string $domain, string $url, bool $addDebug = true): string {
-    $url = formatURL($domain, $url);
-
-    if ($addDebug && getIsDebug()) {
-        $url = addParamToURL($url, "debug", "");
-    }
-
-    return $url;
+    return isset($_GET["debug"]) && !($_GET["debug"] === "false" || $_GET["debug"] === "0");
 }
 
 /**
@@ -136,43 +71,44 @@ function getURL(string $domain, string $url, bool $addDebug = true): string {
  * And if that fails it fall backs to global default version number
  *
  * @param $src string The relative path to a asset
- * @param bool $ver string A version number to use
+ * @param $ver string|null A version number to use
  * @param $root string The root location of where the file should be if not the default
  * @return string The version number found
  */
-function getAssetVersion(string $src, $ver = false, string $root = ROOT): string {
-    if ($ver === false) {
-        $ver = "1"; // Default
-
-        $src = \JPI\Utils\URL::removeLeadingSlash($src);
-        $filepath = addTrailingSlash($root) . $src;
-        if ((new File($filepath, false))->exists()) {
-            $ver = date("mdYHi", filemtime($filepath));
-        }
+function getAssetVersion(string $src, string $ver = null, string $root = ROOT): string {
+    if ($ver !== null) {
+        return $ver;
     }
 
-    return $ver;
+    $filepath = \JPI\Utils\URL::removeTrailingSlash($root) . \JPI\Utils\URL::addLeadingSlash($src);
+    if ((new File($filepath, false))->exists()) {
+        return date("mdYHi", filemtime($filepath));
+    }
+
+    return "1";
 }
 
 /**
  * Wrapper around getAssetVersion() to generate the full relative URL for the asset
  * including a version number
  */
-function addAssetVersion(string $src, $ver = false, string $root = ROOT): string {
+function addAssetVersion(string $src, string $ver = null, string $root = ROOT): string {
     $ver = getAssetVersion($src, $ver, $root);
 
     if (empty($ver)) {
         return $src;
     }
 
-    return addParamToURL($src, "v", $ver);
+    return (new \JPI\Utils\URL($src))
+        ->setParam("v", $ver)
+    ;
 }
 
 /**
  * Wrapper around addAssetVersion() & getAssetVersion()
  * Used to echo the full relative URL for the asset including a version number
  */
-function echoWithAssetVersion(string $src, $ver = false, string $root = ROOT) {
+function echoWithAssetVersion(string $src, string $ver = null, string $root = ROOT) {
     echo addAssetVersion($src, $ver, $root);
 }
 

@@ -10,6 +10,8 @@
  * @copyright 2010-2020 JPI
  */
 
+use JPI\Utils\URL;
+
 class File {
 
     private $path;
@@ -20,7 +22,7 @@ class File {
 
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
-            $path = getProjectRoot() . addTrailingSlash($path);
+            $path = getProjectRoot(). URL::addLeadingSlash($path);
         }
 
         $this->path = $path;
@@ -63,5 +65,4 @@ class File {
     public function render(string $default = "") {
         echo $this->get($default);
     }
-
 }
