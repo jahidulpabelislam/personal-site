@@ -22,7 +22,7 @@ class File {
 
     public function __construct(string $path, bool $isRelative = true) {
         if ($isRelative) {
-            $path = URL::removeTrailingSlash(getProjectRoot()) . URL::addLeadingSlash($path);
+            $path = getProjectRoot(). URL::addLeadingSlash($path);
         }
 
         $this->path = $path;

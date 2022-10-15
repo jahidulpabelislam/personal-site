@@ -21,7 +21,7 @@ class Site {
 
     use Singleton;
 
-    public const LIVE_DOMAIN = "https://jahidulpabelislam.com";
+    public const LIVE_DOMAIN = "jahidulpabelislam.com";
     public const VALID_NAV_TINTS = ["dark", "light"];
     public const JPI_START_DATE = "2010-10-04";
 
@@ -83,15 +83,13 @@ class Site {
         return $this->localDomain;
     }
 
-    private function getFullURL(string $path, bool $addDebug = true, bool $isFull = false, bool $isLive = false): URL {
-        $domain = "";
-        if ($isFull) {
-            $domain = $isLive ? $this->getLiveDomain() : $this->getLocalDomain();
-        }
+    public function getURL(string $path, bool $addDebug = true, bool $isFull = false, bool $isLive = false): URL {
+        $url = new URL(formatURL($path));
 
-        $url = (new URL($domain))
-            ->addPath(formatURL($path))
-        ;
+        if ($isFull) {
+            $url->setScheme("https");
+            $url->setHost($isLive ? $this->getLiveDomain() : $this->getLocalDomain());
+        }
 
         if ($addDebug && getIsDebug()) {
             $url->setParam("debug", "");
@@ -104,7 +102,7 @@ class Site {
      * @return URL Generate and return the URL of current requested page/URL
      */
     public function getRequestedURL(bool $isFull = false, bool $isLive = false): URL {
-        return $this->getFullURL(getRequestedPath(), false, $isFull, $isLive);
+        return $this->getURL(getRequestedPath(), false, $isFull, $isLive);
     }
 
     /**
@@ -130,20 +128,6 @@ class Site {
     }
 
     /**
-     * Generate and return a url from passed url
-     * Depending on param values, return url can be a relative, full live or a full local url.
-     *
-     * @param string $path string The relative url part/s to use to generate url from
-     * @param bool $addDebug bool Whether the url should include the debug flag if currently added
-     * @param bool $isFull bool Whether the url should be a full url
-     * @param bool $isLive bool Whether the url should be a full live url
-     * @return URL
-     */
-    public function getURL(string $path = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false): URL {
-        return $this->getFullURL($path, $addDebug, $isFull, $isLive);
-    }
-
-    /**
      * Generates and echos a url
      * Uses getURL to generate the url, then echoes what is returned
      * Depending on param values, return url can be a relative, full live or a full local url.
@@ -161,10 +145,10 @@ class Site {
      * Generate and return the API endpoint
      */
     public static function getAPIEndpoint(string $entity = ""): URL {
-        return (new URL(JPI_API_ENDPOINT))
-            ->addPath("v" . JPI_API_VERSION)
-            ->addPath($entity)
-        ;
+        $url = new URL(JPI_API_ENDPOINT);
+        $url->addPath("v" . JPI_API_VERSION);
+        $url->addPath($entity);
+        return $url;
     }
 
     /**

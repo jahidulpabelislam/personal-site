@@ -46,8 +46,7 @@ function turnPathToURL(string $path): string {
 }
 
 function getDomain(): string {
-    $protocol = (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off") ? "https" : "http";
-    return "$protocol://" . $_SERVER["SERVER_NAME"];
+    return $_SERVER["SERVER_NAME"];
 }
 
 /**
