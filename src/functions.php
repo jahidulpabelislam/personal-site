@@ -81,10 +81,7 @@ function getAssetVersion(string $src, string $ver = null, string $root = ROOT): 
         return $ver;
     }
 
-    $filepath = (new \JPI\Utils\URL($root))
-        ->addPath($src)
-    ;
-
+    $filepath = \JPI\Utils\URL::removeTrailingSlash($root) . \JPI\Utils\URL::addLeadingSlash($src);
     if ((new File($filepath, false))->exists()) {
         return date("mdYHi", filemtime($filepath));
     }
