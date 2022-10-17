@@ -137,7 +137,7 @@ class Site {
      * @param bool $isFull bool Whether the url should be a full url
      * @param bool $isLive bool Whether the url should be a full live url
      */
-    public function echoURL(string $path = "", bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
+    public function echoURL(string $path, bool $addDebug = true, bool $isFull = false, bool $isLive = false) {
         echo $this->getURL($path, $addDebug, $isFull, $isLive);
     }
 
