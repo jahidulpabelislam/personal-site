@@ -16,7 +16,7 @@ $site = Site::get();
                         <span class="nav__menu-bar"></span>
                         <span class="nav__menu-bar"></span>
                     </button>
-                    <a class="nav__logo-container" href="<?php $site->echoURL(); ?>">
+                    <a class="nav__logo-container" href="<?php $site->echoURL("/"); ?>">
                         <img class="nav__logo <?php if ($pageId === "home") {echo "nav__logo--active";} ?>" src="<?php echoWithAssetVersion("/assets/images/logos/jpi.png"); ?>" alt="Jahidul Pabel Islam Logo" />
                     </a>
                 </div>
