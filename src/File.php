@@ -13,6 +13,8 @@
 
 namespace App;
 
+use JPI\Utils\URL;
+
 class File {
 
     private $path;
@@ -26,7 +28,7 @@ class File {
         $this->path = $path;
 
         if ($isRelative) {
-            $path = PUBLIC_ROOT . Site::addTrailingSlash($path);
+            $path = PUBLIC_ROOT . URL::addLeadingSlash($path);
         }
 
         $this->fullPath = $path;

@@ -220,7 +220,7 @@ $page->addJSTemplate(
 );
 
 $page->addJSGlobal("projects", "perPage", $projectsPerPage);
-$page->addJSGlobal("projects", "apiEndpoint", $site::removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($site::getAPIEndpoint()));
 
 $page->renderContentEnd();
 $page->renderFooter();

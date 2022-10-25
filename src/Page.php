@@ -3,8 +3,11 @@
 namespace App;
 
 use Exception;
+use JPI\Utils\Singleton;
 
 class Page {
+
+    use Singleton;
 
     /**
      * @var Site
@@ -18,8 +21,6 @@ class Page {
 
     private $data = [];
 
-    private static $instance;
-
     private function __construct() {
         $this->site = Site::get();
         $this->renderer = new Renderer($this);
@@ -30,14 +31,6 @@ class Page {
         } else {
             $this->setId("home");
         }
-    }
-
-    public static function get(): Page {
-        if (!self::$instance) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
     }
 
     public function setId(string $id): void {
@@ -136,7 +129,7 @@ class Page {
             $url = dirname($_SERVER["SCRIPT_NAME"]);
         }
 
-        $this->data["indexed"] = $this->site->isProduction();
+        $this->data["indexed"] = $this->site->isProduction() || $this->site->isDevelopment();
         $this->data["currentURL"] = $this->site->makeURL($url, false);
         $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage();
         $this->data["stylesheets"] = $this->getStylesheetsForPage();
@@ -175,6 +168,14 @@ class Page {
 
     public function addScript(string $src, string $version = null): void {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
+    }
+
+    public function addScripts(array $scripts): void {
+        foreach ($scripts as $script) {
+            $src = $script["src"];
+            $version = $script["ver"] ?? null;
+            $this->addScript($src, $version);
+        }
     }
 
     public function addJSTemplate(string $name, string $template): void {

@@ -19,54 +19,53 @@ namespace App;
 use JPI\MeInterface;
 use JPI\MeTrait;
 use JPI\Site as BaseSite;
+use JPI\Utils\Singleton;
+use JPI\Utils\URL;
 
 class Site extends BaseSite implements MeInterface {
 
+    use Singleton;
     use MeTrait;
 
-    public const LIVE_DOMAIN = "https://jahidulpabelislam.com/";
-
-    private $liveDomain;
+    public const LIVE_DOMAIN = "jahidulpabelislam.com";
 
     /**
      * @return string Generate and return the live domain
      */
     public function getLiveDomain(): string {
-        if (!$this->liveDomain) {
-            $this->liveDomain = static::addTrailingSlash(self::LIVE_DOMAIN);
-        }
-
-        return $this->liveDomain;
+        return self::LIVE_DOMAIN;
     }
 
     /**
      * Generate and return a url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
-     * @param $relativeURL string The relative url part/s to use to generate url from
+     * @param $path string The relative url part/s to use to generate url from
      * @param $addDevAssetsParam bool Whether the url should include the dev assets flag if currently added
      * @param $isFull bool Whether the url should be a full url
      * @param $isLive bool Whether the url should be a full live url
-     * @return string
+     * @return URL
      */
-    public function makeURL(string $relativeURL = "/", bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): string {
-        $url = parent::makeURL($relativeURL, $addDevAssetsParam, $isFull && !$isLive);
+    public function makeURL(string $path, bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): URL {
+        $url = parent::makeURL($path, $addDevAssetsParam, $isFull && !$isLive);
 
         if ($isFull && $isLive) {
-            $url = static::formatURL($this->getLiveDomain(), $url);
+            $url->setScheme("https");
+            $url->setHost($this->getLiveDomain());
         }
 
         return $url;
     }
 
     /**
-     * @return string Generate and return the URL of current requested page/URL
+     * @return URL Generate and return the URL of current requested page/URL
      */
-    public function getCurrentURL(bool $isFull = false, bool $isLive = false): string {
+    public function getCurrentURL(bool $isFull = false, bool $isLive = false): URL {
         $url = parent::getCurrentURL($isFull && !$isLive);
 
         if ($isFull && $isLive) {
-            $url = static::formatURL($this->getLiveDomain(), $url);
+            $url->setScheme("https");
+            $url->setHost($this->getLiveDomain());
         }
 
         return $url;
@@ -83,19 +82,11 @@ class Site extends BaseSite implements MeInterface {
     /**
      * Generate and return the API endpoint
      */
-    public static function getAPIEndpoint(string $entity = ""): string {
-        $parts = [
-            static::removeTrailingSlash(JPI_API_ENDPOINT),
-            static::removeSlashes("v" . JPI_API_VERSION),
-        ];
-        $entity = static::removeSlashes($entity);
-        if (!empty($entity)) {
-            $parts[] = $entity;
-        }
-
-        $url = implode("/", $parts);
-
-        return static::addTrailingSlash($url);
+    public static function getAPIEndpoint(string $entity = ""): URL {
+        $url = new URL(JPI_API_ENDPOINT);
+        $url->addPath("v" . JPI_API_VERSION);
+        $url->addPath($entity);
+        return $url;
     }
 
     public function processFormSubmission(): void {
