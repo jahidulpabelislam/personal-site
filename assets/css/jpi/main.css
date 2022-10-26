@@ -1133,10 +1133,10 @@ a.button {
 .project__type--black {
   color: #333333; }
 
-.project__skills {
+.project__tags {
   margin: 15px 0; }
 
-.project__skill {
+.project__tag {
   display: inline-block;
   margin: 2px;
   padding: 5px;
@@ -1148,247 +1148,247 @@ a.button {
   transition: all 0.4s ease-in-out;
   transition-property: border-color, background-color, color, box-shadow; }
 
-.project__skill:hover,
-.project__skill:focus {
+.project__tag:hover,
+.project__tag:focus {
   border-color: #262626;
   background-color: #262626;
   color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.project__skill--searched,
-.project__skill--searched:hover,
-.project__skill--searched:focus {
+.project__tag--searched,
+.project__tag--searched:hover,
+.project__tag--searched:focus {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white; }
 
-.project__skill--searched:hover,
-.project__skill--searched:focus {
+.project__tag--searched:hover,
+.project__tag--searched:focus {
   box-shadow: none; }
 
-.project__skill--light-blue {
+.project__tag--light-blue {
   border-color: #54c6e2;
   color: #54c6e2; }
 
-.project__skill--light-blue:hover,
-.project__skill--light-blue:focus {
+.project__tag--light-blue:hover,
+.project__tag--light-blue:focus {
   border-color: #53d1ec;
   background-color: #53d1ec;
   color: white;
   box-shadow: 0 0 10px 0 rgba(84, 198, 226, 0.4); }
 
-.project__skill--light-blue.project__skill--searched,
-.project__skill--light-blue.project__skill--searched:hover,
-.project__skill--light-blue.project__skill--searched:focus {
+.project__tag--light-blue.project__tag--searched,
+.project__tag--light-blue.project__tag--searched:hover,
+.project__tag--light-blue.project__tag--searched:focus {
   border-color: #52c2dd;
   background-color: #52c2dd;
   color: white;
   box-shadow: none; }
 
-.project__skill--dark-blue {
+.project__tag--dark-blue {
   border-color: #0375b4;
   color: #0375b4; }
 
-.project__skill--dark-blue:hover,
-.project__skill--dark-blue:focus {
+.project__tag--dark-blue:hover,
+.project__tag--dark-blue:focus {
   border-color: #0382c3;
   background-color: #0382c3;
   color: white;
   box-shadow: 0 0 10px 0 rgba(3, 117, 180, 0.4); }
 
-.project__skill--dark-blue.project__skill--searched,
-.project__skill--dark-blue.project__skill--searched:hover,
-.project__skill--dark-blue.project__skill--searched:focus {
+.project__tag--dark-blue.project__tag--searched,
+.project__tag--dark-blue.project__tag--searched:hover,
+.project__tag--dark-blue.project__tag--searched:focus {
   border-color: #0360a0;
   background-color: #0360a0;
   color: white;
   box-shadow: none; }
 
-.project__skill--purple {
+.project__tag--purple {
   border-color: #82379d;
   color: #82379d; }
 
-.project__skill--purple:hover,
-.project__skill--purple:focus {
+.project__tag--purple:hover,
+.project__tag--purple:focus {
   border-color: #9339af;
   background-color: #9339af;
   color: white;
   box-shadow: 0 0 10px 0 rgba(130, 55, 157, 0.4); }
 
-.project__skill--purple.project__skill--searched,
-.project__skill--purple.project__skill--searched:hover,
-.project__skill--purple.project__skill--searched:focus {
+.project__tag--purple.project__tag--searched,
+.project__tag--purple.project__tag--searched:hover,
+.project__tag--purple.project__tag--searched:focus {
   border-color: #6c3687;
   background-color: #6c3687;
   color: white;
   box-shadow: none; }
 
-.project__skill--pink {
+.project__tag--pink {
   border-color: #f47ab3;
   color: #f47ab3; }
 
-.project__skill--pink:hover,
-.project__skill--pink:focus {
+.project__tag--pink:hover,
+.project__tag--pink:focus {
   border-color: #ff82bf;
   background-color: #ff82bf;
   color: white;
   box-shadow: 0 0 10px 0 rgba(244, 122, 179, 0.4); }
 
-.project__skill--pink.project__skill--searched,
-.project__skill--pink.project__skill--searched:hover,
-.project__skill--pink.project__skill--searched:focus {
+.project__tag--pink.project__tag--searched,
+.project__tag--pink.project__tag--searched:hover,
+.project__tag--pink.project__tag--searched:focus {
   border-color: #ff739b;
   background-color: #ff739b;
   color: white;
   box-shadow: none; }
 
-.project__skill--red {
+.project__tag--red {
   border-color: #f12525;
   color: #f12525; }
 
-.project__skill--red:hover,
-.project__skill--red:focus {
+.project__tag--red:hover,
+.project__tag--red:focus {
   border-color: #ff2525;
   background-color: #ff2525;
   color: white;
   box-shadow: 0 0 10px 0 rgba(241, 37, 37, 0.4); }
 
-.project__skill--red.project__skill--searched,
-.project__skill--red.project__skill--searched:hover,
-.project__skill--red.project__skill--searched:focus {
+.project__tag--red.project__tag--searched,
+.project__tag--red.project__tag--searched:hover,
+.project__tag--red.project__tag--searched:focus {
   border-color: #e62525;
   background-color: #e62525;
   color: white;
   box-shadow: none; }
 
-.project__skill--orange {
+.project__tag--orange {
   border-color: #f69e00;
   color: #f69e00; }
 
-.project__skill--orange:hover,
-.project__skill--orange:focus {
+.project__tag--orange:hover,
+.project__tag--orange:focus {
   border-color: #fba300;
   background-color: #fba300;
   color: white;
   box-shadow: 0 0 10px 0 rgba(246, 158, 0, 0.4); }
 
-.project__skill--orange.project__skill--searched,
-.project__skill--orange.project__skill--searched:hover,
-.project__skill--orange.project__skill--searched:focus {
+.project__tag--orange.project__tag--searched,
+.project__tag--orange.project__tag--searched:hover,
+.project__tag--orange.project__tag--searched:focus {
   border-color: #f77f00;
   background-color: #f77f00;
   color: white;
   box-shadow: none; }
 
-.project__skill--yellow {
+.project__tag--yellow {
   border-color: #ffef38;
   color: #ffef38; }
 
-.project__skill--yellow:hover,
-.project__skill--yellow:focus {
+.project__tag--yellow:hover,
+.project__tag--yellow:focus {
   border-color: #fffd3c;
   background-color: #fffd3c;
   color: #333333;
   box-shadow: 0 0 10px 0 rgba(255, 239, 56, 0.4); }
 
-.project__skill--yellow.project__skill--searched,
-.project__skill--yellow.project__skill--searched:hover,
-.project__skill--yellow.project__skill--searched:focus {
+.project__tag--yellow.project__tag--searched,
+.project__tag--yellow.project__tag--searched:hover,
+.project__tag--yellow.project__tag--searched:focus {
   border-color: #f8e43b;
   background-color: #f8e43b;
   color: #333333;
   box-shadow: none; }
 
-.project__skill--light-green {
+.project__tag--light-green {
   border-color: #3dc714;
   color: #3dc714; }
 
-.project__skill--light-green:hover,
-.project__skill--light-green:focus {
+.project__tag--light-green:hover,
+.project__tag--light-green:focus {
   border-color: #3bcf14;
   background-color: #3bcf14;
   color: white;
   box-shadow: 0 0 10px 0 rgba(61, 199, 20, 0.4); }
 
-.project__skill--light-green.project__skill--searched,
-.project__skill--light-green.project__skill--searched:hover,
-.project__skill--light-green.project__skill--searched:focus {
+.project__tag--light-green.project__tag--searched,
+.project__tag--light-green.project__tag--searched:hover,
+.project__tag--light-green.project__tag--searched:focus {
   border-color: #33bb12;
   background-color: #33bb12;
   color: white;
   box-shadow: none; }
 
-.project__skill--lime-green {
+.project__tag--lime-green {
   border-color: #b5cf16;
   color: #b5cf16; }
 
-.project__skill--lime-green:hover,
-.project__skill--lime-green:focus {
+.project__tag--lime-green:hover,
+.project__tag--lime-green:focus {
   border-color: #bdd716;
   background-color: #bdd716;
   color: white;
   box-shadow: 0 0 10px 0 rgba(181, 207, 22, 0.4); }
 
-.project__skill--lime-green.project__skill--searched,
-.project__skill--lime-green.project__skill--searched:hover,
-.project__skill--lime-green.project__skill--searched:focus {
+.project__tag--lime-green.project__tag--searched,
+.project__tag--lime-green.project__tag--searched:hover,
+.project__tag--lime-green.project__tag--searched:focus {
   border-color: #b4c72f;
   background-color: #b4c72f;
   color: white;
   box-shadow: none; }
 
-.project__skill--dark-green {
+.project__tag--dark-green {
   border-color: #1aad5b;
   color: #1aad5b; }
 
-.project__skill--dark-green:hover,
-.project__skill--dark-green:focus {
+.project__tag--dark-green:hover,
+.project__tag--dark-green:focus {
   border-color: #1bbe69;
   background-color: #1bbe69;
   color: white;
   box-shadow: 0 0 10px 0 rgba(26, 173, 91, 0.4); }
 
-.project__skill--dark-green.project__skill--searched,
-.project__skill--dark-green.project__skill--searched:hover,
-.project__skill--dark-green.project__skill--searched:focus {
+.project__tag--dark-green.project__tag--searched,
+.project__tag--dark-green.project__tag--searched:hover,
+.project__tag--dark-green.project__tag--searched:focus {
   border-color: #1ba553;
   background-color: #1ba553;
   color: white;
   box-shadow: none; }
 
-.project__skill--grey {
+.project__tag--grey {
   border-color: #7b8676;
   color: #7b8676; }
 
-.project__skill--grey:hover,
-.project__skill--grey:focus {
+.project__tag--grey:hover,
+.project__tag--grey:focus {
   border-color: #889283;
   background-color: #889283;
   color: white;
   box-shadow: 0 0 10px 0 rgba(123, 134, 118, 0.4); }
 
-.project__skill--grey.project__skill--searched,
-.project__skill--grey.project__skill--searched:hover,
-.project__skill--grey.project__skill--searched:focus {
+.project__tag--grey.project__tag--searched,
+.project__tag--grey.project__tag--searched:hover,
+.project__tag--grey.project__tag--searched:focus {
   border-color: #626b5e;
   background-color: #626b5e;
   color: white;
   box-shadow: none; }
 
-.project__skill--black {
+.project__tag--black {
   border-color: #333333;
   color: #333333; }
 
-.project__skill--black:hover,
-.project__skill--black:focus {
+.project__tag--black:hover,
+.project__tag--black:focus {
   border-color: #262626;
   background-color: #262626;
   color: white;
   box-shadow: 0 0 10px 0 rgba(51, 51, 51, 0.4); }
 
-.project__skill--black.project__skill--searched,
-.project__skill--black.project__skill--searched:hover,
-.project__skill--black.project__skill--searched:focus {
+.project__tag--black.project__tag--searched,
+.project__tag--black.project__tag--searched:hover,
+.project__tag--black.project__tag--searched:focus {
   border-color: #0d0d0d;
   background-color: #0d0d0d;
   color: white;
