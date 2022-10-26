@@ -141,46 +141,46 @@ window.jpi.projects = (function(jQuery, jpi) {
             }
         },
 
-        renderProjectSkills: function(project, containerSelector) {
-            var skills = project.skills;
+        renderProjectTags: function(project, containerSelector) {
+            var tags = project.tags;
 
-            var skillsContainer = jQuery(containerSelector).find(".project__skills");
-            if (!skillsContainer.length) {
+            var tagsContainer = jQuery(containerSelector).find(".project__tags");
+            if (!tagsContainer.length) {
                 return;
             }
 
             var search = global.searchInput.val().trim().toLowerCase();
             var searches = search.split(" ");
 
-            for (var i = 0; i < skills.length; i++) {
-                var skill = skills[i].trim();
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i].trim();
 
-                if (skill === "") {
+                if (tag === "") {
                     continue;
                 }
 
-                var lowerCasedSkill = skill.toLowerCase();
+                var lowerCasedTag = tag.toLowerCase();
 
                 var isInSearch = false;
                 for (var j = 0; j < searches.length; j++) {
-                    if (searches[j].trim() !== "" && lowerCasedSkill.includes(searches[j])) {
+                    if (searches[j].trim() !== "" && lowerCasedTag.includes(searches[j])) {
                         isInSearch = true;
                         break;
                     }
                 }
 
-                var classes = ["project__skill"];
+                var classes = ["project__tag"];
                 if (project.colour) {
-                    classes.push("project__skill--" + project.colour);
+                    classes.push("project__tag--" + project.colour);
                 }
                 if (isInSearch) {
-                    classes.push("project__skill--searched");
+                    classes.push("project__tag--searched");
                 }
 
-                jpi.helpers.renderNewElement("a", skillsContainer, {
-                    text: skill,
+                jpi.helpers.renderNewElement("a", tagsContainer, {
+                    text: tag,
                     class: classes.join(" "),
-                    href: "/projects/" + skill + "/",
+                    href: "/projects/" + tag + "/",
                 });
             }
         },
@@ -334,7 +334,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             var project = global.projects[projectId];
             var modal = global.modal;
 
-            modal.find(".project__links, .project__skills, .slide-show__slides, .slide-show__bullets").text("");
+            modal.find(".project__links, .project__tags, .slide-show__slides, .slide-show__bullets").text("");
 
             modal.find(".modal__heading").text(project.name);
             modal.find(".project__date").text(project.date);
@@ -348,7 +348,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             classList = classList.replace(global.typeColourRegex, "project__type--" + project.colour);
             projectTypeElem.attr("class", classList);
 
-            fn.renderProjectSkills(project, global.modalSelector);
+            fn.renderProjectTags(project, global.modalSelector);
             fn.renderProjectLinks(project, global.modalSelector);
             fn.renderProjectImages(project, global.modalSelector);
 
@@ -444,18 +444,18 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal.on("closed", fn.onProjectModalClose);
 
-            global.body.on("click", ".project__skill", function(e) {
+            global.body.on("click", ".project__tag", function(e) {
                 jpi.modal.close();
                 e.preventDefault();
                 fn.scrollToProjects();
 
-                var skill = e.target.innerHTML;
+                var tag = e.target.innerHTML;
 
-                if (skill === global.searchInput.val() && global.pageNumber === 1) {
+                if (tag === global.searchInput.val() && global.pageNumber === 1) {
                     return;
                 }
 
-                global.searchInput.val(skill);
+                global.searchInput.val(tag);
                 fn.doSearch();
             });
 

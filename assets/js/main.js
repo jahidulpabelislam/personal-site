@@ -1192,7 +1192,7 @@ window.jpi.projects = (function(jQuery, jpi) {
         renderProjectSkills: function(project, containerSelector) {
             var skills = project.skills;
 
-            var skillsContainer = jQuery(containerSelector).find(".project__skills");
+            var skillsContainer = jQuery(containerSelector).find(".project__tags");
             if (!skillsContainer.length) {
                 return;
             }
@@ -1217,12 +1217,12 @@ window.jpi.projects = (function(jQuery, jpi) {
                     }
                 }
 
-                var classes = ["project__skill"];
+                var classes = ["project__tag"];
                 if (project.colour) {
-                    classes.push("project__skill--" + project.colour);
+                    classes.push("project__tag--" + project.colour);
                 }
                 if (isInSearch) {
-                    classes.push("project__skill--searched");
+                    classes.push("project__tag--searched");
                 }
 
                 jpi.helpers.renderNewElement("a", skillsContainer, {
@@ -1382,7 +1382,7 @@ window.jpi.projects = (function(jQuery, jpi) {
             var project = global.projects[projectId];
             var modal = global.modal;
 
-            modal.find(".project__links, .project__skills, .slide-show__slides, .slide-show__bullets").text("");
+            modal.find(".project__links, .project__tags, .slide-show__slides, .slide-show__bullets").text("");
 
             modal.find(".modal__heading").text(project.name);
             modal.find(".project__date").text(project.date);
@@ -1492,7 +1492,7 @@ window.jpi.projects = (function(jQuery, jpi) {
 
             global.modal.on("closed", fn.onProjectModalClose);
 
-            global.body.on("click", ".project__skill", function(e) {
+            global.body.on("click", ".project__tag", function(e) {
                 jpi.modal.close();
                 e.preventDefault();
                 fn.scrollToProjects();

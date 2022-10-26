@@ -55,11 +55,11 @@
     }
 }
 
-.project__skills {
+.project__tags {
     margin: 15px 0;
 }
 
-.project__skill {
+.project__tag {
     display: inline-block;
     margin: 2px;
     padding: 5px;
@@ -72,44 +72,44 @@
     transition-property: border-color, background-color, color, box-shadow;
 }
 
-.project__skill:hover,
-.project__skill:focus {
+.project__tag:hover,
+.project__tag:focus {
     border-color: get-colour(black, hover);
     background-color: get-colour(black, hover);
     color: get-colour(black, text, white);
     box-shadow: 0 0 10px 0 transparentize(get-colour(black, main), 0.6);
 }
 
-.project__skill--searched,
-.project__skill--searched:hover,
-.project__skill--searched:focus {
+.project__tag--searched,
+.project__tag--searched:hover,
+.project__tag--searched:focus {
     border-color: get-colour(black, dark);
     background-color: get-colour(black, dark);
     color: get-colour(black, text, white);
 }
 
-.project__skill--searched:hover,
-.project__skill--searched:focus {
+.project__tag--searched:hover,
+.project__tag--searched:focus {
     box-shadow: none;
 }
 
 @each $colour, $colours in $colour-schemes {
-    .project__skill--#{$colour} {
+    .project__tag--#{$colour} {
         border-color: map-get($colours, main);
         color: map-get($colours, main);
     }
 
-    .project__skill--#{$colour}:hover,
-    .project__skill--#{$colour}:focus {
+    .project__tag--#{$colour}:hover,
+    .project__tag--#{$colour}:focus {
         border-color: map-get($colours, hover);
         background-color: map-get($colours, hover);
         color: get-colour-variant($colours, text, white);
         box-shadow: 0 0 10px 0 transparentize(map-get($colours, main), 0.6);
     }
 
-    .project__skill--#{$colour}.project__skill--searched,
-    .project__skill--#{$colour}.project__skill--searched:hover,
-    .project__skill--#{$colour}.project__skill--searched:focus {
+    .project__tag--#{$colour}.project__tag--searched,
+    .project__tag--#{$colour}.project__tag--searched:hover,
+    .project__tag--#{$colour}.project__tag--searched:focus {
         border-color: map-get($colours, dark);
         background-color: map-get($colours, dark);
         color: get-colour-variant($colours, text, white);
