@@ -50,11 +50,13 @@ if ($type) {
             continue;
         }
 
-        $apiRequestParams["filters"] = [
-            "type_id" => $projectType["id"],
-        ];
+        $typeId = $projectType["id"];
         break;
     }
+
+    $apiRequestParams["filters"] = [
+        "type_id" => $typeId ?? "",
+    ];
 }
 
 $projectsURL = $site::getAPIEndpoint("/projects/");
