@@ -163,10 +163,10 @@
   font-weight: 700;
   text-align: left; }
 
-.project__skills {
+.project__tags {
   margin: 15px 0; }
 
-.project__skill {
+.project__tag {
   display: inline-block;
   margin: 2px;
   padding: 5px;

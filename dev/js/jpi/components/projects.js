@@ -79,23 +79,23 @@
         }
     };
 
-    this.renderProjectSkills = function(project, containerSelector) {
-        var $skills = jQuery(containerSelector).find(".project__skills");
-        if (!$skills.length) {
+    this.renderProjectTags = function(project, containerSelector) {
+        var $tags = jQuery(containerSelector).find(".project__tags");
+        if (!$tags.length) {
             return;
         }
 
-        var skills = project.skills;
-        for (var i = 0; i < skills.length; i++) {
-            var skill = skills[i].trim();
+        var tags = project.tags;
+        for (var i = 0; i < tags.length; i++) {
+            var tag = tags[i].trim();
 
-            if (skill === "") {
+            if (tag === "") {
                 continue;
             }
 
-            JPI.renderNewElement("span", $skills, {
-                text: skill,
-                class: "project__skill",
+            JPI.renderNewElement("span", $tags, {
+                text: tag,
+                class: "project__tag",
             });
         }
     };
@@ -242,14 +242,14 @@
         var project = this.projects[projectId];
         var $modal = this.$modal;
 
-        $modal.find(".project__links, .project__skills, .slide-show__slides, .slide-show__bullets").text("");
+        $modal.find(".project__links, .project__tags, .slide-show__slides, .slide-show__bullets").text("");
 
         $modal.find(".modal__heading").text(project.name);
         $modal.find(".project__date").text(project.date);
         $modal.find(".project__description").html(project.long_description);
         $modal.find(".project__type").text(project.type);
 
-        this.renderProjectSkills(project, this.modalSelector);
+        this.renderProjectTags(project, this.modalSelector);
         this.renderProjectLinks(project, this.modalSelector);
         this.renderProjectImages(project, this.modalSelector);
 

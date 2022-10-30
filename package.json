@@ -15,7 +15,7 @@
         "gulp-sass-vars": "^1.1.5",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify": "^3.0.2",
-        "node-sass": "^7.0.1",
+        "node-sass": "^7.0.3",
         "node-sass-json-importer": "^4.3.0"
     }
 }

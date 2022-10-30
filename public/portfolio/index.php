@@ -233,7 +233,7 @@ $page->renderPageEnd();
 
         <h1 class="modal__heading" id="detailed-project-title"></h1>
 
-        <div class="project__skills"></div>
+        <div class="project__tags"></div>
 
         <div class="project__meta">
             <p class="project__type project__type--"></p>
