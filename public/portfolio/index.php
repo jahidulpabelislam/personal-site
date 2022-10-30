@@ -119,7 +119,7 @@ $yearsSinceStarted = getTimeDifference($site->getStartDate(), new DateTime(), "%
                     "{total}",
                 ],
                 [
-                    1 + ($pageNum - 1) * $projectsPerPage,
+                    (count($projects) ? 1 : 0) + ($pageNum - 1) * $projectsPerPage,
                     ($pageNum - 1) * $projectsPerPage + count($projects),
                     $apiRes["_total_count"]
                 ],
