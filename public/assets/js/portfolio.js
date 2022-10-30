@@ -874,14 +874,11 @@ JPI.ExpandedSlideShow = function() {
 
     this.$projectType = jQuery(".js-project-type");
 
-    this.$projects = jQuery(".projects__items");
-
-    this.$header = jQuery(".projects__header");
-
     this.$loading = jQuery(".projects__loading");
-    this.$error = jQuery(".projects__error");
-    this.$pagination = jQuery(".projects__pagination");
     this.$paginationStatus = jQuery(".projects__pagination-status");
+    this.$error = jQuery(".projects__error");
+    this.$projects = jQuery(".projects__items");
+    this.$pagination = jQuery(".projects__pagination");
 
     this.modalSelector = ".detailed-project";
 
@@ -901,11 +898,10 @@ JPI.ExpandedSlideShow = function() {
     this.projects = {};
 
     this.renderError = function(error) {
-        this.$error.text(error).show(600);
-        this.$pagination.text("").hide(600);
-        this.$loading.hide(600);
-        this.$projects.hide(600);
-        this.$header.hide(600);
+        this.$error.text(error).show();
+        this.$pagination.text("").hide();
+        this.$projects.hide();
+        this.$loading.hide();
     };
 
     this.renderPaginationItem = function(page, $container, isCurrent) {
@@ -1061,12 +1057,10 @@ JPI.ExpandedSlideShow = function() {
 
     // Sets up events when projects were received
     this.gotProjects = function(response) {
-        this.$error.text("").hide(600);
-        this.$header.show(600);
-        this.$loading.hide(600);
-        this.$projects.text("").show(600);
+        this.$error.text("").hide();
+        this.$projects.text("").show();
         this.$pagination.text("").hide();
-        this.$paginationStatus.text("").hide();
+        this.$loading.hide();
 
         // Send the data, the function to do if data is valid
         JPI.ajax.renderRowsOrError(
@@ -1076,17 +1070,15 @@ JPI.ExpandedSlideShow = function() {
             "No Projects Found."
         );
 
-        if (response && response._total_count) {
-            this.renderPagination(JPI.getInt(response._total_count));
+        this.renderPagination(JPI.getInt(response._total_count));
 
-            var paginationStatus = this.$paginationStatus.attr("data-format");
+        var paginationStatus = this.$paginationStatus.attr("data-format");
 
-            paginationStatus = paginationStatus.replace("{start}", 1 + (this.page - 1) * JPI.projects.perPage);
-            paginationStatus = paginationStatus.replace("{end}", (this.page - 1) * JPI.projects.perPage + response.data.length);
-            paginationStatus = paginationStatus.replace("{total}", response._total_count);
+        paginationStatus = paginationStatus.replace("{start}", (response._total_count ? 1 : 0) + (this.page - 1) * JPI.projects.perPage);
+        paginationStatus = paginationStatus.replace("{end}", (this.page - 1) * JPI.projects.perPage + response.data.length);
+        paginationStatus = paginationStatus.replace("{total}", response._total_count);
 
-            this.$paginationStatus.html(paginationStatus).show();
-        }
+        this.$paginationStatus.html(paginationStatus);
     };
 
     this.getProjects = function() {
