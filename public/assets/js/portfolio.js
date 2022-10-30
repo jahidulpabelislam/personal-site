@@ -1083,12 +1083,14 @@ JPI.ExpandedSlideShow = function() {
 
     this.getProjects = function() {
         var query = {
-            filters: {
-                type_id: this.$projectType.val(),
-            },
+            filters: {},
             page: this.page,
             limit: JPI.projects.perPage,
         };
+
+        if (this.$projectType.val()) {
+            query.filters.type_id = this.$projectType.val();
+        }
 
         JPI.ajax.request({
             method: "GET",
