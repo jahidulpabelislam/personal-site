@@ -81,12 +81,6 @@ curl_close($ch);
 
 $projects = $apiRes["data"] ?? [];
 
-if (!count($projects)) {
-    http_response_code(404);
-    include(PUBLIC_ROOT . "/error/index.php");
-    exit();
-}
-
 $page->addJSGlobal("projects", "apiResponse", $apiRes);
 
 $page->renderHtmlStart();
