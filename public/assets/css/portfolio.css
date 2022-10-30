@@ -99,7 +99,7 @@
 .projects__error {
   display: none;
   width: 100%;
-  margin: 25px auto;
+  margin: 25px auto 0;
   font-weight: 700;
   color: #f74440; }
 

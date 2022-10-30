@@ -876,6 +876,8 @@ JPI.ExpandedSlideShow = function() {
 
     this.$projects = jQuery(".projects__items");
 
+    this.$header = jQuery(".projects__header");
+
     this.$loading = jQuery(".projects__loading");
     this.$error = jQuery(".projects__error");
     this.$pagination = jQuery(".projects__pagination");
@@ -902,6 +904,8 @@ JPI.ExpandedSlideShow = function() {
         this.$error.text(error).show(600);
         this.$pagination.text("").hide(600);
         this.$loading.hide(600);
+        this.$projects.hide(600);
+        this.$header.hide(600);
     };
 
     this.renderPaginationItem = function(page, $container, isCurrent) {
@@ -1058,8 +1062,9 @@ JPI.ExpandedSlideShow = function() {
     // Sets up events when projects were received
     this.gotProjects = function(response) {
         this.$error.text("").hide(600);
+        this.$header.show(600);
         this.$loading.hide(600);
-        this.$projects.text("");
+        this.$projects.text("").show(600);
         this.$pagination.text("").hide();
         this.$paginationStatus.text("").hide();
 
