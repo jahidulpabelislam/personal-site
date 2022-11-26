@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c32aadfc57736271d35aa4f3e6b0b17f",
+    "content-hash": "ab7b787f9ee0af66d6713bafdbbbbb72",
     "packages": [
         {
             "name": "jpi/utils",
@@ -12,16 +12,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/utils.git",
-                "reference": "029677436936c235862de2ed6664f836c879037f"
+                "reference": "d261abad0f0409e0f52ea78c46ea0637d5e65506"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/029677436936c235862de2ed6664f836c879037f",
-                "reference": "029677436936c235862de2ed6664f836c879037f",
+                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/d261abad0f0409e0f52ea78c46ea0637d5e65506",
+                "reference": "d261abad0f0409e0f52ea78c46ea0637d5e65506",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "jpi/codestyles": "^1.0.1"
             },
             "default-branch": true,
             "type": "library",
@@ -42,13 +45,18 @@
             ],
             "description": "Library with various utility classes",
             "keywords": [
-                "utilities"
+                "collection",
+                "helpers",
+                "singleton",
+                "url",
+                "utilities",
+                "utility"
             ],
             "support": {
                 "issues": "https://github.com/jahidulpabelislam/utils/issues",
-                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.3.0"
+                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.4.0"
             },
-            "time": "2022-10-15T16:21:50+00:00"
+            "time": "2022-10-24T22:03:29+00:00"
         }
     ],
     "packages-dev": [],
@@ -59,7 +67,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.1 || ^8.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }
