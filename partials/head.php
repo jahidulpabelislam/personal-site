@@ -12,15 +12,6 @@ $page = Page::get();
 
     <head>
         <?php
-        // Only want Google Analytic for live site
-        if ($site->isProduction()) {
-            ?>
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70803146-2" type="text/javascript"></script>
-            <script type="text/javascript">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","UA-70803146-2");</script>
-            <?php
-        }
-
         $title = "{$title} | Jahidul Pabel Islam - Full Stack Developer";
         if ($pageId === "home") {
             $title = "Jahidul Pabel Islam's Portfolio - Full Stack Developer";
@@ -89,6 +80,20 @@ $page = Page::get();
         }
         ?>
 
+        <?php
+        // Only want tracking for live site
+        if ($site->isProduction()) {
+            ?>
+            <!-- Google Tag Manager -->
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-5PNRKNC');</script>
+            <!-- End Google Tag Manager -->
+            <?php
+        }
+        ?>
     </head>
 
     <body>
