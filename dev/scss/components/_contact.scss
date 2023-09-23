@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .contact-me__column {
     padding: 30px 15px;
 }
@@ -80,13 +82,13 @@
 
         > div {
             width: 100%;
-            max-width: $max-width / 2;
+            max-width: math.div($max-width, 2);
             margin: 0 auto;
         }
     }
 
     .contact-me__column--form {
-        max-width: $max-width / 2;
+        max-width: math.div($max-width, 2);
         margin: 0;
         text-align: left;
     }
