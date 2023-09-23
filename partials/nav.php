@@ -28,7 +28,7 @@ $page = page();
                 $fullURL = $site->makeURL($url);
 
                 $classes = ["nav__link"];
-                if ($currentURL === $site->makeURL($url, false)) {
+                if ($currentURL === $site->makeURL($url)) {
                     $classes[] = "nav__link--active";
                 }
 

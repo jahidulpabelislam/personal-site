@@ -34,11 +34,9 @@ class Page {
 
         $this->setUpGlobalData();
 
-        $extension = $this->site->useDevAssets() ? "js" : "min.js";
+        $this->addScript("/assets/js/global.js");
 
-        $this->addScript("/assets/js/global.$extension");
-
-        $pageScript = new File("/assets/js/$id.$extension");
+        $pageScript = new File("/assets/js/$id.js");
         if ($pageScript->exists()) {
             $this->addScript($pageScript->getPath());
         }
@@ -76,7 +74,7 @@ class Page {
 
     private function getInlineStylesheetsForPage(): array {
         return [
-            "/assets/css/above-the-fold." . ($this->site->useDevAssets() ? "css" : "min.css"),
+            "/assets/css/above-the-fold.css",
         ];
     }
 
@@ -87,13 +85,11 @@ class Page {
     public function getDeferredStylesheetsForPage(): array {
         $pageId = $this->data["id"];
 
-        $extension = $this->site->useDevAssets() ? "css" : "min.css";
-
         $stylesheets = [
-            ["src" => "/assets/css/global.$extension"],
+            ["src" => "/assets/css/global.css"],
         ];
 
-        $pageScript = new File("/assets/css/$pageId.$extension");
+        $pageScript = new File("/assets/css/$pageId.css");
         if ($pageScript->exists()) {
             $stylesheets[] = ["src" => $pageScript->getPath()];
         }
@@ -121,7 +117,7 @@ class Page {
         }
 
         $this->data["indexed"] = $this->site->isProduction() || $this->site->isDevelopment();
-        $this->data["currentURL"] = $this->site->makeURL($url, false);
+        $this->data["currentURL"] = $this->site->makeURL($url);
         $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage();
         $this->data["stylesheets"] = $this->getStylesheetsForPage();
         $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage();

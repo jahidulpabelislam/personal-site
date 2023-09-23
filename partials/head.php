@@ -46,7 +46,7 @@ $description = $this->description ?? "";
     $imagePath = "/assets/images/social-cards/$pageId.png";
     if (load($imagePath)->exists()) {
         $relativeImageURL = $site::asset($imagePath);
-        $imageURL = $site->makeURL($relativeImageURL, false, true);
+        $imageURL = $site->makeURL($relativeImageURL, true);
         ?>
         <meta property="og:image" content="<?php echo $imageURL; ?>" />
         <?php

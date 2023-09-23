@@ -31,18 +31,16 @@ class Site extends BaseSite implements MeInterface {
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param $path string The relative url part/s to use to generate url from
-     * @param $addDevAssetsParam bool Whether the url should include the dev assets flag if currently added
      * @param $isFull bool Whether the url should be a full url
      * @param $isLive bool Whether the url should be a full live url
      * @return URL
      */
     public function makeURL(
         string $path,
-        bool $addDevAssetsParam = true,
         bool $isFull = false,
         bool $isLive = false
     ): URL {
-        $url = parent::makeURL($path, $addDevAssetsParam, $isFull && !$isLive);
+        $url = parent::makeURL($path, $isFull && !$isLive);
 
         if ($isFull && $isLive) {
             $url->setScheme("https");
