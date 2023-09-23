@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "dea183d21880a439d1fe9279d15dcac9cad4dbb4"
+                "reference": "90be5e517622382d1a406cf35e412faa6b9b6e14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/dea183d21880a439d1fe9279d15dcac9cad4dbb4",
-                "reference": "dea183d21880a439d1fe9279d15dcac9cad4dbb4",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/90be5e517622382d1a406cf35e412faa6b9b6e14",
+                "reference": "90be5e517622382d1a406cf35e412faa6b9b6e14",
                 "shasum": ""
             },
             "require": {
@@ -37,7 +37,7 @@
                 "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2023-09-23T12:55:35+00:00"
+            "time": "2023-09-23T13:17:19+00:00"
         },
         {
             "name": "jpi/utils",
@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/utils.git",
-                "reference": "41c8e02ede528a97a743efa1ad331369267a36bb"
+                "reference": "c2327dced1cc2545f95f60f6b13ada625196b6ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/41c8e02ede528a97a743efa1ad331369267a36bb",
-                "reference": "41c8e02ede528a97a743efa1ad331369267a36bb",
+                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/c2327dced1cc2545f95f60f6b13ada625196b6ae",
+                "reference": "c2327dced1cc2545f95f60f6b13ada625196b6ae",
                 "shasum": ""
             },
             "require": {
@@ -89,9 +89,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jahidulpabelislam/utils/issues",
-                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.9.1"
+                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.9.2"
             },
-            "time": "2023-07-12T21:01:50+00:00"
+            "time": "2023-09-23T13:14:33+00:00"
         }
     ],
     "packages-dev": [],
