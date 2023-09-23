@@ -11,17 +11,11 @@ class Page {
 
     use Singleton;
 
-    /**
-     * @var Site
-     */
-    private $site;
+    private Site $site;
 
-    /**
-     * @var Renderer
-     */
-    private $renderer;
+    private Renderer $renderer;
 
-    private $data = [];
+    private array $data = [];
 
     private function __construct() {
         $this->site = Site::get();
@@ -50,21 +44,16 @@ class Page {
         }
     }
 
-    /**
-     * @param $method string
-     * @param $arguments array
-     * @return mixed
-     * @throws \Exception
-     */
-    public function __call(string $method, array $arguments) {
+    public function __call(string $method, array $arguments): void {
         if (strpos($method, "render") === 0 && is_callable([$this->renderer, $method])) {
-            return call_user_func_array([$this->renderer, $method], $arguments);
+            call_user_func_array([$this->renderer, $method], $arguments);
+            return;
         }
 
         throw new Exception("No method found for $method");
     }
 
-    public function __set(string $field, $value) {
+    public function __set(string $field, mixed $value): void {
         if ($field === "id" && ($this->data[$field] ?? null) !== $value) {
             $this->setId($value);
             return;
@@ -73,7 +62,7 @@ class Page {
         $this->data[$field] = $value;
     }
 
-    public function __get(string $field) {
+    public function __get(string $field): mixed {
         return $this->data[$field] ?? null;
     }
 
@@ -149,7 +138,7 @@ class Page {
         $this->data = array_replace_recursive($this->data, $newPageData);
     }
 
-    public function addJSGlobal(string $global, ?string $subKey, $value): void {
+    public function addJSGlobal(string $global, ?string $subKey, mixed $value): void {
         if ($subKey) {
             $this->data["jsGlobals"][$global][$subKey] = $value;
         }

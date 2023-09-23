@@ -18,14 +18,11 @@ function load(string $path, bool $isRelative = true): File {
     return new File($path, $isRelative);
 }
 
-/**
- * @param $fromDate DateTime|string
- * @param $toDate DateTime|string
- * @param $format string|null
- * @return DateInterval|string
- * @throws Exception
- */
-function getTimeDifference($fromDate, $toDate, string $format = null) {
+function getTimeDifference(
+    DateTime|string $fromDate,
+    DateTime|string $toDate,
+    ?string $format = null
+): DateInterval|string {
     if (is_string($fromDate)) {
         $fromDate = new DateTime($fromDate);
     }
@@ -54,6 +51,6 @@ function getTimeDifference($fromDate, $toDate, string $format = null) {
  * @param $path string
  * @param $isRelative bool
  */
-function renderFile(string $path, bool $isRelative = true) {
+function renderFile(string $path, bool $isRelative = true): void {
     load($path, $isRelative)->render();
 }

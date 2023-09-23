@@ -6,15 +6,6 @@ declare(strict_types=1);
  * A helper class to use throughout the site.
  * To aid in including common partials for all pages.
  * And handles any page data associated with the page and passed to where needed
- *
- * Developed so it can be used in multiple sites.
- *
- * PHP version 7.1+
- *
- * @version 1.1.2
- * @since Class available since Release: v4.2.0
- * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
- * @copyright 2010-2019 JPI
  */
 
 namespace App;
@@ -27,21 +18,10 @@ class Renderer {
         return str_replace("\n", "", trim($contents));
     }
 
-    /**
-     * @var Page
-     */
-    private $page;
-
-    public function __construct(Page $page) {
-        $this->page = $page;
+    public function __construct(private Page $page) {
     }
 
-    /**
-     * @param string $method
-     * @param array $arguments
-     * @throws Exception
-     */
-    public function __call(string $method, array $arguments) {
+    public function __call(string $method, array $arguments): void {
         $partial = substr($method, 6); // Remove 'render'
         $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
         $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'

@@ -4,13 +4,6 @@ declare(strict_types=1);
 
 /**
  * A helper class to use when handling files
- *
- * PHP version 7.1+
- *
- * @version 1.0.0
- * @since Class available since Release: v4.12.0
- * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
- * @copyright 2010-2020 JPI
  */
 
 namespace App;
@@ -19,16 +12,16 @@ use JPI\Utils\URL;
 
 class File {
 
-    private $path;
-    private $fullPath;
+    private string $fullPath;
 
-    private $exists = null;
-    private $contents = null;
-    private $contentsAsArray = null;
+    private ?bool $exists = null;
+    private ?string $contents = null;
+    private ?array $contentsAsArray = null;
 
-    public function __construct(string $path, bool $isRelative = true) {
-        $this->path = $path;
-
+    public function __construct(
+        private string $path,
+        bool $isRelative = true
+    ) {
         if ($isRelative) {
             $path = PUBLIC_ROOT . URL::addLeadingSlash($path);
         }
@@ -54,7 +47,7 @@ class File {
         }
     }
 
-    public function get($default = null) {
+    public function get(?string $default = null): ?string {
         if ($this->contents === null && $this->exists()) {
             $this->contents = file_get_contents($this->fullPath);
         }
@@ -62,7 +55,7 @@ class File {
         return $this->contents ?? $default;
     }
 
-    public function getArray(array $default = null): ?array {
+    public function getArray(?array $default = null): ?array {
         if ($this->contentsAsArray === null) {
             $jsonString = $this->get();
 

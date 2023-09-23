@@ -5,15 +5,6 @@ declare(strict_types=1);
 /**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.
- *
- * Developed so it can be used in multiple sites.
- *
- * PHP version 7.1+
- *
- * @version 1.4.0
- * @since Class available since Release: v4.1.0
- * @author Jahidul Pabel Islam <me@jahidulpabelislam.com>
- * @copyright 2010-2019 JPI
  */
 
 namespace App;
@@ -31,15 +22,12 @@ class Site extends BaseSite implements MeInterface {
 
     public const LIVE_DOMAIN = "jahidulpabelislam.com";
 
-    /**
-     * @return string Generate and return the live domain
-     */
     public function getLiveDomain(): string {
         return self::LIVE_DOMAIN;
     }
 
     /**
-     * Generate and return a url from passed url
+     * Generate and return an url from passed url
      * Depending on param values, return url can be a relative, full live or a full local url.
      *
      * @param $path string The relative url part/s to use to generate url from
@@ -48,7 +36,12 @@ class Site extends BaseSite implements MeInterface {
      * @param $isLive bool Whether the url should be a full live url
      * @return URL
      */
-    public function makeURL(string $path, bool $addDevAssetsParam = true, bool $isFull = false, bool $isLive = false): URL {
+    public function makeURL(
+        string $path,
+        bool $addDevAssetsParam = true,
+        bool $isFull = false,
+        bool $isLive = false
+    ): URL {
         $url = parent::makeURL($path, $addDevAssetsParam, $isFull && !$isLive);
 
         if ($isFull && $isLive) {
@@ -73,6 +66,7 @@ class Site extends BaseSite implements MeInterface {
         return $url;
     }
 
+    // todo check is this working?
     public static function getLinkToURL(string $service): string {
         return static::formatURL(LINK_TO_URL, "/$service/");
     }
@@ -81,9 +75,6 @@ class Site extends BaseSite implements MeInterface {
         return LINKS_URL;
     }
 
-    /**
-     * Generate and return the API endpoint
-     */
     public static function getAPIEndpoint(string $entity = ""): URL {
         $url = new URL(JPI_API_ENDPOINT);
         $url->addPath("v" . JPI_API_VERSION);
@@ -95,7 +86,15 @@ class Site extends BaseSite implements MeInterface {
         // Get the data from request
         $data = [];
         foreach ($_POST as $key => $value) {
-            $data[$key] = trim(stripslashes(strip_tags(urldecode(filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING)))));
+            $data[$key] = trim(
+                stripslashes(
+                    strip_tags(
+                        urldecode(
+                            filter_input(INPUT_POST, $key, FILTER_SANITIZE_STRING)
+                        )
+                    )
+                )
+            );
         }
 
         // The email user provided to reply to

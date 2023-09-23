@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b38b1b7d652880c8591ced0c78550367",
+    "content-hash": "b4d04c38ceef3785d274aca894dd1bcf",
     "packages": [
         {
             "name": "jpi/site",
@@ -12,18 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "dcb0c8277a9b1c718b90509aa27a7fec8a1a7116"
+                "reference": "8b1e691fad5e555d948fa80cd3a55b33450c826c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/dcb0c8277a9b1c718b90509aa27a7fec8a1a7116",
-                "reference": "dcb0c8277a9b1c718b90509aa27a7fec8a1a7116",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/8b1e691fad5e555d948fa80cd3a55b33450c826c",
+                "reference": "8b1e691fad5e555d948fa80cd3a55b33450c826c",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "jpi/utils": "0.x-dev",
-                "php": "^7.1 || ^8.0"
+                "php": "^8.0"
             },
             "default-branch": true,
             "type": "library",
@@ -37,7 +37,7 @@
                 "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2023-09-23T00:10:16+00:00"
+            "time": "2023-09-23T10:47:37+00:00"
         },
         {
             "name": "jpi/utils",
@@ -104,10 +104,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3 || ^8.0",
+        "php": "^8.0",
         "ext-curl": "*",
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

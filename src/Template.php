@@ -6,14 +6,12 @@ namespace App;
 
 class Template {
 
-    private $path;
-    private $data;
+    private ?bool $exists = null;
 
-    private $exists = null;
-
-    public function __construct(string $path, array $data = []) {
-        $this->path = $path;
-        $this->data = $data;
+    public function __construct(
+        private string $path,
+        private array $data = []
+    ) {
     }
 
     public function exists(): bool {
@@ -30,11 +28,11 @@ class Template {
         }
     }
 
-    public function __get($key) {
+    public function __get(string $key): mixed {
         return $this->data[$key];
     }
 
-    public function __isset($key): bool {
+    public function __isset(string $key): bool {
         return array_key_exists($key, $this->data);
     }
 }
