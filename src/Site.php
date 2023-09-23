@@ -66,9 +66,10 @@ class Site extends BaseSite implements MeInterface {
         return $url;
     }
 
-    // todo check is this working?
-    public static function getLinkToURL(string $service): string {
-        return static::formatURL(LINK_TO_URL, "/$service/");
+    public static function getLinkToURL(string $service): URL {
+        $url = new URL(LINK_TO_URL);
+        $url->addPath("/$service/");
+        return $url;
     }
 
     public function getLinksUrl(): string {
