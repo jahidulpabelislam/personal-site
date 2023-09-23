@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * A helper class to use throughout the site.
  * To aid in including global/common files, content & configurations.

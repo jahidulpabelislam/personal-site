@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\File;
 use App\Page;
 use App\Site;
