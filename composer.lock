@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/utils.git",
-                "reference": "c2327dced1cc2545f95f60f6b13ada625196b6ae"
+                "reference": "5dd01f10244e35ee79c113b463711d1f4ffe82f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/c2327dced1cc2545f95f60f6b13ada625196b6ae",
-                "reference": "c2327dced1cc2545f95f60f6b13ada625196b6ae",
+                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/5dd01f10244e35ee79c113b463711d1f4ffe82f1",
+                "reference": "5dd01f10244e35ee79c113b463711d1f4ffe82f1",
                 "shasum": ""
             },
             "require": {
@@ -89,9 +89,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jahidulpabelislam/utils/issues",
-                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.9.2"
+                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.9.3"
             },
-            "time": "2023-09-23T13:14:33+00:00"
+            "time": "2023-10-04T20:09:46+00:00"
         }
     ],
     "packages-dev": [],
