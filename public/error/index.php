@@ -22,7 +22,7 @@ $headDescription = "Error: $error - $errorDescription message on the site of $na
 $page->id = $error;
 $pageData = [
     "indexed" => false,
-    "currentURL" => $site->makeURL("/$error"),
+    "currentURL" => $site->makeURL("/$error/"),
 ];
 $page->addPageData($pageData);
 

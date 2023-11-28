@@ -114,7 +114,7 @@ class Page {
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== realpath(PUBLIC_ROOT)) {
-            $url = dirname($_SERVER["SCRIPT_NAME"]);
+            $url = dirname($_SERVER["SCRIPT_NAME"]) . "/";
         }
 
         $this->data["indexed"] = $this->site->isProduction() || $this->site->isDevelopment();
