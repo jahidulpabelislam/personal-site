@@ -3,7 +3,7 @@
         "php": "^8.0",
         "ext-curl": "*",
         "ext-json": "*",
-        "jpi/utils": "0.x-dev",
+        "jpi/utils": "1.x-dev",
         "jpi/site": "1.x-dev"
     },
     "repositories": [

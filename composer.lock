@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4d04c38ceef3785d274aca894dd1bcf",
+    "content-hash": "7b7d6a9772a7c9bd34f7db7c8c4bd4bf",
     "packages": [
         {
             "name": "jpi/site",
@@ -12,17 +12,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "90be5e517622382d1a406cf35e412faa6b9b6e14"
+                "reference": "e12e226558242db6f7fd6259c1d5dd979f2579a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/90be5e517622382d1a406cf35e412faa6b9b6e14",
-                "reference": "90be5e517622382d1a406cf35e412faa6b9b6e14",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/e12e226558242db6f7fd6259c1d5dd979f2579a0",
+                "reference": "e12e226558242db6f7fd6259c1d5dd979f2579a0",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "jpi/utils": "0.x-dev",
+                "jpi/utils": "1.x-dev",
                 "php": "^8.0"
             },
             "default-branch": true,
@@ -37,20 +37,20 @@
                 "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2023-09-23T13:17:19+00:00"
+            "time": "2024-09-03T22:31:23+00:00"
         },
         {
             "name": "jpi/utils",
-            "version": "0.x-dev",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/utils.git",
-                "reference": "5dd01f10244e35ee79c113b463711d1f4ffe82f1"
+                "reference": "2777209ea28bbcfb07ba115b6aed8127bda8a00b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/5dd01f10244e35ee79c113b463711d1f4ffe82f1",
-                "reference": "5dd01f10244e35ee79c113b463711d1f4ffe82f1",
+                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/2777209ea28bbcfb07ba115b6aed8127bda8a00b",
+                "reference": "2777209ea28bbcfb07ba115b6aed8127bda8a00b",
                 "shasum": ""
             },
             "require": {
@@ -64,8 +64,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "JPI\\Utils\\": "src/",
-                    "JPI\\Utils\\Tests\\": "tests/"
+                    "JPI\\Utils\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -89,9 +88,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jahidulpabelislam/utils/issues",
-                "source": "https://github.com/jahidulpabelislam/utils/tree/v0.9.3"
+                "source": "https://github.com/jahidulpabelislam/utils/tree/1.x"
             },
-            "time": "2023-10-04T20:09:46+00:00"
+            "time": "2024-05-31T23:56:50+00:00"
         }
     ],
     "packages-dev": [],
