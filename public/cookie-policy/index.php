@@ -84,7 +84,7 @@ $page->renderSimilarLinks([
         ],
         [
             "title" => "Contact",
-            "url" => "/contact/",
+            "url" => "/#connect",
             "text" => "Get in Touch",
         ],
     ],

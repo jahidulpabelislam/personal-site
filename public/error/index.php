@@ -76,13 +76,13 @@ $rightSideCopy = $rightSideCopies[$error];
 $page->renderSimilarLinks([
     "links" => [
         [
-            "title" => "Projects",
-            "url" => "/projects/",
+            "title" => "Portfolio",
+            "url" => "/portfolio/",
             "text" => "View My Work",
         ],
         [
             "title" => "Contact",
-            "url" => "/contact/",
+            "url" => "/#connect",
             "text" => "Get in Touch",
         ],
     ],
