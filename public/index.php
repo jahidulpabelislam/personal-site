@@ -55,15 +55,15 @@ $page->renderContentStart();
         <p class="home-hello__hello"><span>Hello</span> there everyone 👋!</p>
         <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
         <p>
-            Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, have a look at some of the
+            Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, look at some
             <a class="link" href="<?php echo $site->makeURL("/portfolio/"); ?>">projects</a>
-            I have worked on also be able to <a class="link js-scroll-to" href="#connect">connect with me</a>.
+            I have worked on also <a class="link js-scroll-to" href="#connect">connect with me</a>.
         </p>
     </div>
 </div>
 
 <div class="row about" id="about">
-    <h2 class="row__heading">Quick Facts</h2>
+    <h2 class="row__heading">Me</h2>
     <div class="container">
         <div class="row__column">
             <?php
@@ -257,15 +257,15 @@ $page->renderContentStart();
         $skills = [
             [
                 "text" => "PHP",
-                "description" => "<p>Worked with frameworks (Wordpress, Laravel &amp; custom/in-house), libraries &amp; APIs</p>",
-            ],
-            [
-                "text" => "Python",
-                "description" => "<p>flask &amp; graphics.py</p>",
+                "description" => "<p>Frameworks (Wordpress, Laravel &amp; in-house), libraries &amp; APIs</p>",
             ],
             [
                 "text" => "SQL",
                 "description" => "<p>MySQL/MariaDB</p>",
+            ],
+            [
+                "text" => "Python",
+                "description" => "<p>flask &amp; graphics.py</p>",
             ],
         ];
         renderSkills("Backend", $skills);
@@ -273,15 +273,11 @@ $page->renderContentStart();
         $skills = [
             [
                 "text" => "JavaScript",
-                "description" => "<p>Node.js (socket.io &amp; Express), jQuery &amp; AngularJS</p>",
+                "description" => "<p>AngularJS, Node.js (socket.io &amp; Express) &amp;jQuery</p>",
             ],
             [
-                "text" => "CSS",
-                "description" => "<p>CSS3, SCSS &amp; Bootstrap3/4</p>",
-            ],
-            [
-                "text" => "HTML",
-                "description" => "<p>HTMl 4/5 &amp; templating engines (Blade &amp; Twig)</p>",
+                "text" => "HTML &amp; CSS",
+                "description" => "<p>Templating engines (Blade &amp; Twig) &amp; SCSS</p>",
             ],
         ];
         renderSkills("Frontend", $skills);
@@ -297,7 +293,7 @@ $page->renderContentStart();
             ],
             [
                 "text" => "Communication",
-                "description" => "<p>Written &amp; spoken communication skills from having worked in customer focused environments</p>",
+                "description" => "<p>Written &amp; spoken communication skills from experience customer focused environments</p>",
             ],
         ];
         renderSkills("General", $skills);
