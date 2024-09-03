@@ -207,14 +207,14 @@
 
         .container {
             > div {
-                width: 50%;
-
                 &:first-child {
+                    width: 75%;
                     order: unset;
                 }
 
                 &:last-child {
                     text-align: right;
+                    width: 25%;
                 }
             }
         }
