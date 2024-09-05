@@ -336,17 +336,17 @@ $page->renderContentStart();
 
             $totalProjects = 120;
             if (isset($counts["projects"])) {
-                $totalProjects = (floor($counts["projects"] / 10)) * 10;
+                $totalProjects = (floor($counts["projects"] / 5)) * 5;
             }
 
             $totalPullRequests = 1200;
             if (isset($counts["pullRequests"])) {
-                $totalPullRequests = (floor($counts["pullRequests"] / 10)) * 10;
+                $totalPullRequests = (floor($counts["pullRequests"] / 5)) * 5;
             }
 
             $totalCommits = 20000;
             if (isset($counts["commits"])) {
-                $totalCommits = (floor($counts["commits"] / 10)) * 10;
+                $totalCommits = (floor($counts["commits"] / 5)) * 5;
             }
 
             $counterItems = [
