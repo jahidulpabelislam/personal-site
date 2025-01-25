@@ -4,7 +4,7 @@ Portfolio I made for myself to showcase the projects I've developed, provide inf
 
 [1.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1) - I initially made this in April 2015 to revise for a test during my degree on basic HTML &amp; CSS.
 
-[2.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v2) - In the summer of 2016 I wanted to put the portfolio online, but I thought it needed major updates. The updates included adding a CMS backed by an API, all new content and new designs (using Bootstrap3). Using everything I had learnt in the past year.
+[2.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v2) - In the summer of 2016 I wanted to put the portfolio online, but I thought it needed major updates, using everything I had learnt in the past year. The updates included adding a CMS backed by an API, all new content and new designs (using Bootstrap3).
 
 [3.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v3) - Coming to the end of my degree in early 2017 I wanted to use my portfolio to aid getting my first graduate job, but knew it needs to be top quality therefore added new content, integrated SCSS, animate.css &amp; wow.js.
 
