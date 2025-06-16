@@ -290,6 +290,5 @@ $page->renderPageEnd();
 </div>
 
 <?php
-$page->renderCookieModal();
 $page->renderBodyEnd();
 $page->renderHtmlEnd();

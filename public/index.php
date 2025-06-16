@@ -484,5 +484,4 @@ $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
 $page->renderBodyEnd();
-$page->renderCookieModal();
 $page->renderHtmlEnd();

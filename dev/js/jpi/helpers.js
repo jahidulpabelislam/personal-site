@@ -40,37 +40,6 @@
         return isNaN(parsedInt) ? defaultInt : parsedInt;
     };
 
-    JPI.getCookie = function(key) {
-        key += "=";
-
-        var cookies = document.cookie.split(";");
-
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i];
-
-            cookie = cookie.toString().trim();
-
-            if (cookie.indexOf(key) === 0) {
-                return cookie.substring(key.length);
-            }
-        }
-
-        return false;
-    };
-
-    JPI.checkCookieValue = function(key, valueToCheck) {
-        var cookie = JPI.getCookie(key);
-        return cookie && cookie == valueToCheck;
-    };
-
-    JPI.setCookie = function(key, value, expirationDays) {
-        var oneDayInMilliSecs = 24 * 60 * 60 * 1000;
-        var expiryDate = new Date();
-        expiryDate.setTime(expiryDate.getTime() + expirationDays * oneDayInMilliSecs);
-        var expires = "expires=" + expiryDate.toUTCString();
-        document.cookie = key + "=" + value + ";" + expires + ";path=/";
-    };
-
     JPI.loadStylesheets = function(stylesheets) {
         var count = stylesheets.length;
         if (!count) {

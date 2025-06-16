@@ -4,7 +4,6 @@ var JPI = JPI || {};
 //=include ./jpi/helpers.js
 //=include ./jpi/plugins/modal.js
 //=include ./jpi/components/nav.js
-//=include ./jpi/components/cookie-modal.js
 
 ;(function() {
     "use strict";

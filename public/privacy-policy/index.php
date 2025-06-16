@@ -52,6 +52,5 @@ $page->renderSocialLinks();
 $page->renderContentEnd();
 $page->renderFooter();
 $page->renderPageEnd();
-$page->renderCookieModal();
 $page->renderBodyEnd();
 $page->renderHtmlEnd();
