@@ -1,6 +1,6 @@
 # Portfolio
 
-Portfolio I made for myself to showcase the projects I've developed, provide information about myself as well as my contact details. I like to use this as a place to experiment with things on.
+Portfolio I've made for myself to showcase the projects I've developed, provide information about myself as well as my contact details. I like to use this as a place to experiment with things on.
 
 [1.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1) - I initially made this in April 2015 to revise for a test during my degree on basic HTML &amp; CSS.
 
