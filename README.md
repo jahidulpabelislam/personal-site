@@ -16,7 +16,7 @@ Coming to the end of my degree in early 2017 I wanted to use my portfolio to aid
 
 ### [4.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v4)
 
-Having been in a commercial job developing, and with experience on how sites/apps are developed on a production level, I thought I'd use that new knowledge to majorly overhaul my site - this included refactor to conform to various coding standards, all custom styles & updated content. This project started in the summer of 2017 and finished in the summer of 2018.
+Having been in a commercial job developing, I used the new knowledge gained on developing at production level to majorly overhaul my site - this included refactor to conform to various coding standards, all custom styles & updated content. This project started in the summer of 2017 and finished in the summer of 2018.
 
 ## Related Projects
 
