@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "e12e226558242db6f7fd6259c1d5dd979f2579a0"
+                "reference": "bd40d52e0e7ff973d374131f3b894bf022db8688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/e12e226558242db6f7fd6259c1d5dd979f2579a0",
-                "reference": "e12e226558242db6f7fd6259c1d5dd979f2579a0",
+                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/bd40d52e0e7ff973d374131f3b894bf022db8688",
+                "reference": "bd40d52e0e7ff973d374131f3b894bf022db8688",
                 "shasum": ""
             },
             "require": {
@@ -37,7 +37,7 @@
                 "source": "https://github.com/jahidulpabelislam/site/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/site/issues"
             },
-            "time": "2024-09-03T22:31:23+00:00"
+            "time": "2024-09-06T23:05:47+00:00"
         },
         {
             "name": "jpi/utils",
@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/utils.git",
-                "reference": "2777209ea28bbcfb07ba115b6aed8127bda8a00b"
+                "reference": "0f961140f08a0b3b2ec1e7780b7543c1f3622029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/2777209ea28bbcfb07ba115b6aed8127bda8a00b",
-                "reference": "2777209ea28bbcfb07ba115b6aed8127bda8a00b",
+                "url": "https://api.github.com/repos/jahidulpabelislam/utils/zipball/0f961140f08a0b3b2ec1e7780b7543c1f3622029",
+                "reference": "0f961140f08a0b3b2ec1e7780b7543c1f3622029",
                 "shasum": ""
             },
             "require": {
@@ -90,15 +90,15 @@
                 "issues": "https://github.com/jahidulpabelislam/utils/issues",
                 "source": "https://github.com/jahidulpabelislam/utils/tree/1.x"
             },
-            "time": "2024-05-31T23:56:50+00:00"
+            "time": "2024-09-06T23:12:02+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jpi/utils": 20,
-        "jpi/site": 20
+        "jpi/site": 20,
+        "jpi/utils": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -107,6 +107,6 @@
         "ext-curl": "*",
         "ext-json": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
