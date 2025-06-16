@@ -57,15 +57,6 @@ HTML;
         $this->page->renderJSTemplates();
         $this->page->renderScripts();
         $this->page->renderInlineJS();
-
-        // Only want tracking for live site
-        if (site()->isProduction()) {
-            ?>
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PNRKNC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
-            <?php
-        }
         echo "</body>";
     }
 
