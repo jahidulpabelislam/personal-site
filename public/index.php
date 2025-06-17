@@ -451,7 +451,7 @@ $page->renderContentStart();
 
 <?php
 $page->addJSGlobal("googleMapStyles", null, load(ROOT. "/assets/map-styling.json", false)->getArray());
-$googleMapsUrl = new \JPI\Utils\URL("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
+$googleMapsUrl = new \JPI\Utils\URL("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg&loading=async");
 $googleMapsUrl->setAddTrailingSlash(false);
 $page->addScript($googleMapsUrl, "");
 
