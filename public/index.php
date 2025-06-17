@@ -17,7 +17,7 @@ $page->renderPageStart();
 $page->renderNav();
 ?>
 
-<header class="header header--<?php echo $page->id; ?>">
+<header class="header header--full header--<?php echo $page->id; ?>">
     <div class="header__overlay">
         <div class="container">
             <div>
