@@ -1,4 +1,8 @@
 {
+    "scripts": {
+        "build": "NODE_ENV=development gulp",
+        "watch": "NODE_ENV=development gulp watch"
+    },
     "dependencies": {
         "fs": "0.0.1-security",
         "gulp": "^5.0.0",
