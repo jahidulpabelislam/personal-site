@@ -15,7 +15,7 @@ if (count($links)) {
 
         $linksContent .= <<<HTML
 <div class="row__column row__column--flush">
-    <a class="button button--large button--brand" href="$url" title="Link to $pageTitle Page">
+    <a class="button button--large button--secondary" href="$url" title="Link to $pageTitle Page">
         $buttonText
     </a>
 </div>
