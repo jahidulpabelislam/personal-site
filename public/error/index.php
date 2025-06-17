@@ -39,16 +39,7 @@ $page->renderHeader([
 ]);
 $page->renderContentStart();
 
-$leftSideCopies = [
-    "401" => "<img class='row__column-image' src='" . $site::asset("/assets/images/no-entry.png") . "' alt='No entry sign' />",
-    "403" => "<img class='row__column-image' src='" . $site::asset("/assets/images/no-entry.png") . "' alt='No entry sign' />",
-    "404" => "<img class='row__column-image' src='" . $site::asset("/assets/images/404.jpg") . "' alt='Missing page image' />",
-    "500" => "<img class='row__column-image' src='" . $site::asset("/assets/images/oops.png") . "' alt='Road sign with the words oops' />",
-];
-
-$leftSideCopy = $leftSideCopies[$error];
-
-$rightSideCopies = [
+$copies = [
     "401" => "<p>The requested page needs authorization. You either supplied the wrong credentials or your browser can't supply the necessary credentials.</p>",
     "403" => "<p>Access to the requested page is strictly forbidden.</p>",
     "404" => "<p>The requested page can not be found.</p>
@@ -58,16 +49,13 @@ $rightSideCopies = [
             <p>If not it's not you, nor me, it's the SysAdmin guy...(Me)</p>"
 ];
 
-$rightSideCopy = $rightSideCopies[$error];
+$copy = $copies[$error];
 ?>
 
-<div class="row row--halves row--alt">
+<div class="row row--alt">
     <div class="container">
-        <div class="row__column">
-            <?php echo $leftSideCopy; ?>
-        </div>
-        <div class="row__column">
-            <?php echo $rightSideCopy; ?>
+        <div>
+            <?php echo $copy; ?>
         </div>
     </div>
 </div>
