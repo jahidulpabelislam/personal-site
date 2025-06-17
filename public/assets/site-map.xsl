@@ -39,7 +39,7 @@
                 <!--A Table to hold the links-->
                 <table border="1">
                     <!--Table column name-->
-                    <tr bgcolor="#337ab7">
+                    <tr bgcolor="#0078c9">
                         <th>URL</th>
                     </tr>
                     <!--Loop through each page in set-->
