@@ -40,7 +40,7 @@ $page->renderNav();
                 </div>
             </div>
             <div>
-                <img class="header__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-21.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
+                <img class="header__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam-2.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
             </div>
         </div>
     </div>
