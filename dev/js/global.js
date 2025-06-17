@@ -22,10 +22,6 @@ var JPI = JPI || {};
         );
     };
 
-    jQuery(".js-scroll-to-content").on("click", function() {
-        JPI.scrollTo($mainContent);
-    });
-
     jQuery(".js-scroll-to").on("click", function(e) {
         e.preventDefault();
 

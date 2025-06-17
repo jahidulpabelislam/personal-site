@@ -146,29 +146,6 @@
     align-self: flex-end;
 }
 
-.header__scroll-to-content {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    margin-left: -18px;
-    padding: 0;
-    border-radius: 50%;
-    opacity: 0.8;
-    cursor: pointer;
-    animation: bounce 1.5s linear infinite;
-}
-
-.header__scroll-to-content:hover,
-.header__scroll-to-content:focus {
-    opacity: 1;
-    background: transparentize($light-colour, 0.9);
-}
-
-.header__scroll-to-content svg {
-    width: 36px;
-    height: 36px;
-}
-
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
     .header__title {
