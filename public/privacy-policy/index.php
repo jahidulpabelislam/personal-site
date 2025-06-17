@@ -25,7 +25,7 @@ $page->renderContentStart();
     <div class="container">
         <h3 class="row__heading">Contact Form</h3>
         <p>The following applies to the contact form and your data submitted within the form:</p>
-        <ul>
+        <ul class="list">
             <li>your data, WILL ONLY be kept in my email server</li>
             <li>your data, WILL NOT be given to any third party companies</li>
             <li>your email WILL BE deleted after the discussion is finished or viewed</li>
