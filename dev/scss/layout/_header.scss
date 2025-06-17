@@ -1,12 +1,13 @@
 /* For all devices */
 .header {
-    height: 100vh;
+    height: 50vh;
     color: #ffffff;
     background: $brand-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
+    position: relative;
 }
-.header--short {
-    height: 40vh;
+.header--full {
+    height: 100vh;
 }
 .header--401,
 .header--403,

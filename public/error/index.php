@@ -36,7 +36,6 @@ $page->renderNav();
 $page->renderHeader([
     "title" => $error,
     "description" => $errorDescription,
-    "short" => true,
 ]);
 $page->renderContentStart();
 
