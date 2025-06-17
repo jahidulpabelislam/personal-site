@@ -96,7 +96,7 @@ $page->renderNav();
 $page->renderHeader([
     "title" => "My Portfolio",
     "description" => "See My Skills In Action",
-    "tall" => true,
+    "full" => true,
 ]);
 $page->renderContentStart();
 
