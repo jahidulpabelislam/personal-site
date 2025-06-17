@@ -1,9 +1,11 @@
 <?php
 $site = site();
 $page = page();
+
+$isShort = $this->short ?? false;
 ?>
 
-<header class="header header--<?php echo $page->id; ?>">
+<header class="header <?php echo $isShort ? "header--short" : "" ?> header--<?php echo $page->id; ?>">
     <div class="header__overlay">
         <div class="container">
             <h1 class="header__title"><?php echo $this->title; ?></h1>
@@ -11,8 +13,10 @@ $page = page();
             <h2 class="header__description"><?php echo $this->description ?? ""; ?></h2>
         </div>
     </div>
-    <button class="header__scroll-to-content js-scroll-to-content">
-        <span class="screen-reader-text">Scroll to main content</span>
-        <?php renderFile("/assets/images/down-arrow.svg"); ?>
-    </button>
+    <?php if (!$isShort): ?>
+        <button class="header__scroll-to-content js-scroll-to-content">
+            <span class="screen-reader-text">Scroll to main content</span>
+            <?php renderFile("/assets/images/down-arrow.svg"); ?>
+        </button>
+    <?php endif; ?>
 </header>

@@ -5,6 +5,9 @@
     background: $brand-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
 }
+.header--short {
+    height: 40vh;
+}
 .header--401,
 .header--403,
 .header--404 {

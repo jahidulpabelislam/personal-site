@@ -17,6 +17,7 @@ $page->renderPageStart();
 $page->renderNav();
 $page->renderHeader([
     "title" => "Privacy Policy",
+    "short" => true,
 ]);
 $page->renderContentStart();
 ?>
