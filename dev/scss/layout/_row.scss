@@ -52,7 +52,7 @@
     margin: 0 0 18px 0;
     font-family: "Oswald", sans-serif;
     font-size: 25px;
-    line-height: 24px;
+    line-height: 25px;
     font-weight: 700;
 }
 .row__heading--flush {
@@ -64,7 +64,7 @@
     margin: 8px 0;
     font-family: "Oswald", sans-serif;
     font-size: 20px;
-    line-height: 18px;
+    line-height: 20px;
     font-weight: 700;
 }
 
@@ -93,14 +93,14 @@
 
     .row__heading {
         margin-bottom: 32px;
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 28px;
+        line-height: 28px;
     }
 
     .row__sub-heading {
         margin: 10px 0;
         font-size: 22px;
-        line-height: 20px;
+        line-height: 22px;
     }
 
     .row--tablet-thirds,
@@ -179,9 +179,5 @@
 
     .row--tall {
         padding: 44px 0;
-    }
-
-    .row__heading {
-        margin-bottom: 40px;
     }
 }

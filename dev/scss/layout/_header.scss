@@ -200,13 +200,12 @@
         }
     }
 
-    .header__scroll-to-content {
-        margin-left: -25px;
-    }
+    .header__description {
+        margin-bottom: 32px;
 
-    .header__scroll-to-content svg {
-        width: 50px;
-        height: 50px;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
