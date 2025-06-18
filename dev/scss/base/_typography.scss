@@ -11,18 +11,9 @@ strong {
     font-weight: 700;
 }
 
-/* Only for Desktops */
 @media only screen and (min-width: $tablet-width) {
     body {
         font-size: 16px;
-        line-height: 20px;
-    }
-}
-
-/* Only for Desktops */
-@media only screen and (min-width: $desktop-width) {
-    body {
-        font-size: 18px;
         line-height: 21px;
     }
 }
