@@ -173,6 +173,7 @@
 .timeline__nav {
     padding: 5px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.05);
 }
 
 .timeline__nav svg {
@@ -183,7 +184,7 @@
 
 .timeline__nav:not(:disabled):hover,
 .timeline__nav:not(:disabled):focus {
-    box-shadow: 0 0 10px 0 $dark-colour;
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.8);
 }
 
 .timeline__nav svg path {
