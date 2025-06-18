@@ -69,7 +69,7 @@
 }
 
 /* Only for Desktops */
-@media only screen and (min-width: $desktop-width) {
+@media only screen and (min-width: $tablet-width) {
     .social-link__image {
         height: 50px;
     }
