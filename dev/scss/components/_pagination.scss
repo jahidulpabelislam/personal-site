@@ -11,7 +11,7 @@
     border-radius: 5px;
     background: #ffffff;
     color: $dark-colour;
-    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.05);
+    box-shadow: 0 0 10px 0 transparentize($dark-colour, 0.95);
     transition: all 0.25s ease-in-out;
 
     &:hover,
