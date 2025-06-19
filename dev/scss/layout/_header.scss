@@ -144,7 +144,7 @@
 
 .header__image {
     height: auto;
-    width: 200px;
+    width: 150px;
     border-radius: 50%;
     align-self: flex-end;
 }
@@ -169,6 +169,10 @@
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    .header__image {
+        width: 200px;
     }
 }
 
