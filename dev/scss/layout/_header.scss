@@ -160,7 +160,8 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
-    .header__title {
+    .header__title,
+    .header--home .header__title {
         font-size: 50px;
         line-height: 64px;
         margin-bottom: 4px;
@@ -170,7 +171,8 @@
         margin-bottom: 32px;
     }
 
-    .header__description {
+    .header__description,
+    .header--home .header__description {
         font-size: 26px;
         line-height: 28px;
         margin-bottom: 22px;
@@ -213,7 +215,8 @@
         }
     }
 
-    .header__description {
+    .header__description,
+    .header--home .header__description {
         margin-bottom: 32px;
 
         &:last-child {
