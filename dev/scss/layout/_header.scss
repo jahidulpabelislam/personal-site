@@ -173,7 +173,6 @@
     }
 
     .header__image {
-        width: 200px;
         margin-bottom: 0;
     }
 }
@@ -212,6 +211,10 @@
         &:last-child {
             margin-bottom: 0;
         }
+    }
+
+    .header__image {
+        margin-bottom: 0;
     }
 }
 
