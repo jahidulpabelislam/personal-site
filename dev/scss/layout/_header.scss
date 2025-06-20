@@ -164,6 +164,10 @@
         font-size: 50px;
         line-height: 64px;
         margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .header--home .header__title {
