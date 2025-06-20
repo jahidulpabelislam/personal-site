@@ -5,9 +5,17 @@
     background: $brand-colour url("/assets/images/work.jpg?v=2") no-repeat center center scroll;
     background-size: cover;
     position: relative;
+
+    .container {
+        padding-top: 23px;
+    }
 }
 .header--full {
     height: 100vh;
+
+    .container {
+        padding-top: 0;
+    }
 }
 .header--401,
 .header--403,
