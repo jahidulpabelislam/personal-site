@@ -73,8 +73,8 @@
     max-width: 165px;
 }
 
-.row__column--flush.row__column--flush {
-    padding: 0;
+.row__column--tight.row__column--tight:first-child {
+    padding-bottom: 0;
 }
 
 /* Only for Desktops */
