@@ -160,10 +160,13 @@
 
 /* Only for Tablets & Desktops */
 @media only screen and (min-width: $tablet-width) {
-    .header__title,
-    .header--home .header__title {
+    .header__title {
         font-size: 50px;
         line-height: 64px;
+        margin-bottom: 32px;
+    }
+
+    .header--home .header__title {
         margin-bottom: 4px;
     }
 
