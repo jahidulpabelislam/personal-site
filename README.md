@@ -1,4 +1,4 @@
-# Portfolio
+# Site
 
 Portfolio I've made for myself to showcase the projects I've developed, provide information about myself as well as my contact details. I like to use this as a place to experiment with things on.
 

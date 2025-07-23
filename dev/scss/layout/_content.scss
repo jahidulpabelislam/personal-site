@@ -1,0 +1,28 @@
+.main-content {
+    display: flex;
+    transition: all 1s ease-in-out;
+}
+
+.nav + .main-content {
+    padding-top: 46px;
+}
+
+.main-content__inner {
+    width: 100%;
+}
+
+.list {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: inside;
+}
+
+.list li {
+    margin: 2px 0;
+}
+
+@media only screen and (min-width: $desktop-width) {
+    .list li {
+        margin: 5px 0;
+    }
+}
