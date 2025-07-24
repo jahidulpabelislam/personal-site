@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b7d6a9772a7c9bd34f7db7c8c4bd4bf",
+    "content-hash": "d95d627d1525d13b92b7246e2e3d2a82",
     "packages": [
         {
-            "name": "jpi/site",
+            "name": "jpi/personal-core",
             "version": "1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jahidulpabelislam/site.git",
-                "reference": "bd40d52e0e7ff973d374131f3b894bf022db8688"
+                "url": "https://github.com/jahidulpabelislam/personal-core.git",
+                "reference": "8d4ff5d15d0b8b941467c68247769085b2c5d299"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/site/zipball/bd40d52e0e7ff973d374131f3b894bf022db8688",
-                "reference": "bd40d52e0e7ff973d374131f3b894bf022db8688",
+                "url": "https://api.github.com/repos/jahidulpabelislam/personal-core/zipball/8d4ff5d15d0b8b941467c68247769085b2c5d299",
+                "reference": "8d4ff5d15d0b8b941467c68247769085b2c5d299",
                 "shasum": ""
             },
             "require": {
@@ -34,10 +34,10 @@
             },
             "description": "Personal library with reusable bits for my sites.",
             "support": {
-                "source": "https://github.com/jahidulpabelislam/site/tree/v1.0.0",
-                "issues": "https://github.com/jahidulpabelislam/site/issues"
+                "source": "https://github.com/jahidulpabelislam/personal-core/tree/1.x",
+                "issues": "https://github.com/jahidulpabelislam/personal-core/issues"
             },
-            "time": "2024-09-06T23:05:47+00:00"
+            "time": "2025-07-24T21:54:26+00:00"
         },
         {
             "name": "jpi/utils",
@@ -97,7 +97,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jpi/site": 20,
+        "jpi/personal-core": 20,
         "jpi/utils": 20
     },
     "prefer-stable": false,

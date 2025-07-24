@@ -4,12 +4,12 @@
         "ext-curl": "*",
         "ext-json": "*",
         "jpi/utils": "1.x-dev",
-        "jpi/site": "1.x-dev"
+        "jpi/personal-core": "1.x-dev"
     },
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/jahidulpabelislam/site"
+            "url": "https://github.com/jahidulpabelislam/personal-core"
         }
     ],
     "autoload": {
