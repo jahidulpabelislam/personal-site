@@ -1,6 +1,6 @@
 # Site
 
-Portfolio I've made for myself to showcase the projects I've developed, provide information about myself as well as my contact details. I like to use this as a place to experiment with things on.
+Site I've made for myself to showcase the projects I've developed, provide information about myself as well as my contact details. I like to use this as a place to experiment with things on.
 
 ### [1.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v1)
 
@@ -12,11 +12,15 @@ In the summer of 2016 I wanted to put the portfolio online, but I thought it nee
 
 ### [3.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v3)
 
-Coming to the end of my degree in early 2017 I wanted to use my portfolio to aid getting my first graduate job, but knew it needs to be top quality therefore added new content, integrated SCSS, animate.css &amp; wow.js.
+Coming to the end of my degree in early 2017 I wanted to use my site to aid getting my first graduate job, but knew it needs to be top quality therefore added new content, integrated SCSS, animate.css &amp; wow.js.
 
 ### [4.x](https://github.com/jahidulpabelislam/portfolio/tree/releases/tag/v4)
 
 Having been in a commercial job developing, I used the new knowledge gained on developing at production level to majorly overhaul my site - this included refactor to conform to various coding standards, all custom styles & updated content. This project started in the summer of 2017 and finished in the summer of 2018.
+
+### [5.x](https://github.com/jahidulpabelislam/portfolio/releases/tag/v5.0.0)
+
+Bored in lockdown I started to rebuild the site pretty much from scratch.. however it never went live until middle of 2025!
 
 ## Related Projects
 
