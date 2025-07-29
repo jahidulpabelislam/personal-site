@@ -2,7 +2,7 @@
 
 const ROOT = __DIR__;
 const PUBLIC_ROOT = __DIR__ . "/public";
-const JPI_CORE_ROOT = __DIR__ . "/vendor/jpi/personal-core/site";
+const JPI_CORE_ROOT = __DIR__ . "/vendor/jpi/personal-core";
 
 date_default_timezone_set("Europe/London");
 
