@@ -3,7 +3,7 @@ const gulp = require("gulp");
 const fs = require("fs");
 const exec = require("child_process").exec;
 
-const { assetsDir } = require("./../vendor/jpi/site/dev/config");
+const { assetsDir } = require("./../vendor/jpi/personal-core/dev/config");
 
 const defaultTasks = [];
 

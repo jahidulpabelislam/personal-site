@@ -123,7 +123,7 @@ class Page {
         $this->data["stylesheets"] = $this->getStylesheetsForPage();
         $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage();
         $this->data["jsGlobals"] = [
-            "breakpoints" => load(JPI_SITE_ROOT . "/config/breakpoints.json", false)->getArray(),
+            "breakpoints" => load(JPI_CORE_ROOT . "/config/breakpoints.json", false)->getArray(),
         ];
         $this->data["scripts"] = [];
         $this->data["inlineJS"] = "";
