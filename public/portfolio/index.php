@@ -203,7 +203,7 @@ $page->addJSTemplate(
     "slide",
     <<<HTML
     <div class="slide-show__slide" id="slide-{{ id }}">
-        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screenshot of project" data-slide-show-id="#slide-show-{{ project_id }}" data-slide-colour="{{ colour }}" />
+        <img class="slide-show__image js-expandable-image" src="{{ url }}" alt="Screenshot of project" />
     </div>
     HTML
 );
