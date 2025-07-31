@@ -19,7 +19,7 @@ $site = site();
 
         <img
             class="footer__logo"
-            src="<?php echo $site::asset("/assets/images/logo.png"); ?>"
+            src="<?php echo $site::asset("/logo.png", null,  PUBLIC_ROOT . '../vendor/jpi/personal-core'); ?>"
             alt="<?php echo $site::NAME; ?>'s Logo"
         />
     </div>

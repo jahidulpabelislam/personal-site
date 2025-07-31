@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jahidulpabelislam/personal-core.git",
-                "reference": "8d4ff5d15d0b8b941467c68247769085b2c5d299"
+                "reference": "81cac3445e432bf581a70989de6be98cac96f6e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jahidulpabelislam/personal-core/zipball/8d4ff5d15d0b8b941467c68247769085b2c5d299",
-                "reference": "8d4ff5d15d0b8b941467c68247769085b2c5d299",
+                "url": "https://api.github.com/repos/jahidulpabelislam/personal-core/zipball/81cac3445e432bf581a70989de6be98cac96f6e8",
+                "reference": "81cac3445e432bf581a70989de6be98cac96f6e8",
                 "shasum": ""
             },
             "require": {
@@ -37,7 +37,7 @@
                 "source": "https://github.com/jahidulpabelislam/personal-core/tree/1.x",
                 "issues": "https://github.com/jahidulpabelislam/personal-core/issues"
             },
-            "time": "2025-07-24T21:54:26+00:00"
+            "time": "2025-07-31T20:44:41+00:00"
         },
         {
             "name": "jpi/utils",
