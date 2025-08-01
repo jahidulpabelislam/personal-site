@@ -28,7 +28,7 @@ const runCommand = function(command, callback) {
 
 defaultTasks.push("store-version");
 gulp.task("store-version", function(callback) {
-    const githubBaseURL = "https://github.com/jahidulpabelislam/portfolio";
+    const githubBaseURL = "https://github.com/jahidulpabelislam/personal-site";
     const fileName = `${assetsDir}/version.txt`;
     let versionText = "";
 
