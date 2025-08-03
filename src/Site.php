@@ -12,12 +12,10 @@ namespace App;
 use JPI\MeInterface;
 use JPI\MeTrait;
 use JPI\Site as BaseSite;
-use JPI\Utils\Singleton;
 use JPI\Utils\URL;
 
 class Site extends BaseSite implements MeInterface {
 
-    use Singleton;
     use MeTrait;
 
     public const LIVE_DOMAIN = "jahidulpabelislam.com";
