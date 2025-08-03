@@ -1,11 +1,11 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = site();
+$app = app();
 $page = page();
 
-$name = $site::NAME;
-$job = $site::JOB;
+$name = $app::NAME;
+$job = $app::JOB;
 
 $page->renderHtmlStart();
 $page->renderHead([
@@ -28,19 +28,19 @@ $page->renderNav();
                 </h1>
                 <h2 class="header__description"><?php echo $job; ?></h2>
                 <div class="header__links">
-                    <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $site::SOCIAL_LINKEDIN; ?>" />
+                    <a class="social-link social-link--linkedin" href="<?php echo $app::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
+                        <img class="social-link__image" src="<?php echo $app::asset("/assets/images/logos/linkedin.svg"); ?>" alt="Find me on LinkedIn /<?php echo $app::SOCIAL_LINKEDIN; ?>" />
                     </a>
-                    <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-                        <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $site::SOCIAL_GITHUB; ?>" />
+                    <a class="social-link social-link--github" href="<?php echo $app::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
+                        <img class="social-link__image" src="<?php echo $app::asset("/assets/images/logos/github.svg"); ?>" alt="Find me on GitHub /<?php echo $app::SOCIAL_GITHUB; ?>" />
                     </a>
-                    <a class="social-link social-link--instagram" href="<?php echo $site::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
+                    <a class="social-link social-link--instagram" href="<?php echo $app::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
                         <span class="social-link__image"><i></i></span>
                     </a>
                 </div>
             </div>
             <div>
-                <img class="header__image" src="<?php echo $site::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
+                <img class="header__image" src="<?php echo $app::asset("/assets/images/jahidul-pabel-islam.jpg"); ?>" alt="<?php echo $name; ?> Graduating" />
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@ $page->renderContentStart();
         <p class="home-hello__welcome">Welcome and thanks for visiting me!</p>
         <p>
             Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, look at some
-            <a class="link" href="<?php echo $site->makeURL("/portfolio/"); ?>">projects</a>
+            <a class="link" href="<?php echo $app->makeURL("/portfolio/"); ?>">projects</a>
             I have worked on also <a class="link js-scroll-to" href="#connect">connect with me</a>.
         </p>
     </div>
@@ -68,7 +68,7 @@ $page->renderContentStart();
         <div class="row__column">
             <?php
             // Work out my age by the time difference from DOB to today
-            $age = getTimeDifference($site::DATE_OF_BIRTH, new DateTime(), "%r%y");
+            $age = getTimeDifference($app::DATE_OF_BIRTH, new DateTime(), "%r%y");
             ?>
             <p>I am <?php echo $age; ?> years old.</p>
         </div>
@@ -318,7 +318,7 @@ $page->renderContentStart();
         <div class="row__column latest-projects_column latest-projects_column--copy">
             <h2 class="row__heading">Latest Projects</h2>
             <p class="latest-projects__intro">These are the latest projects I have been working on.</p>
-            <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $site->makeURL("/portfolio/"); ?>">
+            <a class="latest-projects__view-more button button--large button--primary" href="<?php echo $app->makeURL("/portfolio/"); ?>">
                 View More
             </a>
         </div>
@@ -332,7 +332,7 @@ $page->renderContentStart();
             $speed = 1000;
             $speedIncrement = 1200;
 
-            $counts = load(ROOT . "/assets/counters.json", false)->getArray();
+            $counts = load(APP_ROOT . "/assets/counters.json", false)->getArray();
 
             $totalProjects = 120;
             if (isset($counts["projects"])) {
@@ -352,7 +352,7 @@ $page->renderContentStart();
             $counterItems = [
                 [
                     "text" => "Years Experience",
-                    "number" => getTimeDifference($site->getProfessionalStartDate(), new DateTime(), "%r%y"),
+                    "number" => getTimeDifference($app->getProfessionalStartDate(), new DateTime(), "%r%y"),
                     "speed" => $speed,
                 ],
                 [
@@ -394,24 +394,24 @@ $page->renderContentStart();
         <div>
             <h2 class="row__heading">Connect With Me</h2>
             <div class="contact-me__item">
-                <a class="social-link social-link--linkedin" href="<?php echo $site::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/linkedin.svg"); ?>" alt="LinkedIn logo" />
+                <a class="social-link social-link--linkedin" href="<?php echo $app::getLinkToURL("linkedin") ?>" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $app::asset("/assets/images/logos/linkedin.svg"); ?>" alt="LinkedIn logo" />
                     &nbsp;
-                    <p class="social-link__text">/<?php echo $site::SOCIAL_LINKEDIN; ?></p>
+                    <p class="social-link__text">/<?php echo $app::SOCIAL_LINKEDIN; ?></p>
                 </a>
             </div>
             <div class="contact-me__item">
-                <a class="social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-                    <img class="social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
+                <a class="social-link social-link--github" href="<?php echo $app::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
+                    <img class="social-link__image" src="<?php echo $app::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
                     &nbsp;
-                    <p class="social-link__text">/<?php echo $site::SOCIAL_GITHUB; ?></p>
+                    <p class="social-link__text">/<?php echo $app::SOCIAL_GITHUB; ?></p>
                 </a>
             </div>
             <div class="contact-me__item">
-                <a class="social-link social-link--instagram" href="<?php echo $site::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
+                <a class="social-link social-link--instagram" href="<?php echo $app::getLinkToURL("instagram") ?>" target="_blank" rel="noopener noreferrer">
                     <span class="social-link__image"><i></i></span>
                     &nbsp;
-                    <p class="social-link__text">@<?php echo $site::SOCIAL_INSTAGRAM; ?></p>
+                    <p class="social-link__text">@<?php echo $app::SOCIAL_INSTAGRAM; ?></p>
                 </a>
             </div>
         </div>
@@ -450,7 +450,7 @@ $page->renderContentStart();
 </section>
 
 <?php
-$page->addJSGlobal("googleMapStyles", null, load(ROOT . "/assets/map-styling.json", false)->getArray());
+$page->addJSGlobal("googleMapStyles", null, load(APP_ROOT . "/assets/map-styling.json", false)->getArray());
 $googleMapsUrl = new \JPI\Utils\URL("https://maps.googleapis.com/maps/api/js?key=AIzaSyDMU8a7-Fl8_ozCH4y_ZAL6n5fdy1sLeJg");
 $googleMapsUrl->setAddTrailingSlash(false);
 $page->addScript($googleMapsUrl, "");
@@ -478,7 +478,7 @@ $page->addJSTemplate(
     HTML
 );
 
-$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($app::getAPIEndpoint()));
 
 $page->renderContentEnd();
 $page->renderFooter();

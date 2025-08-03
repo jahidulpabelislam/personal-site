@@ -1,9 +1,9 @@
 <?php
-$site = site();
+$app = app();
 $page = page();
 
-$name = $site::NAME;
-$job = $site::JOB;
+$name = $app::NAME;
+$job = $app::JOB;
 
 $pageId = $page->id;
 
@@ -39,14 +39,14 @@ $description = $this->description ?? "";
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $title; ?>" />
     <meta property="og:description" content="<?php echo $description; ?>" />
-    <meta property="og:url" content="<?php echo $site->getCurrentURL(true); ?>" />
+    <meta property="og:url" content="<?php echo $app->getCurrentURL(true); ?>" />
     <meta property="og:site_name" content="<?php echo $name; ?>" />
 
     <?php
     $imagePath = "/assets/images/social-cards/$pageId.png";
     if (load($imagePath)->exists()) {
-        $relativeImageURL = $site::asset($imagePath);
-        $imageURL = $site->makeURL($relativeImageURL, true);
+        $relativeImageURL = $app::asset($imagePath);
+        $imageURL = $app->makeURL($relativeImageURL, true);
         ?>
         <meta property="og:image" content="<?php echo $imageURL; ?>" />
         <?php
@@ -56,7 +56,7 @@ $description = $this->description ?? "";
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<?php echo $title; ?>" />
 
-    <?php $site->renderFavicons(); ?>
+    <?php $app->renderFavicons(); ?>
 
     <?php
     $inlineStylesheets = $page->inlineStylesheets;
@@ -74,13 +74,13 @@ $description = $this->description ?? "";
 
     foreach ($page->stylesheets as $stylesheet) {
         ?>
-        <link href="<?php echo $site::asset($stylesheet); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
+        <link href="<?php echo $app::asset($stylesheet); ?>" rel="stylesheet" type="text/css" media="all" title="style" />
         <?php
     }
 
     foreach ($page->deferredStylesheets as $stylesheet) {
         ?>
-        <noscript><link href="<?php echo $site::asset($stylesheet["src"], $stylesheet["version"] ?? null); ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
+        <noscript><link href="<?php echo $app::asset($stylesheet["src"], $stylesheet["version"] ?? null); ?>" rel="stylesheet" type="text/css" media="all" title="style" /></noscript>
         <?php
     }
     ?>

@@ -1,5 +1,5 @@
 <?php
-$site = site();
+$app = app();
 $page = page();
 ?>
 

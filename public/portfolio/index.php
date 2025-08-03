@@ -1,11 +1,11 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = site();
+$app = app();
 $page = page();
 
-$name = $site::NAME;
-$job = $site::JOB;
+$name = $app::NAME;
+$job = $app::JOB;
 
 $projectsPerPage = 6;
 
@@ -16,7 +16,7 @@ $apiRequestParams = [
     "page" => $pageNum,
 ];
 
-$projectTypesURL = $site::getAPIEndpoint("/project-types/");
+$projectTypesURL = $app::getAPIEndpoint("/project-types/");
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
@@ -60,7 +60,7 @@ if ($type) {
     ];
 }
 
-$projectsURL = $site::getAPIEndpoint("/projects/");
+$projectsURL = $app::getAPIEndpoint("/projects/");
 
 $requestParamsString = "";
 if (count($apiRequestParams) > 0) {
@@ -101,7 +101,7 @@ $page->renderHeader([
 ]);
 $page->renderContentStart();
 
-$yearsSinceStarted = getTimeDifference($site->getStartDate(), new DateTime(), "%r%y");
+$yearsSinceStarted = getTimeDifference($app->getStartDate(), new DateTime(), "%r%y");
 ?>
 
 <section class="row row--alt projects">
@@ -159,14 +159,14 @@ $yearsSinceStarted = getTimeDifference($site->getStartDate(), new DateTime(), "%
 <section class="portfolio-links row">
     <div class="container">
         <h1 class="portfolio-links__heading row__heading">View My Packages</h1>
-        <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $site::getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/npm.svg"); ?>" alt="NPM logo" />
+        <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $app::getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
+            <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/npm.svg"); ?>" alt="NPM logo" />
         </a>
-        <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $site::getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/packagist.svg"); ?>" alt="Packagist logo" />
+        <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $app::getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
+            <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/packagist.svg"); ?>" alt="Packagist logo" />
         </a>
-        <a class="portfolio-links__link social-link social-link--github" href="<?php echo $site::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
-            <img class="portfolio-links__image social-link__image" src="<?php echo $site::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
+        <a class="portfolio-links__link social-link social-link--github" href="<?php echo $app::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
+            <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
         </a>
     </div>
 </section>
@@ -218,7 +218,7 @@ $page->addJSTemplate(
 );
 
 $page->addJSGlobal("projects", "perPage", $projectsPerPage);
-$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($site::getAPIEndpoint()));
+$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($app::getAPIEndpoint()));
 
 $page->renderContentEnd();
 $page->renderFooter();
@@ -264,11 +264,11 @@ $page->renderPageEnd();
     <button type="button" class="button expanded-slide-show__close js-modal-close" aria-label="Close">X</button>
 
     <div class="expanded-slide-show__image-container">
-        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
+        <img class="expanded-slide-show__image expanded-slide-show__image--active" src="<?php echo $app::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
     </div>
 
     <div class="expanded-slide-show__image-container">
-        <img class="expanded-slide-show__image" src="<?php echo $site::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
+        <img class="expanded-slide-show__image" src="<?php echo $app::asset("/assets/images/blank.svg"); ?>" alt="Screenshot of project" />
     </div>
 
     <div class="expanded-slide-show__controls">

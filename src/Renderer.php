@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App;
 use Exception;
 
 class Renderer {
@@ -25,7 +26,7 @@ class Renderer {
         $partial = substr($method, 6); // Remove 'render'
         $partial = preg_replace("/\B([A-Z])/", "-$1", $partial); // Convert 'CanonicalUrls' to 'Canonical-Urls'
         $partial = strtolower($partial); // Convert 'Canonical-Urls' to 'canonical-urls'
-        $template = new Template(ROOT . "/partials/$partial.php", $arguments[0] ?? []);
+        $template = new Template(APP_ROOT . "/partials/$partial.php", $arguments[0] ?? []);
         if ($template->exists()) {
             $template->include();
             return;
@@ -93,7 +94,7 @@ HTML;
         if (count($deferredStylesheets)) {
             $deferredStylesheetsString = [];
             foreach ($deferredStylesheets as $deferredStylesheet) {
-                $deferredStylesheetsString[] = (string)Site::asset(
+                $deferredStylesheetsString[] = (string)App::asset(
                     $deferredStylesheet["src"],
                     $deferredStylesheet["version"] ?? null
                 );
@@ -138,7 +139,7 @@ HTML;
         }
 
         foreach ($scripts as $script) {
-            $src = Site::asset($script["src"], $script["version"]);
+            $src = App::asset($script["src"], $script["version"]);
             echo <<<HTML
                 <script src="$src" type="application/javascript"></script>
                 HTML;

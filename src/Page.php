@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App;
 use Exception;
 use JPI\Utils\Singleton;
 use JPI\Utils\URL;
@@ -12,14 +13,14 @@ class Page {
 
     use Singleton;
 
-    private Site $site;
+    private App $app;
 
     private Renderer $renderer;
 
     private array $data = [];
 
     private function __construct() {
-        $this->site = Site::get();
+        $this->app = App::get();
         $this->renderer = new Renderer($this);
 
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
@@ -117,8 +118,8 @@ class Page {
             $url = dirname($_SERVER["SCRIPT_NAME"]) . "/";
         }
 
-        $this->data["indexed"] = $this->site->isProduction() || $this->site->isDevelopment();
-        $this->data["currentURL"] = $this->site->makeURL($url);
+        $this->data["indexed"] = $this->app->isProduction() || $this->app->isDevelopment();
+        $this->data["currentURL"] = $this->app->makeURL($url);
         $this->data["inlineStylesheets"] = $this->getInlineStylesheetsForPage();
         $this->data["stylesheets"] = $this->getStylesheetsForPage();
         $this->data["deferredStylesheets"] = $this->getDeferredStylesheetsForPage();

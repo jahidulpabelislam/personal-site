@@ -1,5 +1,5 @@
 <?php
-$site = site();
+$app = app();
 $page = page();
 
 $links = $this->links;
@@ -11,7 +11,7 @@ if (count($links)) {
         $buttonText = $link["text"] ?? $pageTitle;
 
         $url = $link["url"];
-        $url = $site->makeURL($url);
+        $url = $app->makeURL($url);
 
         $linksContent .= <<<HTML
 <div class="row__column row__column--tight">

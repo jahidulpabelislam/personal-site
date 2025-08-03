@@ -7,14 +7,12 @@ declare(strict_types=1);
  * To aid in including global/common files, content & configurations.
  */
 
-namespace App;
-
+use JPI\App as BaseApp;
 use JPI\MeInterface;
 use JPI\MeTrait;
-use JPI\Site as BaseSite;
 use JPI\Utils\URL;
 
-class Site extends BaseSite implements MeInterface {
+class App extends BaseApp implements MeInterface {
 
     use MeTrait;
 

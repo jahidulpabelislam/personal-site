@@ -1,11 +1,11 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = site();
+$app = app();
 $page = page();
 
-$name = $site::NAME;
-$job = $site::JOB;
+$name = $app::NAME;
+$job = $app::JOB;
 
 $error = $_SERVER["REDIRECT_STATUS"] ?? "404";
 
@@ -22,7 +22,7 @@ $headDescription = "Error: $error - $errorDescription message on the site of $na
 $page->id = $error;
 $pageData = [
     "indexed" => false,
-    "currentURL" => $site->makeURL("/$error/"),
+    "currentURL" => $app->makeURL("/$error/"),
 ];
 $page->addPageData($pageData);
 

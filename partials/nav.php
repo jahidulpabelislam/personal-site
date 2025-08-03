@@ -1,13 +1,13 @@
 <?php
-$site = site();
+$app = app();
 $page = page();
 ?>
 
 <nav class="nav">
     <div class="container nav__container">
         <div class="nav__logo-container">
-            <a class="nav__logo<?php echo $page->id === "home" ? " nav__logo--active" : "" ?>" href="<?php echo $site->makeURL("/"); ?>">
-                <img src="<?php echo $site::asset("/logo.png", null, JPI_CORE_ROOT . "/assets"); ?>" alt="<?php echo $site::NAME; ?>'s Logo" />
+            <a class="nav__logo<?php echo $page->id === "home" ? " nav__logo--active" : "" ?>" href="<?php echo $app->makeURL("/"); ?>">
+                <img src="<?php echo $app::asset("/logo.png", null, JPI_CORE_ROOT . "/assets"); ?>" alt="<?php echo $app::NAME; ?>'s Logo" />
             </a>
         </div>
         <ul class="nav__links">
@@ -25,10 +25,10 @@ $page = page();
                 $linkTitle = $link["title"];
 
                 $url = $link["url"] ?? "/";
-                $fullURL = $site->makeURL($url);
+                $fullURL = $app->makeURL($url);
 
                 $classes = ["nav__link"];
-                if ($currentURL == $site->makeURL($url)) {
+                if ($currentURL == $app->makeURL($url)) {
                     $classes[] = "nav__link--active";
                 }
 

@@ -2,7 +2,7 @@
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    site()->processFormSubmission();
+    app()->processFormSubmission();
     exit();
 }
 

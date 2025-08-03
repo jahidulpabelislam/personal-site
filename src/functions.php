@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 use App\File;
 use App\Page;
-use App\Site;
 
-function site(): Site {
-    return Site::get();
+function app(): App {
+    return App::get();
 }
 
 function page(): Page {

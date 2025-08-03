@@ -1,11 +1,11 @@
 <?php
 include_once($_SERVER["DOCUMENT_ROOT"] . "/../bootstrap.php");
 
-$site = site();
+$app = app();
 $page = page();
 
-$name = $site::NAME;
-$job = $site::JOB;
+$name = $app::NAME;
+$job = $app::JOB;
 
 $page->renderHtmlStart();
 $page->renderHead([

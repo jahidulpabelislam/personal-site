@@ -2,7 +2,7 @@
 
 const JPI_API_VERSION = "4";
 
-$environment = site()->getEnvironment();
+$environment = app()->getEnvironment();
 if ($environment === "development") {
     if (!defined("LINK_TO_URL")) {
         define("LINK_TO_URL", "http://linkto.jahidulpabelislam.local");
