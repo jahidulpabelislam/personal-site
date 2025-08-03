@@ -131,7 +131,8 @@ class App extends BaseApp implements MeInterface {
             // Try to send the email, check it was sent
             if (mail($to, $subject, $message, $headers)) {
                 $meta["feedback"] = "Your message has been sent.";
-            } else {
+            }
+            else {
                 // Something went wrong
                 $meta["ok"] = false;
                 $meta["feedback"] = "Something went wrong, please try again.";

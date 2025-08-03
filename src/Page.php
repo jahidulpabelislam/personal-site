@@ -26,7 +26,8 @@ class Page {
         $filePath = realpath(dirname($_SERVER["SCRIPT_FILENAME"]));
         if ($filePath !== realpath(PUBLIC_ROOT)) {
             $this->setId(basename($filePath));
-        } else {
+        }
+        else {
             $this->setId("home");
         }
     }
@@ -139,7 +140,8 @@ class Page {
     public function addJSGlobal(string $global, ?string $subKey, mixed $value): void {
         if ($subKey) {
             $this->data["jsGlobals"][$global][$subKey] = $value;
-        } else {
+        }
+        else {
             $this->data["jsGlobals"][$global] = $value;
         }
     }
@@ -148,7 +150,8 @@ class Page {
         $code = trim($code);
         if ($isOnLoad) {
             $this->data["onLoadInlineJS"] .= $code;
-        } else {
+        }
+        else {
             $this->data["inlineJS"] .= $code;
         }
     }
