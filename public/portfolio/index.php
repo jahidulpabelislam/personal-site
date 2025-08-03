@@ -16,7 +16,7 @@ $apiRequestParams = [
     "page" => $pageNum,
 ];
 
-$projectTypesURL = $app::getAPIEndpoint("/project-types/");
+$projectTypesURL = $app->getAPIEndpoint("/project-types/");
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $projectTypesURL);
@@ -60,7 +60,7 @@ if ($type) {
     ];
 }
 
-$projectsURL = $app::getAPIEndpoint("/projects/");
+$projectsURL = $app->getAPIEndpoint("/projects/");
 
 $requestParamsString = "";
 if (count($apiRequestParams) > 0) {
@@ -159,13 +159,13 @@ $yearsSinceStarted = getTimeDifference($app->getStartDate(), new DateTime(), "%r
 <section class="portfolio-links row">
     <div class="container">
         <h1 class="portfolio-links__heading row__heading">View My Packages</h1>
-        <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $app::getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--npm" href="<?php echo $app->getLinkToURL("npm") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/npm.svg"); ?>" alt="NPM logo" />
         </a>
-        <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $app::getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--packagist" href="<?php echo $app->getLinkToURL("packagist") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/packagist.svg"); ?>" alt="Packagist logo" />
         </a>
-        <a class="portfolio-links__link social-link social-link--github" href="<?php echo $app::getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
+        <a class="portfolio-links__link social-link social-link--github" href="<?php echo $app->getLinkToURL("github") ?>" target="_blank" rel="noopener noreferrer">
             <img class="portfolio-links__image social-link__image" src="<?php echo $app::asset("/assets/images/logos/github.svg"); ?>" alt="GitHub logo" />
         </a>
     </div>
@@ -218,7 +218,7 @@ $page->addJSTemplate(
 );
 
 $page->addJSGlobal("projects", "perPage", $projectsPerPage);
-$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($app::getAPIEndpoint()));
+$page->addJSGlobal("projects", "apiEndpoint", \JPI\Utils\URL::removeTrailingSlash($app->getAPIEndpoint()));
 
 $page->renderContentEnd();
 $page->renderFooter();

@@ -1,42 +1,6 @@
 <?php
 
-const JPI_API_VERSION = "4";
-
-$environment = app()->getEnvironment();
-if ($environment === "development") {
-    if (!defined("LINK_TO_URL")) {
-        define("LINK_TO_URL", "http://linkto.jahidulpabelislam.local");
-    }
-
-    if (!defined("LINKS_URL")) {
-        define("LINKS_URL", "http://links.jahidulpabelislam.local");
-    }
-
-    if (!defined("JPI_API_ENDPOINT")) {
-        define("JPI_API_ENDPOINT", "http://api.jahidulpabelislam.local");
-    }
-} else if ($environment === "staging") {
-    if (!defined("LINK_TO_URL")) {
-        define("LINK_TO_URL", "https://staging.linkto.jahidulpabelislam.com");
-    }
-
-    if (!defined("LINKS_URL")) {
-        define("LINKS_URL", "https://staging.links.jahidulpabelislam.com");
-    }
-
-    if (!defined("JPI_API_ENDPOINT")) {
-        define("JPI_API_ENDPOINT", "https://staging.api.jahidulpabelislam.com");
-    }
-} else {
-    if (!defined("LINK_TO_URL")) {
-        define("LINK_TO_URL", "https://linkto.jahidulpabelislam.com");
-    }
-
-    if (!defined("LINKS_URL")) {
-        define("LINKS_URL", "https://links.jahidulpabelislam.com");
-    }
-
-    if (!defined("JPI_API_ENDPOINT")) {
-        define("JPI_API_ENDPOINT", "https://api.jahidulpabelislam.com");
-    }
-}
+$config->link_to_url = "https://linkto." . app()::DOMAINS[$environment];
+$config->links_url = "https://links." . app()::DOMAINS[$environment];
+$config->jpi_api_endpoint = "https://api." . app()::DOMAINS[$environment];
+$config->jpi_api_version = 4;

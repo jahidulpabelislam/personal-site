@@ -16,10 +16,8 @@ class App extends BaseApp implements MeInterface {
 
     use MeTrait;
 
-    public const LIVE_DOMAIN = "jahidulpabelislam.com";
-
     public function getLiveDomain(): string {
-        return self::LIVE_DOMAIN;
+        return self::DOMAINS["production"];
     }
 
     /**
@@ -60,19 +58,19 @@ class App extends BaseApp implements MeInterface {
         return $url;
     }
 
-    public static function getLinkToURL(string $service): URL {
-        $url = new URL(LINK_TO_URL);
+    public function getLinkToURL(string $service): URL {
+        $url = new URL($this->config()->link_to_url);
         $url->addPath("/$service/");
         return $url;
     }
 
     public function getLinksUrl(): string {
-        return LINKS_URL;
+        return $this->config()->links_url;
     }
 
-    public static function getAPIEndpoint(string $entity = ""): URL {
-        $url = new URL(JPI_API_ENDPOINT);
-        $url->addPath("v" . JPI_API_VERSION);
+    public function getAPIEndpoint(string $entity = ""): URL {
+        $url = new URL($this->config()->jpi_api_endpoint);
+        $url->addPath("v" . $this->config()->jpi_api_version);
         $url->addPath($entity);
         return $url;
     }
