@@ -15,8 +15,7 @@ if ($environment === "development") {
     if (!defined("JPI_API_ENDPOINT")) {
         define("JPI_API_ENDPOINT", "http://api.jahidulpabelislam.local");
     }
-}
-else if ($environment === "staging") {
+} else if ($environment === "staging") {
     if (!defined("LINK_TO_URL")) {
         define("LINK_TO_URL", "https://staging.linkto.jahidulpabelislam.com");
     }

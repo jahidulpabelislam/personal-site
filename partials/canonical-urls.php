@@ -7,7 +7,6 @@ $pagination = $page->pagination ?? [];
 if ($page->indexed) {
     $liveURL = $site->getCurrentURL(true, true);
     echo "<link rel='canonical' href='$liveURL' />";
-}
-else {
+} else {
     echo "<meta name='robots' content='noindex,nofollow' />";
 }
