@@ -156,7 +156,7 @@ class Page {
         }
     }
 
-    public function addScript(URL|string $src, string $version = null): void {
+    public function addScript(URL|string $src, ?string $version = null): void {
         $this->data["scripts"][] = ["src" => $src, "version" => $version];
     }
 
