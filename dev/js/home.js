@@ -18,8 +18,9 @@ var JPI = JPI || {};
 (function() {
     "use strict";
 
+    var $container = jQuery(".latest-projects");
+
     var $loading = jQuery(".latest-projects__loading");
-    var $error = jQuery(".latest-projects__error");
 
     var $slidesContainer = jQuery(".slide-show__slides");
     var $bullets = jQuery(".slide-show__bullets");
@@ -28,8 +29,7 @@ var JPI = JPI || {};
     var bulletTemplateHtml = jQuery("#slide-bullet-template").text();
 
     var renderProjectsError = function(error) {
-        $error.text(error).show(200);
-        $loading.hide(200);
+        $container.hide();
     };
 
     var renderProject = function(project) {
@@ -59,7 +59,6 @@ var JPI = JPI || {};
 
     // Sets up events when projects is received
     var gotProjects = function(response) {
-        $error.text("").hide(200);
         $loading.hide(200);
 
         // Send the data, the function to do if data is valid

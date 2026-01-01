@@ -312,8 +312,6 @@ $page->renderContentStart();
                     <div class="slide-show__bullets"></div>
                 </div>
             </div>
-
-            <p class="latest-projects__error"></p>
         </div>
         <div class="row__column latest-projects_column latest-projects_column--copy">
             <h2 class="row__heading">Latest Projects</h2>
