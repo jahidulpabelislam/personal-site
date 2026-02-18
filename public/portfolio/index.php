@@ -62,14 +62,10 @@ if ($type) {
 
 $apiRequestParams["include"] = "type,images";
 $projectsURL = $app->getAPIEndpoint("/projects/");
-
-$requestParamsString = "";
-if (count($apiRequestParams) > 0) {
-    $requestParamsString = "?" . http_build_query($apiRequestParams, "", "&");
-}
+$projectsURL->setQueryParams($apiRequestParams);
 
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $projectsURL . $requestParamsString);
+curl_setopt($ch, CURLOPT_URL, $projectsURL);
 curl_setopt(
     $ch,
     CURLOPT_HTTPHEADER,
