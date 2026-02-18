@@ -81,7 +81,7 @@ var JPI = JPI || {};
         JPI.ajax.request({
             method: "GET",
             url: JPI.projects.apiEndpoint + "/projects/",
-            data: {limit: 3},
+            data: {limit: 3, include: "images"},
             onSuccess: gotProjects,
             onError: renderProjectsError,
         });

@@ -60,6 +60,7 @@ if ($type) {
     ];
 }
 
+$apiRequestParams["include"] = "type,images";
 $projectsURL = $app->getAPIEndpoint("/projects/");
 
 $requestParamsString = "";

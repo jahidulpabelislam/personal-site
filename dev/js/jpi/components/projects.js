@@ -221,6 +221,7 @@
             filters: {},
             page: this.page,
             limit: JPI.projects.perPage,
+            include: "type,images",
         };
 
         if (this.$projectType.val()) {
