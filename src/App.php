@@ -70,7 +70,6 @@ class App extends BaseApp implements MeInterface {
 
     public function getAPIEndpoint(string $entity = ""): URL {
         $url = new URL($this->config()->jpi_api_endpoint);
-        $url->addPath("v" . $this->config()->jpi_api_version);
         $url->addPath($entity);
         return $url;
     }
