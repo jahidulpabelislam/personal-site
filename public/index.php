@@ -57,7 +57,7 @@ $page->renderContentStart();
         <p>
             Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, look at some
             <a class="link" href="<?php echo $app->makeURL("/portfolio/"); ?>">projects</a>
-            I have worked on.</a>.
+            I have worked on.
         </p>
     </div>
 </div>
