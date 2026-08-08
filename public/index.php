@@ -57,7 +57,7 @@ $page->renderContentStart();
         <p>
             Here you will be able to <a class="link js-scroll-to" href="#about">learn about me</a>, look at some
             <a class="link" href="<?php echo $app->makeURL("/portfolio/"); ?>">projects</a>
-            I have worked on also <a class="link js-scroll-to" href="#connect">connect with me</a>.
+            I have worked on.</a>.
         </p>
     </div>
 </div>
@@ -387,6 +387,7 @@ $page->renderContentStart();
     </div>
 </section>
 
+<?php /**
 <section class="contact-me row row--halves" id="connect">
     <div class="contact-me__column contact-me__column--header row__column">
         <div>
@@ -446,6 +447,7 @@ $page->renderContentStart();
         </form>
     </div>
 </section>
+ */ ?>
 
 <?php
 $page->addJSGlobal("googleMapStyles", null, load(APP_ROOT . "/assets/map-styling.json", false)->getArray());
